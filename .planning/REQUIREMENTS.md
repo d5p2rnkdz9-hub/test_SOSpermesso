@@ -62,23 +62,23 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| ASMNT-01 | TBD | Pending |
-| ASMNT-02 | TBD | Pending |
-| ASMNT-03 | TBD | Pending |
-| ASMNT-04 | TBD | Pending |
-| ASMNT-05 | TBD | Pending |
-| RSLT-01 | TBD | Pending |
-| RSLT-02 | TBD | Pending |
-| ADMN-01 | TBD | Pending |
-| ADMN-02 | TBD | Pending |
-| ADMN-03 | TBD | Pending |
-| ADMN-04 | TBD | Pending |
+| ASMNT-01 | Phase 1 | Pending |
+| ASMNT-02 | Phase 1 | Pending |
+| ASMNT-03 | Phase 1 | Pending |
+| ASMNT-05 | Phase 1 | Pending |
+| ASMNT-04 | Phase 2 | Pending |
+| RSLT-01 | Phase 2 | Pending |
+| RSLT-02 | Phase 2 | Pending |
+| ADMN-01 | Phase 3 | Pending |
+| ADMN-02 | Phase 3 | Pending |
+| ADMN-03 | Phase 3 | Pending |
+| ADMN-04 | Phase 3 | Pending |
 
 **Coverage:**
 - v1 requirements: 11 total
-- Mapped to phases: 0
-- Unmapped: 11 ⚠️
+- Mapped to phases: 11
+- Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2025-02-04*
-*Last updated: 2025-02-04 after initial definition*
+*Last updated: 2026-02-04 after roadmap creation*
