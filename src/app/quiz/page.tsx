@@ -6,7 +6,7 @@ import { QuizPlayer } from "@/components/quiz"
 import { useQuiz } from "@/hooks/useQuiz"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Loader2, CheckCircle2, PartyPopper } from "lucide-react"
+import { Loader2 } from "lucide-react"
 
 const DEFAULT_SURVEY_ID = "ai-screening-v1"
 
@@ -108,40 +108,12 @@ export default function QuizPage() {
     )
   }
 
-  // Show completion screen
-  if (isComplete) {
-    return (
-      <div className="flex flex-col items-center justify-center min-h-[60vh]">
-        <Card className="w-full max-w-md">
-          <CardHeader className="text-center pb-2">
-            <div className="mx-auto mb-4 w-16 h-16 bg-brand-green/10 rounded-full flex items-center justify-center">
-              <CheckCircle2 className="h-8 w-8 text-brand-green" />
-            </div>
-            <CardTitle className="text-2xl">Questionario completato!</CardTitle>
-          </CardHeader>
-          <CardContent className="text-center space-y-6">
-            <div className="flex items-center justify-center gap-2 text-lg">
-              <PartyPopper className="h-5 w-5 text-amber-500" />
-              <span>Grazie per aver partecipato</span>
-            </div>
-            <p className="text-muted-foreground">
-              Le tue risposte sono state registrate. Riceverai presto un
-              feedback personalizzato.
-            </p>
-            <div className="pt-4 border-t">
-              <Button
-                variant="outline"
-                onClick={handleStartNew}
-                className="w-full"
-              >
-                Inizia un nuovo questionario
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-    )
-  }
+  // Redirect to results when complete
+  useEffect(() => {
+    if (isComplete && initialized) {
+      router.push("/quiz/results")
+    }
+  }, [isComplete, initialized, router])
 
   // Show quiz player
   return <QuizPlayer />
