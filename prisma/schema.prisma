@@ -1,0 +1,81 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Question types as enum
+enum QuestionType {
+  SINGLE_CHOICE    // Radio buttons - select one
+  MULTIPLE_CHOICE  // Checkboxes - select many
+  YES_NO           // True/false style
+  TEXT             // Open text input
+  RANKING          // Drag to rank items
+  PROFILE_SELECT   // Special: select one profile description
+}
+
+// Survey/Quiz definition
+model Survey {
+  id          String     @id @default(cuid())
+  title       String
+  description String?
+  isActive    Boolean    @default(true)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  questions   Question[]
+  sessions    Session[]
+}
+
+// Question definition - uses Json for flexible options
+model Question {
+  id            String       @id @default(cuid())
+  surveyId      String
+  survey        Survey       @relation(fields: [surveyId], references: [id])
+  order         Int          // Display order
+  type          QuestionType
+  text          String       // Question text (Italian)
+  description   String?      // Optional helper text
+  options       Json?        // JSONB: array of {id, label, value, nextQuestionId?}
+  isRequired    Boolean      @default(true)
+  // Branching: null means next in order, otherwise jump to specific question
+  nextQuestionId String?
+  // Conditional display: only show if condition met
+  showCondition Json?        // {questionId, operator, value}
+  createdAt     DateTime     @default(now())
+  answers       Answer[]
+
+  @@index([surveyId, order])
+}
+
+// User session (anonymous - no auth required)
+model Session {
+  id           String    @id @default(cuid())
+  surveyId     String
+  survey       Survey    @relation(fields: [surveyId], references: [id])
+  resumeToken  String    @unique @default(cuid()) // For resume link
+  startedAt    DateTime  @default(now())
+  completedAt  DateTime?
+  currentIndex Int       @default(0) // Track progress
+  answers      Answer[]
+  feedback     String?   // AI-generated feedback stored here
+
+  @@index([resumeToken])
+  @@index([surveyId])
+}
+
+// Individual answer
+model Answer {
+  id         String   @id @default(cuid())
+  sessionId  String
+  session    Session  @relation(fields: [sessionId], references: [id])
+  questionId String
+  question   Question @relation(fields: [questionId], references: [id])
+  value      Json     // JSONB: flexible answer storage
+  answeredAt DateTime @default(now())
+
+  @@unique([sessionId, questionId]) // One answer per question per session
+  @@index([sessionId])
+}
