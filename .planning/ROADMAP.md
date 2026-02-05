@@ -20,11 +20,11 @@ Decimal phases appear between their surrounding integers in numeric order.
 ## Phase Details
 
 ### Phase 1: Foundation & Assessment Core
-**Goal**: Learners can complete a linear questionnaire with multiple question types and receive their responses saved to the database
+**Goal**: Learners can complete a questionnaire with multiple question types, branching on Q2 (work usage), session persistence, and receive AI-generated personalized feedback via Claude Haiku
 
 **Depends on**: Nothing (first phase)
 
-**Requirements**: ASMNT-01, ASMNT-02, ASMNT-03, ASMNT-05
+**Requirements**: ASMNT-01, ASMNT-02, ASMNT-03, ASMNT-05 (plus ASMNT-04 branching and RSLT-01/02 feedback moved forward)
 
 **Success Criteria** (what must be TRUE):
   1. User can answer multiple choice questions (select one option)
@@ -32,12 +32,16 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. User can answer true/false questions
   4. User's answers persist across browser refresh or close (can resume where they left off)
   5. System stores all responses with timestamps in database
+  6. Quiz branches on Q2 (Yes path vs No path)
+  7. User receives AI-generated personalized feedback in Italian
 
-**Plans**: TBD
+**Plans:** 4 plans in 4 waves
 
 Plans:
-- [ ] 01-01: TBD during planning
-- [ ] 01-02: TBD during planning
+- [ ] 01-01-PLAN.md - Project setup, database schema, TypeScript types
+- [ ] 01-02-PLAN.md - UI components for all question types (shadcn/ui)
+- [ ] 01-03-PLAN.md - Quiz engine, state management, session persistence, Italian questions
+- [ ] 01-04-PLAN.md - Start screen, Haiku feedback API, results page, visual polish
 
 ### Phase 2: Adaptive Logic & Results
 **Goal**: Questionnaire branches based on user answers and delivers personalized feedback upon completion
@@ -89,7 +93,7 @@ Plans:
   2. Italian language content is complete and grammatically correct
   3. System works correctly on mobile devices (iOS Safari, Android Chrome)
   4. Performance is acceptable (pages load in under 2 seconds)
-  5. End-to-end test scenario completes successfully (enroll → take assessment → view feedback → admin export)
+  5. End-to-end test scenario completes successfully (enroll -> take assessment -> view feedback -> admin export)
 
 **Plans**: TBD
 
@@ -99,15 +103,15 @@ Plans:
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4
+Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Assessment Core | 0/TBD | Not started | - |
+| 1. Foundation & Assessment Core | 0/4 | Planned | - |
 | 2. Adaptive Logic & Results | 0/TBD | Not started | - |
 | 3. Admin Dashboard | 0/TBD | Not started | - |
 | 4. Production Readiness | 0/TBD | Not started | - |
 
 ---
 *Roadmap created: 2026-02-04*
-*Last updated: 2026-02-04*
+*Last updated: 2026-02-05 - Phase 1 planned (4 plans)*
