@@ -35,3 +35,6 @@ export type { QuizPlayerProps } from "./QuizPlayer"
 
 export { FeedbackDisplay } from "./FeedbackDisplay"
 export type { FeedbackDisplayProps } from "./FeedbackDisplay"
+
+export { StartScreen } from "./StartScreen"
+export type { StartScreenProps } from "./StartScreen"
