@@ -26,3 +26,9 @@ export type { RankingInputProps } from "./RankingInput"
 
 export { ProgressBar } from "./ProgressBar"
 export type { ProgressBarProps } from "./ProgressBar"
+
+export { NavigationButtons } from "./NavigationButtons"
+export type { NavigationButtonsProps } from "./NavigationButtons"
+
+export { QuizPlayer } from "./QuizPlayer"
+export type { QuizPlayerProps } from "./QuizPlayer"
