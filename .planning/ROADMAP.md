@@ -38,7 +38,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans:** 4 plans in 4 waves
 
 Plans:
-- [ ] 01-01-PLAN.md - Project setup, database schema, TypeScript types
+- [x] 01-01-PLAN.md - Project setup, database schema, TypeScript types
 - [ ] 01-02-PLAN.md - UI components for all question types (shadcn/ui)
 - [ ] 01-03-PLAN.md - Quiz engine, state management, session persistence, Italian questions
 - [ ] 01-04-PLAN.md - Start screen, Haiku feedback API, results page, visual polish
@@ -107,11 +107,11 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Assessment Core | 0/4 | Planned | - |
+| 1. Foundation & Assessment Core | 1/4 | In progress | - |
 | 2. Adaptive Logic & Results | 0/TBD | Not started | - |
 | 3. Admin Dashboard | 0/TBD | Not started | - |
 | 4. Production Readiness | 0/TBD | Not started | - |
 
 ---
 *Roadmap created: 2026-02-04*
-*Last updated: 2026-02-05 - Phase 1 planned (4 plans)*
+*Last updated: 2026-02-05 - Plan 01-01 complete*
