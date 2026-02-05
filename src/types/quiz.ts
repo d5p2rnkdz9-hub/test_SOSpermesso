@@ -42,7 +42,7 @@ export interface QuestionOption {
 export interface ShowCondition {
   questionId: string; // ID of question this depends on
   operator: "equals" | "notEquals" | "contains" | "greaterThan" | "lessThan";
-  value: string | string[] | number; // Value to compare against
+  value: string | string[] | number | boolean; // Value to compare against (boolean for YES_NO conditions)
 }
 
 // ============================================================
