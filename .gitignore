@@ -41,3 +41,9 @@ next-env.d.ts
 prisma/*.db
 prisma/*.db-journal
 .env
+
+# Documents & reference materials
+*.docx
+*.pdf
+*.rtf
+*.txt
