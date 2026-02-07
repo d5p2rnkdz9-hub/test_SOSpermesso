@@ -61,10 +61,9 @@ export function MultipleChoice({
             <Checkbox
               id={`checkbox-${option.id}`}
               checked={isSelected}
-              onCheckedChange={() => handleToggle(option.id)}
               disabled={disabled}
               className={cn(
-                "shrink-0",
+                "shrink-0 pointer-events-none",
                 isSelected && "border-brand-green bg-brand-green data-[state=checked]:bg-brand-green data-[state=checked]:text-white"
               )}
             />

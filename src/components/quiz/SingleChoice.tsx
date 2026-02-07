@@ -57,7 +57,7 @@ export function SingleChoice({
               value={option.id}
               id={`option-${option.id}`}
               className={cn(
-                "shrink-0",
+                "shrink-0 pointer-events-none",
                 isSelected && "border-brand-green text-brand-green"
               )}
             />
