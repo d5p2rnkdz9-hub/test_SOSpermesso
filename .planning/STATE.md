@@ -11,16 +11,16 @@ See: .planning/PROJECT.md (updated 2025-02-04)
 ## Current Position
 
 Phase: 1 of 4 (Foundation & Assessment Core)
-Plan: 3 of 4 in current phase
-Status: In progress
-Last activity: 2026-02-05 - Completed 01-03-PLAN.md
+Plan: 4 of 4 in current phase (01-04)
+Status: **DEBUGGING** - checkpoint verification failed
+Last activity: 2026-02-07 - Plan 01-04 Tasks 1-2 complete, hitting "Failed to create session" error
 
-Progress: [██████░░░░] 30%
+Progress: [████████░░] 40%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 3
+- Total plans completed: 3 (01-04 in progress)
 - Average duration: 4.7 min
 - Total execution time: 14 min
 
@@ -51,6 +51,7 @@ Recent decisions affecting current work:
 | 01-02 | Click-to-rank (no drag-drop) | Simpler, works on all devices |
 | 01-03 | Debounced auto-save (500ms) | Prevents excessive API calls while ensuring persistence |
 | 01-03 | YES_NO as strings ("true"/"false") | Consistent comparison with showCondition values |
+| 01-04 | Neon for PostgreSQL | User chose Neon over Supabase for database hosting |
 
 ### Pending Todos
 
@@ -58,25 +59,37 @@ None.
 
 ### Blockers/Concerns
 
-**Resolved in 01-01:**
+**ACTIVE BUG:**
+- **"Failed to create session" error** when clicking "Inizia" on start screen
+- Database is configured (Neon PostgreSQL) and seeded (10 Italian questions)
+- `npx prisma db push` and `npm run db:seed` both succeeded
+- Error occurs in POST /api/session route
+
+**Debug next steps:**
+1. Check terminal/console for actual error message
+2. Inspect `src/app/api/session/route.ts` for issues
+3. Test API directly: `curl -X POST http://localhost:3000/api/session -H "Content-Type: application/json" -d '{"surveyId":"ai-screening-v1"}'`
+4. Check if Prisma client is connecting properly
+
+**Resolved:**
 - PostgreSQL schema design - DECIDED: JSONB for question types (flexible)
-
-**Resolved in 01-03:**
 - Session management strategy - DECIDED: Debounced auto-save (500ms), resume token in localStorage
-
-**Still pending:**
-- Rules engine data structure (Phase 2 scope)
-- **User setup required:** DATABASE_URL must be configured in .env.local before quiz works
+- Database setup - DONE: Neon PostgreSQL configured in .env.local and .env
 
 **Timeline constraint:**
 - Must be functional before Feb 25, 2025 course date
 
 ## Session Continuity
 
-Last session: 2026-02-05T09:21:15Z
-Stopped at: Completed 01-03-PLAN.md
-Resume file: None
+Last session: 2026-02-07
+Stopped at: Plan 01-04 checkpoint - debugging "Failed to create session" error
+Resume command: `/gsd:debug` or manually investigate POST /api/session
+
+**Files to check:**
+- `src/app/api/session/route.ts` - session creation endpoint
+- `src/store/quiz-store.ts` - initSession function
+- `src/app/quiz/page.tsx` - where session is initiated
 
 ---
 *State initialized: 2026-02-04*
-*Last updated: 2026-02-05*
+*Last updated: 2026-02-07*
