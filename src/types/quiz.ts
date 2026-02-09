@@ -122,6 +122,14 @@ export interface Question {
 }
 
 /**
+ * Course prompt for participant
+ */
+export interface CoursePrompt {
+  text: string;
+  category: string;
+}
+
+/**
  * User session (anonymous)
  */
 export interface Session {
@@ -132,6 +140,8 @@ export interface Session {
   completedAt: Date | null;
   currentIndex: number;
   feedback: string | null;
+  coursePrompts: CoursePrompt[] | null;
+  facilitatorNotes: string | null;
 }
 
 /**
@@ -228,4 +238,12 @@ export interface FeedbackResponse {
   sessionId: string;
   feedback: string;
   generatedAt: Date;
+}
+
+/**
+ * Feedback with course prompts and facilitator notes
+ */
+export interface FeedbackWithPrompts extends FeedbackResponse {
+  coursePrompts: CoursePrompt[];
+  facilitatorNotes: string;
 }

@@ -52,15 +52,17 @@ model Question {
 
 // User session (anonymous - no auth required)
 model Session {
-  id           String    @id @default(cuid())
-  surveyId     String
-  survey       Survey    @relation(fields: [surveyId], references: [id])
-  resumeToken  String    @unique @default(cuid()) // For resume link
-  startedAt    DateTime  @default(now())
-  completedAt  DateTime?
-  currentIndex Int       @default(0) // Track progress
-  answers      Answer[]
-  feedback     String?   // AI-generated feedback stored here
+  id               String    @id @default(cuid())
+  surveyId         String
+  survey           Survey    @relation(fields: [surveyId], references: [id])
+  resumeToken      String    @unique @default(cuid()) // For resume link
+  startedAt        DateTime  @default(now())
+  completedAt      DateTime?
+  currentIndex     Int       @default(0) // Track progress
+  answers          Answer[]
+  feedback         String?   // AI-generated feedback stored here
+  coursePrompts    Json?     // Array of personalized course prompts
+  facilitatorNotes String?   // Facilitator summary of what this participant needs
 
   @@index([resumeToken])
   @@index([surveyId])

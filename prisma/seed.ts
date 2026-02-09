@@ -3,11 +3,11 @@ import { PrismaClient, QuestionType, Prisma } from "@prisma/client"
 const prisma = new PrismaClient()
 
 /**
- * Seed database with Italian questions for AI screening survey
- * Based on CONTEXT.md specifications for "AI e professione forense" course
+ * Seed database with Italian questions for AI screening survey (Phase 2)
+ * Adaptive questionnaire with branching logic based on answers
  */
 async function main() {
-  console.log("Seeding database...")
+  console.log("Seeding database with adaptive questionnaire...")
 
   // Create or update the AI Screening Survey
   const survey = await prisma.survey.upsert({
@@ -26,200 +26,246 @@ async function main() {
 
   console.log(`Survey created/updated: ${survey.id}`)
 
-  // Delete existing questions for clean seed
-  await prisma.question.deleteMany({
+  // Delete existing data for clean seed (cascade from questions)
+  // First delete answers, then questions
+  const existingQuestions = await prisma.question.findMany({
     where: { surveyId: survey.id },
+    select: { id: true },
   })
 
-  // Create questions based on CONTEXT.md
+  if (existingQuestions.length > 0) {
+    const questionIds = existingQuestions.map(q => q.id)
+    await prisma.answer.deleteMany({
+      where: { questionId: { in: questionIds } },
+    })
+    await prisma.question.deleteMany({
+      where: { surveyId: survey.id },
+    })
+  }
+
+  // Create adaptive questions with branching logic
   const questions = [
-    // Question 1: AI tools used
+    // Q1: Awareness check (gates entire flow)
     {
-      id: "q1-tools",
+      id: "q1-aware",
       surveyId: survey.id,
       order: 1,
+      type: QuestionType.YES_NO,
+      text: "Hai mai sentito parlare di strumenti di intelligenza artificiale come ChatGPT, Claude o Gemini?",
+      description: undefined,
+      options: [
+        { id: "yes", label: "Sì", value: "true" }, // No nextQuestionId - continue to Q1a
+        { id: "no", label: "No", value: "false", nextQuestionId: "q1b-whynot-aware" }, // Jump to Q1b
+      ],
+      isRequired: true,
+      nextQuestionId: undefined,
+      showCondition: Prisma.JsonNull,
+    },
+
+    // Q1a: Tools tried (if aware)
+    {
+      id: "q1a-tools",
+      surveyId: survey.id,
+      order: 2,
       type: QuestionType.MULTIPLE_CHOICE,
-      text: "Quali strumenti AI hai usato?",
-      description: "Seleziona tutti quelli che hai provato almeno una volta",
+      text: "Quali strumenti AI hai provato?",
+      description: "Seleziona tutti quelli che conosci",
       options: [
         { id: "chatgpt", label: "ChatGPT", value: "chatgpt" },
         { id: "claude", label: "Claude", value: "claude" },
         { id: "gemini", label: "Gemini", value: "gemini" },
         { id: "copilot", label: "Copilot", value: "copilot" },
         { id: "legal-ai", label: "Banca dati giuridica con AI", value: "legal-ai" },
-        { id: "none", label: "Nessuno", value: "none" },
         { id: "other", label: "Altro", value: "other" },
       ],
       isRequired: true,
       nextQuestionId: undefined,
-      showCondition: Prisma.JsonNull,
+      showCondition: { questionId: "q1-aware", operator: "equals", value: "true" },
     },
-    // Question 2: Used AI for legal work (branch trigger)
+
+    // Q1b: Why not aware (if not aware)
+    {
+      id: "q1b-whynot-aware",
+      surveyId: survey.id,
+      order: 3,
+      type: QuestionType.SINGLE_CHOICE,
+      text: "Come mai non li hai ancora provati?",
+      description: undefined,
+      options: [
+        { id: "didnt-know", label: "Non sapevo cosa fossero", value: "didnt-know" },
+        { id: "not-useful", label: "Non mi sembravano utili", value: "not-useful" },
+        { id: "no-occasion", label: "Non ho avuto occasione", value: "no-occasion" },
+        { id: "prefer-traditional", label: "Preferisco metodi tradizionali", value: "prefer-traditional" },
+      ],
+      isRequired: true,
+      nextQuestionId: "q5-concerns", // Skip work section, jump to concerns
+      showCondition: { questionId: "q1-aware", operator: "equals", value: "false" },
+    },
+
+    // Q2: Work usage (branch trigger)
     {
       id: "q2-work",
       surveyId: survey.id,
-      order: 2,
+      order: 4,
       type: QuestionType.YES_NO,
-      text: "Hai usato AI per il lavoro legale?",
+      text: "Hai usato strumenti AI per il tuo lavoro legale?",
       description: "Anche solo per prove o esperimenti",
       options: [
-        { id: "yes", label: "Si", value: "true" },
-        { id: "no", label: "No", value: "false" },
+        { id: "yes", label: "Sì", value: "true" }, // Continue to Q2a
+        { id: "no", label: "No", value: "false" }, // Continue to Q2d
       ],
       isRequired: true,
       nextQuestionId: undefined,
-      showCondition: Prisma.JsonNull,
+      showCondition: { questionId: "q1-aware", operator: "equals", value: "true" },
     },
-    // Question 2a: How used (if YES)
+
+    // Q2a: Activities (if work=yes)
     {
-      id: "q2a-howused",
+      id: "q2a-activities",
       surveyId: survey.id,
-      order: 3,
+      order: 5,
       type: QuestionType.MULTIPLE_CHOICE,
-      text: "Per cosa hai usato l'AI nel lavoro?",
-      description: "Seleziona tutte le attivita pertinenti",
+      text: "Per quali attività hai usato l'AI nel lavoro?",
+      description: "Seleziona tutte le attività pertinenti",
       options: [
         { id: "research", label: "Ricerca giuridica", value: "research" },
         { id: "study", label: "Studio di documenti", value: "study" },
-        { id: "writing", label: "Scrittura/redazione", value: "writing" },
+        { id: "writing", label: "Scrittura/redazione atti", value: "writing" },
+        { id: "clients", label: "Comunicazione con clienti", value: "clients" },
+        { id: "management", label: "Organizzazione studio", value: "management" },
         { id: "other", label: "Altro", value: "other" },
       ],
       isRequired: true,
       nextQuestionId: undefined,
       showCondition: { questionId: "q2-work", operator: "equals", value: "true" },
     },
-    // Question 2b: Usage trend (if YES)
+
+    // Q2b: Usage trend (if work=yes)
     {
       id: "q2b-trend",
       surveyId: survey.id,
-      order: 4,
+      order: 6,
       type: QuestionType.SINGLE_CHOICE,
-      text: "Come sta cambiando il tuo utilizzo?",
-      description: "Rispetto a quando hai iniziato",
+      text: "Come sta cambiando il tuo utilizzo dell'AI?",
+      description: undefined,
       options: [
-        { id: "increasing", label: "In aumento", value: "increasing" },
+        { id: "increasing", label: "Lo uso sempre di più", value: "increasing" },
         { id: "stable", label: "Stabile", value: "stable" },
-        { id: "decreasing", label: "In diminuzione", value: "decreasing" },
+        { id: "decreasing", label: "Lo uso meno di prima", value: "decreasing" },
+        { id: "stopped", label: "Ho smesso di usarlo", value: "stopped" },
       ],
       isRequired: true,
       nextQuestionId: undefined,
       showCondition: { questionId: "q2-work", operator: "equals", value: "true" },
     },
-    // Question 2c: Satisfaction (if YES)
+
+    // Q2c: Satisfaction (if work=yes)
     {
       id: "q2c-satisfaction",
       surveyId: survey.id,
-      order: 5,
+      order: 7,
       type: QuestionType.SINGLE_CHOICE,
-      text: "Come ti trovi con questi strumenti?",
-      description: "La tua esperienza complessiva",
+      text: "Quanto sei soddisfatto dei risultati ottenuti con l'AI?",
+      description: undefined,
       options: [
-        { id: "frustrated", label: "Frustrato", value: "frustrated" },
-        { id: "neutral", label: "Neutrale", value: "neutral" },
-        { id: "satisfied", label: "Soddisfatto", value: "satisfied" },
-        { id: "enthusiastic", label: "Entusiasta", value: "enthusiastic" },
+        { id: "not-at-all", label: "Per niente", value: "not-at-all" },
+        { id: "little", label: "Poco", value: "little" },
+        { id: "enough", label: "Abbastanza", value: "enough" },
+        { id: "very", label: "Molto", value: "very" },
       ],
       isRequired: true,
       nextQuestionId: undefined,
       showCondition: { questionId: "q2-work", operator: "equals", value: "true" },
     },
-    // Question 2d: Why not (if NO)
+
+    // Q2d: Barriers (if work=no)
     {
-      id: "q2d-whynot",
+      id: "q2d-barriers",
       surveyId: survey.id,
-      order: 6,
+      order: 8,
       type: QuestionType.MULTIPLE_CHOICE,
-      text: "Perche non hai usato AI nel lavoro?",
+      text: "Cosa ti ha frenato dall'usare l'AI nel lavoro?",
       description: "Seleziona i motivi principali",
       options: [
-        { id: "privacy", label: "Preoccupazioni sulla privacy", value: "privacy" },
-        { id: "time", label: "Non ho avuto tempo", value: "time" },
-        { id: "errors", label: "Paura di commettere errori", value: "errors" },
-        { id: "no-value", label: "Non ne vedo il valore", value: "no-value" },
-        { id: "other", label: "Altro", value: "other" },
+        { id: "privacy", label: "Dubbi sulla riservatezza dei dati", value: "privacy" },
+        { id: "where-start", label: "Non saprei da dove iniziare", value: "where-start" },
+        { id: "reliability", label: "Timore di risultati inaffidabili", value: "reliability" },
+        { id: "not-useful", label: "Non credo sia utile per il mio lavoro", value: "not-useful" },
+        { id: "no-time", label: "Non ho avuto tempo di provare", value: "no-time" },
       ],
       isRequired: true,
-      nextQuestionId: undefined,
+      nextQuestionId: "q4-expectations", // Skip confidence, jump to expectations
       showCondition: { questionId: "q2-work", operator: "equals", value: "false" },
     },
-    // Question 3: Profile selection
+
+    // Q3: Confidence level (only for those who have used AI)
     {
-      id: "q3-profile",
+      id: "q3-confidence",
       surveyId: survey.id,
-      order: 7,
-      type: QuestionType.PROFILE_SELECT,
-      text: "Quale profilo ti descrive meglio?",
-      description: "Scegli quello che si avvicina di piu alla tua situazione",
+      order: 9,
+      type: QuestionType.SINGLE_CHOICE,
+      text: "Come descriveresti il tuo livello di confidenza con gli strumenti AI?",
+      description: undefined,
       options: [
-        {
-          id: "profile-a",
-          label: "Profilo A",
-          value: "basic",
-          description: "Uso strumenti base - email, Word, navigazione web. I nuovi software richiedono tempo per imparare.",
-        },
-        {
-          id: "profile-b",
-          label: "Profilo B",
-          value: "comfortable",
-          description: "Sono a mio agio con la tecnologia - uso strumenti cloud, imparo nuove app velocemente, risolvo problemi di base.",
-        },
-        {
-          id: "profile-c",
-          label: "Profilo C",
-          value: "confident",
-          description: "Sono confidente con la tecnologia - adotto rapidamente nuovi strumenti, personalizzo il mio workflow, sono curioso di capire come funzionano le cose.",
-        },
+        { id: "beginner", label: "Principiante - li provo ma non mi fido dei risultati", value: "beginner" },
+        { id: "intermediate", label: "Intermedio - li uso regolarmente per alcuni compiti", value: "intermediate" },
+        { id: "advanced", label: "Avanzato - li integro nel mio flusso di lavoro quotidiano", value: "advanced" },
       ],
       isRequired: true,
       nextQuestionId: undefined,
-      showCondition: Prisma.JsonNull,
+      showCondition: { questionId: "q2-work", operator: "equals", value: "true" },
     },
-    // Question 4: Expectations
+
+    // Q4: Expectations (everyone sees this)
     {
       id: "q4-expectations",
       surveyId: survey.id,
-      order: 8,
+      order: 10,
       type: QuestionType.TEXT,
-      text: "Cosa speri di imparare da questo corso?",
+      text: "Cosa ti aspetti da questo corso?",
       description: "Le tue aspettative e obiettivi",
       options: Prisma.JsonNull,
       isRequired: true,
       nextQuestionId: undefined,
       showCondition: Prisma.JsonNull,
     },
-    // Question 5: Concerns
+
+    // Q5: Concerns (everyone sees this)
     {
       id: "q5-concerns",
       surveyId: survey.id,
-      order: 9,
+      order: 11,
       type: QuestionType.MULTIPLE_CHOICE,
-      text: "Quali sono le tue preoccupazioni sull'uso dell'AI?",
-      description: "Seleziona tutte quelle rilevanti per te",
+      text: "Quali aspetti dell'AI ti preoccupano di più nel contesto legale?",
+      description: "Seleziona tutte quelle rilevanti",
       options: [
-        { id: "privacy", label: "Privacy e riservatezza dei dati", value: "privacy" },
-        { id: "ethics", label: "Implicazioni etiche e deontologiche", value: "ethics" },
-        { id: "reliability", label: "Affidabilita e accuratezza", value: "reliability" },
-        { id: "other", label: "Altro (con campo testo opzionale)", value: "other" },
+        { id: "privacy", label: "Privacy e riservatezza dei dati dei clienti", value: "privacy" },
+        { id: "errors", label: "Rischio di errori e allucinazioni", value: "errors" },
+        { id: "ethics", label: "Implicazioni deontologiche", value: "ethics" },
+        { id: "impact", label: "Impatto sulla professione a lungo termine", value: "impact" },
+        { id: "dependency", label: "Dipendenza dalla tecnologia", value: "dependency" },
+        { id: "none", label: "Nessuna preoccupazione particolare", value: "none" },
       ],
       isRequired: true,
       nextQuestionId: undefined,
       showCondition: Prisma.JsonNull,
     },
-    // Question 6: Use cases ranking
+
+    // Q6: Course priorities (everyone sees this)
     {
-      id: "q6-usecases",
+      id: "q6-priorities",
       surveyId: survey.id,
-      order: 10,
+      order: 12,
       type: QuestionType.RANKING,
-      text: "Per cosa vorresti usare l'AI nel tuo lavoro?",
-      description: "Seleziona le 3 attivita piu importanti per te (in ordine di priorita)",
+      text: "Su quali temi vorresti concentrarti durante il corso?",
+      description: "Seleziona le 3 più importanti per te (in ordine di priorità)",
       options: [
-        { id: "research", label: "Ricerca giuridica", value: "research" },
-        { id: "writing", label: "Scrittura documenti", value: "writing" },
-        { id: "contracts", label: "Revisione contratti", value: "contracts" },
-        { id: "clients", label: "Comunicazione con i clienti", value: "clients" },
-        { id: "management", label: "Gestione dello studio", value: "management" },
-        { id: "other", label: "Altro", value: "other" },
+        { id: "practical", label: "Uso pratico degli strumenti AI", value: "practical" },
+        { id: "risks", label: "Rischi e limiti dell'AI", value: "risks" },
+        { id: "ethics", label: "Aspetti deontologici", value: "ethics" },
+        { id: "data", label: "Protezione dei dati", value: "data" },
+        { id: "usecases", label: "Casi d'uso per avvocati", value: "usecases" },
+        { id: "prompts", label: "Scrivere prompt efficaci", value: "prompts" },
       ],
       isRequired: true,
       nextQuestionId: undefined,
@@ -236,6 +282,10 @@ async function main() {
   }
 
   console.log(`\nSeeding complete! Created ${questions.length} questions.`)
+  console.log("\nBranching paths:")
+  console.log("1. Not aware: Q1(No) → Q1b → Q5 → Q6 (4 questions)")
+  console.log("2. Aware, not working: Q1(Yes) → Q1a → Q2(No) → Q2d → Q4 → Q5 → Q6 (7 questions)")
+  console.log("3. Aware, working: Q1(Yes) → Q1a → Q2(Yes) → Q2a → Q2b → Q2c → Q3 → Q4 → Q5 → Q6 (10 questions)")
 }
 
 main()
