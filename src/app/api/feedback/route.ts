@@ -1,12 +1,15 @@
 import { NextRequest, NextResponse } from "next/server"
 import Anthropic from "@anthropic-ai/sdk"
 import { prisma } from "@/lib/db"
+import { evaluateResponses } from "@/lib/rules-engine"
+import type { CoursePrompt } from "@/types/quiz"
+import { Prisma } from "@prisma/client"
 
 /**
  * POST /api/feedback
  * Generate personalized AI feedback for completed quiz session
  * Body: { sessionId: string }
- * Returns: { feedback: string }
+ * Returns: { feedback: string, coursePrompts: CoursePrompt[] }
  */
 export async function POST(request: NextRequest) {
   try {
@@ -29,6 +32,7 @@ export async function POST(request: NextRequest) {
 Le tue risposte sono state registrate con successo. Il nostro sistema di feedback personalizzato non è attualmente disponibile, ma il team formativo analizzerà le tue risposte per personalizzare il corso in base alle tue esigenze.
 
 Ti aspettiamo al corso "AI e professione forense" di DigiCrazy Lab!`,
+        coursePrompts: [],
       })
     }
 
@@ -51,9 +55,12 @@ Ti aspettiamo al corso "AI e professione forense" di DigiCrazy Lab!`,
       )
     }
 
-    // If feedback already exists, return it
+    // If feedback already exists, return it with course prompts
     if (session.feedback) {
-      return NextResponse.json({ feedback: session.feedback })
+      return NextResponse.json({
+        feedback: session.feedback,
+        coursePrompts: (session.coursePrompts as CoursePrompt[] | null) || [],
+      })
     }
 
     // Check if session is completed
@@ -64,54 +71,73 @@ Ti aspettiamo al corso "AI e professione forense" di DigiCrazy Lab!`,
       )
     }
 
-    // Build context from answers
-    const answersContext = buildAnswersContext(session.answers)
+    // Evaluate responses using rules engine
+    const rulesResult = evaluateResponses(
+      session.answers.map((a) => ({
+        questionId: a.questionId,
+        value: a.value,
+        questionText: a.question.text,
+        questionOptions: a.question.options,
+      }))
+    )
+
+    // Build enhanced prompt using rules result
+    const claudePrompt = buildEnhancedPrompt(rulesResult)
 
     // Call Claude Haiku to generate feedback
     const anthropic = new Anthropic()
 
     const message = await anthropic.messages.create({
       model: "claude-3-haiku-20240307",
-      max_tokens: 1024,
+      max_tokens: 1500,
       messages: [
         {
           role: "user",
-          content: `Sei un assistente per un corso di formazione sull'AI per avvocati italiani.
-
-Basandoti sulle risposte del questionario di pre-valutazione, genera un feedback personalizzato in italiano.
-
-Il feedback deve:
-- Essere incoraggiante e professionale
-- Riconoscere il loro attuale livello di esperienza con l'AI
-- Collegare le loro aspettative (domanda sulle aspettative) con cosa impareranno nel corso
-- Affrontare brevemente le loro preoccupazioni rassicurandoli
-- Suggerire 2-3 aree specifiche su cui concentrarsi durante il corso
-- Essere lungo circa 200-300 parole
-- NON assegnare un "livello" - questo verrà fatto nel modulo successivo
-
-Risposte del partecipante:
-${answersContext}
-
-Genera il feedback:`,
+          content: claudePrompt,
         },
       ],
     })
 
     // Extract the text from the response
-    const feedbackText =
+    const responseText =
       message.content[0].type === "text"
         ? message.content[0].text
         : "Feedback non disponibile"
 
-    // Save feedback to session
+    // Parse JSON response with fallback
+    let feedbackText = responseText
+    let coursePrompts: CoursePrompt[] = []
+    let facilitatorNotes = ""
+
+    try {
+      // Try to parse as JSON
+      const parsed = JSON.parse(responseText)
+      feedbackText = parsed.feedback || responseText
+      coursePrompts = parsed.coursePrompts || []
+      facilitatorNotes = parsed.facilitatorNotes || ""
+    } catch {
+      // If parsing fails, use raw text as feedback
+      console.warn("Failed to parse Claude response as JSON, using raw text")
+      feedbackText = responseText
+      coursePrompts = []
+      facilitatorNotes = "Formato risposta non strutturato - rivedere manualmente."
+    }
+
+    // Save feedback, course prompts, and facilitator notes to session
     await prisma.session.update({
       where: { id: sessionId },
       data: {
         feedback: feedbackText,
+        coursePrompts: coursePrompts as unknown as Prisma.InputJsonValue,
+        facilitatorNotes: facilitatorNotes,
       },
     })
 
-    return NextResponse.json({ feedback: feedbackText })
+    // Return to client (do NOT expose facilitatorNotes)
+    return NextResponse.json({
+      feedback: feedbackText,
+      coursePrompts: coursePrompts,
+    })
   } catch (error) {
     console.error("Failed to generate feedback:", error)
 
@@ -124,86 +150,69 @@ Le tue risposte sono state registrate con successo. Purtroppo si è verificato u
 Il team formativo analizzerà comunque le tue risposte per personalizzare il corso in base alle tue esigenze e aspettative.
 
 Ti aspettiamo al corso "AI e professione forense" di DigiCrazy Lab!`,
+      coursePrompts: [],
     })
   }
 }
 
 /**
- * Build a human-readable context from session answers
+ * Build enhanced Claude prompt using rules engine analysis
  */
-function buildAnswersContext(
-  answers: Array<{
-    question: {
-      id: string
-      text: string
-      options: unknown
-      type: string
-    }
-    value: unknown
-  }>
-): string {
-  const lines: string[] = []
+function buildEnhancedPrompt(rulesResult: ReturnType<typeof evaluateResponses>): string {
+  const gapsText =
+    rulesResult.gaps.length > 0
+      ? rulesResult.gaps.map((g) => `- ${g.area} (${g.severity}): ${g.description}`).join("\n")
+      : "Nessun gap significativo rilevato."
 
-  for (const answer of answers) {
-    const { question, value } = answer
-    const answerValue = value as Record<string, unknown>
+  return `Sei un assistente per un corso di formazione sull'AI per avvocati italiani.
 
-    let formattedAnswer = ""
+Basandoti sull'analisi del questionario di pre-valutazione, genera un feedback personalizzato in italiano.
 
-    // Format based on answer type
-    if ("selectedValues" in answerValue && Array.isArray(answerValue.selectedValues)) {
-      // Multiple choice - map values to labels
-      const options = question.options as Array<{ value: string; label: string }> | null
-      if (options) {
-        const selectedLabels = (answerValue.selectedValues as string[]).map((val) => {
-          const option = options.find((o) => o.value === val)
-          return option ? option.label : val
-        })
-        formattedAnswer = selectedLabels.join(", ")
-      } else {
-        formattedAnswer = (answerValue.selectedValues as string[]).join(", ")
-      }
-    } else if ("selectedValue" in answerValue) {
-      // Single choice / Yes-No / Profile
-      const options = question.options as Array<{ value: string; label: string; description?: string }> | null
-      if (options) {
-        const option = options.find((o) => o.value === answerValue.selectedValue)
-        if (option) {
-          formattedAnswer = option.description || option.label
-        } else {
-          // Handle Yes/No
-          if (answerValue.selectedValue === "true") {
-            formattedAnswer = "Sì"
-          } else if (answerValue.selectedValue === "false") {
-            formattedAnswer = "No"
-          } else {
-            formattedAnswer = answerValue.selectedValue as string
-          }
-        }
-      } else {
-        formattedAnswer = answerValue.selectedValue as string
-      }
-    } else if ("text" in answerValue) {
-      // Text answer
-      formattedAnswer = answerValue.text as string
-    } else if ("rankedOptionIds" in answerValue && Array.isArray(answerValue.rankedOptionIds)) {
-      // Ranking
-      const options = question.options as Array<{ id: string; label: string }> | null
-      if (options) {
-        const rankedLabels = (answerValue.rankedOptionIds as string[]).map((id, index) => {
-          const option = options.find((o) => o.id === id)
-          return `${index + 1}. ${option ? option.label : id}`
-        })
-        formattedAnswer = rankedLabels.join(", ")
-      } else {
-        formattedAnswer = (answerValue.rankedOptionIds as string[]).join(", ")
-      }
-    }
+**PROFILO PARTECIPANTE:**
+- Livello di consapevolezza: ${rulesResult.awarenessLevel}
+- Percorso: ${rulesResult.pathTaken}
+- Strumenti usati: ${rulesResult.toolsUsed.join(", ") || "Nessuno"}
+- Attività lavorative: ${rulesResult.workActivities.join(", ") || "Nessuna"}
+- Trend utilizzo: ${rulesResult.usageTrend || "N/A"}
+- Soddisfazione: ${rulesResult.satisfaction || "N/A"}
+- Barriere: ${rulesResult.barriers.join(", ") || "Nessuna"}
+- Preoccupazioni: ${rulesResult.concerns.join(", ") || "Nessuna"}
+- Aspettative: ${rulesResult.expectations || "Non specificate"}
+- Livello di confidenza: ${rulesResult.confidence || "N/A"}
 
-    if (formattedAnswer) {
-      lines.push(`**${question.text}**\n${formattedAnswer}\n`)
-    }
-  }
+**GAP RILEVATI:**
+${gapsText}
 
-  return lines.join("\n")
+**COMPITO:**
+Genera una risposta JSON con questa struttura:
+{
+  "feedback": "...(feedback principale)...",
+  "coursePrompts": [{"text": "...", "category": "..."}],
+  "facilitatorNotes": "..."
+}
+
+**FEEDBACK PRINCIPALE:**
+- 2-3 paragrafi (circa 200 parole)
+- Tono professionale e incoraggiante
+- Riconosci il loro percorso e livello di esperienza
+- Collega le loro aspettative con cosa impareranno nel corso
+- Affronta brevemente le loro preoccupazioni
+- NON assegnare un "livello" o score
+- NON usare liste puntate - solo prosa
+
+**COURSE PROMPTS:**
+- Genera SOLO se ci sono gap significativi (severity="significant")
+- Massimo 2 prompts
+- Phrasing: "Durante il corso, chiedi ai docenti di..." o "Presta attenzione quando si parlerà di..."
+- Azionabili e specifici
+- Category: usa l'area del gap (es: "practical-application", "hands-on-practice")
+- Se non ci sono gap significativi, restituisci array vuoto
+
+**FACILITATOR NOTES:**
+- 1 paragrafo breve (50-80 parole)
+- Riassunto per l'istruttore su cosa questo partecipante ha bisogno
+- Menziona eventuali punti di attenzione o aree su cui concentrarsi durante il corso
+- In italiano
+
+Restituisci SOLO il JSON, senza altri testi.`
 }
