@@ -61,7 +61,9 @@ None.
 
 ### Blockers/Concerns
 
-**None** - Phase 1 complete
+**TECH DEBT:**
+- [ ] Verify Netlify DATABASE_URL matches local .env.local
+- [ ] Test production quiz flow end-to-end after env var verification
 
 **Resolved:**
 - PostgreSQL schema design - DECIDED: JSONB for question types (flexible)
@@ -69,6 +71,9 @@ None.
 - Database setup - DONE: Neon PostgreSQL configured in .env.local and .env
 - "Failed to create session" bug - FIXED: Session API working correctly
 - Session restart - FIXED: "Ricomincia il test" button clears localStorage
+- Next.js security vulnerability - FIXED: Updated to 16.1.6 (CVE-2025-55182)
+- Netlify Suspense boundary - FIXED: Split quiz page for useSearchParams
+- Netlify Prisma client - FIXED: Added postinstall script
 
 **Timeline constraint:**
 - Must be functional before Feb 25, 2025 course date
@@ -77,8 +82,8 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-09
-Stopped at: Phase 1 complete
-Resume command: `/gsd:plan-phase 2` or `/gsd:discuss-phase 2`
+Stopped at: Phase 1 complete + Netlify deployed
+Resume command: `/gsd:progress` or `/gsd:plan-phase 2`
 
 **Phase 1 deliverables:**
 - Quiz with 10 Italian questions (branching on Q2)
@@ -86,11 +91,18 @@ Resume command: `/gsd:plan-phase 2` or `/gsd:discuss-phase 2`
 - Session persistence (resume on refresh)
 - Claude Haiku personalized feedback in Italian
 - DigiCrazy Lab branding with logo
+- Netlify deployment (Next.js 16.1.6)
+
+**Production URL:** Check Netlify dashboard for deployed URL
+
+**Before next phase:**
+- [ ] Verify DATABASE_URL in Netlify env vars
+- [ ] Test production end-to-end
 
 **Next steps:**
 - Phase 2: Adaptive Logic & Results (expand branching, rules engine)
 - Phase 3: Admin Dashboard (view responses, export)
-- Phase 4: Production Readiness (deploy to Vercel)
+- Phase 4: Production Readiness (polish, pre-launch validation)
 
 ---
 *State initialized: 2026-02-04*
