@@ -3,12 +3,13 @@
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import { useQuiz } from "@/hooks/useQuiz"
-import { FeedbackDisplay } from "@/components/quiz/FeedbackDisplay"
+import { FeedbackDisplay, CoursePrompts } from "@/components/quiz"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Loader2, CheckCircle2, ArrowLeft, RotateCcw } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import type { CoursePrompt } from "@/types/quiz"
 
 /**
  * Results Page - Display personalized AI feedback after quiz completion
@@ -19,6 +20,7 @@ export default function ResultsPage() {
   const { sessionId, resumeToken, isComplete, reset } = useQuiz()
 
   const [feedback, setFeedback] = useState<string | null>(null)
+  const [coursePrompts, setCoursePrompts] = useState<CoursePrompt[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -78,6 +80,7 @@ export default function ResultsPage() {
         // If feedback already exists in session, use it
         if (sessionData.feedback) {
           setFeedback(sessionData.feedback)
+          setCoursePrompts(sessionData.coursePrompts || [])
           setIsLoading(false)
           return
         }
@@ -95,6 +98,7 @@ export default function ResultsPage() {
 
         const feedbackData = await feedbackResponse.json()
         setFeedback(feedbackData.feedback)
+        setCoursePrompts(feedbackData.coursePrompts || [])
       } catch (err) {
         console.error("Error fetching feedback:", err)
         setError("Si è verificato un errore nel caricamento del feedback.")
@@ -198,9 +202,16 @@ export default function ResultsPage() {
       </div>
 
       {/* Feedback display */}
-      <div className="w-full max-w-2xl mb-8">
+      <div className="w-full max-w-2xl mb-6">
         {feedback && <FeedbackDisplay feedback={feedback} />}
       </div>
+
+      {/* Course prompts (if any) */}
+      {coursePrompts.length > 0 && (
+        <div className="w-full max-w-2xl mb-8">
+          <CoursePrompts prompts={coursePrompts} />
+        </div>
+      )}
 
       {/* Actions */}
       <div className="w-full max-w-2xl">

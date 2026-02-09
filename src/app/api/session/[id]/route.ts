@@ -47,6 +47,7 @@ export async function GET(
         resumeToken: session.resumeToken,
         isComplete: true,
         feedback: session.feedback,
+        coursePrompts: session.coursePrompts,
       })
     }
 
