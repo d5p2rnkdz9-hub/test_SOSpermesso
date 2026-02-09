@@ -12,7 +12,7 @@ This roadmap delivers a branching questionnaire system that assesses Italian law
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation & Assessment Core** - Database, quiz engine, basic question types
+- [x] **Phase 1: Foundation & Assessment Core** - Database, quiz engine, basic question types
 - [ ] **Phase 2: Adaptive Logic & Results** - Branching, rules engine, personalized feedback
 - [ ] **Phase 3: Admin Dashboard** - Response viewing, export, analytics
 - [ ] **Phase 4: Production Readiness** - Deployment, polish, pre-launch validation
@@ -39,9 +39,9 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 Plans:
 - [x] 01-01-PLAN.md - Project setup, database schema, TypeScript types
-- [ ] 01-02-PLAN.md - UI components for all question types (shadcn/ui)
-- [ ] 01-03-PLAN.md - Quiz engine, state management, session persistence, Italian questions
-- [ ] 01-04-PLAN.md - Start screen, Haiku feedback API, results page, visual polish
+- [x] 01-02-PLAN.md - UI components for all question types (shadcn/ui)
+- [x] 01-03-PLAN.md - Quiz engine, state management, session persistence, Italian questions
+- [x] 01-04-PLAN.md - Start screen, Haiku feedback API, results page, visual polish
 
 ### Phase 2: Adaptive Logic & Results
 **Goal**: Questionnaire branches based on user answers and delivers personalized feedback upon completion
@@ -107,11 +107,11 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Assessment Core | 1/4 | In progress | - |
+| 1. Foundation & Assessment Core | 4/4 | Complete | 2026-02-09 |
 | 2. Adaptive Logic & Results | 0/TBD | Not started | - |
 | 3. Admin Dashboard | 0/TBD | Not started | - |
 | 4. Production Readiness | 0/TBD | Not started | - |
 
 ---
 *Roadmap created: 2026-02-04*
-*Last updated: 2026-02-05 - Plan 01-01 complete*
+*Last updated: 2026-02-09 - Phase 1 complete*

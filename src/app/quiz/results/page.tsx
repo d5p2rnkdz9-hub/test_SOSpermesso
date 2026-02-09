@@ -6,8 +6,9 @@ import { useQuiz } from "@/hooks/useQuiz"
 import { FeedbackDisplay } from "@/components/quiz/FeedbackDisplay"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Loader2, CheckCircle2, Home, ArrowLeft } from "lucide-react"
+import { Loader2, CheckCircle2, ArrowLeft, RotateCcw } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 /**
  * Results Page - Display personalized AI feedback after quiz completion
@@ -15,11 +16,21 @@ import Link from "next/link"
  */
 export default function ResultsPage() {
   const router = useRouter()
-  const { sessionId, resumeToken, isComplete } = useQuiz()
+  const { sessionId, resumeToken, isComplete, reset } = useQuiz()
 
   const [feedback, setFeedback] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+
+  // Handler to restart the quiz with a fresh session
+  const handleRestart = () => {
+    reset()
+    // Clear localStorage directly to ensure clean slate
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("quiz-session")
+    }
+    router.push("/quiz")
+  }
 
   useEffect(() => {
     const fetchFeedback = async () => {
@@ -100,9 +111,15 @@ export default function ResultsPage() {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh] p-4">
         {/* Logo */}
-        <div className="mb-8 text-center">
-          <h1 className="text-2xl font-bold text-brand-blue">DigiCrazy Lab</h1>
-          <p className="text-sm text-gray-500">AI e professione forense</p>
+        <div className="mb-8">
+          <Image
+            src="/logo.png"
+            alt="DigiCrazy Lab - TrAIn your BrAIn"
+            width={240}
+            height={135}
+            priority
+            className="h-auto"
+          />
         </div>
 
         <Card className="w-full max-w-md">
@@ -148,9 +165,15 @@ export default function ResultsPage() {
   return (
     <div className="flex flex-col items-center min-h-[60vh] p-4">
       {/* Logo */}
-      <div className="mb-6 text-center">
-        <h1 className="text-2xl font-bold text-brand-blue">DigiCrazy Lab</h1>
-        <p className="text-sm text-gray-500">AI e professione forense</p>
+      <div className="mb-6">
+        <Image
+          src="/logo.png"
+          alt="DigiCrazy Lab - TrAIn your BrAIn"
+          width={240}
+          height={135}
+          priority
+          className="h-auto"
+        />
       </div>
 
       {/* Success header */}
@@ -182,11 +205,9 @@ export default function ResultsPage() {
       {/* Actions */}
       <div className="w-full max-w-2xl">
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button asChild variant="outline">
-            <Link href="/">
-              <Home className="mr-2 h-4 w-4" />
-              Torna alla home
-            </Link>
+          <Button onClick={handleRestart} variant="default" size="lg">
+            <RotateCcw className="mr-2 h-4 w-4" />
+            Ricomincia il test
           </Button>
         </div>
       </div>

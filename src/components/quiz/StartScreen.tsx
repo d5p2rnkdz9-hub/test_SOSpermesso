@@ -17,13 +17,13 @@ export interface StartScreenProps {
 export function StartScreen({ onStart, isLoading = false }: StartScreenProps) {
   return (
     <div className="flex flex-col items-center justify-center min-h-[60vh] px-4">
-      {/* Logo */}
-      <div className="mb-8">
+      {/* Logo with tagline */}
+      <div className="mb-6">
         <Image
-          src="/logo.svg"
-          alt="DigiCrazy Lab"
-          width={280}
-          height={75}
+          src="/logo.png"
+          alt="DigiCrazy Lab - TrAIn your BrAIn"
+          width={320}
+          height={180}
           priority
           className="h-auto"
         />
@@ -37,9 +37,6 @@ export function StartScreen({ onStart, isLoading = false }: StartScreenProps) {
             <h1 className="text-2xl md:text-3xl font-bold text-brand-blue mb-2">
               AI e professione forense
             </h1>
-            <p className="text-brand-green font-semibold text-lg tracking-wide">
-              TrAIn your BrAIn
-            </p>
           </div>
 
           {/* Intro text */}
