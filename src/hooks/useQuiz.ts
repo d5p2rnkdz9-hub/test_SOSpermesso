@@ -2,7 +2,7 @@
 
 import { useMemo } from "react"
 import { useQuizStore } from "@/store/quiz-store"
-import type { Question, ShowCondition, AnswerValue } from "@/types/quiz"
+import type { Question, ShowCondition, AnswerValue, QuestionOption, SingleAnswerValue } from "@/types/quiz"
 
 /**
  * Check if a question should be visible based on its showCondition
@@ -88,6 +88,7 @@ export interface UseQuizReturn {
   // Computed values
   currentQuestion: Question | null
   visibleQuestions: Question[]
+  questionPath: Question[]
   currentVisibleIndex: number
   progress: number
   canGoBack: boolean
@@ -137,24 +138,81 @@ export function useQuiz(): UseQuizReturn {
     )
   }, [questions, answers])
 
+  // Build the actual path the user will take (or has taken) based on answers and branching
+  const questionPath = useMemo(() => {
+    const path: Question[] = []
+    let currentQ: Question | undefined = questions[0]
+
+    while (currentQ) {
+      // Check if this question is visible
+      if (!evaluateShowCondition(currentQ.showCondition, answers)) {
+        // Skip invisible, move to next in order
+        const skipIdx: number = questions.indexOf(currentQ) + 1
+        currentQ = skipIdx < questions.length ? questions[skipIdx] : undefined
+        continue
+      }
+
+      path.push(currentQ)
+
+      // Determine next question
+      const answer = answers[currentQ.id]
+      let nextId: string | null = null
+
+      // Check option-level jump (for SINGLE_CHOICE, YES_NO, PROFILE_SELECT)
+      if (answer && "selectedOptionId" in answer && currentQ.options) {
+        const selectedOption = (currentQ.options as QuestionOption[]).find(
+          o => o.id === (answer as SingleAnswerValue).selectedOptionId
+        )
+        if (selectedOption?.nextQuestionId) {
+          nextId = selectedOption.nextQuestionId
+        }
+      }
+
+      // Check question-level jump
+      if (!nextId && currentQ.nextQuestionId) {
+        nextId = currentQ.nextQuestionId
+      }
+
+      if (nextId) {
+        currentQ = questions.find(q => q.id === nextId)
+      } else {
+        // Scan forward for next visible
+        const currentIdx = questions.indexOf(currentQ)
+        let nextIdx = currentIdx + 1
+        while (nextIdx < questions.length) {
+          if (evaluateShowCondition(questions[nextIdx].showCondition, answers)) {
+            break
+          }
+          nextIdx++
+        }
+        currentQ = nextIdx < questions.length ? questions[nextIdx] : undefined
+      }
+
+      // Safety: prevent infinite loops
+      if (path.length > questions.length) break
+    }
+
+    return path
+  }, [questions, answers])
+
   // Get current question
   const currentQuestion = useMemo(() => {
     return questions[currentIndex] || null
   }, [questions, currentIndex])
 
-  // Find current question's index in visible questions
+  // Find current question's index in path
   const currentVisibleIndex = useMemo(() => {
     if (!currentQuestion) return 0
-    return visibleQuestions.findIndex((q) => q.id === currentQuestion.id)
-  }, [visibleQuestions, currentQuestion])
+    return questionPath.findIndex((q) => q.id === currentQuestion.id)
+  }, [questionPath, currentQuestion])
 
-  // Calculate progress (0-100) based on visible questions
+  // Calculate progress (0-100) based on actual path
   const progress = useMemo(() => {
-    if (visibleQuestions.length === 0) return 0
-    // Count answered visible questions
-    const answeredCount = visibleQuestions.filter((q) => answers[q.id]).length
-    return Math.round((answeredCount / visibleQuestions.length) * 100)
-  }, [visibleQuestions, answers])
+    if (questionPath.length === 0) return 0
+    // Count answered questions in path
+    const answeredCount = questionPath.filter((q) => answers[q.id]).length
+    return Math.round((answeredCount / questionPath.length) * 100)
+  }, [questionPath, answers])
 
   // Navigation state
   const canGoBack = useMemo(() => {
@@ -168,8 +226,8 @@ export function useQuiz(): UseQuizReturn {
   }, [currentQuestion, answers])
 
   const isLastQuestion = useMemo(() => {
-    return currentVisibleIndex === visibleQuestions.length - 1
-  }, [currentVisibleIndex, visibleQuestions.length])
+    return currentVisibleIndex === questionPath.length - 1
+  }, [currentVisibleIndex, questionPath.length])
 
   const hasCurrentAnswer = useMemo(() => {
     if (!currentQuestion) return false
@@ -188,6 +246,7 @@ export function useQuiz(): UseQuizReturn {
     // Computed values
     currentQuestion,
     visibleQuestions,
+    questionPath,
     currentVisibleIndex,
     progress,
     canGoBack,

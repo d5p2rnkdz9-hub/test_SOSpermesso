@@ -2,7 +2,7 @@
 
 import { create } from "zustand"
 import { persist } from "zustand/middleware"
-import type { Question, AnswerValue, ShowCondition } from "@/types/quiz"
+import type { Question, AnswerValue, ShowCondition, QuestionOption, SingleAnswerValue } from "@/types/quiz"
 
 interface QuizState {
   // Session
@@ -231,8 +231,50 @@ export const useQuizStore = create<QuizState>()(
 
       nextQuestion: () => {
         const { questions, currentIndex, answers } = get()
+        const currentQuestion = questions[currentIndex]
+        if (!currentQuestion) return
 
-        // Find next visible question
+        const currentAnswer = answers[currentQuestion.id]
+        let jumpToId: string | null = null
+
+        // Check option-level nextQuestionId (for SINGLE_CHOICE, YES_NO, PROFILE_SELECT)
+        if (currentAnswer && "selectedOptionId" in currentAnswer && currentQuestion.options) {
+          const selectedOption = (currentQuestion.options as QuestionOption[]).find(
+            o => o.id === (currentAnswer as SingleAnswerValue).selectedOptionId
+          )
+          if (selectedOption?.nextQuestionId) {
+            jumpToId = selectedOption.nextQuestionId
+          }
+        }
+
+        // Check question-level nextQuestionId (fallback)
+        if (!jumpToId && currentQuestion.nextQuestionId) {
+          jumpToId = currentQuestion.nextQuestionId
+        }
+
+        // If we have a jump target, find its index
+        if (jumpToId) {
+          const targetIndex = questions.findIndex(q => q.id === jumpToId)
+          if (targetIndex !== -1) {
+            set({ currentIndex: targetIndex })
+
+            // Update server-side currentIndex
+            const { sessionId } = get()
+            if (sessionId) {
+              fetch("/api/answers", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  sessionId,
+                  updateIndex: targetIndex,
+                }),
+              }).catch(console.error)
+            }
+            return
+          }
+        }
+
+        // Fall through to existing scan-forward behavior
         let nextIndex = currentIndex + 1
         while (nextIndex < questions.length) {
           const question = questions[nextIndex]
