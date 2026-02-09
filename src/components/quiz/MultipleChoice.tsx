@@ -68,7 +68,6 @@ export function MultipleChoice({
               )}
             />
             <Label
-              htmlFor={`checkbox-${option.id}`}
               className={cn(
                 "flex-1 cursor-pointer text-base leading-relaxed",
                 disabled && "cursor-not-allowed"

@@ -62,7 +62,6 @@ export function SingleChoice({
               )}
             />
             <Label
-              htmlFor={`option-${option.id}`}
               className={cn(
                 "flex-1 cursor-pointer text-base leading-relaxed",
                 disabled && "cursor-not-allowed"
