@@ -56,11 +56,11 @@ Plans:
   3. User receives actionable recommendations for what to focus on before the course starts
   4. Rules engine evaluates responses using custom logic (beyond simple score thresholds)
 
-**Plans**: TBD
+**Plans:** 2 plans in 2 waves
 
 Plans:
-- [ ] 02-01: TBD during planning
-- [ ] 02-02: TBD during planning
+- [ ] 02-01-PLAN.md — Adaptive question data + branching engine upgrade (schema, seed, quiz store)
+- [ ] 02-02-PLAN.md — Rules engine, enhanced feedback, course prompts, results UI
 
 ### Phase 3: Admin Dashboard
 **Goal**: Instructors can view all participant responses, analyze patterns, and export data for course preparation
@@ -108,10 +108,10 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation & Assessment Core | 4/4 | Complete | 2026-02-09 |
-| 2. Adaptive Logic & Results | 0/TBD | Not started | - |
+| 2. Adaptive Logic & Results | 0/2 | In progress | - |
 | 3. Admin Dashboard | 0/TBD | Not started | - |
 | 4. Production Readiness | 0/TBD | Not started | - |
 
 ---
 *Roadmap created: 2026-02-04*
-*Last updated: 2026-02-09 - Phase 1 complete*
+*Last updated: 2026-02-09 - Phase 2 planned*
