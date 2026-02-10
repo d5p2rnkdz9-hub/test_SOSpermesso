@@ -28,10 +28,25 @@ export function MultipleChoice({
   const handleToggle = (optionId: string) => {
     if (disabled) return
 
-    if (value.includes(optionId)) {
-      onChange(value.filter((id) => id !== optionId))
+    const option = options.find((o) => o.id === optionId)
+    const noneOption = options.find((o) => o.value === "none")
+
+    if (option?.value === "none") {
+      // Clicking "none" option: toggle it exclusively (deselect all others)
+      if (value.includes(optionId)) {
+        onChange(value.filter((id) => id !== optionId))
+      } else {
+        onChange([optionId])
+      }
     } else {
-      onChange([...value, optionId])
+      // Clicking a regular option: remove "none" if present
+      let newValues = noneOption ? value.filter((id) => id !== noneOption.id) : [...value]
+      if (newValues.includes(optionId)) {
+        newValues = newValues.filter((id) => id !== optionId)
+      } else {
+        newValues = [...newValues, optionId]
+      }
+      onChange(newValues)
     }
   }
 

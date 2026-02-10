@@ -110,17 +110,35 @@ Ti aspettiamo al corso "AI e professione forense" di DigiCrazy Lab!`,
     let facilitatorNotes = ""
 
     try {
-      // Try to parse as JSON
-      const parsed = JSON.parse(responseText)
+      // Strip markdown code blocks if present (```json ... ```)
+      let jsonText = responseText.trim()
+      const codeBlockMatch = jsonText.match(/```(?:json)?\s*([\s\S]*?)```/)
+      if (codeBlockMatch) {
+        jsonText = codeBlockMatch[1].trim()
+      }
+      const parsed = JSON.parse(jsonText)
       feedbackText = parsed.feedback || responseText
       coursePrompts = parsed.coursePrompts || []
       facilitatorNotes = parsed.facilitatorNotes || ""
     } catch {
-      // If parsing fails, use raw text as feedback
-      console.warn("Failed to parse Claude response as JSON, using raw text")
-      feedbackText = responseText
-      coursePrompts = []
-      facilitatorNotes = "Formato risposta non strutturato - rivedere manualmente."
+      // If parsing fails, try to extract JSON object from the text
+      const jsonMatch = responseText.match(/\{[\s\S]*\}/)
+      if (jsonMatch) {
+        try {
+          const parsed = JSON.parse(jsonMatch[0])
+          feedbackText = parsed.feedback || responseText
+          coursePrompts = parsed.coursePrompts || []
+          facilitatorNotes = parsed.facilitatorNotes || ""
+        } catch {
+          feedbackText = responseText
+          coursePrompts = []
+          facilitatorNotes = ""
+        }
+      } else {
+        feedbackText = responseText
+        coursePrompts = []
+        facilitatorNotes = ""
+      }
     }
 
     // Save feedback, course prompts, and facilitator notes to session
@@ -173,12 +191,10 @@ Basandoti sull'analisi del questionario di pre-valutazione, genera un feedback p
 - Percorso: ${rulesResult.pathTaken}
 - Strumenti usati: ${rulesResult.toolsUsed.join(", ") || "Nessuno"}
 - Attività lavorative: ${rulesResult.workActivities.join(", ") || "Nessuna"}
-- Trend utilizzo: ${rulesResult.usageTrend || "N/A"}
 - Soddisfazione: ${rulesResult.satisfaction || "N/A"}
 - Barriere: ${rulesResult.barriers.join(", ") || "Nessuna"}
 - Preoccupazioni: ${rulesResult.concerns.join(", ") || "Nessuna"}
 - Aspettative: ${rulesResult.expectations || "Non specificate"}
-- Livello di confidenza: ${rulesResult.confidence || "N/A"}
 
 **GAP RILEVATI:**
 ${gapsText}
@@ -192,13 +208,12 @@ Genera una risposta JSON con questa struttura:
 }
 
 **FEEDBACK PRINCIPALE:**
-- 2-3 paragrafi (circa 200 parole)
-- Tono professionale e incoraggiante
-- Riconosci il loro percorso e livello di esperienza
-- Collega le loro aspettative con cosa impareranno nel corso
-- Affronta brevemente le loro preoccupazioni
+- 1 paragrafo breve (60-80 parole massimo)
+- Tono diretto e incoraggiante, dai del "tu"
+- Riconosci brevemente il loro livello e collega con il corso
 - NON assegnare un "livello" o score
 - NON usare liste puntate - solo prosa
+- NON essere prolisso o ripetitivo
 
 **COURSE PROMPTS:**
 - Genera SOLO se ci sono gap significativi (severity="significant")

@@ -136,6 +136,7 @@ export const useQuizStore = create<QuizState>()(
             questions: data.questions,
             currentIndex: data.currentIndex,
             answers: {},
+            navigationHistory: [],
             isLoading: false,
             isComplete: false,
           })
@@ -376,6 +377,7 @@ export const useQuizStore = create<QuizState>()(
       name: "quiz-session",
       partialize: (state) => ({
         resumeToken: state.resumeToken,
+        navigationHistory: state.navigationHistory,
       }),
     }
   )
