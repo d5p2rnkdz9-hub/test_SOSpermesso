@@ -34,7 +34,7 @@ export interface QuizPlayerProps {
 export function QuizPlayer({ className }: QuizPlayerProps) {
   const {
     currentQuestion,
-    visibleQuestions,
+    questionPath,
     currentVisibleIndex,
     progress,
     canGoBack,
@@ -256,7 +256,7 @@ export function QuizPlayer({ className }: QuizPlayerProps) {
       {/* Progress bar at top */}
       <ProgressBar
         current={currentVisibleIndex + 1}
-        total={visibleQuestions.length}
+        total={questionPath.length}
         showPercentage
       />
 

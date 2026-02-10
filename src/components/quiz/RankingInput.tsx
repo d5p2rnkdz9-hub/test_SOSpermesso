@@ -98,7 +98,7 @@ export function RankingInput({
         <div className="space-y-3">
           <h4 className="text-sm font-medium text-muted-foreground">
             {value.length < maxSelections
-              ? `Seleziona ${maxSelections - value.length} opzion${maxSelections - value.length === 1 ? "e" : "i"}:`
+              ? `Clicca per aggiungere${value.length > 0 ? " (fino a " + maxSelections + ")" : ""}:`
               : "Altre opzioni:"}
           </h4>
           <div className="flex flex-col gap-2">

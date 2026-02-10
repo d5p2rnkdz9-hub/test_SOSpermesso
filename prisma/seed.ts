@@ -140,11 +140,51 @@ async function main() {
       showCondition: { questionId: "q2-work", operator: "equals", value: "true" },
     },
 
+    // Q2a2: Usage frequency (if work=yes) - experience depth
+    {
+      id: "q2a2-frequency",
+      surveyId: survey.id,
+      order: 6,
+      type: QuestionType.SINGLE_CHOICE,
+      text: "Con quale frequenza utilizzi strumenti AI nel tuo lavoro?",
+      description: undefined,
+      options: [
+        { id: "daily", label: "Ogni giorno", value: "daily" },
+        { id: "weekly", label: "Più volte a settimana", value: "weekly" },
+        { id: "monthly", label: "Qualche volta al mese", value: "monthly" },
+        { id: "rarely", label: "Raramente", value: "rarely" },
+      ],
+      isRequired: true,
+      nextQuestionId: undefined,
+      showCondition: { questionId: "q2-work", operator: "equals", value: "true" },
+    },
+
+    // Q2a3: Challenges encountered (if work=yes) - experience depth
+    {
+      id: "q2a3-challenges",
+      surveyId: survey.id,
+      order: 7,
+      type: QuestionType.MULTIPLE_CHOICE,
+      text: "Quali difficoltà hai incontrato nell'uso dell'AI per il lavoro legale?",
+      description: "Seleziona tutte quelle pertinenti",
+      options: [
+        { id: "hallucinations", label: "Risposte imprecise o inventate (allucinazioni)", value: "hallucinations" },
+        { id: "prompts", label: "Difficoltà a formulare richieste efficaci", value: "prompts" },
+        { id: "relevance", label: "Risultati non rilevanti per il diritto italiano", value: "relevance" },
+        { id: "confidentiality", label: "Preoccupazioni sulla riservatezza dei dati", value: "confidentiality" },
+        { id: "time", label: "Richiede troppo tempo rispetto ai metodi tradizionali", value: "time" },
+        { id: "none", label: "Nessuna difficoltà significativa", value: "none" },
+      ],
+      isRequired: true,
+      nextQuestionId: undefined,
+      showCondition: { questionId: "q2-work", operator: "equals", value: "true" },
+    },
+
     // Q2b: Usage trend (if work=yes)
     {
       id: "q2b-trend",
       surveyId: survey.id,
-      order: 6,
+      order: 8,
       type: QuestionType.SINGLE_CHOICE,
       text: "Come sta cambiando il tuo utilizzo dell'AI?",
       description: undefined,
@@ -163,7 +203,7 @@ async function main() {
     {
       id: "q2c-satisfaction",
       surveyId: survey.id,
-      order: 7,
+      order: 9,
       type: QuestionType.SINGLE_CHOICE,
       text: "Quanto sei soddisfatto dei risultati ottenuti con l'AI?",
       description: undefined,
@@ -182,7 +222,7 @@ async function main() {
     {
       id: "q2d-barriers",
       surveyId: survey.id,
-      order: 8,
+      order: 10,
       type: QuestionType.MULTIPLE_CHOICE,
       text: "Cosa ti ha frenato dall'usare l'AI nel lavoro?",
       description: "Seleziona i motivi principali",
@@ -202,7 +242,7 @@ async function main() {
     {
       id: "q3-confidence",
       surveyId: survey.id,
-      order: 9,
+      order: 11,
       type: QuestionType.SINGLE_CHOICE,
       text: "Come descriveresti il tuo livello di confidenza con gli strumenti AI?",
       description: undefined,
@@ -220,7 +260,7 @@ async function main() {
     {
       id: "q4-expectations",
       surveyId: survey.id,
-      order: 10,
+      order: 12,
       type: QuestionType.TEXT,
       text: "Cosa ti aspetti da questo corso?",
       description: "Le tue aspettative e obiettivi",
@@ -234,7 +274,7 @@ async function main() {
     {
       id: "q5-concerns",
       surveyId: survey.id,
-      order: 11,
+      order: 13,
       type: QuestionType.MULTIPLE_CHOICE,
       text: "Quali aspetti dell'AI ti preoccupano di più nel contesto legale?",
       description: "Seleziona tutte quelle rilevanti",
@@ -255,10 +295,10 @@ async function main() {
     {
       id: "q6-priorities",
       surveyId: survey.id,
-      order: 12,
+      order: 14,
       type: QuestionType.RANKING,
       text: "Su quali temi vorresti concentrarti durante il corso?",
-      description: "Seleziona le 3 più importanti per te (in ordine di priorità)",
+      description: "Seleziona fino a 3 opzioni in ordine di priorità",
       options: [
         { id: "practical", label: "Uso pratico degli strumenti AI", value: "practical" },
         { id: "risks", label: "Rischi e limiti dell'AI", value: "risks" },
@@ -266,6 +306,7 @@ async function main() {
         { id: "data", label: "Protezione dei dati", value: "data" },
         { id: "usecases", label: "Casi d'uso per avvocati", value: "usecases" },
         { id: "prompts", label: "Scrivere prompt efficaci", value: "prompts" },
+        { id: "other", label: "Altro", value: "other" },
       ],
       isRequired: true,
       nextQuestionId: undefined,
@@ -285,7 +326,7 @@ async function main() {
   console.log("\nBranching paths:")
   console.log("1. Not aware: Q1(No) → Q1b → Q5 → Q6 (4 questions)")
   console.log("2. Aware, not working: Q1(Yes) → Q1a → Q2(No) → Q2d → Q4 → Q5 → Q6 (7 questions)")
-  console.log("3. Aware, working: Q1(Yes) → Q1a → Q2(Yes) → Q2a → Q2b → Q2c → Q3 → Q4 → Q5 → Q6 (10 questions)")
+  console.log("3. Aware, working: Q1(Yes) → Q1a → Q2(Yes) → Q2a → Q2a2 → Q2a3 → Q2b → Q2c → Q3 → Q4 → Q5 → Q6 (12 questions)")
 }
 
 main()

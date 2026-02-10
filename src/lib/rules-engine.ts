@@ -22,6 +22,8 @@ export interface RulesResult {
   // Detected characteristics
   toolsUsed: string[] // Which AI tools they've used
   workActivities: string[] // How they use AI for work
+  usageFrequency: string | null // daily/weekly/monthly/rarely
+  challenges: string[] // Difficulties encountered with AI
   usageTrend: string | null // increasing/stable/decreasing/stopped
   satisfaction: string | null // not-at-all/little/enough/very
   barriers: string[] // What's stopping them
@@ -59,6 +61,8 @@ export function evaluateResponses(answers: AnswerInput[]): RulesResult {
   const q1bWhyNot = getSingleValue(answersMap.get("q1b-whynot-aware"))
   const q2Work = getSingleValue(answersMap.get("q2-work")) === "true"
   const q2aActivities = getMultipleValues(answersMap.get("q2a-activities"))
+  const q2a2Frequency = getSingleValue(answersMap.get("q2a2-frequency"))
+  const q2a3Challenges = getMultipleValues(answersMap.get("q2a3-challenges"))
   const q2bTrend = getSingleValue(answersMap.get("q2b-trend"))
   const q2cSatisfaction = getSingleValue(answersMap.get("q2c-satisfaction"))
   const q2dBarriers = getMultipleValues(answersMap.get("q2d-barriers"))
@@ -96,6 +100,8 @@ export function evaluateResponses(answers: AnswerInput[]): RulesResult {
     q1bWhyNot,
     q2Work,
     q2aActivities,
+    q2a2Frequency,
+    q2a3Challenges,
     q2bTrend,
     q2cSatisfaction,
     q2dBarriers,
@@ -108,6 +114,8 @@ export function evaluateResponses(answers: AnswerInput[]): RulesResult {
     pathTaken,
     toolsUsed: q1aTools || [],
     workActivities: q2aActivities || [],
+    usageFrequency: q2a2Frequency,
+    challenges: q2a3Challenges || [],
     usageTrend: q2bTrend,
     satisfaction: q2cSatisfaction,
     barriers: q2dBarriers || [],
@@ -129,6 +137,8 @@ interface GapInputs {
   q1bWhyNot: string | null
   q2Work: boolean
   q2aActivities: string[] | null
+  q2a2Frequency: string | null
+  q2a3Challenges: string[] | null
   q2bTrend: string | null
   q2cSatisfaction: string | null
   q2dBarriers: string[] | null
@@ -219,6 +229,36 @@ function detectGaps(inputs: GapInputs): GapArea[] {
       description:
         "Ha provato l'AI ma ha smesso o lo usa meno. Ha bisogno di ritrovare motivazione e vedere casi di successo.",
       severity: "significant",
+    })
+  }
+
+  // Rule 9: Rarely uses AI despite working with it
+  if (inputs.q2a2Frequency === "rarely") {
+    gaps.push({
+      area: "habit-building",
+      description:
+        "Usa l'AI raramente nel lavoro. Ha bisogno di capire come integrarlo nelle attività quotidiane.",
+      severity: "minor",
+    })
+  }
+
+  // Rule 10: Struggles with prompts
+  if (inputs.q2a3Challenges && inputs.q2a3Challenges.includes("prompts")) {
+    gaps.push({
+      area: "prompt-skills",
+      description:
+        "Ha difficoltà a formulare richieste efficaci all'AI. Ha bisogno di imparare tecniche di prompting.",
+      severity: "significant",
+    })
+  }
+
+  // Rule 11: Encountered hallucinations
+  if (inputs.q2a3Challenges && inputs.q2a3Challenges.includes("hallucinations")) {
+    gaps.push({
+      area: "output-verification",
+      description:
+        "Ha riscontrato risposte imprecise o inventate. Ha bisogno di capire come verificare i risultati dell'AI.",
+      severity: "minor",
     })
   }
 

@@ -13,6 +13,7 @@ interface QuizState {
   questions: Question[]
   currentIndex: number
   answers: Record<string, AnswerValue> // questionId -> answer value
+  navigationHistory: number[] // Stack of visited indices for correct back navigation
 
   // Status
   isLoading: boolean
@@ -101,6 +102,7 @@ const initialState = {
   questions: [],
   currentIndex: 0,
   answers: {},
+  navigationHistory: [] as number[],
   isLoading: false,
   isComplete: false,
   error: null,
@@ -230,7 +232,7 @@ export const useQuizStore = create<QuizState>()(
       },
 
       nextQuestion: () => {
-        const { questions, currentIndex, answers } = get()
+        const { questions, currentIndex, answers, navigationHistory } = get()
         const currentQuestion = questions[currentIndex]
         if (!currentQuestion) return
 
@@ -256,7 +258,10 @@ export const useQuizStore = create<QuizState>()(
         if (jumpToId) {
           const targetIndex = questions.findIndex(q => q.id === jumpToId)
           if (targetIndex !== -1) {
-            set({ currentIndex: targetIndex })
+            set({
+              currentIndex: targetIndex,
+              navigationHistory: [...navigationHistory, currentIndex],
+            })
 
             // Update server-side currentIndex
             const { sessionId } = get()
@@ -290,7 +295,10 @@ export const useQuizStore = create<QuizState>()(
           return
         }
 
-        set({ currentIndex: nextIndex })
+        set({
+          currentIndex: nextIndex,
+          navigationHistory: [...navigationHistory, currentIndex],
+        })
 
         // Update server-side currentIndex
         const { sessionId } = get()
@@ -307,33 +315,30 @@ export const useQuizStore = create<QuizState>()(
       },
 
       prevQuestion: () => {
-        const { questions, currentIndex, answers } = get()
+        const { navigationHistory } = get()
 
-        // Find previous visible question
-        let prevIndex = currentIndex - 1
-        while (prevIndex >= 0) {
-          const question = questions[prevIndex]
-          if (evaluateShowCondition(question.showCondition, answers)) {
-            break
-          }
-          prevIndex--
-        }
+        // Pop from navigation history to go back to the exact previous question
+        if (navigationHistory.length === 0) return
 
-        if (prevIndex >= 0) {
-          set({ currentIndex: prevIndex })
+        const newHistory = [...navigationHistory]
+        const prevIndex = newHistory.pop()!
 
-          // Update server-side currentIndex
-          const { sessionId } = get()
-          if (sessionId) {
-            fetch("/api/answers", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                sessionId,
-                updateIndex: prevIndex,
-              }),
-            }).catch(console.error)
-          }
+        set({
+          currentIndex: prevIndex,
+          navigationHistory: newHistory,
+        })
+
+        // Update server-side currentIndex
+        const { sessionId } = get()
+        if (sessionId) {
+          fetch("/api/answers", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              sessionId,
+              updateIndex: prevIndex,
+            }),
+          }).catch(console.error)
         }
       },
 

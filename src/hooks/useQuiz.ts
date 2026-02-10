@@ -119,6 +119,7 @@ export function useQuiz(): UseQuizReturn {
     questions,
     currentIndex,
     answers,
+    navigationHistory,
     isLoading,
     isComplete,
     error,
@@ -216,8 +217,8 @@ export function useQuiz(): UseQuizReturn {
 
   // Navigation state
   const canGoBack = useMemo(() => {
-    return currentVisibleIndex > 0
-  }, [currentVisibleIndex])
+    return navigationHistory.length > 0
+  }, [navigationHistory])
 
   const canGoNext = useMemo(() => {
     if (!currentQuestion) return false
