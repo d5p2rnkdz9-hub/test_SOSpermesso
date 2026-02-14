@@ -1,12 +1,12 @@
-# Corso AI - Pre-Training Screening
+# SOSpermesso - Questionnaire Tool
 
 ## What This Is
 
-A web-based pre-training screening tool for AI courses targeting Italian lawyers. Uses branching questionnaires to assess participants' AI knowledge and experience, providing personalized feedback on their proficiency level and generating admin reports for course instructors. Part of DigiCrazy Lab's "AI e professione forense" training program.
+A web-based legal decision tree that helps migrants in Italy determine whether they have the right to a residence permit (permesso di soggiorno). Through a series of branching questions about their situation — family, age, fear of return, health, exploitation — users are routed to one of ~25 specific legal outcome pages ("schede") with detailed guidance on which permit applies, how to apply, whether they need a lawyer, and links to free legal aid. Replaces the current Typeform-based version at sospermesso.it. Used by both migrants directly and legal aid workers screening clients.
 
 ## Core Value
 
-Understand what each participant knows about AI before the course starts — enabling instructors to tailor content and participants to understand their starting point.
+Help migrants quickly understand whether they can get a residence permit and exactly what to do next — in their own language, with a friendly and reassuring tone.
 
 ## Requirements
 
@@ -16,60 +16,85 @@ Understand what each participant knows about AI before the course starts — ena
 
 ### Active
 
-- [ ] Branching questionnaire with adaptive logic (answers determine next question)
-- [ ] Multiple question types: multiple choice, multiple select, true/false
-- [ ] 5-10 questions per screening session
-- [ ] Custom rules engine for level determination (not just score thresholds)
-- [ ] Three proficiency levels: Level 1 (basics), Level 2 (projects), Level 3 (advanced/code)
-- [ ] Immediate personalized feedback for learner (level + explanation of why)
-- [ ] Admin dashboard to view all participant responses
-- [ ] Cloud-hosted deployment
-- [ ] Part of course enrollment flow (not standalone public link)
+- [ ] Branching decision tree with ~40 questions across multiple paths (minor, family, partner, fear, health, exploitation, born in Italy)
+- [ ] Each path terminates at a specific "scheda" (legal outcome page) with detailed guidance
+- [ ] ~25 distinct outcome pages with: permit type, confidence level, how to apply, lawyer needed, duration/rights, links to legal aid
+- [ ] Variable substitution throughout ([Nome], [Parente selezionato], dynamic text based on earlier answers)
+- [ ] Multi-language support: Italian (base), Arabic, French, English, Spanish at launch — architecture for 10+ languages
+- [ ] RTL (right-to-left) layout support for Arabic
+- [ ] AI-assisted translation pipeline
+- [ ] Name collection at start
+- [ ] Feedback/rating section at end
+- [ ] Friendly, warm design — reassuring tone, not clinical/bureaucratic
+- [ ] Session persistence (resume if browser closed)
+- [ ] Mobile-responsive
+- [ ] Admin dashboard: usage analytics, outcome distribution, drop-off points
+- [ ] Hosted on subdomain (e.g. test.sospermesso.it) via Vercel
 
 ### Out of Scope
 
-- Video content management — not needed for screening tool
-- Payment processing — handled separately
-- LMS integration — standalone for v1
-- Mobile app — web-first
-- Multi-language support — Italian only for now
+- Integration with sospermesso.it 11ty site (link to subdomain is sufficient) — different tech stacks
+- User accounts/login for migrants — anonymous usage
+- Payment processing — free tool
+- Mobile app — web-first, responsive design sufficient
+- Legal advice generation — tool provides information, not legal counsel
+- Editing schede content via admin UI in v1 — content managed in code/data files
 
 ## Context
 
-**Course: "AI e professione forense"**
-- Training lawyers on using AI without compromising professional quality and responsibility
-- Module 1 (2h): Risks, limits, conscious AI use — Feb 25, 2025
-- Module 2 (2h): Practical applications — March 11, 2025
-- Max 12 participants, €320/person, in-person in Milan
-- Instructors: Enrica Curatola (digital skills) + Avv. Alberto Pasquero (legal/deontological)
+**Existing product:**
+- SOSpermesso (sospermesso.it) is a live project helping migrants navigate Italian immigration bureaucracy
+- Current questionnaire runs on Typeform — replacing to own the infrastructure and enable multi-language
+- Main site runs on Netlify with 11ty (static site generator)
+- All question logic, content, and outcome schede already designed and validated in production
 
-**Level Mapping:**
-- Level 1: Never used AI tools, needs fundamentals (what is AI, risks, basic prompting)
-- Level 2: Has used AI casually, ready for practical workflows and projects
-- Level 3: Advanced user, beyond current course scope (potential future offering)
+**Forked from Corso AI:**
+- Reuses the branching questionnaire infrastructure (Next.js + Supabase + Vercel stack)
+- Core engine, UI components, session persistence, and database patterns carry over
+- Different domain: Corso AI is knowledge assessment (quiz → level), SOSpermesso is legal decision tree (questions → specific legal outcome)
 
-**Screening Logic Examples:**
-- "Have you heard of Claude, ChatGPT, Gemini?" → Yes → "Which have you used?"
-- If "None" → basic awareness questions → likely Level 1
-- If used tools → deeper questions about workflows, risks awareness
+**Decision tree structure (from flowchart):**
+- Entry: EU citizen? → Yes = done, No = continue
+- Main branch: situation (minor, family, partner, fear, health, pregnancy, exploitation, born in Italy, none)
+- Sub-branches drill into specifics: citizenship of relatives, age, dependency, marriage status, permit status
+- Terminal nodes are schede with detailed legal information
+- Any individual path is 3-8 questions deep
 
-**Future Vision:**
-This tool will serve multiple courses. For this first course (single class), it's pure assessment. For future courses, it will also sort participants into appropriate levels.
+**Content characteristics:**
+- Warm, friendly tone with emojis and reassuring language ("navigating turbulent bureaucratic waters")
+- Confidence indicators on outcomes (sicuri/non siamo sicuri)
+- Links to external resources (sospermesso.it guides, legal aid centers)
+- FAQ-style structure in schede (quanto dura, come lo chiedo, mi serve un avvocato)
+
+**Target users:**
+- Migrants in Italy (self-service, may have limited Italian)
+- Legal aid workers / lawyers (screening tool for clients)
+
+**Languages for launch:**
+- Italian (base content)
+- Arabic (requires RTL support)
+- French
+- English
+- Spanish
+- Architecture must support 10+ languages
 
 ## Constraints
 
-- **Timeline**: Must be functional before Feb 25, 2025 course date
-- **Hosting**: Cloud platform (Vercel, Netlify, or similar)
-- **Admin**: Single admin manages all content (Alberto)
-- **Language**: Italian interface and content
+- **Tech stack**: Next.js + Supabase + Vercel (inherited from Corso AI fork)
+- **i18n**: Must support RTL from day one (Arabic) — cannot be retrofitted
+- **Content**: All question and scheda content already exists in Italian — translation is the task, not content creation
+- **Hosting**: Vercel, served from subdomain of sospermesso.it
+- **Design**: Friendly, warm, accessible — not a government form aesthetic
 
 ## Key Decisions
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Branching questionnaire over linear quiz | Adaptive paths reveal more about knowledge than fixed questions | — Pending |
-| Three-level system (1-2-3) | Maps to course structure: basics → projects → code | — Pending |
-| Standalone tool (no LMS) | Simpler v1, can integrate later | — Pending |
+| Fork Corso AI codebase | Reuse proven questionnaire infrastructure (engine, UI, DB, hosting) | -- Pending |
+| Subdomain deployment (test.sospermesso.it) | Main site is 11ty/Netlify, questionnaire is Next.js/Vercel — clean separation | -- Pending |
+| AI-assisted translations | 10+ languages needed, professional translation cost-prohibitive for legal content volume | -- Pending |
+| RTL support from day one | Arabic is a launch language, RTL cannot be bolted on later | -- Pending |
+| Decision tree not quiz/assessment | No scoring — route to specific legal outcome, not proficiency level | -- Pending |
 
 ---
-*Last updated: 2025-02-04 after initialization*
+*Last updated: 2026-02-14 after initialization*
