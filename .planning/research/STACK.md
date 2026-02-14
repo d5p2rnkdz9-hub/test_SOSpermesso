@@ -1,484 +1,371 @@
-# Technology Stack
+# Stack Research: Multilingual i18n + RTL for SOSpermesso
 
-**Project:** Pre-training Assessment Platform for AI Courses (Italian Lawyers)
-**Researched:** 2026-02-04
-**Overall Confidence:** HIGH
+**Domain:** Multilingual legal decision tree (Next.js App Router)
+**Researched:** 2026-02-14
+**Confidence:** HIGH (all core recommendations verified against official documentation)
 
-## Executive Summary
+## Existing Stack (inherited from Corso AI fork)
 
-The 2025 standard for branching questionnaire platforms is a Next.js full-stack application with TypeScript, deployed on Vercel. The ecosystem has consolidated around:
-- **Next.js 16** with App Router for full-stack React development
-- **Supabase** for database, auth, and real-time subscriptions
-- **shadcn/ui + Tailwind CSS v4** for UI components
-- **React Hook Form + Zod** for form validation
-- **Zustand** for client-side state management
+| Technology | Version | Role |
+|------------|---------|------|
+| Next.js | ^16.1.6 | App Router framework |
+| React | ^19.0.0 | UI |
+| Supabase (Prisma) | Prisma ^5.22.0 | Database |
+| Tailwind CSS | ^3.4.1 | Styling |
+| shadcn/ui | new-york style | Component library |
+| Zustand | ^5.0.11 | Client state |
+| Zod | ^4.3.6 | Validation |
+| Vercel | -- | Hosting |
 
-This stack provides excellent DX, minimal boilerplate, type safety throughout, and scales from MVP to production without major rewrites.
-
----
-
-## Recommended Stack
-
-### Core Framework
-
-| Technology | Version | Purpose | Why |
-|------------|---------|---------|-----|
-| **Next.js** | 16.1.6 | Full-stack React framework | App Router provides file-based routing, server components, server actions, and API routes in one framework. Perfect for quiz platforms with both user-facing assessments and admin dashboards. Built-in SSR improves performance. Native Vercel deployment. |
-| **React** | 19.2.4 | UI library | Latest stable version with improved concurrent features. React 19 brings performance improvements and better TypeScript support. Industry standard for interactive UIs. |
-| **TypeScript** | 5.9.3 | Type safety | Essential for complex branching logic. Prevents runtime errors in rule engines. Excellent autocomplete for faster development. Type inference with Zod schemas eliminates duplication. |
-| **Node.js** | 20.x LTS | Runtime | Required for Next.js. Use LTS version for stability. |
-
-**Confidence:** HIGH - Verified via npm registry, official Next.js docs confirm App Router maturity.
-
-**Why Next.js over alternatives:**
-- **vs. Vite + React Router:** Next.js provides backend (API routes, server actions) + frontend in one framework. No need for separate Express server.
-- **vs. Create React App:** CRA is deprecated. Next.js is the official React team recommendation.
-- **vs. Remix:** Next.js has larger ecosystem, better Vercel integration, more mature component libraries (shadcn/ui).
+**Key observation:** The fork already has `components.json` with `"rtl": false`. shadcn/ui's January 2026 RTL release means we can flip this flag and migrate components with a single CLI command.
 
 ---
 
-### Database & Backend
+## Recommended Stack: i18n + RTL Layer
 
-| Technology | Version | Purpose | Why |
-|------------|---------|---------|-----|
-| **Supabase** | 2.94.1 | PostgreSQL database + Auth + Realtime | Open-source Firebase alternative. Provides dedicated PostgreSQL database with auto-generated REST API, authentication (email/magic link), Row Level Security for multi-tenancy, and real-time subscriptions (if admin wants live dashboard updates). Better fit than Firebase because quiz platforms need relational data (questions → answers → rules → levels). Postgres handles complex joins for reporting. Free tier: 500MB database, unlimited API requests. |
-| **@supabase/ssr** | Latest | Supabase auth helpers for Next.js | Replaces deprecated `@supabase/auth-helpers-nextjs`. Provides cookie-based auth (secure, SSR-compatible). Exports `createBrowserClient` and `createServerClient` for proper client/server separation. |
+### Core Technologies
 
-**Confidence:** HIGH - Verified via npm registry. Official Supabase docs (2025) recommend `@supabase/ssr` for Next.js App Router.
+| Technology | Version | Purpose | Why Recommended | Confidence |
+|------------|---------|---------|-----------------|------------|
+| **next-intl** | ^4.8 (latest 4.x) | i18n framework: routing, message loading, formatting | De facto standard for Next.js App Router i18n. 930K+ weekly npm downloads. First-class App Router support with Server Components, `[locale]` routing, ICU message syntax, strict TypeScript types. v4.0 (March 2025) added ESM-only build, strict locale typing, GDPR-compliant cookies. Actively maintained by @amannn. The only library that natively handles `proxy.ts` (Next.js 16 rename of middleware.ts). | HIGH |
+| **shadcn/ui RTL mode** | latest CLI (Jan 2026 release) | RTL component transformation | shadcn/ui shipped first-class RTL support in January 2026. Setting `"rtl": true` in `components.json` + running `pnpm dlx shadcn@latest migrate rtl` converts all physical CSS classes (ml-4, text-left, left-*) to logical equivalents (ms-4, text-start, start-*). Icons auto-flip with `rtl:rotate-180`. This is the exact stack we already use -- zero new dependencies. | HIGH |
+| **Tailwind CSS logical properties** | built-in since v3.3 | RTL-safe spacing/positioning | Tailwind v3.3+ natively supports `ms-*`, `me-*`, `ps-*`, `pe-*`, `text-start`, `text-end`, `start-*`, `end-*`. These CSS logical properties auto-flip in RTL without any plugin. Since we're on Tailwind ^3.4.1, this works out of the box. No plugin needed. | HIGH |
+| **Crowdin** | Cloud (free for open-source) | Translation management + AI pre-translation | Free for open-source projects. Native GitHub integration (auto-PRs with translation updates). Built-in AI pre-translation using OpenAI/Anthropic/Google models. Supports JSON message files natively. 700+ integrations. next-intl docs officially recommend Crowdin. The `crowdin.yml` config maps directly to next-intl's `messages/*.json` structure. | HIGH |
 
-**Why Supabase over alternatives:**
-- **vs. Firebase:** Supabase uses PostgreSQL (relational), better for quiz platforms with structured data. SQL queries easier for complex reporting. Open-source, no vendor lock-in.
-- **vs. PlanetScale/Neon/Vercel Postgres:** Supabase bundles database + auth + realtime + storage. Less integration work. Free tier more generous.
-- **vs. Self-hosted Postgres:** Supabase provides auth, real-time, auto-generated API, admin UI. Saves weeks of development time.
-
----
-
-### UI & Styling
-
-| Technology | Version | Purpose | Why |
-|------------|---------|---------|-----|
-| **Tailwind CSS** | 4.1.18 (v4) | Utility-first CSS framework | Industry standard for 2025. V4 released with performance improvements. Faster than writing custom CSS. All Next.js templates use Tailwind. Responsive utilities (`sm:`, `md:`, `lg:`) simplify mobile-first design. |
-| **shadcn/ui** | Latest | Copy-paste component library | NOT a dependency - you own the code. Built on Radix UI (accessible primitives) + Tailwind CSS. Updated for React 19 and Tailwind v4 in 2025. Provides production-ready components (forms, modals, dropdowns) that you can customize. Better than component libraries because you control the code. |
-| **Radix UI** | Via shadcn/ui | Headless UI primitives | Accessible components (keyboard nav, ARIA labels, focus management). Used by shadcn/ui under the hood. |
-| **clsx + tailwind-merge** | Latest | Conditional class utilities | `clsx` for conditional classes, `tailwind-merge` to prevent conflicts. Standard pattern in shadcn/ui components. |
-
-**Confidence:** HIGH - shadcn/ui official docs confirm React 19 and Tailwind v4 support. WebSearch results show dominance in 2025 ecosystem.
-
-**Why shadcn/ui over alternatives:**
-- **vs. Material UI (MUI):** shadcn/ui is lighter (no runtime dependency), more customizable, Tailwind-native. MUI has opinionated design that's harder to customize.
-- **vs. Chakra UI:** shadcn/ui uses Radix (more accessible), copy-paste approach gives full control. Chakra has runtime styling overhead.
-- **vs. DaisyUI:** shadcn/ui provides TypeScript-first components with better type safety. DaisyUI is class-based only.
-- **vs. Ant Design:** shadcn/ui is more modern, lightweight, and aligned with current React patterns.
-
----
-
-### Forms & Validation
-
-| Technology | Version | Purpose | Why |
-|------------|---------|---------|-----|
-| **React Hook Form** | 7.71.1 | Form state management | Industry standard for React forms. Uncontrolled components = better performance (fewer re-renders). Integrates with Zod via `@hookform/resolvers/zod`. Supports complex forms with dynamic fields (needed for branching logic). |
-| **Zod** | 4.3.6 | Schema validation | TypeScript-native validation. Define schema once, get runtime validation + TypeScript types via `z.infer<typeof schema>`. Better than writing validation logic manually. Validates question responses, admin inputs, API payloads. |
-| **@hookform/resolvers** | Latest | Resolver for RHF + Zod | Bridge between React Hook Form and Zod. Allows Zod schemas as validation source. |
-
-**Confidence:** HIGH - npm registry confirms versions. Official React Hook Form docs recommend Zod integration.
-
-**Why React Hook Form + Zod over alternatives:**
-- **vs. Formik:** React Hook Form has better performance (uncontrolled), smaller bundle size, more active development.
-- **vs. Yup:** Zod is TypeScript-native (better type inference), more modern API, growing ecosystem.
-- **vs. Native HTML validation:** Not enough for complex branching rules. Need custom validation logic for multi-step forms.
-
----
-
-### State Management
-
-| Technology | Version | Purpose | Why |
-|------------|---------|---------|-----|
-| **Zustand** | 5.0.11 | Client-side state management | Lightweight (1KB), minimal boilerplate. Manages quiz session state (current question index, answers, branching path). Better performance than Context API (only re-renders subscribed components). Supports middleware (persist answers to localStorage for recovery). Standard choice in 2025 for small-to-medium apps. |
-| **React Server Components** | Built into Next.js 16 | Server-side data fetching | Use RSC for fetching questions from Supabase. Reduces client bundle size. Data never leaves server until needed. |
-
-**Confidence:** HIGH - npm registry confirms version. 2025 WebSearch consensus: Zustand is the "versatile middle ground" for most projects.
-
-**Why Zustand over alternatives:**
-- **vs. Context API:** Context causes re-renders of all consuming components. Zustand only re-renders components that subscribe to changed state. Better performance for quiz apps with frequent state updates.
-- **vs. Redux Toolkit:** Redux has more boilerplate (actions, reducers, slices). Zustand is simpler for small apps. Redux better for large enterprise apps with complex state interactions.
-- **vs. Jotai/Recoil:** Zustand is more established, better documentation, simpler mental model.
-
-**Pattern:** Use Zustand for **client state** (quiz session, UI state). Use Supabase + React Server Components for **server state** (questions, user data).
-
----
-
-### Internationalization
-
-| Technology | Version | Purpose | Why |
-|------------|---------|---------|-----|
-| **next-intl** | Latest | i18n for Next.js | De facto standard for Next.js i18n in 2025. Works with App Router. Type-safe translations. Supports Italian language (confirmed via real-world implementations). Simpler than `next-i18next` for App Router projects. |
-
-**Confidence:** MEDIUM - WebSearch shows next-intl as 2025 standard, but not verified via Context7.
-
-**Why next-intl over alternatives:**
-- **vs. Built-in Next.js i18n routing:** Built-in routing doesn't handle translations, only locale detection. next-intl provides translation management.
-- **vs. react-i18next:** next-intl designed specifically for Next.js App Router. Better SSR support.
-- **vs. Custom solution:** next-intl handles pluralization, date formatting, number formatting out of box.
-
-**Note:** For single-language Italian MVP, i18n can be deferred. Add when planning English expansion.
-
----
-
-### Testing
-
-| Technology | Version | Purpose | Why |
-|------------|---------|---------|-----|
-| **Vitest** | Latest | Test runner | Faster than Jest for Vite-based projects. Better TypeScript support. Compatible with Jest API (easy migration). 2025 standard for modern projects. |
-| **React Testing Library** | Latest | Component testing | Tests components from user perspective (not implementation details). Works with Vitest. Standard for React testing. |
-| **Playwright** | Latest | E2E testing | Tests full quiz flow (start → answer → branching → results). Better than Cypress for Next.js (official Next.js docs recommend Playwright). |
-
-**Confidence:** HIGH - Next.js official testing docs recommend Vitest + Playwright. WebSearch confirms 2025 adoption.
-
-**Why this testing stack:**
-- **vs. Jest:** Vitest is faster, better ESM support, native TypeScript. Jest has legacy config issues with Next.js App Router.
-- **vs. Cypress:** Playwright is faster, better debugging tools, official Next.js recommendation.
-
----
-
-### Deployment & Infrastructure
-
-| Technology | Version | Purpose | Why |
-|------------|---------|---------|-----|
-| **Vercel** | N/A | Hosting platform | Built by Next.js creators. Zero-config deployment. Automatic preview deployments for PRs. Edge functions for dynamic content. Free tier: 100GB bandwidth, unlimited deployments. Best Next.js performance (optimized edge network). |
-| **Supabase Cloud** | N/A | Database hosting | Free tier: 500MB database, 2GB file storage, 50K monthly active users. Auto-scaling. Automatic backups. Database hosted on AWS (reliable). |
-
-**Confidence:** HIGH - Vercel is the official Next.js deployment platform.
-
-**Why Vercel over alternatives:**
-- **vs. Netlify:** Vercel has better Next.js optimization (same company). Netlify requires adapter for full Next.js features.
-- **vs. Railway/Render:** Vercel free tier more generous. Better CDN. Automatic image optimization.
-- **vs. Self-hosted (VPS):** Vercel handles scaling, CDN, SSL, monitoring. Saves DevOps time.
-
----
-
-## Supporting Libraries
+### Supporting Libraries
 
 | Library | Version | Purpose | When to Use |
 |---------|---------|---------|-------------|
-| **date-fns** | Latest | Date utilities | If tracking quiz completion timestamps, expiration dates. Lighter than Moment.js. Tree-shakeable. |
-| **recharts** | Latest | Data visualization | For admin dashboard charts (response distribution, completion rates). Built on React + D3. Lightweight. |
-| **lucide-react** | Latest | Icon library | Modern, consistent icons. Tree-shakeable. Used by shadcn/ui. |
-| **sonner** | Latest | Toast notifications | Accessible toast notifications. Used by shadcn/ui. Shows feedback after quiz submission. |
+| **@radix-ui/react-direction** | latest | DirectionProvider for Radix primitives | Wrap root layout to propagate `dir="rtl"` to all Radix-based shadcn components (dialogs, popovers, dropdowns). Already a transitive dependency via shadcn/ui. | HIGH |
+| **Noto Sans Arabic** (Google Font) | via `next/font/google` | Arabic font | Load conditionally for Arabic locale. Noto family recommended by shadcn/ui RTL docs. Use `next/font/google` for optimization. | HIGH |
+| **Inter** (Google Font) | via `next/font/google` | Latin script font | Already used in Tailwind config. Keep as default for IT/FR/EN/ES. | HIGH |
 
-**Confidence:** MEDIUM - These are standard shadcn/ui ecosystem libraries but not critical path.
+### Development Tools
 
----
-
-## Alternatives Considered
-
-| Category | Recommended | Alternative | Why Not |
-|----------|-------------|-------------|---------|
-| Framework | Next.js 16 | Remix | Smaller ecosystem, fewer component libraries, less Vercel integration |
-| Framework | Next.js 16 | Astro | Better for content sites, not interactive apps. No built-in backend. |
-| Database | Supabase | Firebase | NoSQL (Firestore) less suitable for relational quiz data. Vendor lock-in. |
-| Database | Supabase | PlanetScale | No built-in auth or realtime. Requires additional services. |
-| UI Library | shadcn/ui | Material UI (MUI) | Heavier bundle, harder to customize, opinionated design. |
-| UI Library | shadcn/ui | Ant Design | Opinionated design, larger bundle, not Tailwind-native. |
-| Forms | React Hook Form | Formik | Slower (controlled components), larger bundle, less active development. |
-| Validation | Zod | Yup | Not TypeScript-native, weaker type inference. |
-| State | Zustand | Redux Toolkit | Too much boilerplate for small app. Overkill for quiz state. |
-| State | Zustand | Context API | Performance issues (re-renders all consumers). |
-| Hosting | Vercel | Netlify | Requires adapter for full Next.js support. Slower deployments. |
-| Testing | Vitest | Jest | Slower, worse TypeScript support, legacy config issues with Next.js. |
-| E2E | Playwright | Cypress | Slower, less stable, not official Next.js recommendation. |
+| Tool | Purpose | Notes |
+|------|---------|-------|
+| **Crowdin CLI** | Sync translations locally | `npm install -g @crowdin/cli`. Config: `crowdin.yml` at project root. Commands: `crowdin upload sources`, `crowdin download`. |
+| **next-intl TypeScript plugin** | Compile-time message key validation | Built into next-intl 4.x. Catches missing translation keys at build time via augmented types. |
+| **shadcn CLI** | RTL migration | `pnpm dlx shadcn@latest migrate rtl` -- one-time migration of all components. |
 
 ---
 
 ## Installation
 
-### Initialize Next.js Project
-
 ```bash
-# Create Next.js app with TypeScript
-npx create-next-app@latest quiz-platform \
-  --typescript \
-  --tailwind \
-  --app \
-  --src-dir \
-  --import-alias "@/*"
-
-cd quiz-platform
-```
-
-### Core Dependencies
-
-```bash
-# Database & Auth
-npm install @supabase/supabase-js @supabase/ssr
-
-# Forms & Validation
-npm install react-hook-form @hookform/resolvers zod
-
-# State Management
-npm install zustand
-
-# UI Components (via shadcn/ui CLI)
-npx shadcn@latest init
-# Then add components as needed:
-npx shadcn@latest add button
-npx shadcn@latest add form
-npx shadcn@latest add radio-group
-npx shadcn@latest add checkbox
-npx shadcn@latest add card
-npx shadcn@latest add toast
-
-# Internationalization (if needed)
+# Core i18n
 npm install next-intl
 
-# Utilities
-npm install clsx tailwind-merge
-npm install lucide-react
-npm install date-fns
+# That's it for new dependencies.
+# shadcn/ui RTL is a CLI migration, not a package install.
+# Crowdin is a cloud service + CLI tool.
+
+# Dev tools (optional, for local Crowdin workflow)
+npm install -g @crowdin/cli
 ```
 
-### Dev Dependencies
-
-```bash
-# Testing
-npm install -D vitest @vitejs/plugin-react
-npm install -D @testing-library/react @testing-library/jest-dom @testing-library/user-event
-npm install -D @playwright/test
-
-# TypeScript types
-npm install -D @types/node @types/react @types/react-dom
-```
-
-### Environment Variables
-
-Create `.env.local`:
-
-```bash
-# Supabase
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
-
-# Optional: Analytics, monitoring
-```
+**Total new runtime dependencies: 1 (next-intl).** Everything else is either already in the stack, a dev tool, or a cloud service.
 
 ---
 
-## Architecture Notes
+## Architecture Changes to Corso AI Fork
 
-### Folder Structure
+### 1. File Structure Transformation
 
+**Before (current Corso AI):**
 ```
 src/
-├── app/                    # Next.js App Router
-│   ├── (auth)/            # Auth routes (login, signup)
-│   ├── (quiz)/            # Quiz-taking interface
-│   ├── admin/             # Admin dashboard
-│   └── api/               # API routes (if needed)
-├── components/
-│   ├── ui/                # shadcn/ui components
-│   ├── quiz/              # Quiz-specific components
-│   └── admin/             # Admin components
-├── lib/
-│   ├── supabase/          # Supabase client setup
-│   ├── validations/       # Zod schemas
-│   └── utils.ts           # Utility functions
-├── stores/                # Zustand stores
-│   └── quiz-store.ts      # Quiz session state
-└── types/                 # TypeScript types
+  app/
+    layout.tsx          ← hardcoded lang="it"
+    page.tsx
+    quiz/
+      page.tsx
+      results/page.tsx
 ```
 
-### Database Schema (Supabase)
+**After (SOSpermesso with i18n):**
+```
+messages/
+  it.json               ← Italian (source of truth)
+  ar.json               ← Arabic (from Crowdin)
+  fr.json               ← French
+  en.json               ← English
+  es.json               ← Spanish
+src/
+  i18n/
+    routing.ts           ← defineRouting({ locales, defaultLocale })
+    request.ts           ← getRequestConfig (load messages per locale)
+    navigation.ts        ← createNavigation (locale-aware Link, redirect)
+  app/
+    [locale]/            ← NEW: all pages move under [locale] segment
+      layout.tsx         ← dynamic lang + dir, NextIntlClientProvider
+      page.tsx
+      questionnaire/
+        page.tsx
+        results/page.tsx
+proxy.ts                 ← NEW: replaces middleware.ts (Next.js 16 naming)
+crowdin.yml              ← NEW: Crowdin source/translation file mapping
+```
 
-```sql
--- questions table
-CREATE TABLE questions (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-  text TEXT NOT NULL,
-  type VARCHAR(50) NOT NULL, -- 'multiple_choice', 'multiple_select', 'true_false'
-  options JSONB NOT NULL,    -- Array of answer options
-  order_index INTEGER NOT NULL,
-  created_at TIMESTAMP DEFAULT NOW()
-);
+### 2. Root Layout Changes
 
--- branching_rules table
-CREATE TABLE branching_rules (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-  question_id UUID REFERENCES questions(id),
-  condition JSONB NOT NULL,   -- { answer: 'A', next_question_id: 'uuid' }
-  next_question_id UUID REFERENCES questions(id),
-  created_at TIMESTAMP DEFAULT NOW()
-);
+**Current:**
+```tsx
+<html lang="it">
+  <body className="antialiased">{children}</body>
+</html>
+```
 
--- sessions table
-CREATE TABLE sessions (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-  user_email VARCHAR(255),
-  answers JSONB NOT NULL,     -- { question_id: answer }
-  determined_level VARCHAR(50),
-  completed_at TIMESTAMP,
-  created_at TIMESTAMP DEFAULT NOW()
-);
+**Required:**
+```tsx
+import { NextIntlClientProvider } from 'next-intl';
+import { DirectionProvider } from '@/components/ui/direction';
+import { hasLocale } from 'next-intl';
+import { routing } from '@/i18n/routing';
+import { notFound } from 'next/navigation';
+import { setRequestLocale } from 'next-intl/server';
 
--- levels table
-CREATE TABLE levels (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-  name VARCHAR(50) NOT NULL,  -- 'beginner', 'intermediate', 'advanced'
-  description TEXT,
-  rules JSONB NOT NULL,       -- Custom rules for level determination
-  created_at TIMESTAMP DEFAULT NOW()
-);
+export default async function LocaleLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) notFound();
+  setRequestLocale(locale);
+
+  const direction = locale === 'ar' ? 'rtl' : 'ltr';
+
+  return (
+    <html lang={locale} dir={direction}>
+      <body className="antialiased">
+        <DirectionProvider direction={direction}>
+          <NextIntlClientProvider>
+            {children}
+          </NextIntlClientProvider>
+        </DirectionProvider>
+      </body>
+    </html>
+  );
+}
+```
+
+### 3. next.config.ts Change
+
+**Current:** Empty config.
+**Required:**
+```tsx
+import { NextConfig } from 'next';
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const nextConfig: NextConfig = {};
+const withNextIntl = createNextIntlPlugin();
+export default withNextIntl(nextConfig);
+```
+
+### 4. proxy.ts (NEW file)
+
+```tsx
+import createMiddleware from 'next-intl/middleware';
+import { routing } from './src/i18n/routing';
+
+export default createMiddleware(routing);
+
+export const config = {
+  matcher: '/((?!api|trpc|_next|_vercel|.*\\..*).*)',
+};
+```
+
+**Critical Next.js 16 note:** This file is `proxy.ts`, NOT `middleware.ts`. Next.js 16 renamed middleware to proxy. The proxy runs on Node.js runtime (NOT edge). next-intl's latest docs already reflect this.
+
+### 5. components.json Change
+
+**Current:** `"rtl": false`
+**Required:** `"rtl": true`
+
+Then run: `pnpm dlx shadcn@latest migrate rtl`
+
+This one command converts all existing shadcn components from physical to logical CSS classes.
+
+### 6. crowdin.yml (NEW file)
+
+```yaml
+files:
+  - source: /messages/it.json
+    translation: /messages/%locale%.json
 ```
 
 ---
 
-## Version Management
+## Translation Pipeline: AI-Assisted Workflow
 
-### Why These Versions?
+### How It Works
 
-- **Next.js 16.1.6:** Latest stable (verified 2026-02-04 via npm). App Router is production-ready.
-- **React 19.2.4:** Latest stable. Performance improvements over v18.
-- **TypeScript 5.9.3:** Latest stable. Improved type inference.
-- **Tailwind CSS 4.1.18:** Latest v4 release. Performance improvements.
-- **Supabase 2.94.1:** Latest stable client library.
-- **React Hook Form 7.71.1:** Latest stable. Mature, battle-tested.
-- **Zod 4.3.6:** Latest stable with TypeScript 5.x support.
-- **Zustand 5.0.11:** Latest stable. Breaking changes from v4 are minor.
+```
+1. Write content in Italian (messages/it.json)
+   |
+2. Push to GitHub (main branch)
+   |
+3. Crowdin syncs source file automatically (GitHub integration)
+   |
+4. Crowdin AI pre-translates to AR, FR, EN, ES
+   |  - Uses OpenAI/Anthropic models configured in Crowdin
+   |  - Respects glossary (legal terms: permesso di soggiorno, etc.)
+   |  - Respects context from TM (translation memory)
+   |
+5. Human review in Crowdin editor (optional but recommended for legal)
+   |
+6. Crowdin creates PR with updated messages/*.json files
+   |
+7. Merge PR → deploy via Vercel
+```
 
-### Update Strategy
+### Why Crowdin Over Alternatives
 
-- **Lock versions** in `package.json` (no `^` or `~` for production)
-- **Review changelogs** before updating Next.js (major versions can break builds)
-- **Update quarterly** (security patches, bug fixes)
-- **Test staging** before production updates
+| Criterion | Crowdin | Tolgee | Lokalise |
+|-----------|---------|--------|----------|
+| **Price for this project** | Free (open source) | Free tier: 1,000 keys (may be tight with 40 questions + 25 schede) | $140/mo minimum |
+| **AI pre-translation** | Built-in, multi-model (OpenAI, Anthropic, Google) | Basic MT only | Built-in AI |
+| **GitHub auto-sync** | Native, battle-tested | Via CLI only | Native |
+| **JSON format support** | Native, including ICU | Native | Native |
+| **Glossary/TM** | Full support (critical for legal terms) | Basic | Full |
+| **Community translation** | Built for it (good if volunteers help) | Possible | Not oriented |
+| **next-intl recommendation** | Officially listed in next-intl docs | Not mentioned | Not mentioned |
+
+**Verdict:** Crowdin is the clear choice. Free for open source, officially recommended by next-intl, AI pre-translation with legal glossary support, and battle-tested GitHub integration. SOSpermesso qualifies for the free open-source plan since it's a nonprofit legal aid tool.
 
 ---
 
-## Confidence Assessment
+## Alternatives Considered
 
-| Area | Confidence | Reason |
-|------|------------|--------|
-| Framework (Next.js + React) | **HIGH** | Verified via npm registry. Official Next.js docs confirm App Router maturity. WebSearch shows 2025 ecosystem consolidation around Next.js. |
-| Database (Supabase) | **HIGH** | Official Supabase docs updated for 2025. Multiple WebSearch sources confirm PostgreSQL suitability for quiz platforms. npm registry confirms `@supabase/ssr` is current. |
-| UI (shadcn/ui + Tailwind) | **HIGH** | shadcn/ui official site confirms React 19 + Tailwind v4 support. WebSearch shows dominance in 2025 React ecosystem. |
-| Forms (RHF + Zod) | **HIGH** | npm registry confirms versions. Official docs show integration. WebSearch consensus for 2025 standard. |
-| State (Zustand) | **HIGH** | npm registry confirms version. Multiple 2025 WebSearch sources position Zustand as standard for small-medium apps. |
-| i18n (next-intl) | **MEDIUM** | WebSearch shows 2025 adoption, but not verified via Context7 or official Next.js docs. Real-world Italian implementations found. |
-| Testing (Vitest + Playwright) | **HIGH** | Next.js official testing docs recommend both. WebSearch confirms 2025 best practices. |
-| Deployment (Vercel) | **HIGH** | Official Next.js platform. WebSearch shows 2025 templates all deploy to Vercel. |
-
-**Overall Stack Confidence: HIGH** - All critical path technologies verified via npm registry + official docs + 2025 WebSearch consensus.
+| Recommended | Alternative | Why Not |
+|-------------|-------------|---------|
+| **next-intl** | next-i18next | next-i18next is NOT compatible with App Router. It was built for Pages Router and has no clean integration with Server Components or `[locale]` routing. The maintainer has stated it's designed for older Next.js patterns. |
+| **next-intl** | react-intl (FormatJS) | Lower-level, no built-in routing/middleware for Next.js. You'd need to build locale routing, message loading, and middleware from scratch. next-intl wraps ICU (same spec as react-intl) with Next.js-specific conveniences. |
+| **next-intl** | Paraglide (Inlang) | Interesting compiler-based approach but much smaller ecosystem (newer project). Less community support, fewer examples. Would be higher risk for a legal tool that needs to be reliable. |
+| **next-intl** | next-intlayer | Newer project, smaller community. next-intl has 5x+ the downloads and mature documentation. |
+| **Crowdin** | Tolgee (self-hosted) | Good OSS alternative but free cloud tier is limited (1,000 keys may not suffice for 40 questions + 25 schede x 5 sections each). GitHub sync requires CLI rather than native integration. Weaker AI translation. |
+| **Crowdin** | Manual JSON files + Claude API | Tempting for an AI course project, but: no translation memory, no glossary enforcement, no review UI, no PR automation, no collaborative editing. You'd build a worse version of what Crowdin offers free. |
+| **Tailwind logical properties** | tailwindcss-rtl plugin | Unnecessary -- Tailwind v3.3+ has native logical property support. The plugin adds complexity for zero benefit on our version. |
+| **Tailwind logical properties** | tailwindcss-flip plugin | Automatically flips ALL utilities -- too aggressive. Logical properties are surgical and intentional. Flip can break things that should stay physical (e.g., a logo position). |
 
 ---
 
 ## What NOT to Use
 
-### Deprecated/Outdated
+| Avoid | Why | Use Instead |
+|-------|-----|-------------|
+| **next-i18next** | Incompatible with App Router. Designed for Pages Router. Would require fighting the framework. | next-intl |
+| **i18next (raw)** | Generic React library, not Next.js-aware. No routing, no middleware, no Server Component support. Requires heavy custom wiring. | next-intl (which uses ICU internally) |
+| **tailwindcss-flip** | Brute-force approach that flips ALL directional utilities. Causes bugs when some things (logos, icons, specific layouts) should NOT flip. | Tailwind's native logical properties (ms-, me-, ps-, pe-, text-start, etc.) |
+| **tailwindcss-rtl** (plugin) | Redundant since Tailwind v3.3 has built-in logical properties. Adds an unnecessary dependency. | Built-in ms-/me-/ps-/pe- classes |
+| **DIY translation pipeline** | Building your own AI translation system sounds fun but produces a fragile, unmaintainable workflow without glossaries, TM, review UI, or PR automation. | Crowdin (free for OSS, does all of this) |
+| **Google Translate API direct** | No context awareness, no glossary, no review workflow, inconsistent quality for legal content. Crowdin wraps this AND better models. | Crowdin AI pre-translation |
+| **Storing translations in Supabase** | Over-engineering for static legal content. JSON files with next-intl are simpler, faster (no DB round-trip), cacheable, and work with SSG. Database translations make sense for user-generated content, not fixed legal text. | File-based messages/\*.json |
+| **middleware.ts** | Renamed to `proxy.ts` in Next.js 16. Using the old name will not work. | proxy.ts |
 
-- **Create React App:** Officially deprecated. Use Next.js.
-- **@supabase/auth-helpers-nextjs:** Replaced by `@supabase/ssr`.
-- **Next.js Pages Router:** Use App Router for new projects.
-- **Moment.js:** Deprecated. Use `date-fns` or `dayjs`.
+---
 
-### Overkill for This Project
+## Stack Patterns by Variant
 
-- **Redux Toolkit:** Too much boilerplate for quiz state. Use Zustand.
-- **tRPC:** Not needed with Supabase auto-generated API. Adds complexity.
-- **GraphQL (Apollo Client):** Supabase REST API + PostgREST is sufficient. GraphQL adds learning curve.
-- **Prisma:** Supabase generates database API automatically. Prisma adds ORM layer unnecessarily.
-- **Docker/Kubernetes:** Vercel handles infrastructure. Local Docker not needed for development.
+**If adding a new language later (e.g., Bengali, Chinese):**
+1. Add locale code to `routing.ts` locales array
+2. Add font (if new script) via `next/font/google`
+3. If RTL: no extra work needed (logical properties already in place)
+4. Crowdin auto-detects new target language
+5. Run AI pre-translation in Crowdin
+6. Merge PR with new `messages/bn.json`
 
-### Wrong Fit for Domain
+**If content changes (new question or scheda):**
+1. Update `messages/it.json` (source)
+2. Push to GitHub
+3. Crowdin syncs, shows "new untranslated strings"
+4. Run AI pre-translation for new strings only
+5. Review, approve, merge PR
 
-- **MongoDB/Firestore:** NoSQL less suitable for relational quiz data (questions → rules → answers → levels).
-- **Django/Flask:** Python backend adds complexity. Next.js API routes sufficient.
-- **WordPress + Quiz Plugin:** Not a custom rules engine. Limited branching logic.
+**If legal terms need consistent translation (e.g., "permesso di soggiorno"):**
+1. Add term to Crowdin glossary with translations per language
+2. AI pre-translation respects glossary entries
+3. Translators see glossary hints in editor
+
+---
+
+## Version Compatibility
+
+| Package | Compatible With | Notes |
+|---------|-----------------|-------|
+| next-intl ^4.8 | Next.js 14, 15, 16 | v4.0+ supports `proxy.ts` naming for Next.js 16. ESM-only. |
+| next-intl ^4.8 | TypeScript 5+ | Required for augmented types and strict locale typing. |
+| next-intl ^4.8 | React 19 | Server Components fully supported. |
+| shadcn/ui RTL | Tailwind ^3.3+ | Logical properties require Tailwind v3.3 minimum. We have ^3.4.1. |
+| shadcn/ui RTL | components.json | Requires `"rtl": true` in components.json. Our fork already has this field (set to false). |
+| Crowdin | next-intl JSON format | Direct compatibility. `messages/%locale%.json` maps 1:1. |
+
+---
+
+## RTL Implementation: Concrete Approach
+
+RTL is not "just add `dir=rtl`". Here is the complete approach:
+
+### Layer 1: HTML Direction (automatic via next-intl)
+- Root layout sets `<html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>` dynamically
+- All CSS logical properties respond to this automatically
+
+### Layer 2: Component RTL (shadcn/ui migration)
+- Run `shadcn migrate rtl` once to convert all components
+- `DirectionProvider` wraps the app for Radix primitives
+- Three components need manual attention: Calendar, Pagination, Sidebar
+
+### Layer 3: Custom CSS (Tailwind logical properties)
+- All new code uses `ms-*`, `me-*`, `ps-*`, `pe-*`, `text-start`, `text-end`
+- Never write `ml-*`, `mr-*`, `pl-*`, `pr-*`, `text-left`, `text-right`
+- Use `rtl:` variant for exceptions (e.g., `rtl:rotate-180` for directional icons)
+
+### Layer 4: Typography
+- Arabic locale loads Noto Sans Arabic via `next/font/google`
+- Latin locales use Inter (already configured)
+- Font loaded conditionally per locale in layout
+
+### Layer 5: Content Direction
+- ICU message format handles RTL text interpolation correctly
+- No special handling needed for mixed LTR/RTL content within messages -- browsers handle bidi natively with `dir` attribute
+
+### What You Don't Need to Do
+- No per-component RTL conditionals (logical properties handle this)
+- No separate RTL stylesheet (CSS logical properties are a single set of rules)
+- No RTL testing plugin (just set browser to Arabic and verify visually)
 
 ---
 
 ## Sources
 
-### Framework & Core Technologies
-- [Next.js Official Docs](https://nextjs.org/docs)
-- [React Official Docs](https://react.dev)
-- [npm registry](https://registry.npmjs.org) (version verification)
-- [Building a Quiz App with Next.js (2025)](https://arnab-k.medium.com/building-a-quiz-app-with-next-js-c27e5498ec45)
-- [Next.js Quiz Platform Architecture](https://github.com/yusha0123/Quiz-App)
+### HIGH Confidence (Official Documentation)
+- [next-intl official docs: App Router setup](https://next-intl.dev/docs/getting-started/app-router)
+- [next-intl official docs: Routing setup](https://next-intl.dev/docs/routing/setup)
+- [next-intl official docs: Proxy/middleware](https://next-intl.dev/docs/routing/middleware)
+- [next-intl 4.0 release blog](https://next-intl.dev/blog/next-intl-4-0)
+- [next-intl Crowdin integration docs](https://next-intl.dev/docs/workflows/localization-management)
+- [shadcn/ui RTL documentation](https://ui.shadcn.com/docs/rtl)
+- [shadcn/ui RTL changelog (January 2026)](https://ui.shadcn.com/docs/changelog/2026-01-rtl)
+- [shadcn/ui Next.js RTL setup](https://ui.shadcn.com/docs/rtl/next)
+- [Tailwind CSS v3.3 logical properties](https://tailwindcss.com/blog/tailwindcss-v3-3)
+- [Crowdin GitHub integration](https://support.crowdin.com/github-integration/)
+- [Crowdin AI pre-translation](https://support.crowdin.com/pre-translation/)
+- [Crowdin open source program](https://crowdin.com/product/for-open-source)
+- [next-intl npm (v4.8.2 current)](https://www.npmjs.com/package/next-intl)
 
-### Database & Backend
-- [Supabase vs. Firebase: Which is best? (2025)](https://zapier.com/blog/supabase-vs-firebase/)
-- [Supabase Auth with Next.js App Router](https://supabase.com/docs/guides/auth/auth-helpers/nextjs)
-- [Next.js + Supabase Cookie-Based Auth (2025 Guide)](https://the-shubham.medium.com/next-js-supabase-cookie-based-auth-workflow-the-best-auth-solution-2025-guide-f6738b4673c1)
+### MEDIUM Confidence (Verified with multiple sources)
+- [Crowdin pricing (free for OSS, Pro from $59/mo)](https://crowdin.com/pricing)
+- [Tolgee pricing and comparison](https://tolgee.io/pricing)
+- [RTL implementation patterns (Flowbite guide)](https://flowbite.com/docs/customize/rtl/)
+- [shadcn/ui RTL issue discussion](https://github.com/shadcn-ui/ui/issues/2759)
 
-### UI & Components
-- [shadcn/ui Official Site](https://www.shadcn.io)
-- [Tailwind v4 - shadcn/ui Docs](https://ui.shadcn.com/docs/tailwind-v4)
-- [14 Best React UI Component Libraries (2026)](https://www.untitledui.com/blog/react-component-libraries)
-
-### Forms & Validation
-- [React Hook Form Official Docs](https://react-hook-form.com)
-- [Zod Official Docs](https://zod.dev)
-- [Learn Zod validation with React Hook Form](https://www.contentful.com/blog/react-hook-form-validation-zod/)
-
-### State Management
-- [React State Management in 2025: Context API vs Zustand](https://dev.to/cristiansifuentes/react-state-management-in-2025-context-api-vs-zustand-385m)
-- [State Management in 2025: When to Use Context, Redux, Zustand, or Jotai](https://dev.to/hijazi313/state-management-in-2025-when-to-use-context-redux-zustand-or-jotai-2d2k)
-
-### Branching Logic
-- [Branching Logic for Quizzes - Interact](https://help.tryinteract.com/en/articles/1193999-branching-logic-for-quizzes)
-- [Skip Logic - Definition, Examples, Best Practices (2025)](https://qualaroo.com/blog/skip-logic-survey/)
-- [Branching Logic - SurveyJS](https://surveyjs.io/survey-creator/documentation/end-user-guide/branching-logic)
-
-### Testing
-- [Testing Next.js Applications (2025 Guide)](https://trillionclues.medium.com/testing-next-js-applications-a-complete-guide-to-catching-bugs-before-qa-does-a1db8d1a0a3b)
-- [React & Next.js in 2025 - Modern Best Practices](https://strapi.io/blog/react-and-nextjs-in-2025-modern-best-practices)
-- [Next.js Official Testing Docs](https://nextjs.org/docs/pages/guides/testing)
-
-### Internationalization
-- [next-intl Official Docs](https://next-intl.dev/)
-- [Internationalization (i18n) in Next.js: A Complete Guide](https://arnab-k.medium.com/internationalization-i18n-in-next-js-a-complete-guide-f62989f6469b)
-- [next-intl Guide: Add i18n to Next.js 15 (2025)](https://www.buildwithmatija.com/blog/nextjs-internationalization-guide-next-intl-2025)
-
-### Deployment
-- [Vercel Next.js Deployment](https://vercel.com/frameworks/nextjs)
-- [Mastering Next.js in 2025: Deployment to Vercel](https://medium.com/@ahmedazier/mastering-next-js-in-2025-installation-setup-and-deployment-to-vercel-macos-windows-5bac44cfe3b5)
-
-### Admin Dashboards
-- [21+ Best Next.js Admin Dashboard Templates (2025)](https://nextjstemplates.com/blog/admin-dashboard-templates)
-- [React Dashboard Libraries: Which One To Use in 2025?](https://www.luzmo.com/blog/react-dashboard)
+### LOW Confidence (Single source, needs validation)
+- Tolgee free tier exact key limit (reported as 1,000 keys in comparison articles, but could not verify on pricing page due to JS-rendered content)
+- Crowdin AI pre-translation claiming "95% publish-ready" quality (marketing claim, real-world legal content quality needs testing)
 
 ---
-
-## Next Steps for Implementation
-
-### Phase 1: Foundation Setup
-1. Initialize Next.js 16 project with TypeScript + Tailwind
-2. Set up Supabase project (database + auth)
-3. Install shadcn/ui and configure theme
-4. Create basic folder structure
-
-### Phase 2: Database Schema
-1. Design Supabase tables (questions, branching_rules, sessions, levels)
-2. Set up Row Level Security policies
-3. Seed initial questions
-
-### Phase 3: Quiz Flow
-1. Build question display components
-2. Implement React Hook Form + Zod validation
-3. Create Zustand store for quiz state
-4. Implement branching logic engine
-
-### Phase 4: Admin Dashboard
-1. Build admin authentication
-2. Create question management interface
-3. Implement rules engine configuration
-4. Build response viewing dashboard
-
-### Phase 5: Polish & Deploy
-1. Add Italian localization (next-intl)
-2. Implement tests (Vitest + Playwright)
-3. Deploy to Vercel
-4. Connect custom domain
-
----
-
-**RECOMMENDATION:** Start with this stack as-is. It represents the 2025 standard for quiz platforms and scales from MVP to production without rewrites. All technologies are mature, well-documented, and have large communities for support.
+*Stack research for: SOSpermesso multilingual i18n + RTL*
+*Researched: 2026-02-14*

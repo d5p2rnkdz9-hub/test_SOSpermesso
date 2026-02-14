@@ -1,372 +1,409 @@
 # Project Research Summary
 
-**Project:** Pre-training Assessment Platform for AI Courses (Italian Lawyers)
-**Domain:** Branching questionnaire/adaptive assessment system
-**Researched:** 2026-02-04
+**Project:** SOSpermesso - Multilingual Legal Eligibility Decision Tree
+**Domain:** Legal information delivery + i18n/RTL web application
+**Researched:** 2026-02-14
 **Confidence:** HIGH
 
 ## Executive Summary
 
-Pre-training assessment platforms in 2025-2026 follow a well-established architecture: data-driven branching logic, flexible data models, and rules-based evaluation engines. The research reveals strong consensus across all dimensions: Next.js 16 + Supabase represents the modern standard for full-stack questionnaire platforms, delivering both rapid development and production-ready scalability.
+SOSpermesso is a multilingual legal decision tree helping migrants in Italy navigate residence permit eligibility. The project requires replacing a broken Typeform implementation with a custom Next.js tool supporting 5+ languages (Italian, Arabic, French, English, Spanish) with full RTL support for Arabic. Research confirms this is achievable by extending the existing Corso AI fork with a focused i18n layer rather than building from scratch.
 
-The recommended approach is a three-tier architecture with clear separation: presentation layer (React-based quiz player), business logic layer (survey engine + rules engine), and data persistence (PostgreSQL with JSON schema flexibility). The key technical decision is making branching logic and evaluation rules data-driven rather than hardcoded—this single choice determines whether the platform can evolve without constant developer intervention. For the Italian lawyers AI course use case (5-10 questions, custom proficiency rules, single admin), this architecture scales naturally from MVP to production without rewrites.
+The recommended approach leverages next-intl (the de facto Next.js i18n standard), shadcn/ui's new RTL mode (January 2026 release), and Crowdin's AI-assisted translation workflow. The architecture uses a directed acyclic graph (DAG) model for the decision tree with JSONB-based multilingual content storage, keeping UI translations separate from legal content. This separation allows legal experts to manage content while developers handle infrastructure.
 
-The primary risks are architectural decisions that must be made correctly in Phase 1: flexible database schema for question types, data-driven branching rules, session state management with auto-save, and separating rules evaluation from application logic. All four research documents agree that these cannot be easily retrofitted. The secondary risk is scope creep on question count—research shows completion rates drop dramatically beyond 10 questions, yet stakeholders typically push for "just one more question." Mitigation requires hard limits and per-question abandonment tracking from day one.
+Critical risks center on AI translation quality for legal content (17-88% hallucination rate in research), RTL retrofitting complexity (35x cost multiplier if delayed), and bidirectional text handling for mixed Arabic-Italian content. These are mitigated through: (1) glossary-locked Italian legal terms preserved across all translations, (2) CSS logical properties enforced from day one, and (3) explicit BiDi markup for mixed-script content. The project is well-researched with clear implementation patterns and realistic scope.
 
 ## Key Findings
 
 ### Recommended Stack
 
-Next.js 16 with App Router provides the foundation for full-stack development, combining frontend React components with backend API routes and server actions in a single framework. This eliminates the need for separate backend services while maintaining clear architectural boundaries. The stack centers on type safety throughout: TypeScript for code, Zod for runtime validation, and React Hook Form for form state—reducing bugs in the complex branching logic that defines this domain.
+The existing Corso AI codebase provides 80% of the foundation: Next.js App Router, React 19, Supabase/Prisma, Tailwind CSS, shadcn/ui, and Zustand. The i18n layer adds exactly one new runtime dependency (next-intl) plus tooling.
 
 **Core technologies:**
-- **Next.js 16 + React 19**: Full-stack framework with App Router for server components, API routes, and excellent Vercel deployment
-- **Supabase**: PostgreSQL database with auto-generated REST API, built-in auth (email/magic link), and real-time capabilities—better fit than Firebase for relational question-answer-rule data
-- **shadcn/ui + Tailwind CSS v4**: Copy-paste UI components (own the code, not a dependency) built on accessible Radix primitives—provides production-ready forms, modals, and dropdowns
-- **React Hook Form + Zod**: Performance-focused form management with TypeScript-native validation—essential for complex multi-step questionnaires with dynamic validation
-- **Zustand**: Lightweight (1KB) client state for quiz session (current question, answers, branching path)—better performance than Context API for frequent state updates
-- **Vercel**: Zero-config deployment platform built by Next.js creators—automatic preview deployments, edge functions, generous free tier
+- **next-intl (^4.8)**: De facto standard for Next.js App Router i18n — 930K+ weekly downloads, first-class Server Components support, `[locale]` routing, ICU message syntax, strict TypeScript types. The only library with native Next.js 16 `proxy.ts` support.
+- **shadcn/ui RTL mode (January 2026 CLI)**: Zero new dependencies. Setting `"rtl": true` in `components.json` + running `pnpm dlx shadcn@latest migrate rtl` converts all components from physical CSS (ml-4, text-left) to logical equivalents (ms-4, text-start). This is the exact stack already in use.
+- **Tailwind CSS logical properties (built-in v3.3+)**: Native `ms-*`, `me-*`, `ps-*`, `pe-*`, `text-start`, `text-end` classes auto-flip in RTL without any plugin. Already supported on Tailwind ^3.4.1.
+- **Crowdin (free for open-source)**: Translation management with native GitHub integration, built-in AI pre-translation (OpenAI/Anthropic/Google), and glossary enforcement for legal terms. Officially recommended by next-intl documentation.
 
-**Critical version notes:**
-- Use `@supabase/ssr` (not deprecated `@supabase/auth-helpers-nextjs`) for Next.js App Router auth
-- Tailwind v4 released with performance improvements
-- React 19 brings concurrent features and TypeScript improvements
-- All versions verified via npm registry as of 2026-02-04
-
-**Deferred to post-MVP:**
-- **next-intl**: i18n framework for multi-language support—start Italian-only, add framework when expanding languages
-- **Vitest + Playwright**: Testing stack (Vitest for components, Playwright for E2E)—add after core functionality works
-- **recharts**: Data visualization for admin analytics—defer until admin needs dashboard charts
+**Critical version requirement:** next-intl v4.0+ is required for Next.js 16's `proxy.ts` naming (renamed from `middleware.ts`). ESM-only, TypeScript 5+, React 19 compatible.
 
 ### Expected Features
 
-Pre-training assessment platforms in 2026 have clear feature expectations based on analysis of Typeform, SurveyMonkey, Qualtrics, and specialized adaptive testing systems. Research identified strong consensus on table stakes vs competitive differentiators.
+Research across comparable legal information tools (A2J Author, Docassemble, LawHelp Interactive, UNHCR Digital Gateway, refugee.info) reveals clear feature tiers.
 
 **Must have (table stakes):**
-- Multiple question types (multiple choice, multiple select, true/false)—industry standard for varied assessment
-- Branching/skip logic—fundamental for adaptive assessments; without this, just a linear survey tool
-- Mobile-responsive UI—2026 expectation; learners access from any device
-- Progress indicators—reduces anxiety; shows completion percentage
-- Admin dashboard—view/manage responses and settings
-- Response data export (CSV minimum)—standard admin analysis requirement
-- Session persistence—if user closes browser, don't lose progress
-- Clear feedback delivery—learner receives level assignment with explanation
-- Accessibility (WCAG 2.1)—legal requirement + educational tool expectation
+- Full content translation (5 languages minimum) with RTL layout for Arabic
+- Language selector accessible from any page, preserves session state
+- Legal disclaimer ("non costituisce consulenza") on start and all outcome pages
+- Confidence indicators ("siamo sicuri" / "non siamo sicuri") from existing schede
+- Variable substitution ([Nome], [Parente selezionato]) working across all languages
+- Back button with correct branching-aware history (not naive index decrement)
+- Session persistence via resume token (anonymous, no login)
+- Mobile-first responsive (320px screens, 48px touch targets)
+- One question per screen with clear visual hierarchy
+- Links to legal aid resources and next steps on all outcomes
 
 **Should have (competitive advantage):**
-- Custom rules engine—goes beyond score thresholds to enable "high on X AND low on Y = Level 2" logic; most platforms only use score ranges
-- Personalized feedback paths—different feedback based on response patterns, not just final level
-- Real-time analytics—live completion rates, answer patterns, rule effectiveness
-- Multi-language support—architecture supports i18n from start (Italian initially)
-- Question bank management—reusable question library with versioning
+- Shareable outcome page URLs (stable URLs per scheda, printable, WhatsApp-ready)
+- Warm, emoji-using, non-bureaucratic design (distinguishes from government forms)
+- Structured outcome sections (FAQ-style: "What is this?", "How do I apply?", "Do I need a lawyer?")
+- "I'm not sure" options with guidance for ambiguous questions
+- Print-friendly outcome summaries for legal aid appointments
+- Path-aware progress ("2 more questions" not misleading percentage)
 
 **Defer (v2+):**
-- AI-powered question generation—validate core patterns first, then add AI assistance
-- Response confidence indicators—learners mark "not sure"; adds UI complexity
-- Automated fraud detection—start with session timeout; add pattern detection if abuse observed
-- Comparative benchmarking—requires meaningful sample size (add after first cohort)
-- Custom branding/white-label—use default professional styling initially
+- Legal aid worker mode (faster flow, multi-client, summary view — needs user research first)
+- PDF export of outcomes (requires design work)
+- Additional languages beyond launch 5 (architecture supports it, content is bottleneck)
+- Audio narration (expensive to produce/maintain in 5+ languages, TTS quality poor for Arabic)
+- Admin UI for content editing (v1 uses version-controlled data files with PR review)
 
-**Explicitly avoid (anti-features):**
-- Complex gamification—distracts from serious assessment purpose
-- Time limits per question—creates unnecessary stress in pre-training context
-- Public leaderboards—inappropriate for placement assessments
-- Social sharing features—violates educational privacy trust
-- Native mobile apps—expensive; excellent mobile-web covers 95% of use cases
-- Video/audio questions—increases complexity and review burden for 5-10 question assessment
-- Open-ended essay questions—requires manual grading, defeats automated placement purpose
+**Anti-features (commonly requested, problematic):**
+- User accounts/login for migrants (creates barriers, privacy concerns for vulnerable populations)
+- AI chatbot for follow-up questions (liability risk, hallucination danger for legal guidance)
+- Automatic legal advice generation (crosses line from information to advice, creates legal liability)
+- Full WCAG AAA compliance (unrealistic, conflicts with legal precision; target AA instead)
 
 ### Architecture Approach
 
-Branching assessment systems follow a proven three-tier architecture with clear component boundaries. The pattern separates survey configuration (questions, rules) from response data (answers, session state) and business logic (navigation, evaluation). This separation enables versioning: historical responses reference the survey version they used, preventing data corruption when surveys change.
+The architecture extends Corso AI's quiz pattern to a directed acyclic graph (DAG) decision tree with multilingual content stored in database JSONB fields while UI translations live in JSON files.
 
 **Major components:**
-1. **Survey Schema** (Data Layer)—stores question definitions as JSON with conditional navigation rules; questions reference next question IDs for branching; separate from response data
-2. **Survey Engine** (Business Logic)—navigates question flow by evaluating conditional rules; tracks session state; determines next question based on answers; stateless (session stored in database)
-3. **Rules Engine** (Evaluation Logic)—evaluates complex conditions to determine proficiency level; separate from application code; rules stored as JSON data structures with condition-action pairs
-4. **Quiz Player** (Presentation)—renders questions, captures answers, handles user interaction; only loads current question (not entire survey); saves each answer immediately
-5. **Response Storage** (Data Layer)—persists answers with timestamps; tracks completion status; stores evaluation results; immutable after completion
-6. **Admin Panel** (Management)—views responses, configures surveys, manages rules; operates on draft versions that become immutable when published
-7. **Result Generator** (Business Logic)—generates personalized feedback from rules engine output; formats recommendations based on response patterns
+1. **Directed Acyclic Graph (DAG) Model** — Store decision tree as `tree_nodes` (questions) and `tree_edges` (transitions between nodes), not as flat array with `showCondition`. Same logical question can be reached from 5 different parents without duplication. Graph traversal handles branching, back navigation uses history stack.
 
-**Key architectural patterns:**
-- **JSON schema definition**: Survey structure stored as JSON, decoupled from rendering logic—enables portability and version control
-- **Data-driven branching**: Conditional navigation via foreign key references (next_question_id), not hardcoded if/else statements
-- **Separation of concerns**: Survey configuration tables vs response data tables—allows survey changes without corrupting historical data
-- **Rules as data**: Evaluation logic stored as JSON condition-action structures, not application code—enables non-developers to modify rules
-- **Auto-save session state**: Save answers to backend after each submission, not at completion—supports resume capability
+2. **JSONB Per-Locale Content Storage** — Question text, options, and outcomes stored as `{ "it": {...}, "ar": {...}, "fr": {...} }` directly in database. Single query returns all locales. Enables AI bulk translation workflows. UI chrome (button labels, navigation) separate in next-intl JSON files.
 
-**Database schema approach:**
-- Use JSONB (PostgreSQL) for flexible question options and rule definitions
-- Separate schemas: `surveys` + `questions` + `question_options` for config; `respondents` + `responses` + `answers` for data
-- Foreign key branching: `question_options.next_question_id` references `questions.id`
-- Version tracking: `responses.survey_version` references which survey schema was used
-- Immutable responses: No UPDATE operations on answer records after submission
+3. **Variable Substitution with Grammatical Context** — Support `{variableName}` placeholders where grammatical role differs by language. Per-locale grammatical maps handle gender/article agreement (Italian: "il fratello"/"la sorella", Arabic possessive suffixes). Falls back to ICU MessageFormat for complex cases.
+
+4. **RTL Rendering Strategy (4 layers)**:
+   - Layer 1: Document direction (`<html dir={locale === 'ar' ? 'rtl' : 'ltr'}>`)
+   - Layer 2: Component RTL (shadcn migrate rtl + DirectionProvider for Radix primitives)
+   - Layer 3: Custom CSS (Tailwind logical properties: ms-*, me-*, text-start)
+   - Layer 4: Typography (Noto Sans Arabic loaded conditionally for Arabic locale)
+
+5. **Split Content Domains** — Decision tree content (questions, outcomes) in database with JSONB locale fields, managed by legal/content experts. UI strings in next-intl JSON files, managed by developers. Different lifecycles, different systems.
+
+**File structure transformation:**
+```
+Before (Corso AI):               After (SOSpermesso):
+src/app/                         src/app/[locale]/
+  quiz/page.tsx                    tree/page.tsx
+                                   outcome/[outcomeId]/page.tsx
+                                 src/i18n/routing.ts, request.ts
+                                 messages/it.json, ar.json, fr.json
+                                 proxy.ts (Next.js 16 middleware)
+```
+
+**Suggested build order (interleaved to avoid rework):**
+1. Foundation: i18n + RTL scaffold (next-intl routing, dir attribute, convert shadcn to logical properties)
+2. Decision tree engine: DAG model, graph traversal, Italian content only
+3. Outcome pages: Variable substitution, rich scheda rendering, Italian only
+4. Multi-language content: AI translate all content, add UI chrome translations, locale switcher
+5. Arabic RTL polish: Font loading, directional icons, BiDi testing, cross-browser
+6. Session persistence + analytics: Resume tokens, feedback, admin dashboard
 
 ### Critical Pitfalls
 
-Research identified five pitfalls that require Phase 1 architectural decisions. Retrofitting later is expensive or impossible.
+1. **AI Translation Hallucinating Legal Terms** — LLMs fabricate plausible but incorrect legal terminology (17-88% hallucination rate). "Permesso di soggiorno" becomes generic "residence permit" losing Italian legal specificity. **Avoid:** Maintain locked glossary of untranslatable Italian legal terms preserved across all languages, two-pass workflow (AI draft + human review), automated term-checking, Italian original shown alongside translations.
 
-1. **Hardcoded branching logic becomes unmaintainable**—branching starts simple but grows into spaghetti; "just one more branch" requests compound complexity; question wording changes break branches silently. Prevention: Design full branching tree before implementation (flowchart), limit depth to 3 levels max, use rules engine with visual representation, store branching rules as data (JSON), implement branch validation (every path reaches terminal node).
+2. **Hardcoded LTR Assumptions in Forked Codebase** — Corso AI has pervasive `ml-`, `mr-`, `text-left`, fixed icon positions. Retrofitting RTL is 35x more expensive than building it in from start. **Avoid:** Full LTR audit before any feature work, replace all physical CSS with logical properties (ms-, me-, ps-, pe-, text-start), use `rtl:rotate-180` for directional icons, test every component in both LTR and RTL.
 
-2. **Rigid database schema assumes fixed question types**—schema defines columns per question type (multiple_choice_answer, true_false_answer); adding new types requires migration; analytics become 50-line UNION queries. Prevention: Use flexible JSONB schema for answer payloads, store question metadata as configuration not columns, design for "unknown future question types" from day one.
+3. **Bidirectional (BiDi) Text Corruption** — Arabic content contains Italian legal terms, numbers, URLs. Unicode BiDi algorithm mishandles neutral characters causing scrambled order. "Art. 5, comma 2 del D.Lgs. 286/1998" in Arabic may display with reversed numbers or broken punctuation. **Avoid:** Wrap all embedded LTR content in `<bdi>` or `<span dir="ltr">`, create markup convention for "LTR islands" in translation system, use ICU placeholders with explicit `dir="ltr"` wrappers, test with real mixed-script content.
 
-3. **Rules engine hardcodes business logic**—proficiency determination is `if score >= 8 then "Advanced"` in code; rule changes require deployment; no audit trail of "why this level?"; non-developers can't modify criteria. Prevention: Design rules as declarable JSON data from start, separate rule evaluation engine from business logic, version rules with timestamps, make rules composable, build rule tester into admin interface.
+4. **Variable Substitution Breaking Across Languages** — "Devi andare alla Questura di {city} con il tuo {document_type}" requires grammatical agreement in target language (Arabic possessive forms, French articles, gendered adjectives). **Avoid:** Use ICU MessageFormat `{gender, select, ...}` for grammar-affecting variables, prefer full sentence variants over interpolation when possible, have translators flag impossible interpolations, test with actual substituted values not placeholders.
 
-4. **Session state management loses incomplete responses**—user completes 7 of 10 questions, browser crashes, loses all progress; or partial responses create duplicate records. Prevention: Auto-save after every question answered (not on navigation), use stable session identifiers (user_id + assessment_id), store progress percentage and last_question_id, define "incomplete" vs "abandoned" thresholds, allow resume via unique link.
+5. **AI Translation Quality Collapse for Low-Resource Languages** — Arabic, Bangla, Urdu show dramatic quality degradation. Arabic diglossia (MSA vs. dialects), sparse legal domain training data, cultural nuances lost. **Avoid:** Tier languages by reliability (Tier 1: AI + light review for FR/ES/EN, Tier 2: AI + heavy review for AR/BN/UR), build translation memory to lock correct phrases, run back-translation tests, user testing with 3-5 native speakers before each language launch.
 
-5. **"Personalized feedback" is actually generic templates**—feedback is three pre-written templates (one per level); users notice identical feedback for same level; no reference to specific answers or patterns. Prevention: Define feedback granularity requirements upfront (level 1: generic template, level 2: dynamic variables like score/weak areas, level 3: question-specific guidance, level 4: learning path recommendations), store response analysis metadata (which categories struggled, which questions wrong), design feedback templates with variable substitution.
+6. **Untranslatable Italian Legal Procedures Rendered as Generic Equivalents** — "Fotosegnalamento" becomes "identification", "Nulla Osta al Lavoro" becomes "work permit", losing procedural specificity. Users cannot act on translated terms at Italian government offices. **Avoid:** Preserve all Italian bureaucratic terms in Italian across translations with inline target-language explanation, create visual glossary, mark Italian legal terms with `<keep>` tag in translation workflow, outcome pages show "What you will see" section with Italian terms.
 
-**Additional important pitfalls:**
-- **Survey scope creep kills completion rate**: "5-10 questions" becomes 18; completion drops from 85% to 45%. Mitigation: Set HARD question limit (10 max), every new question must justify which existing question to remove, track per-question abandonment.
-- **Simple score thresholds miss nuance**: Leveling is just `score < 5 = Beginner` but doesn't account for getting foundation questions wrong while guessing advanced correctly. Mitigation: Interview stakeholders on what "Advanced" actually means, use multi-dimensional proficiency (foundation knowledge + application ability), weight questions differently.
-- **Localization as afterthought**: Italian content but US date formats (MM/DD/YYYY); string interpolation breaks grammar; text expansion breaks UI. Mitigation: Use i18n library from day one even for single language, never concatenate strings, test with 30% longer text, store all user-facing text in translation files.
+7. **Emoji and Tone Loss in Cross-Cultural Translation** — Warm Italian tone with emojis translates poorly. Thumbs-up offensive in Middle East, praying hands have no Islamic connotation, AI defaults to overly formal or casual register. **Avoid:** Per-language emoji policy (avoid hand gestures, use neutral symbols), separate emoji from translation strings, tone guide per language specifying formality level, test with actual target demographic.
 
 ## Implications for Roadmap
 
-Based on research, the natural phase structure follows dependency chains in the architecture. Components have clear "must build first" relationships that inform sequencing.
+Based on research, suggested phase structure prioritizes RTL foundation before content work (retrofitting is 35x more expensive), validates tree engine in one language before adding translation complexity, and sequences multilingual work to catch integration issues early.
 
-### Phase 1: Foundation & Data Model
-**Rationale:** Database schema and rules architecture must be decided first. These decisions are nearly impossible to change later without full rewrites. Research shows that flexible data models (JSONB for questions/answers) and data-driven rules (JSON rule definitions) are prerequisites for maintainability. Hardcoded approaches require rewrites when requirements change.
+### Phase 1: RTL Foundation + i18n Scaffold
+**Rationale:** RTL is a layout concern touching every component. Retrofitting after building in LTR costs 35x more (Shopify research). Must be first to avoid rework.
 
-**Delivers:** Database schema, basic survey engine for linear navigation, simple rules engine for evaluation, API foundation
+**Delivers:**
+- next-intl configured with `[locale]` routing (Italian only initially)
+- `dir` attribute on `<html>` set from locale
+- All shadcn/ui components migrated to logical properties (ms-, me-, text-start)
+- DirectionProvider wrapping layout for Radix primitives
+- Verified: one test component renders correctly in both LTR and RTL modes
 
-**Addresses (from FEATURES.md):**
-- Database design for multiple question types
-- Session state management infrastructure
-- Rules engine foundation
+**Addresses:**
+- Pitfall #2 (Hardcoded LTR Assumptions)
+- Feature: RTL layout for Arabic (table stakes)
+- Architecture: Layer 1-3 of RTL rendering strategy
 
-**Avoids (from PITFALLS.md):**
-- Pitfall #2: Rigid database schema (use JSONB from start)
-- Pitfall #3: Hardcoded rules (separate rule evaluation)
-- Pitfall #4: Session state issues (design auto-save architecture)
+**Avoids:**
+- 35x cost multiplier from retrofitting
+- Every subsequent component inherits RTL-safe patterns
 
-**Technical decisions required:**
-- PostgreSQL schema with separation: survey config vs response data
-- JSONB for question options and rule definitions
-- Session management strategy (where state lives)
-- Rules engine data structure (condition-action JSON format)
+**Research flag:** Standard patterns, skip `/gsd:research-phase`. shadcn RTL migration is documented in January 2026 changelog with clear CLI commands.
 
-**Build order within phase:**
-1. Database schema (surveys, questions, question_options, conditional_rules, respondents, responses, answers)
-2. Survey Engine for linear navigation (loads questions, tracks state)
-3. Basic Rules Engine (evaluates simple conditions, determines level)
-4. Session management (auto-save answers, resume capability)
+### Phase 2: Decision Tree Engine (Italian Only)
+**Rationale:** Tree engine is complex (graph traversal, branching logic, back navigation). Must validate in one language before adding translation layer.
 
-**Research flag:** Standard patterns—skip research-phase. Database design and rules engine patterns well-documented in ARCHITECTURE.md sources.
+**Delivers:**
+- Prisma schema: `tree_nodes`, `tree_edges`, `outcomes`, `sessions` with JSONB locale fields
+- `tree-engine.ts`: pure functions for graph traversal, next node calculation, back navigation
+- `tree-store.ts`: Zustand store adapted from quiz-store with history stack
+- TreePlayer + QuestionNode components
+- Full Italian decision tree seeded from existing data.js
+- All 40+ paths tested end-to-end in Italian
 
-### Phase 2: MVP User Experience
-**Rationale:** With foundation in place, build end-to-end learner flow. This delivers immediate value: learners can complete assessments and receive level assignments. Research shows that session persistence and clear feedback are table stakes—users expect not to lose progress and to receive clear results. This phase validates the core value proposition.
+**Uses:**
+- Existing Corso AI quiz patterns (Zustand, session persistence, debounced saves)
+- PostgreSQL JSONB for future multilingual expansion
+- DAG architecture from ARCHITECTURE.md
 
-**Delivers:** Quiz player UI, response capture, results display, basic feedback system
+**Implements:**
+- Architecture Component #1 (DAG Model)
+- Feature: Decision tree branching logic, back button, session persistence
 
-**Addresses (from FEATURES.md):**
-- Multiple question types (MC, multiple select, T/F)
-- Mobile-responsive UI
-- Progress indicators
-- Instant submission confirmation
-- Clear feedback delivery
+**Research flag:** May need `/gsd:research-phase` for graph traversal algorithm validation if complex loops or multiple entry points discovered in decision tree structure.
 
-**Uses (from STACK.md):**
-- React Hook Form + Zod for question rendering and validation
-- shadcn/ui components (form, radio-group, checkbox, card)
-- Zustand for client state (current question, answers array)
-- Supabase client for saving responses
+### Phase 3: Outcome Pages + Variable Substitution (Italian Only)
+**Rationale:** Variable substitution logic must work correctly in Italian before handling grammatical variations in other languages. Outcome pages are the most content-heavy component.
 
-**Implements (from ARCHITECTURE.md):**
-- Quiz Player component (presentation layer)
-- Response Storage (saves answers immediately)
-- Results Display (shows level + basic feedback)
+**Delivers:**
+- OutcomeCard component with structured sections (FAQ-style)
+- Variable substitution engine: `{nome}`, `{parente}` placeholders
+- All 25 schede seeded in Italian with full content
+- `outcome/[outcomeId]` page with SSR
+- NameCollector component for entry flow
+- Confidence indicators displayed on outcomes
+- Legal disclaimer on start and outcome pages
 
-**Avoids (from PITFALLS.md):**
-- Pitfall #6: Scope creep (enforce 10 question max)
-- Pitfall #11: Leading questions (peer review for neutrality)
-- Pitfall #12: No "I don't know" option (provide for knowledge questions)
-- Pitfall #13: Inaccurate progress (handle branching estimates)
+**Implements:**
+- Architecture Component #3 (Variable Substitution)
+- Features: Confidence indicators, legal disclaimer, next steps, structured outcomes
+- Features: Variable substitution/personalization
 
-**Build order within phase:**
-1. Quiz Player UI (render questions based on type)
-2. Form validation and submission (React Hook Form + Zod schemas)
-3. Progress tracking and display
-4. Response persistence (auto-save after each answer)
-5. Results page (fetch evaluation, display level)
-6. Basic feedback templates (one per level initially)
+**Avoids:**
+- Pitfall #4 (Variable Substitution Breaking) — validate Italian grammar patterns before multilingual
 
-**Research flag:** Standard patterns—skip research-phase. Form handling and UI components are well-established Next.js patterns covered in STACK.md.
+**Research flag:** Standard patterns. Variable substitution is well-documented in i18n libraries.
 
-### Phase 3: Adaptive Intelligence
-**Rationale:** MVP works for linear assessments; now add the core differentiator: branching logic and custom rules. Research emphasizes that branching should be added after linear flow works—it's backward compatible and less risky to implement incrementally. This phase transforms the platform from "survey tool" to "adaptive assessment system." The custom rules engine enables nuanced proficiency determination beyond simple score thresholds.
+### Phase 4: Content Architecture + Translation Infrastructure
+**Rationale:** Must design translation workflow and glossary system before any AI translation begins. Pitfall #1 (AI hallucination) and #6 (untranslatable terms) are prevented here.
 
-**Delivers:** Conditional branching navigation, advanced rules engine with complex conditions, enhanced feedback based on patterns
+**Delivers:**
+- Locked glossary of 30+ untranslatable Italian legal terms
+- Translation workflow: AI draft → automated glossary check → human review → approval
+- Per-locale grammatical maps for variable substitution
+- Crowdin integration with GitHub auto-sync
+- Per-language emoji policy and tone guide
+- Back-translation validation system
+- Language tiering: Tier 1 (FR/ES/EN), Tier 2 (AR/BN/UR)
+- Export/import scripts for translation files
 
-**Addresses (from FEATURES.md):**
-- Branching/skip logic (core differentiator)
-- Custom rules engine (competitive advantage)
-- Personalized feedback paths
+**Addresses:**
+- Pitfall #1 (AI Translation Hallucinating)
+- Pitfall #6 (Untranslatable Italian Legal Procedures)
+- Pitfall #7 (Emoji and Tone Loss)
+- Architecture Component #2 (JSONB Per-Locale Content Storage)
 
-**Implements (from ARCHITECTURE.md):**
-- Enhanced Survey Engine with conditional logic evaluation
-- Advanced Rules Engine (complex condition-action pairs)
-- Result Generator with pattern-based feedback
+**Avoids:**
+- AI translating legal terms without constraints
+- Inconsistent terminology across outcome pages
+- Cultural offense from inappropriate emojis
 
-**Avoids (from PITFALLS.md):**
-- Pitfall #1: Unmaintainable branching (visualize full tree, limit depth to 3 levels)
-- Pitfall #8: Skip logic breaks on back navigation (decide navigation model, test back-button scenarios)
-- Pitfall #9: Simple score thresholds miss nuance (involve domain experts, multi-dimensional criteria)
+**Research flag:** Needs `/gsd:research-phase` for Crowdin API integration specifics and glossary enforcement automation. Moderate complexity.
 
-**Technical implementation:**
-- Conditional navigation: Evaluate `next_question_id` based on answer value
-- Rules engine: Parse JSON rule definitions, evaluate conditions, execute actions
-- Branch validation: Every path must reach terminal node
-- Enhanced feedback: Store response analysis metadata (categories struggled, questions wrong)
+### Phase 5: Multilingual Content Translation
+**Rationale:** With infrastructure in place, execute bulk translation with quality gates. Content work, not engineering.
 
-**Build order within phase:**
-1. Branching logic in Survey Engine (evaluate conditional_rules table)
-2. Branch validation (detect infinite loops, missing terminal nodes)
-3. Advanced Rules Engine (compound conditions with AND/OR logic)
-4. Response pattern analysis (categorize answers for feedback)
-5. Dynamic feedback generation (variable substitution in templates)
+**Delivers:**
+- All JSONB content expanded from `{ "it": {...} }` to include ar, fr, en, es
+- AI pre-translation via Crowdin for all 40 questions, 80 options, 25 outcomes
+- Human review completed for all Tier 2 languages (Arabic primary focus)
+- UI chrome translations (messages/*.json for button labels, navigation, errors)
+- Language selector component added to layout
+- All paths tested in all 5 languages
 
-**Research flag:** Needs research-phase. Branching logic implementation has nuances (back navigation handling, validation strategies) that may need deeper investigation. Rules engine libraries (json-rules-engine) should be evaluated for fit.
+**Uses:**
+- Crowdin AI pre-translation (from Phase 4 setup)
+- Glossary enforcement (from Phase 4)
+- JSONB schema (from Phase 2)
 
-### Phase 4: Administrative Operations
-**Rationale:** System works for learners; now add management tools. Admin panel comes last because it reads from existing components (response storage, rules engine). Research shows that admin analytics should focus on actionable metrics, not vanity metrics—define key questions before building dashboards.
+**Implements:**
+- Features: Full content translation, language selector
+- Stack: Crowdin translation management
 
-**Delivers:** Admin dashboard to view responses, survey editor to manage questions and rules, analytics for completion rates and answer patterns
+**Avoids:**
+- Pitfall #5 (AI Quality Collapse) — Tier 2 languages get heavy human review
+- Pitfall #7 (Emoji/Tone) — per-language policy enforced during review
 
-**Addresses (from FEATURES.md):**
-- Admin dashboard access
-- Response data export (CSV)
-- Question bank management (defer complex versioning to v2)
+**Research flag:** Skip research. Content translation execution with established workflow.
 
-**Implements (from ARCHITECTURE.md):**
-- Admin Panel (views responses, manages surveys)
-- Survey Editor (configure questions, options, branching rules)
-- Analytics Dashboard (aggregated metrics)
+### Phase 6: Arabic RTL Polish + BiDi Testing
+**Rationale:** RTL foundation built in Phase 1, but Arabic-specific refinements require all content present. BiDi issues only visible with real mixed-script content.
 
-**Avoids (from PITFALLS.md):**
-- Pitfall #5: Lock surveys once responses received (draft/published workflow)
-- Pitfall #7: Vanity metrics (focus on actionable: abandonment points, question discrimination)
+**Delivers:**
+- Noto Sans Arabic font loaded conditionally for Arabic locale
+- All directional icons tested and fixed (chevrons with `rtl:rotate-180`)
+- BiDi markup (`<bdi>`, `dir="ltr"`) applied to all Italian legal terms in Arabic content
+- Variable substitution tested with Arabic grammatical maps
+- Cross-browser testing (Safari, Chrome, Firefox) in RTL mode
+- Actual Arabic outcome pages with Italian terms display correctly
 
-**Technical implementation:**
-- Admin authentication (Supabase auth with admin role check)
-- Response viewing with filtering (by date, completion status, level)
-- CSV export (responses with question text, not just IDs)
-- Survey editor (CRUD for questions, options, rules)
-- Analytics queries (completion rate, per-question abandonment, answer distribution)
+**Uses:**
+- RTL foundation from Phase 1
+- Arabic translated content from Phase 5
+- BiDi markup system from Phase 4 content architecture
 
-**Build order within phase:**
-1. Admin authentication and role-based access
-2. Response viewing interface (list, filter, detail view)
-3. CSV export functionality
-4. Survey editor (manage questions and options)
-5. Rules editor (configure evaluation rules)
-6. Analytics dashboard (key metrics only)
+**Implements:**
+- Architecture Layer 4 (Typography)
+- Features: RTL layout for Arabic (final polish)
 
-**Research flag:** Standard patterns—skip research-phase. Admin CRUD and analytics dashboards are well-documented patterns. Focus on implementation based on FEATURES.md requirements.
+**Addresses:**
+- Pitfall #3 (BiDi Text Corruption) — now testable with real content
+
+**Avoids:**
+- Shipping Arabic with broken number/URL display
+- Icons pointing wrong direction in RTL
+
+**Research flag:** May need `/gsd:research-phase` for BiDi edge cases if complex legal term patterns discovered. Test-heavy phase.
+
+### Phase 7: Session Persistence + Analytics
+**Rationale:** Additive features that don't affect core flow. Can be built after multilingual content is validated.
+
+**Delivers:**
+- Session save/resume via token (adapt from Corso AI implementation)
+- Resume URL generation and handling
+- Feedback/rating section at end of questionnaire
+- Admin analytics dashboard: completion rate, drop-off points, outcome distribution, language distribution
+- "Last reviewed" dates on outcome pages
+- Usage tracking (privacy-conscious, no PII)
+
+**Uses:**
+- Existing Corso AI session persistence patterns
+- Supabase for analytics data storage
+
+**Implements:**
+- Features: Session persistence, admin analytics
+- Features: "Last reviewed" dates
+
+**Research flag:** Standard patterns, skip research. Analytics dashboards are well-documented.
+
+### Phase 8: Launch Enhancements
+**Rationale:** Features that improve shareability and real-world usability, added after core tool validated.
+
+**Delivers:**
+- Shareable outcome page URLs (stable routes per scheda)
+- WhatsApp share button on outcomes
+- Print-friendly CSS for outcome pages
+- "I'm not sure" options for ambiguous questions
+- Path-aware progress indicator (replace misleading percentage)
+
+**Implements:**
+- Features: Shareable outcomes, WhatsApp share, print-friendly, path-aware progress
+
+**Research flag:** Skip research. All are standard web patterns.
 
 ### Phase Ordering Rationale
 
-The sequence follows strict dependency chains identified in ARCHITECTURE.md:
+1. **RTL Foundation must be Phase 1** because retrofitting costs 35x more and every subsequent component inherits the patterns. Building LTR-first and converting later touches every file.
 
-1. **Foundation before UI**: Cannot build Quiz Player without database schema and session management. Cannot implement branching without rules engine architecture.
+2. **Decision tree engine before multilingual (Phase 2 before 4-5)** because graph traversal is complex and needs testing in one language. Adding translation on top of unvalidated branching logic compounds debugging difficulty.
 
-2. **Linear before adaptive**: MVP delivers linear questionnaires first, then adds branching. This is backward compatible—branching rules can return null to indicate "next in sequence." Reduces risk by validating core flow before adding complexity.
+3. **Outcome pages before multilingual (Phase 3 before 4-5)** because variable substitution must work in Italian first. Grammatical variations in other languages are extensions of the base pattern.
 
-3. **User-facing before admin**: Learners are primary users; admin is operational tooling. Building admin first creates temptation to over-engineer before validating core value with learners.
+4. **Content architecture before translation (Phase 4 before 5)** because AI hallucination and legal term preservation are prevented by workflow design, not fixed in post-production. Translating without glossary constraints creates unrecoverable errors.
 
-4. **Data collection before analytics**: Phase 1 must instrument response metadata (timestamps, categories, patterns) even if Phase 4 displays it. Retrofitting analytics data collection is painful.
+5. **Arabic RTL polish after translation (Phase 6 after 5)** because BiDi issues are only visible with real mixed-script content (Italian legal terms embedded in Arabic text). Testing with placeholder content misses the actual rendering bugs.
 
-The research reveals that pitfalls requiring Phase 1 decisions (flexible schema, data-driven rules, session management) drive phase sequencing. Get foundation right, then iterate upward through the stack.
+6. **Session persistence and analytics late (Phase 7)** because they are additive and don't affect core user flow. Can be developed in parallel with Phase 6 if resources allow.
+
+7. **Launch enhancements last (Phase 8)** because they improve an already-functional product. Shareable URLs and WhatsApp share are valuable but not blocking launch.
 
 ### Research Flags
 
-**Phases likely needing deeper research during planning:**
+**Phases needing `/gsd:research-phase`:**
+- **Phase 2 (Decision Tree Engine):** If graph traversal reveals complex loops or multiple entry points not documented in existing flowchart. Estimated: low probability, but graph algorithms can have edge cases.
+- **Phase 4 (Content Architecture):** Crowdin API integration and automated glossary enforcement. Moderate complexity, API-specific patterns. Recommended research target.
+- **Phase 6 (Arabic RTL Polish):** BiDi edge cases with complex nested legal terms. Test-driven, may uncover Unicode rendering subtleties. Optional research if issues arise.
 
-- **Phase 3 (Adaptive Intelligence)**: Branching logic implementation details need investigation—specifically handling back navigation (re-evaluate all downstream branching? warn user? disable back button?). Rules engine libraries (json-rules-engine, easy-rules) should be evaluated for fit vs custom implementation. ARCHITECTURE.md provides patterns but implementation choices need validation.
-
-**Phases with standard patterns (skip research-phase):**
-
-- **Phase 1 (Foundation)**: Database schema patterns are well-documented in ARCHITECTURE.md with PostgreSQL examples. Session management follows standard Next.js + Supabase patterns from STACK.md.
-
-- **Phase 2 (MVP UI)**: Form handling with React Hook Form + Zod is thoroughly documented in STACK.md. shadcn/ui components for quiz interfaces follow established patterns.
-
-- **Phase 4 (Admin Operations)**: CRUD operations, authentication, and CSV export are standard Next.js API patterns. No domain-specific complexity requiring additional research.
+**Phases with standard patterns (skip research):**
+- **Phase 1 (RTL Foundation):** shadcn RTL migration is documented in official changelog, next-intl setup has official docs, CSS logical properties are standard.
+- **Phase 3 (Outcome Pages):** Variable substitution is well-documented in i18n libraries, component patterns are standard React.
+- **Phase 5 (Translation):** Execution of established workflow, content work not engineering research.
+- **Phase 7 (Session/Analytics):** Corso AI already has session persistence, analytics dashboards are commodity patterns.
+- **Phase 8 (Launch Enhancements):** WhatsApp share is URL construction, print CSS is standard, all well-documented.
 
 ## Confidence Assessment
 
 | Area | Confidence | Notes |
 |------|------------|-------|
-| Stack | HIGH | All core technologies verified via npm registry (versions current as of 2026-02-04), Next.js + Supabase recommended in official docs, shadcn/ui confirmed React 19 + Tailwind v4 support, React Hook Form + Zod integration documented, Zustand positioned as 2025 standard for small-medium apps |
-| Features | MEDIUM-HIGH | Table stakes features show consensus across Capterra, Research.com, Mentimeter reviews of assessment platforms; differentiators validated through comparison of Typeform, SurveyMonkey, Qualtrics; anti-features inferred from platform engineering anti-patterns and survey best practices |
-| Architecture | HIGH | Three-tier architecture confirmed across SurveyJS documentation, multiple database design sources (Redgate, Vertabelo), rules engine patterns from Nected; JSON schema pattern and conditional navigation via foreign keys well-documented; component boundaries match real-world implementations |
-| Pitfalls | MEDIUM-HIGH | Branching complexity and data model rigidity show strong consensus across survey platform sources; rules engine and session management pitfalls validated through multiple consistent sources; some pitfalls (personalized feedback, localization) partially inferred from general patterns |
+| Stack | HIGH | All core technologies verified against official documentation. next-intl is the documented Next.js i18n standard. shadcn RTL migration confirmed in January 2026 release. Tailwind logical properties are built-in v3.3+. Crowdin officially recommended by next-intl. |
+| Features | MEDIUM | Feature expectations derived from comparable legal information tools (A2J Author, Docassemble, LawHelp Interactive, UNHCR Digital Gateway, refugee.info) which are different domains but similar user needs. No single identical competitor exists. MVP definition is inference from research, not validated with actual SOSpermesso users. |
+| Architecture | HIGH | Existing Corso AI codebase analyzed directly. DAG model is standard for decision trees. JSONB multilingual storage is documented PostgreSQL pattern. next-intl App Router setup verified in official docs. Build order based on cost-of-retrofitting research from Shopify Engineering. |
+| Pitfalls | HIGH | AI hallucination rates from Stanford HAI research (peer-reviewed). RTL retrofitting cost multiplier from Shopify Engineering (production experience). BiDi issues documented in W3C standard. Legal translation risks from multiple authoritative sources (Stanford Justice Innovation, peer-reviewed legal MT research). |
 
 **Overall confidence:** HIGH
 
-All critical path decisions (stack, architecture, data model) have high-confidence sources. Feature research has medium-high confidence due to reliance on market analysis vs direct technical documentation. Pitfalls research is solid but some prevention strategies are best-practice inference rather than documented anti-patterns.
+Research is comprehensive with primary sources (official docs, codebase analysis) and authoritative secondary sources (Stanford research, W3C standards, production experience from major companies). Feature expectations are the weakest link (inferred from similar tools rather than direct competitor analysis) but are well-reasoned.
 
 ### Gaps to Address
 
-**1. Branching complexity limits**—research recommends "3 levels max" but doesn't quantify when complexity becomes unmaintainable. During Phase 3 planning, evaluate: How many branch points before visualization tools become necessary? When does manual testing become impractical?
+1. **User testing assumptions:** Feature priorities assume migrant user needs based on comparable tools, not direct user research with SOSpermesso's actual demographic. Recommendation: Plan for user testing after Phase 3 (Italian-only functional prototype) to validate feature prioritization before full multilingual investment.
 
-**2. Rules engine implementation**—research identifies the pattern (JSON rule definitions, separate evaluation engine) but doesn't prescribe library vs custom implementation. Phase 3 should evaluate: json-rules-engine library fit, performance at scale (100+ rules?), debugging/testing approaches for rule logic.
+2. **Arabic dialect vs. MSA:** Research confirms MSA is the safe choice for written legal content, but actual migrant population in Italy includes North African Arabic speakers (Moroccan, Tunisian, Egyptian) who may find MSA difficult. Recommendation: Conduct small-scale testing with 5-10 Arabic speakers from diverse origins after Phase 5 translation to validate MSA accessibility.
 
-**3. Personalized feedback granularity**—research defines levels (1: generic, 2: variables, 3: question-specific, 4: learning paths) but doesn't provide implementation guidance. Phase 2 should validate: What level of personalization is viable for 5-10 question assessment? What response metadata must be captured?
+3. **Crowdin free tier limits:** Research confirms Crowdin is free for open-source projects, but actual approval process and feature limits for free tier not verified. Recommendation: Apply for Crowdin open-source program early in Phase 4 to confirm eligibility and feature access.
 
-**4. Multi-language expansion timing**—research recommends i18n library from day one but defers actual Italian localization details. Before Phase 2, validate: Italian translation approach (professional vs AI-assisted?), text expansion impact on UI (Italian is ~17% longer than English), date/number formatting requirements.
+4. **Variable substitution in Bangla/Urdu:** Grammatical complexity of Bangla (7 cases) and Urdu (Perso-Arabic script with different possessive constructions) may exceed what simple grammatical maps can handle. Recommendation: If Bangla/Urdu are added later (v2+), budget for full ICU MessageFormat migration or sentence variants rather than simple interpolation.
 
-**5. Admin analytics metrics**—research emphasizes "actionable not vanity" but doesn't define specific metrics for pre-training assessments. Phase 4 should define: Which metrics inform question quality? How to measure rule effectiveness? What thresholds indicate problems?
+5. **Translation memory effectiveness:** Research recommends translation memory to lock correctly-reviewed phrases, but effectiveness depends on phrase-level matching which may be poor for legal text with high variability. Recommendation: Monitor translation memory hit rate in Phase 5; if <40% reuse, consider glossary-only approach without full TM investment.
 
-**6. Proficiency level criteria**—research warns against simple score thresholds but doesn't provide domain-specific guidance for AI course leveling. Before Phase 1 completion, interview stakeholders: What makes someone "Advanced" in AI for lawyers? Are there must-pass foundation questions? How to handle domain expertise (legal) vs technical knowledge (AI)?
+6. **Performance at scale:** Architecture assumes tree graph (~40 nodes, ~80 edges) is small enough to load fully and cache. If decision tree expands significantly (100+ nodes), caching strategy may need revision. Recommendation: Monitor bundle size and load times during Phase 2; if tree data exceeds 100KB, implement lazy loading per branch.
 
 ## Sources
 
-### Primary (HIGH confidence)
+Research synthesized from:
 
-**Stack research:**
-- npm registry (https://registry.npmjs.org)—verified versions for Next.js 16.1.6, React 19.2.4, TypeScript 5.9.3, Supabase 2.94.1, React Hook Form 7.71.1, Zod 4.3.6, Zustand 5.0.11
-- Next.js Official Docs (https://nextjs.org/docs)—App Router maturity, testing recommendations
-- Supabase Official Docs (https://supabase.com/docs)—@supabase/ssr for Next.js App Router auth
-- shadcn/ui Official Site (https://ui.shadcn.com)—React 19 + Tailwind v4 support confirmation
-- React Hook Form Docs (https://react-hook-form.com)—Zod integration patterns
+### Stack Research
+- next-intl official documentation (App Router setup, routing, middleware, Crowdin integration, v4.0 release)
+- shadcn/ui RTL documentation (RTL mode, January 2026 changelog, Next.js RTL setup)
+- Tailwind CSS v3.3 logical properties announcement
+- Crowdin documentation (GitHub integration, AI pre-translation, open-source program)
+- Next.js 16 proxy.ts documentation
+- Radix DirectionProvider official docs
 
-**Architecture research:**
-- SurveyJS Architecture Guide (https://surveyjs.io/documentation/surveyjs-architecture)—separation of concerns, JSON schema patterns
-- Database Design for Survey Systems (https://vertabelo.com/blog/database-design-survey-system/)—schema patterns
-- Database Model for Online Survey Part 3 (https://www.red-gate.com/blog/a-database-model-for-an-online-survey-part-3/)—conditional logic via foreign keys
-- Rules Engine Design Pattern (https://www.nected.ai/blog/rules-engine-design-pattern)—rules as data architecture
+### Features Research
+- A2J Author accessibility documentation
+- Docassemble overview and multilingual support docs
+- LawHelp Interactive program description
+- UNHCR Digital Gateway overview
+- Refugee.info Italy platform
+- Typeform community posts (multilingual limitations confirmed)
 
-**Pitfalls research:**
-- Best Practices for Using Branching Logic (https://support.cultureamp.com/en/articles/7048353)—complexity warnings
-- Database Design Anti-patterns (https://www.sqlservercentral.com/forums/topic/survey-db-schema)—rigid schema issues
-- Continuing Incomplete Surveys (https://surveyjs.io/form-library/documentation/how-to-save-and-restore-incomplete-survey)—session persistence
+### Architecture Research
+- Corso AI codebase analysis (direct examination of Prisma schema, quiz-store, types, seed data)
+- SOSpermesso decision tree (flowchart_permessi.mermaid, data.js analyzed directly)
+- next-intl App Router official setup guide
+- Radix Direction Provider docs
+- CSS Logical Properties overview (verified against MDN)
+- PostgreSQL hierarchical data modeling patterns
 
-### Secondary (MEDIUM confidence)
+### Pitfalls Research
+- Stanford HAI: "Hallucinating Law: Legal Mistakes with LLMs" (hallucination rates)
+- Stanford Justice Innovation: "AI, Machine Translation, and Access to Justice" (legal translation risks)
+- Shopify Engineering: "i18n Best Practices for Front-End Developers" (retrofitting cost multiplier)
+- W3C: "Inline Markup and Bidirectional Text in HTML" (BiDi standard)
+- Localazy: "8 LLM Arabic Models Tested" (Arabic translation benchmarks)
+- ACM: "Actionable UI Design Guidelines for Low-Literate Users" (accessibility research)
+- ResearchGate: "Machine Translation in the Field of Law" (peer-reviewed legal MT research)
+- ACL: "LLMs for Low-Resource Dialect Translation" (Bangla/Urdu quality issues)
 
-**Features research:**
-- Best Assessment Software 2026 (https://www.capterra.com/assessment-software/)—market analysis
-- 21 Best Assessment Software (https://research.com/software/best-assessment-software)—feature comparison
-- Survey Logic Features (https://www.surveymonkey.com/product/features/survey-logic/)—branching patterns
-- Pre-Training Assessment Best Practices (https://www.coursebox.ai/blog/pre-training-assessment)
-
-**Stack research:**
-- State Management in 2025 (https://dev.to/cristiansifuentes/react-state-management-in-2025-context-api-vs-zustand-385m)—Zustand recommendations
-- Testing Next.js Applications 2025 (https://trillionclues.medium.com/testing-next-js-applications-a-complete-guide-to-catching-bugs-before-qa-does-a1db8d1a0a3b)—Vitest + Playwright
-- Internationalization in Next.js (https://arnab-k.medium.com/internationalization-i18n-in-next-js-a-complete-guide-f62989f6469b)—next-intl patterns
-
-**Pitfalls research:**
-- Survey Abandonment Guide (https://qualaroo.com/blog/survey-abandonment-guide-causes-impact-solutions/)—completion rate factors
-- Dashboard Anti-patterns (https://medium.com/@egarbugli/everything-wrong-with-analytics-dashboards-and-our-plan-to-fix-it-b5f873b9e679)—vanity metrics
-- Personalized Recommendations at Scale (https://pointerpro.com/blog/personalized-recommendations-at-scale/)—feedback strategies
-
-### Tertiary (LOW confidence, needs validation)
-
-- Scalability thresholds (100 users vs 10K users in ARCHITECTURE.md)—based on general web patterns, not assessment-specific
-- Graph database for 1M+ users (ARCHITECTURE.md)—theoretical, not verified with production examples
-- AI question generation complexity (FEATURES.md)—2026 trend identified but implementation details sparse
+**Confidence breakdown:**
+- HIGH confidence sources: Official documentation (next-intl, shadcn/ui, Tailwind, W3C), peer-reviewed research (Stanford, ACM, ACL), direct codebase analysis
+- MEDIUM confidence sources: Industry blogs with production experience (Shopify, Localazy), community resources (Typeform forums, ProZ translator discussions)
+- LOW confidence sources: Single-source claims (Crowdin AI pre-translation quality percentages, Tolgee exact key limits)
 
 ---
-
-*Research completed: 2026-02-04*
+*Research completed: 2026-02-14*
 *Ready for roadmap: yes*

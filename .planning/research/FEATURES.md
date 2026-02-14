@@ -1,268 +1,246 @@
-# Feature Landscape
+# Feature Research
 
-**Domain:** Pre-Training Assessment / Branching Questionnaire Platform
-**Researched:** 2026-02-04
-**Confidence:** MEDIUM
+**Domain:** Multilingual legal eligibility decision tree for migrants
+**Researched:** 2026-02-14
+**Confidence:** MEDIUM (domain research synthesized from multiple comparable tools; no single identical competitor exists)
 
-## Table Stakes
+## Feature Landscape
 
-Features users expect. Missing = product feels incomplete.
+### Table Stakes (Users Expect These)
+
+Features users assume exist. Missing these = product feels incomplete or untrustworthy.
+
+#### Legal-Specific Table Stakes
 
 | Feature | Why Expected | Complexity | Notes |
 |---------|--------------|------------|-------|
-| Multiple question types | Industry standard for assessment platforms; users expect MC, multiple select, T/F at minimum | Low | Essential for varied assessment needs. Your project correctly identifies these 3 types as core |
-| Branching/Skip logic | Enables conditional flows based on responses; fundamental for adaptive assessments | Medium | Core differentiator for your use case. Without this, just a linear survey tool |
-| Mobile-responsive UI | 2026 expectation; learners access from any device | Low | Modern web frameworks handle this; still requires testing |
-| Progress indicators | Reduces anxiety; shows learners how far through assessment they are | Low | Simple UI component; critical for UX on 5-10 question sessions |
-| Instant submission | Users expect immediate confirmation when submitting responses | Low | Backend validation + confirmation screen |
-| Admin dashboard access | Platform administrators need view/manage interface for responses and settings | Medium | Basic CRUD operations on responses; filtering/search capabilities |
-| Response data export | Admins need to extract data for analysis (CSV/Excel minimum) | Low | Standard data export feature in admin panels |
-| Accessibility (WCAG 2.1) | Legal requirement in many jurisdictions; expectation for educational tools | Medium | Screen reader support, keyboard navigation, color contrast. May need audit |
-| Session persistence | If user closes browser mid-assessment, don't lose progress | Medium | Requires session storage strategy; important for 5-10 question flows |
-| Clear feedback delivery | After assessment, learner must receive their result/level assignment | Low-Medium | Text-based feedback display; complexity depends on personalization depth |
+| **Legal disclaimer / "not legal advice" notice** | Italian law requires distinguishing informational content from consulenza legale. Without it, the tool creates liability for SOSpermesso and erodes trust with legal aid workers who know the difference. Standard in every Italian legal information site ("non costituisce consulenza"). | LOW | Must appear at start of questionnaire AND on every outcome page. Use warm, non-scary language in keeping with SOSpermesso tone. Translate disclaimer into all supported languages. |
+| **Confidence indicators on outcomes** | Users need to know how certain the tool is about their result. Already part of existing SOSpermesso content ("siamo sicuri" / "non siamo sicuri"). A2J Author and Docassemble tools show that guided interviews must communicate certainty levels. Without it, users either over-rely on or dismiss results. | LOW | Already designed in existing scheda content. Display prominently -- consider color/icon coding (green = confident, yellow = uncertain). |
+| **"Next steps" action list per outcome** | Every comparable tool (LawHelp Interactive, UNHCR Help, refugee.info) provides actionable next steps, not just information. Users who reach an outcome need to know WHAT TO DO, not just what they may be eligible for. | LOW | Already designed in schede: come lo chiedo, mi serve un avvocato, quanto dura. Structure as clear checklist, not prose paragraphs. |
+| **Links to legal aid / referral information** | All legal eligibility tools connect users to human help. UNHCR Digital Gateway, refugee.info, and Eureka all provide referral to local services. Without this, the tool is a dead end. | LOW | Already designed in schede with links to sospermesso.it guides and legal aid centers. Ensure links are prominent and work on mobile. |
+| **Variable substitution / personalization** | Using the person's name ("[Nome]") and earlier answers ("[Parente selezionato]") throughout. All comparable tools (Typeform, Docassemble, A2J Author, Survey Solutions) support text piping. Without it, the experience feels generic and impersonal. | MEDIUM | Already designed in content. Requires rendering engine to substitute variables from session state into question text and outcome pages. Must work correctly across all languages. |
+| **Back button with correct history** | Users MUST be able to go back and change answers without losing progress. A2J Author and Docassemble both support this. Decision trees with branching make naive "previous index" back buttons wrong -- must use navigation history stack. | LOW | Already implemented in quiz-store.ts via navigationHistory stack. Verify it works correctly with all branching paths. |
+| **Session persistence / resume** | Users on mobile may close browser mid-questionnaire. Both LawHelp Interactive and A2J Author let users save and return. For migrants on shared or unstable devices, this is critical. | LOW | Already implemented via resumeToken in quiz-store.ts. Consider: how does user get back? Bookmark? Access code? Cookie only works on same browser. |
+| **Mobile-first responsive design** | Migrant users overwhelmingly access via smartphone. UNHCR Digital Gateway is mobile-first. Eureka runs on WhatsApp. Responsive design is non-negotiable. | LOW | Already a constraint. Ensure touch targets are large (48px minimum per WCAG), text is readable without zooming, and all UI elements work on 320px screens. |
 
-## Differentiators
+#### Multilingual Table Stakes
 
-Features that set product apart. Not expected, but valued.
+| Feature | Why Expected | Complexity | Notes |
+|---------|--------------|------------|-------|
+| **Full content translation (all 5 languages)** | The core purpose. Typeform's multilingual is "misleading & completely broken" per their own community. This is the #1 reason for building a custom tool. | HIGH | All ~40 questions + ~25 schede + all UI strings. Translation is content work, not engineering, but the architecture must support it cleanly. |
+| **RTL layout for Arabic** | Arabic is a launch language. CSS logical properties (margin-inline-start, padding-inline-end) must be used instead of left/right. Cannot be retrofitted -- must be built from day one. | MEDIUM | Set dir="rtl" on root element when Arabic is selected. Use CSS logical properties throughout. Arabic text takes different space and line heights. Test with actual Arabic content, not lorem ipsum. |
+| **Language selector accessible from any page** | Users must be able to switch language at any time without losing progress. UNHCR Help and refugee.info Italy both support this. | MEDIUM | Language switch must NOT restart the questionnaire. All answers are language-independent (option IDs, not translated text). Language only affects display layer. |
+| **Bidirectional text handling** | Arabic contains LTR elements (numbers, brand names, URLs). The Unicode Bidirectional Algorithm handles most cases, but embedded LTR strings in RTL context need explicit dir="auto" or unicode-bidi treatment. | MEDIUM | Use dir="auto" on user-generated content blocks. Test mixed-direction scenarios: phone numbers in Arabic text, Italian legal terms in Arabic explanations. |
+
+#### Accessibility Table Stakes (for low-literacy migrant users)
+
+| Feature | Why Expected | Complexity | Notes |
+|---------|--------------|------------|-------|
+| **Plain language / short sentences** | SOSpermesso's target users may have limited literacy in any language. W3C and plain language guidelines recommend 8th grade reading level. Legal information tools for migrants must use simple vocabulary. | LOW | Already characteristic of existing SOSpermesso content (warm, emoji-using, reassuring). Apply same principle to all translated content. Translators must prioritize clarity over precision. |
+| **Large touch targets and clear visual hierarchy** | WCAG 2.2 requires 24x24px minimum, but 48x48px is recommended for mobile. A2J Author specifically calls out "increased target sizes for inputs and buttons." Users may be interacting with unfamiliar UI patterns. | LOW | Apply to all buttons, radio buttons, checkboxes. One question per screen (already the pattern). Clear visual distinction between question text, options, and navigation. |
+| **One question per screen** | All guided interview tools (A2J Author, Docassemble, Typeform) present one question at a time. Reduces cognitive load. Critical for low-literacy users and complex branching where question relevance depends on prior answers. | LOW | Already the pattern in the existing codebase. Do not change this. |
+| **Progress indication** | Users need to know where they are in the process. However, branching makes exact progress bars misleading (user may be 3 questions from end or 8). | LOW | Already implemented via ProgressBar component. Consider: show step count relative to user's specific path rather than total questions. Or use a simpler "you're getting closer" indicator rather than a percentage. |
+
+### Differentiators (Competitive Advantage)
+
+Features that set SOSpermesso apart from Typeform and generic tools. Not required, but valuable.
 
 | Feature | Value Proposition | Complexity | Notes |
 |---------|-------------------|------------|-------|
-| Custom rules engine | Goes beyond simple score thresholds; allows complex logic like "high on X AND low on Y = Level 2" | High | Your key differentiator. Most platforms use score ranges; custom rules enable nuanced placement |
-| AI-powered question generation | Admins can generate variations or new questions using AI assistance | Medium-High | 2026 trend in assessment platforms; reduces content creation burden |
-| Personalized feedback paths | Different feedback content based on response patterns, not just final score | Medium | Enhances learner value; requires content management for feedback variants |
-| Real-time analytics dashboard | Live view of completion rates, common answer patterns, rule effectiveness | Medium | Helps admin understand assessment performance; requires websockets or polling |
-| Multi-language support | Critical for Italian legal market; extends to other languages later | Medium | Your context specifies Italian; architecture should support i18n from start |
-| Response confidence indicators | Learners can mark "not sure" alongside answers; enriches data quality | Low-Medium | Provides meta-data on responses; useful for borderline cases in rules engine |
-| Question bank management | Reusable question library; version assessments without recreating content | Medium | Scales content creation; important if multiple courses planned |
-| Automated fraud detection | Flags suspiciously fast completion, pattern-based answers | Medium-High | Protects assessment integrity; increasingly expected in high-stakes contexts |
-| Comparative benchmarking | Shows learner how they compare to cohort averages | Medium | Provides context to results; motivational for learners |
-| Custom branding | White-label or branded experience matching course identity | Low-Medium | Professional appearance; expected if scaling to multiple institutions |
+| **Outcome page as standalone resource** | Each scheda (outcome page) should be shareable as a standalone URL, printable, and saveable. Typeform results disappear. A real legal information page that can be bookmarked, shared with a lawyer, or printed for an appointment is a major differentiator. | MEDIUM | Generate a stable URL per outcome (e.g., /scheda/protezione-speciale). Include all relevant information, legal references, and next steps. Add print stylesheet. Consider PDF export. |
+| **WhatsApp/share integration for outcome pages** | Migrant users communicate primarily via WhatsApp. Research shows WhatsApp surveys have higher engagement with migrant populations. Being able to share "I may be eligible for [permit type]" with a friend, lawyer, or legal aid worker via WhatsApp is a high-value, low-cost feature. | LOW | WhatsApp share link is just a URL: `https://wa.me/?text=...`. Add share buttons (WhatsApp, copy link, email) to outcome pages. Include the scheda URL and a brief summary. |
+| **Legal aid worker mode** | Dual audience: migrants self-serve AND legal aid workers screen clients. Workers need: faster flow (skip reassuring language), ability to process multiple clients, and possibly a summary view. Typeform can't distinguish between audiences. | MEDIUM | Could be as simple as a URL parameter (?mode=operatore) that: condenses explanatory text, shows all outcome details on one page, includes legal citations. Defer complex features to post-MVP. |
+| **Warm, emoji-using, non-bureaucratic design** | Deliberately NOT looking like a government form. The existing SOSpermesso content uses emojis, metaphors ("navigating turbulent bureaucratic waters"), and reassuring language. This emotional design is a differentiator against cold, clinical tools. Most legal tools (A2J Author, Docassemble) have functional but cold interfaces. | LOW | Already characteristic of existing content. Carry through to UI design: rounded corners, warm colors, friendly illustrations. The tool should feel like a helpful friend, not a government office. |
+| **Outcome page with structured sections** | Each outcome page organized as FAQ-style blocks: What is this permit? Am I eligible? How do I apply? Do I need a lawyer? How long does it last? What rights does it give me? This structured format is more useful than prose paragraphs. | LOW | Already designed in existing schede content. Implement as collapsible sections or clearly labeled cards. Each section should be independently linkable (anchor links). |
+| **Path-aware progress ("you're almost done")** | Unlike generic surveys with a fixed number of questions, SOSpermesso's branching means some paths are 3 questions, others are 8. Path-aware progress shows how far along THIS user's path is, not a misleading percentage of total questions. | MEDIUM | Requires knowing the maximum depth of the current branch. Could pre-calculate or estimate. Even a simple "2 more questions" message is better than a misleading progress bar. |
+| **"I'm not sure" option with guidance** | For questions where users genuinely don't know (e.g., "Does your relative have Italian citizenship?"), provide an "I'm not sure" option that explains how to find out, rather than forcing a guess or dead-ending. | LOW | Add "Non so / I don't know" option to relevant questions. Route to guidance text explaining how to find the answer, or route to a "consult a lawyer for this specific question" outcome. |
+| **Print-friendly outcome summary** | Users may need to bring their result to a legal aid appointment or immigration office. A print-friendly version of the outcome page, stripped of navigation chrome, with all key information visible. | LOW | CSS @media print stylesheet. Hide navigation, show all sections expanded, include SOSpermesso contact info. Consider: auto-generate a simple reference number for the session. |
 
-## Anti-Features
+### Anti-Features (Commonly Requested, Often Problematic)
 
-Features to explicitly NOT build. Common mistakes in this domain.
+Features that seem good but create problems in this specific domain.
 
-| Anti-Feature | Why Avoid | What to Do Instead |
-|--------------|-----------|-------------------|
-| Complex gamification | Distracts from assessment purpose; treats serious evaluation as a game | Keep UI clean and professional; save gamification for training modules, not pre-assessments |
-| Time limits on questions | Creates unnecessary stress in pre-training assessment; measures speed not knowledge | Use overall session timeout for fraud detection, not per-question timers |
-| Public leaderboards | Inappropriate for placement assessments; creates competition instead of accurate self-assessment | Show individual results only; use aggregates for admin analytics |
-| Social sharing features | Pre-training assessment results are private educational data; sharing violates that trust | Provide PDF download for personal records; never social share buttons |
-| Over-engineered UI/UX | "Netflix for assessments" with fancy animations slows completion; adds no value | Focus on clarity and speed; one question per screen with simple transitions |
-| Blockchain/Web3 integration | No practical value for this use case; adds complexity and cost for buzzword compliance | Standard cloud database provides all needed auditability |
-| Native mobile apps | Expensive to maintain; web-responsive covers 95% of use cases for simple assessments | Invest in excellent mobile-web experience instead |
-| Video/audio questions | Exponentially increases complexity, storage costs, and review burden for 5-10 question assessment | Stick to text-based questions; much faster to complete and evaluate |
-| Open-ended essay questions | Requires manual grading; defeats purpose of automated level placement | Use structured question types that enable automated scoring via rules engine |
-| "Field of Dreams" platform | Building elaborate features before validating with real users | Start with MVP: core question types + branching + basic rules engine + simple feedback |
+| Feature | Why Requested | Why Problematic | Alternative |
+|---------|---------------|-----------------|-------------|
+| **User accounts / login for migrants** | "So they can save and return to their results." | Creates barriers for vulnerable users: email may not be stable, passwords are forgotten, fear of creating accounts linked to immigration status. Privacy-sensitive population. UNHCR specifically notes data security concerns. | Use anonymous sessions with resume tokens (already implemented). Outcome pages are shareable URLs that work without login. |
+| **AI chatbot for follow-up questions** | "Users will have questions after seeing their outcome." | Legal information chatbots carry enormous liability risk. If the chatbot gives wrong legal guidance, SOSpermesso is responsible. AI hallucinations about legal rights are dangerous. Academic literature specifically warns about algorithmic decision-making in migration contexts. | Link to human legal aid resources. Provide structured FAQ sections on outcome pages. Offer contact information for SOSpermesso team. |
+| **Automatic legal advice generation** | "Personalize the outcome based on all their answers." | Crosses the line from legal information to legal advice. Creates attorney-client relationship implications. The tool provides INFORMATION about permit types, not ADVICE about what to do. This distinction is legally critical in Italy. | Variable substitution and path-based routing already personalize the experience without generating novel legal advice. Each outcome page is human-authored by legal experts. |
+| **Real-time law change updates** | "The tool should automatically update when immigration law changes." | Immigration law changes require human legal review, not automatic updates. Wrong information is worse than no information. Content must be reviewed by legal experts before publication. | Content versioning with a "last reviewed" date on each outcome page. Admin notification system when content needs review. Manual update process with legal expert approval. |
+| **Full WCAG AAA compliance** | "Maximum accessibility for all users." | AAA is aspirational, not a realistic target. It requires things like sign language interpretation of all audio content, extended audio descriptions, and reading level below lower secondary education for ALL text. The effort is enormous and some requirements conflict with legal precision. | Target WCAG 2.1 AA compliance, which covers the vast majority of accessibility needs. Add specific accommodations for the known user population (large text, high contrast, simple language). |
+| **Offline mode / PWA** | "Users may not have reliable internet." | Adds significant complexity (service workers, cache management, sync). The questionnaire is lightweight and works on slow connections. The outcome pages with external links require internet anyway. | Optimize for low-bandwidth: minimize JS bundle, lazy-load images, ensure the core flow works on 2G connections. Print-friendly outcome pages can be saved as PDFs for offline reference. |
+| **Audio narration of questions** | "For users who can't read." | High-quality audio narration in 5+ languages (including multiple Arabic dialects) is expensive to produce and maintain. TTS quality for Arabic is poor. Every content update requires re-recording. | Use visual design (icons, color coding, large text) to maximize comprehension. Keep text short and simple. Consider audio as a future enhancement if user testing reveals the need. |
+| **Admin UI for editing content** | "Non-technical staff should be able to update questions and outcomes." | Building a full CMS is a significant engineering effort. Content changes to legal decision trees require careful testing (does changing one question break downstream paths?). The team is small and technically capable. | Content in structured data files (JSON/YAML) managed in version control. Changes go through PR review, ensuring both legal accuracy and technical correctness. Admin dashboard for ANALYTICS only, not content editing, in v1. |
 
 ## Feature Dependencies
 
 ```
-Core Assessment Flow:
-Question Types (MC, Multi-Select, T/F)
-  └── Branching Logic
-       └── Rules Engine
-            └── Feedback Delivery
-                 └── Results Display
+[Full Content Translation]
+    |-- requires --> [i18n Architecture (string externalization, locale routing)]
+    |-- requires --> [RTL Layout Support]
+    |-- requires --> [Bidirectional Text Handling]
 
-Admin Capabilities:
-Authentication
-  └── Admin Dashboard
-       ├── View Responses
-       ├── Export Data
-       └── Platform Configuration
+[Language Selector]
+    |-- requires --> [i18n Architecture]
+    |-- requires --> [Session answers stored as language-independent IDs]
 
-Enhancement Layer (Post-MVP):
-Question Bank
-  └── Version Management
-  └── AI Question Generation
+[Variable Substitution]
+    |-- requires --> [i18n Architecture (variables must work in all languages)]
+    |-- requires --> [Session state management (answers accessible for substitution)]
 
-Analytics Layer:
-Response Storage
-  └── Basic Reporting
-       └── Real-time Analytics (optional)
-            └── Benchmarking (optional)
+[Outcome Page as Standalone Resource]
+    |-- requires --> [Full Content Translation]
+    |-- requires --> [Variable Substitution]
+    |-- enhances --> [WhatsApp/Share Integration]
+    |-- enhances --> [Print-friendly Outcome Summary]
 
-Localization:
-i18n Framework
-  └── Italian Language Pack
-       └── Additional Languages (future)
+[WhatsApp/Share Integration]
+    |-- requires --> [Outcome Page as Standalone Resource (needs stable URL)]
+
+[Legal Aid Worker Mode]
+    |-- requires --> [Full Content Translation (worker may use different language than client)]
+    |-- enhances --> [Outcome Page as Standalone Resource]
+
+[Legal Disclaimer]
+    |-- requires --> [Full Content Translation]
+
+[Path-aware Progress]
+    |-- requires --> [Decision tree structure (branch depth knowledge)]
+    |-- conflicts with --> [Naive progress bar (misleading percentage)]
+
+[Confidence Indicators]
+    |-- requires --> [Outcome page structure]
+    |-- independent of --> [i18n (confidence level is per-scheda, not per-language)]
+
+[Session Persistence]
+    |-- independent of --> [i18n (already implemented)]
+    |-- enhances --> [Language Selector (switch language mid-session)]
 ```
 
-## MVP Recommendation
+### Dependency Notes
 
-For MVP (Pre-Training Assessment for Italian Lawyers), prioritize:
+- **i18n Architecture is the critical path:** Almost every legal and multilingual feature depends on having a solid internationalization foundation. String externalization, locale routing, and language-independent answer storage must be built first.
+- **RTL must be concurrent with i18n:** Building i18n without RTL support means retrofitting later, which is expensive. CSS logical properties and dir attribute must be in the initial i18n implementation.
+- **Outcome pages are the sharing prerequisite:** WhatsApp share, print, and PDF features all require outcome pages to exist as standalone, URL-addressable resources. Build outcome pages before adding sharing features.
+- **Variable substitution crosses the language boundary:** Variables like [Nome] are simple, but [Parente selezionato] requires the substituted value to be in the correct language and grammatical form. This is a non-trivial translation challenge.
+- **Path-aware progress conflicts with naive progress bar:** The existing ProgressBar component likely shows percentage of total questions. For a branching decision tree, this is misleading. Replace or augment with path-aware indicator.
 
-1. **Question types** - MC, Multiple Select, T/F (table stakes)
-2. **Branching logic** - Conditional question flow (core differentiator)
-3. **Custom rules engine** - Logic beyond score thresholds (your unique value)
-4. **Basic admin dashboard** - View responses, see results (operational necessity)
-5. **Feedback delivery** - Show learner their level + explanation (closure for learner)
-6. **Mobile responsive** - Clean, simple UI that works on all devices (table stakes)
-7. **Italian language** - All UI text in Italian (market requirement)
-8. **Data export** - CSV export of responses (admin analysis needs)
+## MVP Definition
 
-**Estimated scope:** 5-10 questions per assessment, single admin, cloud-hosted, three proficiency levels.
+### Launch With (v1)
 
-Defer to post-MVP:
+Minimum viable product -- what's needed to replace Typeform.
 
-- **Real-time analytics**: Start with batch reporting; add live dashboards based on usage patterns
-- **AI question generation**: Manually create initial question set; add AI assistance once content patterns are clear
-- **Question bank management**: Build assessments directly initially; add reusable library when creating multiple assessments
-- **Advanced fraud detection**: Start with session timeout; add pattern detection if abuse observed
-- **Benchmarking**: Requires meaningful sample size; add after first cohort completes
-- **Custom branding**: Use default professional styling; add white-label if selling to other institutions
-- **Confidence indicators**: Adds UI complexity; validate core flow first
+- [ ] **i18n architecture with RTL** -- String externalization, locale routing, CSS logical properties, dir attribute. Foundation for everything else.
+- [ ] **Full content translation (5 languages)** -- All questions, options, and outcome pages in IT, AR, FR, EN, ES.
+- [ ] **Language selector** -- Accessible from every page, does not restart questionnaire.
+- [ ] **Decision tree engine** -- Branching logic, show conditions, option-level routing. (Mostly built; needs adaptation from quiz to decision tree.)
+- [ ] **Variable substitution** -- [Nome], [Parente selezionato], dynamic text throughout.
+- [ ] **Outcome pages (schede)** -- Structured sections, confidence indicators, next steps, legal aid links.
+- [ ] **Legal disclaimer** -- On start screen and outcome pages. Translated.
+- [ ] **Session persistence** -- Resume via token. Works across browser sessions.
+- [ ] **Mobile-responsive** -- Works on 320px screens, large touch targets.
+- [ ] **Warm, friendly design** -- Not a government form. Matches SOSpermesso brand.
 
-## Implementation Phases
+### Add After Validation (v1.x)
 
-### Phase 1: Core Assessment (MVP)
-- Basic question types (3 types)
-- Linear question flow (no branching yet)
-- Simple scoring calculation
-- Results page with level assignment
-- Italian UI text
+Features to add once the core tool is live and getting real user traffic.
 
-### Phase 2: Adaptive Logic
-- Branching/skip logic implementation
-- Custom rules engine (beyond score thresholds)
-- Personalized feedback based on rules
-- Admin interface for rule configuration
+- [ ] **Shareable outcome page URLs** -- Stable URLs for each scheda, shareable via link.
+- [ ] **WhatsApp share button** -- One-tap sharing of outcome to WhatsApp contact.
+- [ ] **Print-friendly outcomes** -- CSS print stylesheet for outcome pages.
+- [ ] **"I'm not sure" options** -- For questions where uncertainty is common.
+- [ ] **Path-aware progress** -- Replace misleading percentage with path-specific progress.
+- [ ] **Admin analytics dashboard** -- Usage stats, outcome distribution, drop-off points, language distribution.
+- [ ] **"Last reviewed" dates on outcomes** -- Content currency indicator for legal information.
 
-### Phase 3: Administration & Analytics
-- Response viewing dashboard
-- Data export functionality
-- Basic analytics (completion rates, answer distributions)
-- User management (if multi-admin needed)
+### Future Consideration (v2+)
 
-### Phase 4: Enhancement (Post-validation)
-- Question bank system
-- Version management
-- Real-time analytics
-- AI-assisted content creation
+Features to defer until the tool is established.
 
-## Complexity Analysis
+- [ ] **Legal aid worker mode** -- Faster flow, multi-client, summary view. Needs user research with actual legal aid workers first.
+- [ ] **PDF export of outcome** -- Downloadable summary for appointments. Needs design work.
+- [ ] **Additional languages beyond launch 5** -- Architecture supports it; content translation is the bottleneck.
+- [ ] **Content versioning / audit trail** -- Track which version of legal content a user saw. Important for legal accountability but complex to implement.
+- [ ] **Audio support for select languages** -- If user testing reveals reading is a barrier, add audio narration starting with Italian and Arabic.
 
-**Low Complexity (1-2 weeks each):**
-- Multiple question types
-- Progress indicators
-- Mobile responsive design
-- Data export
-- Session persistence
+## Feature Prioritization Matrix
 
-**Medium Complexity (2-4 weeks each):**
-- Branching/skip logic
-- Basic admin dashboard
-- Personalized feedback
-- Multi-language support (i18n infrastructure)
-- Response viewing/filtering
+| Feature | User Value | Implementation Cost | Priority |
+|---------|------------|---------------------|----------|
+| i18n architecture + RTL | HIGH | HIGH | P1 |
+| Full content translation (5 langs) | HIGH | HIGH (content work) | P1 |
+| Language selector | HIGH | MEDIUM | P1 |
+| Decision tree adaptation | HIGH | MEDIUM | P1 |
+| Variable substitution | HIGH | MEDIUM | P1 |
+| Outcome pages (schede) | HIGH | MEDIUM | P1 |
+| Legal disclaimer | HIGH | LOW | P1 |
+| Session persistence | HIGH | LOW (already built) | P1 |
+| Mobile-responsive | HIGH | LOW (already built) | P1 |
+| Warm design | MEDIUM | LOW | P1 |
+| Shareable outcome URLs | HIGH | LOW | P2 |
+| WhatsApp share | HIGH | LOW | P2 |
+| Print-friendly outcomes | MEDIUM | LOW | P2 |
+| "I'm not sure" options | MEDIUM | LOW | P2 |
+| Path-aware progress | MEDIUM | MEDIUM | P2 |
+| Admin analytics | MEDIUM | MEDIUM | P2 |
+| Content review dates | MEDIUM | LOW | P2 |
+| Legal aid worker mode | MEDIUM | MEDIUM | P3 |
+| PDF export | MEDIUM | MEDIUM | P3 |
+| Additional languages | MEDIUM | HIGH (content) | P3 |
+| Content versioning | LOW | HIGH | P3 |
+| Audio narration | LOW | HIGH | P3 |
 
-**High Complexity (4-8 weeks each):**
-- Custom rules engine (your differentiator)
-- Question bank with versioning
-- Real-time analytics
-- AI integration features
-- Automated fraud detection
+**Priority key:**
+- P1: Must have for launch (replaces Typeform)
+- P2: Should have, add when validated with real users
+- P3: Nice to have, future consideration
 
-## Market Context (2026)
+## Competitor Feature Analysis
 
-Based on research of platforms like **Typeform**, **SurveyMonkey**, **Qualtrics**, **QuestionPro**, and specialized assessment tools:
+| Feature | Typeform (current) | A2J Author | Docassemble | LawHelp Interactive | Refugee.info | SOSpermesso (planned) |
+|---------|-------------------|------------|-------------|--------------------|--------------|-----------------------|
+| Multilingual | Broken/workaround | No native support | Yes (YAML-based) | 5 languages | Multiple | Yes, 5+ languages |
+| RTL support | No | No | Partial | Unknown | Unknown | Yes (day one) |
+| Branching logic | Yes (limited) | Yes | Yes (Python-based) | Yes (HotDocs) | No (static content) | Yes |
+| Variable substitution | Yes (piping) | Yes | Yes | Yes | No | Yes |
+| Session save/resume | No (for free tier) | Optional accounts | Yes (login) | Yes (accounts) | N/A | Yes (anonymous token) |
+| Outcome pages | No (redirect) | Document generation | Document generation | Document assembly | Static articles | Yes (rich schede) |
+| Confidence indicators | No | No | No | No | No | Yes |
+| Shareable results | No | Print/download | PDF/DOCX | Print/download | Shareable URLs | Yes (URLs + WhatsApp) |
+| Mobile-first | Yes | Yes (recent) | Yes | Partial | Yes | Yes |
+| Warm design | Limited theming | Avatar-based | Functional | Functional | Clean/modern | Warm, emoji, friendly |
+| Legal disclaimer | Not built-in | Author-configurable | Author-configurable | Built-in | Built-in | Built-in, translated |
+| Analytics | Basic (paid) | No | Yes (admin) | No | No | Yes (planned) |
+| Print-friendly | No | Yes | Yes (PDF) | Yes (PDF) | No | Planned |
+| Open source | No | Yes | Yes | No (uses HotDocs) | No | No |
 
-**What's commoditized (everyone has this):**
-- Basic question types
-- Branching logic
-- Mobile responsive
-- Data export
-- Analytics dashboards
+### Key competitive observations
 
-**What's differentiating (competitive advantage):**
-- Custom rules engines (most platforms use score ranges)
-- AI-powered features (question generation, adaptive difficulty)
-- Specialized domain focus (e.g., legal education pre-assessment)
-- Superior UX for specific use cases
-- Deep integration with learning ecosystems
-
-**What users expect in 2026:**
-- Setup time under 10 minutes for simple assessments
-- AI assistance (even if just suggestions)
-- Real-time or near-real-time feedback
-- Excellent mobile experience (not "mobile version exists")
-- Accessibility compliance
-- Data privacy compliance (GDPR for EU)
+1. **No existing tool combines multilingual + RTL + warm design + legal decision tree.** SOSpermesso occupies a unique niche.
+2. **Typeform's multilingual is genuinely broken** -- community posts confirm users have "zero control" over displayed language. This validates the decision to build custom.
+3. **A2J Author is the closest comparable** in the legal self-help space but lacks multilingual support and has a cold, courthouse-themed interface.
+4. **Docassemble is the most technically capable** open-source alternative but requires Python expertise and has a steep learning curve. Its strength is document assembly, not information delivery.
+5. **Shareable outcome pages are the biggest gap in the market.** No comparable tool makes legal eligibility results easily shareable via WhatsApp or as standalone URLs. This is SOSpermesso's strongest differentiator given migrant communication patterns.
 
 ## Sources
 
-### Assessment Platform Features
-- [Best Assessment Software 2026 | Capterra](https://www.capterra.com/assessment-software/)
-- [21 Best Assessment Software for 2026 | Research.com](https://research.com/software/best-assessment-software)
-- [11 best online assessment tools: Make learning stick in 2026 - Mentimeter](https://www.mentimeter.com/blog/education/online-assessment-tools)
-- [What features should a good online assessment platform have? - UMU](https://www.umu.com/ask/q11122301573854266448)
+### Verified (MEDIUM confidence)
+- [A2J Author Accessibility](https://www.a2jauthor.org/content/accessibility) -- WCAG compliance, screen reader support, accessibility features
+- [A2J Author Overview](https://www.a2jauthor.org/content/chapter-1-a2j-author-overview) -- Guided interview capabilities, branching, just-in-time learning
+- [Docassemble Overview](https://docassemble.org/docs.html) -- Multilingual support, interview logic, session persistence
+- [LawHelp Interactive](https://www.probono.net/programs/lhi/) -- Document assembly, 5000+ interviews, 5 languages
+- [Typeform Multilingual Community Post](https://community.typeform.com/share-your-typeform-6/typeform-s-multilingual-support-is-misleading-completely-broken-15409) -- Confirms multilingual limitations
+- [UNHCR Digital Gateway](https://www.unhcr.org/digitalstrategy/the-digital-gateway/) -- Self-service platform, multilingual, WhatsApp integration
+- [Eureka Platform](https://ai4good.org/eureka/) -- Multilingual AI assistant for refugees, privacy-first design
+- [Refugee.info Italy](https://italy.refugee.info/en-us) -- IRC multilingual information service for migrants in Italy
 
-### Branching/Adaptive Logic
-- [Logic and branching - Key Survey Software](https://www.keysurvey.com/survey-software/logic-and-branching/)
-- [Skip logic and branching | Conditional survey questions | QuestionPro](https://www.questionpro.com/features/branching.html)
-- [Build smarter surveys with Survey Logic | SurveyMonkey](https://www.surveymonkey.com/product/features/survey-logic/)
-- [Adaptive testing software platform | Assessment Systems](https://assess.com/adaptive-testing/)
-- [Adaptive Assessment | AI-Based Adaptive Tests | Magic EdTech](https://www.magicedtech.com/adaptive-assessments/)
-- [How To Use Branching, Item, and Testlet Adaptive Assessments | TAO](https://www.taotesting.com/blog/how-to-use-types-of-computer-adaptive-testing/)
-
-### Pre-Training Assessment Best Practices
-- [20 pre-training survey questions for a professional development course | The Jotform Blog](https://www.jotform.com/blog/pre-training-survey-questions/)
-- [What is Pre-Training Assessment and How to Do it Right | Coursebox AI](https://www.coursebox.ai/blog/pre-training-assessment)
-- [What are Pre-Training Assessments? Benefits & Examples](https://cloudassess.com/blog/pre-training-assessments/)
-- [Best AI Quiz & Assessment Generators for Training Businesses in 2026](https://www.disco.co/blog/best-ai-quiz-assessment-generators-2026)
-
-### Personalization & Feedback
-- [7 Best Adaptive Learning Platforms in 2026](https://whatfix.com/blog/adaptive-learning-platforms/)
-- [How Personalized Learning Platforms Work in 2026](https://www.disco.co/blog/ai-powered-personalized-learning-platform)
-- [10 Best Adaptive Learning Platforms in 2026](https://www.proprofstraining.com/blog/adaptive-learning-platforms/)
-
-### Admin & Analytics Features
-- [Top 15 Sales Assessment Tools for 2026: Features, Pricing, and Comparison](https://salesassessmenttesting.com/blog/top-15-sales-assessment-tools-for-2026-features-pricing-and-comparison/)
-- [5 Best Dashboard Reporting Tools in 2026 - Helical Insight](https://www.helicalinsight.com/5-best-dashboard-reporting-tools/)
-- [2026 Self-Service Dashboards: Benefits & Implementation](https://qrvey.com/blog/self-service-dashboard/)
-
-### Platform Comparisons
-- [5 Best Survey Tools of 2026: Detailed Comparison and Top AI Recommendation](https://www.iweaver.ai/blog/best-survey-tools-2026-comparison/)
-- [SurveyMonkey vs Typeform Comparison (2026) - GetApp](https://www.getapp.com/customer-management-software/a/surveymonkey/compare/typeform/)
-- [Typeform vs. Qualtrics: Which should you choose? [2025] - Typeform blog](https://www.typeform.com/blog/typeform-vs-qualtrics)
-
-### Rules Engine & Custom Scoring
-- [Top 10 Open Source Rules Engines in 2026: Compare & Choose | Nected Blogs](https://www.nected.ai/blog/open-source-rules-engine)
-- [Rules Engine - Decisions](https://decisions.com/no-code-platform/rules-engine/)
-- [Rule Engine: An Ultimate Guide, Benefits and Feature](https://www.nected.ai/rule-engine)
-- [Implementing scorecards in rule engines - Decisimo](https://decisimo.com/rule-engine/implementing-scorecards-in-rule-engine.html)
-
-### Anti-Patterns
-- [9 Platform Engineering Anti-Patterns That Kill Adoption](https://jellyfish.co/library/platform-engineering/anti-patterns/)
-- [Platform Engineering's Patterns And Anti-patterns](https://octopus.com/devops/platform-engineering/patterns-anti-patterns/)
-- [How to Detect and Prevent Anti-Patterns in Software Development Digma](https://digma.ai/how-to-detect-and-prevent-anti-patterns/)
+### WebSearch-derived (LOW confidence -- patterns observed, not verified with primary sources)
+- RTL layout best practices (CSS logical properties, dir attribute, bidirectional text)
+- Legal disclaimer patterns in Italian law ("non costituisce consulenza")
+- WhatsApp survey engagement with migrant populations
+- Low-literacy UX design principles (icons, large targets, short sentences)
+- Legal analytics dashboard feature patterns
 
 ---
-
-## Confidence Assessment
-
-**Table Stakes Features:** HIGH confidence
-- Based on multiple sources across assessment platforms (Capterra, Research.com, Mentimeter)
-- Consistent patterns across Typeform, SurveyMonkey, Qualtrics, and specialized assessment tools
-- Features appear universally in 2026 market leaders
-
-**Differentiators:** MEDIUM-HIGH confidence
-- Custom rules engine identified as differentiator through comparison of scoring approaches
-- AI features confirmed as 2026 trend but implementation varies
-- Personalization validated through adaptive learning platform research
-
-**Anti-Features:** MEDIUM confidence
-- Based on platform engineering anti-patterns and assessment best practices
-- Inferred from "what not to do" patterns in 2026 sources
-- Some items reflect domain expertise rather than explicit sources
-
-**Implementation Phases:** MEDIUM confidence
-- Dependency analysis based on standard software architecture patterns
-- Complexity estimates are general; actual implementation varies by tech stack
-- Sequencing validated against common MVP-to-scale progressions
-
-**Market Context:** HIGH confidence
-- 2026 sources explicitly referenced
-- Multiple platform comparisons cross-validated
-- Clear trends in AI integration, mobile-first design, and accessibility
+*Feature research for: Multilingual legal eligibility decision tree for migrants*
+*Researched: 2026-02-14*
