@@ -19,7 +19,7 @@ export default function TreeContent() {
   const isHydrated = useTreeStore((s) => s.isHydrated);
   const currentNodeId = useTreeStore((s) => s.currentNodeId);
   const outcomeId = useTreeStore((s) => s.outcomeId);
-  const userName = useTreeStore((s) => s.userName);
+  const sessionStartedAt = useTreeStore((s) => s.sessionStartedAt);
   const history = useTreeStore((s) => s.history);
   const reset = useTreeStore((s) => s.reset);
 
@@ -27,14 +27,14 @@ export default function TreeContent() {
   useEffect(() => {
     if (
       isHydrated &&
-      userName === null &&
+      sessionStartedAt === null &&
       history.length === 0 &&
       currentNodeId === italianTree.startNodeId &&
       outcomeId === null
     ) {
       router.replace('/');
     }
-  }, [isHydrated, userName, history.length, currentNodeId, outcomeId, router]);
+  }, [isHydrated, sessionStartedAt, history.length, currentNodeId, outcomeId, router]);
 
   // Hydration guard: show spinner until localStorage state is loaded
   if (!isHydrated) {
