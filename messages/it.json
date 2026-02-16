@@ -1,0 +1,21 @@
+{
+  "common": {
+    "back": "Indietro",
+    "next": "Avanti",
+    "start": "Inizia",
+    "loading": "Caricamento...",
+    "error": "Si \u00e8 verificato un errore"
+  },
+  "welcome": {
+    "title": "Verifica il tuo diritto al permesso di soggiorno",
+    "subtitle": "Rispondi ad alcune domande per scoprire quale permesso puoi richiedere",
+    "start": "Inizia la verifica",
+    "disclaimer": "Questo strumento fornisce informazioni generali, non consulenza legale."
+  },
+  "header": {
+    "backToStart": "Torna all'inizio"
+  },
+  "language": {
+    "selectLanguage": "Seleziona lingua"
+  }
+}

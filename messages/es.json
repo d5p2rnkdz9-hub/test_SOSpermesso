@@ -1,0 +1,21 @@
+{
+  "common": {
+    "back": "Atr\u00e1s",
+    "next": "Siguiente",
+    "start": "Comenzar",
+    "loading": "Cargando...",
+    "error": "Se produjo un error"
+  },
+  "welcome": {
+    "title": "Verifica tu derecho al permiso de residencia",
+    "subtitle": "Responde algunas preguntas para descubrir qu\u00e9 permiso puedes solicitar",
+    "start": "Comenzar la verificaci\u00f3n",
+    "disclaimer": "Esta herramienta proporciona informaci\u00f3n general, no asesoramiento legal."
+  },
+  "header": {
+    "backToStart": "Volver al inicio"
+  },
+  "language": {
+    "selectLanguage": "Seleccionar idioma"
+  }
+}

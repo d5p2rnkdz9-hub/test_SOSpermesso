@@ -1,0 +1,21 @@
+{
+  "common": {
+    "back": "Back",
+    "next": "Next",
+    "start": "Start",
+    "loading": "Loading...",
+    "error": "An error occurred"
+  },
+  "welcome": {
+    "title": "Check your right to a residence permit",
+    "subtitle": "Answer a few questions to find out which permit you can apply for",
+    "start": "Start the check",
+    "disclaimer": "This tool provides general information, not legal advice."
+  },
+  "header": {
+    "backToStart": "Back to start"
+  },
+  "language": {
+    "selectLanguage": "Select language"
+  }
+}
