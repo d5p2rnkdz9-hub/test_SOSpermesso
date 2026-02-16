@@ -10,28 +10,28 @@ See: .planning/PROJECT.md (updated 2026-02-14)
 ## Current Position
 
 Phase: 1 of 5 (i18n Foundation + Design System)
-Plan: 1 of 3 in current phase
+Plan: 2 of 3 in current phase
 Status: In progress
-Last activity: 2026-02-16 -- Completed 01-01-PLAN.md (i18n routing infrastructure)
+Last activity: 2026-02-16 -- Completed 01-02-PLAN.md (design system + RTL migration)
 
-Progress: [###.......] 1/3 plans in Phase 1
+Progress: [######....] 2/3 plans in Phase 1
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 1
-- Average duration: 7min
-- Total execution time: 7min
+- Total plans completed: 2
+- Average duration: 8min
+- Total execution time: 15min
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 01-i18n-foundation-design-system | 1/3 | 7min | 7min |
+| 01-i18n-foundation-design-system | 2/3 | 15min | 8min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (7min)
-- Trend: First plan, baseline established
+- Last 5 plans: 01-01 (7min), 01-02 (8min)
+- Trend: Consistent pace
 
 *Updated after each plan completion*
 
@@ -49,6 +49,10 @@ Recent decisions affecting current work:
 - [01-01]: DirectionProvider wrapped in client component (providers.tsx) to avoid SSR createContext error
 - [01-01]: Fonts loaded as CSS variables (--font-sans, --font-arabic) via next/font/google
 - [01-01]: Pre-existing design refresh included: brand-blue removed, RTL-aware margins (me/pe/end)
+- [01-02]: Primary color is black with yellow foreground; single color mode (no .dark)
+- [01-02]: All CSS uses logical properties (ms-/me-/ps-/pe-/text-end/end-/start-)
+- [01-02]: Brand-blue/brand-green replaced with semantic tokens (primary, accent) everywhere
+- [01-02]: Border radius standardized to 0.75rem (12px) via --radius
 
 ### Pending Todos
 
@@ -64,5 +68,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-16
-Stopped at: Completed 01-01-PLAN.md (i18n routing infrastructure)
+Stopped at: Completed 01-02-PLAN.md (design system + RTL migration)
 Resume file: None
