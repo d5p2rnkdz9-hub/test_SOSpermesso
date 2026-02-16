@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { Inter, IBM_Plex_Sans_Arabic } from 'next/font/google';
 import { routing } from '@/i18n/routing';
 import { Providers } from './providers';
+import { StickyHeader } from '@/components/layout/StickyHeader';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -48,6 +49,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       <body className="antialiased">
         <Providers dir={dir}>
           <NextIntlClientProvider locale={locale} messages={messages}>
+            <StickyHeader />
             {children}
           </NextIntlClientProvider>
         </Providers>
