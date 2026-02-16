@@ -1,7 +1,6 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-    darkMode: ["class"],
     content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -10,10 +9,6 @@ const config: Config = {
   theme: {
   	extend: {
   		colors: {
-  			brand: {
-  				blue: '#1e3a5f',
-  				green: '#4ade80'
-  			},
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -47,17 +42,15 @@ const config: Config = {
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',
-  			chart: {
-  				'1': 'hsl(var(--chart-1))',
-  				'2': 'hsl(var(--chart-2))',
-  				'3': 'hsl(var(--chart-3))',
-  				'4': 'hsl(var(--chart-4))',
-  				'5': 'hsl(var(--chart-5))'
-  			}
   		},
   		fontFamily: {
   			sans: [
-  				'Inter',
+  				'var(--font-sans)',
+  				'system-ui',
+  				'sans-serif'
+  			],
+  			arabic: [
+  				'var(--font-arabic)',
   				'system-ui',
   				'sans-serif'
   			]
