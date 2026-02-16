@@ -16,7 +16,7 @@ export interface MultipleChoiceProps {
 
 /**
  * MultipleChoice - Checkbox selection for MULTIPLE_CHOICE questions
- * Card-style clickable options with brand-green highlight when selected
+ * Card-style clickable options with primary highlight when selected
  */
 export function MultipleChoice({
   options,
@@ -59,8 +59,8 @@ export function MultipleChoice({
             key={option.id}
             className={cn(
               "flex items-center gap-4 rounded-lg border p-4 cursor-pointer transition-all",
-              "hover:border-brand-blue/50 hover:bg-accent/50",
-              isSelected && "border-brand-green bg-brand-green/5 ring-1 ring-brand-green",
+              "hover:border-primary/50 hover:bg-accent/50",
+              isSelected && "border-primary bg-primary/5 ring-1 ring-primary",
               disabled && "cursor-not-allowed opacity-50"
             )}
             onClick={() => handleToggle(option.id)}
@@ -79,7 +79,7 @@ export function MultipleChoice({
               disabled={disabled}
               className={cn(
                 "shrink-0 pointer-events-none",
-                isSelected && "border-brand-green bg-brand-green data-[state=checked]:bg-brand-green data-[state=checked]:text-white"
+                isSelected && "border-primary bg-primary data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
               )}
             />
             <Label

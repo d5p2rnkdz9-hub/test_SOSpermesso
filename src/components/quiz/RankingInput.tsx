@@ -64,12 +64,12 @@ export function RankingInput({
                 <Card
                   key={optionId}
                   className={cn(
-                    "border-brand-green bg-brand-green/5",
+                    "border-primary bg-primary/5",
                     disabled && "opacity-50"
                   )}
                 >
                   <CardContent className="p-3 flex items-center gap-3">
-                    <span className="w-8 h-8 rounded-full bg-brand-green text-white flex items-center justify-center font-semibold text-sm shrink-0">
+                    <span className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-semibold text-sm shrink-0">
                       {index + 1}
                     </span>
                     <span className="flex-1 text-base">{option.label}</span>
@@ -109,7 +109,7 @@ export function RankingInput({
                   key={option.id}
                   className={cn(
                     "transition-all",
-                    canAdd && "cursor-pointer hover:border-brand-blue/50 hover:bg-accent/50",
+                    canAdd && "cursor-pointer hover:border-primary/50 hover:bg-accent/50",
                     !canAdd && "opacity-50",
                     disabled && "cursor-not-allowed opacity-50"
                   )}

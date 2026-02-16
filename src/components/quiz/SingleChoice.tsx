@@ -16,7 +16,7 @@ export interface SingleChoiceProps {
 
 /**
  * SingleChoice - Radio button selection for SINGLE_CHOICE questions
- * Card-style clickable options with brand-green highlight when selected
+ * Card-style clickable options with primary highlight when selected
  */
 export function SingleChoice({
   options,
@@ -39,8 +39,8 @@ export function SingleChoice({
             key={option.id}
             className={cn(
               "flex items-center gap-4 rounded-lg border p-4 cursor-pointer transition-all",
-              "hover:border-brand-blue/50 hover:bg-accent/50",
-              isSelected && "border-brand-green bg-brand-green/5 ring-1 ring-brand-green",
+              "hover:border-primary/50 hover:bg-accent/50",
+              isSelected && "border-primary bg-primary/5 ring-1 ring-primary",
               disabled && "cursor-not-allowed opacity-50"
             )}
             onClick={() => !disabled && onChange(option.id)}
@@ -58,7 +58,7 @@ export function SingleChoice({
               id={`option-${option.id}`}
               className={cn(
                 "shrink-0 pointer-events-none",
-                isSelected && "border-brand-green text-brand-green"
+                isSelected && "border-primary text-primary"
               )}
             />
             <Label

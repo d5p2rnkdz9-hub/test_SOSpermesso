@@ -17,7 +17,7 @@ export interface NavigationButtonsProps {
 
 /**
  * NavigationButtons - Back/Next/Complete buttons for quiz navigation
- * Uses brand styling (blue buttons)
+ * Uses primary styling
  * Shows "Completa" on last question instead of "Avanti"
  */
 export function NavigationButtons({

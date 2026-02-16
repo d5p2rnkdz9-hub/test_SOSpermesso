@@ -215,7 +215,7 @@ export function QuizPlayer({ className }: QuizPlayerProps) {
           className
         )}
       >
-        <Loader2 className="h-8 w-8 animate-spin text-brand-blue mb-4" />
+        <Loader2 className="h-8 w-8 animate-spin text-primary mb-4" />
         <p className="text-muted-foreground">Caricamento questionario...</p>
       </div>
     )

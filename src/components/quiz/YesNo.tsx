@@ -35,8 +35,8 @@ export function YesNo({
         onClick={() => onChange(true)}
         className={cn(
           "flex-1 h-16 text-lg font-medium transition-all",
-          value === true && "border-brand-green bg-brand-green/10 text-brand-green ring-2 ring-brand-green hover:bg-brand-green/20",
-          value === true && "hover:text-brand-green",
+          value === true && "border-primary bg-primary/10 text-primary ring-2 ring-primary hover:bg-primary/20",
+          value === true && "hover:text-primary",
           disabled && "cursor-not-allowed opacity-50"
         )}
       >
@@ -50,8 +50,8 @@ export function YesNo({
         onClick={() => onChange(false)}
         className={cn(
           "flex-1 h-16 text-lg font-medium transition-all",
-          value === false && "border-brand-green bg-brand-green/10 text-brand-green ring-2 ring-brand-green hover:bg-brand-green/20",
-          value === false && "hover:text-brand-green",
+          value === false && "border-primary bg-primary/10 text-primary ring-2 ring-primary hover:bg-primary/20",
+          value === false && "hover:text-primary",
           disabled && "cursor-not-allowed opacity-50"
         )}
       >
