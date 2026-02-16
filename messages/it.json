@@ -17,5 +17,22 @@
   },
   "language": {
     "selectLanguage": "Seleziona lingua"
+  },
+  "tree": {
+    "nameLabel": "Come ti chiami?",
+    "namePlaceholder": "Il tuo nome (facoltativo)",
+    "skipName": "Preferisco non dirlo",
+    "explainer": "Rispondi ad alcune domande per scoprire quale permesso di soggiorno puoi richiedere in Italia.",
+    "disclaimer": "Questo strumento fornisce informazioni generali e non costituisce consulenza legale.",
+    "startButton": "Inizia la verifica",
+    "restart": "Ricomincia",
+    "outcome": {
+      "title": "Il tuo risultato",
+      "duration": "Durata",
+      "requirements": "Requisiti",
+      "notes": "Note importanti",
+      "moreInfo": "Maggiori informazioni",
+      "restart": "Ricomincia la verifica"
+    }
   }
 }
