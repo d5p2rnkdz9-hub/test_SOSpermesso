@@ -1,6 +1,6 @@
 {
   "common": {
-    "back": "Atr\u00e1s",
+    "back": "Atrás",
     "next": "Siguiente",
     "start": "Comenzar",
     "loading": "Cargando...",
@@ -8,9 +8,9 @@
   },
   "welcome": {
     "title": "Verifica tu derecho al permiso de residencia",
-    "subtitle": "Responde algunas preguntas para descubrir qu\u00e9 permiso puedes solicitar",
-    "start": "Comenzar la verificaci\u00f3n",
-    "disclaimer": "Esta herramienta proporciona informaci\u00f3n general, no asesoramiento legal."
+    "subtitle": "Responde algunas preguntas para descubrir qué permiso puedes solicitar",
+    "start": "Comenzar la verificación",
+    "disclaimer": "Esta herramienta proporciona información general, no asesoramiento legal."
   },
   "header": {
     "backToStart": "Volver al inicio"
@@ -19,20 +19,28 @@
     "selectLanguage": "Seleccionar idioma"
   },
   "tree": {
-    "nameLabel": "\u00bfC\u00f3mo te llamas?",
+    "nameLabel": "¿Cómo te llamas?",
     "namePlaceholder": "Tu nombre (opcional)",
     "skipName": "Prefiero no decirlo",
-    "explainer": "Responde algunas preguntas para descubrir qu\u00e9 permiso de residencia puedes solicitar en Italia.",
-    "disclaimer": "Esta herramienta proporciona informaci\u00f3n general y no constituye asesoramiento legal.",
-    "startButton": "Comenzar la verificaci\u00f3n",
+    "explainer": "Si no tienes permiso de residencia, con unas pocas preguntas simples descubrirás si puedes OBTENER un permiso de residencia.",
+    "policyNote": "Antes de navegar con nosotros por las turbulentas aguas de la burocracia italiana, recuerda:\n• Siempre es mejor consultar a un abogado o experto legal antes de tomar decisiones finales\n• No recopilamos datos personales ni los compartimos con nadie\n• Usamos muchas palabras en masculino, pero es solo por simplicidad. Creemos en la diversidad y la identidad de género de todas las personas",
+    "policyLink": "Lee la política completa",
+    "disclaimer": "Esta herramienta proporciona información general y no constituye asesoramiento legal.",
+    "startButton": "Comenzar la verificación",
     "restart": "Volver a empezar",
     "outcome": {
       "title": "Tu resultado",
-      "duration": "Duraci\u00f3n",
+      "duration": "Duración",
       "requirements": "Requisitos",
       "notes": "Notas importantes",
-      "moreInfo": "M\u00e1s informaci\u00f3n",
+      "moreInfo": "Más información",
       "restart": "Volver a verificar"
+    },
+    "postOutcome": {
+      "title": "Bien [Nome] ¡esperamos haberte sido útiles!",
+      "restart": "Reiniciar el viaje",
+      "home": "Ir a la página de inicio de SOSpermesso",
+      "feedback": "Dejar comentarios"
     }
   }
 }

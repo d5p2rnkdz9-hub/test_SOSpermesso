@@ -22,7 +22,9 @@
     "nameLabel": "What is your name?",
     "namePlaceholder": "Your name (optional)",
     "skipName": "I prefer not to say",
-    "explainer": "Answer a few questions to find out which residence permit you can apply for in Italy.",
+    "explainer": "If you don't have a residence permit, with a few simple questions you'll find out if you can GET a residence permit.",
+    "policyNote": "Before navigating with us through the turbulent waters of Italian bureaucracy, remember:\n• It's always best to consult a lawyer or legal expert before making final decisions\n• We do not collect personal data and do not share it with anyone\n• We use many masculine words, but it's only for simplicity. We believe in diversity and the gender identity of all people",
+    "policyLink": "Read the full policy",
     "disclaimer": "This tool provides general information and does not constitute legal advice.",
     "startButton": "Start the check",
     "restart": "Start over",
@@ -33,6 +35,12 @@
       "notes": "Important notes",
       "moreInfo": "More information",
       "restart": "Start the check again"
+    },
+    "postOutcome": {
+      "title": "Great [Nome] we hope we've been helpful!",
+      "restart": "Start the journey again",
+      "home": "Go to the SOSpermesso homepage",
+      "feedback": "Leave feedback"
     }
   }
 }
