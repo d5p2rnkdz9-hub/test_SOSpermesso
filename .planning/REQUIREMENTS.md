@@ -99,7 +99,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | TREE-06 | Phase 2 | Pending |
 | TREE-07 | Phase 5 | Pending |
 | I18N-01 | Phase 4 | Pending |
-| I18N-02 | Phase 1 | Pending |
+| I18N-02 | Phase 1 | Complete |
 | I18N-03 | Phase 4 | Pending |
 | I18N-04 | Phase 4 | Pending |
 | I18N-05 | Phase 4 | Pending |
@@ -112,9 +112,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SCHED-07 | Phase 3 | Pending |
 | SCHED-08 | Phase 5 | Pending |
 | SCHED-09 | Phase 5 | Pending |
-| UX-01 | Phase 1 | Pending |
-| UX-02 | Phase 1 | Pending |
-| UX-03 | Phase 1 | Pending |
+| UX-01 | Phase 1 | Complete |
+| UX-02 | Phase 1 | Complete |
+| UX-03 | Phase 1 | Complete |
 | UX-04 | Phase 5 | Pending |
 | ADMN-01 | Phase 5 | Pending |
 | ADMN-02 | Phase 5 | Pending |

@@ -12,7 +12,7 @@ SOSpermesso transforms a forked Corso AI questionnaire codebase into a multiling
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: i18n Foundation + Design System** - RTL-safe layout scaffold, visual identity, mobile-first responsive design
+- [x] **Phase 1: i18n Foundation + Design System** - RTL-safe layout scaffold, visual identity, mobile-first responsive design
 - [ ] **Phase 2: Decision Tree Engine** - Branching navigation with ~40 questions, session persistence, Italian content
 - [ ] **Phase 3: Outcome Pages** - 25 legal guidance pages with variable substitution, confidence indicators, shareable URLs
 - [ ] **Phase 4: Multilingual Content** - AI-assisted translation into 5 languages, language selector, bidirectional text handling
@@ -32,9 +32,9 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 3 plans
 
 Plans:
-- [ ] 01-01-PLAN.md -- i18n routing infrastructure + locale layout (next-intl, proxy.ts, [locale] segment, fonts, DirectionProvider)
-- [ ] 01-02-PLAN.md -- Visual identity + RTL component migration (yellow/black/white tokens, shadow removal, logical CSS properties)
-- [ ] 01-03-PLAN.md -- Layout components + welcome page + visual verification (StickyHeader, LanguageSelector, ContentColumn, welcome screen)
+- [x] 01-01-PLAN.md -- i18n routing infrastructure + locale layout (next-intl, proxy.ts, [locale] segment, fonts, DirectionProvider)
+- [x] 01-02-PLAN.md -- Visual identity + RTL component migration (yellow/black/white tokens, shadow removal, logical CSS properties)
+- [x] 01-03-PLAN.md -- Layout components + welcome page + visual verification (StickyHeader, LanguageSelector, ContentColumn, welcome screen)
 
 ### Phase 2: Decision Tree Engine
 **Goal**: A user in Italy can navigate the full Italian decision tree from entry question to a specific legal outcome, with correct branching, back navigation, and session resumption
@@ -108,7 +108,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|---------------|--------|-----------|
-| 1. i18n Foundation + Design System | 0/3 | Planned | - |
+| 1. i18n Foundation + Design System | 3/3 | Complete | 2026-02-16 |
 | 2. Decision Tree Engine | 0/TBD | Not started | - |
 | 3. Outcome Pages | 0/TBD | Not started | - |
 | 4. Multilingual Content | 0/TBD | Not started | - |
