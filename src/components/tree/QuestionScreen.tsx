@@ -1,6 +1,8 @@
 'use client';
 
 import type { TreeEdge } from '@/types/tree';
+import { substituteVariables } from '@/lib/text-utils';
+import { useTreeStore } from '@/store/tree-store';
 
 import { AnswerCard } from './AnswerCard';
 
@@ -50,13 +52,20 @@ export function QuestionScreen({
   onSelect,
   disabled,
 }: QuestionScreenProps) {
+  const userName = useTreeStore((s) => s.userName);
+  const answers = useTreeStore((s) => s.answers);
   const useCategories = options.length > 5;
+
+  const displayQuestion = substituteVariables(question, userName, answers);
+  const displayDescription = description
+    ? substituteVariables(description, userName, answers)
+    : undefined;
 
   return (
     <div>
-      <h2 className="text-2xl font-bold leading-tight">{question}</h2>
-      {description && (
-        <p className="mt-2 text-foreground/70">{description}</p>
+      <h2 className="text-2xl font-bold leading-tight">{displayQuestion}</h2>
+      {displayDescription && (
+        <p className="mt-2 text-foreground/70">{displayDescription}</p>
       )}
 
       {useCategories ? (

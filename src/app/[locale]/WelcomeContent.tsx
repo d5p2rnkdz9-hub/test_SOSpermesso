@@ -67,6 +67,18 @@ export default function WelcomeContent() {
           />
         </div>
 
+        <div className="mt-6 w-full rounded-[0.75rem] bg-foreground/5 p-4 text-start text-sm text-foreground/70">
+          <p>{tTree('policyNote')}</p>
+          <a
+            href="https://www.sospermesso.it/src/pages/privacy-policy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 inline-block underline"
+          >
+            {tTree('policyLink')}
+          </a>
+        </div>
+
         <Button
           size="lg"
           className="mt-6 w-full text-lg font-semibold"

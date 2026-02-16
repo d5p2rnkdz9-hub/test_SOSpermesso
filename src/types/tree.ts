@@ -7,24 +7,44 @@
  * - Edges connect questions to their possible next nodes
  */
 
+export interface ResultSection {
+  heading: string;
+  content: string;
+}
+
+export interface ResultLink {
+  label: string;
+  url: string;
+  type: 'guide' | 'legal_aid' | 'external';
+}
+
 export interface TreeNode {
   id: string;
-  type: 'question' | 'result';
-  /** Question text shown to the user (question nodes only) */
+  type: 'question' | 'result' | 'info';
+  /** Question text shown to the user (question and info nodes) */
   question?: string;
   /** Short description for question context */
   description?: string;
-  /** Result card title, may include emoji prefix (result nodes only) */
+  /** Result card title (result nodes only) */
   title?: string;
-  /** Detailed result explanation (result nodes only) */
+  /** Warm intro paragraph with [Nome] placeholder (result nodes only) */
+  introText?: string;
+  /** FAQ-style sections in display order (result nodes only) */
+  sections?: ResultSection[];
+  /** Guide + legal aid links (result nodes only) */
+  links?: ResultLink[];
+  /** Emergency phone numbers, e.g. "800 290 290" (result nodes only) */
+  emergencyNumbers?: string[];
+  // Legacy fields kept for backward compat during migration
+  /** @deprecated Use introText + sections instead */
   resultDescription?: string;
-  /** Permit duration, e.g. "2 anni (rinnovabile)" */
+  /** @deprecated Use sections instead */
   duration?: string;
-  /** List of requirements for the permit */
+  /** @deprecated Use sections instead */
   requirements?: string[];
-  /** Additional notes or warnings */
+  /** @deprecated Use sections instead */
   notes?: string;
-  /** External link for more information */
+  /** @deprecated Use links instead */
   link?: string;
 }
 

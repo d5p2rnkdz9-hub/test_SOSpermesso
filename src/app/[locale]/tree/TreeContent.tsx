@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { Loader2, ExternalLink } from 'lucide-react';
+import { Loader2, ExternalLink, Phone } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 import { ContentColumn } from '@/components/layout/ContentColumn';
@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import { useRouter } from '@/i18n/navigation';
 import { italianTree } from '@/lib/tree-data';
 import { getNode, isTerminalNode } from '@/lib/tree-engine';
+import { substituteVariables } from '@/lib/text-utils';
 import { useTreeHydration, useTreeStore } from '@/store/tree-store';
 
 export default function TreeContent() {
@@ -21,6 +22,8 @@ export default function TreeContent() {
   const outcomeId = useTreeStore((s) => s.outcomeId);
   const sessionStartedAt = useTreeStore((s) => s.sessionStartedAt);
   const history = useTreeStore((s) => s.history);
+  const userName = useTreeStore((s) => s.userName);
+  const answers = useTreeStore((s) => s.answers);
   const reset = useTreeStore((s) => s.reset);
 
   // Redirect to welcome if user accessed /tree directly without a session
@@ -55,70 +58,106 @@ export default function TreeContent() {
       return null;
     }
 
+    const sub = (text: string) =>
+      substituteVariables(text, userName, answers);
+
     return (
       <ContentColumn>
         <div className="py-4">
           <h1 className="text-2xl font-bold">{resultNode.title}</h1>
 
-          {resultNode.resultDescription && (
-            <p className="mt-4 text-foreground/80">
-              {resultNode.resultDescription}
+          {/* Intro text with variable substitution */}
+          {resultNode.introText && (
+            <p className="mt-4 whitespace-pre-line text-foreground/80">
+              {sub(resultNode.introText)}
             </p>
           )}
 
-          {resultNode.duration && (
-            <div className="mt-6">
-              <h3 className="text-sm font-semibold uppercase tracking-wide text-foreground/60">
-                {t('outcome.duration')}
-              </h3>
-              <p className="mt-1">{resultNode.duration}</p>
-            </div>
-          )}
-
-          {resultNode.requirements && resultNode.requirements.length > 0 && (
-            <div className="mt-6">
-              <h3 className="text-sm font-semibold uppercase tracking-wide text-foreground/60">
-                {t('outcome.requirements')}
-              </h3>
-              <ul className="mt-2 list-disc space-y-1 ps-5">
-                {resultNode.requirements.map((req, index) => (
-                  <li key={index}>{req}</li>
+          {/* Emergency numbers callout */}
+          {resultNode.emergencyNumbers &&
+            resultNode.emergencyNumbers.length > 0 && (
+              <div className="mt-6 rounded-[0.75rem] bg-foreground/10 p-4">
+                {resultNode.emergencyNumbers.map((number) => (
+                  <a
+                    key={number}
+                    href={`tel:${number.replace(/\s/g, '')}`}
+                    className="flex items-center gap-3 text-lg font-bold"
+                  >
+                    <Phone className="h-5 w-5" />
+                    {number}
+                  </a>
                 ))}
-              </ul>
+              </div>
+            )}
+
+          {/* FAQ-style sections */}
+          {resultNode.sections &&
+            resultNode.sections.length > 0 &&
+            resultNode.sections.map((section, index) => (
+              <div key={index} className="mt-6">
+                <h3 className="text-base font-semibold">
+                  {section.heading}
+                </h3>
+                <p className="mt-1 whitespace-pre-line text-foreground/80">
+                  {sub(section.content)}
+                </p>
+              </div>
+            ))}
+
+          {/* Links */}
+          {resultNode.links && resultNode.links.length > 0 && (
+            <div className="mt-6 flex flex-col gap-3">
+              {resultNode.links.map((link, index) => (
+                <a
+                  key={index}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-foreground underline underline-offset-4"
+                >
+                  {link.label}
+                  <ExternalLink className="h-4 w-4 shrink-0" />
+                </a>
+              ))}
             </div>
           )}
 
-          {resultNode.notes && (
-            <div className="mt-6">
-              <h3 className="text-sm font-semibold uppercase tracking-wide text-foreground/60">
-                {t('outcome.notes')}
-              </h3>
-              <p className="mt-1 text-foreground/80">{resultNode.notes}</p>
-            </div>
-          )}
+          {/* Post-outcome section */}
+          <div className="mt-10 border-t border-foreground/20 pt-6">
+            <p className="text-lg font-semibold">
+              {sub(t('postOutcome.title'))}
+            </p>
 
-          {resultNode.link && (
-            <a
-              href={resultNode.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center gap-2 text-foreground underline underline-offset-4"
+            <Button
+              size="lg"
+              className="mt-4 w-full text-lg font-semibold"
+              onClick={() => {
+                reset();
+                router.push('/tree');
+              }}
             >
-              {t('outcome.moreInfo')}
-              <ExternalLink className="h-4 w-4" />
-            </a>
-          )}
+              {t('postOutcome.restart')}
+            </Button>
 
-          <Button
-            size="lg"
-            className="mt-8 w-full text-lg font-semibold"
-            onClick={() => {
-              reset();
-              router.push('/');
-            }}
-          >
-            {t('outcome.restart')}
-          </Button>
+            <div className="mt-4 flex flex-col gap-2 text-center">
+              <a
+                href="https://www.sospermesso.it"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-foreground/60 underline"
+              >
+                {t('postOutcome.home')}
+              </a>
+              <a
+                href="https://www.facebook.com/sospermesso"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-foreground/60 underline"
+              >
+                {t('postOutcome.feedback')}
+              </a>
+            </div>
+          </div>
         </div>
       </ContentColumn>
     );

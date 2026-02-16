@@ -142,6 +142,16 @@ export const useTreeStore = create<TreeState & TreeActions>()(
         outcomeId: state.outcomeId,
         sessionStartedAt: state.sessionStartedAt,
       }),
+      onRehydrateStorage: () => (state) => {
+        if (!state) return;
+        // Migrate stale end_cure → end_cure_salute (end_cure was split in v2)
+        if (state.outcomeId === 'end_cure') {
+          state.outcomeId = 'end_cure_salute';
+        }
+        if (state.currentNodeId === 'end_cure') {
+          state.currentNodeId = 'end_cure_salute';
+        }
+      },
     },
   ),
 );

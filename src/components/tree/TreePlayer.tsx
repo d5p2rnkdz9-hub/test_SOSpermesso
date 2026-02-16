@@ -62,8 +62,9 @@ export function TreePlayer() {
   const options = getOptionsForNode(italianTree, currentNodeId);
   const selectedOptionKey = answers[currentNodeId] ?? null;
 
-  // Terminal nodes or missing nodes are not rendered by TreePlayer
-  if (!node || node.type !== 'question') {
+  // Terminal (result) nodes or missing nodes are not rendered by TreePlayer
+  // Both 'question' and 'info' nodes are rendered (info has exactly 1 edge)
+  if (!node || node.type === 'result') {
     return null;
   }
 

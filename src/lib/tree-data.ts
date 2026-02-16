@@ -1,9 +1,15 @@
 /**
  * Italian decision tree for SOSpermesso residence permit wizard.
  *
- * Converted from TYPEFORM_CLONE/data.js into typed TypeScript.
- * Contains 46 question nodes + 29 result nodes = 75 total nodes.
- * All Italian text preserved exactly as in the original source.
+ * Content sourced verbatim from:
+ * - TRASCRIZIONE SCHEDE TYPEFORM (domande).docx — question text + edge labels
+ * - TRASCRIZIONE SCHEDE TYPEFORM (statement).docx — result page content
+ * - flowchart_permessi.mermaid — branching logic
+ *
+ * Contains 46 question nodes + 1 info node + 30 result nodes = 77 total nodes.
+ *
+ * Placeholders [Nome] and [Parente selezionato] are substituted at runtime
+ * by text-utils.ts substituteVariables().
  *
  * IMPORTANT: min_affido1 through min_affido5 are intentionally separate nodes.
  * They share question text but occupy different graph positions.
@@ -16,833 +22,988 @@ export const italianTree: TreeData = {
 
   nodes: {
     // =============================================
-    // DOMANDA INIZIALE
+    // D3 — DOMANDA INIZIALE
     // =============================================
 
     start: {
       id: 'start',
       type: 'question',
-      question: 'Hai la cittadinanza di un Paese dell\'Unione Europea?',
+      question: '[Nome], hai la cittadinanza di uno Stato dell\'Unione Europea (UE)?',
     },
 
     // =============================================
-    // SCHEDA: Cittadino UE
+    // S1 — SCHEDA: Cittadino UE
     // =============================================
 
     end_ue: {
       id: 'end_ue',
       type: 'result',
-      title: '\u{1F1EA}\u{1F1FA} Cittadino UE - Non serve permesso di soggiorno',
-      resultDescription: 'Come cittadino dell\'Unione Europea, hai il diritto di circolare e soggiornare liberamente nel territorio italiano senza bisogno di un permesso di soggiorno. Puoi lavorare, studiare e risiedere in Italia senza particolari vincoli.',
-      requirements: [
-        'Documento d\'identità o passaporto in corso di validità',
-        'Per soggiorni superiori a 3 mesi: iscrizione anagrafica al Comune',
+      title: 'Cittadino UE — Non serve permesso di soggiorno',
+      introText: 'Ottime notizie [Nome]!\nSei un viaggiatore che proviene da uno Stato UE. In Italia hai molti diritti, tra cui:',
+      sections: [
+        { heading: 'Diritto di ingresso', content: 'Puoi entrare in Italia senza alcuna formalità.' },
+        { heading: 'Soggiorno', content: 'Puoi stare liberamente in Italia o in un altro Stato UE per un massimo di tre mesi. Se vuoi soggiornare in Italia per più di tre mesi, devi avere un motivo (famiglia, lavoro, studio, ecc.) e serve qualche formalità burocratica. Niente di complicato.' },
+        { heading: 'Lavoro', content: 'Hai diritto di lavorare in Italia senza bisogno di un permesso per lavoro.' },
+        { heading: 'Studio', content: 'Hai diritto di studiare in Italia senza bisogno di un permesso per studio.' },
+        { heading: 'Ricongiungimento familiare', content: 'Hai diritto di far venire in Italia i tuoi familiari (anche se cittadini di Stati non-UE).' },
       ],
-      notes: 'Se intendi rimanere più di 3 mesi, dovrai iscriverti all\'anagrafe del Comune dove risiedi. Per lavorare non hai bisogno di autorizzazioni speciali.',
+      links: [
+        { label: 'Trovi più informazioni su SOSpermesso', url: 'https://www.sospermesso.it', type: 'guide' },
+      ],
     },
 
     // =============================================
-    // DOMANDA PRINCIPALE: SITUAZIONE
+    // D4 — DOMANDA PRINCIPALE: SITUAZIONE
     // =============================================
 
     q_situazione: {
       id: 'q_situazione',
       type: 'question',
-      question: 'In che situazione ti trovi?',
+      question: 'Va bene [Nome]. Se non hai mai avuto un permesso di soggiorno in Italia, dobbiamo capire se sei in una di queste situazioni. Altrimenti sarà difficile aiutarti.',
+      description: 'Seleziona una delle opzioni qui sotto.',
     },
 
     // =============================================
-    // PERCORSO: HO PAURA DI TORNARE
+    // D6 — PERCORSO: HO PAURA DI TORNARE
     // =============================================
 
     paura_start: {
       id: 'paura_start',
       type: 'question',
-      question: 'Perché hai paura di tornare nel tuo Paese?',
+      question: 'Ci dispiace che il tuo paese per te sia pericoloso. Di che tipo di pericolo si tratta?',
     },
 
+    // S6 — Protezione Internazionale
     end_asilo: {
       id: 'end_asilo',
       type: 'result',
-      title: '\u{1F6E1}\u{FE0F} Protezione Internazionale - Asilo o Protezione Sussidiaria',
-      resultDescription: 'Puoi richiedere la protezione internazionale in Italia se hai il fondato timore di essere perseguitato nel tuo Paese per motivi di razza, religione, nazionalità, appartenenza a un particolare gruppo sociale o opinione politica, oppure se rischi di subire un grave danno.',
-      duration: '5 anni (rinnovabile)',
-      requirements: [
-        'Presenza sul territorio italiano',
-        'Domanda di protezione internazionale presso la Questura o alla frontiera',
-        'Colloquio con la Commissione Territoriale',
+      title: 'Protezione Internazionale — Asilo o Protezione Sussidiaria',
+      introText: 'Hey [Nome], speriamo che in Italia tu ti senta al sicuro.\nSe nel tuo paese d\'origine sta succedendo qualcosa di brutto, come una guerra o se c\'è qualcuno che ti vuole fare del male 😟, in Italia esiste la protezione internazionale 🛡️, che può chiamarsi status di rifugiato o protezione sussidiaria.',
+      sections: [
+        { heading: 'Come funziona?', content: 'Tutti possono fare domanda, ma poi ci sarà un colloquio con una Commissione che valuterà quanto grave è il tuo problema.' },
+        { heading: 'Mi serve un avvocato?', content: '🟠 Puoi fare tutto da solo, ma prima di prendere decisioni, soprattutto se hai già fatto in passato una domanda di protezione internazionale, ti consigliamo di consultare un esperto legale.' },
       ],
-      notes: 'Durante l\'esame della domanda riceverai un permesso temporaneo e potrai accedere all\'accoglienza. È consigliabile farsi assistere da un avvocato specializzato.',
-      link: 'https://sospermesso.it/asilo-protezione-sussidiaria',
+      links: [
+        { label: 'Più informazioni sulla procedura di protezione internazionale', url: 'https://www.sospermesso.it', type: 'guide' },
+        { label: 'Trova centri di aiuto legale gratuito vicino a te! ⚖️', url: 'https://www.sospermesso.it/aiuto-legale', type: 'legal_aid' },
+      ],
     },
 
+    // S7 — Calamità
     end_calam: {
       id: 'end_calam',
       type: 'result',
-      title: '\u{1F32A}\u{FE0F} Permesso di Soggiorno per Calamità',
-      resultDescription: 'Questo permesso viene rilasciato a cittadini stranieri che non possono rientrare temporaneamente nel proprio Paese a causa di una grave calamità naturale.',
-      duration: 'Da 6 mesi a 1 anno (temporaneo)',
-      requirements: [
-        'Prova della calamità nel Paese d\'origine',
-        'Documenti d\'identità',
-        'Impossibilità temporanea di rientro sicuro',
+      title: 'Permesso di Soggiorno per Calamità Naturale',
+      introText: '[Nome], speriamo che a casa stiano tutti bene.\nSe nel tuo paese al momento c\'è una catastrofe naturale grave (ad esempio un terremoto o un\'alluvione) puoi avere un permesso di soggiorno per calamità naturale.',
+      sections: [
+        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Siamo sicuri che, se nel tuo paese effettivamente c\'è una situazione di grave emergenza, potrai avere un permesso di soggiorno fino a che dura questa emergenza. La Questura però dovrà valutare quanto grave è questo problema.\nTu chiedi questo permesso, e poi si vedrà.' },
+        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'Dura sei mesi 📆 e può essere rinnovato fino a quando dura l\'emergenza. Durante questo tempo hai diritto di lavorare.' },
+        { heading: 'Questo permesso può essere convertito in lavoro?', content: 'La Questura probabilmente ti dirà che dopo l\'11 marzo 2023, NON lo puoi convertire il tuo permesso per calamità naturale in permesso per motivi di lavoro 🚫. Prima che scada è però possibile provare a inviare un kit postale 📮 per convertire il permesso, ma è probabile che poi ti servirà l\'aiuto di un buon avvocato ⚖️.' },
+        { heading: 'Mi serve un avvocato?', content: '🟠 Per ora non hai bisogno di un avvocato ma inizia a pensare a cosa fare quando l\'emergenza sarà finita.' },
       ],
-      notes: 'Questo permesso è temporaneo e viene rilasciato in situazioni eccezionali. Verifica sempre gli aggiornamenti sulle decisioni del Governo italiano.',
-      link: 'https://sospermesso.it/calamita',
+      links: [
+        { label: 'Più informazioni sul permesso per calamità naturale', url: 'https://www.sospermesso.it', type: 'guide' },
+        { label: 'Trova centri di aiuto legale gratuito vicino a te! ⚖️', url: 'https://www.sospermesso.it/aiuto-legale', type: 'legal_aid' },
+      ],
     },
 
     // =============================================
-    // PERCORSO: BRUTTA SITUAZIONE
+    // D5 — PERCORSO: BRUTTA SITUAZIONE
     // =============================================
 
     brutta_start: {
       id: 'brutta_start',
       type: 'question',
-      question: 'In che tipo di brutta situazione ti trovi?',
+      question: 'Ci dispiace, [Nome]! Di cosa si tratta esattamente?',
     },
 
+    // S2 — Sfruttamento lavorativo
     end_sfrut: {
       id: 'end_sfrut',
       type: 'result',
-      title: '\u{2696}\u{FE0F} Permesso per Grave Sfruttamento Lavorativo (Art. 22)',
-      resultDescription: 'Questo permesso è destinato a lavoratori stranieri vittime di grave sfruttamento lavorativo e caporalato. Puoi richiederlo se sei stato sottoposto a condizioni lavorative particolarmente sfruttanti.',
-      duration: '6 mesi (rinnovabile per 1 anno, poi convertibile)',
-      requirements: [
-        'Denuncia o testimonianza in procedimento penale contro lo sfruttatore',
-        'Allontanamento dal circuito di sfruttamento',
-        'Pericolo concreto per la tua incolumità',
+      title: 'Permesso per Grave Sfruttamento Lavorativo',
+      introText: '[Nome] ci dispiace davvero 😔\nIn Italia ci sono leggi che proteggono i lavoratori da stipendi troppo bassi, da orari troppo lunghi e da maltrattamenti sul posto di lavoro.\nForse però c\'è una piccola buona notizia 😊 perché in Italia esiste un permesso di soggiorno per chi è vittima di sfruttamento lavorativo e vuole uscire da questa situazione.\nPerò difficilmente troverai la soluzione da solo.',
+      sections: [],
+      links: [
+        { label: 'Trova centri di aiuto legale gratuito vicino a te! ⚖️', url: 'https://www.sospermesso.it/aiuto-legale', type: 'legal_aid' },
       ],
-      notes: 'Puoi lavorare immediatamente con questo permesso. È importante rivolgersi ai sindacati o alle associazioni di tutela dei lavoratori per essere supportati.',
-      link: 'https://sospermesso.it/sfruttamento-lavorativo',
     },
 
+    // S3 — Tratta
     end_tratta: {
       id: 'end_tratta',
       type: 'result',
-      title: '\u{1F198} Permesso per Vittime di Tratta (Art. 18)',
-      resultDescription: 'Sei vittima di tratta o di grave sfruttamento? Questo permesso ti protegge e ti permette di uscire dal circuito di violenza. Non è necessario denunciare per ottenerlo.',
-      duration: '6 mesi (rinnovabile, poi convertibile)',
-      requirements: [
-        'Segnalazione da parte dei servizi sociali o delle forze dell\'ordine',
-        'Partecipazione a un programma di assistenza e integrazione sociale',
-        'Allontanamento dalla situazione di sfruttamento',
+      title: 'Permesso per Vittime di Tratta (Art. 18)',
+      introText: 'Ci dispiace, [Nome].\nSembra tu sia in una brutta situazione 😟. Ti consigliamo di chiamare il numero gratuito 📞 800 290 290 per chiedere aiuto anonimo e gratuito.\nLa buona notizia è che in Italia c\'è un permesso di soggiorno per le vittime di tratta di esseri umani che vogliono cambiare vita 🌱.',
+      sections: [],
+      emergencyNumbers: ['800 290 290'],
+      links: [
+        { label: 'Trova un centro di aiuto legale gratuito vicino a te! ⚖️', url: 'https://www.sospermesso.it/aiuto-legale', type: 'legal_aid' },
       ],
-      notes: '\u{1F4DE} NUMERO VERDE ANTI-TRATTA: 800 290 290 (attivo h24). Puoi ricevere assistenza immediata, protezione e supporto legale. Non sei obbligato a denunciare per ricevere aiuto.',
-      link: 'https://sospermesso.it/vittime-tratta',
     },
 
+    // S4 — Violenza domestica
     end_viol: {
       id: 'end_viol',
       type: 'result',
-      title: '\u{1F6E1}\u{FE0F} Permesso per Vittime di Violenza Domestica',
-      resultDescription: 'Se sei vittima di violenza domestica o di genere, puoi ottenere un permesso di soggiorno anche se il tuo permesso dipendeva dal familiare violento (es. il coniuge).',
-      duration: 'Variabile, generalmente 1 anno (rinnovabile)',
-      requirements: [
-        'Denuncia o referto medico che attesti la violenza',
-        'Ordinanza di protezione del giudice o provvedimenti simili',
-        'Percorso di fuoriuscita dalla violenza certificato dai servizi sociali',
+      title: 'Permesso per Vittime di Violenza Domestica',
+      introText: 'Ci dispiace, [Nome].\nSembra tu sia in una brutta situazione 😟. Ti consigliamo di chiamare il numero gratuito 📞 1522 per chiedere aiuto anonimo e gratuito.\nLa buona notizia è che in Italia c\'è un permesso di soggiorno per le vittime di violenza domestica.',
+      sections: [],
+      emergencyNumbers: ['1522'],
+      links: [
+        { label: 'Trova centri di aiuto legale gratuito vicino a te! ⚖️', url: 'https://www.sospermesso.it/aiuto-legale', type: 'legal_aid' },
       ],
-      notes: '\u{1F4DE} NUMERO NAZIONALE ANTIVIOLENZA: 1522 (attivo h24, gratuito). Puoi chiamare per ricevere supporto, consulenza e informazioni sui centri antiviolenza nella tua zona.',
-      link: 'https://sospermesso.it/violenza-domestica',
     },
 
     // =============================================
     // ALTRE SCHEDE FINALI
     // =============================================
 
-    end_cure: {
-      id: 'end_cure',
+    // S24 — Cure mediche (percorso salute)
+    end_cure_salute: {
+      id: 'end_cure_salute',
       type: 'result',
-      title: '\u{1F3E5} Permesso di Soggiorno per Cure Mediche',
-      resultDescription: 'Questo permesso è rilasciato a stranieri che necessitano di cure mediche che non possono essere prestate nel Paese d\'origine, oppure a donne in gravidanza o che hanno partorito da poco.',
-      duration: '6 mesi o 1 anno (rinnovabile in base alle necessità mediche)',
-      requirements: [
-        'Certificazione medica della struttura sanitaria pubblica italiana',
-        'Attestazione che le cure non sono disponibili nel Paese d\'origine',
-        'Risorse economiche per il sostentamento (se richieste)',
+      title: 'Permesso di Soggiorno per Cure Mediche',
+      introText: '[Nome], se hai gravi problemi di salute che non puoi curare bene nel tuo paese, puoi chiedere un permesso per cure mediche.\nVedi l\'articolo 19, comma 2, lettera d-bis del Testo Unico sull\'Immigrazione.',
+      sections: [
+        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Siamo sicuri che tu possa chiedere questo permesso ✅ La Questura deciderà, dopo aver valutato la gravità della tua malattia e le cure disponibili nel tuo paese di origine.' },
+        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'In generale, un permesso di soggiorno per cure mediche dura tutto il tempo necessario per curarti 😷 Mentre hai questo permesso, puoi studiare e lavorare.' },
+        { heading: 'Posso convertire questo permesso in un altro permesso?', content: 'Dopo le modifiche della Legge 50 del 2023, il permesso di soggiorno per cure mediche non può più essere convertito in permesso di soggiorno per motivi di lavoro 🚫 Puoi solo rinnovarlo o convertirlo in un permesso per motivi di famiglia.' },
+        { heading: 'Come lo posso chiedere?', content: 'Puoi chiederlo personalmente in Questura.' },
+        { heading: 'Mi serve un avvocato?', content: 'No, puoi chiedere tu direttamente questo permesso in Questura ma è importante documentare bene la tua situazione medica 🏥\n‼️ Chiedi un parere legale prima.' },
       ],
-      notes: 'Anche le donne incinte o che hanno partorito da poco possono richiedere questo permesso per garantire le cure a sé e al neonato.',
-      link: 'https://sospermesso.it/cure-mediche',
+      links: [
+        { label: 'Più informazioni su questo permesso', url: 'https://www.sospermesso.it', type: 'guide' },
+        { label: 'Trova un centro di aiuto legale gratuito vicino a te! ⚖️', url: 'https://www.sospermesso.it/aiuto-legale', type: 'legal_aid' },
+      ],
     },
 
+    // S12 — Cure mediche (percorso gravidanza)
+    end_cure_gravidanza: {
+      id: 'end_cure_gravidanza',
+      type: 'result',
+      title: 'Permesso di Soggiorno per Cure Mediche — Gravidanza',
+      introText: '[Nome] congratulazioni! Se stai per avere un figlio o hai avuto un figlio da poco, puoi avere un permesso di soggiorno.\nIn Italia, c\'è un permesso di soggiorno chiamato "permesso per cure mediche" 🏥 quando stai per diventare genitore o sei appena diventato mamma o papà 👶. Questo permesso ti offre un periodo per dedicarti completamente al tuo piccolo e ricevere l\'assistenza medica necessaria ❤️.\nPuoi avere il permesso durante tutta la gravidanza 🤰 e per i sei mesi dopo la nascita.',
+      sections: [
+        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Se ci hai dato informazioni corrette, siamo sicuri ✅' },
+        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'Generalmente dura fino a quando tuo figlio ha sei mesi 👶. Puoi avere la residenza 🏠, studiare, lavorare e avere il medico di base 🩺. Non puoi convertire questo permesso in un permesso per lavoro.' },
+        { heading: 'Come lo posso chiedere?', content: 'Puoi chiedere questo permesso personalmente in Questura 🏢.' },
+        { heading: 'Che documenti servono per chiederlo?', content: 'I principali sono:\n• un tuo documento di identità 🪪\n• un documento medico che prova che stai aspettando un figlio, o un certificato di nascita del figlio 📝.' },
+        { heading: 'Cosa succede quando scade?', content: 'Attenzione ‼️ NON puoi convertire questo permesso in un permesso di lavoro. Potrai fare domanda per un permesso di soggiorno per assistenza minori (art. 31).' },
+        { heading: 'Mi serve un avvocato?', content: '🟠 Puoi chiedere il permesso da solo, però ti consigliamo di chiedere un parere legale per capire cosa fare quando il permesso scade.' },
+      ],
+      links: [
+        { label: 'Più informazioni su questo permesso', url: 'https://www.sospermesso.it', type: 'guide' },
+        { label: 'Trova centri di aiuto legale gratuito vicino a te! ⚖️', url: 'https://www.sospermesso.it/aiuto-legale', type: 'legal_aid' },
+      ],
+    },
+
+    // S31 — Cittadinanza
     end_citt: {
       id: 'end_citt',
       type: 'result',
-      title: '\u{1F1EE}\u{1F1F9} Cittadinanza Italiana',
-      resultDescription: 'Se sei nato in Italia e hai sempre vissuto qui, potresti avere diritto alla cittadinanza italiana per nascita o per residenza continuativa.',
-      requirements: [
-        'Nato in Italia e residente legalmente fino ai 18 anni',
-        'Domanda di cittadinanza entro i 19 anni (un anno dopo la maggiore età)',
-        'Residenza ininterrotta in Italia',
+      title: 'Cittadinanza Italiana',
+      introText: 'Se sei nato in Italia e hai sempre vissuto qui quando compi 18 anni puoi chiedere la cittadinanza italiana.',
+      sections: [
+        { heading: 'Come funziona?', content: 'La Legge riconosce il diritto di diventare cittadino italiano a chi è nato in Italia da genitori stranieri al compimento del 18° anno di età e ha mantenuto ininterrottamente la residenza legale sul territorio italiano, presentando una dichiarazione di volontà all\'Ufficio di Stato Civile del proprio Comune di residenza.\n\nFino ad allora puoi avere un permesso per motivi di famiglia.' },
+        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Siamo sicuri ma un parere legale può essere utile a preparare tutti i documenti necessari ⚖️.' },
       ],
-      notes: 'La cittadinanza italiana ti dà pieni diritti e non avrai più bisogno di permessi di soggiorno. È importante fare domanda entro i termini previsti.',
-      link: 'https://sospermesso.it/cittadinanza',
+      links: [
+        { label: 'Trova un centro di aiuto legale gratuito vicino a te! ⚖️', url: 'https://www.sospermesso.it/aiuto-legale', type: 'legal_aid' },
+      ],
     },
 
+    // S28 — Negativo generico
     end_neg_gen: {
       id: 'end_neg_gen',
       type: 'result',
-      title: '\u{274C} Nessun permesso disponibile in questa situazione',
-      resultDescription: 'Purtroppo, in base alle informazioni che ci hai fornito, al momento non sembri rientrare nelle categorie previste per il rilascio di un permesso di soggiorno in Italia.',
-      notes: 'Ti consigliamo di rivolgerti a un consulente legale specializzato in diritto dell\'immigrazione per valutare altre possibilità. Ogni situazione personale può avere soluzioni specifiche che richiedono un\'analisi approfondita.',
-      link: 'https://sospermesso.it/consulenza',
+      title: 'Nessun permesso disponibile in questa situazione',
+      introText: 'Ehi, [Nome]! Se non hai un permesso di soggiorno e non sei in nessuna delle situazioni che abbiamo detto prima, non riusciamo a trovare un permesso di soggiorno per te 😔.\nTorna indietro 🔙 e seleziona una delle situazioni. Oppure continua a leggere.',
+      sections: [
+        { heading: 'Vivi in Italia da un po\' di tempo?', content: 'Vivi in Italia da un po\' di tempo? 🇮🇹 Parli bene italiano? 🗣️ Hai amici qui in Italia? 👥\nTutto questo potrebbe non essere sufficiente per avere un permesso di soggiorno, in base alle leggi attuali 😰\n\nIl 10 marzo 2023 il Governo italiano ha cancellato la possibilità di avere la protezione speciale per chi è bene integrato in Italia.\n\nLa protezione speciale esiste ancora, ma si applica in pochi casi particolari. Al momento le Questure non ricevono più le nuove domande di protezione speciale 🏢.\n\n‼️ Puoi provare a chiederla, ma ti serve un consiglio legale specializzato.' },
+        { heading: 'Lavori già o hai un\'offerta di lavoro?', content: 'Non basta avere un\'offerta di lavoro per avere un permesso di soggiorno in Italia. Se vuoi lavorare in Italia, potresti aspettare che il Governo pubblichi il "decreto flussi" nel 2026 📅. Il tuo datore di lavoro dovrà fare domanda per te.\n\nRicorda che per percorrere questa strada hai bisogno del passaporto e dovresti poi tornare nel tuo paese d\'origine per richiedere il visto.\n\n‼️ Anche in questo caso ti serve un consiglio legale specializzato.' },
+      ],
+      links: [
+        { label: 'Trova un centro di aiuto legale gratuito vicino a te! ⚖️', url: 'https://www.sospermesso.it/aiuto-legale', type: 'legal_aid' },
+      ],
     },
 
     // =============================================
-    // PERCORSO: MINORE DI 18 ANNI
+    // D7 — PERCORSO: MINORE DI 18 ANNI
     // =============================================
 
     minore_start: {
       id: 'minore_start',
       type: 'question',
-      question: 'Hai un genitore in Italia?',
+      question: 'Almeno uno dei tuoi genitori è in Italia in questo momento?',
     },
 
+    // D8
     min_gen_pds: {
       id: 'min_gen_pds',
       type: 'question',
-      question: 'Il tuo genitore ha un permesso di soggiorno valido?',
+      question: 'Tua mamma o tuo papà in questo momento:',
     },
 
+    // S8 — Info interstitial: genitore senza PdS
+    info_s8: {
+      id: 'info_s8',
+      type: 'info',
+      question: 'Hey [Nome], se nessuno dei tuoi genitori ha un permesso di soggiorno valido, è un po\' un problema.',
+      description: 'Quindi cosa posso fare? 🤔\n\nPrima cosa: manda ai tuoi genitori il link a questo test 📲, e scoprite insieme se possono avere un permesso di soggiorno. Così sarà molto facile per te averlo! 😊\n\nSeconda cosa: andiamo avanti per vedere se hai diritto a un altro permesso di soggiorno.',
+    },
+
+    // S11 — Famiglia minore (genitore con PdS)
     end_min_fam: {
       id: 'end_min_fam',
       type: 'result',
-      title: '\u{1F468}\u200D\u{1F469}\u200D\u{1F467} Permesso di Soggiorno per Motivi Familiari (Minore)',
-      resultDescription: 'Come minorenne figlio di un genitore con permesso di soggiorno valido, hai diritto al permesso per motivi familiari.',
-      duration: 'Uguale alla durata del permesso del genitore',
-      requirements: [
-        'Genitore con permesso di soggiorno valido o scaduto da meno di 60 giorni',
-        'Certificato di nascita tradotto e legalizzato',
-        'Documento d\'identità del minore',
+      title: 'Permesso di Soggiorno per Motivi Familiari (Minore)',
+      introText: '[Nome], secondo noi puoi stare tranquillo. Puoi avere un permesso di soggiorno per motivi di famiglia fino ai 18 anni. E forse anche dopo.',
+      sections: [
+        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Siamo sicuri ✅' },
+        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'Il permesso per motivi di famiglia dura almeno fino a quando compi 18 anni.' },
+        { heading: 'Quando compio 18 anni cosa succede?', content: 'Puoi convertirlo in un permesso di soggiorno per studio, lavoro o ricerca lavoro. Se invece sei ancora dipendente economicamente dai tuoi genitori, questo permesso di solito viene rinnovato fino ai 21 anni.\n📌 Attenzione: devi mandare la richiesta di conversione prima dei 18 anni.' },
+        { heading: 'Come lo posso chiedere?', content: 'Puoi chiedere questo permesso con un kit postale 📨 mandato dal tuo genitore.' },
+        { heading: 'Mi serve un avvocato?', content: '🟢 No, puoi fare tutto da solo con la tua famiglia.' },
       ],
-      link: 'https://sospermesso.it/famiglia-minore',
+      links: [
+        { label: 'Più informazioni su questo permesso', url: 'https://www.sospermesso.it', type: 'guide' },
+        { label: 'Trova centri di aiuto legale gratuito vicino a te! ⚖️', url: 'https://www.sospermesso.it/aiuto-legale', type: 'legal_aid' },
+      ],
     },
 
+    // D9
     min_parenti: {
       id: 'min_parenti',
       type: 'question',
-      question: 'Con chi vivi in Italia?',
+      question: 'In Italia vivi nella stessa casa con uno di questi famigliari?',
     },
 
-    // Fratello/Sorella
+    // D10 — Fratello/Sorella
     min_par_ita1: {
       id: 'min_par_ita1',
       type: 'question',
-      question: 'Il tuo fratello/sorella è cittadino italiano?',
+      question: 'Qual è la situazione di tuo [Parente selezionato]?',
     },
 
+    // D11 — Affidamento fratello
     min_affido1: {
       id: 'min_affido1',
       type: 'question',
-      question: 'C\'è una decisione del Tribunale per i Minorenni o dei Servizi Sociali che ti affida a lui/lei?',
+      question: 'C\'è una decisione del tribunale per i minorenni o almeno dei servizi sociali di affidarti a tuo [Parente selezionato]?',
     },
 
-    // Nonno/a
+    // D10 — Nonno/a
     min_par_ita2: {
       id: 'min_par_ita2',
       type: 'question',
-      question: 'Il tuo nonno/a è cittadino italiano?',
+      question: 'Qual è la situazione di tuo [Parente selezionato]?',
     },
 
+    // D11 — Affidamento nonno
     min_affido2: {
       id: 'min_affido2',
       type: 'question',
-      question: 'C\'è una decisione del Tribunale per i Minorenni o dei Servizi Sociali che ti affida a lui/lei?',
+      question: 'C\'è una decisione del tribunale per i minorenni o almeno dei servizi sociali di affidarti a tuo [Parente selezionato]?',
     },
 
-    // Zio/a
+    // D10 — Zio/a
     min_par_ita3: {
       id: 'min_par_ita3',
       type: 'question',
-      question: 'Il tuo zio/a è cittadino italiano?',
+      question: 'Qual è la situazione di tuo [Parente selezionato]?',
     },
 
+    // D11 — Affidamento zio
     min_affido3: {
       id: 'min_affido3',
       type: 'question',
-      question: 'C\'è una decisione del Tribunale per i Minorenni o dei Servizi Sociali che ti affida a lui/lei?',
+      question: 'C\'è una decisione del tribunale per i minorenni o almeno dei servizi sociali di affidarti a tuo [Parente selezionato]?',
     },
 
-    // Cugino
+    // D10 — Cugino
     min_par_ita4: {
       id: 'min_par_ita4',
       type: 'question',
-      question: 'Il tuo cugino è cittadino italiano?',
+      question: 'Qual è la situazione di tuo [Parente selezionato]?',
     },
 
+    // D11 — Affidamento cugino
     min_affido4: {
       id: 'min_affido4',
       type: 'question',
-      question: 'C\'è una decisione del Tribunale per i Minorenni o dei Servizi Sociali che ti affida a lui/lei?',
+      question: 'C\'è una decisione del tribunale per i minorenni o almeno dei servizi sociali di affidarti a tuo [Parente selezionato]?',
     },
 
-    // Fratello/sorella del nonno
+    // D10 — Fratello/sorella del nonno
     min_par_ita5: {
       id: 'min_par_ita5',
       type: 'question',
-      question: 'È cittadino italiano?',
+      question: 'Qual è la situazione di tuo [Parente selezionato]?',
     },
 
+    // D11 — Affidamento prozio
     min_affido5: {
       id: 'min_affido5',
       type: 'question',
-      question: 'C\'è una decisione del Tribunale per i Minorenni o dei Servizi Sociali che ti affida a lui/lei?',
+      question: 'C\'è una decisione del tribunale per i minorenni o almeno dei servizi sociali di affidarti a tuo [Parente selezionato]?',
     },
 
+    // S16 — Art. 19 (familiare italiano convivente)
     end_art19: {
       id: 'end_art19',
       type: 'result',
-      title: '\u{1F46A} Permesso per Motivi Familiari (Art. 19)',
-      resultDescription: 'Puoi ottenere il permesso di soggiorno per motivi familiari se convivi con un familiare cittadino italiano.',
-      duration: '2 anni (rinnovabile)',
-      requirements: [
-        'Familiare italiano (genitore, nonno, fratello/sorella)',
-        'Convivenza effettiva',
-        'Legame familiare documentato',
+      title: 'Permesso per Motivi Familiari (Articolo 19)',
+      introText: 'Hey [Nome] puoi avere un permesso di soggiorno per motivi familiari (Articolo 19).\n\n⚠️ ATTENZIONE: tuo [Parente selezionato] deve avere la cittadinanza italiana 🇮🇹 e dovete vivere insieme 🏠',
+      sections: [
+        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Siamo sicuri ✅ perché la legge è chiara 📜.' },
+        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'Generalmente dura due anni 📆. Puoi avere la residenza, studiare, lavorare e avere il medico di base.' },
+        { heading: 'Come lo chiedo?', content: 'Devi chiedere questo permesso personalmente in Questura 🏢.' },
+        { heading: 'Mi serve un avvocato?', content: '🟢 No, puoi fare tutto da solo 😉' },
       ],
-      link: 'https://sospermesso.it/art-19-famiglia',
+      links: [
+        { label: 'Più informazioni su questo permesso', url: 'https://www.sospermesso.it', type: 'guide' },
+        { label: 'Vuoi un consiglio legale gratuito? Trova un centro vicino a te!', url: 'https://www.sospermesso.it/aiuto-legale', type: 'legal_aid' },
+      ],
     },
 
+    // S10 — Affidamento
     end_aff: {
       id: 'end_aff',
       type: 'result',
-      title: '\u{1F3E0} Permesso per Affidamento (Minore)',
-      resultDescription: 'Come minore affidato da un provvedimento del Tribunale o dei Servizi Sociali a un parente con permesso di soggiorno, puoi ottenere questo permesso.',
-      duration: 'Fino ai 18 anni',
-      requirements: [
-        'Provvedimento di affidamento del Tribunale per i Minorenni',
-        'Affidatario con permesso di soggiorno valido',
-        'Certificati anagrafici',
+      title: 'Permesso per Motivi Familiari — Minore Affidato',
+      introText: 'Buone notizie [Nome]. In base a quello che ci hai detto, sei considerato un minore straniero non accompagnato e affidato. Hai diritto a un permesso di soggiorno per motivi di famiglia fino ai 18 anni. E forse anche dopo.',
+      sections: [
+        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Siamo sicuri ✅' },
+        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'Il permesso per motivi di famiglia dura almeno fino a quando compi 18 anni.' },
+        { heading: 'Quando compio 18 anni cosa succede?', content: 'Dopo puoi convertirlo in un permesso di soggiorno per studio, lavoro o ricerca lavoro.\n📌 Attenzione: devi mandare la richiesta di conversione prima dei 18 anni.' },
+        { heading: 'Come lo posso chiedere?', content: 'Puoi chiedere questo permesso con un kit postale o direttamente in Questura.' },
+        { heading: 'Mi serve un avvocato?', content: '🟢 No, puoi fare tutto da solo con la tua famiglia, ma è meglio chiedere l\'aiuto dei servizi sociali.' },
       ],
-      link: 'https://sospermesso.it/affidamento',
+      links: [
+        { label: 'Più informazioni su questo permesso', url: 'https://www.sospermesso.it/Permesso-per-motivi-familiari-per-minori-stranieri-affidati-a-familiari-entro-il-quarto-grado-1ba7355e7f7f80b5bf30db3fae87ace4', type: 'guide' },
+        { label: 'Trova centri di aiuto legale gratuito vicino a te! ⚖️', url: 'https://www.sospermesso.it/aiuto-legale', type: 'legal_aid' },
+      ],
     },
 
+    // S9 — MSNA
     end_msna: {
       id: 'end_msna',
       type: 'result',
-      title: '\u{1F9D2} Minore Straniero Non Accompagnato (MSNA)',
-      resultDescription: 'Se sei un minore senza genitori o parenti in grado di assisterti in Italia, puoi essere riconosciuto come MSNA e ricevere protezione e un permesso speciale.',
-      duration: 'Fino ai 18 anni (poi convertibile)',
-      requirements: [
-        'Meno di 18 anni',
-        'Assenza di genitori o adulti legalmente responsabili in Italia',
-        'Segnalazione alla Procura della Repubblica presso il Tribunale per i Minorenni',
-        'Nomina di un tutore',
+      title: 'Minore Straniero Non Accompagnato (MSNA)',
+      introText: '[Nome] in base a quello che ci hai detto, in Italia sei considerato un minore straniero non accompagnato.\nPer questo, puoi avere un permesso di soggiorno per minore età fino ai 18 anni, che potrai poi convertire in permesso per:\n• studio\n• lavoro\n• ricerca lavoro\n• affidamento (prosieguo amministrativo)',
+      sections: [
+        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Se hai un documento di identità che prova che hai meno di 18 anni, siamo certi ✅\nSe non hai un passaporto o un altro documento di identità, e dichiari di essere minorenne, potresti essere sottoposto ad un accertamento per confermare la tua età 🔍\n\nTi diamo un consiglio: contatta i servizi sociali a te più vicini. Ti daranno più informazioni e troveranno un tutore che ti aiuterà con i documenti e non solo. Potrebbero anche decidere con te un percorso che dura fino ai 21 anni, per studiare e integrarti in Italia 🇮🇹' },
+        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'Con il permesso per minore età puoi studiare e lavorare fino 18 anni. Dopo può essere convertito 🔄 in un altro permesso di soggiorno.' },
+        { heading: 'Come lo posso chiedere?', content: 'Devi chiedere questo permesso direttamente in Questura.' },
+        { heading: 'Mi serve un avvocato?', content: '🟠 No, puoi fare tutto da solo ma per non fare errori è meglio farti aiutare. Rivolgiti al servizio sociale più vicino a te.' },
       ],
-      notes: 'Come MSNA hai diritto ad assistenza, accoglienza, istruzione e cure mediche. Alla maggiore età puoi convertire il permesso in altri tipi (studio, lavoro, ecc.).',
-      link: 'https://sospermesso.it/msna',
+      links: [
+        { label: 'Più informazioni su questo permesso', url: 'https://www.sospermesso.it', type: 'guide' },
+        { label: 'Trova centri di aiuto legale gratuito vicino a te! ⚖️', url: 'https://www.sospermesso.it/aiuto-legale', type: 'legal_aid' },
+      ],
     },
 
     // =============================================
-    // PERCORSO: FAMIGLIA (parente in Italia)
+    // D12 — PERCORSO: FAMIGLIA (parente in Italia)
     // =============================================
 
     famiglia_start: {
       id: 'famiglia_start',
       type: 'question',
-      question: 'Chi è il tuo familiare in Italia?',
+      question: 'Molto bene [Nome]. Chi c\'è in Italia della tua famiglia?',
     },
 
-    // ========== FIGLIO ==========
+    // ========== D15 — FIGLIO ==========
 
     figlio_start: {
       id: 'figlio_start',
       type: 'question',
-      question: 'Tuo figlio è cittadino italiano?',
+      question: 'Almeno uno dei tuoi figli ha la cittadinanza italiana?',
+      description: 'Ricorda: se l\'altro genitore è cittadino italiano, vostro figlio è automaticamente cittadino italiano.',
     },
 
+    // D16
     fig_ita_min: {
       id: 'fig_ita_min',
       type: 'question',
-      question: 'Tuo figlio ha meno di 18 anni?',
+      question: 'Tuo figlio italiano ha meno di 18 anni?',
     },
 
+    // S15 — Art. 30 (genitore di minore italiano)
     end_art30: {
       id: 'end_art30',
       type: 'result',
-      title: '\u{1F468}\u200D\u{1F469}\u200D\u{1F467} Permesso Art. 30 - Genitore di Minore Italiano',
-      resultDescription: 'Come genitore di un figlio minorenne cittadino italiano, hai diritto al permesso di soggiorno per motivi familiari.',
-      duration: '2 anni (rinnovabile)',
-      requirements: [
-        'Figlio minorenne cittadino italiano',
-        'Legame di parentela dimostrato (certificato di nascita)',
-        'Responsabilità genitoriale',
+      title: 'Permesso per Motivi Familiari — Genitore di Minore Italiano',
+      introText: '[Nome] se hai un figlio minore che è cittadino italiano e che risiede in Italia, puoi chiedere un permesso di soggiorno per motivi familiari.',
+      sections: [
+        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Se hai un figlio minore in Italia 👶, siamo sicuri che tu possa fare domanda, ma bisogna fare una causa in tribunale e il risultato è incerto 😣' },
+        { heading: 'Come lo posso chiedere?', content: 'Questo permesso non può essere chiesto direttamente in Questura ‼️ Devi fare una procedura al Tribunale per i Minorenni del territorio in cui abiti.' },
+        { heading: 'Mi serve un avvocato?', content: '🟠 In teoria puoi fare domanda al tribunale anche da solo, ma ti consigliamo di farlo con un avvocato. Come minimo, chiedi un parere legale prima. Ricorda che se hai un reddito inferiore a circa 13.500 euro all\'anno, potresti avere diritto all\'assistenza legale gratuita.' },
+        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'Il permesso per Art. 31 generalmente viene dato per uno/due/tre anni 📅, ma il Tribunale può decidere anche una durata diversa. Puoi avere la residenza, studiare, lavorare e avere il medico di base.' },
+        { heading: 'E quando scade il permesso cosa faccio?', content: 'Se tuo figlio sarà ancora minorenne, potrai fare una nuova causa al Tribunale per i Minorenni ⚖️. Oppure, se lavori, puoi chiedere la conversione in un permesso per lavoro, con kit postale 📮.' },
       ],
-      link: 'https://sospermesso.it/art30-genitore-italiano',
+      links: [
+        { label: 'Più informazioni su questo permesso', url: 'https://www.sospermesso.it/Genitore-di-minore-cittadino-italiano-1ba7355e7f7f80b4bd96d937d1548bd9', type: 'guide' },
+        { label: 'Vuoi un consiglio legale gratuito? Trova un centro vicino a te! ⚖️', url: 'https://www.sospermesso.it/aiuto-legale', type: 'legal_aid' },
+      ],
     },
 
+    // D17
     fig_mant: {
       id: 'fig_mant',
       type: 'question',
-      question: 'Tuo figlio ti mantiene economicamente?',
+      question: 'Tuo figlio maggiorenne cittadino italiano ti mantiene?',
+      description: 'Per capirci: questo figlio paga la maggior parte delle tue spese per casa, cibo, vestiti, ecc.?',
     },
 
+    // S22 — Famit generico
     end_famit: {
       id: 'end_famit',
       type: 'result',
-      title: '\u{1F46A} Permesso per Ricongiungimento Familiare',
-      resultDescription: 'Puoi richiedere il ricongiungimento familiare se hai un familiare italiano o con permesso UE che ti mantiene e soddisfa i requisiti reddituali.',
-      duration: '2 anni (rinnovabile)',
-      requirements: [
-        'Familiare italiano/UE con reddito adeguato',
-        'Alloggio idoneo',
-        'Legame familiare documentato',
+      title: 'Permesso per Motivi Familiari (Famit)',
+      introText: '[Nome], potresti chiedere un permesso di soggiorno come familiare di cittadino italiano ("Famit").',
+      sections: [
+        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Nel 2023 la legge in Italia è cambiata 😥 e non tutte le Questure applicano la legge allo stesso modo.\nSiamo sicuri che tu abbia delle possibilità concrete, ma potrebbe essere necessaria una valutazione più approfondita 🔍, anche sul reddito del tuo familiare.\nSe il familiare italiano ha vissuto in un altro paese dell\'Unione europea, forse potresti avere anche la Carta come familiare di cittadino UE.\nCome vedi, è tutto un po\' complesso 😕. Per questo, ti consigliamo di chiedere un parere legale, anche per capire se chiedere il permesso "Famit" o la Carta.' },
+        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'Il permesso "Famit" dura cinque anni, consente di studiare e lavorare. Alla scadenza, può essere rinnovato e diventa permanente.' },
+        { heading: 'Come lo posso chiedere?', content: 'Personalmente in Questura, accompagnato dal cittadino italiano.' },
+        { heading: 'Mi serve un avvocato?', content: '🟠 No, puoi chiedere questo permesso direttamente da solo in Questura. Però ti consigliamo di chiedere un parere legale prima, per trovare la soluzione più adatta a te.' },
       ],
-      link: 'https://sospermesso.it/ricongiungimento-familiare',
+      links: [
+        { label: 'Più informazioni su questo permesso', url: 'https://www.sospermesso.it', type: 'guide' },
+        { label: 'Vuoi un consiglio legale gratuito? Trova un centro vicino a te!', url: 'https://www.sospermesso.it/aiuto-legale', type: 'legal_aid' },
+      ],
     },
 
+    // D18
     fig_conv: {
       id: 'fig_conv',
       type: 'question',
-      question: 'Vivi stabilmente con tuo figlio?',
+      question: 'Tuo figlio italiano maggiorenne vive con te?',
     },
 
+    // D19
     fig_ue: {
       id: 'fig_ue',
       type: 'question',
-      question: 'Tuo figlio è cittadino di un Paese UE?',
+      question: 'Tuo figlio è cittadino di uno Stato dell\'Unione Europea (UE)?',
     },
 
+    // D20
     fig_ue_min: {
       id: 'fig_ue_min',
       type: 'question',
-      question: 'Tuo figlio ha meno di 18 anni?',
+      question: 'Tuo figlio (cittadino UE) è minore di 18 anni?',
     },
 
+    // S18 — Zambrano
     end_zamb: {
       id: 'end_zamb',
       type: 'result',
-      title: '\u{1F1EA}\u{1F1FA} Carta di Soggiorno Zambrano',
-      resultDescription: 'Sei genitore di un figlio minore cittadino UE? Hai diritto alla Carta di Soggiorno per familiari di cittadini UE (caso Zambrano), che ti permette di restare in Italia per prenderti cura di tuo figlio.',
-      duration: '5 anni (rinnovabile)',
-      requirements: [
-        'Figlio minorenne cittadino UE',
-        'Rapporto di dipendenza economica/affettiva del minore da te',
-        'Impossibilità per il minore di restare nell\'UE senza di te',
+      title: 'Carta di Soggiorno — Caso Zambrano',
+      introText: '[Nome], in base alle informazioni che ci hai dato, dovresti avere diritto a un permesso di soggiorno, ad esempio il permesso di soggiorno per motivi familiari o la Carta di soggiorno come familiare di cittadino UE.\nPerò al momento le Questure non danno facilmente questo permesso 😕. È una situazione complessa e ti serve un parere legale ⚖️.',
+      sections: [
+        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Siamo sicuri che per te ci siano delle concrete possibilità, ma è una situazione non molto comune 🤔 e potrebbe essere necessario andare in tribunale.' },
       ],
-      link: 'https://sospermesso.it/zambrano-carta-ue',
+      links: [
+        { label: 'Vuoi un consiglio legale gratuito? Trova un centro vicino a te!', url: 'https://www.sospermesso.it/aiuto-legale', type: 'legal_aid' },
+      ],
     },
 
+    // D21
     fig_ue_mant: {
       id: 'fig_ue_mant',
       type: 'question',
-      question: 'Tuo figlio ti mantiene economicamente?',
+      question: 'Tuo figlio (maggiorenne, cittadino UE) ti mantiene?',
+      description: 'Per capirci: questo figlio paga la maggior parte delle tue spese per casa, cibo, vestiti, ecc.?',
     },
 
+    // S23 — Carta familiare UE
     end_carta_ue: {
       id: 'end_carta_ue',
       type: 'result',
-      title: '\u{1F1EA}\u{1F1FA} Carta di Soggiorno per Familiari di Cittadini UE',
-      resultDescription: 'Se sei familiare di un cittadino UE residente in Italia, puoi richiedere la Carta di Soggiorno.',
-      duration: '5 anni (rinnovabile permanentemente)',
-      requirements: [
-        'Familiare cittadino UE residente in Italia',
-        'Legame familiare (coniuge, genitore, figlio a carico)',
-        'Risorse economiche sufficienti del familiare UE',
+      title: 'Carta di Soggiorno per Familiari di Cittadini UE',
+      introText: '[Nome], in base alle informazioni che ci hai dato, potresti chiedere la Carta di soggiorno come familiare di cittadini UE.',
+      sections: [
+        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Siamo sicuri 😀' },
+        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'La Carta di soggiorno per familiare di cittadini UE dura cinque anni. Puoi studiare, lavorare, prendere la residenza e avere il medico di base.' },
+        { heading: 'Quando scade cosa faccio?', content: 'Puoi rinnovare la Carta, che diventerà permanente. Puoi anche convertire la Carta in un permesso per lavoro 🔄.' },
+        { heading: 'Come lo posso chiedere?', content: 'Personalmente in Questura, accompagnato dal familiare cittadino UE.' },
+        { heading: 'Mi serve un avvocato?', content: '🟢 No, puoi chiedere questo permesso direttamente in Questura, da solo.' },
       ],
-      link: 'https://sospermesso.it/carta-familiari-ue',
+      links: [
+        { label: 'Più informazioni su questo permesso', url: 'https://www.sospermesso.it', type: 'guide' },
+        { label: 'Vuoi un consiglio legale gratuito? Trova un centro vicino a te!', url: 'https://www.sospermesso.it/aiuto-legale', type: 'legal_aid' },
+      ],
     },
 
+    // D22
     fig_stra_min: {
       id: 'fig_stra_min',
       type: 'question',
       question: 'Tuo figlio ha meno di 18 anni?',
     },
 
+    // S14 — Art. 31
     end_art31: {
       id: 'end_art31',
       type: 'result',
-      title: '\u{1F468}\u200D\u{1F469}\u200D\u{1F467} Permesso Art. 31 - Ricongiungimento con Minore Straniero',
-      resultDescription: 'Puoi richiedere il ricongiungimento familiare con tuo figlio minorenne straniero regolarmente soggiornante in Italia.',
-      duration: 'Variabile in base alla situazione',
-      requirements: [
-        'Figlio minorenne con permesso di soggiorno in Italia',
-        'Requisiti reddituali e abitativi',
-        'Legame di parentela dimostrato',
+      title: 'Permesso per Assistenza Minore (Articolo 31)',
+      introText: 'Se hai un figlio minore in Italia, puoi provare a chiedere un permesso di soggiorno per assistenza minori ("Articolo 31").',
+      sections: [
+        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Se hai un figlio minore in Italia 👶, siamo sicuri che tu possa fare domanda, ma bisogna fare una causa in tribunale e il risultato è incerto 😣' },
+        { heading: 'Come lo posso chiedere?', content: 'Questo permesso non può essere chiesto direttamente in Questura ‼️ Devi fare una procedura al Tribunale per i Minorenni del territorio in cui abiti.' },
+        { heading: 'Mi serve un avvocato?', content: '🟠 In teoria puoi fare domanda al tribunale anche da solo, ma ti consigliamo di farlo con un avvocato. Come minimo, chiedi un parere legale prima. Ricorda che se hai un reddito inferiore a circa 12.800 euro all\'anno, potresti avere diritto all\'assistenza legale gratuita.' },
+        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'Il permesso per Art. 31 generalmente viene dato per uno/due/tre anni 📅, ma il Tribunale può decidere anche una durata diversa. Puoi avere la residenza, studiare, lavorare e avere il medico di base.' },
+        { heading: 'E quando scade il permesso cosa faccio?', content: 'Se tuo figlio sarà ancora minorenne, potrai fare una nuova causa al Tribunale per i Minorenni ⚖️. Oppure, se lavori, puoi chiedere la conversione in un permesso per lavoro, con kit postale 📮.' },
       ],
-      link: 'https://sospermesso.it/art31-ricongiungimento-minore',
+      links: [
+        { label: 'Più informazioni su questo permesso', url: 'https://www.sospermesso.it/Permesso-per-assistenza-minore-art-31-1c77355e7f7f80cfac5cec0c426e8213', type: 'guide' },
+        { label: 'Vuoi un consiglio legale gratuito? Trova un centro vicino a te! ⚖️', url: 'https://www.sospermesso.it/aiuto-legale', type: 'legal_aid' },
+      ],
     },
 
+    // D23
     fig_stra_pds: {
       id: 'fig_stra_pds',
       type: 'question',
-      question: 'Hai mai avuto un permesso di soggiorno in Italia?',
+      question: 'Hai mai avuto un permesso di soggiorno da quando sei in Italia?',
     },
 
+    // D24
     fig_stra_mant: {
       id: 'fig_stra_mant',
       type: 'question',
-      question: 'Tuo figlio ti mantiene economicamente?',
+      question: 'Tuo figlio ti mantiene?',
+      description: 'Per capirci: questo figlio paga la maggior parte delle tue spese per casa, cibo, vestiti, ecc.?',
     },
 
+    // S19 — Art. 30 genitore a carico
     end_art30_gen: {
       id: 'end_art30_gen',
       type: 'result',
-      title: '\u{1F468}\u200D\u{1F469}\u200D\u{1F467} Permesso Art. 30 - Genitore a Carico',
-      resultDescription: 'Come genitore a carico di un figlio regolarmente soggiornante in Italia, potresti ottenere il permesso per motivi familiari.',
-      duration: '2 anni (rinnovabile)',
-      requirements: [
-        'Figlio con permesso di soggiorno valido',
-        'Prova del mantenimento economico (dichiarazioni fiscali, bonifici)',
-        'Convivenza o assistenza continuativa',
+      title: 'Permesso per Motivi Familiari — Genitore a Carico',
+      introText: 'Bene [Nome]. Dalle informazioni che ci hai dato potresti chiedere un permesso per motivi familiari perché sei un genitore che dipende dai suoi figli.\nMa è una situazione complessa ed è meglio chiedere una consulenza legale.',
+      sections: [
+        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Non siamo sicuri 😕 perché bisogna valutare numerosi elementi. In generale, ci sono due casi possibili:\n\n1. Hai meno di 65 anni\n• Non devi avere altri figli nel tuo paese\n• Devi essere a carico dei tuoi figli che sono in Italia (dipendere economicamente da loro)\n\n2. Hai più di 65 anni\n• Non hai altri figli nel tuo paese; oppure\n• Hai figli nel tuo paese ma non possono mantenerti perché hanno problemi di salute (serve documentazione medica)\n\nIn più, per entrambi i casi, bisogna valutare:\n• La tua situazione familiare 👪\n• I redditi della tua famiglia 📊' },
+        { heading: 'Ricorda!', content: '🔔 Se non hai mai avuto un permesso di soggiorno in Italia, difficilmente potrai ottenere questo tipo di permesso. Se hai avuto un permesso di soggiorno in Italia ma è scaduto, dipende da quanto tempo è scaduto ⏰' },
+        { heading: 'Mi serve un avvocato?', content: '🆘 È una situazione un po\' particolare e ti consigliamo di chiedere aiuto legale ⚖️.' },
       ],
-      notes: 'È importante dimostrare che sei effettivamente a carico di tuo figlio e che hai bisogno della sua assistenza.',
-      link: 'https://sospermesso.it/art30-genitore-a-carico',
+      links: [
+        { label: 'Più informazioni su questo permesso', url: 'https://www.sospermesso.it/Coesione-familiare-1ba7355e7f7f80ce99bbd18879a0f807', type: 'guide' },
+        { label: 'Vuoi un consiglio legale gratuito? Trova un centro vicino a te!', url: 'https://www.sospermesso.it/aiuto-legale', type: 'legal_aid' },
+      ],
     },
 
-    // ========== GENITORE ==========
+    // ========== D13 — GENITORE ==========
 
     genitore_start: {
       id: 'genitore_start',
       type: 'question',
-      question: 'Il tuo genitore è cittadino italiano o UE?',
+      question: 'Mamma o papà hanno la cittadinanza italiana o la cittadinanza di un altro Stato membro della UE?',
+      description: 'È sufficiente uno di loro.',
     },
 
+    // D25
     gen_ita_eta: {
       id: 'gen_ita_eta',
       type: 'question',
       question: 'Hai tra 18 e 21 anni?',
+      description: 'Se hai meno di 18 anni, sei nel posto sbagliato, torna indietro e seleziona "ho meno di 18 anni".',
     },
 
+    // D27
     gen_ita_tipo: {
       id: 'gen_ita_tipo',
       type: 'question',
-      question: 'Il genitore è cittadino italiano?',
+      question: 'Il tuo genitore è cittadino italiano?',
     },
 
+    // S29 — Famit genitore
     end_famit_gen: {
       id: 'end_famit_gen',
       type: 'result',
-      title: '\u{1F468}\u200D\u{1F469}\u200D\u{1F467} Permesso per Ricongiungimento con Genitore Italiano',
-      resultDescription: 'Se hai tra 18 e 21 anni e sei a carico del genitore cittadino italiano, puoi ottenere il permesso per motivi familiari.',
-      duration: '2 anni (rinnovabile)',
-      requirements: [
-        'Età tra 18 e 21 anni (o invalidità totale)',
-        'Genitore cittadino italiano',
-        'Stato di figlio a carico',
+      title: 'Permesso per Motivi Familiari — Con Genitore',
+      introText: 'In base alle informazioni che ci hai dato, puoi avere un permesso di soggiorno per motivi familiari.',
+      sections: [
+        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Siamo sicuri ✅ che tu possa avere un permesso per motivi di famiglia.' },
+        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'In genere ha durata di 2 anni. Alla scadenza, può essere rinnovato 🔄.' },
+        { heading: 'Come lo posso chiedere?', content: 'Con kit postale 📮 inserendo nella busta tutti i documenti necessari.' },
+        { heading: 'Mi serve un avvocato?', content: 'No, ma un parere legale può essere utile a preparare tutti i documenti necessari ⚖️.' },
       ],
-      link: 'https://sospermesso.it/ricongiungimento-genitore-italiano',
+      links: [
+        { label: 'Più informazioni su questo permesso', url: 'https://www.sospermesso.it', type: 'guide' },
+        { label: 'Trova un centro di aiuto legale gratuito vicino a te! ⚖️', url: 'https://www.sospermesso.it/aiuto-legale', type: 'legal_aid' },
+      ],
     },
 
+    // D26
     gen_mant: {
       id: 'gen_mant',
       type: 'question',
-      question: 'Il genitore ti mantiene economicamente?',
+      question: 'Il tuo genitore ti mantiene?',
+      description: 'Per capirci: questo genitore paga la maggior parte delle tue spese per casa, cibo, vestiti, scuola, ecc.?',
     },
 
+    // D36
     gen_mant_tipo: {
       id: 'gen_mant_tipo',
       type: 'question',
-      question: 'Il genitore è cittadino italiano o UE?',
+      question: 'Il tuo genitore è:',
     },
 
+    // D27 (same question, different context: parent doesn't maintain)
     gen_ita_conv: {
       id: 'gen_ita_conv',
       type: 'question',
-      question: 'Il genitore è cittadino italiano?',
+      question: 'Il tuo genitore è cittadino italiano?',
     },
 
+    // D28
     gen_pds: {
       id: 'gen_pds',
       type: 'question',
-      question: 'Hai avuto un permesso di soggiorno per motivi familiari fino ai 18 anni?',
+      question: 'Hai avuto fino ai 18 anni un permesso di soggiorno per motivi familiari?',
+      description: 'Se hai ancora adesso meno di 18 anni, sei nel posto sbagliato: torna indietro e seleziona "ho meno di 18 anni".',
     },
 
+    // S27 — Famiglia incerto
     end_fam_inc: {
       id: 'end_fam_inc',
       type: 'result',
-      title: '\u{1F468}\u200D\u{1F469}\u200D\u{1F467} Conversione Permesso Famiglia dopo i 18 anni',
-      resultDescription: 'Se hai avuto un permesso per motivi familiari fino ai 18 anni, potresti convertirlo in un permesso per studio o lavoro al compimento della maggiore età.',
-      requirements: [
-        'Permesso famiglia precedente fino ai 18 anni',
-        'Iscrizione a un corso di studi o contratto di lavoro',
-        'Richiesta entro il termine di scadenza',
+      title: 'Permesso Famiglia dopo i 18 anni — Da Valutare',
+      introText: 'In base alle informazioni che ci hai dato, non siamo sicuri che tu possa avere un permesso di soggiorno per motivi familiari. Ti consigliamo di chiedere una consulenza legale.',
+      sections: [
+        { heading: 'Ti spieghiamo meglio', content: '📘 Se fino ai 18 anni avevi un permesso di soggiorno per motivi familiari collegato a quello del tuo genitore, potresti ancora avere la possibilità di chiedere un permesso dello stesso tipo.' },
+        { heading: 'Quando è possibile?', content: 'La possibilità di rinnovo dipende da diversi fattori, in particolare:\n• Se sei ancora molto giovane 🎂\n• Se stai ancora studiando 📚\n• Se il tuo genitore ti mantiene economicamente 💶\n• Se vivi ancora con la famiglia 🏠' },
+        { heading: 'Mi serve un avvocato?', content: '‼️ Vista la situazione, prima di prendere decisioni ti consigliamo di chiedere un parere legale ⚖️.' },
       ],
-      notes: 'È fondamentale fare richiesta di conversione prima della scadenza del permesso per evitare problemi. Rivolgiti a un consulente.',
-      link: 'https://sospermesso.it/conversione-famiglia-maggiorenne',
+      links: [
+        { label: 'Più informazioni su questo permesso', url: 'https://www.sospermesso.it', type: 'guide' },
+        { label: 'Trova un centro di aiuto legale gratuito vicino a te! ⚖️', url: 'https://www.sospermesso.it/aiuto-legale', type: 'legal_aid' },
+      ],
     },
 
+    // D29
     gen_inv: {
       id: 'gen_inv',
       type: 'question',
-      question: 'Sei invalido totale?',
+      question: 'Sei in una situazione di invalidità totale?',
+      description: '"Totale" significa una certificazione 100% di invalidità. Hai problemi fisici o mentali gravi che non ti consentono di svolgere nessun lavoro.',
     },
 
+    // D30
     gen_inv_mant: {
       id: 'gen_inv_mant',
       type: 'question',
-      question: 'Il genitore ti mantiene economicamente?',
+      question: 'Sei a carico dei tuoi genitori?',
+      description: 'Per capirci: pagano loro la maggior parte delle tue spese per casa, cibo, vestiti, scuola, ecc.?',
     },
 
+    // S26 — Famiglia figlio invalido
     end_fam_inv: {
       id: 'end_fam_inv',
       type: 'result',
-      title: '\u{267F} Permesso Famiglia Art. 30 per Figlio Invalido',
-      resultDescription: 'Se sei invalido totale e a carico di un genitore regolarmente soggiornante, puoi ottenere il permesso per motivi familiari senza limiti di età.',
-      duration: '2 anni (rinnovabile)',
-      requirements: [
-        'Invalidità totale certificata',
-        'Genitore con permesso di soggiorno valido',
-        'Mantenimento a carico dimostrato',
+      title: 'Permesso Famiglia per Figlio con Invalidità Totale',
+      introText: 'In base alle informazioni che ci hai dato, forse puoi avere un permesso di soggiorno per motivi familiari come figlia o figlio con invalidità totale.',
+      sections: [
+        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Siamo sicuri ✅ che un figlio invalido al 100% possa avere un permesso di soggiorno per stare con i suoi genitori. Ma le situazioni familiari a volte sono complesse e ti consigliamo di chiedere un aiuto legale.' },
+        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'In genere ha durata di 2 anni. Alla scadenza, può essere rinnovato 🔄.' },
+        { heading: 'Come lo posso chiedere?', content: 'Con kit postale 📮 inserendo nella busta tutti i documenti relativi alla tua invalidità.' },
+        { heading: 'Mi serve un avvocato?', content: 'No, ma un parere legale può essere utile a preparare tutti i documenti necessari ⚖️.' },
       ],
-      link: 'https://sospermesso.it/famiglia-figlio-invalido',
+      links: [
+        { label: 'Più informazioni su questo permesso', url: 'https://www.sospermesso.it', type: 'guide' },
+        { label: 'Trova un centro di aiuto legale gratuito vicino a te! ⚖️', url: 'https://www.sospermesso.it/aiuto-legale', type: 'legal_aid' },
+      ],
     },
 
+    // S25 — Residenza elettiva
     end_res_el: {
       id: 'end_res_el',
       type: 'result',
-      title: '\u{1F3E1} Residenza Elettiva (da valutare)',
-      resultDescription: 'Se non rientri nelle categorie di ricongiungimento familiare ma hai risorse economiche adeguate, potresti valutare la Residenza Elettiva.',
-      requirements: [
-        'Reddito elevato e stabile proveniente dall\'estero',
-        'Alloggio idoneo in Italia',
-        'Nessuna intenzione di lavorare in Italia (solo rendite)',
+      title: 'Nessun Permesso Famiglia — Valuta Residenza Elettiva',
+      introText: '[Nome], in base alle informazioni che ci hai dato, NON puoi avere il permesso di soggiorno per motivi familiari, perché non sei "invalido totale".',
+      sections: [
+        { heading: 'Cosa posso fare?', content: 'Se hai un assegno di invalidità, potresti avere diritto a un permesso di soggiorno per residenza elettiva, ma serve una consulenza legale più approfondita.\n\nTi consigliamo di rivolgerti a uno sportello legale o un avvocato per sapere se potresti avere un permesso per residenza elettiva o un altro permesso in base alla tua situazione personale.' },
       ],
-      notes: 'La Residenza Elettiva è difficile da ottenere e richiede requisiti economici molto stringenti. Consulta un avvocato specializzato.',
-      link: 'https://sospermesso.it/residenza-elettiva',
+      links: [
+        { label: 'Trova un centro di aiuto legale gratuito vicino a te! ⚖️', url: 'https://www.sospermesso.it/aiuto-legale', type: 'legal_aid' },
+      ],
     },
 
-    // ========== NONNO / FRATELLO-SORELLA ==========
+    // ========== D14 — NONNO / FRATELLO-SORELLA ==========
 
     nonno_frat: {
       id: 'nonno_frat',
       type: 'question',
-      question: 'Sono cittadini italiani?',
+      question: 'Tuo nonno/nonna o fratello/sorella sono cittadini italiani?',
     },
 
+    // S13 — Negativo parenti lontani
     end_neg_par: {
       id: 'end_neg_par',
       type: 'result',
-      title: '\u{274C} Parente troppo lontano - Nessun permesso disponibile',
-      resultDescription: 'Purtroppo, i parenti oltre il secondo grado (es. zii, cugini, nipoti) non rientrano nelle categorie per il ricongiungimento familiare, salvo casi eccezionali (es. affidamento di minori).',
-      notes: 'Se hai altre ragioni per rimanere in Italia (lavoro, studio, ecc.), esplora queste alternative. Consulta un avvocato per valutare altre soluzioni.',
-      link: 'https://sospermesso.it/consulenza',
+      title: 'Parente Troppo Lontano — Nessun Permesso Disponibile',
+      introText: 'Hey [Nome], anche noi vogliamo bene alla nostra famiglia. Però questi sono parenti troppo lontani.',
+      sections: [
+        { heading: 'Perché?', content: 'Purtroppo, in Italia, anche se questi tuoi parenti hanno un permesso di soggiorno, questo non sempre basta per far avere un permesso di soggiorno a te 😔\nSe hai altri familiari in Italia, o per sapere se hai diritto a un altro permesso di soggiorno, puoi ricominciare il test.' },
+      ],
+      links: [
+        { label: 'Chiedi un consiglio legale gratuito — Trova un centro vicino a te! ⚖️', url: 'https://www.sospermesso.it/aiuto-legale', type: 'legal_aid' },
+      ],
     },
 
     // =============================================
-    // PERCORSO: CONIUGE / PARTNER
+    // D31 — PERCORSO: CONIUGE / PARTNER
     // =============================================
 
     coniuge_start: {
       id: 'coniuge_start',
       type: 'question',
-      question: 'Il tuo partner è...',
+      question: 'Tuo marito/moglie/partner è:',
     },
 
-    // CONIUGE ITALIANO
+    // D32 — CONIUGE ITALIANO
     con_ita_sposi: {
       id: 'con_ita_sposi',
       type: 'question',
       question: 'Siete sposati?',
     },
 
+    // D33
     con_ita_conv: {
       id: 'con_ita_conv',
       type: 'question',
-      question: 'Avete un contratto di convivenza registrato?',
+      question: 'Avete un contratto di convivenza registrato all\'anagrafe del Comune di residenza?',
     },
 
+    // S17 — Partner convivente
     end_famit_part: {
       id: 'end_famit_part',
       type: 'result',
-      title: '\u{1F491} Permesso per Partner Convivente di Cittadino Italiano/UE',
-      resultDescription: 'Se hai un contratto di convivenza registrato con un cittadino italiano o UE, puoi richiedere il permesso per motivi familiari.',
-      duration: '2 anni (rinnovabile)',
-      requirements: [
-        'Contratto di convivenza registrato al Comune',
-        'Partner cittadino italiano o UE',
-        'Convivenza effettiva',
+      title: 'Permesso per Partner Convivente di Cittadino Italiano/UE',
+      introText: 'Secondo la legge, dovrebbe essere possibile avere un permesso di soggiorno di cinque anni ("Carta di soggiorno" o "FAMIT", a seconda della situazione).\nBasta avere una relazione affettiva ❤️ e vivere insieme 🏠.\nPerò, se non sei sposato con una persona di sesso diverso dal tuo (matrimonio) o con una persona dello stesso sesso (unione civile), le Questure non danno facilmente questo permesso. Dipende dalla Questura! A volte è necessario fare una causa in tribunale con un avvocato.',
+      sections: [
+        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Siamo sicuri che siano delle possibilità per te, ma potrebbe essere complesso se vuoi fare tutto da solo.' },
+        { heading: 'Mi serve un avvocato?', content: '🆘 È una situazione che può essere complessa 😕 e ti consigliamo di chiedere un parere legale.' },
       ],
-      link: 'https://sospermesso.it/convivenza-registrata',
+      links: [
+        { label: 'Più informazioni su questo permesso', url: 'https://www.sospermesso.it', type: 'guide' },
+        { label: 'Trova un centro di aiuto legale gratuito vicino a te!', url: 'https://www.sospermesso.it/aiuto-legale', type: 'legal_aid' },
+      ],
     },
 
-    // CONIUGE UE
+    // D32 — CONIUGE UE
     con_ue_sposi: {
       id: 'con_ue_sposi',
       type: 'question',
       question: 'Siete sposati?',
     },
 
+    // D33
     con_ue_conv: {
       id: 'con_ue_conv',
       type: 'question',
-      question: 'Avete un contratto di convivenza registrato?',
+      question: 'Avete un contratto di convivenza registrato all\'anagrafe del Comune di residenza?',
     },
 
-    // CONIUGE STRANIERO
+    // D32 — CONIUGE STRANIERO
     con_str_sposi: {
       id: 'con_str_sposi',
       type: 'question',
       question: 'Siete sposati?',
     },
 
+    // D34
     con_str_pds: {
       id: 'con_str_pds',
       type: 'question',
-      question: 'Che tipo di permesso di soggiorno ha il tuo coniuge?',
+      question: 'Che permesso di soggiorno ha tua moglie/tuo marito?',
+      description: 'Sì, bisogna essere sposati. Puoi consultare la nostra guida per stranieri irregolari che vogliono sposarsi in Italia.',
     },
 
+    // S21 — Coniuge rifugiato
     end_con_rif: {
       id: 'end_con_rif',
       type: 'result',
-      title: '\u{1F6E1}\u{FE0F} Permesso per Coniuge di Rifugiato',
-      resultDescription: 'Come coniuge di una persona con protezione internazionale (rifugiato o protezione sussidiaria), hai diritto al ricongiungimento familiare con procedure facilitate.',
-      duration: 'Allineata al permesso del coniuge (generalmente 5 anni)',
-      requirements: [
-        'Matrimonio valido e riconosciuto',
-        'Coniuge con status di rifugiato o protezione sussidiaria',
-        'Nessun requisito reddituale o abitativo richiesto',
+      title: 'Permesso per Coniuge di Rifugiato',
+      introText: '[Nome], se sei marito/moglie di una persona straniera che ha un permesso di soggiorno per asilo o per protezione sussidiaria, hai diritto a un permesso di soggiorno per motivi familiari.',
+      sections: [
+        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Siamo sicuri ✅ che hai diritto a questo permesso.\nRicorda che anche tu potresti avere lo status di rifugiato o la protezione sussidiaria 🛡️ se anche per te è pericoloso tornare nel tuo paese.' },
+        { heading: 'E se prima di oggi non ho mai avuto un permesso in Italia?', content: 'Non importa, puoi chiedere questo permesso di soggiorno 🪪.' },
+        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'Hai diritto a questo permesso fino a che il tuo marito/moglie ha il suo permesso 💑. Puoi studiare, lavorare e avere il medico di base. Quando scade, puoi rinnovarlo o convertirlo in un permesso per lavoro 🔄.' },
+        { heading: 'Come lo posso chiedere?', content: 'Puoi chiedere questo permesso con un kit postale 📮.' },
+        { heading: 'Mi serve un avvocato?', content: '🟢 No, puoi mandare tu il kit postale da solo ✉️.' },
       ],
-      link: 'https://sospermesso.it/coniuge-rifugiato',
+      links: [
+        { label: 'Più informazioni su questo permesso', url: 'https://www.sospermesso.it/Permesso-di-soggiorno-per-familiari-di-rifugiati-o-titolari-di-protezione-sussidiaria-20a7355e7f7f80f480b7d0ab51d8d305', type: 'guide' },
+        { label: 'Vuoi un consiglio legale gratuito? Trova un centro vicino a te!', url: 'https://www.sospermesso.it/aiuto-legale', type: 'legal_aid' },
+      ],
     },
 
+    // S20 — Carta coniuge lungosoggiornante
     end_carta_con: {
       id: 'end_carta_con',
       type: 'result',
-      title: '\u{1F1EA}\u{1F1FA} Carta di Soggiorno per Coniuge di Lungosoggiornante UE',
-      resultDescription: 'Se il tuo coniuge ha il Permesso UE per lungosoggiornanti, puoi richiedere una Carta di Soggiorno per ricongiungimento.',
-      duration: '2 anni (rinnovabile, poi richiedibile Permesso UE)',
-      requirements: [
-        'Coniuge con Permesso UE lungosoggiornanti',
-        'Requisiti reddituali e abitativi',
-        'Matrimonio valido',
+      title: 'Carta di Soggiorno per Coniuge di Lungosoggiornante',
+      introText: 'Buone notizie [Nome], puoi chiedere anche tu la Carta di soggiorno per soggiornanti di lungo periodo.',
+      sections: [
+        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Siamo abbastanza sicuri, se il tuo coniuge ha un reddito sufficiente 💰' },
+        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'Questa Carta di soggiorno dura dieci anni. Puoi studiare, lavorare e avere il medico di base. Quando la Carta scade, puoi rinnovarla.' },
+        { heading: 'Come lo posso chiedere?', content: 'Personalmente in Questura, accompagnato da tuo marito/moglie.' },
+        { heading: 'Mi serve un avvocato?', content: '🟢 No, puoi chiedere da solo questo permesso in Questura.' },
       ],
-      link: 'https://sospermesso.it/carta-coniuge-lungosoggiornante',
+      links: [
+        { label: 'Più informazioni su questo permesso', url: 'https://www.sospermesso.it', type: 'guide' },
+        { label: 'Vuoi un consiglio legale gratuito? Trova un centro vicino a te!', url: 'https://www.sospermesso.it/aiuto-legale', type: 'legal_aid' },
+      ],
     },
 
+    // D35
     con_str_prec: {
       id: 'con_str_prec',
       type: 'question',
-      question: 'Hai avuto un permesso di soggiorno scaduto da meno di un anno?',
+      question: 'Hai avuto in passato un permesso di soggiorno, o un visto di ingresso, scaduto da meno di un anno?',
     },
 
+    // SCHEDA 56 — Conversione famiglia possibile (no statement in docx)
     end_conv_fam: {
       id: 'end_conv_fam',
       type: 'result',
-      title: '\u{1F504} Conversione in Permesso Famiglia (Possibile)',
-      resultDescription: 'Se hai avuto un permesso di soggiorno scaduto da meno di un anno e hai sposato un cittadino straniero regolare, potresti convertire il tuo permesso in uno per motivi familiari.',
-      requirements: [
-        'Permesso precedente scaduto da meno di 1 anno',
-        'Coniuge con permesso di soggiorno valido',
-        'Matrimonio registrato',
-        'Requisiti reddituali e abitativi del coniuge',
+      title: 'Conversione in Permesso Famiglia — Possibile',
+      introText: '[Nome], in base alle informazioni che ci hai dato, potresti chiedere un permesso di soggiorno per motivi familiari.\nSe hai avuto un permesso di soggiorno o un visto di ingresso scaduto da meno di un anno, e hai sposato un cittadino straniero regolarmente soggiornante, potrebbe essere possibile la conversione.',
+      sections: [
+        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'È una situazione che va valutata caso per caso. Ti consigliamo di chiedere un parere legale per verificare la fattibilità e presentare la domanda in tempo.' },
+        { heading: 'Mi serve un avvocato?', content: '🟠 Consulta rapidamente un avvocato o un patronato per verificare la fattibilità e presentare la domanda in tempo.' },
       ],
-      notes: 'Consulta rapidamente un avvocato o un patronato per verificare la fattibilità e presentare la domanda in tempo.',
-      link: 'https://sospermesso.it/conversione-famiglia',
+      links: [
+        { label: 'Trova un centro di aiuto legale gratuito vicino a te! ⚖️', url: 'https://www.sospermesso.it/aiuto-legale', type: 'legal_aid' },
+      ],
     },
 
+    // S30 — Conversione famiglia negativa
     end_conv_neg: {
       id: 'end_conv_neg',
       type: 'result',
-      title: '\u{274C} Conversione Famiglia oltre l\'anno - Non possibile',
-      resultDescription: 'Purtroppo, se il tuo permesso è scaduto da più di un anno, non è più possibile convertirlo in un permesso per motivi familiari. In questa situazione, le opzioni sono limitate.',
-      notes: 'Potresti valutare di tornare nel Paese d\'origine e richiedere il ricongiungimento dall\'estero, oppure esplorare altre vie legali. Consulta un avvocato specializzato.',
-      link: 'https://sospermesso.it/consulenza',
+      title: 'Conversione Famiglia — Non Possibile',
+      introText: 'In base alle informazioni che ci hai dato, NON puoi avere un permesso di soggiorno per motivi familiari perché non hai avuto un permesso di soggiorno in passato, oppure avevi un permesso ma è scaduto da più di un anno.',
+      sections: [
+        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Siamo abbastanza sicuri ma un parere legale può essere utile a preparare tutti i documenti necessari ⚖️.' },
+      ],
+      links: [
+        { label: 'Trova un centro di aiuto legale gratuito vicino a te! ⚖️', url: 'https://www.sospermesso.it/aiuto-legale', type: 'legal_aid' },
+      ],
     },
   },
 
   edges: [
     // =============================================
-    // START
+    // D3 — START
     // =============================================
-    { from: 'start', to: 'end_ue', label: 'Sì, sono cittadino UE', optionKey: 'si_ue' },
-    { from: 'start', to: 'q_situazione', label: 'No, non sono cittadino UE', optionKey: 'no_ue' },
+    { from: 'start', to: 'end_ue', label: 'Sì', optionKey: 'si_ue' },
+    { from: 'start', to: 'q_situazione', label: 'No', optionKey: 'no_ue' },
 
     // =============================================
-    // Q_SITUAZIONE (9 options)
+    // D4 — Q_SITUAZIONE (9 options)
     // =============================================
     { from: 'q_situazione', to: 'minore_start', label: 'Ho meno di 18 anni', optionKey: 'minore' },
     { from: 'q_situazione', to: 'famiglia_start', label: 'In Italia c\'è qualcuno della mia famiglia', optionKey: 'famiglia' },
     { from: 'q_situazione', to: 'coniuge_start', label: 'In Italia ho trovato l\'amore', optionKey: 'partner' },
-    { from: 'q_situazione', to: 'paura_start', label: 'Ho paura di tornare nel mio Paese', optionKey: 'paura' },
-    { from: 'q_situazione', to: 'end_cure', label: 'Ho problemi gravi di salute', optionKey: 'salute' },
-    { from: 'q_situazione', to: 'end_cure', label: 'Aspetto/ho avuto un figlio in Italia', optionKey: 'gravidanza' },
-    { from: 'q_situazione', to: 'brutta_start', label: 'Sono in una brutta situazione', optionKey: 'sfruttamento' },
-    { from: 'q_situazione', to: 'end_citt', label: 'Sono nato in Italia e sempre vissuto qui', optionKey: 'nato_italia' },
-    { from: 'q_situazione', to: 'end_neg_gen', label: 'Nessuna di queste', optionKey: 'nessuna' },
+    { from: 'q_situazione', to: 'paura_start', label: 'Ho paura di tornare nel mio Paese perché è pericoloso', optionKey: 'paura' },
+    { from: 'q_situazione', to: 'end_cure_salute', label: 'Ho problemi gravi di salute', optionKey: 'salute' },
+    { from: 'q_situazione', to: 'end_cure_gravidanza', label: 'Aspetto un figlio o ho appena avuto un figlio in Italia', optionKey: 'gravidanza' },
+    { from: 'q_situazione', to: 'brutta_start', label: 'Sono in una brutta situazione (ad es. sono vittima di tratta, subisco violenze, il mio datore di lavoro mi sfrutta)', optionKey: 'sfruttamento' },
+    { from: 'q_situazione', to: 'end_citt', label: 'Sono nato in Italia e ho sempre vissuto qui', optionKey: 'nato_italia' },
+    { from: 'q_situazione', to: 'end_neg_gen', label: 'Nessuna di queste situazioni', optionKey: 'nessuna' },
 
     // =============================================
-    // PERCORSO: HO PAURA DI TORNARE
+    // D6 — PERCORSO: HO PAURA DI TORNARE
     // =============================================
-    { from: 'paura_start', to: 'end_asilo', label: 'C\'è la guerra', optionKey: 'guerra' },
-    { from: 'paura_start', to: 'end_asilo', label: 'Qualcuno mi vuole uccidere', optionKey: 'persecuzione' },
-    { from: 'paura_start', to: 'end_calam', label: 'Catastrofe naturale', optionKey: 'calamita' },
-
-    // =============================================
-    // PERCORSO: BRUTTA SITUAZIONE
-    // =============================================
-    { from: 'brutta_start', to: 'end_sfrut', label: 'Sfruttamento lavorativo grave', optionKey: 'sfruttamento_lav' },
-    { from: 'brutta_start', to: 'end_tratta', label: 'Sono vittima di tratta di esseri umani', optionKey: 'tratta' },
-    { from: 'brutta_start', to: 'end_viol', label: 'Subisco violenza domestica', optionKey: 'violenza' },
+    { from: 'paura_start', to: 'end_asilo', label: 'Guerra', optionKey: 'guerra' },
+    { from: 'paura_start', to: 'end_asilo', label: 'Qualcuno che mi vuole uccidere o fare del male', optionKey: 'persecuzione' },
+    { from: 'paura_start', to: 'end_calam', label: 'Catastrofe naturale (come un terremoto o un\'alluvione)', optionKey: 'calamita' },
 
     // =============================================
-    // PERCORSO: MINORE DI 18 ANNI
+    // D5 — PERCORSO: BRUTTA SITUAZIONE
     // =============================================
-    { from: 'minore_start', to: 'min_gen_pds', label: 'Sì, ho un genitore qui', optionKey: 'si_genitore' },
-    { from: 'minore_start', to: 'min_parenti', label: 'No, nessun genitore', optionKey: 'no_genitore' },
+    { from: 'brutta_start', to: 'end_sfrut', label: 'Lavoro in un posto dove mi trattano male e non mi pagano, o mi pagano pochissimo. Sono una vittima di sfruttamento lavorativo.', optionKey: 'sfruttamento_lav' },
+    { from: 'brutta_start', to: 'end_tratta', label: 'Qualcuno mi costringe a fare delle cose che non voglio. Sono una vittima di tratta di esseri umani.', optionKey: 'tratta' },
+    { from: 'brutta_start', to: 'end_viol', label: 'Qualcuno della mia famiglia qui in Italia mi maltratta continuamente. Sono una vittima di violenza domestica.', optionKey: 'violenza' },
 
-    { from: 'min_gen_pds', to: 'end_min_fam', label: 'Sì, ha un PdS valido', optionKey: 'pds_valido' },
-    { from: 'min_gen_pds', to: 'end_min_fam', label: 'PdS scaduto da meno di 60 giorni', optionKey: 'pds_scaduto_60' },
-    { from: 'min_gen_pds', to: 'min_parenti', label: 'PdS scaduto da più di 60 giorni o nessun PdS', optionKey: 'pds_scaduto_no' },
+    // =============================================
+    // D7/D8/D9 — PERCORSO: MINORE DI 18 ANNI
+    // =============================================
+    { from: 'minore_start', to: 'min_gen_pds', label: 'Sì', optionKey: 'si_genitore' },
+    { from: 'minore_start', to: 'min_parenti', label: 'No', optionKey: 'no_genitore' },
 
-    { from: 'min_parenti', to: 'min_par_ita1', label: 'Fratello/Sorella', optionKey: 'fratello' },
-    { from: 'min_parenti', to: 'min_par_ita2', label: 'Nonno/a', optionKey: 'nonno' },
-    { from: 'min_parenti', to: 'min_par_ita3', label: 'Zio/a', optionKey: 'zio' },
-    { from: 'min_parenti', to: 'min_par_ita4', label: 'Cugino (figlio dello zio)', optionKey: 'cugino' },
-    { from: 'min_parenti', to: 'min_par_ita5', label: 'Fratello/sorella del nonno', optionKey: 'prozio' },
-    { from: 'min_parenti', to: 'end_msna', label: 'Parenti più lontani', optionKey: 'parenti_lontani' },
-    { from: 'min_parenti', to: 'end_msna', label: 'Nessun parente in Italia', optionKey: 'nessun_parente' },
+    { from: 'min_gen_pds', to: 'end_min_fam', label: 'Ha un permesso di soggiorno valido', optionKey: 'pds_valido' },
+    { from: 'min_gen_pds', to: 'end_min_fam', label: 'Ha un permesso di soggiorno scaduto da meno di 60 giorni', optionKey: 'pds_scaduto_60' },
+    { from: 'min_gen_pds', to: 'info_s8', label: 'Ha un permesso di soggiorno scaduto da più di 60 giorni', optionKey: 'pds_scaduto_no' },
+    { from: 'min_gen_pds', to: 'info_s8', label: 'Non ha mai avuto un permesso di soggiorno', optionKey: 'pds_mai' },
 
-    // Fratello/Sorella path
-    { from: 'min_par_ita1', to: 'end_art19', label: 'Sì, è italiano', optionKey: 'si_italiano' },
-    { from: 'min_par_ita1', to: 'min_affido1', label: 'No, ma ha un permesso di soggiorno', optionKey: 'ha_pds' },
-    { from: 'min_par_ita1', to: 'end_msna', label: 'No, non ha permesso', optionKey: 'no_pds' },
+    // S8 info → continue to min_parenti
+    { from: 'info_s8', to: 'min_parenti', label: 'Andiamo avanti!', optionKey: 'continua' },
 
-    { from: 'min_affido1', to: 'end_aff', label: 'Sì, c\'è un provvedimento', optionKey: 'si_provvedimento' },
+    // D9 — min_parenti
+    { from: 'min_parenti', to: 'min_par_ita1', label: 'Fratello o sorella', optionKey: 'fratello' },
+    { from: 'min_parenti', to: 'min_par_ita2', label: 'Nonno o nonna', optionKey: 'nonno' },
+    { from: 'min_parenti', to: 'min_par_ita3', label: 'Zio/zia (Fratello o sorella di mamma o di papà)', optionKey: 'zio' },
+    { from: 'min_parenti', to: 'min_par_ita4', label: 'Figli di zio o zia', optionKey: 'cugino' },
+    { from: 'min_parenti', to: 'min_par_ita5', label: 'Fratello/sorella di tua nonna/nonno', optionKey: 'prozio' },
+    { from: 'min_parenti', to: 'end_msna', label: 'Abito con altri parenti più lontani', optionKey: 'parenti_lontani' },
+    { from: 'min_parenti', to: 'end_msna', label: 'Non ho parenti in Italia', optionKey: 'nessun_parente' },
+
+    // D10/D11 — Fratello/Sorella path
+    { from: 'min_par_ita1', to: 'end_art19', label: 'È cittadino italiano', optionKey: 'si_italiano' },
+    { from: 'min_par_ita1', to: 'min_affido1', label: 'Non è italiano ma ha un permesso di soggiorno in Italia', optionKey: 'ha_pds' },
+    { from: 'min_par_ita1', to: 'end_msna', label: 'Non è italiano e non ha un permesso di soggiorno in Italia', optionKey: 'no_pds' },
+
+    { from: 'min_affido1', to: 'end_aff', label: 'Sì', optionKey: 'si_provvedimento' },
     { from: 'min_affido1', to: 'end_msna', label: 'No', optionKey: 'no_provvedimento' },
 
-    // Nonno/a path
-    { from: 'min_par_ita2', to: 'end_art19', label: 'Sì, è italiano', optionKey: 'si_italiano' },
-    { from: 'min_par_ita2', to: 'min_affido2', label: 'No, ma ha un permesso di soggiorno', optionKey: 'ha_pds' },
-    { from: 'min_par_ita2', to: 'end_msna', label: 'No, non ha permesso', optionKey: 'no_pds' },
+    // D10/D11 — Nonno/a path
+    { from: 'min_par_ita2', to: 'end_art19', label: 'È cittadino italiano', optionKey: 'si_italiano' },
+    { from: 'min_par_ita2', to: 'min_affido2', label: 'Non è italiano ma ha un permesso di soggiorno in Italia', optionKey: 'ha_pds' },
+    { from: 'min_par_ita2', to: 'end_msna', label: 'Non è italiano e non ha un permesso di soggiorno in Italia', optionKey: 'no_pds' },
 
-    { from: 'min_affido2', to: 'end_aff', label: 'Sì, c\'è un provvedimento', optionKey: 'si_provvedimento' },
+    { from: 'min_affido2', to: 'end_aff', label: 'Sì', optionKey: 'si_provvedimento' },
     { from: 'min_affido2', to: 'end_msna', label: 'No', optionKey: 'no_provvedimento' },
 
-    // Zio/a path
-    { from: 'min_par_ita3', to: 'min_affido3', label: 'Sì, è italiano', optionKey: 'si_italiano' },
-    { from: 'min_par_ita3', to: 'min_affido3', label: 'No, ma ha un permesso di soggiorno', optionKey: 'ha_pds' },
-    { from: 'min_par_ita3', to: 'end_msna', label: 'No, non ha permesso', optionKey: 'no_pds' },
+    // D10/D11 — Zio/a path
+    { from: 'min_par_ita3', to: 'min_affido3', label: 'È cittadino italiano', optionKey: 'si_italiano' },
+    { from: 'min_par_ita3', to: 'min_affido3', label: 'Non è italiano ma ha un permesso di soggiorno in Italia', optionKey: 'ha_pds' },
+    { from: 'min_par_ita3', to: 'end_msna', label: 'Non è italiano e non ha un permesso di soggiorno in Italia', optionKey: 'no_pds' },
 
-    { from: 'min_affido3', to: 'end_aff', label: 'Sì, c\'è un provvedimento', optionKey: 'si_provvedimento' },
+    { from: 'min_affido3', to: 'end_aff', label: 'Sì', optionKey: 'si_provvedimento' },
     { from: 'min_affido3', to: 'end_msna', label: 'No', optionKey: 'no_provvedimento' },
 
-    // Cugino path
-    { from: 'min_par_ita4', to: 'min_affido4', label: 'Sì, è italiano', optionKey: 'si_italiano' },
-    { from: 'min_par_ita4', to: 'min_affido4', label: 'No, ma ha un permesso di soggiorno', optionKey: 'ha_pds' },
-    { from: 'min_par_ita4', to: 'end_msna', label: 'No, non ha permesso', optionKey: 'no_pds' },
+    // D10/D11 — Cugino path
+    { from: 'min_par_ita4', to: 'min_affido4', label: 'È cittadino italiano', optionKey: 'si_italiano' },
+    { from: 'min_par_ita4', to: 'min_affido4', label: 'Non è italiano ma ha un permesso di soggiorno in Italia', optionKey: 'ha_pds' },
+    { from: 'min_par_ita4', to: 'end_msna', label: 'Non è italiano e non ha un permesso di soggiorno in Italia', optionKey: 'no_pds' },
 
-    { from: 'min_affido4', to: 'end_aff', label: 'Sì, c\'è un provvedimento', optionKey: 'si_provvedimento' },
+    { from: 'min_affido4', to: 'end_aff', label: 'Sì', optionKey: 'si_provvedimento' },
     { from: 'min_affido4', to: 'end_msna', label: 'No', optionKey: 'no_provvedimento' },
 
-    // Fratello/sorella del nonno path
-    { from: 'min_par_ita5', to: 'min_affido5', label: 'Sì, è italiano', optionKey: 'si_italiano' },
-    { from: 'min_par_ita5', to: 'min_affido5', label: 'No, ma ha un permesso di soggiorno', optionKey: 'ha_pds' },
-    { from: 'min_par_ita5', to: 'end_msna', label: 'No, non ha permesso', optionKey: 'no_pds' },
+    // D10/D11 — Fratello/sorella del nonno path
+    { from: 'min_par_ita5', to: 'min_affido5', label: 'È cittadino italiano', optionKey: 'si_italiano' },
+    { from: 'min_par_ita5', to: 'min_affido5', label: 'Non è italiano ma ha un permesso di soggiorno in Italia', optionKey: 'ha_pds' },
+    { from: 'min_par_ita5', to: 'end_msna', label: 'Non è italiano e non ha un permesso di soggiorno in Italia', optionKey: 'no_pds' },
 
-    { from: 'min_affido5', to: 'end_aff', label: 'Sì, c\'è un provvedimento', optionKey: 'si_provvedimento' },
+    { from: 'min_affido5', to: 'end_aff', label: 'Sì', optionKey: 'si_provvedimento' },
     { from: 'min_affido5', to: 'end_msna', label: 'No', optionKey: 'no_provvedimento' },
 
     // =============================================
-    // PERCORSO: FAMIGLIA (parente in Italia)
+    // D12 — PERCORSO: FAMIGLIA (parente in Italia)
     // =============================================
-    { from: 'famiglia_start', to: 'figlio_start', label: 'Mio figlio', optionKey: 'figlio' },
-    { from: 'famiglia_start', to: 'genitore_start', label: 'Mio genitore', optionKey: 'genitore' },
-    { from: 'famiglia_start', to: 'nonno_frat', label: 'Mio nonno o fratello/sorella', optionKey: 'nonno_fratello' },
-    { from: 'famiglia_start', to: 'end_neg_par', label: 'Altri parenti più lontani', optionKey: 'altri_parenti' },
+    { from: 'famiglia_start', to: 'figlio_start', label: 'Figlia/figlio', optionKey: 'figlio' },
+    { from: 'famiglia_start', to: 'genitore_start', label: 'Genitore', optionKey: 'genitore' },
+    { from: 'famiglia_start', to: 'nonno_frat', label: 'Nonna/nonno o Sorella/Fratello', optionKey: 'nonno_fratello' },
+    { from: 'famiglia_start', to: 'end_neg_par', label: 'Parenti più lontani (ad esempio cugini, zii)', optionKey: 'altri_parenti' },
 
-    // ========== FIGLIO ==========
-    { from: 'figlio_start', to: 'fig_ita_min', label: 'Sì, è italiano', optionKey: 'si_italiano' },
+    // ========== D15-D24 — FIGLIO ==========
+    { from: 'figlio_start', to: 'fig_ita_min', label: 'Sì', optionKey: 'si_italiano' },
     { from: 'figlio_start', to: 'fig_ue', label: 'No', optionKey: 'no' },
 
     { from: 'fig_ita_min', to: 'end_art30', label: 'Sì', optionKey: 'si' },
@@ -872,7 +1033,7 @@ export const italianTree: TreeData = {
     { from: 'fig_stra_mant', to: 'end_art30_gen', label: 'Sì', optionKey: 'si' },
     { from: 'fig_stra_mant', to: 'end_neg_gen', label: 'No', optionKey: 'no' },
 
-    // ========== GENITORE ==========
+    // ========== D13/D25-D30 — GENITORE ==========
     { from: 'genitore_start', to: 'gen_ita_eta', label: 'Sì', optionKey: 'si' },
     { from: 'genitore_start', to: 'gen_pds', label: 'No', optionKey: 'no' },
 
@@ -880,13 +1041,13 @@ export const italianTree: TreeData = {
     { from: 'gen_ita_eta', to: 'gen_mant', label: 'No', optionKey: 'no' },
 
     { from: 'gen_ita_tipo', to: 'end_famit_gen', label: 'Sì', optionKey: 'si_italiano' },
-    { from: 'gen_ita_tipo', to: 'end_carta_ue', label: 'No, ma è UE', optionKey: 'ue' },
+    { from: 'gen_ita_tipo', to: 'end_carta_ue', label: 'No', optionKey: 'ue' },
 
     { from: 'gen_mant', to: 'gen_mant_tipo', label: 'Sì', optionKey: 'si' },
     { from: 'gen_mant', to: 'gen_ita_conv', label: 'No', optionKey: 'no' },
 
-    { from: 'gen_mant_tipo', to: 'end_famit_gen', label: 'Italiano', optionKey: 'italiano' },
-    { from: 'gen_mant_tipo', to: 'end_carta_ue', label: 'UE', optionKey: 'ue' },
+    { from: 'gen_mant_tipo', to: 'end_famit_gen', label: 'Cittadino italiano', optionKey: 'italiano' },
+    { from: 'gen_mant_tipo', to: 'end_carta_ue', label: 'Cittadino di un altro paese UE', optionKey: 'ue' },
 
     { from: 'gen_ita_conv', to: 'end_art19', label: 'Sì', optionKey: 'si' },
     { from: 'gen_ita_conv', to: 'end_neg_gen', label: 'No', optionKey: 'no' },
@@ -900,16 +1061,16 @@ export const italianTree: TreeData = {
     { from: 'gen_inv_mant', to: 'end_fam_inv', label: 'Sì', optionKey: 'si' },
     { from: 'gen_inv_mant', to: 'end_res_el', label: 'No', optionKey: 'no' },
 
-    // ========== NONNO / FRATELLO-SORELLA ==========
+    // ========== D14 — NONNO / FRATELLO-SORELLA ==========
     { from: 'nonno_frat', to: 'end_art19', label: 'Sì', optionKey: 'si' },
     { from: 'nonno_frat', to: 'end_neg_par', label: 'No', optionKey: 'no' },
 
     // =============================================
-    // PERCORSO: CONIUGE / PARTNER
+    // D31-D35 — PERCORSO: CONIUGE / PARTNER
     // =============================================
-    { from: 'coniuge_start', to: 'con_ita_sposi', label: 'Italiano', optionKey: 'italiano' },
-    { from: 'coniuge_start', to: 'con_ue_sposi', label: 'Cittadino UE', optionKey: 'ue' },
-    { from: 'coniuge_start', to: 'con_str_sposi', label: 'Straniero', optionKey: 'straniero' },
+    { from: 'coniuge_start', to: 'con_ita_sposi', label: 'Cittadino italiano', optionKey: 'italiano' },
+    { from: 'coniuge_start', to: 'con_ue_sposi', label: 'Cittadino di un altro paese UE', optionKey: 'ue' },
+    { from: 'coniuge_start', to: 'con_str_sposi', label: 'Cittadino di un paese non-UE', optionKey: 'straniero' },
 
     // CONIUGE ITALIANO
     { from: 'con_ita_sposi', to: 'end_famit', label: 'Sì', optionKey: 'si' },
@@ -929,10 +1090,10 @@ export const italianTree: TreeData = {
     { from: 'con_str_sposi', to: 'con_str_pds', label: 'Sì', optionKey: 'si' },
     { from: 'con_str_sposi', to: 'end_neg_gen', label: 'No', optionKey: 'no' },
 
-    { from: 'con_str_pds', to: 'end_con_rif', label: 'Asilo o Protezione Sussidiaria', optionKey: 'asilo' },
-    { from: 'con_str_pds', to: 'end_carta_con', label: 'Permesso UE per lungosoggiornanti', optionKey: 'lungosoggiornanti' },
-    { from: 'con_str_pds', to: 'con_str_prec', label: 'Altro tipo di permesso', optionKey: 'altro' },
-    { from: 'con_str_pds', to: 'end_neg_gen', label: 'Non ha permesso', optionKey: 'no_pds' },
+    { from: 'con_str_pds', to: 'end_con_rif', label: 'Protezione sussidiaria o status/asilo', optionKey: 'asilo' },
+    { from: 'con_str_pds', to: 'end_carta_con', label: 'UE lungosoggiornanti', optionKey: 'lungosoggiornanti' },
+    { from: 'con_str_pds', to: 'con_str_prec', label: 'Ha un altro tipo di permesso di soggiorno', optionKey: 'altro' },
+    { from: 'con_str_pds', to: 'end_neg_gen', label: 'Non ha il permesso di soggiorno', optionKey: 'no_pds' },
 
     { from: 'con_str_prec', to: 'end_conv_fam', label: 'Sì', optionKey: 'si' },
     { from: 'con_str_prec', to: 'end_conv_neg', label: 'No', optionKey: 'no' },

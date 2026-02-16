@@ -98,6 +98,13 @@ export function validateTree(tree: TreeData): string[] {
       errors.push(`Question node "${nodeId}" has no outgoing edges`);
     }
 
+    // (c2) Info nodes must have exactly one outgoing edge (continue button)
+    if (node.type === 'info' && count !== 1) {
+      errors.push(
+        `Info node "${nodeId}" has ${count} outgoing edge(s) but should have exactly 1`,
+      );
+    }
+
     // (d) Result nodes must have zero outgoing edges
     if (node.type === 'result' && count > 0) {
       errors.push(
