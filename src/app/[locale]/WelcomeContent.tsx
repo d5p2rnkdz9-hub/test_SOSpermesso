@@ -6,14 +6,14 @@ import { useTranslations } from 'next-intl';
 import { ContentColumn } from '@/components/layout/ContentColumn';
 import { Button } from '@/components/ui/button';
 import { useRouter } from '@/i18n/navigation';
-import { useTreeStore } from '@/store/tree-store';
+import { useTreeHydration, useTreeStore } from '@/store/tree-store';
 
 export default function WelcomeContent() {
   const t = useTranslations('welcome');
   const tTree = useTranslations('tree');
   const router = useRouter();
 
-  const isHydrated = useTreeStore((s) => s.isHydrated);
+  const isHydrated = useTreeHydration();
   const history = useTreeStore((s) => s.history);
   const startSession = useTreeStore((s) => s.startSession);
 

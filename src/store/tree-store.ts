@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 
@@ -16,6 +17,10 @@ import { getNextNodeId, isTerminalNode } from '@/lib/tree-engine';
  * - selectOption: tap-to-advance with silent downstream discard on branch change
  * - goBack: restores previous question with its answer still highlighted
  * - persist: survives page refresh via localStorage ('sospermesso-tree-session')
+ *
+ * Hydration note: Do NOT read hydration state from the store. Zustand v5's
+ * useSyncExternalStore uses getInitialState() as getServerSnapshot, which
+ * always returns pre-hydration state. Use the useTreeHydration() hook instead.
  */
 
 interface TreeState {
@@ -25,7 +30,6 @@ interface TreeState {
   userName: string | null;
   outcomeId: string | null;
   sessionStartedAt: string | null;
-  isHydrated: boolean;
 }
 
 interface TreeActions {
@@ -33,7 +37,6 @@ interface TreeActions {
   selectOption: (optionKey: string) => void;
   goBack: () => void;
   reset: () => void;
-  setHydrated: () => void;
 }
 
 const initialState: TreeState = {
@@ -43,7 +46,6 @@ const initialState: TreeState = {
   userName: null,
   outcomeId: null,
   sessionStartedAt: null,
-  isHydrated: false,
 };
 
 export const useTreeStore = create<TreeState & TreeActions>()(
@@ -126,15 +128,7 @@ export const useTreeStore = create<TreeState & TreeActions>()(
       },
 
       reset: () => {
-        set({
-          ...initialState,
-          // Preserve isHydrated since we're already in the client
-          isHydrated: true,
-        });
-      },
-
-      setHydrated: () => {
-        set({ isHydrated: true });
+        set({ ...initialState });
       },
     }),
     {
@@ -148,13 +142,44 @@ export const useTreeStore = create<TreeState & TreeActions>()(
         outcomeId: state.outcomeId,
         sessionStartedAt: state.sessionStartedAt,
       }),
-      onRehydrateStorage: () => {
-        return (_state, error) => {
-          if (!error) {
-            useTreeStore.getState().setHydrated();
-          }
-        };
-      },
     },
   ),
 );
+
+/**
+ * Hook to track Zustand persist hydration at the component level.
+ *
+ * Why this exists: Zustand v5's useSyncExternalStore uses
+ * api.getInitialState() as getServerSnapshot. The persist middleware
+ * sets getInitialState to the PRE-hydration state, so store-level
+ * isHydrated flags read as false during React hydration even though
+ * the actual store is already hydrated. This causes the hydration guard
+ * to show a spinner that never resolves.
+ *
+ * This hook uses useEffect (client-only) + persist.onFinishHydration
+ * to reliably track when localStorage data has been loaded.
+ *
+ * @returns true once the Zustand persist middleware has finished loading
+ *          state from localStorage, false before that.
+ */
+export function useTreeHydration(): boolean {
+  const [isHydrated, setIsHydrated] = useState(false);
+
+  useEffect(() => {
+    // The persist middleware may have already completed hydration
+    // synchronously during module evaluation (localStorage is sync).
+    if (useTreeStore.persist.hasHydrated()) {
+      setIsHydrated(true);
+      return;
+    }
+
+    // If not yet hydrated (e.g. async storage), listen for completion.
+    const unsubscribe = useTreeStore.persist.onFinishHydration(() => {
+      setIsHydrated(true);
+    });
+
+    return unsubscribe;
+  }, []);
+
+  return isHydrated;
+}

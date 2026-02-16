@@ -10,13 +10,13 @@ import { Button } from '@/components/ui/button';
 import { useRouter } from '@/i18n/navigation';
 import { italianTree } from '@/lib/tree-data';
 import { getNode, isTerminalNode } from '@/lib/tree-engine';
-import { useTreeStore } from '@/store/tree-store';
+import { useTreeHydration, useTreeStore } from '@/store/tree-store';
 
 export default function TreeContent() {
   const t = useTranslations('tree');
   const router = useRouter();
 
-  const isHydrated = useTreeStore((s) => s.isHydrated);
+  const isHydrated = useTreeHydration();
   const currentNodeId = useTreeStore((s) => s.currentNodeId);
   const outcomeId = useTreeStore((s) => s.outcomeId);
   const sessionStartedAt = useTreeStore((s) => s.sessionStartedAt);
