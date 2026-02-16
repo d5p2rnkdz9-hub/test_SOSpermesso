@@ -29,11 +29,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. The application displays with SOSpermesso's warm, friendly visual identity (colors, typography, tone) -- not the Corso AI quiz aesthetic
   3. On a 320px mobile screen, all interactive elements have 48px+ touch targets and content is readable without horizontal scrolling
   4. All shadcn/ui components use CSS logical properties (ms-, me-, text-start) with zero physical direction properties (ml-, mr-, text-left) remaining in the codebase
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 01-01: TBD
-- [ ] 01-02: TBD
+- [ ] 01-01-PLAN.md -- i18n routing infrastructure + locale layout (next-intl, proxy.ts, [locale] segment, fonts, DirectionProvider)
+- [ ] 01-02-PLAN.md -- Visual identity + RTL component migration (yellow/black/white tokens, shadow removal, logical CSS properties)
+- [ ] 01-03-PLAN.md -- Layout components + welcome page + visual verification (StickyHeader, LanguageSelector, ContentColumn, welcome screen)
 
 ### Phase 2: Decision Tree Engine
 **Goal**: A user in Italy can navigate the full Italian decision tree from entry question to a specific legal outcome, with correct branching, back navigation, and session resumption
@@ -107,7 +108,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|---------------|--------|-----------|
-| 1. i18n Foundation + Design System | 0/TBD | Not started | - |
+| 1. i18n Foundation + Design System | 0/3 | Planned | - |
 | 2. Decision Tree Engine | 0/TBD | Not started | - |
 | 3. Outcome Pages | 0/TBD | Not started | - |
 | 4. Multilingual Content | 0/TBD | Not started | - |
