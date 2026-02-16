@@ -45,12 +45,12 @@ Plans:
   2. User can press back at any point and the previous question shows with their previous answer preserved -- back navigation correctly follows the branching path taken, not a flat index
   3. User who closes the browser mid-questionnaire can return and resume from where they left off with all previous answers intact
   4. All ~40 questions and ~25 terminal outcomes are seeded in Italian from the existing SOSpermesso content, with every path reachable and terminating correctly
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 02-01: TBD
-- [ ] 02-02: TBD
-- [ ] 02-03: TBD
+- [ ] 02-01-PLAN.md -- Tree data foundation: types, Italian tree data (75 nodes from data.js), pure traversal engine, i18n messages
+- [ ] 02-02-PLAN.md -- Store + tree UI components: Zustand store with localStorage persist, AnswerCard, QuestionScreen, SlideTransition, TreePlayer
+- [ ] 02-03-PLAN.md -- Integration: /tree page route, welcome page name input, header back button, end-to-end verification
 
 ### Phase 3: Outcome Pages
 **Goal**: When a user reaches a legal outcome, they see a rich, structured guidance page with personalized content, confidence level, next steps, and a stable URL they can bookmark or share
@@ -109,7 +109,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | Phase | Plans Complete | Status | Completed |
 |-------|---------------|--------|-----------|
 | 1. i18n Foundation + Design System | 3/3 | Complete | 2026-02-16 |
-| 2. Decision Tree Engine | 0/TBD | Not started | - |
+| 2. Decision Tree Engine | 0/3 | Not started | - |
 | 3. Outcome Pages | 0/TBD | Not started | - |
 | 4. Multilingual Content | 0/TBD | Not started | - |
 | 5. Analytics + Launch Polish | 0/TBD | Not started | - |
