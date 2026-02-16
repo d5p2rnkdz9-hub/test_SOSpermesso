@@ -1,0 +1,107 @@
+'use client';
+
+import type { TreeEdge } from '@/types/tree';
+
+import { AnswerCard } from './AnswerCard';
+
+interface QuestionScreenProps {
+  question: string;
+  description?: string;
+  options: TreeEdge[];
+  selectedOptionKey: string | null;
+  onSelect: (optionKey: string) => void;
+  disabled: boolean;
+}
+
+/**
+ * Category grouping for the q_situazione node (9 options).
+ * Purely visual -- each option is still a direct answer.
+ */
+const CATEGORY_MAP: Record<string, string> = {
+  minore: 'La tua situazione personale',
+  nato_italia: 'La tua situazione personale',
+  salute: 'La tua situazione personale',
+  gravidanza: 'La tua situazione personale',
+  famiglia: 'Famiglia e relazioni',
+  partner: 'Famiglia e relazioni',
+  paura: 'Protezione e sicurezza',
+  sfruttamento: 'Protezione e sicurezza',
+  nessuna: 'Altro',
+};
+
+const CATEGORY_ORDER = [
+  'La tua situazione personale',
+  'Famiglia e relazioni',
+  'Protezione e sicurezza',
+  'Altro',
+];
+
+/**
+ * Renders a single question with its answer options.
+ *
+ * When options.length > 5 (the q_situazione node), options are
+ * grouped under category headings for easier scanning.
+ */
+export function QuestionScreen({
+  question,
+  description,
+  options,
+  selectedOptionKey,
+  onSelect,
+  disabled,
+}: QuestionScreenProps) {
+  const useCategories = options.length > 5;
+
+  return (
+    <div>
+      <h2 className="text-2xl font-bold leading-tight">{question}</h2>
+      {description && (
+        <p className="mt-2 text-foreground/70">{description}</p>
+      )}
+
+      {useCategories ? (
+        <div className="mt-8">
+          {CATEGORY_ORDER.map((category) => {
+            const categoryOptions = options.filter(
+              (opt) => CATEGORY_MAP[opt.optionKey] === category,
+            );
+            if (categoryOptions.length === 0) return null;
+
+            return (
+              <div key={category}>
+                <h3 className="mt-6 first:mt-0 mb-2 text-sm font-semibold uppercase tracking-wide text-foreground/60">
+                  {category}
+                </h3>
+                <div className="flex flex-col gap-3">
+                  {categoryOptions.map((option) => (
+                    <AnswerCard
+                      key={option.optionKey}
+                      label={option.label}
+                      description={option.description}
+                      selected={option.optionKey === selectedOptionKey}
+                      onSelect={() => onSelect(option.optionKey)}
+                      disabled={disabled}
+                    />
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      ) : (
+        <div className="mt-8 flex flex-col gap-3">
+          {options.map((option) => (
+            <AnswerCard
+              key={option.optionKey}
+              label={option.label}
+              description={option.description}
+              selected={option.optionKey === selectedOptionKey}
+              onSelect={() => onSelect(option.optionKey)}
+              disabled={disabled}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
