@@ -5,30 +5,32 @@
 See: .planning/PROJECT.md (updated 2026-02-14)
 
 **Core value:** Help migrants quickly understand whether they can get a residence permit and exactly what to do next -- in their own language
-**Current focus:** Phase 2, plan 03 in progress -- debugging tree page rendering
+**Current focus:** Phase 2 complete. Ready for Phase 3 (Outcome Pages) planning.
 
 ## Current Position
 
-Phase: 2 of 5 (Decision Tree Engine)
-Plan: 3 of 3 in current phase (02-03 partially executed)
-Status: In progress -- checkpoint blocked (first question not rendering)
-Last activity: 2026-02-16 -- 02-03 tasks 1-2 committed, checkpoint verification failed
+Phase: 2 of 5 (Decision Tree Engine) -- COMPLETE
+Plan: 3 of 3 in current phase (02-03 complete)
+Status: Phase 2 complete. Next: Phase 3 planning.
+Last activity: 2026-02-16 -- Completed 02-03-PLAN.md (integration)
 
-Progress: [################--------] 5/7 plans (Phase 1: 3/3, Phase 2: 2/3)
+Progress: [███████████████████████████-----] 6/6 known plans complete (Phase 1: 3/3, Phase 2: 3/3)
+
+Note: Phases 3-5 have TBD plan counts. Progress bar reflects completed phases only.
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 5
-- Average duration: 6min
-- Total execution time: 28min
+- Total plans completed: 6
+- Average duration: ~6min (excluding multi-session 02-03)
+- Total execution time: ~33min (phases 1-2, excluding debug time)
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-i18n-foundation-design-system | 3/3 | 18min | 6min |
-| 02-decision-tree-engine | 2/3 | 10min | 5min |
+| 02-decision-tree-engine | 3/3 | ~15min | ~5min |
 
 ## Accumulated Context
 
@@ -50,6 +52,9 @@ Recent decisions affecting current work:
 - [02-02]: Category grouping for q_situazione detected by options.length > 5
 - [02-02]: No framer-motion; CSS translate + opacity sufficient for slide transitions
 - [02-02]: 200ms tap delay before advancing to show selected card state
+- [02-03]: useTreeHydration() hook for Zustand v5 + persist hydration tracking (in-store isHydrated breaks with useSyncExternalStore)
+- [02-03]: sessionStartedAt as canonical session indicator (userName can be null when skipped)
+- [02-03]: Server/client component split pattern for pages needing both setRequestLocale and interactivity
 
 ### Pending Todos
 
@@ -57,12 +62,11 @@ None yet.
 
 ### Blockers/Concerns
 
-- **BUG: First question does not render on /tree page.** Tasks 1-2 of plan 02-03 are committed. Redirect guard was fixed (sessionStartedAt instead of userName) but page still not working. Needs client-side debugging -- check browser console, Zustand hydration, SlideTransition initial render.
 - Tree graph has no loops -- validated via BFS reachability (all 75 nodes reachable, pure DAG)
 - Quiz pages still at root level (not under [locale]) -- will need migration in future plan
 
 ## Session Continuity
 
 Last session: 2026-02-16
-Stopped at: Plan 02-03 tasks 1-2 committed, checkpoint verification failed (first question not loading)
-Resume with: /gsd:debug -- investigate why /[locale]/tree page doesn't render the first question after startSession
+Stopped at: Completed Phase 2 (Decision Tree Engine) -- all 3 plans done
+Resume with: /gsd:plan-phase for Phase 3 (Outcome Pages)

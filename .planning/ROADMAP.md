@@ -13,7 +13,7 @@ SOSpermesso transforms a forked Corso AI questionnaire codebase into a multiling
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: i18n Foundation + Design System** - RTL-safe layout scaffold, visual identity, mobile-first responsive design
-- [ ] **Phase 2: Decision Tree Engine** - Branching navigation with ~40 questions, session persistence, Italian content
+- [x] **Phase 2: Decision Tree Engine** - Branching navigation with ~40 questions, session persistence, Italian content
 - [ ] **Phase 3: Outcome Pages** - 25 legal guidance pages with variable substitution, confidence indicators, shareable URLs
 - [ ] **Phase 4: Multilingual Content** - AI-assisted translation into 5 languages, language selector, bidirectional text handling
 - [ ] **Phase 5: Analytics + Launch Polish** - Admin dashboard, feedback collection, WhatsApp sharing, print-friendly outcomes, progress indicator
@@ -48,9 +48,9 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 02-01-PLAN.md -- Tree data foundation: types, Italian tree data (75 nodes from data.js), pure traversal engine, i18n messages
-- [ ] 02-02-PLAN.md -- Store + tree UI components: Zustand store with localStorage persist, AnswerCard, QuestionScreen, SlideTransition, TreePlayer
-- [ ] 02-03-PLAN.md -- Integration: /tree page route, welcome page name input, header back button, end-to-end verification
+- [x] 02-01-PLAN.md -- Tree data foundation: types, Italian tree data (75 nodes from data.js), pure traversal engine, i18n messages
+- [x] 02-02-PLAN.md -- Store + tree UI components: Zustand store with localStorage persist, AnswerCard, QuestionScreen, SlideTransition, TreePlayer
+- [x] 02-03-PLAN.md -- Integration: /tree page route, welcome page name input, header back button, end-to-end verification
 
 ### Phase 3: Outcome Pages
 **Goal**: When a user reaches a legal outcome, they see a rich, structured guidance page with personalized content, confidence level, next steps, and a stable URL they can bookmark or share
@@ -109,7 +109,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | Phase | Plans Complete | Status | Completed |
 |-------|---------------|--------|-----------|
 | 1. i18n Foundation + Design System | 3/3 | Complete | 2026-02-16 |
-| 2. Decision Tree Engine | 0/3 | Not started | - |
+| 2. Decision Tree Engine | 3/3 | Complete | 2026-02-16 |
 | 3. Outcome Pages | 0/TBD | Not started | - |
 | 4. Multilingual Content | 0/TBD | Not started | - |
 | 5. Analytics + Launch Polish | 0/TBD | Not started | - |
