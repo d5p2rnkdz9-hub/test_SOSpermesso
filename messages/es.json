@@ -17,5 +17,22 @@
   },
   "language": {
     "selectLanguage": "Seleccionar idioma"
+  },
+  "tree": {
+    "nameLabel": "\u00bfC\u00f3mo te llamas?",
+    "namePlaceholder": "Tu nombre (opcional)",
+    "skipName": "Prefiero no decirlo",
+    "explainer": "Responde algunas preguntas para descubrir qu\u00e9 permiso de residencia puedes solicitar en Italia.",
+    "disclaimer": "Esta herramienta proporciona informaci\u00f3n general y no constituye asesoramiento legal.",
+    "startButton": "Comenzar la verificaci\u00f3n",
+    "restart": "Volver a empezar",
+    "outcome": {
+      "title": "Tu resultado",
+      "duration": "Duraci\u00f3n",
+      "requirements": "Requisitos",
+      "notes": "Notas importantes",
+      "moreInfo": "M\u00e1s informaci\u00f3n",
+      "restart": "Volver a verificar"
+    }
   }
 }

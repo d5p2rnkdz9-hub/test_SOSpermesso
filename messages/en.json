@@ -17,5 +17,22 @@
   },
   "language": {
     "selectLanguage": "Select language"
+  },
+  "tree": {
+    "nameLabel": "What is your name?",
+    "namePlaceholder": "Your name (optional)",
+    "skipName": "I prefer not to say",
+    "explainer": "Answer a few questions to find out which residence permit you can apply for in Italy.",
+    "disclaimer": "This tool provides general information and does not constitute legal advice.",
+    "startButton": "Start the check",
+    "restart": "Start over",
+    "outcome": {
+      "title": "Your result",
+      "duration": "Duration",
+      "requirements": "Requirements",
+      "notes": "Important notes",
+      "moreInfo": "More information",
+      "restart": "Start the check again"
+    }
   }
 }
