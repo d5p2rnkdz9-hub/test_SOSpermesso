@@ -118,7 +118,7 @@ export default function ResultsPage() {
         <div className="mb-8">
           <Image
             src="/logo.png"
-            alt="DigiCrazy Lab - TrAIn your BrAIn"
+            alt="SOSpermesso"
             width={240}
             height={135}
             priority
@@ -129,7 +129,7 @@ export default function ResultsPage() {
         <Card className="w-full max-w-md">
           <CardContent className="pt-8 pb-8">
             <div className="flex flex-col items-center space-y-4">
-              <Loader2 className="h-12 w-12 animate-spin text-brand-blue" />
+              <Loader2 className="h-12 w-12 animate-spin text-primary" />
               <p className="text-lg text-center text-muted-foreground">
                 Stiamo preparando il tuo feedback personalizzato...
               </p>
@@ -155,7 +155,7 @@ export default function ResultsPage() {
             <p className="text-muted-foreground">{error}</p>
             <Button asChild className="w-full">
               <Link href="/quiz">
-                <ArrowLeft className="mr-2 h-4 w-4" />
+                <ArrowLeft className="me-2 h-4 w-4" />
                 Torna al questionario
               </Link>
             </Button>
@@ -172,7 +172,7 @@ export default function ResultsPage() {
       <div className="mb-6">
         <Image
           src="/logo.png"
-          alt="DigiCrazy Lab - TrAIn your BrAIn"
+          alt="SOSpermesso"
           width={240}
           height={135}
           priority
@@ -182,17 +182,17 @@ export default function ResultsPage() {
 
       {/* Success header */}
       <div className="w-full max-w-2xl mb-6">
-        <Card className="border-brand-green/30 bg-brand-green/5">
+        <Card className="border-primary/30 bg-accent/5">
           <CardContent className="pt-6 pb-6">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-brand-green/10 rounded-full flex items-center justify-center flex-shrink-0">
-                <CheckCircle2 className="h-6 w-6 text-brand-green" />
+              <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                <CheckCircle2 className="h-6 w-6 text-accent" />
               </div>
               <div>
-                <h2 className="text-xl font-semibold text-gray-800">
+                <h2 className="text-xl font-semibold text-foreground">
                   Grazie per aver completato il questionario!
                 </h2>
-                <p className="text-gray-600 text-sm mt-1">
+                <p className="text-muted-foreground text-sm mt-1">
                   Ecco il tuo feedback personalizzato basato sulle tue risposte.
                 </p>
               </div>
@@ -217,7 +217,7 @@ export default function ResultsPage() {
       <div className="w-full max-w-2xl">
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button onClick={handleRestart} variant="default" size="lg">
-            <RotateCcw className="mr-2 h-4 w-4" />
+            <RotateCcw className="me-2 h-4 w-4" />
             Ricomincia il test
           </Button>
         </div>
@@ -226,7 +226,7 @@ export default function ResultsPage() {
       {/* Footer */}
       <div className="mt-12 text-center">
         <p className="text-xs text-gray-400">
-          TrAIn your BrAIn - DigiCrazy Lab
+          SOSpermesso
         </p>
       </div>
     </div>

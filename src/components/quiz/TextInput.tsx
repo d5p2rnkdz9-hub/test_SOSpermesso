@@ -44,14 +44,14 @@ export function TextInput({
         rows={5}
         className={cn(
           "resize-none text-base leading-relaxed",
-          "focus:border-brand-blue focus:ring-brand-blue",
+          "focus:border-primary focus:ring-primary",
           disabled && "cursor-not-allowed opacity-50"
         )}
       />
       {maxLength && (
         <div
           className={cn(
-            "text-sm text-right",
+            "text-sm text-end",
             isAtLimit && "text-destructive font-medium",
             isNearLimit && !isAtLimit && "text-amber-600",
             !isNearLimit && "text-muted-foreground"

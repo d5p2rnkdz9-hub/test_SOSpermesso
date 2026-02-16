@@ -14,7 +14,7 @@ export interface ProgressBarProps {
 /**
  * ProgressBar - Progress indicator for quiz completion
  * Shows percentage only (no "Question 3 of 10" per CONTEXT.md)
- * Uses brand-green fill with smooth animation
+ * Uses primary color fill with smooth animation
  */
 export function ProgressBar({
   current,
@@ -28,10 +28,10 @@ export function ProgressBar({
     <div className={cn("w-full space-y-2", className)}>
       <Progress
         value={percentage}
-        className="h-2 bg-muted [&>div]:bg-brand-green [&>div]:transition-all [&>div]:duration-500"
+        className="h-2 bg-muted [&>div]:bg-primary [&>div]:transition-all [&>div]:duration-500"
       />
       {showPercentage && (
-        <div className="text-sm text-muted-foreground text-right">
+        <div className="text-sm text-muted-foreground text-end">
           {percentage}%
         </div>
       )}

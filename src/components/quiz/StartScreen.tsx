@@ -12,7 +12,7 @@ export interface StartScreenProps {
 
 /**
  * StartScreen - Welcome screen before quiz begins
- * Shows DigiCrazy Lab branding and introduces the questionnaire
+ * Shows SOSpermesso branding and introduces the questionnaire
  */
 export function StartScreen({ onStart, isLoading = false }: StartScreenProps) {
   return (
@@ -21,7 +21,7 @@ export function StartScreen({ onStart, isLoading = false }: StartScreenProps) {
       <div className="mb-6">
         <Image
           src="/logo.png"
-          alt="DigiCrazy Lab - TrAIn your BrAIn"
+          alt="SOSpermesso"
           width={320}
           height={180}
           priority
@@ -30,12 +30,12 @@ export function StartScreen({ onStart, isLoading = false }: StartScreenProps) {
       </div>
 
       {/* Main card */}
-      <Card className="w-full max-w-lg border-2 border-brand-blue/10 shadow-lg">
+      <Card className="w-full max-w-lg border-2 border-primary/10">
         <CardContent className="pt-8 pb-8 px-8">
           {/* Course title */}
           <div className="text-center mb-6">
-            <h1 className="text-2xl md:text-3xl font-bold text-brand-blue mb-2">
-              AI e professione forense
+            <h1 className="text-2xl md:text-3xl font-bold text-primary mb-2">
+              SOSpermesso
             </h1>
           </div>
 
@@ -54,12 +54,12 @@ export function StartScreen({ onStart, isLoading = false }: StartScreenProps) {
           <Button
             onClick={onStart}
             disabled={isLoading}
-            className="w-full py-6 text-lg font-semibold bg-brand-blue hover:bg-brand-blue/90 transition-colors"
+            className="w-full py-6 text-lg font-semibold transition-colors"
             size="lg"
           >
             {isLoading ? (
               <>
-                <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                <Loader2 className="me-2 h-5 w-5 animate-spin" />
                 Caricamento...
               </>
             ) : (

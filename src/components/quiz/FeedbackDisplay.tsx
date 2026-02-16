@@ -20,13 +20,13 @@ export function FeedbackDisplay({ feedback, className }: FeedbackDisplayProps) {
   return (
     <Card
       className={cn(
-        "border-2 border-brand-blue/20 bg-gradient-to-br from-white to-brand-blue/5",
+        "border-2 border-primary/20 bg-gradient-to-br from-white to-primary/5",
         className
       )}
     >
       <CardContent className="pt-6">
         {/* Header with AI indicator */}
-        <div className="flex items-center gap-2 mb-4 text-brand-blue">
+        <div className="flex items-center gap-2 mb-4 text-primary">
           <Sparkles className="h-5 w-5" />
           <span className="text-sm font-medium">Feedback personalizzato</span>
         </div>
@@ -44,7 +44,7 @@ export function FeedbackDisplay({ feedback, className }: FeedbackDisplayProps) {
               return (
                 <h3
                   key={index}
-                  className="font-semibold text-brand-blue text-lg mt-4"
+                  className="font-semibold text-primary text-lg mt-4"
                 >
                   {cleanText}
                 </h3>
@@ -55,7 +55,7 @@ export function FeedbackDisplay({ feedback, className }: FeedbackDisplayProps) {
             if (paragraph.includes("\n-") || paragraph.startsWith("-")) {
               const items = paragraph.split("\n").filter(Boolean)
               return (
-                <ul key={index} className="list-disc list-inside space-y-1 ml-2">
+                <ul key={index} className="list-disc list-inside space-y-1 ms-2">
                   {items.map((item, i) => (
                     <li key={i} className="text-gray-600">
                       {item.replace(/^-\s*/, "")}

@@ -1,22 +1,15 @@
-import type { Metadata } from "next";
-import "./globals.css";
+import type { Metadata } from 'next';
+import './globals.css';
 
 export const metadata: Metadata = {
-  title: "AI e professione forense - Pre-training Assessment",
-  description:
-    "Valutazione pre-formativa per il corso AI per avvocati - DigiCrazy Lab",
-  keywords: ["AI", "avvocati", "formazione", "intelligenza artificiale"],
-  authors: [{ name: "DigiCrazy Lab" }],
+  title: 'SOSpermesso - Verifica il tuo diritto al permesso di soggiorno',
+  description: 'Scopri quale permesso di soggiorno puoi richiedere in Italia',
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
-  return (
-    <html lang="it">
-      <body className="antialiased">{children}</body>
-    </html>
-  );
+}) {
+  return children;
 }

@@ -52,7 +52,7 @@ export function NavigationButtons({
       {isLastQuestion ? (
         <Button
           type="button"
-          variant="brand"
+          variant="default"
           size="lg"
           disabled={!canGoNext || isLoading}
           onClick={onComplete}
@@ -73,7 +73,7 @@ export function NavigationButtons({
       ) : (
         <Button
           type="button"
-          variant="brand"
+          variant="default"
           size="lg"
           disabled={!canGoNext || isLoading}
           onClick={onNext}

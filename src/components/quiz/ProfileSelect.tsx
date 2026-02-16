@@ -35,8 +35,8 @@ export function ProfileSelect({
             key={profile.id}
             className={cn(
               "relative cursor-pointer transition-all",
-              "hover:border-brand-blue/50 hover:shadow-md",
-              isSelected && "border-brand-green ring-2 ring-brand-green shadow-md",
+              "hover:border-primary/50",
+              isSelected && "border-primary ring-2 ring-primary",
               disabled && "cursor-not-allowed opacity-50"
             )}
             onClick={() => !disabled && onChange(profile.id)}
@@ -50,12 +50,12 @@ export function ProfileSelect({
             }}
           >
             {isSelected && (
-              <div className="absolute top-4 right-4 w-6 h-6 bg-brand-green rounded-full flex items-center justify-center">
-                <Check className="w-4 h-4 text-white" />
+              <div className="absolute top-4 end-4 w-6 h-6 bg-primary rounded-full flex items-center justify-center">
+                <Check className="w-4 h-4 text-primary-foreground" />
               </div>
             )}
             <CardContent className="p-6">
-              <h3 className="font-semibold text-lg mb-2 pr-8">{profile.label}</h3>
+              <h3 className="font-semibold text-lg mb-2 pe-8">{profile.label}</h3>
               {profile.description && (
                 <p className="text-muted-foreground leading-relaxed">
                   {profile.description}
