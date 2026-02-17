@@ -78,7 +78,7 @@ export const italianTree: TreeData = {
       id: 'end_asilo',
       type: 'result',
       title: 'Protezione Internazionale — Asilo o Protezione Sussidiaria',
-      introText: 'Hey [Nome], speriamo che in Italia tu ti senta al sicuro.\nSe nel tuo paese d\'origine sta succedendo qualcosa di brutto, come una guerra o se c\'è qualcuno che ti vuole fare del male 😟, in Italia esiste la protezione internazionale 🛡️, che può chiamarsi status di rifugiato o protezione sussidiaria.',
+      introText: 'Hey [Nome], speriamo che in Italia tu ti senta al sicuro.\nSe nel tuo paese d\'origine sta succedendo qualcosa di brutto, come una guerra o se c\'è qualcuno che ti vuole fare del male, in Italia esiste la protezione internazionale 🛡️, che può chiamarsi status di rifugiato o protezione sussidiaria.',
       sections: [
         { heading: 'Come funziona?', content: 'Tutti possono fare domanda, ma poi ci sarà un colloquio con una Commissione che valuterà quanto grave è il tuo problema.' },
         { heading: 'Mi serve un avvocato?', content: '🟠 Puoi fare tutto da solo, ma prima di prendere decisioni, soprattutto se hai già fatto in passato una domanda di protezione internazionale, ti consigliamo di consultare un esperto legale.' },
@@ -97,8 +97,8 @@ export const italianTree: TreeData = {
       introText: '[Nome], speriamo che a casa stiano tutti bene.\nSe nel tuo paese al momento c\'è una catastrofe naturale grave (ad esempio un terremoto o un\'alluvione) puoi avere un permesso di soggiorno per calamità naturale.',
       sections: [
         { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Siamo sicuri che, se nel tuo paese effettivamente c\'è una situazione di grave emergenza, potrai avere un permesso di soggiorno fino a che dura questa emergenza. La Questura però dovrà valutare quanto grave è questo problema.\nTu chiedi questo permesso, e poi si vedrà.' },
-        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'Dura sei mesi 📆 e può essere rinnovato fino a quando dura l\'emergenza. Durante questo tempo hai diritto di lavorare.' },
-        { heading: 'Questo permesso può essere convertito in lavoro?', content: 'La Questura probabilmente ti dirà che dopo l\'11 marzo 2023, NON lo puoi convertire il tuo permesso per calamità naturale in permesso per motivi di lavoro 🚫. Prima che scada è però possibile provare a inviare un kit postale 📮 per convertire il permesso, ma è probabile che poi ti servirà l\'aiuto di un buon avvocato ⚖️.' },
+        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'Dura sei mesi e può essere rinnovato fino a quando dura l\'emergenza. Durante questo tempo hai diritto di lavorare.' },
+        { heading: 'Questo permesso può essere convertito in lavoro?', content: 'La Questura probabilmente ti dirà che dopo l\'11 marzo 2023, NON lo puoi convertire il tuo permesso per calamità naturale in permesso per motivi di lavoro 🚫. Prima che scada è però possibile provare a inviare un kit postale per convertire il permesso, ma è probabile che poi ti servirà l\'aiuto di un buon avvocato.' },
         { heading: 'Mi serve un avvocato?', content: '🟠 Per ora non hai bisogno di un avvocato ma inizia a pensare a cosa fare quando l\'emergenza sarà finita.' },
       ],
       links: [
@@ -122,7 +122,7 @@ export const italianTree: TreeData = {
       id: 'end_sfrut',
       type: 'result',
       title: 'Permesso per Grave Sfruttamento Lavorativo',
-      introText: '[Nome] ci dispiace davvero 😔\nIn Italia ci sono leggi che proteggono i lavoratori da stipendi troppo bassi, da orari troppo lunghi e da maltrattamenti sul posto di lavoro.\nForse però c\'è una piccola buona notizia 😊 perché in Italia esiste un permesso di soggiorno per chi è vittima di sfruttamento lavorativo e vuole uscire da questa situazione.\nPerò difficilmente troverai la soluzione da solo.',
+      introText: '[Nome] ci dispiace davvero\nIn Italia ci sono leggi che proteggono i lavoratori da stipendi troppo bassi, da orari troppo lunghi e da maltrattamenti sul posto di lavoro.\nForse però c\'è una piccola buona notizia perché in Italia esiste un permesso di soggiorno per chi è vittima di sfruttamento lavorativo e vuole uscire da questa situazione.\nPerò difficilmente troverai la soluzione da solo.',
       sections: [],
       links: [
         { label: 'Trova centri di aiuto legale gratuito vicino a te! ⚖️', url: 'https://www.sospermesso.it/aiuto-legale', type: 'legal_aid' },
@@ -134,7 +134,7 @@ export const italianTree: TreeData = {
       id: 'end_tratta',
       type: 'result',
       title: 'Permesso per Vittime di Tratta (Art. 18)',
-      introText: 'Ci dispiace, [Nome].\nSembra tu sia in una brutta situazione 😟. Ti consigliamo di chiamare il numero gratuito 📞 800 290 290 per chiedere aiuto anonimo e gratuito.\nLa buona notizia è che in Italia c\'è un permesso di soggiorno per le vittime di tratta di esseri umani che vogliono cambiare vita 🌱.',
+      introText: 'Ci dispiace, [Nome].\nSembra tu sia in una brutta situazione. Ti consigliamo di chiamare il numero gratuito 800 290 290 per chiedere aiuto anonimo e gratuito.\nLa buona notizia è che in Italia c\'è un permesso di soggiorno per le vittime di tratta di esseri umani che vogliono cambiare vita.',
       sections: [],
       emergencyNumbers: ['800 290 290'],
       links: [
@@ -147,7 +147,7 @@ export const italianTree: TreeData = {
       id: 'end_viol',
       type: 'result',
       title: 'Permesso per Vittime di Violenza Domestica',
-      introText: 'Ci dispiace, [Nome].\nSembra tu sia in una brutta situazione 😟. Ti consigliamo di chiamare il numero gratuito 📞 1522 per chiedere aiuto anonimo e gratuito.\nLa buona notizia è che in Italia c\'è un permesso di soggiorno per le vittime di violenza domestica.',
+      introText: 'Ci dispiace, [Nome].\nSembra tu sia in una brutta situazione. Ti consigliamo di chiamare il numero gratuito 1522 per chiedere aiuto anonimo e gratuito.\nLa buona notizia è che in Italia c\'è un permesso di soggiorno per le vittime di violenza domestica.',
       sections: [],
       emergencyNumbers: ['1522'],
       links: [
@@ -167,10 +167,10 @@ export const italianTree: TreeData = {
       introText: '[Nome], se hai gravi problemi di salute che non puoi curare bene nel tuo paese, puoi chiedere un permesso per cure mediche.\nVedi l\'articolo 19, comma 2, lettera d-bis del Testo Unico sull\'Immigrazione.',
       sections: [
         { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Siamo sicuri che tu possa chiedere questo permesso ✅ La Questura deciderà, dopo aver valutato la gravità della tua malattia e le cure disponibili nel tuo paese di origine.' },
-        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'In generale, un permesso di soggiorno per cure mediche dura tutto il tempo necessario per curarti 😷 Mentre hai questo permesso, puoi studiare e lavorare.' },
+        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'In generale, un permesso di soggiorno per cure mediche dura tutto il tempo necessario per curarti. Mentre hai questo permesso, puoi studiare e lavorare.' },
         { heading: 'Posso convertire questo permesso in un altro permesso?', content: 'Dopo le modifiche della Legge 50 del 2023, il permesso di soggiorno per cure mediche non può più essere convertito in permesso di soggiorno per motivi di lavoro 🚫 Puoi solo rinnovarlo o convertirlo in un permesso per motivi di famiglia.' },
         { heading: 'Come lo posso chiedere?', content: 'Puoi chiederlo personalmente in Questura.' },
-        { heading: 'Mi serve un avvocato?', content: 'No, puoi chiedere tu direttamente questo permesso in Questura ma è importante documentare bene la tua situazione medica 🏥\n‼️ Chiedi un parere legale prima.' },
+        { heading: 'Mi serve un avvocato?', content: 'No, puoi chiedere tu direttamente questo permesso in Questura ma è importante documentare bene la tua situazione medica.\n‼️ Chiedi un parere legale prima.' },
       ],
       links: [
         { label: 'Più informazioni su questo permesso', url: 'https://www.sospermesso.it', type: 'guide' },
@@ -183,12 +183,12 @@ export const italianTree: TreeData = {
       id: 'end_cure_gravidanza',
       type: 'result',
       title: 'Permesso di Soggiorno per Cure Mediche — Gravidanza',
-      introText: '[Nome] congratulazioni! Se stai per avere un figlio o hai avuto un figlio da poco, puoi avere un permesso di soggiorno.\nIn Italia, c\'è un permesso di soggiorno chiamato "permesso per cure mediche" 🏥 quando stai per diventare genitore o sei appena diventato mamma o papà 👶. Questo permesso ti offre un periodo per dedicarti completamente al tuo piccolo e ricevere l\'assistenza medica necessaria ❤️.\nPuoi avere il permesso durante tutta la gravidanza 🤰 e per i sei mesi dopo la nascita.',
+      introText: '[Nome] congratulazioni! Se stai per avere un figlio o hai avuto un figlio da poco, puoi avere un permesso di soggiorno.\nIn Italia, c\'è un permesso di soggiorno chiamato "permesso per cure mediche" quando stai per diventare genitore o sei appena diventato mamma o papà. Questo permesso ti offre un periodo per dedicarti completamente al tuo piccolo e ricevere l\'assistenza medica necessaria.\nPuoi avere il permesso durante tutta la gravidanza e per i sei mesi dopo la nascita.',
       sections: [
         { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Se ci hai dato informazioni corrette, siamo sicuri ✅' },
-        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'Generalmente dura fino a quando tuo figlio ha sei mesi 👶. Puoi avere la residenza 🏠, studiare, lavorare e avere il medico di base 🩺. Non puoi convertire questo permesso in un permesso per lavoro.' },
-        { heading: 'Come lo posso chiedere?', content: 'Puoi chiedere questo permesso personalmente in Questura 🏢.' },
-        { heading: 'Che documenti servono per chiederlo?', content: 'I principali sono:\n• un tuo documento di identità 🪪\n• un documento medico che prova che stai aspettando un figlio, o un certificato di nascita del figlio 📝.' },
+        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'Generalmente dura fino a quando tuo figlio ha sei mesi. Puoi avere la residenza, studiare, lavorare e avere il medico di base. Non puoi convertire questo permesso in un permesso per lavoro.' },
+        { heading: 'Come lo posso chiedere?', content: 'Puoi chiedere questo permesso personalmente in Questura.' },
+        { heading: 'Che documenti servono per chiederlo?', content: 'I principali sono:\n• un tuo documento di identità\n• un documento medico che prova che stai aspettando un figlio, o un certificato di nascita del figlio.' },
         { heading: 'Cosa succede quando scade?', content: 'Attenzione ‼️ NON puoi convertire questo permesso in un permesso di lavoro. Potrai fare domanda per un permesso di soggiorno per assistenza minori (art. 31).' },
         { heading: 'Mi serve un avvocato?', content: '🟠 Puoi chiedere il permesso da solo, però ti consigliamo di chiedere un parere legale per capire cosa fare quando il permesso scade.' },
       ],
@@ -218,10 +218,10 @@ export const italianTree: TreeData = {
       id: 'end_neg_gen',
       type: 'result',
       title: 'Nessun permesso disponibile in questa situazione',
-      introText: 'Ehi, [Nome]! Se non hai un permesso di soggiorno e non sei in nessuna delle situazioni che abbiamo detto prima, non riusciamo a trovare un permesso di soggiorno per te 😔.\nTorna indietro 🔙 e seleziona una delle situazioni. Oppure continua a leggere.',
+      introText: 'Ehi, [Nome]! Se non hai un permesso di soggiorno e non sei in nessuna delle situazioni che abbiamo detto prima, non riusciamo a trovare un permesso di soggiorno per te.\nTorna indietro e seleziona una delle situazioni. Oppure continua a leggere.',
       sections: [
-        { heading: 'Vivi in Italia da un po\' di tempo?', content: 'Vivi in Italia da un po\' di tempo? 🇮🇹 Parli bene italiano? 🗣️ Hai amici qui in Italia? 👥\nTutto questo potrebbe non essere sufficiente per avere un permesso di soggiorno, in base alle leggi attuali 😰\n\nIl 10 marzo 2023 il Governo italiano ha cancellato la possibilità di avere la protezione speciale per chi è bene integrato in Italia.\n\nLa protezione speciale esiste ancora, ma si applica in pochi casi particolari. Al momento le Questure non ricevono più le nuove domande di protezione speciale 🏢.\n\n‼️ Puoi provare a chiederla, ma ti serve un consiglio legale specializzato.' },
-        { heading: 'Lavori già o hai un\'offerta di lavoro?', content: 'Non basta avere un\'offerta di lavoro per avere un permesso di soggiorno in Italia. Se vuoi lavorare in Italia, potresti aspettare che il Governo pubblichi il "decreto flussi" nel 2026 📅. Il tuo datore di lavoro dovrà fare domanda per te.\n\nRicorda che per percorrere questa strada hai bisogno del passaporto e dovresti poi tornare nel tuo paese d\'origine per richiedere il visto.\n\n‼️ Anche in questo caso ti serve un consiglio legale specializzato.' },
+        { heading: 'Vivi in Italia da un po\' di tempo?', content: 'Vivi in Italia da un po\' di tempo? Parli bene italiano? Hai amici qui in Italia?\nTutto questo potrebbe non essere sufficiente per avere un permesso di soggiorno, in base alle leggi attuali.\n\nIl 10 marzo 2023 il Governo italiano ha cancellato la possibilità di avere la protezione speciale per chi è bene integrato in Italia.\n\nLa protezione speciale esiste ancora, ma si applica in pochi casi particolari. Al momento le Questure non ricevono più le nuove domande di protezione speciale.\n\n‼️ Puoi provare a chiederla, ma ti serve un consiglio legale specializzato.' },
+        { heading: 'Lavori già o hai un\'offerta di lavoro?', content: 'Non basta avere un\'offerta di lavoro per avere un permesso di soggiorno in Italia. Se vuoi lavorare in Italia, potresti aspettare che il Governo pubblichi il "decreto flussi" nel 2026. Il tuo datore di lavoro dovrà fare domanda per te.\n\nRicorda che per percorrere questa strada hai bisogno del passaporto e dovresti poi tornare nel tuo paese d\'origine per richiedere il visto.\n\n‼️ Anche in questo caso ti serve un consiglio legale specializzato.' },
       ],
       links: [
         { label: 'Trova un centro di aiuto legale gratuito vicino a te! ⚖️', url: 'https://www.sospermesso.it/aiuto-legale', type: 'legal_aid' },
@@ -250,7 +250,7 @@ export const italianTree: TreeData = {
       id: 'info_s8',
       type: 'info',
       question: 'Hey [Nome], se nessuno dei tuoi genitori ha un permesso di soggiorno valido, è un po\' un problema.',
-      description: 'Quindi cosa posso fare? 🤔\n\nPrima cosa: manda ai tuoi genitori il link a questo test 📲, e scoprite insieme se possono avere un permesso di soggiorno. Così sarà molto facile per te averlo! 😊\n\nSeconda cosa: andiamo avanti per vedere se hai diritto a un altro permesso di soggiorno.',
+      description: 'Quindi cosa posso fare?\n\nPrima cosa: manda ai tuoi genitori il link a questo test, e scoprite insieme se possono avere un permesso di soggiorno. Così sarà molto facile per te averlo!\n\nSeconda cosa: andiamo avanti per vedere se hai diritto a un altro permesso di soggiorno.',
     },
 
     // S11 — Famiglia minore (genitore con PdS)
@@ -262,8 +262,8 @@ export const italianTree: TreeData = {
       sections: [
         { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Siamo sicuri ✅' },
         { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'Il permesso per motivi di famiglia dura almeno fino a quando compi 18 anni.' },
-        { heading: 'Quando compio 18 anni cosa succede?', content: 'Puoi convertirlo in un permesso di soggiorno per studio, lavoro o ricerca lavoro. Se invece sei ancora dipendente economicamente dai tuoi genitori, questo permesso di solito viene rinnovato fino ai 21 anni.\n📌 Attenzione: devi mandare la richiesta di conversione prima dei 18 anni.' },
-        { heading: 'Come lo posso chiedere?', content: 'Puoi chiedere questo permesso con un kit postale 📨 mandato dal tuo genitore.' },
+        { heading: 'Quando compio 18 anni cosa succede?', content: 'Puoi convertirlo in un permesso di soggiorno per studio, lavoro o ricerca lavoro. Se invece sei ancora dipendente economicamente dai tuoi genitori, questo permesso di solito viene rinnovato fino ai 21 anni.\nAttenzione: devi mandare la richiesta di conversione prima dei 18 anni.' },
+        { heading: 'Come lo posso chiedere?', content: 'Puoi chiedere questo permesso con un kit postale mandato dal tuo genitore.' },
         { heading: 'Mi serve un avvocato?', content: '🟢 No, puoi fare tutto da solo con la tua famiglia.' },
       ],
       links: [
@@ -354,12 +354,12 @@ export const italianTree: TreeData = {
       id: 'end_art19',
       type: 'result',
       title: 'Permesso per Motivi Familiari (Articolo 19)',
-      introText: 'Hey [Nome] puoi avere un permesso di soggiorno per motivi familiari (Articolo 19).\n\n⚠️ ATTENZIONE: tuo [Parente selezionato] deve avere la cittadinanza italiana 🇮🇹 e dovete vivere insieme 🏠',
+      introText: 'Hey [Nome] puoi avere un permesso di soggiorno per motivi familiari (Articolo 19).\n\n⚠️ ATTENZIONE: tuo [Parente selezionato] deve avere la cittadinanza italiana e dovete vivere insieme',
       sections: [
-        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Siamo sicuri ✅ perché la legge è chiara 📜.' },
-        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'Generalmente dura due anni 📆. Puoi avere la residenza, studiare, lavorare e avere il medico di base.' },
-        { heading: 'Come lo chiedo?', content: 'Devi chiedere questo permesso personalmente in Questura 🏢.' },
-        { heading: 'Mi serve un avvocato?', content: '🟢 No, puoi fare tutto da solo 😉' },
+        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Siamo sicuri ✅ perché la legge è chiara.' },
+        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'Generalmente dura due anni. Puoi avere la residenza, studiare, lavorare e avere il medico di base.' },
+        { heading: 'Come lo chiedo?', content: 'Devi chiedere questo permesso personalmente in Questura.' },
+        { heading: 'Mi serve un avvocato?', content: '🟢 No, puoi fare tutto da solo.' },
       ],
       links: [
         { label: 'Più informazioni su questo permesso', url: 'https://www.sospermesso.it', type: 'guide' },
@@ -376,7 +376,7 @@ export const italianTree: TreeData = {
       sections: [
         { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Siamo sicuri ✅' },
         { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'Il permesso per motivi di famiglia dura almeno fino a quando compi 18 anni.' },
-        { heading: 'Quando compio 18 anni cosa succede?', content: 'Dopo puoi convertirlo in un permesso di soggiorno per studio, lavoro o ricerca lavoro.\n📌 Attenzione: devi mandare la richiesta di conversione prima dei 18 anni.' },
+        { heading: 'Quando compio 18 anni cosa succede?', content: 'Dopo puoi convertirlo in un permesso di soggiorno per studio, lavoro o ricerca lavoro.\nAttenzione: devi mandare la richiesta di conversione prima dei 18 anni.' },
         { heading: 'Come lo posso chiedere?', content: 'Puoi chiedere questo permesso con un kit postale o direttamente in Questura.' },
         { heading: 'Mi serve un avvocato?', content: '🟢 No, puoi fare tutto da solo con la tua famiglia, ma è meglio chiedere l\'aiuto dei servizi sociali.' },
       ],
@@ -393,8 +393,8 @@ export const italianTree: TreeData = {
       title: 'Minore Straniero Non Accompagnato (MSNA)',
       introText: '[Nome] in base a quello che ci hai detto, in Italia sei considerato un minore straniero non accompagnato.\nPer questo, puoi avere un permesso di soggiorno per minore età fino ai 18 anni, che potrai poi convertire in permesso per:\n• studio\n• lavoro\n• ricerca lavoro\n• affidamento (prosieguo amministrativo)',
       sections: [
-        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Se hai un documento di identità che prova che hai meno di 18 anni, siamo certi ✅\nSe non hai un passaporto o un altro documento di identità, e dichiari di essere minorenne, potresti essere sottoposto ad un accertamento per confermare la tua età 🔍\n\nTi diamo un consiglio: contatta i servizi sociali a te più vicini. Ti daranno più informazioni e troveranno un tutore che ti aiuterà con i documenti e non solo. Potrebbero anche decidere con te un percorso che dura fino ai 21 anni, per studiare e integrarti in Italia 🇮🇹' },
-        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'Con il permesso per minore età puoi studiare e lavorare fino 18 anni. Dopo può essere convertito 🔄 in un altro permesso di soggiorno.' },
+        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Se hai un documento di identità che prova che hai meno di 18 anni, siamo certi ✅\nSe non hai un passaporto o un altro documento di identità, e dichiari di essere minorenne, potresti essere sottoposto ad un accertamento per confermare la tua età.\n\nTi diamo un consiglio: contatta i servizi sociali a te più vicini. Ti daranno più informazioni e troveranno un tutore che ti aiuterà con i documenti e non solo. Potrebbero anche decidere con te un percorso che dura fino ai 21 anni, per studiare e integrarti in Italia.' },
+        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'Con il permesso per minore età puoi studiare e lavorare fino 18 anni. Dopo può essere convertito in un altro permesso di soggiorno.' },
         { heading: 'Come lo posso chiedere?', content: 'Devi chiedere questo permesso direttamente in Questura.' },
         { heading: 'Mi serve un avvocato?', content: '🟠 No, puoi fare tutto da solo ma per non fare errori è meglio farti aiutare. Rivolgiti al servizio sociale più vicino a te.' },
       ],
@@ -437,11 +437,11 @@ export const italianTree: TreeData = {
       title: 'Permesso per Motivi Familiari — Genitore di Minore Italiano',
       introText: '[Nome] se hai un figlio minore che è cittadino italiano e che risiede in Italia, puoi chiedere un permesso di soggiorno per motivi familiari.',
       sections: [
-        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Se hai un figlio minore in Italia 👶, siamo sicuri che tu possa fare domanda, ma bisogna fare una causa in tribunale e il risultato è incerto 😣' },
+        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Se hai un figlio minore in Italia, siamo sicuri che tu possa fare domanda, ma bisogna fare una causa in tribunale e il risultato è incerto.' },
         { heading: 'Come lo posso chiedere?', content: 'Questo permesso non può essere chiesto direttamente in Questura ‼️ Devi fare una procedura al Tribunale per i Minorenni del territorio in cui abiti.' },
         { heading: 'Mi serve un avvocato?', content: '🟠 In teoria puoi fare domanda al tribunale anche da solo, ma ti consigliamo di farlo con un avvocato. Come minimo, chiedi un parere legale prima. Ricorda che se hai un reddito inferiore a circa 13.500 euro all\'anno, potresti avere diritto all\'assistenza legale gratuita.' },
-        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'Il permesso per Art. 31 generalmente viene dato per uno/due/tre anni 📅, ma il Tribunale può decidere anche una durata diversa. Puoi avere la residenza, studiare, lavorare e avere il medico di base.' },
-        { heading: 'E quando scade il permesso cosa faccio?', content: 'Se tuo figlio sarà ancora minorenne, potrai fare una nuova causa al Tribunale per i Minorenni ⚖️. Oppure, se lavori, puoi chiedere la conversione in un permesso per lavoro, con kit postale 📮.' },
+        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'Il permesso per Art. 31 generalmente viene dato per uno/due/tre anni, ma il Tribunale può decidere anche una durata diversa. Puoi avere la residenza, studiare, lavorare e avere il medico di base.' },
+        { heading: 'E quando scade il permesso cosa faccio?', content: 'Se tuo figlio sarà ancora minorenne, potrai fare una nuova causa al Tribunale per i Minorenni ⚖️. Oppure, se lavori, puoi chiedere la conversione in un permesso per lavoro, con kit postale.' },
       ],
       links: [
         { label: 'Più informazioni su questo permesso', url: 'https://www.sospermesso.it/Genitore-di-minore-cittadino-italiano-1ba7355e7f7f80b4bd96d937d1548bd9', type: 'guide' },
@@ -464,7 +464,7 @@ export const italianTree: TreeData = {
       title: 'Permesso per Motivi Familiari (Famit)',
       introText: '[Nome], potresti chiedere un permesso di soggiorno come familiare di cittadino italiano ("Famit").',
       sections: [
-        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Nel 2023 la legge in Italia è cambiata 😥 e non tutte le Questure applicano la legge allo stesso modo.\nSiamo sicuri che tu abbia delle possibilità concrete, ma potrebbe essere necessaria una valutazione più approfondita 🔍, anche sul reddito del tuo familiare.\nSe il familiare italiano ha vissuto in un altro paese dell\'Unione europea, forse potresti avere anche la Carta come familiare di cittadino UE.\nCome vedi, è tutto un po\' complesso 😕. Per questo, ti consigliamo di chiedere un parere legale, anche per capire se chiedere il permesso "Famit" o la Carta.' },
+        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Nel 2023 la legge in Italia è cambiata e non tutte le Questure applicano la legge allo stesso modo.\nSiamo sicuri che tu abbia delle possibilità concrete, ma potrebbe essere necessaria una valutazione più approfondita, anche sul reddito del tuo familiare.\nSe il familiare italiano ha vissuto in un altro paese dell\'Unione europea, forse potresti avere anche la Carta come familiare di cittadino UE.\nCome vedi, è tutto un po\' complesso. Per questo, ti consigliamo di chiedere un parere legale, anche per capire se chiedere il permesso "Famit" o la Carta.' },
         { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'Il permesso "Famit" dura cinque anni, consente di studiare e lavorare. Alla scadenza, può essere rinnovato e diventa permanente.' },
         { heading: 'Come lo posso chiedere?', content: 'Personalmente in Questura, accompagnato dal cittadino italiano.' },
         { heading: 'Mi serve un avvocato?', content: '🟠 No, puoi chiedere questo permesso direttamente da solo in Questura. Però ti consigliamo di chiedere un parere legale prima, per trovare la soluzione più adatta a te.' },
@@ -501,9 +501,9 @@ export const italianTree: TreeData = {
       id: 'end_zamb',
       type: 'result',
       title: 'Carta di Soggiorno — Caso Zambrano',
-      introText: '[Nome], in base alle informazioni che ci hai dato, dovresti avere diritto a un permesso di soggiorno, ad esempio il permesso di soggiorno per motivi familiari o la Carta di soggiorno come familiare di cittadino UE.\nPerò al momento le Questure non danno facilmente questo permesso 😕. È una situazione complessa e ti serve un parere legale ⚖️.',
+      introText: '[Nome], in base alle informazioni che ci hai dato, dovresti avere diritto a un permesso di soggiorno, ad esempio il permesso di soggiorno per motivi familiari o la Carta di soggiorno come familiare di cittadino UE.\nPerò al momento le Questure non danno facilmente questo permesso. È una situazione complessa e ti serve un parere legale ⚖️.',
       sections: [
-        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Siamo sicuri che per te ci siano delle concrete possibilità, ma è una situazione non molto comune 🤔 e potrebbe essere necessario andare in tribunale.' },
+        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Siamo sicuri che per te ci siano delle concrete possibilità, ma è una situazione non molto comune e potrebbe essere necessario andare in tribunale.' },
       ],
       links: [
         { label: 'Vuoi un consiglio legale gratuito? Trova un centro vicino a te!', url: 'https://www.sospermesso.it/aiuto-legale', type: 'legal_aid' },
@@ -525,9 +525,9 @@ export const italianTree: TreeData = {
       title: 'Carta di Soggiorno per Familiari di Cittadini UE',
       introText: '[Nome], in base alle informazioni che ci hai dato, potresti chiedere la Carta di soggiorno come familiare di cittadini UE.',
       sections: [
-        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Siamo sicuri 😀' },
+        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Siamo sicuri.' },
         { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'La Carta di soggiorno per familiare di cittadini UE dura cinque anni. Puoi studiare, lavorare, prendere la residenza e avere il medico di base.' },
-        { heading: 'Quando scade cosa faccio?', content: 'Puoi rinnovare la Carta, che diventerà permanente. Puoi anche convertire la Carta in un permesso per lavoro 🔄.' },
+        { heading: 'Quando scade cosa faccio?', content: 'Puoi rinnovare la Carta, che diventerà permanente. Puoi anche convertire la Carta in un permesso per lavoro.' },
         { heading: 'Come lo posso chiedere?', content: 'Personalmente in Questura, accompagnato dal familiare cittadino UE.' },
         { heading: 'Mi serve un avvocato?', content: '🟢 No, puoi chiedere questo permesso direttamente in Questura, da solo.' },
       ],
@@ -551,11 +551,11 @@ export const italianTree: TreeData = {
       title: 'Permesso per Assistenza Minore (Articolo 31)',
       introText: 'Se hai un figlio minore in Italia, puoi provare a chiedere un permesso di soggiorno per assistenza minori ("Articolo 31").',
       sections: [
-        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Se hai un figlio minore in Italia 👶, siamo sicuri che tu possa fare domanda, ma bisogna fare una causa in tribunale e il risultato è incerto 😣' },
+        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Se hai un figlio minore in Italia, siamo sicuri che tu possa fare domanda, ma bisogna fare una causa in tribunale e il risultato è incerto.' },
         { heading: 'Come lo posso chiedere?', content: 'Questo permesso non può essere chiesto direttamente in Questura ‼️ Devi fare una procedura al Tribunale per i Minorenni del territorio in cui abiti.' },
         { heading: 'Mi serve un avvocato?', content: '🟠 In teoria puoi fare domanda al tribunale anche da solo, ma ti consigliamo di farlo con un avvocato. Come minimo, chiedi un parere legale prima. Ricorda che se hai un reddito inferiore a circa 13.500 euro all\'anno, potresti avere diritto all\'assistenza legale gratuita.' },
-        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'Il permesso per Art. 31 generalmente viene dato per uno/due/tre anni 📅, ma il Tribunale può decidere anche una durata diversa. Puoi avere la residenza, studiare, lavorare e avere il medico di base.' },
-        { heading: 'E quando scade il permesso cosa faccio?', content: 'Se tuo figlio sarà ancora minorenne, potrai fare una nuova causa al Tribunale per i Minorenni ⚖️. Oppure, se lavori, puoi chiedere la conversione in un permesso per lavoro, con kit postale 📮.' },
+        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'Il permesso per Art. 31 generalmente viene dato per uno/due/tre anni, ma il Tribunale può decidere anche una durata diversa. Puoi avere la residenza, studiare, lavorare e avere il medico di base.' },
+        { heading: 'E quando scade il permesso cosa faccio?', content: 'Se tuo figlio sarà ancora minorenne, potrai fare una nuova causa al Tribunale per i Minorenni ⚖️. Oppure, se lavori, puoi chiedere la conversione in un permesso per lavoro, con kit postale.' },
       ],
       links: [
         { label: 'Più informazioni su questo permesso', url: 'https://www.sospermesso.it/Permesso-per-assistenza-minore-art-31-1c77355e7f7f80cfac5cec0c426e8213', type: 'guide' },
@@ -585,8 +585,8 @@ export const italianTree: TreeData = {
       title: 'Permesso per Motivi Familiari — Genitore a Carico',
       introText: 'Bene [Nome]. Dalle informazioni che ci hai dato potresti chiedere un permesso per motivi familiari perché sei un genitore che dipende dai suoi figli.\nMa è una situazione complessa ed è meglio chiedere una consulenza legale.',
       sections: [
-        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Non siamo sicuri 😕 perché bisogna valutare numerosi elementi. In generale, ci sono due casi possibili:\n\n1. Hai meno di 65 anni\n• Non devi avere altri figli nel tuo paese\n• Devi essere a carico dei tuoi figli che sono in Italia (dipendere economicamente da loro)\n\n2. Hai più di 65 anni\n• Non hai altri figli nel tuo paese; oppure\n• Hai figli nel tuo paese ma non possono mantenerti perché hanno problemi di salute (serve documentazione medica)\n\nIn più, per entrambi i casi, bisogna valutare:\n• La tua situazione familiare 👪\n• I redditi della tua famiglia 📊' },
-        { heading: 'Ricorda!', content: '🔔 Se non hai mai avuto un permesso di soggiorno in Italia, difficilmente potrai ottenere questo tipo di permesso. Se hai avuto un permesso di soggiorno in Italia ma è scaduto, dipende da quanto tempo è scaduto ⏰' },
+        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Non siamo sicuri perché bisogna valutare numerosi elementi. In generale, ci sono due casi possibili:\n\n1. Hai meno di 65 anni\n• Non devi avere altri figli nel tuo paese\n• Devi essere a carico dei tuoi figli che sono in Italia (dipendere economicamente da loro)\n\n2. Hai più di 65 anni\n• Non hai altri figli nel tuo paese; oppure\n• Hai figli nel tuo paese ma non possono mantenerti perché hanno problemi di salute (serve documentazione medica)\n\nIn più, per entrambi i casi, bisogna valutare:\n• La tua situazione familiare\n• I redditi della tua famiglia' },
+        { heading: 'Ricorda!', content: 'Se non hai mai avuto un permesso di soggiorno in Italia, difficilmente potrai ottenere questo tipo di permesso. Se hai avuto un permesso di soggiorno in Italia ma è scaduto, dipende da quanto tempo è scaduto.' },
         { heading: 'Mi serve un avvocato?', content: '🆘 È una situazione un po\' particolare e ti consigliamo di chiedere aiuto legale ⚖️.' },
       ],
       links: [
@@ -627,9 +627,9 @@ export const italianTree: TreeData = {
       introText: 'In base alle informazioni che ci hai dato, puoi avere un permesso di soggiorno per motivi familiari.',
       sections: [
         { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Siamo sicuri ✅ che tu possa avere un permesso per motivi di famiglia.' },
-        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'In genere ha durata di 2 anni. Alla scadenza, può essere rinnovato 🔄.' },
-        { heading: 'Come lo posso chiedere?', content: 'Con kit postale 📮 inserendo nella busta tutti i documenti necessari.' },
-        { heading: 'Mi serve un avvocato?', content: 'No, ma un parere legale può essere utile a preparare tutti i documenti necessari ⚖️.' },
+        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'In genere ha durata di 2 anni. Alla scadenza, può essere rinnovato.' },
+        { heading: 'Come lo posso chiedere?', content: 'Con kit postale inserendo nella busta tutti i documenti necessari.' },
+        { heading: 'Mi serve un avvocato?', content: 'No, ma un parere legale può essere utile a preparare tutti i documenti necessari.' },
       ],
       links: [
         { label: 'Più informazioni su questo permesso', url: 'https://www.sospermesso.it', type: 'guide' },
@@ -674,8 +674,8 @@ export const italianTree: TreeData = {
       title: 'Permesso Famiglia dopo i 18 anni — Da Valutare',
       introText: 'In base alle informazioni che ci hai dato, non siamo sicuri che tu possa avere un permesso di soggiorno per motivi familiari. Ti consigliamo di chiedere una consulenza legale.',
       sections: [
-        { heading: 'Ti spieghiamo meglio', content: '📘 Se fino ai 18 anni avevi un permesso di soggiorno per motivi familiari collegato a quello del tuo genitore, potresti ancora avere la possibilità di chiedere un permesso dello stesso tipo.' },
-        { heading: 'Quando è possibile?', content: 'La possibilità di rinnovo dipende da diversi fattori, in particolare:\n• Se sei ancora molto giovane 🎂\n• Se stai ancora studiando 📚\n• Se il tuo genitore ti mantiene economicamente 💶\n• Se vivi ancora con la famiglia 🏠' },
+        { heading: 'Ti spieghiamo meglio', content: 'Se fino ai 18 anni avevi un permesso di soggiorno per motivi familiari collegato a quello del tuo genitore, potresti ancora avere la possibilità di chiedere un permesso dello stesso tipo.' },
+        { heading: 'Quando è possibile?', content: 'La possibilità di rinnovo dipende da diversi fattori, in particolare:\n• Se sei ancora molto giovane\n• Se stai ancora studiando\n• Se il tuo genitore ti mantiene economicamente\n• Se vivi ancora con la famiglia' },
         { heading: 'Mi serve un avvocato?', content: '‼️ Vista la situazione, prima di prendere decisioni ti consigliamo di chiedere un parere legale ⚖️.' },
       ],
       links: [
@@ -708,8 +708,8 @@ export const italianTree: TreeData = {
       introText: 'In base alle informazioni che ci hai dato, forse puoi avere un permesso di soggiorno per motivi familiari come figlia o figlio con invalidità totale.',
       sections: [
         { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Siamo sicuri ✅ che un figlio invalido al 100% possa avere un permesso di soggiorno per stare con i suoi genitori. Ma le situazioni familiari a volte sono complesse e ti consigliamo di chiedere un aiuto legale.' },
-        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'In genere ha durata di 2 anni. Alla scadenza, può essere rinnovato 🔄.' },
-        { heading: 'Come lo posso chiedere?', content: 'Con kit postale 📮 inserendo nella busta tutti i documenti relativi alla tua invalidità.' },
+        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'In genere ha durata di 2 anni. Alla scadenza, può essere rinnovato.' },
+        { heading: 'Come lo posso chiedere?', content: 'Con kit postale inserendo nella busta tutti i documenti relativi alla tua invalidità.' },
         { heading: 'Mi serve un avvocato?', content: 'No, ma un parere legale può essere utile a preparare tutti i documenti necessari ⚖️.' },
       ],
       links: [
@@ -747,7 +747,7 @@ export const italianTree: TreeData = {
       title: 'Parente Troppo Lontano — Nessun Permesso Disponibile',
       introText: 'Hey [Nome], anche noi vogliamo bene alla nostra famiglia. Però questi sono parenti troppo lontani.',
       sections: [
-        { heading: 'Perché?', content: 'Purtroppo, in Italia, anche se questi tuoi parenti hanno un permesso di soggiorno, questo non sempre basta per far avere un permesso di soggiorno a te 😔\nSe hai altri familiari in Italia, o per sapere se hai diritto a un altro permesso di soggiorno, puoi ricominciare il test.' },
+        { heading: 'Perché?', content: 'Purtroppo, in Italia, anche se questi tuoi parenti hanno un permesso di soggiorno, questo non sempre basta per far avere un permesso di soggiorno a te.\nSe hai altri familiari in Italia, o per sapere se hai diritto a un altro permesso di soggiorno, puoi ricominciare il test.' },
       ],
       links: [
         { label: 'Chiedi un consiglio legale gratuito — Trova un centro vicino a te! ⚖️', url: 'https://www.sospermesso.it/aiuto-legale', type: 'legal_aid' },
@@ -783,10 +783,10 @@ export const italianTree: TreeData = {
       id: 'end_famit_part',
       type: 'result',
       title: 'Permesso per Partner Convivente di Cittadino Italiano/UE',
-      introText: 'Secondo la legge, dovrebbe essere possibile avere un permesso di soggiorno di cinque anni ("Carta di soggiorno" o "FAMIT", a seconda della situazione).\nBasta avere una relazione affettiva ❤️ e vivere insieme 🏠.\nPerò, se non sei sposato con una persona di sesso diverso dal tuo (matrimonio) o con una persona dello stesso sesso (unione civile), le Questure non danno facilmente questo permesso. Dipende dalla Questura! A volte è necessario fare una causa in tribunale con un avvocato.',
+      introText: 'Secondo la legge, dovrebbe essere possibile avere un permesso di soggiorno di cinque anni ("Carta di soggiorno" o "FAMIT", a seconda della situazione).\nBasta avere una relazione affettiva e vivere insieme.\nPerò, se non sei sposato con una persona di sesso diverso dal tuo (matrimonio) o con una persona dello stesso sesso (unione civile), le Questure non danno facilmente questo permesso. Dipende dalla Questura! A volte è necessario fare una causa in tribunale con un avvocato.',
       sections: [
         { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Siamo sicuri che siano delle possibilità per te, ma potrebbe essere complesso se vuoi fare tutto da solo.' },
-        { heading: 'Mi serve un avvocato?', content: '🆘 È una situazione che può essere complessa 😕 e ti consigliamo di chiedere un parere legale.' },
+        { heading: 'Mi serve un avvocato?', content: '🆘 È una situazione che può essere complessa e ti consigliamo di chiedere un parere legale.' },
       ],
       links: [
         { label: 'Più informazioni su questo permesso', url: 'https://www.sospermesso.it', type: 'guide' },
@@ -831,10 +831,10 @@ export const italianTree: TreeData = {
       introText: '[Nome], se sei marito/moglie di una persona straniera che ha un permesso di soggiorno per asilo o per protezione sussidiaria, hai diritto a un permesso di soggiorno per motivi familiari.',
       sections: [
         { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Siamo sicuri ✅ che hai diritto a questo permesso.\nRicorda che anche tu potresti avere lo status di rifugiato o la protezione sussidiaria 🛡️ se anche per te è pericoloso tornare nel tuo paese.' },
-        { heading: 'E se prima di oggi non ho mai avuto un permesso in Italia?', content: 'Non importa, puoi chiedere questo permesso di soggiorno 🪪.' },
-        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'Hai diritto a questo permesso fino a che il tuo marito/moglie ha il suo permesso 💑. Puoi studiare, lavorare e avere il medico di base. Quando scade, puoi rinnovarlo o convertirlo in un permesso per lavoro 🔄.' },
-        { heading: 'Come lo posso chiedere?', content: 'Puoi chiedere questo permesso con un kit postale 📮.' },
-        { heading: 'Mi serve un avvocato?', content: '🟢 No, puoi mandare tu il kit postale da solo ✉️.' },
+        { heading: 'E se prima di oggi non ho mai avuto un permesso in Italia?', content: 'Non importa, puoi chiedere questo permesso di soggiorno.' },
+        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'Hai diritto a questo permesso fino a che il tuo marito/moglie ha il suo permesso. Puoi studiare, lavorare e avere il medico di base. Quando scade, puoi rinnovarlo o convertirlo in un permesso per lavoro.' },
+        { heading: 'Come lo posso chiedere?', content: 'Puoi chiedere questo permesso con un kit postale.' },
+        { heading: 'Mi serve un avvocato?', content: '🟢 No, puoi mandare tu il kit postale da solo.' },
       ],
       links: [
         { label: 'Più informazioni su questo permesso', url: 'https://www.sospermesso.it/Permesso-di-soggiorno-per-familiari-di-rifugiati-o-titolari-di-protezione-sussidiaria-20a7355e7f7f80f480b7d0ab51d8d305', type: 'guide' },
@@ -849,7 +849,7 @@ export const italianTree: TreeData = {
       title: 'Carta di Soggiorno per Coniuge di Lungosoggiornante',
       introText: 'Buone notizie [Nome], puoi chiedere anche tu la Carta di soggiorno per soggiornanti di lungo periodo.',
       sections: [
-        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Siamo abbastanza sicuri, se il tuo coniuge ha un reddito sufficiente 💰' },
+        { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Siamo abbastanza sicuri, se il tuo coniuge ha un reddito sufficiente.' },
         { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'Questa Carta di soggiorno dura dieci anni. Puoi studiare, lavorare e avere il medico di base. Quando la Carta scade, puoi rinnovarla.' },
         { heading: 'Come lo posso chiedere?', content: 'Personalmente in Questura, accompagnato da tuo marito/moglie.' },
         { heading: 'Mi serve un avvocato?', content: '🟢 No, puoi chiedere da solo questo permesso in Questura.' },
@@ -910,10 +910,10 @@ export const italianTree: TreeData = {
     { from: 'q_situazione', to: 'minore_start', label: 'Ho meno di 18 anni', optionKey: 'minore' },
     { from: 'q_situazione', to: 'famiglia_start', label: 'In Italia c\'è qualcuno della mia famiglia', optionKey: 'famiglia' },
     { from: 'q_situazione', to: 'coniuge_start', label: 'In Italia ho trovato l\'amore', optionKey: 'partner' },
-    { from: 'q_situazione', to: 'paura_start', label: 'Ho paura di tornare nel mio Paese perché è pericoloso', optionKey: 'paura' },
+    { from: 'q_situazione', to: 'paura_start', label: 'Ho paura di tornare nel mio Paese', optionKey: 'paura' },
     { from: 'q_situazione', to: 'end_cure_salute', label: 'Ho problemi gravi di salute', optionKey: 'salute' },
     { from: 'q_situazione', to: 'end_cure_gravidanza', label: 'Aspetto un figlio o ho appena avuto un figlio in Italia', optionKey: 'gravidanza' },
-    { from: 'q_situazione', to: 'brutta_start', label: 'Sono in una brutta situazione (ad es. sono vittima di tratta, subisco violenze, il mio datore di lavoro mi sfrutta)', optionKey: 'sfruttamento' },
+    { from: 'q_situazione', to: 'brutta_start', label: 'Sono in una brutta situazione (tratta, violenze, sfruttamento)', optionKey: 'sfruttamento' },
     { from: 'q_situazione', to: 'end_citt', label: 'Sono nato in Italia e ho sempre vissuto qui', optionKey: 'nato_italia' },
     { from: 'q_situazione', to: 'end_neg_gen', label: 'Nessuna di queste situazioni', optionKey: 'nessuna' },
 
@@ -997,6 +997,7 @@ export const italianTree: TreeData = {
     // =============================================
     // D12 — PERCORSO: FAMIGLIA (parente in Italia)
     // =============================================
+    { from: 'famiglia_start', to: 'coniuge_start', label: 'Moglie/marito', optionKey: 'coniuge' },
     { from: 'famiglia_start', to: 'figlio_start', label: 'Figlia/figlio', optionKey: 'figlio' },
     { from: 'famiglia_start', to: 'genitore_start', label: 'Genitore', optionKey: 'genitore' },
     { from: 'famiglia_start', to: 'nonno_frat', label: 'Nonna/nonno o Sorella/Fratello', optionKey: 'nonno_fratello' },

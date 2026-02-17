@@ -54,7 +54,7 @@ export function QuestionScreen({
 }: QuestionScreenProps) {
   const userName = useTreeStore((s) => s.userName);
   const answers = useTreeStore((s) => s.answers);
-  const useCategories = options.length > 5;
+  const useCategories = false;
 
   const displayQuestion = substituteVariables(question, userName, answers);
   const displayDescription = description
