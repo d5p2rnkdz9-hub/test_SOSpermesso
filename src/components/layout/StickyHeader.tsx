@@ -1,4 +1,5 @@
 import { BackButton } from '@/components/tree/BackButton';
+import { RestartButton } from '@/components/tree/RestartButton';
 
 import { LanguageSelector } from './LanguageSelector';
 
@@ -8,16 +9,14 @@ export function StickyHeader() {
       <div className="mx-auto flex h-14 max-w-[520px] items-center justify-between px-4">
         <div className="flex items-center gap-2">
           <BackButton />
-          <a
-            href="https://sospermesso.it"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-lg font-bold text-foreground"
-          >
+          <span className="text-lg font-bold text-foreground">
             SOSpermesso
-          </a>
+          </span>
         </div>
-        <LanguageSelector />
+        <div className="flex items-center gap-3">
+          <RestartButton />
+          <LanguageSelector />
+        </div>
       </div>
     </header>
   );

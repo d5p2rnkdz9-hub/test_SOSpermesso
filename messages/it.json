@@ -7,26 +7,27 @@
     "error": "Si è verificato un errore"
   },
   "welcome": {
-    "title": "Verifica il tuo diritto al permesso di soggiorno",
+    "title": "Poche domande per scoprire se puoi avere un permesso di soggiorno in Italia",
     "subtitle": "Rispondi ad alcune domande per scoprire quale permesso puoi richiedere",
     "start": "Inizia la verifica",
     "disclaimer": "Questo strumento fornisce informazioni generali, non consulenza legale."
   },
   "header": {
-    "backToStart": "Torna all'inizio"
+    "backToStart": "Torna all'inizio",
+    "restart": "Ricomincia"
   },
   "language": {
     "selectLanguage": "Seleziona lingua"
   },
   "tree": {
     "nameLabel": "Come ti chiami?",
-    "namePlaceholder": "Il tuo nome (facoltativo)",
+    "namePlaceholder": "Se vuoi, scrivi il tuo nome",
     "skipName": "Preferisco non dirlo",
     "explainer": "Se non hai un permesso di soggiorno, con poche semplici domande scoprirai se puoi AVERE un permesso di soggiorno.",
-    "policyNote": "Prima di navigare con noi nelle turbolente acque della burocrazia italiana, ricorda:\n• Prima di prendere decisioni finali è sempre meglio consultare un avvocato o un esperto legale\n• Non raccogliamo dati personali e non li condividiamo con nessuno\n• Usiamo molte parole al maschile, ma è solo per semplicità. Crediamo nella diversità e nell'identità di genere di tutte le persone",
-    "policyLink": "Leggi le policy complete",
+    "policyNote": "Cliccando accetti le policy di S.O.S. permesso:\n• Prima di prendere decisioni finali, è sempre meglio chiedere un parere legale qualificato\n• Non raccogliamo dati personali e non li condividiamo con nessuno\n• Usiamo molte parole al maschile solo per semplicità",
+    "policyLink": "Più informazioni",
     "disclaimer": "Questo strumento fornisce informazioni generali e non costituisce consulenza legale.",
-    "startButton": "Inizia la verifica",
+    "startButton": "Inizia",
     "restart": "Ricomincia",
     "outcome": {
       "title": "Il tuo risultato",
@@ -37,9 +38,9 @@
       "restart": "Ricomincia la verifica"
     },
     "postOutcome": {
-      "title": "Bene [Nome] speriamo di esserti stati utili!",
+      "title": "Ti siamo stati utili? Lascia un feedback",
       "restart": "Ricomincia il viaggio",
-      "home": "Torna alla home page di SOSpermesso",
+      "home": "Torna a SOSpermesso",
       "feedback": "Lascia un feedback"
     }
   }

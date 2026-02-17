@@ -7,26 +7,27 @@
     "error": "Une erreur s'est produite"
   },
   "welcome": {
-    "title": "Vérifiez votre droit au permis de séjour",
+    "title": "Quelques questions pour savoir si vous pouvez obtenir un permis de séjour en Italie",
     "subtitle": "Répondez à quelques questions pour découvrir quel permis vous pouvez demander",
     "start": "Commencer la vérification",
     "disclaimer": "Cet outil fournit des informations générales, pas des conseils juridiques."
   },
   "header": {
-    "backToStart": "Retour au début"
+    "backToStart": "Retour au début",
+    "restart": "Recommencer"
   },
   "language": {
     "selectLanguage": "Choisir la langue"
   },
   "tree": {
     "nameLabel": "Comment vous appelez-vous ?",
-    "namePlaceholder": "Votre nom (facultatif)",
+    "namePlaceholder": "Votre nom, si vous le souhaitez",
     "skipName": "Je préfère ne pas dire",
     "explainer": "Si vous n'avez pas de permis de séjour, en quelques questions simples vous découvrirez si vous pouvez OBTENIR un permis de séjour.",
-    "policyNote": "Avant de naviguer avec nous dans les eaux turbulentes de la bureaucratie italienne, rappelez-vous :\n• Il est toujours préférable de consulter un avocat ou un expert juridique avant de prendre des décisions définitives\n• Nous ne collectons pas de données personnelles et ne les partageons avec personne\n• Nous utilisons beaucoup de mots au masculin, mais c'est uniquement par simplicité. Nous croyons en la diversité et l'identité de genre de toutes les personnes",
-    "policyLink": "Lire la politique complète",
+    "policyNote": "En cliquant vous acceptez les politiques de S.O.S. permesso :\n• Avant de prendre des décisions définitives, il est toujours préférable de demander un avis juridique qualifié\n• Nous ne collectons pas de données personnelles et ne les partageons avec personne\n• Nous utilisons beaucoup de mots au masculin uniquement par simplicité",
+    "policyLink": "Plus d'informations",
     "disclaimer": "Cet outil fournit des informations générales et ne constitue pas un conseil juridique.",
-    "startButton": "Commencer la vérification",
+    "startButton": "Commencer",
     "restart": "Recommencer",
     "outcome": {
       "title": "Votre résultat",
@@ -37,9 +38,9 @@
       "restart": "Recommencer la vérification"
     },
     "postOutcome": {
-      "title": "Bien [Nome] nous espérons vous avoir été utiles !",
+      "title": "Vous avons-nous été utiles ? Laissez un commentaire",
       "restart": "Recommencer le voyage",
-      "home": "Aller à la page d'accueil de SOSpermesso",
+      "home": "Retour à SOSpermesso",
       "feedback": "Laisser un commentaire"
     }
   }

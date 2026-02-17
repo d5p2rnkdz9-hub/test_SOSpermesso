@@ -59,7 +59,7 @@ export const italianTree: TreeData = {
     q_situazione: {
       id: 'q_situazione',
       type: 'question',
-      question: 'Va bene [Nome]. Se non hai mai avuto un permesso di soggiorno in Italia, dobbiamo capire se sei in una di queste situazioni. Altrimenti sarà difficile aiutarti.',
+      question: 'Va bene [Nome]. Se non hai mai avuto un permesso di soggiorno in Italia, dobbiamo capire se sei in una di queste situazioni.',
       description: 'Seleziona una delle opzioni qui sotto.',
     },
 
@@ -420,7 +420,7 @@ export const italianTree: TreeData = {
       id: 'figlio_start',
       type: 'question',
       question: 'Almeno uno dei tuoi figli ha la cittadinanza italiana?',
-      description: 'Ricorda: se l\'altro genitore è cittadino italiano, vostro figlio è automaticamente cittadino italiano.',
+      description: 'Ricorda: se l\'altro genitore è cittadino italiano, vostro figlio è molto probabilmente cittadino italiano.',
     },
 
     // D16
@@ -553,7 +553,7 @@ export const italianTree: TreeData = {
       sections: [
         { heading: 'Quanto siamo sicuri di questa risposta?', content: 'Se hai un figlio minore in Italia 👶, siamo sicuri che tu possa fare domanda, ma bisogna fare una causa in tribunale e il risultato è incerto 😣' },
         { heading: 'Come lo posso chiedere?', content: 'Questo permesso non può essere chiesto direttamente in Questura ‼️ Devi fare una procedura al Tribunale per i Minorenni del territorio in cui abiti.' },
-        { heading: 'Mi serve un avvocato?', content: '🟠 In teoria puoi fare domanda al tribunale anche da solo, ma ti consigliamo di farlo con un avvocato. Come minimo, chiedi un parere legale prima. Ricorda che se hai un reddito inferiore a circa 12.800 euro all\'anno, potresti avere diritto all\'assistenza legale gratuita.' },
+        { heading: 'Mi serve un avvocato?', content: '🟠 In teoria puoi fare domanda al tribunale anche da solo, ma ti consigliamo di farlo con un avvocato. Come minimo, chiedi un parere legale prima. Ricorda che se hai un reddito inferiore a circa 13.500 euro all\'anno, potresti avere diritto all\'assistenza legale gratuita.' },
         { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'Il permesso per Art. 31 generalmente viene dato per uno/due/tre anni 📅, ma il Tribunale può decidere anche una durata diversa. Puoi avere la residenza, studiare, lavorare e avere il medico di base.' },
         { heading: 'E quando scade il permesso cosa faccio?', content: 'Se tuo figlio sarà ancora minorenne, potrai fare una nuova causa al Tribunale per i Minorenni ⚖️. Oppure, se lavori, puoi chiedere la conversione in un permesso per lavoro, con kit postale 📮.' },
       ],

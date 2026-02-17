@@ -33,7 +33,7 @@ export function AnswerCard({
         ${
           selected
             ? 'bg-foreground text-primary-foreground'
-            : 'bg-card text-card-foreground hover:bg-foreground/10'
+            : 'bg-foreground/5 text-card-foreground hover:bg-foreground/10'
         }
         ${disabled ? 'pointer-events-none opacity-70' : ''}
       `}

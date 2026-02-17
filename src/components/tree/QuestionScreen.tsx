@@ -62,7 +62,7 @@ export function QuestionScreen({
     : undefined;
 
   return (
-    <div>
+    <div className="bg-foreground/5 rounded-2xl p-5">
       <h2 className="text-2xl font-bold leading-tight">{displayQuestion}</h2>
       {displayDescription && (
         <p className="mt-2 text-foreground/70">{displayDescription}</p>
@@ -78,7 +78,7 @@ export function QuestionScreen({
 
             return (
               <div key={category}>
-                <h3 className="mt-6 first:mt-0 mb-2 text-sm font-semibold uppercase tracking-wide text-foreground/60">
+                <h3 className="mt-8 first:mt-0 mb-3 text-sm font-semibold uppercase tracking-wide text-foreground/60">
                   {category}
                 </h3>
                 <div className="flex flex-col gap-3">

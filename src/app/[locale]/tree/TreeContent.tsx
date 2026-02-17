@@ -44,7 +44,9 @@ export default function TreeContent() {
     return (
       <ContentColumn>
         <div className="flex min-h-[calc(100vh-3.5rem)] items-center justify-center">
-          <Loader2 className="h-8 w-8 animate-spin text-foreground/40" />
+          <div className="bg-foreground/5 rounded-2xl p-5">
+            <Loader2 className="h-8 w-8 animate-spin text-foreground/40" />
+          </div>
         </div>
       </ContentColumn>
     );
@@ -63,7 +65,7 @@ export default function TreeContent() {
 
     return (
       <ContentColumn>
-        <div className="py-4">
+        <div className="bg-foreground/5 rounded-2xl p-5">
           <h1 className="text-2xl font-bold">{resultNode.title}</h1>
 
           {/* Intro text with variable substitution */}
@@ -125,38 +127,31 @@ export default function TreeContent() {
           {/* Post-outcome section */}
           <div className="mt-10 border-t border-foreground/20 pt-6">
             <p className="text-lg font-semibold">
-              {sub(t('postOutcome.title'))}
+              {t('postOutcome.title')}
             </p>
+
+            <a
+              href="https://www.facebook.com/sospermesso"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 inline-block text-sm text-foreground/60 underline"
+            >
+              {t('postOutcome.feedback')}
+            </a>
 
             <Button
               size="lg"
               className="mt-4 w-full text-lg font-semibold"
-              onClick={() => {
-                reset();
-                router.push('/tree');
-              }}
+              asChild
             >
-              {t('postOutcome.restart')}
-            </Button>
-
-            <div className="mt-4 flex flex-col gap-2 text-center">
               <a
                 href="https://www.sospermesso.it"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-foreground/60 underline"
               >
                 {t('postOutcome.home')}
               </a>
-              <a
-                href="https://www.facebook.com/sospermesso"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-foreground/60 underline"
-              >
-                {t('postOutcome.feedback')}
-              </a>
-            </div>
+            </Button>
           </div>
         </div>
       </ContentColumn>

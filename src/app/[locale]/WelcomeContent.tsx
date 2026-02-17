@@ -31,11 +31,6 @@ export default function WelcomeContent() {
     router.push('/tree');
   };
 
-  const handleSkip = () => {
-    startSession(null);
-    router.push('/tree');
-  };
-
   return (
     <ContentColumn>
       <div className="flex min-h-[calc(100vh-3.5rem)] flex-col items-center justify-center text-center">
@@ -43,17 +38,7 @@ export default function WelcomeContent() {
           {t('title')}
         </h1>
 
-        <p className="mt-4 text-lg text-foreground/80">
-          {tTree('explainer')}
-        </p>
-
         <div className="mt-8 w-full">
-          <label
-            htmlFor="name-input"
-            className="block text-start text-sm font-medium text-foreground/70"
-          >
-            {tTree('nameLabel')}
-          </label>
           <input
             id="name-input"
             type="text"
@@ -63,20 +48,8 @@ export default function WelcomeContent() {
             onKeyDown={(e) => {
               if (e.key === 'Enter') handleStart();
             }}
-            className="mt-2 w-full rounded-xl border-2 border-foreground bg-card px-4 py-3 text-lg placeholder:text-foreground/40 focus:outline-none focus:ring-2 focus:ring-foreground"
+            className="w-full rounded-xl border-2 border-foreground bg-card px-4 py-3 text-lg placeholder:text-foreground/40 focus:outline-none focus:ring-2 focus:ring-foreground"
           />
-        </div>
-
-        <div className="mt-6 w-full rounded-[0.75rem] bg-foreground/5 p-4 text-start text-sm text-foreground/70">
-          <p>{tTree('policyNote')}</p>
-          <a
-            href="https://www.sospermesso.it/src/pages/privacy-policy"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-2 inline-block underline"
-          >
-            {tTree('policyLink')}
-          </a>
         </div>
 
         <Button
@@ -87,17 +60,17 @@ export default function WelcomeContent() {
           {tTree('startButton')}
         </Button>
 
-        <button
-          type="button"
-          onClick={handleSkip}
-          className="mt-3 text-sm text-foreground/60 underline"
-        >
-          {tTree('skipName')}
-        </button>
-
-        <p className="mt-8 text-sm text-foreground/50">
-          {tTree('disclaimer')}
-        </p>
+        <div className="mt-6 w-full rounded-[0.75rem] bg-foreground/5 p-4 text-start text-sm text-foreground/60">
+          <p>{tTree('policyNote')}</p>
+          <a
+            href="https://www.sospermesso.it/src/pages/privacy-policy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 inline-block underline"
+          >
+            {tTree('policyLink')}
+          </a>
+        </div>
       </div>
     </ContentColumn>
   );
