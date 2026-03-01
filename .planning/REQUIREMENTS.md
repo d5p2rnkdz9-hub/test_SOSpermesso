@@ -1,78 +1,104 @@
 # Requirements: SOSpermesso Questionnaire
 
 **Defined:** 2026-02-14
-**Core Value:** Help migrants quickly understand whether they can get a residence permit and exactly what to do next -- in their own language
+**Core Value:** Help migrants quickly understand whether they can get a residence permit and exactly what to do next — in their own language
 
-## v1 Requirements
-
-Requirements for initial release. Each maps to roadmap phases.
+## v1.0 Requirements (Completed)
 
 ### Decision Tree Core
 
-- [ ] **TREE-01**: Branching decision tree with ~40 questions across 8 main paths (minor, family, partner, fear, health, pregnancy, exploitation, born in Italy)
-- [ ] **TREE-02**: Each path terminates at a specific outcome ("scheda") -- ~25 distinct outcomes
-- [ ] **TREE-03**: Questions are yes/no or single-select multiple choice
-- [ ] **TREE-04**: Back button follows navigation history (correct for branching paths)
-- [ ] **TREE-05**: Session persistence -- user can resume if browser closes
-- [ ] **TREE-06**: Name collection at start (real or fictional)
-- [ ] **TREE-07**: Feedback/rating section at end
+- [x] **TREE-01**: Branching decision tree with ~40 questions across 8 main paths — Phase 2
+- [x] **TREE-02**: Each path terminates at a specific outcome ("scheda") — Phase 2
+- [x] **TREE-03**: Questions are yes/no or single-select multiple choice — Phase 2
+- [x] **TREE-04**: Back button follows navigation history — Phase 2
+- [x] **TREE-05**: Session persistence -- user can resume if browser closes — Phase 2
+- [x] **TREE-06**: Name collection at start (real or fictional) — Phase 2
 
-### i18n & RTL
+### i18n & RTL (Foundation)
 
-- [ ] **I18N-01**: Full content translation -- all questions, options, and outcome pages in 5 languages (IT, AR, FR, EN, ES)
-- [ ] **I18N-02**: RTL layout support for Arabic
-- [ ] **I18N-03**: Language selector accessible from any page without restarting questionnaire
-- [ ] **I18N-04**: Bidirectional text handling (Italian legal terms embedded in Arabic text)
-- [ ] **I18N-05**: AI-assisted translation pipeline with locked glossary for Italian legal terms
+- [x] **I18N-02**: RTL layout support for Arabic — Phase 1
+- [x] **I18N-03**: Language selector accessible from any page — Phase 1
 
 ### Outcome Pages (Schede)
 
-- [ ] **SCHED-01**: Rich legal guidance per outcome (permit type, eligibility, how to apply, lawyer needed, duration, rights)
-- [x] **SCHED-02**: Confidence indicators (certain vs uncertain outcomes)
-- [ ] **SCHED-03**: Legal disclaimer ("not legal advice") at start and on outcomes
-- [x] **SCHED-04**: Links to sospermesso.it guides and legal aid centers
-- [ ] **SCHED-05**: Variable substitution throughout ([Nome], [Parente selezionato])
-- [ ] **SCHED-06**: Structured FAQ-style sections (collapsible or clearly labeled)
-- [x] **SCHED-07**: Each outcome page has a stable, shareable URL
-- [ ] **SCHED-08**: WhatsApp share button on outcome pages
-- [ ] **SCHED-09**: Print-friendly version of outcome pages
+- [x] **SCHED-02**: Confidence indicators (certain vs uncertain outcomes) — Phase 3
+- [x] **SCHED-04**: Links to sospermesso.it guides and legal aid centers — Phase 3
+- [x] **SCHED-07**: Each outcome page has a stable, shareable URL — Phase 3
 
 ### UX & Design
 
-- [ ] **UX-01**: Mobile-first responsive design
-- [ ] **UX-02**: Warm, friendly, non-bureaucratic visual design
-- [ ] **UX-03**: Large touch targets (48px+), one question per screen
-- [ ] **UX-04**: Progress indication appropriate for branching paths
+- [x] **UX-01**: Mobile-first responsive design — Phase 1
+- [x] **UX-02**: Warm, friendly, non-bureaucratic visual design — Phase 1
+- [x] **UX-03**: Large touch targets (48px+), one question per screen — Phase 1
 
-### Admin
+## v1.1 Requirements
 
-- [ ] **ADMN-01**: Admin dashboard with usage analytics (completion rates, outcome distribution)
-- [ ] **ADMN-02**: Drop-off point tracking (where users abandon)
-- [ ] **ADMN-03**: Session/response tracking
+Requirements for milestone v1.1 (Polish & Translation). Each maps to roadmap phases.
+
+### Translation
+
+- [ ] **I18N-10**: All 46 tree questions display in English when locale is EN
+- [ ] **I18N-11**: All answer options display in English when locale is EN
+- [ ] **I18N-12**: All 30 outcome page titles display in English when locale is EN
+- [ ] **I18N-13**: All outcome intro text and FAQ sections display in English when locale is EN
+- [ ] **I18N-14**: Breadcrumbs show translated question labels and answer labels when locale is EN
+- [ ] **I18N-15**: Variable substitution ([Nome], [Parente selezionato]) works correctly in English content
+
+### Navigation
+
+- [ ] **NAV-01**: User can navigate back from the outcome page to the last tree question
+- [ ] **NAV-02**: User can navigate back during tree questions to the previous question with answer preserved
+- [ ] **NAV-03**: Back button is visible and functional on all pages (welcome, tree, outcome)
+
+### Visual Identity
+
+- [ ] **CSS-01**: App uses sospermesso.it yellow/gold color palette instead of current blue
+- [ ] **CSS-02**: Outcome FAQ sections use colored left-border cards matching sospermesso.it style
+- [ ] **CSS-03**: Header matches sospermesso.it style (white background, logo, consistent nav)
+- [ ] **CSS-04**: Answer cards and interactive elements restyled to match sospermesso.it identity
+
+### Deployment
+
+- [ ] **DEPL-01**: App deploys successfully on Netlify with Next.js adapter
+- [ ] **DEPL-02**: App is accessible on a subdomain of sospermesso.it (e.g. test.sospermesso.it)
 
 ## v2 Requirements
 
-Deferred to future release. Tracked but not in current roadmap.
+Deferred to future milestone. Tracked but not in current roadmap.
+
+### Translation — Additional Languages
+
+- **I18N-20**: All tree content translated into Arabic (AR)
+- **I18N-21**: All tree content translated into French (FR)
+- **I18N-22**: All tree content translated into Spanish (ES)
+- **I18N-23**: Arabic content with embedded Italian legal terms displays correct reading order
+- **I18N-24**: AI-assisted translation pipeline with locked glossary for Italian legal terms
+
+### Analytics & Feedback
+
+- **ADMN-01**: Admin dashboard with usage analytics (completion rates, outcome distribution)
+- **ADMN-02**: Drop-off point tracking (where users abandon)
+- **ADMN-03**: Session/response tracking
+- **TREE-07**: Feedback/rating section at end
+
+### Sharing & Polish
+
+- **UX-04**: Progress indication appropriate for branching paths
+- **SCHED-08**: WhatsApp share button on outcome pages
+- **SCHED-09**: Print-friendly outcome pages
 
 ### Enhanced UX
 
-- **UX-05**: Legal aid worker mode (?mode=operatore) -- condensed flow, skip reassuring text
-- **UX-06**: "I don't know" option with guidance on relevant questions
+- **UX-05**: Legal aid worker mode (?mode=operatore)
+- **UX-06**: "I don't know" option with guidance
 - **UX-07**: Path-aware progress ("2 more questions" instead of percentage)
 
 ### Content Management
 
-- **ADMN-04**: Content editing via admin UI (questions, schede, translations)
+- **ADMN-04**: Content editing via admin UI
 - **ADMN-05**: Content versioning with "last reviewed" dates
 
-### Languages
-
-- **I18N-06**: Additional languages beyond launch 5 (Bangla, Urdu, Chinese, etc.)
-- **I18N-07**: Audio narration for low-literacy users
-
 ## Out of Scope
-
-Explicitly excluded. Documented to prevent scope creep.
 
 | Feature | Reason |
 |---------|--------|
@@ -81,9 +107,9 @@ Explicitly excluded. Documented to prevent scope creep.
 | Automatic legal advice generation | Crosses information to advice line, creates liability |
 | Real-time law change updates | Requires human legal review, wrong info worse than no info |
 | Offline mode / PWA | Complexity vs value, outcome pages need internet for links |
-| WCAG AAA compliance | AA is realistic target, AAA conflicts with legal precision |
 | Mobile native app | Web responsive is sufficient for this use case |
-| Admin content editing UI (v1) | Content managed in code/data files with version control |
+| Admin content editing UI (v1.1) | Content managed in code/data files with version control |
+| Embedding in sospermesso.it via iframe | X-Frame-Options: DENY on main site |
 
 ## Traceability
 
@@ -91,40 +117,27 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| TREE-01 | Phase 2 | Pending |
-| TREE-02 | Phase 2 | Pending |
-| TREE-03 | Phase 2 | Pending |
-| TREE-04 | Phase 2 | Pending |
-| TREE-05 | Phase 2 | Pending |
-| TREE-06 | Phase 2 | Pending |
-| TREE-07 | Phase 5 | Pending |
-| I18N-01 | Phase 4 | Pending |
-| I18N-02 | Phase 1 | Complete |
-| I18N-03 | Phase 4 | Pending |
-| I18N-04 | Phase 4 | Pending |
-| I18N-05 | Phase 4 | Pending |
-| SCHED-01 | Phase 3 | Pending |
-| SCHED-02 | Phase 3 | Complete |
-| SCHED-03 | Phase 3 | Pending |
-| SCHED-04 | Phase 3 | Complete |
-| SCHED-05 | Phase 3 | Pending |
-| SCHED-06 | Phase 3 | Pending |
-| SCHED-07 | Phase 3 | Complete |
-| SCHED-08 | Phase 5 | Pending |
-| SCHED-09 | Phase 5 | Pending |
-| UX-01 | Phase 1 | Complete |
-| UX-02 | Phase 1 | Complete |
-| UX-03 | Phase 1 | Complete |
-| UX-04 | Phase 5 | Pending |
-| ADMN-01 | Phase 5 | Pending |
-| ADMN-02 | Phase 5 | Pending |
-| ADMN-03 | Phase 5 | Pending |
+| I18N-10 | TBD | Pending |
+| I18N-11 | TBD | Pending |
+| I18N-12 | TBD | Pending |
+| I18N-13 | TBD | Pending |
+| I18N-14 | TBD | Pending |
+| I18N-15 | TBD | Pending |
+| NAV-01 | TBD | Pending |
+| NAV-02 | TBD | Pending |
+| NAV-03 | TBD | Pending |
+| CSS-01 | TBD | Pending |
+| CSS-02 | TBD | Pending |
+| CSS-03 | TBD | Pending |
+| CSS-04 | TBD | Pending |
+| DEPL-01 | TBD | Pending |
+| DEPL-02 | TBD | Pending |
 
 **Coverage:**
-- v1 requirements: 28 total
-- Mapped to phases: 28
-- Unmapped: 0
+- v1.1 requirements: 15 total
+- Mapped to phases: 0
+- Unmapped: 15 ⚠️
 
 ---
 *Requirements defined: 2026-02-14*
-*Last updated: 2026-02-14 after roadmap creation*
+*Last updated: 2026-03-01 after milestone v1.1 definition*
