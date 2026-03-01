@@ -46,6 +46,7 @@ export const italianTree: TreeData = {
         { heading: 'Lavoro', content: 'Hai diritto di lavorare in Italia senza bisogno di un permesso per lavoro.' },
         { heading: 'Studio', content: 'Hai diritto di studiare in Italia senza bisogno di un permesso per studio.' },
         { heading: 'Ricongiungimento familiare', content: 'Hai diritto di far venire in Italia i tuoi familiari (anche se cittadini di Stati non-UE).' },
+        { heading: 'Mi serve un avvocato?', content: 'No, non ti serve un avvocato 🟢 Come cittadino UE non hai bisogno di un permesso di soggiorno.' },
       ],
       links: [
         { label: 'Trovi più informazioni su SOSpermesso', url: 'https://www.sospermesso.it', type: 'guide' },
@@ -737,7 +738,7 @@ export const italianTree: TreeData = {
     nonno_frat: {
       id: 'nonno_frat',
       type: 'question',
-      question: 'Tuo nonno/nonna o fratello/sorella sono cittadini italiani?',
+      question: 'Il tuo familiare in Italia è cittadino/a italiano/a?',
     },
 
     // S13 — Negativo parenti lontani
@@ -1001,6 +1002,7 @@ export const italianTree: TreeData = {
     { from: 'famiglia_start', to: 'figlio_start', label: 'Figlia/figlio', optionKey: 'figlio' },
     { from: 'famiglia_start', to: 'genitore_start', label: 'Genitore', optionKey: 'genitore' },
     { from: 'famiglia_start', to: 'nonno_frat', label: 'Nonna/nonno o Sorella/Fratello', optionKey: 'nonno_fratello' },
+    { from: 'famiglia_start', to: 'nonno_frat', label: 'Figlio del figlio (nipote)', optionKey: 'figlio_del_figlio' },
     { from: 'famiglia_start', to: 'end_neg_par', label: 'Parenti più lontani (ad esempio cugini, zii)', optionKey: 'altri_parenti' },
 
     // ========== D15-D24 — FIGLIO ==========

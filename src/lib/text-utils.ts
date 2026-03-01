@@ -13,16 +13,30 @@ const RELATIVE_LABEL_MAP: Record<string, string> = {
   prozio: 'fratello/sorella del nonno',
 };
 
+/** Maps famiglia_start optionKey → display label (fallback for non-minor paths) */
+const FAMILY_START_LABEL_MAP: Record<string, string> = {
+  coniuge: 'marito/moglie',
+  figlio: 'figlio/a',
+  genitore: 'genitore',
+  nonno_fratello: 'nonno/a o fratello/sorella',
+  figlio_del_figlio: 'nipote',
+};
+
 /**
- * Derives the selected relative label from the min_parenti answer.
+ * Derives the selected relative label from answers.
+ * Checks min_parenti first, then falls back to famiglia_start.
  * Returns the mapped label, or an empty string if no relative was selected.
  */
 export function getSelectedRelative(
   answers: Record<string, string>,
 ): string {
-  const optionKey = answers['min_parenti'];
-  if (!optionKey) return '';
-  return RELATIVE_LABEL_MAP[optionKey] ?? '';
+  const minParenti = answers['min_parenti'];
+  if (minParenti) return RELATIVE_LABEL_MAP[minParenti] ?? '';
+
+  const famigliaStart = answers['famiglia_start'];
+  if (famigliaStart) return FAMILY_START_LABEL_MAP[famigliaStart] ?? '';
+
+  return '';
 }
 
 /**
