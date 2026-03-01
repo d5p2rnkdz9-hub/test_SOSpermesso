@@ -43,5 +43,14 @@
       "home": "Volver a SOSpermesso",
       "feedback": "Dejar comentarios"
     }
+  },
+  "outcome": {
+    "readMore": "Leer mas...",
+    "disclaimer": "Esta informacion es solo orientativa y no constituye asesoramiento legal. Para una evaluacion de tu caso especifico, consulta a un abogado o a una oficina de asistencia legal.",
+    "lawyerSelf": "Puedes hacerlo solo",
+    "lawyerRecommended": "Es mejor hablar con un experto legal",
+    "linksTitle": "Enlaces utiles",
+    "breadcrumbExpand": "...",
+    "emergencyCallNow": "Llama ahora"
   }
 }

@@ -43,5 +43,14 @@
       "home": "Torna a SOSpermesso",
       "feedback": "Lascia un feedback"
     }
+  },
+  "outcome": {
+    "readMore": "Leggi di piu...",
+    "disclaimer": "Queste informazioni hanno scopo puramente orientativo e non costituiscono consulenza legale. Per una valutazione del tuo caso specifico, rivolgiti a un avvocato o a uno sportello di assistenza legale.",
+    "lawyerSelf": "Puoi fare da solo",
+    "lawyerRecommended": "E meglio parlare con un consulente legale",
+    "linksTitle": "Link utili",
+    "breadcrumbExpand": "...",
+    "emergencyCallNow": "Chiama ora"
   }
 }

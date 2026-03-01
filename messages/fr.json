@@ -43,5 +43,14 @@
       "home": "Retour à SOSpermesso",
       "feedback": "Laisser un commentaire"
     }
+  },
+  "outcome": {
+    "readMore": "Lire la suite...",
+    "disclaimer": "Ces informations sont fournies a titre indicatif et ne constituent pas un avis juridique. Pour une evaluation de votre cas specifique, consultez un avocat ou un service d'aide juridique.",
+    "lawyerSelf": "Vous pouvez le faire seul",
+    "lawyerRecommended": "Il est preferable de consulter un expert juridique",
+    "linksTitle": "Liens utiles",
+    "breadcrumbExpand": "...",
+    "emergencyCallNow": "Appelez maintenant"
   }
 }

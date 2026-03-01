@@ -43,5 +43,14 @@
       "home": "Back to SOSpermesso",
       "feedback": "Leave feedback"
     }
+  },
+  "outcome": {
+    "readMore": "Read more...",
+    "disclaimer": "This information is for guidance only and does not constitute legal advice. For an assessment of your specific case, consult a lawyer or legal aid office.",
+    "lawyerSelf": "You can do it yourself",
+    "lawyerRecommended": "It is better to consult a legal expert",
+    "linksTitle": "Useful links",
+    "breadcrumbExpand": "...",
+    "emergencyCallNow": "Call now"
   }
 }
