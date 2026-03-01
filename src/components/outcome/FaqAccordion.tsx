@@ -1,12 +1,8 @@
 'use client';
 
 import type { ResultSection } from '@/types/tree';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion';
+
+const BORDER_COLORS = ['#42A5F5', '#FFD700', '#FF5252'] as const;
 
 interface FaqAccordionProps {
   sections: ResultSection[];
@@ -22,19 +18,24 @@ export function FaqAccordion({ sections, substituteVars }: FaqAccordionProps) {
   if (displaySections.length === 0) return null;
 
   return (
-    <Accordion type="single" collapsible defaultValue="section-0">
+    <div className="flex flex-col gap-4">
       {displaySections.map((section, index) => (
-        <AccordionItem key={index} value={`section-${index}`}>
-          <AccordionTrigger className="text-start text-base font-semibold">
+        <div
+          key={index}
+          className="rounded-[24px] bg-card p-5"
+          style={{
+            borderInlineStart: `4px solid ${BORDER_COLORS[index % BORDER_COLORS.length]}`,
+            boxShadow: '0px 4px 20px rgba(0,0,0,0.08)',
+          }}
+        >
+          <h3 className="text-base font-semibold text-card-foreground">
             {section.heading}
-          </AccordionTrigger>
-          <AccordionContent>
-            <p className="whitespace-pre-line text-foreground/80">
-              {substituteVars(section.content)}
-            </p>
-          </AccordionContent>
-        </AccordionItem>
+          </h3>
+          <p className="mt-2 whitespace-pre-line text-foreground/80">
+            {substituteVars(section.content)}
+          </p>
+        </div>
       ))}
-    </Accordion>
+    </div>
   );
 }
