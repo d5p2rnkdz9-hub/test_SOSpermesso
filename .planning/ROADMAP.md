@@ -62,12 +62,11 @@ Plans:
   3. User's name and selected family member (variable substitution) appear correctly throughout the outcome text -- "[Nome]" and "[Parente selezionato]" are replaced with actual values from earlier answers
   4. Each outcome page has a stable URL (e.g., /outcome/protezione-internazionale) that can be bookmarked and directly accessed, and includes working links to relevant sospermesso.it guides and legal aid resources
   5. All 25 schede are populated with complete Italian content matching the existing SOSpermesso material
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 03-01: TBD
-- [ ] 03-02: TBD
-- [ ] 03-03: TBD
+- [ ] 03-01-PLAN.md -- CSS restyle to sospermesso.it visual identity, accordion install, slug mapping, lawyer-level utility, goBackTo store action
+- [ ] 03-02-PLAN.md -- Outcome page components (LawyerBanner, FaqAccordion, IntroText, TreeBreadcrumbs, etc.), dynamic route, redirect from tree, i18n keys, visual checkpoint
 
 ### Phase 4: Multilingual Content
 **Goal**: Users can navigate the entire decision tree and read outcome pages in any of 5 languages (Italian, Arabic, French, English, Spanish), switching language at any time without losing progress
@@ -110,6 +109,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 |-------|---------------|--------|-----------|
 | 1. i18n Foundation + Design System | 3/3 | Complete | 2026-02-16 |
 | 2. Decision Tree Engine | 3/3 | Complete | 2026-02-16 |
-| 3. Outcome Pages | 0/TBD | Not started | - |
+| 3. Outcome Pages | 0/2 | Planned | - |
 | 4. Multilingual Content | 0/TBD | Not started | - |
 | 5. Analytics + Launch Polish | 0/TBD | Not started | - |
