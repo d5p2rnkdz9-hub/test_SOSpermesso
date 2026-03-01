@@ -2,7 +2,12 @@
 
 ## Overview
 
-SOSpermesso transforms a forked Corso AI questionnaire codebase into a multilingual legal decision tree for migrants in Italy. The roadmap sequences work to avoid the 35x cost of RTL retrofitting (foundation first), validates the complex branching logic in Italian before adding translation complexity, builds rich outcome pages with variable substitution, then layers in 5-language support with Arabic RTL polish, and finishes with analytics and shareability features. Every phase delivers a testable, coherent capability.
+SOSpermesso transforms a forked Corso AI questionnaire codebase into a multilingual legal decision tree for migrants in Italy. v1.0 delivered the i18n foundation, decision tree engine, and outcome pages in Italian. v1.1 restyles the app to match sospermesso.it's visual identity, fixes navigation across all pages, translates all tree content into English as the first non-Italian language, and deploys to production on Netlify.
+
+## Milestones
+
+- **v1.0 MVP** - Phases 1-5 (foundation, tree engine, outcome pages, multilingual, analytics)
+- **v1.1 Polish & Translation** - Phases 6-9 (restyle, navigation, English translation, deployment)
 
 ## Phases
 
@@ -12,13 +17,28 @@ SOSpermesso transforms a forked Corso AI questionnaire codebase into a multiling
 
 Decimal phases appear between their surrounding integers in numeric order.
 
+<details>
+<summary>v1.0 MVP (Phases 1-5)</summary>
+
 - [x] **Phase 1: i18n Foundation + Design System** - RTL-safe layout scaffold, visual identity, mobile-first responsive design
 - [x] **Phase 2: Decision Tree Engine** - Branching navigation with ~40 questions, session persistence, Italian content
-- [ ] **Phase 3: Outcome Pages** - 25 legal guidance pages with variable substitution, confidence indicators, shareable URLs
+- [ ] **Phase 3: Outcome Pages** - 30 legal guidance pages with variable substitution, confidence indicators, shareable URLs
 - [ ] **Phase 4: Multilingual Content** - AI-assisted translation into 5 languages, language selector, bidirectional text handling
 - [ ] **Phase 5: Analytics + Launch Polish** - Admin dashboard, feedback collection, WhatsApp sharing, print-friendly outcomes, progress indicator
 
+</details>
+
+### v1.1 Polish & Translation
+
+- [ ] **Phase 6: Visual Identity Restyle** - Restyle app to match sospermesso.it yellow/gold palette, header, and card styles
+- [ ] **Phase 7: Navigation Fixes** - Back button working correctly on all pages (welcome, tree, outcome)
+- [ ] **Phase 8: English Translation** - All tree content (questions, answers, outcomes, breadcrumbs) translated and functional in English
+- [ ] **Phase 9: Production Deployment** - Deploy to Netlify on sospermesso.it subdomain
+
 ## Phase Details
+
+<details>
+<summary>v1.0 Phase Details (Phases 1-5)</summary>
 
 ### Phase 1: i18n Foundation + Design System
 **Goal**: The application renders correctly in both LTR and RTL modes with a warm, mobile-first design identity that replaces the Corso AI aesthetic
@@ -79,11 +99,6 @@ Plans:
   4. Arabic content containing embedded Italian legal terms and numbers displays with correct reading order -- no scrambled text, reversed numbers, or broken punctuation in mixed-script content
 **Plans**: TBD
 
-Plans:
-- [ ] 04-01: TBD
-- [ ] 04-02: TBD
-- [ ] 04-03: TBD
-
 ### Phase 5: Analytics + Launch Polish
 **Goal**: The tool is launch-ready with usage tracking for continuous improvement, user feedback collection, and practical features (sharing, printing, progress) that support real-world use by migrants and legal aid workers
 **Depends on**: Phase 4
@@ -95,20 +110,76 @@ Plans:
   4. After reaching an outcome, user can rate their experience and leave optional feedback that is stored and visible in the admin dashboard
 **Plans**: TBD
 
+</details>
+
+### Phase 6: Visual Identity Restyle
+**Goal**: The app visually matches sospermesso.it's identity -- yellow/gold palette, white backgrounds, colored-border cards, and consistent header -- so it feels like part of the same product
+**Depends on**: Phase 3 (outcome page components must exist to restyle)
+**Requirements**: CSS-01, CSS-02, CSS-03, CSS-04
+**Success Criteria** (what must be TRUE):
+  1. The app uses a yellow/gold color palette (primary buttons, accents, highlights) instead of the current blue, matching sospermesso.it's visual identity
+  2. Outcome FAQ sections display as cards with colored left borders matching sospermesso.it's card style, visually distinguishing each section
+  3. The header shows a white background with the SOS Permesso logo and navigation consistent with the main sospermesso.it site
+  4. Answer cards during tree questions and all interactive elements (buttons, selections, hover states) use the sospermesso.it yellow/gold visual language
+**Plans**: TBD
+
 Plans:
-- [ ] 05-01: TBD
-- [ ] 05-02: TBD
-- [ ] 05-03: TBD
+- [ ] 06-01: TBD
+
+### Phase 7: Navigation Fixes
+**Goal**: Users can navigate backward from any page in the app -- outcome back to last question, question back to previous question, and a visible back button on every page including welcome
+**Depends on**: Phase 6 (restyle should be done so navigation elements match new visual identity)
+**Requirements**: NAV-01, NAV-02, NAV-03
+**Success Criteria** (what must be TRUE):
+  1. User on an outcome page can tap back and return to the last tree question they answered, with their previous answer still selected
+  2. User navigating tree questions can tap back to return to the previous question with their answer preserved, correctly following the branching path taken (not a flat index)
+  3. A visible, functional back button appears on every page: welcome page (browser back or disabled), tree questions (previous question), and outcome page (last question)
+**Plans**: TBD
+
+Plans:
+- [ ] 07-01: TBD
+
+### Phase 8: English Translation
+**Goal**: A user with locale set to EN sees the entire tree experience -- questions, answers, outcome pages, breadcrumbs, and variable substitutions -- fully in English with no untranslated Italian strings
+**Depends on**: Phase 6 (visual components finalized before translating content that references them)
+**Requirements**: I18N-10, I18N-11, I18N-12, I18N-13, I18N-14, I18N-15
+**Success Criteria** (what must be TRUE):
+  1. All 46 tree questions and all answer options display in English when the locale is set to EN -- no Italian text leaks through
+  2. All 30 outcome page titles, intro text paragraphs, and FAQ section content display in English when locale is EN
+  3. Breadcrumbs on outcome pages show translated question labels and answer labels in English, reflecting the path the user took
+  4. Variable substitution works correctly in English content -- [Nome] is replaced with the user's entered name and [Parente selezionato] is replaced with the English label of their selected family member
+**Plans**: TBD
+
+Plans:
+- [ ] 08-01: TBD
+- [ ] 08-02: TBD
+
+### Phase 9: Production Deployment
+**Goal**: The app is live and accessible to real users on a subdomain of sospermesso.it, deployed via Netlify
+**Depends on**: Phase 8 (deploy the complete, translated, restyled app)
+**Requirements**: DEPL-01, DEPL-02
+**Success Criteria** (what must be TRUE):
+  1. The Next.js app builds and deploys successfully on Netlify using the Next.js adapter with no build errors
+  2. The app is accessible at a sospermesso.it subdomain (e.g. test.sospermesso.it) with DNS properly configured and HTTPS working
+  3. All routes work in production -- locale switching, tree navigation, outcome pages, and static assets load correctly on Netlify
+**Plans**: TBD
+
+Plans:
+- [ ] 09-01: TBD
 
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
+Phases execute in numeric order: 6 -> 7 -> 8 -> 9
 
-| Phase | Plans Complete | Status | Completed |
-|-------|---------------|--------|-----------|
-| 1. i18n Foundation + Design System | 3/3 | Complete | 2026-02-16 |
-| 2. Decision Tree Engine | 3/3 | Complete | 2026-02-16 |
-| 3. Outcome Pages | 0/2 | Planned | - |
-| 4. Multilingual Content | 0/TBD | Not started | - |
-| 5. Analytics + Launch Polish | 0/TBD | Not started | - |
+| Phase | Milestone | Plans Complete | Status | Completed |
+|-------|-----------|----------------|--------|-----------|
+| 1. i18n Foundation + Design System | v1.0 | 3/3 | Complete | 2026-02-16 |
+| 2. Decision Tree Engine | v1.0 | 3/3 | Complete | 2026-02-16 |
+| 3. Outcome Pages | v1.0 | 0/2 | Planned | - |
+| 4. Multilingual Content | v1.0 | 0/TBD | Not started | - |
+| 5. Analytics + Launch Polish | v1.0 | 0/TBD | Not started | - |
+| 6. Visual Identity Restyle | v1.1 | 0/TBD | Not started | - |
+| 7. Navigation Fixes | v1.1 | 0/TBD | Not started | - |
+| 8. English Translation | v1.1 | 0/TBD | Not started | - |
+| 9. Production Deployment | v1.1 | 0/TBD | Not started | - |
