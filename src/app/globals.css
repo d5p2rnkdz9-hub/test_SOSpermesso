@@ -24,7 +24,7 @@ li {
 
 /* Focus styles for accessibility */
 :focus-visible {
-  outline: 2px solid hsl(210 70% 45%);
+  outline: 2px solid hsl(48 100% 50%);
   outline-offset: 2px;
 }
 
@@ -35,26 +35,26 @@ html {
 
 @layer base {
   :root {
-    --background: 210 40% 96%;
-    --foreground: 215 25% 20%;
-    --card: 0 0% 100%;
-    --card-foreground: 215 25% 20%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 20%;
-    --primary: 210 70% 45%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 210 20% 92%;
-    --secondary-foreground: 215 25% 20%;
-    --muted: 210 15% 90%;
-    --muted-foreground: 215 10% 45%;
-    --accent: 210 60% 50%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84% 60%;
+    --background: 45 33% 97%;           /* #FAF9F5 warm off-white */
+    --foreground: 40 15% 20%;           /* warm dark */
+    --card: 0 0% 100%;                  /* keep white */
+    --card-foreground: 40 15% 20%;      /* warm dark */
+    --popover: 0 0% 100%;              /* keep white */
+    --popover-foreground: 40 15% 20%;
+    --primary: 48 100% 50%;             /* #FFD700 taxi-yellow */
+    --primary-foreground: 42 100% 18%;  /* #5D4E00 dark brown */
+    --secondary: 45 30% 92%;            /* warm light gray-gold */
+    --secondary-foreground: 40 15% 20%;
+    --muted: 45 15% 90%;                /* warm muted */
+    --muted-foreground: 40 10% 45%;     /* warm gray text */
+    --accent: 45 100% 42%;              /* #FFC107 amber/gold-dark */
+    --accent-foreground: 42 100% 18%;   /* dark brown */
+    --destructive: 0 84% 60%;           /* keep red */
     --destructive-foreground: 0 0% 100%;
-    --border: 210 15% 85%;
-    --input: 210 15% 85%;
-    --ring: 210 70% 45%;
-    --radius: 0.75rem;
+    --border: 40 15% 85%;               /* warm gray border */
+    --input: 40 15% 85%;                /* warm gray input border */
+    --ring: 48 100% 50%;                /* gold focus ring */
+    --radius: 0.75rem;                  /* keep 12px */
   }
 }
 
