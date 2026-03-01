@@ -8,28 +8,36 @@ A web-based legal decision tree that helps migrants in Italy determine whether t
 
 Help migrants quickly understand whether they can get a residence permit and exactly what to do next — in their own language, with a friendly and reassuring tone.
 
+## Current Milestone: v1.1 Polish & Translation
+
+**Goal:** Make the questionnaire fully multilingual, visually match sospermesso.it, fix navigation, and deploy to production.
+
+**Target features:**
+- Full i18n for tree content (questions, answers, outcomes) in 5 languages
+- CSS restyle to match sospermesso.it visual identity (yellow/gold palette, colored-border cards)
+- Back button navigation everywhere (tree, outcome, all pages)
+- Netlify deployment on sospermesso.it subdomain
+
 ## Requirements
 
 ### Validated
 
-(None yet — ship to validate)
+- ✓ Branching decision tree with ~40 questions across multiple paths — Phase 2
+- ✓ Each path terminates at a specific "scheda" (legal outcome page) — Phase 2
+- ✓ ~30 distinct outcome pages with permit type, lawyer level, intro text, links to sospermesso.it guides — Phase 3
+- ✓ Variable substitution ([Nome], [Parente selezionato]) — Phase 2-3
+- ✓ RTL (right-to-left) layout support for Arabic — Phase 1
+- ✓ i18n routing infrastructure (5 locales, next-intl, UI chrome translated) — Phase 1
+- ✓ Name collection at start — Phase 2
+- ✓ Session persistence (resume if browser closed) — Phase 2
+- ✓ Mobile-responsive — Phase 1
 
 ### Active
 
-- [ ] Branching decision tree with ~40 questions across multiple paths (minor, family, partner, fear, health, exploitation, born in Italy)
-- [ ] Each path terminates at a specific "scheda" (legal outcome page) with detailed guidance
-- [ ] ~25 distinct outcome pages with: permit type, confidence level, how to apply, lawyer needed, duration/rights, links to legal aid
-- [ ] Variable substitution throughout ([Nome], [Parente selezionato], dynamic text based on earlier answers)
-- [ ] Multi-language support: Italian (base), Arabic, French, English, Spanish at launch — architecture for 10+ languages
-- [ ] RTL (right-to-left) layout support for Arabic
-- [ ] AI-assisted translation pipeline
-- [ ] Name collection at start
-- [ ] Feedback/rating section at end
-- [ ] Friendly, warm design — reassuring tone, not clinical/bureaucratic
-- [ ] Session persistence (resume if browser closed)
-- [ ] Mobile-responsive
-- [ ] Admin dashboard: usage analytics, outcome distribution, drop-off points
-- [ ] Hosted on subdomain (e.g. test.sospermesso.it) via Vercel
+- [ ] Full tree content translation: questions, answers, outcome titles, intro text, FAQ sections in all 5 languages (IT, AR, FR, EN, ES)
+- [ ] CSS restyle to match sospermesso.it visual identity (yellow/gold, white bg, colored-border FAQ cards, SOS Permesso header)
+- [ ] Back button navigation on all pages (tree questions, outcome, welcome)
+- [ ] Deploy to Netlify on sospermesso.it subdomain (e.g. test.sospermesso.it)
 
 ### Out of Scope
 
@@ -80,10 +88,10 @@ Help migrants quickly understand whether they can get a residence permit and exa
 
 ## Constraints
 
-- **Tech stack**: Next.js + Supabase + Vercel (inherited from Corso AI fork)
+- **Tech stack**: Next.js + Netlify (migrated from Vercel)
 - **i18n**: Must support RTL from day one (Arabic) — cannot be retrofitted
 - **Content**: All question and scheda content already exists in Italian — translation is the task, not content creation
-- **Hosting**: Vercel, served from subdomain of sospermesso.it
+- **Hosting**: Netlify, served from subdomain of sospermesso.it (same platform as main site)
 - **Design**: Friendly, warm, accessible — not a government form aesthetic
 
 ## Key Decisions
@@ -96,5 +104,8 @@ Help migrants quickly understand whether they can get a residence permit and exa
 | RTL support from day one | Arabic is a launch language, RTL cannot be bolted on later | -- Pending |
 | Decision tree not quiz/assessment | No scoring — route to specific legal outcome, not proficiency level | -- Pending |
 
+| CSS restyle to sospermesso.it palette | Blue palette didn't match main site identity | -- Pending |
+| Netlify instead of Vercel | Same platform as main 11ty site, simplifies deployment | -- Pending |
+
 ---
-*Last updated: 2026-02-14 after initialization*
+*Last updated: 2026-03-01 after milestone v1.1 start*
