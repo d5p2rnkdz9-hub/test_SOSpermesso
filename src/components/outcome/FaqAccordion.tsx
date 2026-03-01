@@ -22,9 +22,11 @@ export function FaqAccordion({ sections, substituteVars }: FaqAccordionProps) {
       {displaySections.map((section, index) => (
         <div
           key={index}
-          className="rounded-3xl bg-card p-6 transition-all duration-[250ms] ease-in-out"
+          className="card-hover rounded-3xl bg-card p-6"
           style={{
-            borderInlineStart: `4px solid ${BORDER_COLORS[index % BORDER_COLORS.length]}`,
+            borderInlineStartWidth: '4px',
+            borderInlineStartStyle: 'solid',
+            borderInlineStartColor: BORDER_COLORS[index % BORDER_COLORS.length],
             boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
           }}
         >

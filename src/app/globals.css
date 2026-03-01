@@ -91,6 +91,42 @@ html {
   }
 }
 
+/* Sito_Nuovo card hover: rainbow top bar + yellow border + lift */
+.card-hover {
+  position: relative;
+  border: 3px solid transparent;
+  overflow: hidden;
+  transition: all 250ms ease-in-out;
+}
+
+.card-hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  height: 4px;
+  background: linear-gradient(90deg,
+    #FFD700 0%,
+    #FF9800 25%,
+    #EC407A 50%,
+    #AB47BC 75%,
+    #42A5F5 100%);
+  opacity: 0;
+  transition: opacity 250ms ease-in-out;
+  z-index: 1;
+}
+
+.card-hover:hover {
+  border-color: #FFEB3B;
+  box-shadow: 0 12px 40px rgba(255, 215, 0, 0.3);
+  transform: translateY(-4px);
+}
+
+.card-hover:hover::before {
+  opacity: 1;
+}
+
 /* Slide transitions for Phase 2 quiz navigation */
 .slide-enter {
   opacity: 0;
