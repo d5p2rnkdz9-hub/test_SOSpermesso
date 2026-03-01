@@ -83,7 +83,7 @@ export function OutcomePage({ nodeId }: OutcomePageProps) {
               href={permitUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3.5 text-center font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+              className="flex items-center justify-center gap-2 rounded-full border-[1.5px] border-[#FFC107] bg-primary px-4 py-3.5 text-center font-semibold text-primary-foreground transition-all hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98]"
             >
               {t('readFullGuide')}
               <ExternalLink className="h-4 w-4 shrink-0" />
@@ -95,7 +95,7 @@ export function OutcomePage({ nodeId }: OutcomePageProps) {
         <button
           type="button"
           onClick={handleRestart}
-          className="flex items-center justify-center gap-2 rounded-xl border-2 border-border bg-card px-4 py-3 font-medium text-foreground/70 transition-colors hover:bg-secondary"
+          className="flex items-center justify-center gap-2 rounded-full border-2 border-border bg-card px-4 py-3 font-medium text-foreground/70 transition-all hover:bg-secondary"
         >
           <RotateCcw className="h-4 w-4" />
           {tTree('restart')}
