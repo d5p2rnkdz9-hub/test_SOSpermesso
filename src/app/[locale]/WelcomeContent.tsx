@@ -48,7 +48,7 @@ export default function WelcomeContent() {
             onKeyDown={(e) => {
               if (e.key === 'Enter') handleStart();
             }}
-            className="w-full rounded-xl border-2 border-border bg-card px-4 py-3 text-lg placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+            className="w-full rounded-2xl border-2 border-border bg-white px-5 py-4 text-lg shadow-[0_2px_4px_rgba(0,0,0,0.1)] placeholder:text-muted-foreground transition-all duration-[250ms] ease-in-out focus:outline-none focus:ring-2 focus:ring-ring focus:border-[#FFD700]"
           />
         </div>
 
@@ -60,7 +60,7 @@ export default function WelcomeContent() {
           {tTree('startButton')}
         </Button>
 
-        <div className="mt-6 w-full rounded-[0.75rem] bg-card p-4 text-start text-sm text-muted-foreground shadow-sm">
+        <div className="mt-6 w-full rounded-2xl bg-card p-5 text-start text-sm text-muted-foreground shadow-[0_2px_4px_rgba(0,0,0,0.1)]">
           <p>{tTree('policyNote')}</p>
           <a
             href="https://www.sospermesso.it/src/pages/privacy-policy"

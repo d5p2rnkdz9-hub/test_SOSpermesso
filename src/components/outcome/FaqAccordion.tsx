@@ -22,16 +22,16 @@ export function FaqAccordion({ sections, substituteVars }: FaqAccordionProps) {
       {displaySections.map((section, index) => (
         <div
           key={index}
-          className="rounded-[24px] bg-card p-5"
+          className="rounded-3xl bg-card p-6 transition-all duration-[250ms] ease-in-out"
           style={{
             borderInlineStart: `4px solid ${BORDER_COLORS[index % BORDER_COLORS.length]}`,
-            boxShadow: '0px 4px 20px rgba(0,0,0,0.08)',
+            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
           }}
         >
-          <h3 className="text-base font-semibold text-card-foreground">
+          <h3 className="text-base font-bold text-card-foreground">
             {section.heading}
           </h3>
-          <p className="mt-2 whitespace-pre-line text-foreground/80">
+          <p className="mt-2 whitespace-pre-line leading-relaxed text-muted-foreground">
             {substituteVars(section.content)}
           </p>
         </div>

@@ -62,7 +62,7 @@ export function QuestionScreen({
     : undefined;
 
   return (
-    <div className="bg-card rounded-2xl p-5 shadow-sm">
+    <div className="bg-card rounded-3xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
       <h2 className="text-2xl font-bold leading-tight">{displayQuestion}</h2>
       {displayDescription && (
         <p className="mt-2 text-foreground/70">{displayDescription}</p>

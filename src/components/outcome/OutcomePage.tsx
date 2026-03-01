@@ -60,7 +60,7 @@ export function OutcomePage({ nodeId }: OutcomePageProps) {
         <TreeBreadcrumbs history={hydratedHistory} answers={hydratedAnswers} />
 
         {/* 2. Card container */}
-        <div className="flex flex-col gap-4 rounded-xl bg-card p-5 shadow-sm">
+        <div className="flex flex-col gap-4 rounded-3xl bg-card p-6 shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
           {/* Title */}
           <h1 className="text-xl font-bold text-card-foreground">
             {node.title && sub(node.title)}
@@ -83,7 +83,7 @@ export function OutcomePage({ nodeId }: OutcomePageProps) {
               href={permitUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 rounded-full border-[1.5px] border-[#FFC107] bg-primary px-4 py-3.5 text-center font-semibold text-primary-foreground transition-all hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98]"
+              className="flex items-center justify-center gap-2 rounded-full border-[1.5px] border-[#FFC107] bg-gradient-to-br from-[#FFF9C4] to-[#FFD700] px-6 py-3.5 text-center font-semibold text-[#5D4E00] shadow-[0_2px_4px_rgba(0,0,0,0.1)] transition-all duration-[250ms] ease-in-out hover:shadow-[0_4px_8px_rgba(0,0,0,0.12)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
             >
               {t('readFullGuide')}
               <ExternalLink className="h-4 w-4 shrink-0" />
@@ -95,7 +95,7 @@ export function OutcomePage({ nodeId }: OutcomePageProps) {
         <button
           type="button"
           onClick={handleRestart}
-          className="flex items-center justify-center gap-2 rounded-full border-2 border-border bg-card px-4 py-3 font-medium text-foreground/70 transition-all hover:bg-secondary"
+          className="flex items-center justify-center gap-2 rounded-full border-2 border-foreground bg-transparent px-4 py-3 font-medium text-foreground transition-all duration-[250ms] ease-in-out hover:bg-foreground hover:text-white"
         >
           <RotateCcw className="h-4 w-4" />
           {tTree('restart')}

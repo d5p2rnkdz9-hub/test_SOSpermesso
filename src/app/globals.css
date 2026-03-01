@@ -31,30 +31,54 @@ li {
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 @layer base {
   :root {
+    /* Colors — from Sito_Nuovo design tokens */
     --background: 45 33% 97%;           /* #FAF9F5 warm off-white */
-    --foreground: 40 15% 20%;           /* warm dark */
-    --card: 0 0% 100%;                  /* keep white */
-    --card-foreground: 40 15% 20%;      /* warm dark */
-    --popover: 0 0% 100%;              /* keep white */
-    --popover-foreground: 40 15% 20%;
+    --foreground: 0 0% 10%;             /* #1A1A1A —black */
+    --card: 0 0% 100%;                  /* white */
+    --card-foreground: 0 0% 10%;        /* #1A1A1A */
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
     --primary: 48 100% 50%;             /* #FFD700 taxi-yellow */
     --primary-foreground: 42 100% 18%;  /* #5D4E00 dark brown */
-    --secondary: 45 30% 92%;            /* warm light gray-gold */
-    --secondary-foreground: 40 15% 20%;
-    --muted: 45 15% 90%;                /* warm muted */
-    --muted-foreground: 40 10% 45%;     /* warm gray text */
-    --accent: 45 100% 42%;              /* #FFC107 amber/gold-dark */
-    --accent-foreground: 42 100% 18%;   /* dark brown */
+    --secondary: 0 0% 96%;              /* #F5F5F5 gray-light */
+    --secondary-foreground: 0 0% 18%;   /* #2D2D2D gray-dark */
+    --muted: 0 0% 96%;                  /* #F5F5F5 */
+    --muted-foreground: 0 0% 46%;       /* #757575 gray-medium */
+    --accent: 45 100% 42%;              /* #FFC107 taxi-yellow-dark */
+    --accent-foreground: 42 100% 18%;   /* #5D4E00 dark brown */
     --destructive: 0 84% 60%;           /* keep red */
     --destructive-foreground: 0 0% 100%;
-    --border: 40 15% 85%;               /* warm gray border */
-    --input: 40 15% 85%;                /* warm gray input border */
+    --border: 0 0% 90%;                 /* subtle gray border */
+    --input: 0 0% 90%;                  /* subtle gray input border */
     --ring: 48 100% 50%;                /* gold focus ring */
-    --radius: 0.75rem;                  /* keep 12px */
+    --radius: 0.75rem;                  /* 12px */
+
+    /* Sito_Nuovo shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+    --shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.18);
+
+    /* Sito_Nuovo transitions */
+    --transition-fast: 150ms ease-in-out;
+    --transition-base: 250ms ease-in-out;
+    --transition-slow: 350ms ease-in-out;
   }
 }
 
