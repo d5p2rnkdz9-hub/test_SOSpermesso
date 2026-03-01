@@ -121,10 +121,11 @@ Plans:
   2. Outcome FAQ sections display as cards with colored left borders matching sospermesso.it's card style, visually distinguishing each section
   3. The header shows a white background with the SOS Permesso logo and navigation consistent with the main sospermesso.it site
   4. Answer cards during tree questions and all interactive elements (buttons, selections, hover states) use the sospermesso.it yellow/gold visual language
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 06-01: TBD
+- [ ] 06-01-PLAN.md -- Gold palette token swap, header with logo image, pill buttons, answer card restyle
+- [ ] 06-02-PLAN.md -- FAQ cards with colored left borders (replaces accordion), visual verification checkpoint
 
 ### Phase 7: Navigation Fixes
 **Goal**: Users can navigate backward from any page in the app -- outcome back to last question, question back to previous question, and a visible back button on every page including welcome
