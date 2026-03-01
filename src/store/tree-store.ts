@@ -36,6 +36,7 @@ interface TreeActions {
   startSession: (userName: string | null) => void;
   selectOption: (optionKey: string) => void;
   goBack: () => void;
+  goBackTo: (nodeId: string) => void;
   reset: () => void;
 }
 
@@ -122,6 +123,22 @@ export const useTreeStore = create<TreeState & TreeActions>()(
         // Go back to the previous node. Do NOT remove its answer -- it stays highlighted.
         set({
           currentNodeId: previousNodeId,
+          history: newHistory,
+          outcomeId: null,
+        });
+      },
+
+      goBackTo: (nodeId: string) => {
+        const { history } = get();
+        const targetIndex = history.indexOf(nodeId);
+        if (targetIndex === -1) return; // Safety guard: nodeId not in history
+
+        // Pop history to just before the target node.
+        // Answers for popped nodes are preserved (same behavior as goBack).
+        const newHistory = history.slice(0, targetIndex);
+
+        set({
+          currentNodeId: nodeId,
           history: newHistory,
           outcomeId: null,
         });
