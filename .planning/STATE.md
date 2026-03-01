@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-03-01)
 ## Current Position
 
 Phase: 6 of 9 (Visual Identity Restyle)
-Plan: 0 of TBD in current phase
-Status: Ready to plan
-Last activity: 2026-03-01 -- v1.1 roadmap created (phases 6-9)
+Plan: 1 of 2 in current phase
+Status: Executing
+Last activity: 2026-03-01 -- Completed 06-01 (gold palette restyle)
 
-Progress: [######....] 60% (v1.0 phases 1-2 complete, phases 3-5 deferred, v1.1 phases 6-9 pending)
+Progress: [######....] 65% (v1.0 phases 1-2 complete, phases 3-5 deferred, v1.1 phase 6 plan 1/2 done)
 
 ## Performance Metrics
 
@@ -30,6 +30,7 @@ Progress: [######....] 60% (v1.0 phases 1-2 complete, phases 3-5 deferred, v1.1 
 | 01-i18n-foundation-design-system | 3/3 | 18min | 6min |
 | 02-decision-tree-engine | 3/3 | ~15min | ~5min |
 | 03-outcome-pages | 1/2 | 3min | 3min |
+| 06-visual-identity-restyle | 1/2 | 2min | 2min |
 
 ## Accumulated Context
 
@@ -45,6 +46,9 @@ Key decisions from v1.0 affecting v1.1:
 - Tree data content hardcoded in Italian in tree-data.ts -- needs locale-aware loading for Phase 8
 - sospermesso.it has X-Frame-Options: DENY -- cannot iframe
 - CSS restyle to sospermesso.it palette -- blue palette didn't match main site identity
+- [06-01]: Gold palette tokens: --primary 48 100% 50% (#FFD700), --primary-foreground 42 100% 18% (#5D4E00)
+- [06-01]: Plain img tag for logo (not Next.js Image) to keep StickyHeader as server component
+- [06-01]: Pill shape (rounded-full) for CTA buttons only, answer cards keep rounded-xl
 
 ### Pending Todos
 
@@ -59,5 +63,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-01
-Stopped at: v1.1 roadmap created with phases 6-9
-Resume with: `/gsd:plan-phase 6` to plan the Visual Identity Restyle phase
+Stopped at: Completed 06-01-PLAN.md (gold palette restyle)
+Resume with: `/gsd:execute-phase 06` to execute plan 06-02 (FAQ card restyle)

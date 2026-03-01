@@ -124,7 +124,7 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 06-01-PLAN.md -- Gold palette token swap, header with logo image, pill buttons, answer card restyle
+- [x] 06-01-PLAN.md -- Gold palette token swap, header with logo image, pill buttons, answer card restyle
 - [ ] 06-02-PLAN.md -- FAQ cards with colored left borders (replaces accordion), visual verification checkpoint
 
 ### Phase 7: Navigation Fixes
@@ -180,7 +180,7 @@ Phases execute in numeric order: 6 -> 7 -> 8 -> 9
 | 3. Outcome Pages | v1.0 | 0/2 | Planned | - |
 | 4. Multilingual Content | v1.0 | 0/TBD | Not started | - |
 | 5. Analytics + Launch Polish | v1.0 | 0/TBD | Not started | - |
-| 6. Visual Identity Restyle | v1.1 | 0/TBD | Not started | - |
+| 6. Visual Identity Restyle | v1.1 | 1/2 | In progress | - |
 | 7. Navigation Fixes | v1.1 | 0/TBD | Not started | - |
 | 8. English Translation | v1.1 | 0/TBD | Not started | - |
 | 9. Production Deployment | v1.1 | 0/TBD | Not started | - |

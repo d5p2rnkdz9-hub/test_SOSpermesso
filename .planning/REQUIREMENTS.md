@@ -52,10 +52,10 @@ Requirements for milestone v1.1 (Polish & Translation). Each maps to roadmap pha
 
 ### Visual Identity
 
-- [ ] **CSS-01**: App uses sospermesso.it yellow/gold color palette instead of current blue -- Phase 6
+- [x] **CSS-01**: App uses sospermesso.it yellow/gold color palette instead of current blue -- Phase 6
 - [ ] **CSS-02**: Outcome FAQ sections use colored left-border cards matching sospermesso.it style -- Phase 6
-- [ ] **CSS-03**: Header matches sospermesso.it style (white background, logo, consistent nav) -- Phase 6
-- [ ] **CSS-04**: Answer cards and interactive elements restyled to match sospermesso.it identity -- Phase 6
+- [x] **CSS-03**: Header matches sospermesso.it style (white background, logo, consistent nav) -- Phase 6
+- [x] **CSS-04**: Answer cards and interactive elements restyled to match sospermesso.it identity -- Phase 6
 
 ### Deployment
 
@@ -117,10 +117,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| CSS-01 | Phase 6 | Pending |
+| CSS-01 | Phase 6 | Complete |
 | CSS-02 | Phase 6 | Pending |
-| CSS-03 | Phase 6 | Pending |
-| CSS-04 | Phase 6 | Pending |
+| CSS-03 | Phase 6 | Complete |
+| CSS-04 | Phase 6 | Complete |
 | NAV-01 | Phase 7 | Pending |
 | NAV-02 | Phase 7 | Pending |
 | NAV-03 | Phase 7 | Pending |
