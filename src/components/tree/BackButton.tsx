@@ -25,7 +25,7 @@ export function BackButton() {
       type="button"
       onClick={goBack}
       aria-label={t('back')}
-      className="flex items-center gap-1 text-sm font-medium text-foreground"
+      className="flex items-center gap-1 text-sm font-medium text-primary-foreground"
     >
       <ArrowLeft className="h-5 w-5 rtl:rotate-180" />
       <span className="hidden sm:inline">{t('back')}</span>

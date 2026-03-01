@@ -27,13 +27,13 @@ export function AnswerCard({
       onClick={onSelect}
       disabled={disabled}
       className={`
-        w-full min-h-[48px] rounded-xl border-2 border-foreground
+        w-full min-h-[48px] rounded-xl border-2
         px-4 py-3 text-start font-medium
         transition-colors active:scale-[0.98]
         ${
           selected
-            ? 'bg-foreground text-primary-foreground'
-            : 'bg-foreground/5 text-card-foreground hover:bg-foreground/10'
+            ? 'border-primary bg-primary text-primary-foreground'
+            : 'border-border bg-card text-card-foreground hover:bg-secondary'
         }
         ${disabled ? 'pointer-events-none opacity-70' : ''}
       `}
