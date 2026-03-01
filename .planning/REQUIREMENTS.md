@@ -28,12 +28,12 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Outcome Pages (Schede)
 
 - [ ] **SCHED-01**: Rich legal guidance per outcome (permit type, eligibility, how to apply, lawyer needed, duration, rights)
-- [ ] **SCHED-02**: Confidence indicators (certain vs uncertain outcomes)
+- [x] **SCHED-02**: Confidence indicators (certain vs uncertain outcomes)
 - [ ] **SCHED-03**: Legal disclaimer ("not legal advice") at start and on outcomes
-- [ ] **SCHED-04**: Links to sospermesso.it guides and legal aid centers
+- [x] **SCHED-04**: Links to sospermesso.it guides and legal aid centers
 - [ ] **SCHED-05**: Variable substitution throughout ([Nome], [Parente selezionato])
 - [ ] **SCHED-06**: Structured FAQ-style sections (collapsible or clearly labeled)
-- [ ] **SCHED-07**: Each outcome page has a stable, shareable URL
+- [x] **SCHED-07**: Each outcome page has a stable, shareable URL
 - [ ] **SCHED-08**: WhatsApp share button on outcome pages
 - [ ] **SCHED-09**: Print-friendly version of outcome pages
 
@@ -104,12 +104,12 @@ Which phases cover which requirements. Updated during roadmap creation.
 | I18N-04 | Phase 4 | Pending |
 | I18N-05 | Phase 4 | Pending |
 | SCHED-01 | Phase 3 | Pending |
-| SCHED-02 | Phase 3 | Pending |
+| SCHED-02 | Phase 3 | Complete |
 | SCHED-03 | Phase 3 | Pending |
-| SCHED-04 | Phase 3 | Pending |
+| SCHED-04 | Phase 3 | Complete |
 | SCHED-05 | Phase 3 | Pending |
 | SCHED-06 | Phase 3 | Pending |
-| SCHED-07 | Phase 3 | Pending |
+| SCHED-07 | Phase 3 | Complete |
 | SCHED-08 | Phase 5 | Pending |
 | SCHED-09 | Phase 5 | Pending |
 | UX-01 | Phase 1 | Complete |
