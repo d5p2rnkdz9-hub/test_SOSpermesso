@@ -1,3 +1,16 @@
+---
+gsd_state_version: 1.0
+milestone: v1.1
+milestone_name: Polish & Translation
+status: unknown
+last_updated: "2026-03-02T10:06:48.092Z"
+progress:
+  total_phases: 4
+  completed_phases: 3
+  total_plans: 10
+  completed_plans: 9
+---
+
 # Project State
 
 ## Project Reference
