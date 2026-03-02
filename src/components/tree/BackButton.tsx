@@ -7,10 +7,17 @@ import { usePathname, useRouter } from '@/i18n/navigation';
 import { useTreeStore } from '@/store/tree-store';
 
 /**
- * Back button for the sticky header.
+ * Context-aware back button for the sticky header.
  *
- * Renders only when the user has navigation history (not at the first question).
- * On outcome pages, navigates back to /tree after popping state.
+ * Always renders (never returns null) so users never feel trapped.
+ * Behavior adapts based on the current page:
+ *
+ * - Welcome page: browser back (router.back)
+ * - Tree first question (no history): reset session, navigate to welcome
+ * - Tree mid-question (has history): pop history via goBack()
+ * - Outcome page (has history): pop history via goBack(), navigate to /tree
+ * - Outcome page (no history, direct URL): navigate to welcome
+ *
  * Arrow mirrors automatically for RTL via rtl:rotate-180.
  */
 export function BackButton() {
@@ -19,17 +26,38 @@ export function BackButton() {
   const pathname = usePathname();
   const history = useTreeStore((s) => s.history);
   const goBack = useTreeStore((s) => s.goBack);
-
-  if (history.length === 0) {
-    return null;
-  }
+  const reset = useTreeStore((s) => s.reset);
+  const sessionStartedAt = useTreeStore((s) => s.sessionStartedAt);
 
   const handleBack = () => {
-    goBack();
-    // On outcome pages, navigate back to the tree route
-    if (pathname.startsWith('/outcome')) {
-      router.replace('/tree');
+    const isOutcome = pathname.startsWith('/outcome');
+    const isTree = pathname === '/tree';
+
+    if (isOutcome) {
+      if (history.length > 0) {
+        goBack();
+        router.replace('/tree');
+      } else {
+        // Direct URL access -- no session to go back to
+        router.replace('/');
+      }
+      return;
     }
+
+    if (isTree) {
+      if (history.length > 0) {
+        // Mid-tree: go to previous question
+        goBack();
+      } else {
+        // First question: go back to welcome
+        reset();
+        router.replace('/');
+      }
+      return;
+    }
+
+    // Welcome page or unknown: browser back
+    router.back();
   };
 
   return (
