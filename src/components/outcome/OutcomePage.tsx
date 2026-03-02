@@ -15,6 +15,7 @@ import { ContentColumn } from '@/components/layout/ContentColumn';
 import { TreeBreadcrumbs } from './TreeBreadcrumbs';
 import { LawyerBanner } from './LawyerBanner';
 import { IntroText } from './IntroText';
+import { FaqAccordion } from './FaqAccordion';
 import { EmergencyNumbers } from './EmergencyNumbers';
 import { LegalDisclaimer } from './LegalDisclaimer';
 
@@ -76,6 +77,9 @@ export function OutcomePage({ nodeId }: OutcomePageProps) {
           {node.emergencyNumbers && node.emergencyNumbers.length > 0 && (
             <EmergencyNumbers numbers={node.emergencyNumbers} />
           )}
+
+          {/* FAQ Sections */}
+          <FaqAccordion sections={sections} substituteVars={sub} />
 
           {/* Link out to sospermesso.it */}
           {permitUrl && (
