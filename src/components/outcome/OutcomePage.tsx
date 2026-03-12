@@ -10,6 +10,7 @@ import { getPermitUrl } from '@/lib/permit-url-map';
 import { substituteVariables } from '@/lib/text-utils';
 import { useRouter } from '@/i18n/navigation';
 import { useTreeHydration, useTreeStore } from '@/store/tree-store';
+import { useTrackOutcome } from '@/hooks/useTrackOutcome';
 import { ContentColumn } from '@/components/layout/ContentColumn';
 
 import { TreeBreadcrumbs } from './TreeBreadcrumbs';
@@ -24,6 +25,7 @@ interface OutcomePageProps {
 }
 
 export function OutcomePage({ nodeId }: OutcomePageProps) {
+  useTrackOutcome(nodeId);
   const t = useTranslations('outcome');
   const tTree = useTranslations('tree');
   const locale = useLocale();
