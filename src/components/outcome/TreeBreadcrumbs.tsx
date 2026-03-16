@@ -3,13 +3,16 @@
 import { useState } from 'react';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 
-import { italianTree } from '@/lib/tree-data';
 import { useRouter } from '@/i18n/navigation';
-import { useTreeStore } from '@/store/tree-store';
+import type { TreeData } from '@/types/tree';
 
 interface TreeBreadcrumbsProps {
   history: string[];
   answers: Record<string, string>;
+  tree: TreeData;
+  /** Path to redirect when clicking a breadcrumb (defaults to /tree) */
+  treePath?: string;
+  onGoBackTo: (nodeId: string) => void;
 }
 
 /**
@@ -17,6 +20,7 @@ interface TreeBreadcrumbsProps {
  * Maps nodeId -> concise label (no [Nome] placeholders).
  */
 const QUESTION_LABELS: Record<string, string> = {
+  // Main Italian tree labels
   start: 'Cittadino UE?',
   q_situazione: 'Situazione',
   paura_start: 'Tipo di pericolo',
@@ -63,19 +67,36 @@ const QUESTION_LABELS: Record<string, string> = {
   con_str_sposi: 'Sposati?',
   con_str_pds: 'PdS del coniuge',
   con_str_prec: 'PdS precedente?',
+  // Conversione tree labels
+  c_quale_vuoi: 'Quale permesso?',
+  c_lav_valido: 'Permesso valido?',
+  c_lav_quale_hai: 'Permesso attuale',
+  c_lav_altro: 'Altro permesso',
+  c_lav_studi_finiti: 'Studi finiti?',
+  c_lav_titolo: 'Titolo di studio',
+  c_att_valido: 'Permesso valido?',
+  c_att_quale_hai: 'Permesso attuale',
+  c_att_altro: 'Altro permesso',
+  c_stu_valido: 'Permesso valido?',
+  c_stu_quale_hai: 'Permesso attuale',
+  c_stu_altro: 'Altro permesso',
+  c_fam_scaduto: 'Permesso valido?',
+  c_carta_valido: 'Permesso valido?',
+  c_carta_quale_hai: 'Permesso attuale',
+  c_carta_altro: 'Altro permesso',
 };
 
 /** Resolve the display label for the answer chosen at a given node */
-function getAnswerLabel(nodeId: string, optionKey: string): string {
-  const edge = italianTree.edges.find(
+function getAnswerLabel(tree: TreeData, nodeId: string, optionKey: string): string {
+  const edge = tree.edges.find(
     (e) => e.from === nodeId && e.optionKey === optionKey,
   );
   return edge?.label ?? optionKey;
 }
 
 /** Build a crumb label: "Question: Answer" or just "Answer" if no short label */
-function getCrumbLabel(nodeId: string, optionKey: string): string {
-  const answerLabel = getAnswerLabel(nodeId, optionKey);
+function getCrumbLabel(tree: TreeData, nodeId: string, optionKey: string): string {
+  const answerLabel = getAnswerLabel(tree, nodeId, optionKey);
   const questionLabel = QUESTION_LABELS[nodeId];
   if (questionLabel) {
     return `${questionLabel} ${answerLabel}`;
@@ -83,9 +104,14 @@ function getCrumbLabel(nodeId: string, optionKey: string): string {
   return answerLabel;
 }
 
-export function TreeBreadcrumbs({ history, answers }: TreeBreadcrumbsProps) {
+export function TreeBreadcrumbs({
+  history,
+  answers,
+  tree,
+  treePath = '/tree',
+  onGoBackTo,
+}: TreeBreadcrumbsProps) {
   const router = useRouter();
-  const goBackTo = useTreeStore((s) => s.goBackTo);
   const [expanded, setExpanded] = useState(false);
 
   // Don't render if no history (direct URL access)
@@ -98,7 +124,7 @@ export function TreeBreadcrumbs({ history, answers }: TreeBreadcrumbsProps) {
       if (!optionKey) return null;
       return {
         nodeId,
-        label: getCrumbLabel(nodeId, optionKey),
+        label: getCrumbLabel(tree, nodeId, optionKey),
       };
     })
     .filter(Boolean) as { nodeId: string; label: string }[];
@@ -106,8 +132,8 @@ export function TreeBreadcrumbs({ history, answers }: TreeBreadcrumbsProps) {
   if (crumbs.length === 0) return null;
 
   const handleCrumbClick = (nodeId: string) => {
-    goBackTo(nodeId);
-    router.replace('/tree');
+    onGoBackTo(nodeId);
+    router.replace(treePath);
   };
 
   // Detect RTL from document

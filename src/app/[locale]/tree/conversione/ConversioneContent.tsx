@@ -6,46 +6,44 @@ import { Loader2 } from 'lucide-react';
 import { ContentColumn } from '@/components/layout/ContentColumn';
 import { TreePlayer } from '@/components/tree';
 import { useRouter } from '@/i18n/navigation';
-import { italianTree } from '@/lib/tree-data';
+import { conversioneTree } from '@/lib/conversione-tree';
 import { isTerminalNode } from '@/lib/tree-engine';
-import { getSlugFromNodeId } from '@/lib/outcome-slugs';
-import { useTreeHydration, useTreeStore } from '@/store/tree-store';
+import { getConversioneSlugFromNodeId } from '@/lib/conversione-outcome-slugs';
+import {
+  useConversioneHydration,
+  useConversioneStore,
+} from '@/store/conversione-store';
 
-export default function TreeContent() {
+export default function ConversioneContent() {
   const router = useRouter();
 
-  const isHydrated = useTreeHydration();
-  const currentNodeId = useTreeStore((s) => s.currentNodeId);
-  const answers = useTreeStore((s) => s.answers);
-  const outcomeId = useTreeStore((s) => s.outcomeId);
-  const sessionStartedAt = useTreeStore((s) => s.sessionStartedAt);
-  const history = useTreeStore((s) => s.history);
-  const selectOption = useTreeStore((s) => s.selectOption);
+  const isHydrated = useConversioneHydration();
+  const currentNodeId = useConversioneStore((s) => s.currentNodeId);
+  const answers = useConversioneStore((s) => s.answers);
+  const outcomeId = useConversioneStore((s) => s.outcomeId);
+  const sessionStartedAt = useConversioneStore((s) => s.sessionStartedAt);
+  const history = useConversioneStore((s) => s.history);
+  const selectOption = useConversioneStore((s) => s.selectOption);
+  const startSession = useConversioneStore((s) => s.startSession);
 
-  // Redirect to welcome if user accessed /tree directly without a session
+  // Auto-start session on first visit (no welcome page for conversione test)
   useEffect(() => {
-    if (
-      isHydrated &&
-      sessionStartedAt === null &&
-      history.length === 0 &&
-      currentNodeId === italianTree.startNodeId &&
-      outcomeId === null
-    ) {
-      router.replace('/');
+    if (isHydrated && sessionStartedAt === null) {
+      startSession();
     }
-  }, [isHydrated, sessionStartedAt, history.length, currentNodeId, outcomeId, router]);
+  }, [isHydrated, sessionStartedAt, startSession]);
 
   // Redirect to outcome page when tree reaches a terminal node
   useEffect(() => {
-    if (isHydrated && outcomeId && isTerminalNode(italianTree, outcomeId)) {
-      const slug = getSlugFromNodeId(outcomeId);
+    if (isHydrated && outcomeId && isTerminalNode(conversioneTree, outcomeId)) {
+      const slug = getConversioneSlugFromNodeId(outcomeId);
       if (slug) {
-        router.replace(`/outcome/${slug}`);
+        router.replace(`/outcome/conversione/${slug}`);
       }
     }
   }, [isHydrated, outcomeId, router]);
 
-  // Hydration guard: show spinner until localStorage state is loaded
+  // Hydration guard
   if (!isHydrated) {
     return (
       <ContentColumn>
@@ -58,8 +56,8 @@ export default function TreeContent() {
     );
   }
 
-  // Redirect in progress: show spinner while navigating to outcome page
-  if (outcomeId && isTerminalNode(italianTree, outcomeId)) {
+  // Redirect in progress
+  if (outcomeId && isTerminalNode(conversioneTree, outcomeId)) {
     return (
       <ContentColumn>
         <div className="flex min-h-[calc(100vh-3.5rem)] items-center justify-center">
@@ -71,11 +69,10 @@ export default function TreeContent() {
     );
   }
 
-  // Question screen: render TreePlayer
   return (
     <ContentColumn>
       <TreePlayer
-        tree={italianTree}
+        tree={conversioneTree}
         currentNodeId={currentNodeId}
         answers={answers}
         historyLength={history.length}

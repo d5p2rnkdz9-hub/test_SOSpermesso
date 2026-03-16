@@ -3,15 +3,14 @@
 import { ExternalLink, RotateCcw } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 
-import { italianTree } from '@/lib/tree-data';
 import { getNode } from '@/lib/tree-engine';
 import { getLawyerLevel } from '@/lib/lawyer-level';
 import { getPermitUrl } from '@/lib/permit-url-map';
 import { substituteVariables } from '@/lib/text-utils';
 import { useRouter } from '@/i18n/navigation';
-import { useTreeHydration, useTreeStore } from '@/store/tree-store';
 import { useTrackOutcome } from '@/hooks/useTrackOutcome';
 import { ContentColumn } from '@/components/layout/ContentColumn';
+import type { TreeData } from '@/types/tree';
 
 import { TreeBreadcrumbs } from './TreeBreadcrumbs';
 import { LawyerBanner } from './LawyerBanner';
@@ -22,21 +21,35 @@ import { LegalDisclaimer } from './LegalDisclaimer';
 
 interface OutcomePageProps {
   nodeId: string;
+  tree: TreeData;
+  isHydrated: boolean;
+  userName: string | null;
+  answers: Record<string, string>;
+  history: string[];
+  onReset: () => void;
+  onGoBackTo: (nodeId: string) => void;
+  /** Override for breadcrumb tree path back link (defaults to /tree) */
+  treePath?: string;
 }
 
-export function OutcomePage({ nodeId }: OutcomePageProps) {
+export function OutcomePage({
+  nodeId,
+  tree,
+  isHydrated,
+  userName,
+  answers,
+  history,
+  onReset,
+  onGoBackTo,
+  treePath = '/tree',
+}: OutcomePageProps) {
   useTrackOutcome(nodeId);
   const t = useTranslations('outcome');
   const tTree = useTranslations('tree');
   const locale = useLocale();
   const router = useRouter();
-  const isHydrated = useTreeHydration();
-  const userName = useTreeStore((s) => s.userName);
-  const answers = useTreeStore((s) => s.answers);
-  const history = useTreeStore((s) => s.history);
-  const reset = useTreeStore((s) => s.reset);
 
-  const node = getNode(italianTree, nodeId);
+  const node = getNode(tree, nodeId);
   if (!node) return null;
 
   const sections = node.sections ?? [];
@@ -52,7 +65,7 @@ export function OutcomePage({ nodeId }: OutcomePageProps) {
     substituteVariables(text, hydratedName, hydratedAnswers);
 
   const handleRestart = () => {
-    reset();
+    onReset();
     router.replace('/');
   };
 
@@ -60,7 +73,13 @@ export function OutcomePage({ nodeId }: OutcomePageProps) {
     <ContentColumn>
       <div className="flex flex-col gap-4">
         {/* 1. Breadcrumbs */}
-        <TreeBreadcrumbs history={hydratedHistory} answers={hydratedAnswers} />
+        <TreeBreadcrumbs
+          history={hydratedHistory}
+          answers={hydratedAnswers}
+          tree={tree}
+          treePath={treePath}
+          onGoBackTo={onGoBackTo}
+        />
 
         {/* 2. Card container */}
         <div className="flex flex-col gap-4 rounded-3xl bg-card p-6 shadow-[0_4px_20px_rgba(0,0,0,0.08)]">

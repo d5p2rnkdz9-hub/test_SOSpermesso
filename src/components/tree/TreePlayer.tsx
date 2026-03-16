@@ -2,12 +2,19 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import { italianTree } from '@/lib/tree-data';
 import { getNode, getOptionsForNode } from '@/lib/tree-engine';
-import { useTreeStore } from '@/store/tree-store';
+import type { TreeData } from '@/types/tree';
 
 import { QuestionScreen } from './QuestionScreen';
 import { SlideTransition } from './SlideTransition';
+
+interface TreePlayerProps {
+  tree: TreeData;
+  currentNodeId: string;
+  answers: Record<string, string>;
+  historyLength: number;
+  onSelectOption: (optionKey: string) => void;
+}
 
 /**
  * Main tree orchestrator component.
@@ -19,28 +26,24 @@ import { SlideTransition } from './SlideTransition';
  * Terminal (result) nodes are NOT rendered here -- the parent
  * page checks outcomeId and renders the result screen itself.
  */
-export function TreePlayer() {
-  const currentNodeId = useTreeStore((s) => s.currentNodeId);
-  const answers = useTreeStore((s) => s.answers);
-  const selectOption = useTreeStore((s) => s.selectOption);
-
+export function TreePlayer({
+  tree,
+  currentNodeId,
+  answers,
+  historyLength,
+  onSelectOption,
+}: TreePlayerProps) {
   const [direction, setDirection] = useState<'forward' | 'back'>('forward');
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const prevHistoryLengthRef = useRef(
-    useTreeStore.getState().history.length,
-  );
+  const prevHistoryLengthRef = useRef(historyLength);
 
-  // Detect goBack by subscribing to history length changes
+  // Detect goBack by watching historyLength changes
   useEffect(() => {
-    const unsubscribe = useTreeStore.subscribe((state) => {
-      const currentLength = state.history.length;
-      if (currentLength < prevHistoryLengthRef.current) {
-        setDirection('back');
-      }
-      prevHistoryLengthRef.current = currentLength;
-    });
-    return unsubscribe;
-  }, []);
+    if (historyLength < prevHistoryLengthRef.current) {
+      setDirection('back');
+    }
+    prevHistoryLengthRef.current = historyLength;
+  }, [historyLength]);
 
   const handleSelect = useCallback(
     (optionKey: string) => {
@@ -51,15 +54,15 @@ export function TreePlayer() {
 
       // Brief delay to show selected card state before advancing
       setTimeout(() => {
-        selectOption(optionKey);
+        onSelectOption(optionKey);
         setIsTransitioning(false);
       }, 200);
     },
-    [isTransitioning, selectOption],
+    [isTransitioning, onSelectOption],
   );
 
-  const node = getNode(italianTree, currentNodeId);
-  const options = getOptionsForNode(italianTree, currentNodeId);
+  const node = getNode(tree, currentNodeId);
+  const options = getOptionsForNode(tree, currentNodeId);
   const selectedOptionKey = answers[currentNodeId] ?? null;
 
   // Terminal (result) nodes or missing nodes are not rendered by TreePlayer
