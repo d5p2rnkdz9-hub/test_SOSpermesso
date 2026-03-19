@@ -38,6 +38,30 @@ const PERMIT_PATHS: Record<string, string | null> = {
   end_carta_con: '/permesso-permesso-ue-per-soggiornanti-di-lungo-periodo-carta-di-soggiorno.html',
   end_conv_fam: '/permesso-famiglia-dopo-ingresso-con-visto-per-ricongiungimento-familiare.html',
   end_conv_neg: null, // Negative result
+
+  // Conversione tree results
+  c_end_lav_ok: '/permesso-lavoro-subordinato-conversione-da-altro-permesso.html',
+  c_end_lav_no: null,
+  c_end_lav_speciale: null,
+  c_end_lav_cure: null,
+  c_end_lav_calam: null,
+  c_end_lav_minore: null,
+  c_end_att_ok: '/permesso-attesa-occupazione.html',
+  c_end_att_no: null,
+  c_end_att_asilo: null,
+  c_end_att_incerta: null,
+  c_end_att_minore: null,
+  c_end_stu_ok: '/permesso-studio-conversione-da-altro-permesso.html',
+  c_end_stu_no: null,
+  c_end_stu_minore: null,
+  c_end_stu_speciale: null,
+  c_end_fam_ok: '/permesso-famiglia-senza-nullaosta-per-ricongiungimento-coesione-familiare.html',
+  c_end_fam_anno: null,
+  c_end_carta_ok: '/permesso-permesso-ue-per-soggiornanti-di-lungo-periodo-carta-di-soggiorno.html',
+  c_end_carta_minori: '/permesso-permesso-ue-per-soggiornanti-di-lungo-periodo-carta-di-soggiorno.html',
+  c_end_carta_no: null,
+  c_end_scaduto: null,
+  c_end_complicata: null,
 };
 
 /**
