@@ -137,17 +137,12 @@ export const conversioneTree: TreeData = {
         {
           heading: '\ud83d\udce6 Come fare',
           content:
-            'Devi presentare domanda tramite il kit postale presso gli uffici postali abilitati. La documentazione richiesta dipende dal tipo di conversione (lavoro subordinato o autonomo).',
+            'Devi prima richiedere il nulla osta presso lo Sportello Unico per l\'Immigrazione, poi presentare domanda tramite il kit postale presso gli uffici postali abilitati. La documentazione richiesta dipende dal tipo di conversione (lavoro subordinato o autonomo).',
         },
         {
           heading: '\ud83d\udcc4 Documenti necessari',
           content:
             "Per lavoro subordinato: contratto di lavoro o proposta di assunzione, nulla osta dello Sportello Unico. Per lavoro autonomo: documentazione attestante i requisiti per l'attività autonoma, iscrizione alla Camera di Commercio o ordine professionale.",
-        },
-        {
-          heading: '\u2696\ufe0f Nota legale',
-          content:
-            "Il rilascio è soggetto alla verifica dei requisiti da parte della Questura e dello Sportello Unico per l'Immigrazione.",
         },
       ],
     },
