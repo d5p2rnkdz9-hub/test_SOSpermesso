@@ -616,10 +616,9 @@ export const italianTree: TreeData = {
       id: 'end_famit_gen',
       type: 'result',
       title: 'Permesso per Motivi Familiari — Con Genitore',
-      introText: 'In base alle informazioni che ci hai dato, puoi avere un permesso di soggiorno per motivi familiari.',
+      introText: 'In base alle informazioni che ci hai dato, puoi avere un permesso "Famit", della durata di 5 anni.\nA volte in queste situazioni la Questura dà un permesso per famiglia, della durata di 2 anni.\nAlla scadenza, tutti e due possono essere convertiti in permesso per lavoro.',
       sections: [
-        { heading: 'Quanto dura questo permesso e che diritti mi dà?', content: 'In genere ha durata di 2 anni. Alla scadenza, può essere rinnovato.' },
-        { heading: 'Come lo posso chiedere?', content: 'Con kit postale, inserendo nella busta tutti i documenti necessari.' },
+        { heading: 'Come lo posso chiedere?', content: 'Puoi chiedere questi permessi personalmente in Questura.' },
         { heading: 'Mi serve un avvocato?', content: '🟠 No, ma un parere legale può essere utile a preparare tutti i documenti necessari.' },
       ],
       links: [
