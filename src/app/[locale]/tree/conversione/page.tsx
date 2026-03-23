@@ -1,5 +1,4 @@
-import { setRequestLocale } from 'next-intl/server';
-import ConversioneContent from './ConversioneContent';
+import { redirect } from 'next/navigation';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -7,6 +6,5 @@ type Props = {
 
 export default async function ConversioneTreePage({ params }: Props) {
   const { locale } = await params;
-  setRequestLocale(locale);
-  return <ConversioneContent />;
+  redirect(`/${locale}/tree/rinnovo-conversione`);
 }

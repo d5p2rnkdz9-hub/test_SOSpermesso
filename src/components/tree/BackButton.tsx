@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 
 import { usePathname, useRouter } from '@/i18n/navigation';
 import { useTreeStore } from '@/store/tree-store';
+import { useRinnovoConversioneStore } from '@/store/rinnovo-conversione-store';
 
 /**
  * Context-aware back button for the sticky header.
@@ -29,9 +30,37 @@ export function BackButton() {
   const reset = useTreeStore((s) => s.reset);
   const sessionStartedAt = useTreeStore((s) => s.sessionStartedAt);
 
+  const rcHistory = useRinnovoConversioneStore((s) => s.history);
+  const rcGoBack = useRinnovoConversioneStore((s) => s.goBack);
+  const rcReset = useRinnovoConversioneStore((s) => s.reset);
+
   const handleBack = () => {
+    const isRCOutcome = pathname.startsWith('/outcome/rinnovo-conversione');
+    const isRCTree = pathname === '/tree/rinnovo-conversione';
     const isOutcome = pathname.startsWith('/outcome');
     const isTree = pathname === '/tree';
+
+    // Rinnovo-conversione outcome pages
+    if (isRCOutcome) {
+      if (rcHistory.length > 0) {
+        rcGoBack();
+        router.replace('/tree/rinnovo-conversione');
+      } else {
+        router.replace('/');
+      }
+      return;
+    }
+
+    // Rinnovo-conversione tree
+    if (isRCTree) {
+      if (rcHistory.length > 0) {
+        rcGoBack();
+      } else {
+        rcReset();
+        router.replace('/');
+      }
+      return;
+    }
 
     if (isOutcome) {
       if (history.length > 0) {
