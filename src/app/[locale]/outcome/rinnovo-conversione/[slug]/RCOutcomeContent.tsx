@@ -29,6 +29,7 @@ export default function RCOutcomeContent({ nodeId }: RCOutcomeContentProps) {
       onReset={reset}
       onGoBackTo={goBackTo}
       treePath="/tree/rinnovo-conversione"
+      homePath="/tree/rinnovo-conversione"
     />
   );
 }

@@ -30,6 +30,8 @@ interface OutcomePageProps {
   onGoBackTo: (nodeId: string) => void;
   /** Override for breadcrumb tree path back link (defaults to /tree) */
   treePath?: string;
+  /** Override for restart/home navigation (defaults to /) */
+  homePath?: string;
 }
 
 export function OutcomePage({
@@ -42,6 +44,7 @@ export function OutcomePage({
   onReset,
   onGoBackTo,
   treePath = '/tree',
+  homePath = '/',
 }: OutcomePageProps) {
   useTrackOutcome(nodeId);
   const t = useTranslations('outcome');
@@ -66,7 +69,7 @@ export function OutcomePage({
 
   const handleRestart = () => {
     onReset();
-    router.replace('/');
+    router.replace(homePath);
   };
 
   return (

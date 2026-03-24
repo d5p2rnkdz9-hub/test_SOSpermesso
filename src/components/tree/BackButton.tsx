@@ -46,7 +46,7 @@ export function BackButton() {
         rcGoBack();
         router.replace('/tree/rinnovo-conversione');
       } else {
-        router.replace('/');
+        router.replace('/tree/rinnovo-conversione');
       }
       return;
     }
@@ -56,8 +56,9 @@ export function BackButton() {
       if (rcHistory.length > 0) {
         rcGoBack();
       } else {
+        // First question or welcome: go back to RC welcome
         rcReset();
-        router.replace('/');
+        router.replace('/tree/rinnovo-conversione');
       }
       return;
     }
