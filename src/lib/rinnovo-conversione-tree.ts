@@ -159,14 +159,6 @@ function mergedResult(nodeId: string, keys: string[], overrides?: Parameters<typ
 // ---------------------------------------------------------------------------
 
 const sharedNodes: Record<string, TreeNode> = {
-  rc_intro: {
-    id: 'rc_intro',
-    type: 'info',
-    question:
-      'Questo strumento ti aiuta a capire come rinnovare o convertire il tuo permesso di soggiorno. Rispondi a poche domande per scoprire cosa fare, quali documenti servono, e dove presentare la domanda.',
-    description: 'Rinnovare o convertire il permesso di soggiorno',
-  },
-
   rc_fork: {
     id: 'rc_fork',
     type: 'question',
@@ -445,9 +437,6 @@ const rinnovoEdges: TreeEdge[] = [
 // ---------------------------------------------------------------------------
 
 const sharedEdges: TreeEdge[] = [
-  // Intro → Fork
-  { from: 'rc_intro', to: 'rc_fork', label: 'Inizia', optionKey: 'start' },
-
   // Fork → branches
   { from: 'rc_fork', to: 'r_quale_hai', label: 'Rinnovare il permesso', optionKey: 'rinnovare' },
   { from: 'rc_fork', to: 'c_quale_hai', label: 'Convertire il permesso', optionKey: 'convertire' },
@@ -458,7 +447,7 @@ const sharedEdges: TreeEdge[] = [
 // ---------------------------------------------------------------------------
 
 export const rinnovoConversioneTree: TreeData = {
-  startNodeId: 'rc_intro',
+  startNodeId: 'rc_fork',
 
   nodes: {
     // Shared intro + fork
