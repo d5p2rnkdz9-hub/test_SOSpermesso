@@ -341,6 +341,10 @@ export const rinnovoPermits: RinnovoPermit[] = [
     rinnovoNonApplicabile: false,
     modRinnovo: ['KIT'],
     docRinnovo: [
+      'Marca da bollo da 16 €',
+      '4 fototessere',
+      'Documento che dimostri il legame di parentela',
+      'Permesso di soggiorno del familiare straniero',
     ],
     infoExtra: '',
     possoConvertire: 'Si',

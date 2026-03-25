@@ -7,7 +7,7 @@
  *   - EXISTING conversione branch (c_ prefix) — unchanged
  *
  * Flow:
- *   rc_intro → rc_fork
+ *   rc_fork
  *     ├─ "Rinnovare" → r_quale_hai → [sub-questions if needed] → r_end_*
  *     └─ "Convertire" → c_quale_hai → (existing conversione tree)
  */
@@ -15,6 +15,68 @@
 import type { TreeData, TreeNode, TreeEdge, ResultSection } from '@/types/tree';
 import { conversioneTree } from './conversione-tree';
 import { rinnovoByKey, type RinnovoPermit } from './rinnovo-notion-data.generated';
+
+// ---------------------------------------------------------------------------
+// Rinnovo permit → sospermesso.it URL map (with #rinnovo anchor)
+// ---------------------------------------------------------------------------
+
+const SOSPERMESSO_BASE = 'https://www.sospermesso.it';
+
+const RINNOVO_PERMIT_PATHS: Record<string, string | null> = {
+  // Lavoro
+  lav_sub_flussi: '/permesso-lavoro-subordinato-dopo-ingresso-con-visto-per-flussi.html',
+  lav_sub_conv: '/permesso-lavoro-subordinato-conversione-da-altro-permesso.html',
+  lav_aut_flussi: '/permesso-lavoro-autonomo-dopo-ingresso-con-visto-per-flussi.html',
+  lav_aut_conv: '/permesso-lavoro-autonomo-conversione-da-altro-permesso.html',
+  stagionale: '/permesso-lavoro-subordinato-stagionale-dopo-ingresso-con-visto-per-flussi-stagionali.html',
+  att_occ: '/permesso-attesa-occupazione.html',
+  tirocinio: '/permesso-tirocinio.html',
+  // Studio
+  studio_visto: '/permesso-studio-dopo-ingresso-con-visto.html',
+  studio_conv: '/permesso-studio-conversione-da-altro-permesso.html',
+  // Famiglia
+  fam_genitore_ita: '/permesso-famiglia-genitore-di-cittadino-italiano.html',
+  fam_ricong: '/permesso-famiglia-dopo-ingresso-con-visto-per-ricongiungimento-familiare.html',
+  fam_coesione: '/permesso-famiglia-senza-nullaosta-per-ricongiungimento-coesione-familiare.html',
+  fam_convivente_ita: '/permesso-famiglia-convivente-con-parente-cittadino-italiano-entro-il-secondo-grado.html',
+  famit_statici: '/permesso-famit-per-familiari-di-cittadini-italiani-statici.html',
+  carta_fam_ita: '/permesso-carta-di-soggiorno-per-familiari-di-italiani-dinamici.html',
+  carta_fam_ue: '/permesso-carta-di-soggiorno-per-familiari-di-cittadini-ue.html',
+  fam_rifugiato: null, // No dedicated page
+  affidamento: null, // No dedicated page
+  ass_minori: null, // Handled with custom link
+  figlio_14: null, // No dedicated page
+  // Protezione
+  asilo: '/permesso-asilo-status-rifugiato.html',
+  prot_suss: '/permesso-protezione-sussidiaria.html',
+  prot_spec: '/permesso-protezione-speciale-dopo-decisione-positiva-della-commissione-o-del-tribunale.html',
+  rich_asilo: '/permesso-richiesta-asilo.html',
+  prot_soc_violenza: '/permesso-protezione-sociale-vittime-di-violenza-domestica.html',
+  prot_soc_tratta: '/permesso-protezione-sociale-vittime-di-tratta.html',
+  sfruttamento: '/permesso-sfruttamento-lavorativo.html',
+  calamita: '/permesso-calamita-naturale.html',
+  minore: '/permesso-minore-eta-per-msna.html',
+  prosieguo: null, // No dedicated page
+  // Salute
+  cure_visto: '/permesso-cure-mediche-dopo-ingresso-con-visto-per-cure-mediche.html',
+  cure_grave: '/permesso-cure-mediche-per-persona-gravemente-malata-che-si-trova-gia-in-italia.html',
+  cure_padre: null, // No dedicated page
+  cure_gravidanza: null, // No dedicated page
+  // Altro
+  sportiva: '/permesso-attivita-sportiva.html',
+  artistico: null, // No dedicated page
+  religiosi: '/permesso-motivi-religiosi.html',
+  ricerca: null, // No dedicated page
+  apolidia: '/permesso-apolidia.html',
+  res_elettiva: '/permesso-residenza-elettiva.html',
+  carta_ue: '/permesso-ue-per-soggiornanti-di-lungo-periodo-carta-di-soggiorno.html',
+};
+
+function getRinnovoGuideUrl(treeKey: string): string | null {
+  const path = RINNOVO_PERMIT_PATHS[treeKey];
+  if (!path) return null;
+  return `${SOSPERMESSO_BASE}${path}#rinnovo`;
+}
 
 // ---------------------------------------------------------------------------
 // Helper: build a rinnovo result node from Notion data
@@ -39,6 +101,14 @@ function buildResult(
   const notPossible = method === 'n/a' || method === 'rinnovabile previa conversione' || method === '';
   const sections: ResultSection[] = [];
 
+  // --- Green/red badge + descriptive intro (Item #15) ---
+  if (!notPossible) {
+    sections.push({
+      heading: '\u2705 Rinnovo possibile — puoi fare da solo',
+      content: `Il tuo permesso per ${permit.notionName.toLowerCase()} può essere rinnovato.`,
+    });
+  }
+
   // --- Method section ---
   if (method === 'KIT') {
     sections.push({
@@ -54,34 +124,28 @@ function buildResult(
     });
   } else if (method === 'n/a') {
     sections.push({
-      heading: '\ud83d\udc68\u200d\u2696\ufe0f Mi serve un avvocato?',
+      heading: '\ud83d\udc68\u200d\u2696\ufe0f Consulenza legale consigliata',
       content:
         permit.possoConvertire
-          ? `Questo permesso non si rinnova direttamente. Tuttavia, è possibile convertirlo: ${permit.possoConvertire}. Ti consigliamo di rivolgerti a un servizio di consulenza legale.`
-          : 'Questo permesso non si rinnova direttamente. Ti consigliamo di rivolgerti a un servizio di consulenza legale per valutare le alternative.',
+          ? `Questo permesso non si rinnova direttamente. Tuttavia, è possibile convertirlo: ${permit.possoConvertire}. Ti consigliamo di rivolgerti a un servizio di consulenza legale.\n\nTrova assistenza legale gratuita: https://www.sospermesso.it/aiuto-legale-gratuito.html`
+          : 'Questo permesso non si rinnova direttamente. Ti consigliamo di rivolgerti a un servizio di consulenza legale per valutare le alternative.\n\nTrova assistenza legale gratuita: https://www.sospermesso.it/aiuto-legale-gratuito.html',
     });
   } else if (method === 'rinnovabile previa conversione') {
     sections.push({
-      heading: '\ud83d\udc68\u200d\u2696\ufe0f Mi serve un avvocato?',
+      heading: '\ud83d\udc68\u200d\u2696\ufe0f Consulenza legale consigliata',
       content:
-        'Questo permesso non si rinnova: prima della scadenza devi convertirlo in un altro tipo di permesso. Ti consigliamo di rivolgerti a un servizio di consulenza legale.',
+        'Questo permesso non si rinnova: prima della scadenza devi convertirlo in un altro tipo di permesso. Ti consigliamo di rivolgerti a un servizio di consulenza legale.\n\nTrova assistenza legale gratuita: https://www.sospermesso.it/aiuto-legale-gratuito.html',
     });
   } else if (method === '') {
     sections.push({
-      heading: '\ud83d\udc68\u200d\u2696\ufe0f Mi serve un avvocato?',
+      heading: '\ud83d\udc68\u200d\u2696\ufe0f Consulenza legale consigliata',
       content:
-        'Non abbiamo informazioni sufficienti sul rinnovo di questo permesso. Ti consigliamo di rivolgerti a un servizio di consulenza legale.',
+        'Non abbiamo informazioni sufficienti sul rinnovo di questo permesso. Ti consigliamo di rivolgerti a un servizio di consulenza legale.\n\nTrova assistenza legale gratuita: https://www.sospermesso.it/aiuto-legale-gratuito.html',
     });
   }
 
   // For "not possible" outcomes, only show the lawyer advice above — skip details
   if (!notPossible) {
-    // --- Lawyer section (green = self) for possible renewals ---
-    sections.push({
-      heading: '\ud83d\udc68\u200d\u2696\ufe0f Mi serve un avvocato?',
-      content: '\ud83d\udfe2 Puoi fare da solo! Segui le istruzioni qui sotto.',
-    });
-
     // --- Duration section ---
     if (permit.duration) {
       sections.push({
@@ -115,25 +179,25 @@ function buildResult(
     sections.push(...overrides.extraSections);
   }
 
-  // Determine title
-  let title: string;
-  if (method === 'n/a' || method === 'rinnovabile previa conversione') {
-    title = overrides?.title ?? `Rinnovo ${permit.notionName}: NON POSSIBILE`;
-  } else if (method === '') {
-    title = overrides?.title ?? `Rinnovo ${permit.notionName}: da verificare`;
-  } else {
-    title =
-      overrides?.title ??
-      `Rinnovo ${permit.notionName}: POSSIBILE (${method === 'KIT' ? 'kit postale' : 'di persona'})`;
+  // --- Link to sospermesso.it permit page with #rinnovo anchor (Item #24) ---
+  const guideUrl = getRinnovoGuideUrl(permit.treeKey);
+  if (guideUrl) {
+    sections.push({
+      heading: '\ud83d\udcda Guida completa',
+      content: `Leggi la guida completa sul rinnovo di questo permesso su SOSpermesso:\n${guideUrl}`,
+    });
   }
+
+  // Determine title — now just the permit name (Item #15: removed old header format)
+  const title = overrides?.title ?? permit.notionName;
 
   // Determine intro
   let introText: string;
   if (method === 'KIT') {
-    introText = overrides?.introText ?? 'Il rinnovo del tuo permesso è possibile tramite il kit postale.';
+    introText = overrides?.introText ?? `Il tuo permesso per ${permit.notionName.toLowerCase()} può essere rinnovato tramite il kit postale.`;
   } else if (method === 'personalmente') {
     introText =
-      overrides?.introText ?? 'Il rinnovo del tuo permesso è possibile presentandoti di persona in Questura.';
+      overrides?.introText ?? `Il tuo permesso per ${permit.notionName.toLowerCase()} può essere rinnovato presentandoti di persona in Questura.`;
   } else if (method === 'n/a' || method === 'rinnovabile previa conversione') {
     introText = overrides?.introText ?? 'Purtroppo, questo permesso non si può rinnovare direttamente.';
   } else {
@@ -192,7 +256,6 @@ const rinnovoQuestionNodes: Record<string, TreeNode> = {
     question: 'Che tipo di permesso per motivi familiari hai?',
   },
 
-
   r_quale_cure: {
     id: 'r_quale_cure',
     type: 'question',
@@ -212,42 +275,102 @@ const rinnovoQuestionNodes: Record<string, TreeNode> = {
 
 const rinnovoResultNodes: Record<string, TreeNode> = {
   // --- Lavoro (merged sub-types) ---
+  // Item #12: duration "normalmente 2 anni; se contratto indeterminato, 3 anni"
   r_end_lav_sub: mergedResult('r_end_lav_sub', ['lav_sub_flussi', 'lav_sub_conv'], {
-    title: 'Rinnovo Lavoro subordinato: POSSIBILE (kit postale)',
+    title: 'Lavoro subordinato',
+    extraSections: [{
+      heading: '\u23f3 Durata',
+      content: 'Normalmente viene dato per due anni. Se il tuo contratto di lavoro è a tempo indeterminato, può essere dato per tre anni.',
+    }],
   }),
   r_end_lav_aut: mergedResult('r_end_lav_aut', ['lav_aut_flussi', 'lav_aut_conv'], {
-    title: 'Rinnovo Lavoro autonomo: POSSIBILE (kit postale)',
+    title: 'Lavoro autonomo',
+    extraSections: [{
+      heading: '\u23f3 Durata',
+      content: 'Normalmente viene dato per due anni. Se il tuo contratto di lavoro è a tempo indeterminato, può essere dato per tre anni.',
+    }],
   }),
   r_end_stagionale: buildResult('r_end_stagionale', rinnovoByKey['stagionale']
     ? { ...rinnovoByKey['stagionale'], duration: 'fino alla scadenza del nuovo contratto di lavoro stagionale' }
     : undefined, {
-    title: 'Rinnovo Lavoro stagionale: POSSIBILE (kit postale)',
+    title: 'Lavoro stagionale',
+    // Item #20: Q&A about conversion to lavoro subordinato
+    extraSections: [{
+      heading: '\ud83d\udca1 Lo sapevi?',
+      content: 'Se hai un contratto di lavoro subordinato non stagionale, puoi anche chiedere la conversione in permesso di soggiorno per lavoro subordinato.',
+    }],
   }),
 
-  // --- Studio (separate sub-types) ---
+  // --- Studio ---
+  // Item #17: can be renewed while studies ongoing, max 3 years after
   r_end_studio: buildResult('r_end_studio', rinnovoByKey['studio_visto'], {
-    title: 'Rinnovo Studio: POSSIBILE (kit postale)',
+    title: 'Studio',
+    extraSections: [{
+      heading: '\u23f3 Durata',
+      content: 'Il permesso per studio può essere rinnovato finché proseguono gli studi, e per un massimo di 3 anni dopo la fine del percorso di studi.',
+    }],
   }),
 
   // --- Famiglia (many sub-types) ---
-  r_end_fam_genitore_ita: buildResult('r_end_fam_genitore_ita', rinnovoByKey['fam_genitore_ita']),
-  r_end_fam_ricong: buildResult('r_end_fam_ricong', rinnovoByKey['fam_ricong']),
-  r_end_fam_coesione: buildResult('r_end_fam_coesione', rinnovoByKey['fam_coesione']),
-  r_end_fam_convivente_ita: buildResult('r_end_fam_convivente_ita', rinnovoByKey['fam_convivente_ita']),
-  r_end_famit_statici: buildResult('r_end_famit_statici', rinnovoByKey['famit_statici']),
-  r_end_carta_fam_ita: buildResult('r_end_carta_fam_ita', rinnovoByKey['carta_fam_ita']),
-  r_end_carta_fam_ue: buildResult('r_end_carta_fam_ue', rinnovoByKey['carta_fam_ue']),
-  r_end_fam_rifugiato: buildResult('r_end_fam_rifugiato', rinnovoByKey['fam_rifugiato']),
-  r_end_affidamento: buildResult('r_end_affidamento', rinnovoByKey['affidamento']),
+  // Item #9: Remove "conversione con kit" warning from fam_genitore_ita
+  r_end_fam_genitore_ita: buildResult('r_end_fam_genitore_ita',
+    rinnovoByKey['fam_genitore_ita']
+      ? {
+        ...rinnovoByKey['fam_genitore_ita'],
+        infoExtra: rinnovoByKey['fam_genitore_ita'].infoExtra
+          .replace(/\n\nAttenzione: se stai chiedendo questo permesso come conversione da altro permesso, la domanda si fa con kit/g, ''),
+      }
+      : undefined, {
+    title: 'Famiglia - genitore di cittadino italiano',
+  }),
+  r_end_fam_ricong: buildResult('r_end_fam_ricong', rinnovoByKey['fam_ricong'], {
+    title: 'Famiglia - ricongiungimento familiare',
+  }),
+  r_end_fam_coesione: buildResult('r_end_fam_coesione', rinnovoByKey['fam_coesione'], {
+    title: 'Famiglia - coesione familiare',
+  }),
+  r_end_fam_convivente_ita: buildResult('r_end_fam_convivente_ita', rinnovoByKey['fam_convivente_ita'], {
+    title: 'Famiglia - convivente con parente italiano',
+  }),
+  r_end_famit_statici: buildResult('r_end_famit_statici', rinnovoByKey['famit_statici'], {
+    title: 'FAMIT per familiari di cittadini italiani',
+  }),
+  // Item #11: after first renewal it becomes permanent
+  r_end_carta_fam_ita: buildResult('r_end_carta_fam_ita', rinnovoByKey['carta_fam_ita'], {
+    title: 'Carta di soggiorno per familiari di italiani',
+    extraSections: [{
+      heading: '\ud83d\udca1 Lo sapevi?',
+      content: 'Dopo il primo rinnovo (dopo 5 anni), la carta di soggiorno diventa permanente. Dopo quel momento, sarà sufficiente aggiornare i dati personali ogni 10 anni.',
+    }],
+  }),
+  // Item #10: after first renewal it becomes permanent
+  r_end_carta_fam_ue: buildResult('r_end_carta_fam_ue', rinnovoByKey['carta_fam_ue'], {
+    title: 'Carta di soggiorno per familiari di cittadini UE',
+    extraSections: [{
+      heading: '\ud83d\udca1 Lo sapevi?',
+      content: 'Dopo il primo rinnovo (dopo 5 anni), la carta di soggiorno diventa permanente. Dopo quel momento, sarà sufficiente aggiornare i dati personali ogni 10 anni.',
+    }],
+  }),
+  r_end_fam_rifugiato: buildResult('r_end_fam_rifugiato', rinnovoByKey['fam_rifugiato'], {
+    title: 'Familiari di rifugiato o protezione sussidiaria',
+  }),
+  // Item #23: affidamento — specify can convert to studio, lavoro, attesa occupazione
+  r_end_affidamento: buildResult('r_end_affidamento', rinnovoByKey['affidamento'], {
+    title: 'Affidamento a familiari entro il quarto grado',
+    extraSections: [{
+      heading: '\ud83d\udd04 Conversione',
+      content: 'Questo permesso può essere convertito in permesso per studio, per lavoro, o per attesa occupazione.',
+    }],
+  }),
   r_end_ass_minori: {
     id: 'r_end_ass_minori',
     type: 'result',
-    title: 'Rinnovo Assistenza minori (Art. 31): NON POSSIBILE',
+    title: 'Assistenza minori (Art. 31)',
     introText: 'Questo permesso non può essere rinnovato. Per ottenere un nuovo permesso Art. 31 è necessario fare una nuova causa al Tribunale per i Minorenni.',
     sections: [
       {
-        heading: '\ud83d\udc68\u200d\u2696\ufe0f Mi serve un avvocato?',
-        content: 'Sì, hai bisogno di un avvocato per presentare un nuovo ricorso al Tribunale per i Minorenni.',
+        heading: '\ud83d\udc68\u200d\u2696\ufe0f Consulenza legale necessaria',
+        content: 'Sì, hai bisogno di un avvocato per presentare un nuovo ricorso al Tribunale per i Minorenni.\n\nTrova assistenza legale gratuita: https://www.sospermesso.it/aiuto-legale-gratuito.html',
       },
       {
         heading: '\ud83d\udccc Cosa fare',
@@ -257,58 +380,108 @@ const rinnovoResultNodes: Record<string, TreeNode> = {
   },
 
   // --- Protezione ---
-  r_end_asilo: buildResult('r_end_asilo', rinnovoByKey['asilo']),
-  r_end_prot_suss: buildResult('r_end_prot_suss', rinnovoByKey['prot_suss']),
+  // Item #16: Q&A about citizenship after 5 years
+  r_end_asilo: buildResult('r_end_asilo', rinnovoByKey['asilo'], {
+    title: 'Asilo (status di rifugiato)',
+    extraSections: [{
+      heading: '\ud83d\udca1 Lo sapevi?',
+      content: 'Puoi chiedere la cittadinanza italiana dopo 5 anni dalla tua domanda di asilo. Chiedi aiuto legale per sapere come fare.',
+    }],
+  }),
+  r_end_prot_suss: buildResult('r_end_prot_suss', rinnovoByKey['prot_suss'], {
+    title: 'Protezione sussidiaria',
+    // Item #16: same Q&A for prot sussidiaria
+    extraSections: [{
+      heading: '\ud83d\udca1 Lo sapevi?',
+      content: 'Puoi chiedere la cittadinanza italiana dopo 5 anni dalla tua domanda di asilo. Chiedi aiuto legale per sapere come fare.',
+    }],
+  }),
+  // Item #22: don't say impossible, say dubious/can be attempted
   r_end_prot_spec: {
     id: 'r_end_prot_spec',
     type: 'result',
-    title: 'Rinnovo Protezione speciale',
-    introText: 'Il rinnovo della protezione speciale è una questione complessa e controversa. Ti consigliamo di rivolgerti subito a un consulente legale.',
+    title: 'Protezione speciale',
+    introText: 'Il rinnovo della protezione speciale è una questione complessa. In alcuni casi è possibile, ma è fortemente consigliato rivolgersi a un consulente legale.',
     sections: [
       {
-        heading: '\ud83d\udc68\u200d\u2696\ufe0f Mi serve un avvocato?',
-        content: 'Sì, ti consigliamo di rivolgerti a un servizio di consulenza legale il prima possibile.',
-      },
-    ],
-  },
-  r_end_rich_asilo: buildResult('r_end_rich_asilo', rinnovoByKey['rich_asilo']),
-  r_end_sfruttamento: buildResult('r_end_sfruttamento', rinnovoByKey['sfruttamento']),
-  r_end_prot_soc_violenza: buildResult('r_end_prot_soc_violenza', rinnovoByKey['prot_soc_violenza']),
-  r_end_prot_soc_tratta: buildResult('r_end_prot_soc_tratta', rinnovoByKey['prot_soc_tratta']),
-  r_end_calamita: buildResult('r_end_calamita', rinnovoByKey['calamita']),
-  r_end_minore: {
-    id: 'r_end_minore',
-    type: 'result',
-    title: 'Rinnovo Minore età (per MSNA)',
-    introText: 'Il permesso per minore età è rinnovabile fino al compimento dei 18 anni. Dopo i 18 anni devi convertirlo in un altro tipo di permesso.',
-    sections: [
-      {
-        heading: '\ud83d\udc68\u200d\u2696\ufe0f Mi serve un avvocato?',
-        content: 'Ti consigliamo di rivolgerti a un servizio di consulenza legale per valutare le opzioni di conversione prima della scadenza.',
+        heading: '\ud83d\udc68\u200d\u2696\ufe0f Consulenza legale consigliata',
+        content: 'Il rinnovo della protezione speciale non è sempre garantito e dipende dalle circostanze specifiche del tuo caso. In alcune situazioni è possibile ottenerlo. Ti consigliamo di rivolgerti a un servizio di consulenza legale il prima possibile per valutare le tue opzioni.\n\nTrova assistenza legale gratuita: https://www.sospermesso.it/aiuto-legale-gratuito.html',
       },
       {
         heading: '\ud83d\udd04 Conversione',
-        content: 'Quando compi 18 anni, dovrai convertire il permesso in un altro tipo (ad es. studio, lavoro, attesa occupazione). Torna indietro e scegli "Convertire il permesso" per scoprire le tue opzioni.',
+        content: 'Se il rinnovo non è possibile, potresti valutare la conversione in un altro tipo di permesso (ad es. lavoro o studio). Un consulente legale può aiutarti a capire le alternative.',
+      },
+    ],
+  },
+  r_end_rich_asilo: buildResult('r_end_rich_asilo', rinnovoByKey['rich_asilo'], {
+    title: 'Richiesta asilo',
+    // Item #18: specify duration "fino a un anno"
+    extraSections: [{
+      heading: '\u23f3 Durata',
+      content: 'Il permesso per richiesta asilo dura fino a un anno ed è rinnovabile fino alla decisione della Commissione.',
+    }],
+  }),
+  // Item #26: sfruttamento — specify can convert to lavoro autonomo o subordinato
+  r_end_sfruttamento: buildResult('r_end_sfruttamento', rinnovoByKey['sfruttamento'], {
+    title: 'Sfruttamento lavorativo',
+    extraSections: [{
+      heading: '\ud83d\udd04 Conversione',
+      content: 'Questo permesso può essere convertito in permesso per lavoro autonomo o subordinato.',
+    }],
+  }),
+  r_end_prot_soc_violenza: buildResult('r_end_prot_soc_violenza', rinnovoByKey['prot_soc_violenza'], {
+    title: 'Protezione sociale - vittime di violenza domestica',
+  }),
+  r_end_prot_soc_tratta: buildResult('r_end_prot_soc_tratta', rinnovoByKey['prot_soc_tratta'], {
+    title: 'Protezione sociale - vittime di tratta',
+  }),
+  r_end_calamita: buildResult('r_end_calamita', rinnovoByKey['calamita'], {
+    title: 'Calamità naturale',
+  }),
+  // Item #13: renewable until 18, then needs to be converted — link to conversione
+  r_end_minore: {
+    id: 'r_end_minore',
+    type: 'result',
+    title: 'Minore età (per MSNA)',
+    introText: 'Il permesso per minore età è rinnovabile fino al compimento dei 18 anni.',
+    sections: [
+      {
+        heading: '\u2705 Rinnovo possibile',
+        content: 'Il tuo permesso per minore età può essere rinnovato finché non compi 18 anni.',
+      },
+      {
+        heading: '\u26a0\ufe0f Al compimento dei 18 anni',
+        content: 'Quando compi 18 anni, il permesso per minore età scade e non può più essere rinnovato. Dovrai convertirlo in un altro tipo di permesso (ad es. studio, lavoro, attesa occupazione, prosieguo amministrativo).',
+      },
+      {
+        heading: '\ud83d\udd04 Conversione',
+        content: 'Torna indietro e scegli "Convertire il permesso" per scoprire le tue opzioni di conversione. Ti consigliamo di iniziare la procedura prima del compimento dei 18 anni.',
+      },
+      {
+        heading: '\ud83d\udc68\u200d\u2696\ufe0f Consulenza legale consigliata',
+        content: 'Ti consigliamo di rivolgerti a un servizio di consulenza legale per valutare le opzioni di conversione prima della scadenza.\n\nTrova assistenza legale gratuita: https://www.sospermesso.it/aiuto-legale-gratuito.html',
       },
     ],
   },
 
-  // --- Cure mediche (separate sub-types) ---
-  r_end_cure_visto: buildResult('r_end_cure_visto', rinnovoByKey['cure_visto']),
+  // --- Cure mediche ---
+  r_end_cure_visto: buildResult('r_end_cure_visto', rinnovoByKey['cure_visto'], {
+    title: 'Cure mediche (ingresso con visto)',
+  }),
   r_end_cure_grave: buildResult('r_end_cure_grave', rinnovoByKey['cure_grave']
     ? { ...rinnovoByKey['cure_grave'], modRinnovo: ['personalmente'] }
     : undefined, {
-    title: 'Rinnovo Cure mediche per persona gravemente malata: POSSIBILE (di persona in Questura)',
+    title: 'Cure mediche - persona gravemente malata',
   }),
   r_end_cure_padre: {
     id: 'r_end_cure_padre',
     type: 'result',
-    title: 'Rinnovo Cure mediche (padre): NON POSSIBILE',
+    title: 'Cure mediche (padre)',
     introText: 'Questo permesso dura solo 6 mesi dalla nascita del bambino e non è rinnovabile né convertibile.',
     sections: [
       {
-        heading: '\ud83d\udc68\u200d\u2696\ufe0f Mi serve un avvocato?',
-        content: 'Ti consigliamo di rivolgerti a un servizio di consulenza legale.',
+        heading: '\ud83d\udc68\u200d\u2696\ufe0f Consulenza legale consigliata',
+        content: 'Ti consigliamo di rivolgerti a un servizio di consulenza legale.\n\nTrova assistenza legale gratuita: https://www.sospermesso.it/aiuto-legale-gratuito.html',
       },
       {
         heading: '\ud83d\udca1 Alternativa possibile',
@@ -319,12 +492,12 @@ const rinnovoResultNodes: Record<string, TreeNode> = {
   r_end_cure_gravidanza: {
     id: 'r_end_cure_gravidanza',
     type: 'result',
-    title: 'Rinnovo Cure mediche (gravidanza/maternità): NON POSSIBILE',
+    title: 'Cure mediche (gravidanza/maternità)',
     introText: 'Questo permesso dura solo 6 mesi dalla nascita del bambino e non è rinnovabile né convertibile.',
     sections: [
       {
-        heading: '\ud83d\udc68\u200d\u2696\ufe0f Mi serve un avvocato?',
-        content: 'Ti consigliamo di rivolgerti a un servizio di consulenza legale.',
+        heading: '\ud83d\udc68\u200d\u2696\ufe0f Consulenza legale consigliata',
+        content: 'Ti consigliamo di rivolgerti a un servizio di consulenza legale.\n\nTrova assistenza legale gratuita: https://www.sospermesso.it/aiuto-legale-gratuito.html',
       },
       {
         heading: '\ud83d\udca1 Alternativa possibile',
@@ -334,17 +507,58 @@ const rinnovoResultNodes: Record<string, TreeNode> = {
   },
 
   // --- Altro ---
-  r_end_att_occ: buildResult('r_end_att_occ', rinnovoByKey['att_occ']),
-  r_end_sportiva: buildResult('r_end_sportiva', rinnovoByKey['sportiva']),
-  r_end_apolidia: buildResult('r_end_apolidia', rinnovoByKey['apolidia']),
-  r_end_res_elettiva: buildResult('r_end_res_elettiva', rinnovoByKey['res_elettiva']),
-  r_end_artistico: buildResult('r_end_artistico', rinnovoByKey['artistico']),
-  r_end_religiosi: buildResult('r_end_religiosi', rinnovoByKey['religiosi']),
-  r_end_ricerca: buildResult('r_end_ricerca', rinnovoByKey['ricerca']),
-  r_end_tirocinio: buildResult('r_end_tirocinio', rinnovoByKey['tirocinio']),
-  r_end_carta_ue: buildResult('r_end_carta_ue', rinnovoByKey['carta_ue']),
-  r_end_prosieguo: buildResult('r_end_prosieguo', rinnovoByKey['prosieguo']),
-  r_end_figlio_14: buildResult('r_end_figlio_14', rinnovoByKey['figlio_14']),
+  r_end_att_occ: buildResult('r_end_att_occ', rinnovoByKey['att_occ'], {
+    title: 'Attesa occupazione',
+  }),
+  r_end_sportiva: buildResult('r_end_sportiva', rinnovoByKey['sportiva'], {
+    title: 'Attività sportiva',
+    // Item #26: specify can convert to lavoro
+    extraSections: [{
+      heading: '\ud83d\udd04 Conversione',
+      content: 'Questo permesso può essere convertito in permesso per motivi di lavoro.',
+    }],
+  }),
+  r_end_apolidia: buildResult('r_end_apolidia', rinnovoByKey['apolidia'], {
+    title: 'Apolidia',
+  }),
+  r_end_res_elettiva: buildResult('r_end_res_elettiva', rinnovoByKey['res_elettiva'], {
+    title: 'Residenza elettiva',
+  }),
+  r_end_artistico: buildResult('r_end_artistico', rinnovoByKey['artistico'], {
+    title: 'Lavoro artistico',
+  }),
+  r_end_religiosi: buildResult('r_end_religiosi', rinnovoByKey['religiosi'], {
+    title: 'Motivi religiosi',
+  }),
+  r_end_ricerca: buildResult('r_end_ricerca', rinnovoByKey['ricerca'], {
+    title: 'Ricerca scientifica',
+  }),
+  r_end_tirocinio: buildResult('r_end_tirocinio', rinnovoByKey['tirocinio'], {
+    title: 'Tirocinio',
+  }),
+  // Item #14: Carta UE — it's not renewal, it's "aggiornamento"; remove primo rilascio notes
+  r_end_carta_ue: buildResult('r_end_carta_ue',
+    rinnovoByKey['carta_ue']
+      ? {
+        ...rinnovoByKey['carta_ue'],
+        // Strip the "NOTA documenti primo rilascio" block from infoExtra
+        infoExtra: rinnovoByKey['carta_ue'].infoExtra
+          .replace(/\n\nNOTA documenti primo rilascio[\s\S]*$/, ''),
+      }
+      : undefined, {
+    title: 'Carta UE per soggiornanti di lungo periodo',
+    introText: 'La Carta UE per soggiornanti di lungo periodo ha durata illimitata e non necessita di rinnovo. Dopo 10 anni è necessario aggiornare i dati personali (foto e residenza).',
+    extraSections: [{
+      heading: '\u26a0\ufe0f Attenzione',
+      content: 'Si tratta di un aggiornamento, non di un rinnovo. Molte Questure potrebbero chiedere altri documenti come se fosse un rinnovo. Se li hai, mettili nel kit. Se non li hai, chiedi comunque l\'aggiornamento e se la Questura rigetta la tua domanda, rivolgiti a un aiuto legale.',
+    }],
+  }),
+  r_end_prosieguo: buildResult('r_end_prosieguo', rinnovoByKey['prosieguo'], {
+    title: 'Prosieguo amministrativo',
+  }),
+  r_end_figlio_14: buildResult('r_end_figlio_14', rinnovoByKey['figlio_14'], {
+    title: 'Figlio minore di più di 14 anni',
+  }),
 
   // --- Generic fallback ---
   r_end_generico: {
@@ -357,7 +571,7 @@ const rinnovoResultNodes: Record<string, TreeNode> = {
       {
         heading: '\ud83d\udc68\u200d\u2696\ufe0f Consiglio',
         content:
-          'Ti consigliamo di rivolgerti a un servizio di consulenza legale gratuita per verificare le possibilità di rinnovo.',
+          'Ti consigliamo di rivolgerti a un servizio di consulenza legale gratuita per verificare le possibilità di rinnovo.\n\nTrova assistenza legale gratuita: https://www.sospermesso.it/aiuto-legale-gratuito.html',
       },
     ],
   },
@@ -386,8 +600,8 @@ const rinnovoEdges: TreeEdge[] = [
 
   // =============================================
   // HAI ALTRO (sub-list)
+  // Item #19: removed "Assistenza minori" — already in famiglia sub-question
   // =============================================
-  { from: 'r_hai_altro', to: 'r_end_ass_minori', label: 'Assistenza minori (Art. 31)', optionKey: 'ass_minori' },
   { from: 'r_hai_altro', to: 'r_end_calamita', label: 'Calamità naturale', optionKey: 'calamita' },
   { from: 'r_hai_altro', to: 'r_quale_cure', label: 'Cure mediche', optionKey: 'cure' },
   { from: 'r_hai_altro', to: 'r_end_sportiva', label: 'Attività sportiva', optionKey: 'sportiva' },
@@ -409,8 +623,8 @@ const rinnovoEdges: TreeEdge[] = [
   // =============================================
 
   // --- Famiglia sub-types ---
+  // Item #8: removed "Ricongiungimento familiare" option
   { from: 'r_quale_fam', to: 'r_end_fam_genitore_ita', label: 'Genitore di cittadino italiano', optionKey: 'genitore_ita' },
-  { from: 'r_quale_fam', to: 'r_end_fam_ricong', label: 'Ricongiungimento familiare', optionKey: 'ricong' },
   { from: 'r_quale_fam', to: 'r_end_fam_coesione', label: 'Coesione familiare', optionKey: 'coesione' },
   { from: 'r_quale_fam', to: 'r_end_fam_convivente_ita', label: 'Convivente con parente italiano', optionKey: 'convivente_ita' },
   { from: 'r_quale_fam', to: 'r_end_famit_statici', label: 'Familiare di cittadino italiano (FAMIT)', optionKey: 'famit' },
@@ -419,7 +633,6 @@ const rinnovoEdges: TreeEdge[] = [
   { from: 'r_quale_fam', to: 'r_end_fam_rifugiato', label: 'Familiare di rifugiato/prot. sussidiaria', optionKey: 'fam_rifugiato' },
   { from: 'r_quale_fam', to: 'r_end_affidamento', label: 'Affidamento (entro 4° grado)', optionKey: 'affidamento' },
   { from: 'r_quale_fam', to: 'r_end_ass_minori', label: 'Assistenza minori (Art. 31)', optionKey: 'ass_minori' },
-
 
   // --- Cure mediche sub-types ---
   { from: 'r_quale_cure', to: 'r_end_cure_visto', label: 'Ingresso con visto per cure', optionKey: 'cure_visto' },
@@ -461,7 +674,7 @@ export const rinnovoConversioneTree: TreeData = {
   },
 
   edges: [
-    // Shared edges (intro → fork → branches)
+    // Shared edges (fork → branches)
     ...sharedEdges,
     // Rinnovo edges
     ...rinnovoEdges,
