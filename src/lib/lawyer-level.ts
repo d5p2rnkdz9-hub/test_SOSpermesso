@@ -18,6 +18,11 @@ export type LawyerLevel = 'self' | 'recommended';
  * and checks its content for the green circle emoji marker.
  */
 export function getLawyerLevel(sections: ResultSection[]): LawyerLevel {
+  // Check for green checkmark (✅) in any section heading — used by rinnovo tree
+  const greenSection = sections.find((s) => s.heading.includes('\u2705'));
+  if (greenSection) return 'self';
+
+  // Check for "avvocato" section with green circle emoji — used by main tree
   const lawyerSection = sections.find((s) =>
     s.heading.toLowerCase().includes('avvocato'),
   );

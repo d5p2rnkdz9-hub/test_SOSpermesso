@@ -127,20 +127,20 @@ function buildResult(
       heading: '\ud83d\udc68\u200d\u2696\ufe0f Consulenza legale consigliata',
       content:
         permit.possoConvertire
-          ? `Questo permesso non si rinnova direttamente. Tuttavia, è possibile convertirlo: ${permit.possoConvertire}. Ti consigliamo di rivolgerti a un servizio di consulenza legale.\n\nTrova assistenza legale gratuita: https://www.sospermesso.it/aiuto-legale-gratuito.html`
-          : 'Questo permesso non si rinnova direttamente. Ti consigliamo di rivolgerti a un servizio di consulenza legale per valutare le alternative.\n\nTrova assistenza legale gratuita: https://www.sospermesso.it/aiuto-legale-gratuito.html',
+          ? `Questo permesso non si rinnova direttamente. Tuttavia, è possibile convertirlo: ${permit.possoConvertire}. Ti consigliamo di rivolgerti a un servizio di consulenza legale.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale-gratuito.html)`
+          : 'Questo permesso non si rinnova direttamente. Ti consigliamo di rivolgerti a un servizio di consulenza legale per valutare le alternative.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale-gratuito.html)',
     });
   } else if (method === 'rinnovabile previa conversione') {
     sections.push({
       heading: '\ud83d\udc68\u200d\u2696\ufe0f Consulenza legale consigliata',
       content:
-        'Questo permesso non si rinnova: prima della scadenza devi convertirlo in un altro tipo di permesso. Ti consigliamo di rivolgerti a un servizio di consulenza legale.\n\nTrova assistenza legale gratuita: https://www.sospermesso.it/aiuto-legale-gratuito.html',
+        'Questo permesso non si rinnova: prima della scadenza devi convertirlo in un altro tipo di permesso. Ti consigliamo di rivolgerti a un servizio di consulenza legale.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale-gratuito.html)',
     });
   } else if (method === '') {
     sections.push({
       heading: '\ud83d\udc68\u200d\u2696\ufe0f Consulenza legale consigliata',
       content:
-        'Non abbiamo informazioni sufficienti sul rinnovo di questo permesso. Ti consigliamo di rivolgerti a un servizio di consulenza legale.\n\nTrova assistenza legale gratuita: https://www.sospermesso.it/aiuto-legale-gratuito.html',
+        'Non abbiamo informazioni sufficienti sul rinnovo di questo permesso. Ti consigliamo di rivolgerti a un servizio di consulenza legale.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale-gratuito.html)',
     });
   }
 
@@ -184,7 +184,7 @@ function buildResult(
   if (guideUrl) {
     sections.push({
       heading: '\ud83d\udcda Guida completa',
-      content: `Leggi la guida completa sul rinnovo di questo permesso su SOSpermesso:\n${guideUrl}`,
+      content: `[Leggi la guida completa sul rinnovo di questo permesso su SOSpermesso](${guideUrl})`,
     });
   }
 
@@ -370,11 +370,11 @@ const rinnovoResultNodes: Record<string, TreeNode> = {
     sections: [
       {
         heading: '\ud83d\udc68\u200d\u2696\ufe0f Consulenza legale necessaria',
-        content: 'Sì, hai bisogno di un avvocato per presentare un nuovo ricorso al Tribunale per i Minorenni.\n\nTrova assistenza legale gratuita: https://www.sospermesso.it/aiuto-legale-gratuito.html',
+        content: 'Sì, hai bisogno di un avvocato per presentare un nuovo ricorso al Tribunale per i Minorenni.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale-gratuito.html)',
       },
       {
         heading: '\ud83d\udccc Cosa fare',
-        content: 'Prima della scadenza del permesso, rivolgiti a un avvocato o a un servizio di consulenza legale per avviare una nuova causa al Tribunale per i Minorenni e ottenere un nuovo permesso Art. 31.\n\nMaggiori informazioni: https://www.sospermesso.it/permesso-assistenza-minore-articolo-31.html',
+        content: 'Prima della scadenza del permesso, rivolgiti a un avvocato o a un servizio di consulenza legale per avviare una nuova causa al Tribunale per i Minorenni e ottenere un nuovo permesso Art. 31.\n\n[Maggiori informazioni sul permesso Art. 31](https://www.sospermesso.it/permesso-assistenza-minore-articolo-31.html)',
       },
     ],
   },
@@ -405,7 +405,7 @@ const rinnovoResultNodes: Record<string, TreeNode> = {
     sections: [
       {
         heading: '\ud83d\udc68\u200d\u2696\ufe0f Consulenza legale consigliata',
-        content: 'Il rinnovo della protezione speciale non è sempre garantito e dipende dalle circostanze specifiche del tuo caso. In alcune situazioni è possibile ottenerlo. Ti consigliamo di rivolgerti a un servizio di consulenza legale il prima possibile per valutare le tue opzioni.\n\nTrova assistenza legale gratuita: https://www.sospermesso.it/aiuto-legale-gratuito.html',
+        content: 'Il rinnovo della protezione speciale non è sempre garantito e dipende dalle circostanze specifiche del tuo caso. In alcune situazioni è possibile ottenerlo. Ti consigliamo di rivolgerti a un servizio di consulenza legale il prima possibile per valutare le tue opzioni.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale-gratuito.html)',
       },
       {
         heading: '\ud83d\udd04 Conversione',
@@ -459,7 +459,7 @@ const rinnovoResultNodes: Record<string, TreeNode> = {
       },
       {
         heading: '\ud83d\udc68\u200d\u2696\ufe0f Consulenza legale consigliata',
-        content: 'Ti consigliamo di rivolgerti a un servizio di consulenza legale per valutare le opzioni di conversione prima della scadenza.\n\nTrova assistenza legale gratuita: https://www.sospermesso.it/aiuto-legale-gratuito.html',
+        content: 'Ti consigliamo di rivolgerti a un servizio di consulenza legale per valutare le opzioni di conversione prima della scadenza.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale-gratuito.html)',
       },
     ],
   },
@@ -481,11 +481,11 @@ const rinnovoResultNodes: Record<string, TreeNode> = {
     sections: [
       {
         heading: '\ud83d\udc68\u200d\u2696\ufe0f Consulenza legale consigliata',
-        content: 'Ti consigliamo di rivolgerti a un servizio di consulenza legale.\n\nTrova assistenza legale gratuita: https://www.sospermesso.it/aiuto-legale-gratuito.html',
+        content: 'Ti consigliamo di rivolgerti a un servizio di consulenza legale.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale-gratuito.html)',
       },
       {
         heading: '\ud83d\udca1 Alternativa possibile',
-        content: 'Potresti valutare la possibilità di richiedere un permesso per assistenza minori (Art. 31).\n\nMaggiori informazioni: https://www.sospermesso.it/permesso-assistenza-minore-articolo-31.html',
+        content: 'Potresti valutare la possibilità di richiedere un permesso per assistenza minori (Art. 31).\n\n[Maggiori informazioni sul permesso Art. 31](https://www.sospermesso.it/permesso-assistenza-minore-articolo-31.html)',
       },
     ],
   },
@@ -497,11 +497,11 @@ const rinnovoResultNodes: Record<string, TreeNode> = {
     sections: [
       {
         heading: '\ud83d\udc68\u200d\u2696\ufe0f Consulenza legale consigliata',
-        content: 'Ti consigliamo di rivolgerti a un servizio di consulenza legale.\n\nTrova assistenza legale gratuita: https://www.sospermesso.it/aiuto-legale-gratuito.html',
+        content: 'Ti consigliamo di rivolgerti a un servizio di consulenza legale.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale-gratuito.html)',
       },
       {
         heading: '\ud83d\udca1 Alternativa possibile',
-        content: 'Potresti valutare la possibilità di richiedere un permesso per assistenza minori (Art. 31).\n\nMaggiori informazioni: https://www.sospermesso.it/permesso-assistenza-minore-articolo-31.html',
+        content: 'Potresti valutare la possibilità di richiedere un permesso per assistenza minori (Art. 31).\n\n[Maggiori informazioni sul permesso Art. 31](https://www.sospermesso.it/permesso-assistenza-minore-articolo-31.html)',
       },
     ],
   },
@@ -571,7 +571,7 @@ const rinnovoResultNodes: Record<string, TreeNode> = {
       {
         heading: '\ud83d\udc68\u200d\u2696\ufe0f Consiglio',
         content:
-          'Ti consigliamo di rivolgerti a un servizio di consulenza legale gratuita per verificare le possibilità di rinnovo.\n\nTrova assistenza legale gratuita: https://www.sospermesso.it/aiuto-legale-gratuito.html',
+          'Ti consigliamo di rivolgerti a un servizio di consulenza legale gratuita per verificare le possibilità di rinnovo.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale-gratuito.html)',
       },
     ],
   },
