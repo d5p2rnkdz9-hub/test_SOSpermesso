@@ -15,6 +15,7 @@ import {
   useRinnovoConversioneHydration,
   useRinnovoConversioneStore,
 } from '@/store/rinnovo-conversione-store';
+import { useTrackStep } from '@/hooks/useTrackStep';
 
 export default function RinnovoConversioneContent() {
   const router = useRouter();
@@ -27,8 +28,11 @@ export default function RinnovoConversioneContent() {
   const outcomeId = useRinnovoConversioneStore((s) => s.outcomeId);
   const sessionStartedAt = useRinnovoConversioneStore((s) => s.sessionStartedAt);
   const history = useRinnovoConversioneStore((s) => s.history);
+  const userName = useRinnovoConversioneStore((s) => s.userName);
   const selectOption = useRinnovoConversioneStore((s) => s.selectOption);
   const startSession = useRinnovoConversioneStore((s) => s.startSession);
+
+  useTrackStep('rinnovo_conversione', { currentNodeId, answers, history, sessionStartedAt, userName });
 
   const [name, setName] = useState('');
 

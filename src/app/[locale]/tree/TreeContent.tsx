@@ -10,6 +10,7 @@ import { italianTree } from '@/lib/tree-data';
 import { isTerminalNode } from '@/lib/tree-engine';
 import { getSlugFromNodeId } from '@/lib/outcome-slugs';
 import { useTreeHydration, useTreeStore } from '@/store/tree-store';
+import { useTrackStep } from '@/hooks/useTrackStep';
 
 export default function TreeContent() {
   const router = useRouter();
@@ -20,7 +21,10 @@ export default function TreeContent() {
   const outcomeId = useTreeStore((s) => s.outcomeId);
   const sessionStartedAt = useTreeStore((s) => s.sessionStartedAt);
   const history = useTreeStore((s) => s.history);
+  const userName = useTreeStore((s) => s.userName);
   const selectOption = useTreeStore((s) => s.selectOption);
+
+  useTrackStep('posso_avere', { currentNodeId, answers, history, sessionStartedAt, userName });
 
   // Redirect to welcome if user accessed /tree directly without a session
   useEffect(() => {

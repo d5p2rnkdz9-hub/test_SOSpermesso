@@ -13,6 +13,7 @@ import {
   useConversioneHydration,
   useConversioneStore,
 } from '@/store/conversione-store';
+import { useTrackStep } from '@/hooks/useTrackStep';
 
 export default function ConversioneContent() {
   const router = useRouter();
@@ -25,6 +26,8 @@ export default function ConversioneContent() {
   const history = useConversioneStore((s) => s.history);
   const selectOption = useConversioneStore((s) => s.selectOption);
   const startSession = useConversioneStore((s) => s.startSession);
+
+  useTrackStep('conversione', { currentNodeId, answers, history, sessionStartedAt });
 
   // Auto-start session on first visit (no welcome page for conversione test)
   useEffect(() => {

@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getSQL } from '@/lib/neon';
-import type { TreeSessionPayload } from '@/lib/analytics';
+import type { TreeStepPayload } from '@/lib/analytics';
 
 export async function POST(request: NextRequest) {
   try {
-    const body: TreeSessionPayload = await request.json();
+    const body: TreeStepPayload = await request.json();
 
-    if (!body.sessionToken || !body.outcomeId || !body.path?.length) {
+    if (!body.sessionToken || !body.treeType || !body.currentNodeId) {
       return NextResponse.json({ error: 'Invalid payload' }, { status: 400 });
     }
 
@@ -14,42 +14,33 @@ export async function POST(request: NextRequest) {
 
     await sql`
       INSERT INTO tree_sessions (
-        session_token, tree_type, outcome_id, outcome_slug, path, answers,
-        steps_count, locale, user_agent, user_name, duration_ms,
-        session_started_at, last_node_id, completed, updated_at
+        session_token, tree_type, last_node_id, path, answers,
+        steps_count, locale, user_name, session_started_at,
+        completed, updated_at
       ) VALUES (
         ${body.sessionToken},
         ${body.treeType},
-        ${body.outcomeId},
-        ${body.outcomeSlug},
+        ${body.currentNodeId},
         ${JSON.stringify(body.path)},
         ${JSON.stringify(body.answers)},
         ${body.stepsCount},
         ${body.locale},
-        ${body.userAgent},
         ${body.userName},
-        ${body.durationMs},
         ${body.sessionStartedAt},
-        ${body.outcomeId},
-        TRUE,
+        FALSE,
         now()
       )
       ON CONFLICT (session_token) DO UPDATE SET
-        outcome_id = EXCLUDED.outcome_id,
-        outcome_slug = EXCLUDED.outcome_slug,
+        last_node_id = EXCLUDED.last_node_id,
         path = EXCLUDED.path,
         answers = EXCLUDED.answers,
         steps_count = EXCLUDED.steps_count,
-        user_agent = EXCLUDED.user_agent,
-        duration_ms = EXCLUDED.duration_ms,
-        last_node_id = EXCLUDED.outcome_id,
-        completed = TRUE,
         updated_at = now()
     `;
 
     return NextResponse.json({ ok: true });
   } catch (error) {
-    console.error('[analytics] Failed to record tree session:', error);
+    console.error('[analytics] Failed to record tree step:', error);
     return NextResponse.json({ ok: false });
   }
 }

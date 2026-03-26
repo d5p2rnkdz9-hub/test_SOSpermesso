@@ -8,7 +8,6 @@ import { getLawyerLevel } from '@/lib/lawyer-level';
 import { getPermitUrl } from '@/lib/permit-url-map';
 import { substituteVariables } from '@/lib/text-utils';
 import { useRouter } from '@/i18n/navigation';
-import { useTrackOutcome } from '@/hooks/useTrackOutcome';
 import { ContentColumn } from '@/components/layout/ContentColumn';
 import type { TreeData } from '@/types/tree';
 
@@ -46,7 +45,6 @@ export function OutcomePage({
   treePath = '/tree',
   homePath = '/',
 }: OutcomePageProps) {
-  useTrackOutcome(nodeId);
   const t = useTranslations('outcome');
   const tTree = useTranslations('tree');
   const locale = useLocale();

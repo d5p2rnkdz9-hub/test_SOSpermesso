@@ -2,7 +2,9 @@
 
 import { OutcomePage } from '@/components/outcome';
 import { italianTree } from '@/lib/tree-data';
+import { getSlugFromNodeId } from '@/lib/outcome-slugs';
 import { useTreeHydration, useTreeStore } from '@/store/tree-store';
+import { useTrackOutcome } from '@/hooks/useTrackOutcome';
 
 interface OutcomeContentProps {
   nodeId: string;
@@ -13,8 +15,19 @@ export default function OutcomeContent({ nodeId }: OutcomeContentProps) {
   const userName = useTreeStore((s) => s.userName);
   const answers = useTreeStore((s) => s.answers);
   const history = useTreeStore((s) => s.history);
+  const sessionStartedAt = useTreeStore((s) => s.sessionStartedAt);
   const reset = useTreeStore((s) => s.reset);
   const goBackTo = useTreeStore((s) => s.goBackTo);
+
+  useTrackOutcome(nodeId, {
+    treeType: 'posso_avere',
+    answers,
+    history,
+    sessionStartedAt,
+    userName,
+    getSlug: (id) => getSlugFromNodeId(id) ?? null,
+    isHydrated,
+  });
 
   return (
     <OutcomePage
