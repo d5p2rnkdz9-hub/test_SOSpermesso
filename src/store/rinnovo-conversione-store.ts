@@ -20,10 +20,11 @@ interface RCState {
   history: string[];
   outcomeId: string | null;
   sessionStartedAt: string | null;
+  userName: string | null;
 }
 
 interface RCActions {
-  startSession: () => void;
+  startSession: (userName?: string | null) => void;
   selectOption: (optionKey: string) => void;
   goBack: () => void;
   goBackTo: (nodeId: string) => void;
@@ -36,6 +37,7 @@ const initialState: RCState = {
   history: [],
   outcomeId: null,
   sessionStartedAt: null,
+  userName: null,
 };
 
 export const useRinnovoConversioneStore = create<RCState & RCActions>()(
@@ -43,13 +45,14 @@ export const useRinnovoConversioneStore = create<RCState & RCActions>()(
     (set, get) => ({
       ...initialState,
 
-      startSession: () => {
+      startSession: (userName?: string | null) => {
         set({
           sessionStartedAt: new Date().toISOString(),
           currentNodeId: rinnovoConversioneTree.startNodeId,
           answers: {},
           history: [],
           outcomeId: null,
+          userName: userName ?? null,
         });
       },
 
@@ -132,6 +135,7 @@ export const useRinnovoConversioneStore = create<RCState & RCActions>()(
         history: state.history,
         outcomeId: state.outcomeId,
         sessionStartedAt: state.sessionStartedAt,
+        userName: state.userName,
       }),
     },
   ),

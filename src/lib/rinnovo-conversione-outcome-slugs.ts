@@ -1,7 +1,7 @@
 /**
  * Bidirectional mapping between URL slugs and rinnovo-conversione tree result node IDs.
  *
- * 62 slugs total: 40 rinnovo (r_end_*) + 22 conversione (c_end_*).
+ * 63 slugs total: 41 rinnovo (r_end_*) + 22 conversione (c_end_*).
  * Used for /outcome/rinnovo-conversione/[slug] routes.
  */
 
@@ -59,6 +59,7 @@ export const RC_OUTCOME_SLUGS: Record<string, string> = {
   'rinnovo-prosieguo': 'r_end_prosieguo',
   'rinnovo-figlio-minore': 'r_end_figlio_14',
   'rinnovo-generico': 'r_end_generico',
+  'rinnovo-permesso-scaduto': 'r_end_scaduto_60',
 
   // ── Conversione results (22) ──────────────────────────────────────
 

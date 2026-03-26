@@ -71,8 +71,7 @@ export default function RinnovoConversioneContent() {
   // Welcome / intro screen (no active session)
   if (sessionStartedAt === null) {
     const handleStart = () => {
-      startSession();
-      // name is collected but not stored — same UX pattern as main tree welcome
+      startSession(name.trim() || null);
     };
 
     return (

@@ -105,7 +105,7 @@ function buildResult(
   if (!notPossible) {
     sections.push({
       heading: '\u2705 Rinnovo possibile — puoi fare da solo',
-      content: `Il tuo permesso per ${permit.notionName.toLowerCase()} può essere rinnovato.`,
+      content: `[Nome], il tuo permesso per ${permit.notionName.toLowerCase()} [StatoPermesso] e può essere rinnovato.`,
     });
   }
 
@@ -235,6 +235,20 @@ const sharedNodes: Record<string, TreeNode> = {
 // ---------------------------------------------------------------------------
 
 const rinnovoQuestionNodes: Record<string, TreeNode> = {
+  // STEP 0: Validity check before permit selection
+  r_valid_check: {
+    id: 'r_valid_check',
+    type: 'question',
+    question: 'Il tuo permesso è ancora valido?',
+  },
+
+  r_scad_check: {
+    id: 'r_scad_check',
+    type: 'question',
+    question: 'È scaduto da meno di 60 giorni?',
+    description: 'Il termine massimo per rinnovare è 60 giorni dopo la scadenza.',
+  },
+
   // STEP 1: Which permit do you have?
   r_quale_hai: {
     id: 'r_quale_hai',
@@ -575,6 +589,27 @@ const rinnovoResultNodes: Record<string, TreeNode> = {
       },
     ],
   },
+
+  // --- Expired > 60 days ---
+  r_end_scaduto_60: {
+    id: 'r_end_scaduto_60',
+    type: 'result',
+    title: 'Permesso scaduto da più di 60 giorni',
+    introText:
+      '[Nome], il tuo permesso è scaduto da più di 60 giorni e potrebbe non essere più rinnovato. Fai comunque la domanda, ma chiedi subito un aiuto legale.',
+    sections: [
+      {
+        heading: '⚠️ Attenzione',
+        content:
+          'Il termine massimo per rinnovare il permesso di soggiorno è 60 giorni dopo la scadenza. Superato questo termine, la questura potrebbe rifiutare la domanda di rinnovo.',
+      },
+      {
+        heading: '\ud83d\udc68\u200d\u2696\ufe0f Cosa fare',
+        content:
+          'Presenta comunque la domanda di rinnovo il prima possibile e rivolgiti subito a un servizio di consulenza legale gratuita per farti assistere.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale-gratuito.html)',
+      },
+    ],
+  },
 };
 
 // ---------------------------------------------------------------------------
@@ -582,6 +617,14 @@ const rinnovoResultNodes: Record<string, TreeNode> = {
 // ---------------------------------------------------------------------------
 
 const rinnovoEdges: TreeEdge[] = [
+  // =============================================
+  // STEP 0: VALIDITY CHECK
+  // =============================================
+  { from: 'r_valid_check', to: 'r_quale_hai', label: 'Sì, è ancora valido', optionKey: 'valido' },
+  { from: 'r_valid_check', to: 'r_scad_check', label: 'No, è scaduto', optionKey: 'scaduto' },
+  { from: 'r_scad_check', to: 'r_quale_hai', label: 'Sì, meno di 60 giorni', optionKey: 'meno_60' },
+  { from: 'r_scad_check', to: 'r_end_scaduto_60', label: 'No, più di 60 giorni', optionKey: 'piu_60' },
+
   // =============================================
   // STEP 1: QUALE PERMESSO HAI? (main list)
   // =============================================
@@ -651,7 +694,7 @@ const rinnovoEdges: TreeEdge[] = [
 
 const sharedEdges: TreeEdge[] = [
   // Fork → branches
-  { from: 'rc_fork', to: 'r_quale_hai', label: 'Rinnovare il permesso', optionKey: 'rinnovare' },
+  { from: 'rc_fork', to: 'r_valid_check', label: 'Rinnovare il permesso', optionKey: 'rinnovare' },
   { from: 'rc_fork', to: 'c_quale_hai', label: 'Convertire il permesso', optionKey: 'convertire' },
 ];
 

@@ -13,6 +13,7 @@ interface RCOutcomeContentProps {
 
 export default function RCOutcomeContent({ nodeId }: RCOutcomeContentProps) {
   const isHydrated = useRinnovoConversioneHydration();
+  const userName = useRinnovoConversioneStore((s) => s.userName);
   const answers = useRinnovoConversioneStore((s) => s.answers);
   const history = useRinnovoConversioneStore((s) => s.history);
   const reset = useRinnovoConversioneStore((s) => s.reset);
@@ -23,7 +24,7 @@ export default function RCOutcomeContent({ nodeId }: RCOutcomeContentProps) {
       nodeId={nodeId}
       tree={rinnovoConversioneTree}
       isHydrated={isHydrated}
-      userName={null}
+      userName={userName}
       answers={answers}
       history={history}
       onReset={reset}

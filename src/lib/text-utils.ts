@@ -39,11 +39,23 @@ export function getSelectedRelative(
   return '';
 }
 
+/** Derives permit validity status label from rinnovo-conversione answers. */
+function getValidityStatus(answers: Record<string, string>): string {
+  const validity = answers['r_valid_check'];
+  if (validity === 'valido') return 'è ancora valido';
+  if (validity === 'scaduto') {
+    const expiry = answers['r_scad_check'];
+    if (expiry === 'meno_60') return 'è scaduto da meno di 60 giorni';
+  }
+  return '';
+}
+
 /**
- * Replaces [Nome] and [Parente selezionato] placeholders in text.
+ * Replaces [Nome], [Parente selezionato], and [StatoPermesso] placeholders in text.
  *
  * - [Nome] → userName, or empty string if null
  * - [Parente selezionato] → derived from answers via getSelectedRelative
+ * - [StatoPermesso] → derived from rinnovo validity answers
  */
 export function substituteVariables(
   text: string,
@@ -52,8 +64,14 @@ export function substituteVariables(
 ): string {
   const name = userName ?? '';
   const relative = getSelectedRelative(answers);
+  const validityStatus = getValidityStatus(answers);
 
-  return text
+  let result = text
+    .replace(/\[Nome\],\s*/g, name ? `${name}, ` : '')
     .replace(/\[Nome\]/g, name)
-    .replace(/\[Parente selezionato\]/g, relative);
+    .replace(/\[Parente selezionato\]/g, relative)
+    .replace(/\[StatoPermesso\]\s*/g, validityStatus ? `${validityStatus} ` : '');
+
+  // Collapse any double spaces left after empty substitutions
+  return result.replace(/ {2,}/g, ' ').trim();
 }
