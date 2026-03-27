@@ -109,10 +109,12 @@ function buildResult(
     /^bollettino postale/i,
     /^copia del passaporto/i,
     /^permesso in scadenza/i,
+    /^copia del permesso/i,
+    /^dichiarazione di ospitalit/i,
   ];
-  const realDocs = permit.docRinnovo.filter(
-    (d) => d !== 'n/a' && d !== 'rinnovabile previa conversione',
-  );
+  const realDocs = permit.docRinnovo
+    .filter((d) => d !== 'n/a' && d !== 'rinnovabile previa conversione')
+    .map((d) => d.replace(/^Permesso in scadenza$/i, 'Copia del permesso che hai adesso'));
   const hallmarkDocs = realDocs.filter(
     (d) => !GENERIC_DOC_PATTERNS.some((p) => p.test(d)),
   );
@@ -120,19 +122,12 @@ function buildResult(
     (d) => GENERIC_DOC_PATTERNS.some((p) => p.test(d)),
   );
 
-  // --- Green/red badge + descriptive intro (Item #15) ---
+  // --- Green/red badge + descriptive intro ---
+  const displayName = (overrides?.title ?? permit.notionName).toLowerCase();
   if (!notPossible) {
     sections.push({
-      heading: '\u2705 Rinnovo possibile — puoi fare da solo',
-      content: `[Nome], il tuo permesso per ${permit.notionName.toLowerCase()} [StatoPermesso] e può essere rinnovato.`,
-    });
-  }
-
-  // --- Hallmark documents (permit-specific, shown first) ---
-  if (!notPossible && hallmarkDocs.length > 0) {
-    sections.push({
-      heading: '\ud83d\udccc Documenti fondamentali',
-      content: `Per rinnovare questo permesso, prepara:\n${hallmarkDocs.map((d) => `\u2022 ${d}`).join('\n')}`,
+      heading: '\u2705 Rinnovo possibile',
+      content: `[Nome], il tuo permesso per ${displayName} [StatoPermesso] e può essere rinnovato. Puoi fare da solo, ma è sempre consigliabile chiedere un parere legale.`,
     });
   }
 
@@ -141,7 +136,7 @@ function buildResult(
     sections.push({
       heading: '\ud83d\udce6 Come rinnovare',
       content:
-        'La domanda di rinnovo si presenta tramite il kit postale disponibile presso gli uffici postali abilitati. Compila il modulo, allega i documenti e spedisci.',
+        'La domanda di rinnovo si presenta tramite il [kit postale](https://www.sospermesso.it/kit-postale) disponibile presso gli uffici postali abilitati. Compila il modulo, allega i documenti e spedisci.',
     });
   } else if (method === 'personalmente') {
     sections.push({
@@ -173,27 +168,57 @@ function buildResult(
 
   // For "not possible" outcomes, only show the lawyer advice above — skip details
   if (!notPossible) {
-    // --- Duration section ---
+    // --- Duration section (merged with duration-related warnings) ---
     if (permit.duration) {
+      let durationContent = `Il permesso dura ${permit.duration}.`;
+      // Merge duration-related warnings from infoExtra
+      if (permit.infoExtra) {
+        const durationWarnings = permit.infoExtra
+          .split('\n\n')
+          .filter((s) => /durat|anni|mesi|scaden|rinnov/i.test(s));
+        if (durationWarnings.length > 0) {
+          durationContent += '\n\n' + durationWarnings.join('\n\n');
+        }
+      }
       sections.push({
         heading: '\u23f3 Durata',
-        content: `Il permesso dura ${permit.duration}.`,
+        content: durationContent,
       });
     }
 
-    // --- Generic documents section ---
+    // --- Documents section (hallmark + generic together) ---
+    const allDocLines: string[] = [];
+    if (hallmarkDocs.length > 0) {
+      allDocLines.push(...hallmarkDocs.map((d) => `\u2022 **${d}**`));
+    }
     if (genericDocs.length > 0) {
+      allDocLines.push(...genericDocs.map((d) => `\u2022 ${d}`));
+    }
+    if (allDocLines.length > 0) {
       sections.push({
-        heading: '\ud83d\udcc4 Documenti standard (servono sempre)',
-        content: genericDocs.map((d) => `\u2022 ${d}`).join('\n'),
+        heading: '\ud83d\udcc4 Documenti necessari',
+        content: allDocLines.join('\n'),
       });
     }
 
-    // --- Warnings section ---
+    // --- Warnings section (excluding duration-related ones already merged) ---
     if (permit.infoExtra) {
+      const nonDurationWarnings = permit.infoExtra
+        .split('\n\n')
+        .filter((s) => !/durat|anni|mesi|scaden|rinnov/i.test(s));
+      if (nonDurationWarnings.length > 0) {
+        sections.push({
+          heading: '\u26a0\ufe0f Note importanti',
+          content: nonDurationWarnings.join('\n\n'),
+        });
+      }
+    }
+
+    // --- Conversione section ---
+    if (permit.possoConvertire) {
       sections.push({
-        heading: '\u26a0\ufe0f Note importanti',
-        content: permit.infoExtra,
+        heading: '\ud83d\udd04 Conversione possibile',
+        content: `${permit.possoConvertire}.\n\nAttenzione: la domanda di conversione deve essere presentata prima della scadenza del permesso.`,
       });
     }
   }
@@ -208,7 +233,7 @@ function buildResult(
   if (guideUrl) {
     sections.push({
       heading: '\ud83d\udcda Guida completa',
-      content: `[Leggi la guida completa sul rinnovo di questo permesso su SOSpermesso](${guideUrl})`,
+      content: `Leggi la guida completa sul rinnovo di questo permesso su [SOS Permesso](${guideUrl}).`,
     });
   }
 
@@ -218,10 +243,10 @@ function buildResult(
   // Determine intro
   let introText: string;
   if (method === 'KIT') {
-    introText = overrides?.introText ?? `Il tuo permesso per ${permit.notionName.toLowerCase()} può essere rinnovato tramite il kit postale.`;
+    introText = overrides?.introText ?? `Il tuo permesso per ${displayName} può essere rinnovato tramite il kit postale.`;
   } else if (method === 'personalmente') {
     introText =
-      overrides?.introText ?? `Il tuo permesso per ${permit.notionName.toLowerCase()} può essere rinnovato presentandoti di persona in Questura.`;
+      overrides?.introText ?? `Il tuo permesso per ${displayName} può essere rinnovato presentandoti di persona in Questura.`;
   } else if (method === 'n/a' || method === 'rinnovabile previa conversione') {
     introText = overrides?.introText ?? 'Purtroppo, questo permesso non si può rinnovare direttamente.';
   } else {
@@ -303,7 +328,7 @@ const rinnovoQuestionNodes: Record<string, TreeNode> = {
   r_quale_prot_soc: {
     id: 'r_quale_prot_soc',
     type: 'question',
-    question: 'Che tipo di protezione sociale hai?',
+    question: 'Che tipo di protezione sociale hai? (Art. 18, 18bis e 18ter)',
   },
 };
 
@@ -313,7 +338,6 @@ const rinnovoQuestionNodes: Record<string, TreeNode> = {
 
 const rinnovoResultNodes: Record<string, TreeNode> = {
   // --- Lavoro (merged sub-types) ---
-  // Item #12: duration "normalmente 2 anni; se contratto indeterminato, 3 anni"
   r_end_lav_sub: mergedResult('r_end_lav_sub', ['lav_sub_flussi', 'lav_sub_conv'], {
     title: 'Lavoro subordinato',
     extraSections: [{
@@ -325,7 +349,7 @@ const rinnovoResultNodes: Record<string, TreeNode> = {
     title: 'Lavoro autonomo',
     extraSections: [{
       heading: '\u23f3 Durata',
-      content: 'Normalmente viene dato per due anni. Se il tuo contratto di lavoro è a tempo indeterminato, può essere dato per tre anni.',
+      content: 'Normalmente viene dato per due anni.',
     }],
   }),
   r_end_stagionale: buildResult('r_end_stagionale', rinnovoByKey['stagionale']
@@ -363,15 +387,23 @@ const rinnovoResultNodes: Record<string, TreeNode> = {
   }),
   r_end_fam_ricong: buildResult('r_end_fam_ricong', rinnovoByKey['fam_ricong'], {
     title: 'Famiglia - ricongiungimento familiare',
+    extraSections: [{
+      heading: '\u23f3 Durata',
+      content: 'La durata del tuo permesso dipende dalla durata del permesso del tuo familiare. Ad esempio, se il tuo familiare ha un permesso di 2 anni, anche il tuo sarà di 2 anni.',
+    }],
   }),
   r_end_fam_coesione: buildResult('r_end_fam_coesione', rinnovoByKey['fam_coesione'], {
     title: 'Famiglia - coesione familiare',
+    extraSections: [{
+      heading: '\u23f3 Durata',
+      content: 'La durata del tuo permesso dipende dalla durata del permesso del tuo familiare.',
+    }],
   }),
   r_end_fam_convivente_ita: buildResult('r_end_fam_convivente_ita', rinnovoByKey['fam_convivente_ita'], {
     title: 'Famiglia - convivente con parente italiano',
   }),
   r_end_famit_statici: buildResult('r_end_famit_statici', rinnovoByKey['famit_statici'], {
-    title: 'FAMIT per familiari di cittadini italiani',
+    title: 'Familiari di cittadini italiani "dinamici"',
   }),
   // Item #11: after first renewal it becomes permanent
   r_end_carta_fam_ita: buildResult('r_end_carta_fam_ita', rinnovoByKey['carta_fam_ita'], {
@@ -453,11 +485,16 @@ const rinnovoResultNodes: Record<string, TreeNode> = {
   },
   r_end_rich_asilo: buildResult('r_end_rich_asilo', rinnovoByKey['rich_asilo'], {
     title: 'Richiesta asilo',
-    // Item #18: specify duration "fino a un anno"
-    extraSections: [{
-      heading: '\u23f3 Durata',
-      content: 'Il permesso per richiesta asilo dura fino a un anno ed è rinnovabile fino alla decisione della Commissione.',
-    }],
+    extraSections: [
+      {
+        heading: '\u23f3 Durata',
+        content: 'Il permesso per richiesta asilo dura 6 mesi ed è rinnovabile fino alla decisione finale sulla tua domanda di asilo.',
+      },
+      {
+        heading: '\u26a0\ufe0f Attenzione',
+        content: 'In alcuni casi (ad esempio se la Commissione ha già dato un primo diniego e sei in attesa del ricorso), il rinnovo potrebbe non essere automatico. In queste situazioni è consigliabile rivolgersi a un servizio di consulenza legale.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
+      },
+    ],
   }),
   // Item #26: sfruttamento — specify can convert to lavoro autonomo o subordinato
   r_end_sfruttamento: buildResult('r_end_sfruttamento', rinnovoByKey['sfruttamento'], {
@@ -475,6 +512,10 @@ const rinnovoResultNodes: Record<string, TreeNode> = {
   }),
   r_end_calamita: buildResult('r_end_calamita', rinnovoByKey['calamita'], {
     title: 'Calamità naturale',
+    extraSections: [{
+      heading: '\ud83d\udc68\u200d\u2696\ufe0f Consulenza legale consigliata',
+      content: 'Per rinnovare questo permesso è necessario dimostrare che la situazione di calamità nel tuo paese è ancora in corso. Ti consigliamo di rivolgerti a un servizio di consulenza legale per farti assistere.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
+    }],
   }),
   // Item #13: renewable until 18, then needs to be converted — link to conversione
   r_end_minore: {
@@ -510,6 +551,10 @@ const rinnovoResultNodes: Record<string, TreeNode> = {
     ? { ...rinnovoByKey['cure_grave'], modRinnovo: ['personalmente'] }
     : undefined, {
     title: 'Cure mediche - persona gravemente malata',
+    extraSections: [{
+      heading: '\ud83d\udc68\u200d\u2696\ufe0f Consulenza legale consigliata',
+      content: 'Il rinnovo di questo permesso richiede documentazione medica aggiornata. Ti consigliamo di rivolgerti a un servizio di consulenza legale per farti assistere.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
+    }],
   }),
   r_end_cure_padre: {
     id: 'r_end_cure_padre',
@@ -559,7 +604,18 @@ const rinnovoResultNodes: Record<string, TreeNode> = {
   r_end_apolidia: buildResult('r_end_apolidia', rinnovoByKey['apolidia'], {
     title: 'Apolidia',
   }),
-  r_end_res_elettiva: buildResult('r_end_res_elettiva', rinnovoByKey['res_elettiva'], {
+  r_end_res_elettiva: buildResult('r_end_res_elettiva',
+    rinnovoByKey['res_elettiva']
+      ? {
+        ...rinnovoByKey['res_elettiva'],
+        docRinnovo: [
+          ...rinnovoByKey['res_elettiva'].docRinnovo,
+          ...(rinnovoByKey['res_elettiva'].docRinnovo.some((d) => /redditi|income/i.test(d))
+            ? []
+            : ['Prova di reddito sufficiente (dichiarazione dei redditi o altra documentazione)']),
+        ],
+      }
+      : undefined, {
     title: 'Residenza elettiva',
   }),
   r_end_artistico: buildResult('r_end_artistico', rinnovoByKey['artistico'], {
@@ -677,8 +733,7 @@ const rinnovoEdges: TreeEdge[] = [
   { from: 'r_hai_altro', to: 'r_end_artistico', label: 'Lavoro artistico', optionKey: 'artistico' },
   { from: 'r_hai_altro', to: 'r_end_religiosi', label: 'Motivi religiosi', optionKey: 'religiosi' },
   { from: 'r_hai_altro', to: 'r_end_ricerca', label: 'Ricerca scientifica', optionKey: 'ricerca' },
-  { from: 'r_hai_altro', to: 'r_end_sfruttamento', label: 'Sfruttamento lavorativo', optionKey: 'sfruttamento' },
-  { from: 'r_hai_altro', to: 'r_quale_prot_soc', label: 'Protezione sociale (Art. 18)', optionKey: 'prot_sociale' },
+  { from: 'r_hai_altro', to: 'r_quale_prot_soc', label: 'Protezione sociale (Art. 18, 18bis, 18ter)', optionKey: 'prot_sociale' },
   { from: 'r_hai_altro', to: 'r_end_tirocinio', label: 'Tirocinio', optionKey: 'tirocinio' },
   { from: 'r_hai_altro', to: 'r_end_carta_ue', label: 'Carta UE lungo periodo', optionKey: 'carta_ue' },
   { from: 'r_hai_altro', to: 'r_end_prosieguo', label: 'Prosieguo amministrativo', optionKey: 'prosieguo' },
@@ -694,7 +749,7 @@ const rinnovoEdges: TreeEdge[] = [
   { from: 'r_quale_fam', to: 'r_end_fam_genitore_ita', label: 'Genitore di cittadino italiano', optionKey: 'genitore_ita' },
   { from: 'r_quale_fam', to: 'r_end_fam_coesione', label: 'Coesione familiare', optionKey: 'coesione' },
   { from: 'r_quale_fam', to: 'r_end_fam_convivente_ita', label: 'Convivente con parente italiano', optionKey: 'convivente_ita' },
-  { from: 'r_quale_fam', to: 'r_end_famit_statici', label: 'Familiare di cittadino italiano (FAMIT)', optionKey: 'famit' },
+  { from: 'r_quale_fam', to: 'r_end_famit_statici', label: 'Familiare di cittadino italiano "dinamico"', optionKey: 'famit' },
   { from: 'r_quale_fam', to: 'r_end_carta_fam_ita', label: 'Carta di soggiorno fam. italiani', optionKey: 'carta_fam_ita' },
   { from: 'r_quale_fam', to: 'r_end_carta_fam_ue', label: 'Carta di soggiorno fam. cittadini UE', optionKey: 'carta_fam_ue' },
   { from: 'r_quale_fam', to: 'r_end_fam_rifugiato', label: 'Familiare di rifugiato/prot. sussidiaria', optionKey: 'fam_rifugiato' },
@@ -708,8 +763,9 @@ const rinnovoEdges: TreeEdge[] = [
   { from: 'r_quale_cure', to: 'r_end_cure_gravidanza', label: 'Donna incinta / figlio <6 mesi', optionKey: 'cure_gravidanza' },
 
   // --- Protezione sociale sub-types ---
-  { from: 'r_quale_prot_soc', to: 'r_end_prot_soc_violenza', label: 'Vittime di violenza domestica', optionKey: 'violenza' },
-  { from: 'r_quale_prot_soc', to: 'r_end_prot_soc_tratta', label: 'Vittime di tratta', optionKey: 'tratta' },
+  { from: 'r_quale_prot_soc', to: 'r_end_prot_soc_tratta', label: 'Vittime di tratta (Art. 18)', optionKey: 'tratta' },
+  { from: 'r_quale_prot_soc', to: 'r_end_prot_soc_violenza', label: 'Vittime di violenza domestica (Art. 18bis)', optionKey: 'violenza' },
+  { from: 'r_quale_prot_soc', to: 'r_end_sfruttamento', label: 'Sfruttamento lavorativo (Art. 18ter)', optionKey: 'sfruttamento' },
 ];
 
 // ---------------------------------------------------------------------------
