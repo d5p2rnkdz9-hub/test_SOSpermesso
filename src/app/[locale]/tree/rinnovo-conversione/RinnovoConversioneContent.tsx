@@ -82,7 +82,13 @@ export default function RinnovoConversioneContent() {
       <ContentColumn>
         <div className="flex min-h-[calc(100vh-3.5rem)] flex-col items-center justify-center text-center">
           <h1 className="text-4xl font-bold leading-tight sm:text-5xl">
-            {tRC('welcomeTitle')}
+            {tRC.rich('welcomeTitle', {
+              hl: (chunks) => (
+                <span className="font-extrabold" style={{ background: 'linear-gradient(180deg, transparent 50%, #FFD700 50%)', padding: '0 4px' }}>
+                  {chunks}
+                </span>
+              ),
+            })}
           </h1>
 
           <div className="mt-8 w-full rounded-2xl bg-card p-5 text-start text-sm text-muted-foreground shadow-[0_2px_4px_rgba(0,0,0,0.1)]">
