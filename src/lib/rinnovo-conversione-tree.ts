@@ -16,67 +16,7 @@ import type { TreeData, TreeNode, TreeEdge, ResultSection } from '@/types/tree';
 import { conversioneTree } from './conversione-tree';
 import { rinnovoByKey, type RinnovoPermit } from './rinnovo-notion-data.generated';
 
-// ---------------------------------------------------------------------------
-// Rinnovo permit → sospermesso.it URL map (with #rinnovo anchor)
-// ---------------------------------------------------------------------------
-
-const SOSPERMESSO_BASE = 'https://www.sospermesso.it';
-
-const RINNOVO_PERMIT_PATHS: Record<string, string | null> = {
-  // Lavoro
-  lav_sub_flussi: '/permesso-lavoro-subordinato-dopo-ingresso-con-visto-per-flussi.html',
-  lav_sub_conv: '/permesso-lavoro-subordinato-conversione-da-altro-permesso.html',
-  lav_aut_flussi: '/permesso-lavoro-autonomo-dopo-ingresso-con-visto-per-flussi.html',
-  lav_aut_conv: '/permesso-lavoro-autonomo-conversione-da-altro-permesso.html',
-  stagionale: '/permesso-lavoro-subordinato-stagionale-dopo-ingresso-con-visto-per-flussi-stagionali.html',
-  att_occ: '/permesso-attesa-occupazione.html',
-  tirocinio: '/permesso-tirocinio.html',
-  // Studio
-  studio_visto: '/permesso-studio-dopo-ingresso-con-visto.html',
-  studio_conv: '/permesso-studio-conversione-da-altro-permesso.html',
-  // Famiglia
-  fam_genitore_ita: '/permesso-famiglia-genitore-di-cittadino-italiano.html',
-  fam_ricong: '/permesso-famiglia-dopo-ingresso-con-visto-per-ricongiungimento-familiare.html',
-  fam_coesione: '/permesso-famiglia-senza-nullaosta-per-ricongiungimento-coesione-familiare.html',
-  fam_convivente_ita: '/permesso-famiglia-convivente-con-parente-cittadino-italiano-entro-il-secondo-grado.html',
-  famit_statici: '/permesso-famit-per-familiari-di-cittadini-italiani-statici.html',
-  carta_fam_ita: '/permesso-carta-di-soggiorno-per-familiari-di-italiani-dinamici.html',
-  carta_fam_ue: '/permesso-carta-di-soggiorno-per-familiari-di-cittadini-ue.html',
-  fam_rifugiato: null, // No dedicated page
-  affidamento: null, // No dedicated page
-  ass_minori: null, // Handled with custom link
-  figlio_14: null, // No dedicated page
-  // Protezione
-  asilo: '/permesso-asilo-status-rifugiato.html',
-  prot_suss: '/permesso-protezione-sussidiaria.html',
-  prot_spec: '/permesso-protezione-speciale-dopo-decisione-positiva-della-commissione-o-del-tribunale.html',
-  rich_asilo: '/permesso-richiesta-asilo.html',
-  prot_soc_violenza: '/permesso-protezione-sociale-vittime-di-violenza-domestica.html',
-  prot_soc_tratta: '/permesso-protezione-sociale-vittime-di-tratta.html',
-  sfruttamento: '/permesso-sfruttamento-lavorativo.html',
-  calamita: '/permesso-calamita-naturale.html',
-  minore: '/permesso-minore-eta-per-msna.html',
-  prosieguo: null, // No dedicated page
-  // Salute
-  cure_visto: '/permesso-cure-mediche-dopo-ingresso-con-visto-per-cure-mediche.html',
-  cure_grave: '/permesso-cure-mediche-per-persona-gravemente-malata-che-si-trova-gia-in-italia.html',
-  cure_padre: null, // No dedicated page
-  cure_gravidanza: null, // No dedicated page
-  // Altro
-  sportiva: '/permesso-attivita-sportiva.html',
-  artistico: null, // No dedicated page
-  religiosi: '/permesso-motivi-religiosi.html',
-  ricerca: null, // No dedicated page
-  apolidia: '/permesso-apolidia.html',
-  res_elettiva: '/permesso-residenza-elettiva.html',
-  carta_ue: '/permesso-ue-per-soggiornanti-di-lungo-periodo-carta-di-soggiorno.html',
-};
-
-function getRinnovoGuideUrl(treeKey: string): string | null {
-  const path = RINNOVO_PERMIT_PATHS[treeKey];
-  if (!path) return null;
-  return `${SOSPERMESSO_BASE}${path}#rinnovo`;
-}
+// Guide URLs for rinnovo are now in src/lib/permit-url-map.ts (r_end_* entries)
 
 // ---------------------------------------------------------------------------
 // Helper: build a rinnovo result node from Notion data
@@ -228,14 +168,8 @@ function buildResult(
     sections.push(...overrides.extraSections);
   }
 
-  // --- Link to sospermesso.it permit page with #rinnovo anchor (Item #24) ---
-  const guideUrl = getRinnovoGuideUrl(permit.treeKey);
-  if (guideUrl) {
-    sections.push({
-      heading: '\ud83d\udcda Guida completa',
-      content: `Leggi la guida completa sul rinnovo di questo permesso su [SOS Permesso](${guideUrl}).`,
-    });
-  }
+  // Guide link is now rendered as the yellow CTA button in OutcomePage
+  // via permit-url-map.ts (r_end_* → sospermesso.it#rinnovo)
 
   // Determine title — now just the permit name (Item #15: removed old header format)
   const title = overrides?.title ?? permit.notionName;
@@ -635,9 +569,8 @@ const rinnovoResultNodes: Record<string, TreeNode> = {
     rinnovoByKey['carta_ue']
       ? {
         ...rinnovoByKey['carta_ue'],
-        // Strip the "NOTA documenti primo rilascio" block from infoExtra
-        infoExtra: rinnovoByKey['carta_ue'].infoExtra
-          .replace(/\n\nNOTA documenti primo rilascio[\s\S]*$/, ''),
+        duration: '',
+        infoExtra: '',
       }
       : undefined, {
     title: 'Carta UE per soggiornanti di lungo periodo',

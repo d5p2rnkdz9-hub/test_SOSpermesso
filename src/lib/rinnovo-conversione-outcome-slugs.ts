@@ -84,6 +84,7 @@ export const RC_OUTCOME_SLUGS: Record<string, string> = {
   'conversione-carta-assistenza-minori': 'c_end_carta_minori',
   'conversione-carta-impossibile': 'c_end_carta_no',
   'conversione-permesso-scaduto': 'c_end_scaduto',
+  'conversione-permesso-scaduto-soft': 'c_end_scaduto_soft',
   'conversione-situazione-complicata': 'c_end_complicata',
 };
 

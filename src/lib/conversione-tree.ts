@@ -67,11 +67,11 @@ export const conversioneTree: TreeData = {
       type: 'question',
       question: 'Da quanto tempo è scaduto il tuo permesso?',
     },
-    c_scaduto_fam: {
-      id: 'c_scaduto_fam',
+    c_scaduto_vorresti: {
+      id: 'c_scaduto_vorresti',
       type: 'question',
-      question:
-        'Con un permesso scaduto da poco, solo la conversione per motivi familiari potrebbe essere possibile. Vuoi procedere con la conversione per famiglia?',
+      question: 'In quale permesso vorresti convertire?',
+      description: 'Attenzione: con un permesso scaduto, la conversione potrebbe non essere possibile per tutti i tipi di permesso.',
     },
 
     // =============================================
@@ -517,7 +517,27 @@ export const conversioneTree: TreeData = {
         {
           heading: '\ud83d\udc68\u200d\u2696\ufe0f Serve consulenza legale',
           content:
-            'Rivolgiti a un servizio di consulenza legale gratuita per valutare la tua situazione.',
+            'Rivolgiti a un servizio di consulenza legale gratuita per valutare la tua situazione.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
+        },
+      ],
+    },
+
+    c_end_scaduto_soft: {
+      id: 'c_end_scaduto_soft',
+      type: 'result',
+      title: 'Conversione teoricamente possibile',
+      introText:
+        'Teoricamente sarebbe possibile convertire il tuo permesso, però il fatto che sia scaduto potrebbe presentare un problema.',
+      sections: [
+        {
+          heading: '\u26a0\ufe0f Attenzione',
+          content:
+            'La conversione normalmente si può fare solo con un permesso ancora valido. Il tuo permesso risulta scaduto: alcune Questure potrebbero rifiutare la domanda.',
+        },
+        {
+          heading: '\ud83d\udc68\u200d\u2696\ufe0f Cosa fare',
+          content:
+            'Ti consigliamo di rivolgerti a un consulente legale qualificato il prima possibile. Un avvocato può aiutarti a capire se la conversione è ancora possibile e come presentare la domanda.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
         },
       ],
     },
@@ -617,10 +637,14 @@ export const conversioneTree: TreeData = {
     { from: 'c_val_generico', to: 'c_scaduto_quanto', label: 'Scaduto', optionKey: 'scaduto' },
 
     // Shared scaduto handling (Famiglia exception)
-    { from: 'c_scaduto_quanto', to: 'c_scaduto_fam', label: 'Da meno di un anno', optionKey: 'meno_anno' },
+    { from: 'c_scaduto_quanto', to: 'c_scaduto_vorresti', label: 'Da meno di un anno', optionKey: 'meno_anno' },
     { from: 'c_scaduto_quanto', to: 'c_end_scaduto', label: 'Da più di un anno', optionKey: 'piu_anno' },
-    { from: 'c_scaduto_fam', to: 'c_end_fam_ok', label: 'Sì, voglio convertire per famiglia', optionKey: 'si_fam' },
-    { from: 'c_scaduto_fam', to: 'c_end_scaduto', label: 'No, ho un\'altra esigenza', optionKey: 'no_fam' },
+    { from: 'c_scaduto_vorresti', to: 'c_end_fam_ok', label: 'Famiglia', optionKey: 'famiglia' },
+    { from: 'c_scaduto_vorresti', to: 'c_end_scaduto_soft', label: 'Lavoro', optionKey: 'lavoro' },
+    { from: 'c_scaduto_vorresti', to: 'c_end_scaduto_soft', label: 'Studio', optionKey: 'studio' },
+    { from: 'c_scaduto_vorresti', to: 'c_end_scaduto_soft', label: 'Attesa occupazione', optionKey: 'att_occ' },
+    { from: 'c_scaduto_vorresti', to: 'c_end_scaduto_soft', label: 'Permesso UE lungo periodo', optionKey: 'carta_ue' },
+    { from: 'c_scaduto_vorresti', to: 'c_end_scaduto_soft', label: 'Altro', optionKey: 'altro' },
 
     // =============================================
     // STEP 3: QUALE VORRESTI? (per current permit → results)

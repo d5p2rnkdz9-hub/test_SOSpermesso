@@ -28,6 +28,7 @@ export const CONVERSIONE_OUTCOME_SLUGS: Record<string, string> = {
   'carta-assistenza-minori': 'c_end_carta_minori',
   'carta-impossibile': 'c_end_carta_no',
   'permesso-scaduto': 'c_end_scaduto',
+  'permesso-scaduto-conversione': 'c_end_scaduto_soft',
   'situazione-complicata': 'c_end_complicata',
 };
 
