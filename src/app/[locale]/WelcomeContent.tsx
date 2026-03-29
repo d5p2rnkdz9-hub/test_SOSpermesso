@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl';
 import { ContentColumn } from '@/components/layout/ContentColumn';
 import { Button } from '@/components/ui/button';
 import { useRouter } from '@/i18n/navigation';
+import { Link } from '@/i18n/navigation';
 import { useTreeHydration, useTreeStore } from '@/store/tree-store';
 
 export default function WelcomeContent() {
@@ -69,6 +70,13 @@ export default function WelcomeContent() {
         >
           {tTree('startButton')}
         </Button>
+
+        <p className="mt-6 text-sm text-muted-foreground">
+          Hai già un permesso e vuoi rinnovarlo o convertirlo?{' '}
+          <Link href="/tree/rinnovo-conversione" className="underline">
+            Vai al test rinnovo/conversione
+          </Link>
+        </p>
       </div>
     </ContentColumn>
   );

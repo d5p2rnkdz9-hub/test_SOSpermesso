@@ -7,7 +7,7 @@ import { useTranslations } from 'next-intl';
 import { ContentColumn } from '@/components/layout/ContentColumn';
 import { Button } from '@/components/ui/button';
 import { TreePlayer } from '@/components/tree';
-import { useRouter } from '@/i18n/navigation';
+import { useRouter, Link } from '@/i18n/navigation';
 import { rinnovoConversioneTree } from '@/lib/rinnovo-conversione-tree';
 import { isTerminalNode } from '@/lib/tree-engine';
 import { getRCSlugFromNodeId } from '@/lib/rinnovo-conversione-outcome-slugs';
@@ -122,6 +122,13 @@ export default function RinnovoConversioneContent() {
           >
             {tTree('startButton')}
           </Button>
+
+          <p className="mt-6 text-sm text-muted-foreground">
+            Non hai ancora un permesso?{' '}
+            <Link href="/" className="underline">
+              Scopri se puoi ottenerne uno
+            </Link>
+          </p>
         </div>
       </ContentColumn>
     );

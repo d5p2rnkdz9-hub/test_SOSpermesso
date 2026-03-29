@@ -439,7 +439,7 @@ const rinnovoResultNodes: Record<string, TreeNode> = {
     type: 'result',
     title: 'Permesso scaduto da più di 60 giorni',
     introText:
-      '[Nome], il tuo permesso è scaduto da più di 60 giorni e potrebbe non essere più rinnovato. Fai comunque la domanda, ma chiedi subito un aiuto legale.',
+      'Il tuo permesso è scaduto da più di 60 giorni e potrebbe non essere più rinnovato. Fai comunque la domanda, ma chiedi subito un aiuto legale.',
     sections: [
       {
         heading: '⚠️ Attenzione',

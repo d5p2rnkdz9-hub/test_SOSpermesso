@@ -1,7 +1,7 @@
 /**
  * Runtime variable substitution for decision tree text.
  *
- * Replaces [Nome] and [Parente selezionato] placeholders with actual values.
+ * Runtime variable substitution for decision tree text.
  */
 
 /** Maps min_parenti optionKey → display label for [Parente selezionato] */
@@ -104,9 +104,8 @@ function getValidityStatus(answers: Record<string, string>): string {
 }
 
 /**
- * Replaces [Nome], [Parente selezionato], and [StatoPermesso] placeholders in text.
+ * Replaces placeholders in tree text with actual values.
  *
- * - [Nome] → userName, or empty string if null
  * - [Parente selezionato] → derived from answers via getSelectedRelative
  * - [StatoPermesso] → derived from rinnovo validity answers
  */
@@ -115,15 +114,12 @@ export function substituteVariables(
   userName: string | null,
   answers: Record<string, string>,
 ): string {
-  const name = userName ?? '';
   const relative = getSelectedRelative(answers);
   const validityStatus = getValidityStatus(answers);
   const currentPermit = getCurrentPermit(answers);
   const targetPermit = getTargetPermit(answers);
 
   let result = text
-    .replace(/\[Nome\],\s*/g, name ? `${name}, ` : '')
-    .replace(/\[Nome\]/g, name)
     .replace(/\[Parente selezionato\]/g, relative)
     .replace(/\[StatoPermesso\]\s*/g, validityStatus ? `${validityStatus} ` : '')
     .replace(/\[PermessoAttuale\]/g, currentPermit)

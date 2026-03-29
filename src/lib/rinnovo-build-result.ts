@@ -52,7 +52,7 @@ export function buildResult(
   if (!notPossible) {
     sections.push({
       heading: '\u2705 Rinnovo possibile',
-      content: `[Nome], il tuo permesso per ${displayName} [StatoPermesso] e può essere rinnovato. Puoi fare da solo, ma è sempre consigliabile chiedere un parere legale.`,
+      content: `Il tuo permesso per ${displayName} [StatoPermesso] e può essere rinnovato. Puoi fare da solo, ma è sempre consigliabile chiedere un parere legale.`,
     });
   }
 
