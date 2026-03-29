@@ -13,7 +13,33 @@
  * Node IDs use `c_` prefix to avoid collisions with the main Italian tree.
  */
 
-import type { TreeData } from '@/types/tree';
+import type { TreeData, ResultSection } from '@/types/tree';
+import { buildResult } from './rinnovo-build-result';
+import { rinnovoByKey } from './rinnovo-notion-data.generated';
+
+/**
+ * Extract document/method/duration sections from rinnovo buildResult
+ * for use in positive conversione outcome pages.
+ */
+function getTargetPermitSections(notionKey: string): ResultSection[] {
+  const permit = rinnovoByKey[notionKey];
+  if (!permit) return [];
+
+  // Use buildResult to get a fully-corrected TreeNode, then extract relevant sections
+  const tmpNode = buildResult('_tmp', permit);
+  const sections = tmpNode.sections ?? [];
+
+  // Keep only doc, method, and duration sections (not the green badge or guide link)
+  return sections.filter((s) =>
+    s.heading.includes('Documenti') ||
+    s.heading.includes('Come rinnovare') ||
+    s.heading.includes('Durata'),
+  ).map((s) => ({
+    ...s,
+    // Rename "Come rinnovare" → "Come fare" for conversione context
+    heading: s.heading.replace('Come rinnovare', 'Come fare'),
+  }));
+}
 
 export const conversioneTree: TreeData = {
   startNodeId: 'c_quale_hai',
@@ -132,18 +158,14 @@ export const conversioneTree: TreeData = {
       type: 'result',
       title: 'Conversione in Lavoro: POSSIBILE',
       introText:
-        'Buone notizie! La conversione del tuo permesso in un permesso per lavoro è possibile.',
+        'È possibile convertire il tuo permesso per [PermessoAttuale] in permesso per [PermessoTarget].',
       sections: [
         {
           heading: '\ud83d\udce6 Come fare',
           content:
-            'Devi prima richiedere il nulla osta presso lo Sportello Unico per l\'Immigrazione, poi presentare domanda tramite il kit postale presso gli uffici postali abilitati. La documentazione richiesta dipende dal tipo di conversione (lavoro subordinato o autonomo).',
+            'Devi prima richiedere il nulla osta presso lo Sportello Unico per l\'Immigrazione, poi presentare domanda tramite il [kit postale](https://www.sospermesso.it/kit-postale). La documentazione richiesta dipende dal tipo di conversione (lavoro subordinato o autonomo).',
         },
-        {
-          heading: '\ud83d\udcc4 Documenti necessari',
-          content:
-            "Per lavoro subordinato: contratto di lavoro o proposta di assunzione, nulla osta dello Sportello Unico. Per lavoro autonomo: documentazione attestante i requisiti per l'attività autonoma, iscrizione alla Camera di Commercio o ordine professionale.",
-        },
+        ...getTargetPermitSections('lav_sub_conv'),
       ],
     },
 
@@ -253,18 +275,14 @@ export const conversioneTree: TreeData = {
       type: 'result',
       title: 'Conversione in Attesa Occupazione: POSSIBILE',
       introText:
-        'Buone notizie! Puoi richiedere la conversione in un permesso per attesa occupazione.',
+        'È possibile convertire il tuo permesso per [PermessoAttuale] in permesso per [PermessoTarget].',
       sections: [
         {
           heading: '\u2139\ufe0f Informazione utile',
           content:
             'Puoi richiedere il permesso per attesa occupazione anche senza precedente esperienza lavorativa.',
         },
-        {
-          heading: '\ud83d\udcc4 Documenti necessari',
-          content:
-            "Documento del Centro per l'Impiego, passaporto valido, prova di alloggio.",
-        },
+        ...getTargetPermitSections('att_occ'),
       ],
     },
 
@@ -344,18 +362,14 @@ export const conversioneTree: TreeData = {
       type: 'result',
       title: 'Conversione in Studio: POSSIBILE',
       introText:
-        'Buone notizie! La conversione del tuo permesso in un permesso per studio è possibile.',
+        'È possibile convertire il tuo permesso per [PermessoAttuale] in permesso per [PermessoTarget].',
       sections: [
         {
           heading: '\ud83d\udce6 Come fare',
           content:
-            'Devi presentare domanda tramite il kit postale presso gli uffici postali abilitati.',
+            'Devi presentare domanda tramite il [kit postale](https://www.sospermesso.it/kit-postale) presso gli uffici postali abilitati.',
         },
-        {
-          heading: '\ud83d\udcc4 Documenti necessari',
-          content:
-            'Iscrizione a un corso di studi, prova di mezzi di sostentamento, assicurazione sanitaria.',
-        },
+        ...getTargetPermitSections('studio_conv'),
       ],
     },
 
@@ -415,7 +429,7 @@ export const conversioneTree: TreeData = {
       type: 'result',
       title: 'Conversione in Famiglia: POSSIBILE',
       introText:
-        'Buone notizie! La conversione in un permesso per motivi familiari è possibile.',
+        'È possibile convertire il tuo permesso per [PermessoAttuale] in permesso per [PermessoTarget].',
       sections: [
         {
           heading: '\u2139\ufe0f Requisiti',
@@ -425,8 +439,9 @@ export const conversioneTree: TreeData = {
         {
           heading: '\ud83d\udce6 Come fare',
           content:
-            'Presenta la domanda tramite kit postale con la documentazione che dimostra il legame familiare.',
+            'Presenta la domanda tramite [kit postale](https://www.sospermesso.it/kit-postale) con la documentazione che dimostra il legame familiare.',
         },
+        ...getTargetPermitSections('fam_ricong'),
       ],
     },
 
@@ -456,7 +471,7 @@ export const conversioneTree: TreeData = {
       type: 'result',
       title: 'Carta di Soggiorno UE: POSSIBILE',
       introText:
-        'Buone notizie! Puoi richiedere la Carta di Soggiorno UE per soggiornanti di lungo periodo.',
+        'È possibile convertire il tuo permesso per [PermessoAttuale] in [PermessoTarget].',
       sections: [
         {
           heading: '\u2139\ufe0f Requisiti',
@@ -466,8 +481,9 @@ export const conversioneTree: TreeData = {
         {
           heading: '\ud83d\udce6 Come fare',
           content:
-            'Presenta la domanda tramite kit postale con tutta la documentazione richiesta.',
+            'Presenta la domanda tramite [kit postale](https://www.sospermesso.it/kit-postale) con tutta la documentazione richiesta.',
         },
+        ...getTargetPermitSections('carta_ue'),
       ],
     },
 
