@@ -29,16 +29,12 @@ function getTargetPermitSections(notionKey: string): ResultSection[] {
   const tmpNode = buildResult('_tmp', permit);
   const sections = tmpNode.sections ?? [];
 
-  // Keep only doc, method, and duration sections (not the green badge or guide link)
+  // Keep only doc and duration sections (not the green badge, method, or conversione sections)
+  // Method ("Come rinnovare") is excluded because conversione nodes have their own "Come fare"
   return sections.filter((s) =>
     s.heading.includes('Documenti') ||
-    s.heading.includes('Come rinnovare') ||
     s.heading.includes('Durata'),
-  ).map((s) => ({
-    ...s,
-    // Rename "Come rinnovare" → "Come fare" for conversione context
-    heading: s.heading.replace('Come rinnovare', 'Come fare'),
-  }));
+  );
 }
 
 export const conversioneTree: TreeData = {
