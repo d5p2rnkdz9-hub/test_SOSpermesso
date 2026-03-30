@@ -1,8 +1,89 @@
 /**
- * Runtime variable substitution for decision tree text.
- *
- * Runtime variable substitution for decision tree text.
+ * Runtime variable substitution and dictionary auto-linking for decision tree text.
  */
+
+const DIZIONARIO_BASE = 'https://www.sospermesso.it/dizionario';
+
+/** Dictionary terms → anchor IDs, sorted longest-first to avoid partial matches */
+const DICTIONARY_TERMS: [string, string][] = [
+  ['minore straniero non accompagnato', 'minore-straniero-non-accompagnato'],
+  ['ricongiungimento familiare', 'ricongiungimento-familiare'],
+  ['protezione internazionale', 'protezione-internazionale'],
+  ['prosieguo amministrativo', 'prosieguo-amministrativo'],
+  ['dichiarazione di ospitalità', 'dichiarazione-di-ospitalita'],
+  ['tribunale per i minorenni', 'tribunale-per-i-minorenni'],
+  ['permesso di soggiorno', 'permesso-di-soggiorno'],
+  ['commissione territoriale', 'commissione-territoriale'],
+  ['idoneità alloggiativa', 'idoneita-alloggiativa'],
+  ['coesione familiare', 'coesione-familiare'],
+  ['casellario giudiziale', 'casellario-giudiziale'],
+  ['cessione di fabbricato', 'cessione-di-fabbricato'],
+  ['status di rifugiato', 'status-di-rifugiato'],
+  ['tessera sanitaria', 'tessera-sanitaria'],
+  ['attestato nominativo', 'attestato-nominativo'],
+  ['carta di soggiorno', 'carta-di-soggiorno'],
+  ['carichi pendenti', 'carichi-pendenti'],
+  ['codice fiscale', 'codice-fiscale'],
+  ['sportello unico', 'sportello-unico'],
+  ['servizi sociali', 'servizi-sociali'],
+  ['copia conforme', 'copia-conforme'],
+  ['unione civile', 'unione-civile'],
+  ['marca da bollo', 'marca-da-bollo'],
+  ['kit postale', 'kit-postale'],
+  ['accoglienza', 'accoglienza'],
+  ['affidamento', 'affidamento'],
+  ['conversione', 'conversione'],
+  ['prefettura', 'prefettura'],
+  ['nulla osta', 'nulla-osta'],
+  ['rifugiato', 'rifugiato'],
+  ['domicilio', 'domicilio'],
+  ['residenza', 'residenza'],
+  ['tribunale', 'tribunale'],
+  ['ricevuta', 'ricevuta'],
+  ['questura', 'questura'],
+  ['diniego', 'diniego'],
+  ['rinnovo', 'rinnovo'],
+  ['a carico', 'a-carico'],
+  ['coniuge', 'coniuge'],
+  ['udienza', 'udienza'],
+  ['minore', 'minore'],
+  ['tutore', 'tutore'],
+  ['asilo', 'asilo'],
+  ['visto', 'visto'],
+  ['asl', 'asl'],
+  ['c3', 'c3'],
+];
+
+/**
+ * Links the first occurrence of each dictionary term in text.
+ * Skips terms already inside markdown links [...](...).
+ */
+function linkDictionaryTerms(text: string): string {
+  const linked = new Set<string>();
+
+  for (const [term, anchor] of DICTIONARY_TERMS) {
+    if (linked.has(anchor)) continue;
+
+    // Case-insensitive match, word boundary, not already inside a markdown link
+    const regex = new RegExp(`(?<![\\[\\(])\\b(${term})\\b(?![\\]\\)])`, 'i');
+    const match = text.match(regex);
+    if (match && match.index !== undefined) {
+      // Check we're not inside a markdown link by looking for unbalanced [ before match
+      const before = text.slice(0, match.index);
+      const openBrackets = (before.match(/\[/g) || []).length;
+      const closeBrackets = (before.match(/\]/g) || []).length;
+      if (openBrackets > closeBrackets) continue; // inside a link
+
+      const url = `${DIZIONARIO_BASE}#${anchor}`;
+      text = text.slice(0, match.index)
+        + `[${match[1]}](${url})`
+        + text.slice(match.index + match[0].length);
+      linked.add(anchor);
+    }
+  }
+
+  return text;
+}
 
 /** Maps min_parenti optionKey → display label for [Parente selezionato] */
 const RELATIVE_LABEL_MAP: Record<string, string> = {
@@ -126,5 +207,8 @@ export function substituteVariables(
     .replace(/\[PermessoTarget\]/g, targetPermit);
 
   // Collapse any double spaces left after empty substitutions
-  return result.replace(/ {2,}/g, ' ').trim();
+  result = result.replace(/ {2,}/g, ' ').trim();
+
+  // Auto-link dictionary terms
+  return linkDictionaryTerms(result);
 }
