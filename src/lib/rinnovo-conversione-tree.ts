@@ -224,11 +224,6 @@ const rinnovoResultNodes: Record<string, TreeNode> = {
   }),
   r_end_prot_suss: buildResult('r_end_prot_suss', rinnovoByKey['prot_suss'], {
     title: 'Protezione sussidiaria',
-    // Item #16: same Q&A for prot sussidiaria
-    extraSections: [{
-      heading: '\ud83d\udca1 Lo sapevi?',
-      content: 'Puoi chiedere la cittadinanza italiana dopo 5 anni dalla tua domanda di asilo. Chiedi aiuto legale per sapere come fare.',
-    }],
   }),
   // Item #22: don't say impossible, say dubious/can be attempted
   r_end_prot_spec: {
