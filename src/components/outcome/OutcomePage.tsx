@@ -63,7 +63,9 @@ export function OutcomePage({
   const hydratedHistory = isHydrated ? history : [];
 
   const sub = (text: string) =>
-    withDictionaryLinks(substituteVariables(text, hydratedName, hydratedAnswers));
+    substituteVariables(text, hydratedName, hydratedAnswers);
+  const subWithLinks = (text: string) =>
+    withDictionaryLinks(sub(text));
 
   const handleRestart = () => {
     onReset();
@@ -101,7 +103,7 @@ export function OutcomePage({
           )}
 
           {/* FAQ Sections */}
-          <FaqAccordion sections={sections} substituteVars={sub} />
+          <FaqAccordion sections={sections} substituteVars={subWithLinks} />
 
           {/* Link out to sospermesso.it */}
           {permitUrl && (
