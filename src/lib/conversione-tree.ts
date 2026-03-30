@@ -157,11 +157,19 @@ export const conversioneTree: TreeData = {
         'È possibile convertire il tuo permesso per [PermessoAttuale] in permesso per lavoro subordinato.',
       sections: [
         {
+          heading: '\u2705 Conversione possibile — puoi fare da solo',
+          content: 'La conversione in lavoro subordinato è possibile.',
+        },
+        {
           heading: '\ud83d\udce6 Come fare',
           content:
             'Devi prima richiedere il nulla osta presso lo Sportello Unico per l\'Immigrazione, poi presentare domanda tramite il [kit postale](https://www.sospermesso.it/kit-postale).',
         },
-        ...getTargetPermitSections('lav_sub_conv'),
+        {
+          heading: '\u23f3 Durata',
+          content: 'Normalmente viene dato per due anni. Se il tuo contratto di lavoro è a tempo indeterminato, può essere dato per tre anni.',
+        },
+        ...getTargetPermitSections('lav_sub_conv').filter((s) => !s.heading.includes('Durata')),
       ],
     },
 
@@ -173,11 +181,19 @@ export const conversioneTree: TreeData = {
         'È possibile convertire il tuo permesso per [PermessoAttuale] in permesso per lavoro autonomo.',
       sections: [
         {
+          heading: '\u2705 Conversione possibile — puoi fare da solo',
+          content: 'La conversione in lavoro autonomo è possibile.',
+        },
+        {
           heading: '\ud83d\udce6 Come fare',
           content:
             'Devi prima richiedere il nulla osta presso lo Sportello Unico per l\'Immigrazione, poi presentare domanda tramite il [kit postale](https://www.sospermesso.it/kit-postale).',
         },
-        ...getTargetPermitSections('lav_aut_conv'),
+        {
+          heading: '\u23f3 Durata',
+          content: 'Normalmente viene dato per due anni.',
+        },
+        ...getTargetPermitSections('lav_aut_conv').filter((s) => !s.heading.includes('Durata')),
       ],
     },
 
@@ -290,6 +306,10 @@ export const conversioneTree: TreeData = {
         'È possibile convertire il tuo permesso per [PermessoAttuale] in permesso per [PermessoTarget].',
       sections: [
         {
+          heading: '\u2705 Conversione possibile — puoi fare da solo',
+          content: 'La conversione in attesa occupazione è possibile.',
+        },
+        {
           heading: '\u2139\ufe0f Informazione utile',
           content:
             'Puoi richiedere il permesso per attesa occupazione anche senza precedente esperienza lavorativa.',
@@ -377,6 +397,10 @@ export const conversioneTree: TreeData = {
         'È possibile convertire il tuo permesso per [PermessoAttuale] in permesso per [PermessoTarget].',
       sections: [
         {
+          heading: '\u2705 Conversione possibile — puoi fare da solo',
+          content: 'La conversione in studio è possibile.',
+        },
+        {
           heading: '\ud83d\udce6 Come fare',
           content:
             'Devi presentare domanda tramite il [kit postale](https://www.sospermesso.it/kit-postale) presso gli uffici postali abilitati.',
@@ -444,6 +468,10 @@ export const conversioneTree: TreeData = {
         'È possibile convertire il tuo permesso per [PermessoAttuale] in permesso per [PermessoTarget].',
       sections: [
         {
+          heading: '\u2705 Conversione possibile — puoi fare da solo',
+          content: 'La conversione in permesso per motivi familiari è possibile.',
+        },
+        {
           heading: '\u2139\ufe0f Requisiti',
           content:
             'La conversione è possibile se il tuo familiare ha un permesso di soggiorno e tu sei: coniuge, figlio minore, figlio maggiorenne disabile, o genitore a carico. Vale anche se il familiare è cittadino italiano o UE.',
@@ -490,6 +518,10 @@ export const conversioneTree: TreeData = {
       introText:
         'È possibile convertire il tuo permesso per [PermessoAttuale] in [PermessoTarget].',
       sections: [
+        {
+          heading: '\u2705 Conversione possibile — puoi fare da solo',
+          content: 'Puoi richiedere la Carta di Soggiorno UE per soggiornanti di lungo periodo.',
+        },
         {
           heading: '\u2139\ufe0f Requisiti',
           content:
