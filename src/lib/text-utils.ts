@@ -12,7 +12,7 @@ const DICTIONARY_TERMS: [string, string][] = [
   ['prosieguo amministrativo', 'prosieguo-amministrativo'],
   ['dichiarazione di ospitalità', 'dichiarazione-di-ospitalita'],
   ['tribunale per i minorenni', 'tribunale-per-i-minorenni'],
-  ['permesso di soggiorno', 'permesso-di-soggiorno'],
+  // 'permesso di soggiorno' excluded — too generic, appears everywhere
   ['commissione territoriale', 'commissione-territoriale'],
   ['idoneità alloggiativa', 'idoneita-alloggiativa'],
   ['coesione familiare', 'coesione-familiare'],
@@ -32,7 +32,7 @@ const DICTIONARY_TERMS: [string, string][] = [
   ['kit postale', 'kit-postale'],
   ['accoglienza', 'accoglienza'],
   ['affidamento', 'affidamento'],
-  ['conversione', 'conversione'],
+  // 'conversione' excluded — too generic, appears everywhere in conversione tree
   ['prefettura', 'prefettura'],
   ['nulla osta', 'nulla-osta'],
   ['rifugiato', 'rifugiato'],
@@ -207,8 +207,14 @@ export function substituteVariables(
     .replace(/\[PermessoTarget\]/g, targetPermit);
 
   // Collapse any double spaces left after empty substitutions
-  result = result.replace(/ {2,}/g, ' ').trim();
+  return result.replace(/ {2,}/g, ' ').trim();
+}
 
-  // Auto-link dictionary terms
-  return linkDictionaryTerms(result);
+/**
+ * Applies dictionary auto-linking to text.
+ * Call this only on content that goes through a markdown renderer (e.g. FaqAccordion).
+ * Do NOT use on plain text (e.g. question titles).
+ */
+export function withDictionaryLinks(text: string): string {
+  return linkDictionaryTerms(text);
 }

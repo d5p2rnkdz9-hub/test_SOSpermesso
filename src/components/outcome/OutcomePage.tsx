@@ -6,7 +6,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import { getNode } from '@/lib/tree-engine';
 import { getLawyerLevel } from '@/lib/lawyer-level';
 import { getPermitUrl } from '@/lib/permit-url-map';
-import { substituteVariables } from '@/lib/text-utils';
+import { substituteVariables, withDictionaryLinks } from '@/lib/text-utils';
 import { useRouter } from '@/i18n/navigation';
 import { ContentColumn } from '@/components/layout/ContentColumn';
 import type { TreeData } from '@/types/tree';
@@ -63,7 +63,7 @@ export function OutcomePage({
   const hydratedHistory = isHydrated ? history : [];
 
   const sub = (text: string) =>
-    substituteVariables(text, hydratedName, hydratedAnswers);
+    withDictionaryLinks(substituteVariables(text, hydratedName, hydratedAnswers));
 
   const handleRestart = () => {
     onReset();
