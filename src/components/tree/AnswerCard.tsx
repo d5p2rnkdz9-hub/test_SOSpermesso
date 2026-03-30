@@ -11,9 +11,8 @@ interface AnswerCardProps {
 /**
  * Tappable card for a single answer option.
  *
- * Full-width button with 48px+ touch target, selected/unselected
- * visual states, and active:scale press feedback.
- * Styled to match Sito_Nuovo card system.
+ * Brutalist style: thick black border, hard offset shadow,
+ * hover moves card into its own shadow.
  */
 export function AnswerCard({
   label,
@@ -28,14 +27,14 @@ export function AnswerCard({
       onClick={onSelect}
       disabled={disabled}
       className={`
-        w-full min-h-[48px] rounded-2xl border-2
-        px-5 py-4 text-start font-medium
-        transition-all duration-[250ms] ease-in-out
-        active:translate-y-0 active:scale-[0.98]
+        w-full min-h-[48px] rounded-lg border-2 border-[#1A1A1A]
+        px-5 py-4 text-start font-semibold
+        transition-all duration-150 ease-in-out
+        active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0_#1A1A1A]
         ${
           selected
-            ? 'border-[#FFC107] bg-gradient-to-br from-[#FFF9C4] to-[#FFD700] text-[#5D4E00] shadow-[0_4px_15px_rgba(255,215,0,0.3)]'
-            : 'border-border bg-white text-foreground shadow-[0_2px_4px_rgba(0,0,0,0.1)] hover:-translate-y-0.5 hover:shadow-[0_4px_8px_rgba(0,0,0,0.12)] hover:border-[#FFD700]/40'
+            ? 'bg-[#FFD700] text-[#1A1A1A] shadow-[3px_3px_0_#FFC107,_4.5px_4.5px_0_#1A1A1A]'
+            : 'bg-white text-foreground shadow-[2.5px_2.5px_0_#1A1A1A] hover:translate-x-[1.5px] hover:translate-y-[1.5px] hover:shadow-[1px_1px_0_#1A1A1A] hover:bg-[#FFD700]'
         }
         ${disabled ? 'pointer-events-none opacity-70' : ''}
       `}

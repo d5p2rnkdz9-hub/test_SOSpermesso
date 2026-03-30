@@ -85,7 +85,7 @@ export function OutcomePage({
         />
 
         {/* 2. Card container */}
-        <div className="flex flex-col gap-4 rounded-3xl bg-card p-6 shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+        <div className="flex flex-col gap-4 rounded-xl border-2 border-[#1A1A1A] bg-card p-6 shadow-[3px_3px_0_#1A1A1A]">
           {/* Title */}
           <h1 className="text-xl font-bold text-card-foreground">
             {node.title && sub(node.title)}
@@ -111,7 +111,7 @@ export function OutcomePage({
               href={permitUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 rounded-full border-[1.5px] border-[#FFC107] bg-gradient-to-br from-[#FFF9C4] to-[#FFD700] px-6 py-3.5 text-center font-semibold text-[#5D4E00] shadow-[0_2px_4px_rgba(0,0,0,0.1)] transition-all duration-[250ms] ease-in-out hover:shadow-[0_4px_8px_rgba(0,0,0,0.12)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
+              className="flex items-center justify-center gap-2 rounded-lg border-2 border-[#1A1A1A] bg-[#FFD700] px-6 py-3.5 text-center font-semibold text-[#1A1A1A] shadow-[3px_3px_0_#1A1A1A] transition-all duration-150 ease-in-out hover:translate-x-[1.5px] hover:translate-y-[1.5px] hover:shadow-[1.5px_1.5px_0_#1A1A1A] active:translate-x-[2.5px] active:translate-y-[2.5px] active:shadow-[0.5px_0.5px_0_#1A1A1A]"
             >
               {t('readFullGuide')}
               <ExternalLink className="h-4 w-4 shrink-0" />
@@ -123,7 +123,7 @@ export function OutcomePage({
         <button
           type="button"
           onClick={handleRestart}
-          className="flex items-center justify-center gap-2 rounded-full border-2 border-foreground bg-transparent px-4 py-3 font-medium text-foreground transition-all duration-[250ms] ease-in-out hover:bg-foreground hover:text-white"
+          className="flex items-center justify-center gap-2 rounded-lg border-2 border-[#1A1A1A] bg-transparent px-4 py-3 font-semibold text-foreground shadow-[2.5px_2.5px_0_#1A1A1A] transition-all duration-150 ease-in-out hover:translate-x-[1.5px] hover:translate-y-[1.5px] hover:shadow-[1px_1px_0_#1A1A1A] hover:bg-[#1A1A1A] hover:text-white active:translate-x-[2px] active:translate-y-[2px] active:shadow-[0.5px_0.5px_0_#1A1A1A]"
         >
           <RotateCcw className="h-4 w-4" />
           {tTree('restart')}

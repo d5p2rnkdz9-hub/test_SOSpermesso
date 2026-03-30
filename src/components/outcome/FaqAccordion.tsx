@@ -108,12 +108,14 @@ export function FaqAccordion({ sections, substituteVars }: FaqAccordionProps) {
       {displaySections.map((section, index) => (
         <div
           key={index}
-          className="card-hover rounded-3xl bg-card p-6"
+          className="rounded-xl border-2 border-[#1A1A1A] bg-card p-6"
           style={{
             borderInlineStartWidth: '4px',
             borderInlineStartStyle: 'solid',
             borderInlineStartColor: BORDER_COLORS[index % BORDER_COLORS.length],
-            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
+            boxShadow: index % 2 === 0
+              ? '2.5px 2.5px 0 #1A1A1A'
+              : '2.5px 2.5px 0 #FFD700, 4px 4px 0 #1A1A1A',
           }}
         >
           <h3 className="text-base font-bold text-card-foreground">

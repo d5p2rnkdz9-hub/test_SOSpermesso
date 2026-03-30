@@ -13,7 +13,7 @@ export function EmergencyNumbers({ numbers }: EmergencyNumbersProps) {
   if (!numbers || numbers.length === 0) return null;
 
   return (
-    <div className="rounded-[0.75rem] bg-primary/10 p-4">
+    <div className="rounded-lg border-2 border-[#1A1A1A] bg-primary/10 p-4 shadow-[2px_2px_0_#1A1A1A]">
       {numbers.map((number) => (
         <a
           key={number}

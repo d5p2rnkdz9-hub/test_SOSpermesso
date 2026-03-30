@@ -92,7 +92,7 @@ export default function RinnovoConversioneContent() {
             })}
           </h1>
 
-          <div className="mt-8 w-full rounded-2xl bg-card p-5 text-start text-sm text-muted-foreground shadow-[0_2px_4px_rgba(0,0,0,0.1)]">
+          <div className="mt-8 w-full rounded-lg border-2 border-[#1A1A1A] bg-card p-5 text-start text-sm text-muted-foreground shadow-[2.5px_2.5px_0_#1A1A1A]">
             <label className="flex items-start gap-3 cursor-pointer">
               <input
                 type="checkbox"
