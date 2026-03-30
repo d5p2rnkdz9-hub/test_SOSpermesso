@@ -281,11 +281,11 @@ const rinnovoResultNodes: Record<string, TreeNode> = {
     id: 'r_end_minore',
     type: 'result',
     title: 'Minore età (per MSNA)',
-    introText: 'Il permesso per minore età è rinnovabile fino al compimento dei 18 anni.',
+    introText: 'Il permesso per minore età è rinnovabile fino al compimento dei 18 anni. Ti consigliamo di rivolgerti a un servizio di consulenza legale.',
     sections: [
       {
-        heading: '\u2705 Rinnovo possibile',
-        content: 'Il tuo permesso per minore età può essere rinnovato finché non compi 18 anni.',
+        heading: '\ud83d\udc68\u200d\u2696\ufe0f Consulenza legale consigliata',
+        content: 'Il rinnovo è possibile, ma la situazione dei minori non accompagnati è delicata. Ti consigliamo di rivolgerti a un servizio di consulenza legale o ai servizi sociali per farti assistere.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
       },
       {
         heading: '\u26a0\ufe0f Al compimento dei 18 anni',
@@ -294,10 +294,6 @@ const rinnovoResultNodes: Record<string, TreeNode> = {
       {
         heading: '\ud83d\udd04 Conversione',
         content: 'Torna indietro e scegli "Convertire il permesso" per scoprire le tue opzioni di conversione. Ti consigliamo di iniziare la procedura prima del compimento dei 18 anni.',
-      },
-      {
-        heading: '\ud83d\udc68\u200d\u2696\ufe0f Consulenza legale consigliata',
-        content: 'Ti consigliamo di rivolgerti a un servizio di consulenza legale per valutare le opzioni di conversione prima della scadenza.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
       },
     ],
   },
