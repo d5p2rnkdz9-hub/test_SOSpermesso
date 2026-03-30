@@ -212,7 +212,7 @@ export const conversioneTree: TreeData = {
         {
           heading: '\ud83d\udcac Consiglio',
           content:
-            'Ti consigliamo di rivolgerti a un servizio di consulenza legale gratuita per esplorare altre opzioni disponibili.',
+            'Ti consigliamo di rivolgerti a un servizio di consulenza legale gratuita per esplorare altre opzioni disponibili.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
         },
       ],
     },
@@ -227,12 +227,12 @@ export const conversioneTree: TreeData = {
         {
           heading: '\u2696\ufe0f Situazione',
           content:
-            'Se la domanda di protezione è stata presentata prima del 10 marzo 2023, la conversione potrebbe essere possibile. È necessario verificare con un esperto legale.',
+            'Se la domanda di protezione è stata presentata prima del 10 marzo 2023, la conversione potrebbe essere possibile. È necessario verificare con un esperto legale.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
         },
         {
           heading: "\ud83d\udc68\u200d\u2696\ufe0f Serve un avvocato",
           content:
-            "Questa situazione richiede necessariamente l'assistenza di uno specialista in diritto dell'immigrazione.",
+            "Questa situazione richiede necessariamente l'assistenza di uno specialista in diritto dell'immigrazione.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)",
         },
       ],
     },
@@ -252,7 +252,7 @@ export const conversioneTree: TreeData = {
         {
           heading: "\ud83d\udc68\u200d\u2696\ufe0f Serve un avvocato",
           content:
-            'Data la complessità della situazione, è indispensabile rivolgersi a un legale specializzato.',
+            'Data la complessità della situazione, è indispensabile rivolgersi a un legale specializzato.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
         },
       ],
     },
@@ -272,7 +272,7 @@ export const conversioneTree: TreeData = {
         {
           heading: "\ud83d\udc68\u200d\u2696\ufe0f Serve un avvocato",
           content:
-            "È necessario verificare con un legale se rientri nell'eccezione temporale.",
+            "È necessario verificare con un legale se rientri nell'eccezione temporale.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)",
         },
       ],
     },
@@ -292,7 +292,7 @@ export const conversioneTree: TreeData = {
         {
           heading: "\ud83d\udc68\u200d\u2696\ufe0f Serve un avvocato",
           content:
-            'Ti consigliamo di rivolgerti ai servizi sociali e a un esperto legale per assistenza.',
+            'Ti consigliamo di rivolgerti ai servizi sociali e a un esperto legale per assistenza.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
         },
       ],
     },
@@ -328,7 +328,7 @@ export const conversioneTree: TreeData = {
         {
           heading: '\ud83d\udcac Consiglio',
           content:
-            'Ti consigliamo di rivolgerti a un servizio di consulenza legale gratuita per esplorare altre opzioni.',
+            'Ti consigliamo di rivolgerti a un servizio di consulenza legale gratuita per esplorare altre opzioni.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
         },
       ],
     },
@@ -383,7 +383,7 @@ export const conversioneTree: TreeData = {
         {
           heading: '\ud83d\udc68\u200d\u2696\ufe0f Serve assistenza',
           content:
-            'Contatta i servizi sociali e un esperto legale per assistenza nella procedura.',
+            'Contatta i servizi sociali e un esperto legale per assistenza nella procedura.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
         },
       ],
     },
@@ -419,7 +419,7 @@ export const conversioneTree: TreeData = {
         {
           heading: '\ud83d\udcac Consiglio',
           content:
-            'Ti consigliamo di rivolgerti a un servizio di consulenza legale gratuita per esplorare altre opzioni.',
+            'Ti consigliamo di rivolgerti a un servizio di consulenza legale gratuita per esplorare altre opzioni.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
         },
       ],
     },
@@ -434,7 +434,7 @@ export const conversioneTree: TreeData = {
         {
           heading: '\ud83d\udc68\u200d\u2696\ufe0f Serve assistenza',
           content:
-            'Contatta i servizi sociali e un esperto legale per assistenza nella procedura.',
+            'Contatta i servizi sociali e un esperto legale per assistenza nella procedura.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
         },
       ],
     },
@@ -454,7 +454,7 @@ export const conversioneTree: TreeData = {
         {
           heading: "\ud83d\udc68\u200d\u2696\ufe0f Serve un avvocato",
           content:
-            "Questa situazione richiede necessariamente l'assistenza di uno specialista.",
+            "Questa situazione richiede necessariamente l'assistenza di uno specialista.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)",
         },
       ],
     },
@@ -505,7 +505,7 @@ export const conversioneTree: TreeData = {
         {
           heading: '\ud83d\udc68\u200d\u2696\ufe0f Serve consulenza legale',
           content:
-            'Ti consigliamo di rivolgerti a un esperto legale per valutare le opzioni disponibili.',
+            'Ti consigliamo di rivolgerti a un esperto legale per valutare le opzioni disponibili.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
         },
       ],
     },
@@ -561,7 +561,7 @@ export const conversioneTree: TreeData = {
         {
           heading: '\ud83d\udcac Consiglio',
           content:
-            'Ti consigliamo di rivolgerti a un servizio di consulenza legale gratuita per esplorare altre opzioni.',
+            'Ti consigliamo di rivolgerti a un servizio di consulenza legale gratuita per esplorare altre opzioni.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
         },
       ],
     },
@@ -617,7 +617,7 @@ export const conversioneTree: TreeData = {
         {
           heading: '\ud83d\udc68\u200d\u2696\ufe0f Serve consulenza legale',
           content:
-            'Ti consigliamo una consulenza legale di persona. Cerca un servizio di consulenza legale gratuita nella tua zona.',
+            'Ti consigliamo una consulenza legale di persona. Cerca un servizio di consulenza legale gratuita nella tua zona.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
         },
       ],
     },
