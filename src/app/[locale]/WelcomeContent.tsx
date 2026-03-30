@@ -1,42 +1,21 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 
 import { ContentColumn } from '@/components/layout/ContentColumn';
 import { Button } from '@/components/ui/button';
-import { useRouter } from '@/i18n/navigation';
-import { Link } from '@/i18n/navigation';
-import { useTreeHydration, useTreeStore } from '@/store/tree-store';
-import { italianTree } from '@/lib/tree-data';
-import { getNode } from '@/lib/tree-engine';
+import { useRouter, Link } from '@/i18n/navigation';
+import { useTreeStore } from '@/store/tree-store';
 
 export default function WelcomeContent() {
   const t = useTranslations('welcome');
   const tTree = useTranslations('tree');
   const router = useRouter();
 
-  const isHydrated = useTreeHydration();
-  const history = useTreeStore((s) => s.history);
-  const currentNodeId = useTreeStore((s) => s.currentNodeId);
   const startSession = useTreeStore((s) => s.startSession);
-  const reset = useTreeStore((s) => s.reset);
 
   const [accepted, setAccepted] = useState(false);
-
-  // Auto-resume: if user has a valid active session, redirect to /tree
-  // If session references a node that no longer exists, reset it
-  useEffect(() => {
-    if (!isHydrated) return;
-    if (history.length > 0) {
-      const nodeExists = getNode(italianTree, currentNodeId);
-      if (nodeExists) {
-        router.replace('/tree');
-      } else {
-        reset();
-      }
-    }
-  }, [isHydrated, history.length, currentNodeId, router, reset]);
 
   const handleStart = () => {
     startSession(null);
@@ -47,7 +26,13 @@ export default function WelcomeContent() {
     <ContentColumn>
       <div className="flex min-h-[calc(100vh-3.5rem)] flex-col items-center justify-center text-center">
         <h1 className="text-4xl font-bold leading-tight sm:text-5xl">
-          {t('title')}
+          {t.rich('title', {
+            hl: (chunks) => (
+              <span className="font-extrabold" style={{ background: 'linear-gradient(180deg, transparent 50%, #FFD700 50%)', padding: '0 4px' }}>
+                {chunks}
+              </span>
+            ),
+          })}
         </h1>
 
         <div className="mt-8 w-full rounded-2xl bg-card p-5 text-start text-sm text-muted-foreground shadow-[0_2px_4px_rgba(0,0,0,0.1)]">

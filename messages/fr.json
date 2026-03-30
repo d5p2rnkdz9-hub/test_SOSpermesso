@@ -7,7 +7,7 @@
     "error": "Une erreur s'est produite"
   },
   "welcome": {
-    "title": "Quelques questions pour savoir si vous pouvez obtenir un permis de séjour en Italie",
+    "title": "Quelques questions pour savoir si vous pouvez obtenir un <hl>permis de séjour</hl> en Italie",
     "subtitle": "Répondez à quelques questions pour découvrir quel permis vous pouvez demander",
     "start": "Commencer la vérification",
     "disclaimer": "Cet outil fournit des informations générales, pas des conseils juridiques."

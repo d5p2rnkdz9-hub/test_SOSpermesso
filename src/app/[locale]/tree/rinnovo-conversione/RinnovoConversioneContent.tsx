@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { TreePlayer } from '@/components/tree';
 import { useRouter, Link } from '@/i18n/navigation';
 import { rinnovoConversioneTree } from '@/lib/rinnovo-conversione-tree';
-import { isTerminalNode, getNode } from '@/lib/tree-engine';
+import { isTerminalNode } from '@/lib/tree-engine';
 import { getRCSlugFromNodeId } from '@/lib/rinnovo-conversione-outcome-slugs';
 import {
   useRinnovoConversioneHydration,
@@ -36,13 +36,6 @@ export default function RinnovoConversioneContent() {
   useTrackStep('rinnovo_conversione', { currentNodeId, answers, history, sessionStartedAt, userName });
 
   const [accepted, setAccepted] = useState(false);
-
-  // Reset stale session if current node no longer exists in tree
-  useEffect(() => {
-    if (isHydrated && sessionStartedAt && !getNode(rinnovoConversioneTree, currentNodeId)) {
-      reset();
-    }
-  }, [isHydrated, sessionStartedAt, currentNodeId, reset]);
 
   // Redirect to outcome page when tree reaches a terminal node
   useEffect(() => {

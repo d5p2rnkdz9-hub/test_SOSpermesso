@@ -7,7 +7,7 @@
     "error": "An error occurred"
   },
   "welcome": {
-    "title": "A few questions to find out if you can get a residence permit in Italy",
+    "title": "A few questions to find out if you can get a <hl>residence permit</hl> in Italy",
     "subtitle": "Answer a few questions to find out which permit you can apply for",
     "start": "Start the check",
     "disclaimer": "This tool provides general information, not legal advice."

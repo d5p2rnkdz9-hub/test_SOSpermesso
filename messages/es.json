@@ -7,7 +7,7 @@
     "error": "Se produjo un error"
   },
   "welcome": {
-    "title": "Unas pocas preguntas para descubrir si puedes obtener un permiso de residencia en Italia",
+    "title": "Unas pocas preguntas para descubrir si puedes obtener un <hl>permiso de residencia</hl> en Italia",
     "subtitle": "Responde algunas preguntas para descubrir qué permiso puedes solicitar",
     "start": "Comenzar la verificación",
     "disclaimer": "Esta herramienta proporciona información general, no asesoramiento legal."
