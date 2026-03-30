@@ -7,6 +7,7 @@ import { ContentColumn } from '@/components/layout/ContentColumn';
 import { Button } from '@/components/ui/button';
 import { useRouter, Link } from '@/i18n/navigation';
 import { useTreeStore } from '@/store/tree-store';
+import { useRinnovoConversioneStore } from '@/store/rinnovo-conversione-store';
 
 export default function WelcomeContent() {
   const t = useTranslations('welcome');
@@ -14,6 +15,7 @@ export default function WelcomeContent() {
   const router = useRouter();
 
   const startSession = useTreeStore((s) => s.startSession);
+  const rcReset = useRinnovoConversioneStore((s) => s.reset);
 
   const [accepted, setAccepted] = useState(false);
 
@@ -69,7 +71,11 @@ export default function WelcomeContent() {
 
         <p className="mt-6 text-sm text-muted-foreground">
           Hai già un permesso e vuoi rinnovarlo o convertirlo?{' '}
-          <Link href="/tree/rinnovo-conversione" className="underline">
+          <Link
+            href="/tree/rinnovo-conversione"
+            className="underline"
+            onClick={() => rcReset()}
+          >
             Vai al test rinnovo/conversione
           </Link>
         </p>

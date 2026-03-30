@@ -63,7 +63,9 @@ export const RC_OUTCOME_SLUGS: Record<string, string> = {
 
   // ── Conversione results (22) ──────────────────────────────────────
 
-  'conversione-lavoro-possibile': 'c_end_lav_ok',
+  'conversione-lavoro-subordinato-possibile': 'c_end_lav_sub_ok',
+  'conversione-lavoro-autonomo-possibile': 'c_end_lav_aut_ok',
+  'conversione-altro-wip': 'c_end_altro_wip',
   'conversione-lavoro-impossibile': 'c_end_lav_no',
   'conversione-lavoro-speciale': 'c_end_lav_speciale',
   'conversione-lavoro-cure-mediche': 'c_end_lav_cure',

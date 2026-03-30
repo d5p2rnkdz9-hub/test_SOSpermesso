@@ -149,6 +149,8 @@ const CURRENT_PERMIT_LABELS: Record<string, string> = {
 /** Maps c_vorresti_* answer optionKey → Italian display label for [PermessoTarget] */
 const TARGET_PERMIT_LABELS: Record<string, string> = {
   lavoro: 'lavoro',
+  lav_sub: 'lavoro subordinato',
+  lav_aut: 'lavoro autonomo',
   att_occ: 'attesa occupazione',
   studio: 'studio',
   famiglia: 'motivi familiari',

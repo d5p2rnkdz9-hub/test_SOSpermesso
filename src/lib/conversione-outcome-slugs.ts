@@ -7,7 +7,9 @@
 
 /** Forward map: slug -> nodeId */
 export const CONVERSIONE_OUTCOME_SLUGS: Record<string, string> = {
-  'lavoro-possibile': 'c_end_lav_ok',
+  'lavoro-subordinato-possibile': 'c_end_lav_sub_ok',
+  'lavoro-autonomo-possibile': 'c_end_lav_aut_ok',
+  'altro-wip': 'c_end_altro_wip',
   'lavoro-impossibile': 'c_end_lav_no',
   'lavoro-speciale': 'c_end_lav_speciale',
   'lavoro-cure-mediche': 'c_end_lav_cure',

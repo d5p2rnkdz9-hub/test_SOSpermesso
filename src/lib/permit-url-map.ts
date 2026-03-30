@@ -82,7 +82,9 @@ const PERMIT_PATHS: Record<string, string | null> = {
   r_end_scaduto_60: null,
 
   // Conversione tree results
-  c_end_lav_ok: '/permesso-lavoro-subordinato-conversione-da-altro-permesso.html',
+  c_end_lav_sub_ok: '/permesso-lavoro-subordinato-conversione-da-altro-permesso.html',
+  c_end_lav_aut_ok: '/permesso-lavoro-autonomo-conversione-da-altro-permesso.html',
+  c_end_altro_wip: null,
   c_end_lav_no: null,
   c_end_lav_speciale: null,
   c_end_lav_cure: null,
