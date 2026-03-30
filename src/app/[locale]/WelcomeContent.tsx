@@ -8,6 +8,8 @@ import { Button } from '@/components/ui/button';
 import { useRouter } from '@/i18n/navigation';
 import { Link } from '@/i18n/navigation';
 import { useTreeHydration, useTreeStore } from '@/store/tree-store';
+import { italianTree } from '@/lib/tree-data';
+import { getNode } from '@/lib/tree-engine';
 
 export default function WelcomeContent() {
   const t = useTranslations('welcome');
@@ -16,16 +18,25 @@ export default function WelcomeContent() {
 
   const isHydrated = useTreeHydration();
   const history = useTreeStore((s) => s.history);
+  const currentNodeId = useTreeStore((s) => s.currentNodeId);
   const startSession = useTreeStore((s) => s.startSession);
+  const reset = useTreeStore((s) => s.reset);
 
   const [accepted, setAccepted] = useState(false);
 
-  // Auto-resume: if user has an active session, redirect to /tree
+  // Auto-resume: if user has a valid active session, redirect to /tree
+  // If session references a node that no longer exists, reset it
   useEffect(() => {
-    if (isHydrated && history.length > 0) {
-      router.replace('/tree');
+    if (!isHydrated) return;
+    if (history.length > 0) {
+      const nodeExists = getNode(italianTree, currentNodeId);
+      if (nodeExists) {
+        router.replace('/tree');
+      } else {
+        reset();
+      }
     }
-  }, [isHydrated, history.length, router]);
+  }, [isHydrated, history.length, currentNodeId, router, reset]);
 
   const handleStart = () => {
     startSession(null);

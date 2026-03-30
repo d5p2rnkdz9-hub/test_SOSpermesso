@@ -7,7 +7,7 @@ import { ContentColumn } from '@/components/layout/ContentColumn';
 import { TreePlayer } from '@/components/tree';
 import { useRouter } from '@/i18n/navigation';
 import { italianTree } from '@/lib/tree-data';
-import { isTerminalNode } from '@/lib/tree-engine';
+import { isTerminalNode, getNode } from '@/lib/tree-engine';
 import { getSlugFromNodeId } from '@/lib/outcome-slugs';
 import { useTreeHydration, useTreeStore } from '@/store/tree-store';
 import { useTrackStep } from '@/hooks/useTrackStep';
@@ -23,8 +23,17 @@ export default function TreeContent() {
   const history = useTreeStore((s) => s.history);
   const userName = useTreeStore((s) => s.userName);
   const selectOption = useTreeStore((s) => s.selectOption);
+  const reset = useTreeStore((s) => s.reset);
 
   useTrackStep('posso_avere', { currentNodeId, answers, history, sessionStartedAt, userName });
+
+  // Reset stale session if current node no longer exists in tree
+  useEffect(() => {
+    if (isHydrated && sessionStartedAt && !getNode(italianTree, currentNodeId)) {
+      reset();
+      router.replace('/');
+    }
+  }, [isHydrated, sessionStartedAt, currentNodeId, reset, router]);
 
   // Redirect to welcome if user accessed /tree directly without a session
   useEffect(() => {
