@@ -45,19 +45,46 @@ function linkify(text: string): ReactNode[] {
   return result;
 }
 
-/** Fallback: turn plain URLs into clickable links. */
+const BOLD_REGEX = /\*\*([^*]+)\*\*/g;
+
+/** Turn **text** into <strong> tags. */
+function boldify(text: string, keyStart: number): ReactNode[] {
+  const result: ReactNode[] = [];
+  let lastIndex = 0;
+  let key = keyStart;
+  let match: RegExpExecArray | null;
+  BOLD_REGEX.lastIndex = 0;
+  while ((match = BOLD_REGEX.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      result.push(text.slice(lastIndex, match.index));
+    }
+    result.push(<strong key={key++}>{match[1]}</strong>);
+    lastIndex = match.index + match[0].length;
+  }
+  if (lastIndex < text.length) {
+    result.push(text.slice(lastIndex));
+  }
+  return result.length > 0 ? result : [text];
+}
+
+/** Fallback: turn plain URLs into clickable links, then bold text. */
 function linkifyPlainUrls(text: string, keyStart: number): ReactNode[] {
   const parts = text.split(URL_REGEX);
   let key = keyStart;
-  return parts.map((part) =>
-    URL_REGEX.test(part) ? (
-      <a key={key++} href={part} target="_blank" rel="noopener noreferrer" className="underline text-primary">
-        {part}
-      </a>
-    ) : (
-      part
-    ),
-  );
+  const result: ReactNode[] = [];
+  for (const part of parts) {
+    if (URL_REGEX.test(part)) {
+      result.push(
+        <a key={key++} href={part} target="_blank" rel="noopener noreferrer" className="underline text-primary">
+          {part}
+        </a>,
+      );
+    } else {
+      key += 10;
+      result.push(...boldify(part, key));
+    }
+  }
+  return result;
 }
 
 interface FaqAccordionProps {

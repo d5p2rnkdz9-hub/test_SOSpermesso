@@ -94,7 +94,9 @@ export function buildResult(
   // For "not possible" outcomes, only show the lawyer advice above — skip details
   if (!notPossible) {
     // --- Duration section (merged with duration-related warnings) ---
-    if (permit.duration) {
+    // Skip if extraSections already provides a custom Durata
+    const hasOverrideDuration = overrides?.extraSections?.some((s) => s.heading.includes('Durata'));
+    if (permit.duration && !hasOverrideDuration) {
       let durationContent = `Il permesso dura ${permit.duration}.`;
       if (permit.infoExtra) {
         const durationWarnings = permit.infoExtra
