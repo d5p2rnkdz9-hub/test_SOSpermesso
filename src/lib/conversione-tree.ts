@@ -212,7 +212,7 @@ export const conversioneTree: TreeData = {
         {
           heading: '\ud83d\udcac Consiglio',
           content:
-            'Ti consigliamo di rivolgerti a un servizio di consulenza legale gratuita per esplorare altre opzioni disponibili.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
+            'Puoi tornare indietro e provare con un altro tipo di permesso, oppure rivolgerti a un servizio di consulenza legale gratuita.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
         },
       ],
     },
@@ -328,7 +328,7 @@ export const conversioneTree: TreeData = {
         {
           heading: '\ud83d\udcac Consiglio',
           content:
-            'Ti consigliamo di rivolgerti a un servizio di consulenza legale gratuita per esplorare altre opzioni.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
+            'Puoi tornare indietro e provare con un altro tipo di permesso, oppure rivolgerti a un servizio di consulenza legale gratuita.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
         },
       ],
     },
@@ -419,7 +419,7 @@ export const conversioneTree: TreeData = {
         {
           heading: '\ud83d\udcac Consiglio',
           content:
-            'Ti consigliamo di rivolgerti a un servizio di consulenza legale gratuita per esplorare altre opzioni.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
+            'Puoi tornare indietro e provare con un altro tipo di permesso, oppure rivolgerti a un servizio di consulenza legale gratuita.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
         },
       ],
     },
@@ -561,7 +561,7 @@ export const conversioneTree: TreeData = {
         {
           heading: '\ud83d\udcac Consiglio',
           content:
-            'Ti consigliamo di rivolgerti a un servizio di consulenza legale gratuita per esplorare altre opzioni.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
+            'Puoi tornare indietro e provare con un altro tipo di permesso, oppure rivolgerti a un servizio di consulenza legale gratuita.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
         },
       ],
     },
