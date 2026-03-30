@@ -138,13 +138,7 @@ export function buildResult(
       }
     }
 
-    // --- Conversione section ---
-    if (permit.possoConvertire) {
-      sections.push({
-        heading: '\ud83d\udd04 Conversione possibile',
-        content: `${permit.possoConvertire}.\n\nAttenzione: la domanda di conversione deve essere presentata prima della scadenza del permesso.`,
-      });
-    }
+    // Conversione info is handled by the separate conversione tree — not shown here
   }
 
   // --- Extra sections from overrides ---
