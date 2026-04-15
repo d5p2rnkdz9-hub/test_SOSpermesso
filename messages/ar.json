@@ -56,5 +56,67 @@
     "breadcrumbExpand": "...",
     "emergencyCallNow": "اتصل الآن",
     "readFullGuide": "اقرأ الدليل الكامل على SOSpermesso"
+  },
+  "contact": {
+    "common": {
+      "submit": "إرسال",
+      "submitting": "جاري الإرسال...",
+      "successTitle": "شكراً لك!",
+      "errorTitle": "خطأ",
+      "errorMessage": "حدث خطأ. يرجى المحاولة مرة أخرى لاحقاً.",
+      "required": "حقل مطلوب",
+      "invalidEmail": "بريد إلكتروني غير صالح",
+      "tooShort": "النص قصير جداً"
+    },
+    "segnalaErrore": {
+      "title": "الإبلاغ عن خطأ",
+      "intro": "ساعدنا على التحسن عن طريق الإبلاغ عن الأخطاء أو عدم الدقة أو المشاكل التقنية.",
+      "tipoLabel": "ما نوع الخطأ الذي وجدته؟",
+      "tipo_info_sbagliata": "معلومات خاطئة أو غير دقيقة",
+      "tipo_traduzione": "خطأ في الترجمة",
+      "tipo_tecnico": "رابط مكسور أو مشكلة تقنية",
+      "linguaLabel": "بأي لغة؟",
+      "doveLabel": "أين وجدته؟",
+      "dovePlaceholder": "مثال: صفحة تصريح العمل، رابط في القائمة...",
+      "descrizioneLabel": "صف الخطأ (وإذا أمكن، النسخة الصحيحة)",
+      "descrizionePlaceholder": "كلما زادت التفاصيل، كان التصحيح أسرع",
+      "emailLabel": "البريد الإلكتروني (اختياري)",
+      "emailHelp": "فقط إذا كنت تريد الرد",
+      "successMessage": "تم إرسال تقريرك. شكراً لمساعدتنا على التحسن!"
+    },
+    "problemaLegale": {
+      "title": "لدي مشكلة قانونية",
+      "intro": "اشرح وضعك. نحن لا نقدم استشارة قانونية ولكننا سنحاول توجيهك إلى الدعم المناسب.",
+      "situazioneLabel": "ما هو وضعك؟",
+      "situazione_ha_permesso": "لدي تصريح بالفعل ولدي مشكلة",
+      "situazione_non_so": "لا أعرف أي تصريح يمكنني طلبه",
+      "situazione_diniego": "تلقيت رفضاً أو لدي مشكلة مع المركز",
+      "situazione_altro": "أخرى",
+      "qualePermessoLabel": "أي تصريح لديك؟",
+      "qualePermessoPlaceholder": "مثال: تصريح عمل تابع",
+      "descrizioneLabel": "صف مشكلتك",
+      "descrizionePlaceholder": "اشرح الوضع قدر الإمكان",
+      "tempoItaliaLabel": "منذ متى وأنت في إيطاليا؟ (اختياري)",
+      "tempoItaliaPlaceholder": "مثال: 3 سنوات",
+      "emailLabel": "بريدك الإلكتروني",
+      "consensoLabel": "أوافق على معالجة بياناتي لتلقي الرد",
+      "successMessage": "تم إرسال طلبك. سنتواصل معك عبر البريد الإلكتروني في أقرب وقت ممكن.",
+      "disclaimer": "نحن لا نقدم استشارة قانونية ملزمة. للحالات العاجلة، اتصل بمحامٍ أو مكتب مساعدة قانونية."
+    },
+    "contribuisci": {
+      "title": "أريد المساهمة في المشروع",
+      "intro": "أخبرنا كيف تريد مساعدة SOSpermesso.",
+      "comeLabel": "كيف تريد المساهمة؟",
+      "come_legale": "أنا محامٍ/ة أو عامل/ة قانوني/ة",
+      "come_traduzioni": "يمكنني المساعدة في الترجمة",
+      "come_donazione": "أود دعم المشروع مالياً",
+      "come_comunicazione": "يمكنني المساعدة في النشر والتواصل",
+      "come_altro": "أخرى",
+      "raccontaciLabel": "أخبرنا عن نفسك",
+      "raccontaciPlaceholder": "من أنت، ماذا تفعل، لماذا تريد المساهمة",
+      "nomeLabel": "اسمك",
+      "emailLabel": "بريدك الإلكتروني",
+      "successMessage": "شكراً! سنتواصل معك قريباً."
+    }
   }
 }

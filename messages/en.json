@@ -56,5 +56,67 @@
     "breadcrumbExpand": "...",
     "emergencyCallNow": "Call now",
     "readFullGuide": "Read the full guide on SOSpermesso"
+  },
+  "contact": {
+    "common": {
+      "submit": "Send",
+      "submitting": "Sending...",
+      "successTitle": "Thank you!",
+      "errorTitle": "Error",
+      "errorMessage": "Something went wrong. Please try again later.",
+      "required": "Required field",
+      "invalidEmail": "Invalid email",
+      "tooShort": "Text too short"
+    },
+    "segnalaErrore": {
+      "title": "Report an error",
+      "intro": "Help us improve by reporting errors, inaccuracies, or technical problems.",
+      "tipoLabel": "What kind of error did you find?",
+      "tipo_info_sbagliata": "Wrong or inaccurate information",
+      "tipo_traduzione": "Translation error",
+      "tipo_tecnico": "Broken link or technical problem",
+      "linguaLabel": "In which language?",
+      "doveLabel": "Where did you find it?",
+      "dovePlaceholder": "e.g. Work permit page, link in the menu...",
+      "descrizioneLabel": "Describe the error (and, if you can, the correct version)",
+      "descrizionePlaceholder": "The more detail you give, the faster we can fix it",
+      "emailLabel": "Email (optional)",
+      "emailHelp": "Only if you want a reply",
+      "successMessage": "Your report has been sent. Thanks for helping us improve!"
+    },
+    "problemaLegale": {
+      "title": "I have a legal problem",
+      "intro": "Tell us your situation. We do not provide legal advice but we will try to point you to the right support.",
+      "situazioneLabel": "What is your situation?",
+      "situazione_ha_permesso": "I already have a permit and I have a problem",
+      "situazione_non_so": "I do not know which permit I can apply for",
+      "situazione_diniego": "I received a refusal or have a problem with the questura",
+      "situazione_altro": "Other",
+      "qualePermessoLabel": "Which permit do you have?",
+      "qualePermessoPlaceholder": "e.g. Subordinate work permit",
+      "descrizioneLabel": "Describe your problem",
+      "descrizionePlaceholder": "Explain the situation as much as possible",
+      "tempoItaliaLabel": "How long have you been in Italy? (optional)",
+      "tempoItaliaPlaceholder": "e.g. 3 years",
+      "emailLabel": "Your email",
+      "consensoLabel": "I consent to the processing of my data to receive a reply",
+      "successMessage": "Your request has been sent. We will contact you by email as soon as possible.",
+      "disclaimer": "We do not provide binding legal advice. For urgent cases, contact a lawyer or a legal aid office."
+    },
+    "contribuisci": {
+      "title": "I want to contribute to the project",
+      "intro": "Tell us how you would like to help SOSpermesso.",
+      "comeLabel": "How do you want to contribute?",
+      "come_legale": "I am a lawyer or legal worker",
+      "come_traduzioni": "I can help with translations",
+      "come_donazione": "I would like to support the project financially",
+      "come_comunicazione": "I can help with outreach and communication",
+      "come_altro": "Other",
+      "raccontaciLabel": "Tell us about you",
+      "raccontaciPlaceholder": "Who you are, what you do, why you want to contribute",
+      "nomeLabel": "Your name",
+      "emailLabel": "Your email",
+      "successMessage": "Thank you! We will be in touch soon."
+    }
   }
 }

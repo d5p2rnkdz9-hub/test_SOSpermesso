@@ -56,5 +56,67 @@
     "breadcrumbExpand": "...",
     "emergencyCallNow": "Llama ahora",
     "readFullGuide": "Lee la guia completa en SOSpermesso"
+  },
+  "contact": {
+    "common": {
+      "submit": "Enviar",
+      "submitting": "Enviando...",
+      "successTitle": "Gracias!",
+      "errorTitle": "Error",
+      "errorMessage": "Se ha producido un error. Intentalo de nuevo mas tarde.",
+      "required": "Campo obligatorio",
+      "invalidEmail": "Email no valido",
+      "tooShort": "Texto demasiado corto"
+    },
+    "segnalaErrore": {
+      "title": "Reportar un error",
+      "intro": "Ayudanos a mejorar reportando errores, imprecisiones o problemas tecnicos.",
+      "tipoLabel": "Que tipo de error encontraste?",
+      "tipo_info_sbagliata": "Informacion incorrecta o imprecisa",
+      "tipo_traduzione": "Error de traduccion",
+      "tipo_tecnico": "Enlace roto o problema tecnico",
+      "linguaLabel": "En que idioma?",
+      "doveLabel": "Donde lo encontraste?",
+      "dovePlaceholder": "ej. Pagina del permiso de trabajo, enlace en el menu...",
+      "descrizioneLabel": "Describe el error (y, si puedes, la version correcta)",
+      "descrizionePlaceholder": "Cuanto mas detalle nos des, mas rapido podemos corregir",
+      "emailLabel": "Email (opcional)",
+      "emailHelp": "Solo si quieres una respuesta",
+      "successMessage": "Tu reporte ha sido enviado. Gracias por ayudarnos a mejorar!"
+    },
+    "problemaLegale": {
+      "title": "Tengo un problema legal",
+      "intro": "Cuentanos tu situacion. No proporcionamos asesoramiento legal pero intentaremos orientarte hacia el apoyo adecuado.",
+      "situazioneLabel": "Cual es tu situacion?",
+      "situazione_ha_permesso": "Ya tengo un permiso y tengo un problema",
+      "situazione_non_so": "No se que permiso puedo solicitar",
+      "situazione_diniego": "He recibido una denegacion o tengo un problema con la questura",
+      "situazione_altro": "Otro",
+      "qualePermessoLabel": "Que permiso tienes?",
+      "qualePermessoPlaceholder": "ej. Permiso de trabajo subordinado",
+      "descrizioneLabel": "Describe tu problema",
+      "descrizionePlaceholder": "Explica la situacion lo mas posible",
+      "tempoItaliaLabel": "Cuanto tiempo llevas en Italia? (opcional)",
+      "tempoItaliaPlaceholder": "ej. 3 anos",
+      "emailLabel": "Tu email",
+      "consensoLabel": "Acepto el tratamiento de mis datos para recibir una respuesta",
+      "successMessage": "Tu solicitud ha sido enviada. Te contactaremos por email lo antes posible.",
+      "disclaimer": "No proporcionamos asesoramiento legal vinculante. Para casos urgentes, contacta a un abogado o a una oficina de asistencia legal."
+    },
+    "contribuisci": {
+      "title": "Quiero contribuir al proyecto",
+      "intro": "Cuentanos como te gustaria ayudar a SOSpermesso.",
+      "comeLabel": "Como quieres contribuir?",
+      "come_legale": "Soy abogado/a u operador/a legal",
+      "come_traduzioni": "Puedo ayudar con traducciones",
+      "come_donazione": "Me gustaria apoyar el proyecto economicamente",
+      "come_comunicazione": "Puedo ayudar con difusion y comunicacion",
+      "come_altro": "Otro",
+      "raccontaciLabel": "Cuentanos sobre ti",
+      "raccontaciPlaceholder": "Quien eres, que haces, por que quieres contribuir",
+      "nomeLabel": "Tu nombre",
+      "emailLabel": "Tu email",
+      "successMessage": "Gracias! Te contactaremos pronto."
+    }
   }
 }
