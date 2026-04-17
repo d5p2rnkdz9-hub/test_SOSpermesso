@@ -98,6 +98,7 @@ const SCHEMAS: Record<string, Record<string, unknown>> = {
     },
     'Raccontaci di te': { rich_text: {} },
     Email: { email: {} },
+    'Consenso dati': { checkbox: {} },
     Data: { date: {} },
   },
 };

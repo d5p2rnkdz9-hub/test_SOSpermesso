@@ -59,6 +59,7 @@ export const contribuisciSchema = z.object({
   raccontaci: z.string().trim().min(10).max(2000),
   nome: z.string().trim().min(1).max(200),
   email: z.string().trim().email().max(200),
+  consenso: z.literal(true),
 });
 
 export type SegnalaErroreInput = z.infer<typeof segnalaErroreSchema>;

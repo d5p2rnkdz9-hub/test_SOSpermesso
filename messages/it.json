@@ -116,6 +116,7 @@
       "raccontaciPlaceholder": "Chi sei, cosa fai, perché vuoi contribuire",
       "nomeLabel": "Il tuo nome",
       "emailLabel": "La tua email",
+      "consensoLabel": "Acconsento al trattamento dei miei dati per essere contattato",
       "successMessage": "Grazie! Ti contatteremo presto."
     }
   }

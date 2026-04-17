@@ -10,6 +10,12 @@ const LANGUAGE_NAMES: Record<string, string> = {
   fr: 'Fran\u00e7ais',
   en: 'English',
   es: 'Espa\u00f1ol',
+  tr: 'T\u00fcrk\u00e7e',
+  bn: '\u09AC\u09BE\u0982\u09B2\u09BE',
+  ru: '\u0420\u0443\u0441\u0441\u043A\u0438\u0439',
+  ur: '\u0627\u0631\u062F\u0648',
+  fa: '\u0641\u0627\u0631\u0633\u06CC',
+  zh: '\u4E2D\u6587',
 };
 
 export function LanguageSelector() {

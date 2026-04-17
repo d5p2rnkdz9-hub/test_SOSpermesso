@@ -38,6 +38,7 @@ export async function POST(request: NextRequest) {
           rich_text: [{ text: { content: data.raccontaci.slice(0, 2000) } }],
         },
         Email: { email: data.email },
+        'Consenso dati': { checkbox: data.consenso },
         Data: { date: { start: new Date().toISOString() } },
       } as never,
     });

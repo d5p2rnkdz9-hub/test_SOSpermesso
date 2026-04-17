@@ -1,0 +1,123 @@
+{
+  "common": {
+    "back": "Geri",
+    "next": "İleri",
+    "start": "Başla",
+    "loading": "Yükleniyor...",
+    "error": "Bir hata oluştu"
+  },
+  "welcome": {
+    "title": "İtalya'da <hl>oturma izni</hl> alıp alamayacağınızı öğrenmek için <hl>birkaç soru</hl>",
+    "subtitle": "Hangi oturma iznini talep edebileceğinizi öğrenmek için birkaç soruyu yanıtlayın",
+    "start": "Kontrolü başlat",
+    "disclaimer": "Bu araç genel bilgi sağlar, hukuki tavsiye değildir."
+  },
+  "header": {
+    "backToStart": "Başa dön",
+    "restart": "Yeniden başla"
+  },
+  "language": {
+    "selectLanguage": "Dil seçin"
+  },
+  "tree": {
+    "nameLabel": "Adınız nedir?",
+    "namePlaceholder": "İsterseniz adınızı yazabilirsiniz",
+    "skipName": "Söylemek istemiyorum",
+    "explainer": "Oturma izniniz yoksa, birkaç basit soruyla oturma izni ALABİLECEĞİNİZİ öğrenebilirsiniz.",
+    "policyNote": "Tıklayarak S.O.S. permesso politikalarını kabul edersiniz:\n• Nihai kararları vermeden önce, nitelikli bir hukuki görüş almak her zaman daha iyidir\n• Kişisel verilerinizi toplamıyoruz ve kimseyle paylaşmıyoruz\n• Sadece sadelik için çoğunlukla eril sözcükler kullanıyoruz",
+    "policyLink": "Daha fazla bilgi",
+    "disclaimer": "Bu araç genel bilgi sağlar ve hukuki tavsiye niteliği taşımaz.",
+    "startButton": "Başla",
+    "restart": "Yeniden başla",
+    "outcome": {
+      "title": "Sonucunuz",
+      "duration": "Süre",
+      "requirements": "Gereksinimler",
+      "notes": "Önemli notlar",
+      "moreInfo": "Daha fazla bilgi",
+      "restart": "Kontrolü yeniden başlat"
+    },
+    "postOutcome": {
+      "title": "Size yardımcı olabildik mi? Geri bildirim bırakın",
+      "restart": "Yolculuğa yeniden başla",
+      "home": "SOSpermesso'ya dön",
+      "feedback": "Geri bildirim bırak"
+    }
+  },
+  "rinnovareConvertire": {
+    "welcomeTitle": "Oturma izninizi nasıl <hl>yenileyeceğinizi</hl> veya <hl>dönüştüreceğinizi</hl> öğrenmek için birkaç soru"
+  },
+  "outcome": {
+    "readMore": "Devamını oku...",
+    "disclaimer": "Bu bilgiler yalnızca yol gösterici amaçlıdır ve hukuki tavsiye niteliği taşımaz. Özel durumunuzun değerlendirilmesi için bir avukata veya hukuki yardım ofisine başvurun.",
+    "lawyerSelf": "Kendiniz yapabilirsiniz",
+    "lawyerRecommended": "Bir hukuk danışmanıyla konuşmak daha iyidir",
+    "linksTitle": "Yararlı bağlantılar",
+    "breadcrumbExpand": "...",
+    "emergencyCallNow": "Hemen ara",
+    "readFullGuide": "SOSpermesso'daki tam rehberi okuyun"
+  },
+  "contact": {
+    "common": {
+      "submit": "Gönder",
+      "submitting": "Gönderiliyor...",
+      "successTitle": "Teşekkürler!",
+      "errorTitle": "Hata",
+      "errorMessage": "Bir hata oluştu. Lütfen daha sonra tekrar deneyin.",
+      "required": "Zorunlu alan",
+      "invalidEmail": "Geçersiz e-posta",
+      "tooShort": "Metin çok kısa"
+    },
+    "segnalaErrore": {
+      "title": "Bir hata bildir",
+      "intro": "Hataları, yanlışlıkları veya teknik sorunları bildirerek bizi geliştirmemize yardımcı olun.",
+      "tipoLabel": "Ne tür bir hata buldunuz?",
+      "tipo_info_sbagliata": "Yanlış veya hatalı bilgi",
+      "tipo_traduzione": "Çeviri hatası",
+      "tipo_tecnico": "Bozuk bağlantı veya teknik sorun",
+      "linguaLabel": "Hangi dilde?",
+      "doveLabel": "Nerede buldunuz?",
+      "dovePlaceholder": "örn. Çalışma izni sayfası, menüdeki bağlantı...",
+      "descrizioneLabel": "Hatayı (ve mümkünse doğru sürümünü) açıklayın",
+      "descrizionePlaceholder": "Ne kadar çok ayrıntı verirseniz, o kadar hızlı düzeltebiliriz",
+      "emailLabel": "E-posta (isteğe bağlı)",
+      "emailHelp": "Yalnızca yanıt istiyorsanız",
+      "successMessage": "Bildiriminiz gönderildi. Bizi geliştirmemize yardımcı olduğunuz için teşekkürler!"
+    },
+    "problemaLegale": {
+      "title": "Hukuki bir sorunum var",
+      "intro": "Durumunuzu anlatın. Hukuki tavsiye sunmuyoruz ancak sizi doğru desteğe yönlendirmeye çalışacağız.",
+      "situazioneLabel": "Durumunuz nedir?",
+      "situazione_ha_permesso": "Zaten bir iznim var ve bir sorunum var",
+      "situazione_non_so": "Hangi izni talep edebileceğimi bilmiyorum",
+      "situazione_diniego": "Ret aldım veya questura ile sorun yaşıyorum",
+      "situazione_altro": "Diğer",
+      "qualePermessoLabel": "Hangi izne sahipsiniz?",
+      "qualePermessoPlaceholder": "örn. Bağımlı çalışma izni",
+      "descrizioneLabel": "Sorununuzu anlatın",
+      "descrizionePlaceholder": "Durumu olabildiğince açıklayın",
+      "tempoItaliaLabel": "Ne zamandır İtalya'dasınız? (isteğe bağlı)",
+      "tempoItaliaPlaceholder": "örn. 3 yıl",
+      "emailLabel": "E-posta adresiniz",
+      "consensoLabel": "Yanıt almak için verilerimin işlenmesine izin veriyorum",
+      "successMessage": "İsteğiniz gönderildi. En kısa sürede size e-posta ile ulaşacağız.",
+      "disclaimer": "Bağlayıcı hukuki tavsiye sunmuyoruz. Acil durumlar için bir avukata veya hukuki yardım ofisine başvurun."
+    },
+    "contribuisci": {
+      "title": "Projeye katkıda bulunmak istiyorum",
+      "intro": "SOSpermesso'ya nasıl yardım etmek istediğinizi söyleyin.",
+      "comeLabel": "Nasıl katkıda bulunmak istersiniz?",
+      "come_legale": "Avukat veya hukuk çalışanıyım",
+      "come_traduzioni": "Çevirilerle yardımcı olabilirim",
+      "come_donazione": "Projeyi ekonomik olarak desteklemek isterim",
+      "come_comunicazione": "Yayılım ve iletişimle yardımcı olabilirim",
+      "come_altro": "Diğer",
+      "raccontaciLabel": "Kendinizden bahsedin",
+      "raccontaciPlaceholder": "Kimsiniz, ne yapıyorsunuz, neden katkıda bulunmak istiyorsunuz",
+      "nomeLabel": "Adınız",
+      "emailLabel": "E-posta adresiniz",
+      "consensoLabel": "İletişime geçilmesi için verilerimin işlenmesine izin veriyorum",
+      "successMessage": "Teşekkürler! En kısa sürede size ulaşacağız."
+    }
+  }
+}

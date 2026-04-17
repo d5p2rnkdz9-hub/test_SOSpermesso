@@ -1,0 +1,123 @@
+{
+  "common": {
+    "back": "返回",
+    "next": "下一步",
+    "start": "开始",
+    "loading": "加载中...",
+    "error": "发生错误"
+  },
+  "welcome": {
+    "title": "几个问题帮您了解您是否可以在意大利<hl>获得</hl><hl>居留许可</hl>",
+    "subtitle": "回答几个问题以了解您可以申请哪种居留许可",
+    "start": "开始检查",
+    "disclaimer": "此工具提供一般信息,不构成法律咨询。"
+  },
+  "header": {
+    "backToStart": "返回首页",
+    "restart": "重新开始"
+  },
+  "language": {
+    "selectLanguage": "选择语言"
+  },
+  "tree": {
+    "nameLabel": "您叫什么名字?",
+    "namePlaceholder": "如果愿意,请写下您的名字",
+    "skipName": "我不想说",
+    "explainer": "如果您没有居留许可,几个简单的问题将帮您了解是否可以获得居留许可。",
+    "policyNote": "点击即表示您接受 S.O.S. permesso 的政策:\n• 在做出最终决定之前,最好先咨询合格的法律意见\n• 我们不收集个人数据,也不与任何人分享\n• 我们大量使用阳性词汇仅为简化表达",
+    "policyLink": "更多信息",
+    "disclaimer": "此工具提供一般信息,不构成法律咨询。",
+    "startButton": "开始",
+    "restart": "重新开始",
+    "outcome": {
+      "title": "您的结果",
+      "duration": "有效期",
+      "requirements": "要求",
+      "notes": "重要提示",
+      "moreInfo": "更多信息",
+      "restart": "重新开始检查"
+    },
+    "postOutcome": {
+      "title": "我们帮到您了吗?留下反馈",
+      "restart": "重新开始",
+      "home": "返回 SOSpermesso",
+      "feedback": "留下反馈"
+    }
+  },
+  "rinnovareConvertire": {
+    "welcomeTitle": "几个问题帮您了解如何<hl>续签</hl>或<hl>转换</hl>您的居留许可"
+  },
+  "outcome": {
+    "readMore": "阅读更多...",
+    "disclaimer": "这些信息仅供参考,不构成法律咨询。如需评估您的具体情况,请咨询律师或法律援助机构。",
+    "lawyerSelf": "您可以自己办理",
+    "lawyerRecommended": "最好咨询法律顾问",
+    "linksTitle": "有用的链接",
+    "breadcrumbExpand": "...",
+    "emergencyCallNow": "立即致电",
+    "readFullGuide": "在 SOSpermesso 阅读完整指南"
+  },
+  "contact": {
+    "common": {
+      "submit": "提交",
+      "submitting": "正在提交...",
+      "successTitle": "谢谢!",
+      "errorTitle": "错误",
+      "errorMessage": "发生错误。请稍后重试。",
+      "required": "必填字段",
+      "invalidEmail": "电子邮件无效",
+      "tooShort": "文本太短"
+    },
+    "segnalaErrore": {
+      "title": "报告错误",
+      "intro": "通过报告错误、不准确或技术问题来帮助我们改进。",
+      "tipoLabel": "您发现了什么类型的错误?",
+      "tipo_info_sbagliata": "信息错误或不准确",
+      "tipo_traduzione": "翻译错误",
+      "tipo_tecnico": "链接损坏或技术问题",
+      "linguaLabel": "在哪种语言中?",
+      "doveLabel": "您在哪里发现的?",
+      "dovePlaceholder": "例如:工作许可页面、菜单中的链接...",
+      "descrizioneLabel": "描述错误(如果可以,请提供正确版本)",
+      "descrizionePlaceholder": "您提供的细节越多,我们纠正的速度就越快",
+      "emailLabel": "电子邮件(可选)",
+      "emailHelp": "仅当您希望收到回复时",
+      "successMessage": "您的报告已发送。感谢您帮助我们改进!"
+    },
+    "problemaLegale": {
+      "title": "我有法律问题",
+      "intro": "描述您的情况。我们不提供法律咨询,但我们会尽力为您指引正确的支持。",
+      "situazioneLabel": "您的情况是什么?",
+      "situazione_ha_permesso": "我已经有许可证,但遇到了问题",
+      "situazione_non_so": "我不知道可以申请哪种许可证",
+      "situazione_diniego": "我收到了拒绝或与警察局有问题",
+      "situazione_altro": "其他",
+      "qualePermessoLabel": "您有哪种许可证?",
+      "qualePermessoPlaceholder": "例如:受雇工作许可证",
+      "descrizioneLabel": "描述您的问题",
+      "descrizionePlaceholder": "尽可能详细地说明情况",
+      "tempoItaliaLabel": "您在意大利多久了?(可选)",
+      "tempoItaliaPlaceholder": "例如:3 年",
+      "emailLabel": "您的电子邮件",
+      "consensoLabel": "我同意处理我的数据以接收回复",
+      "successMessage": "您的请求已发送。我们将尽快通过电子邮件与您联系。",
+      "disclaimer": "我们不提供有约束力的法律咨询。如有紧急情况,请联系律师或法律援助机构。"
+    },
+    "contribuisci": {
+      "title": "我想为项目贡献力量",
+      "intro": "告诉我们您想如何帮助 SOSpermesso。",
+      "comeLabel": "您想如何贡献?",
+      "come_legale": "我是律师或法律工作者",
+      "come_traduzioni": "我可以帮助翻译",
+      "come_donazione": "我想在经济上支持这个项目",
+      "come_comunicazione": "我可以帮助传播和沟通",
+      "come_altro": "其他",
+      "raccontaciLabel": "告诉我们关于您的事",
+      "raccontaciPlaceholder": "您是谁、做什么、为什么想贡献",
+      "nomeLabel": "您的姓名",
+      "emailLabel": "您的电子邮件",
+      "consensoLabel": "我同意处理我的数据以便与我联系",
+      "successMessage": "谢谢!我们将尽快与您联系。"
+    }
+  }
+}
