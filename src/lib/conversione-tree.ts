@@ -31,10 +31,21 @@ function getTargetPermitSections(notionKey: string): ResultSection[] {
 
   // Keep only doc and duration sections (not the green badge, method, or conversione sections)
   // Method ("Come rinnovare") is excluded because conversione nodes have their own "Come fare"
-  return sections.filter((s) =>
-    s.heading.includes('Documenti') ||
-    s.heading.includes('Durata'),
-  );
+  return sections
+    .filter((s) =>
+      s.heading.includes('Documenti') ||
+      s.heading.includes('Durata'),
+    )
+    .map((s) => ({
+      ...s,
+      // Strip paragraphs that talk about the rinnovo procedure — irrelevant on conversione pages
+      content: s.content
+        .split('\n\n')
+        .filter((para) => !/per il rinnovo|NOTA.*rinnov|rinnovo di questo permesso/i.test(para))
+        .join('\n\n')
+        .trim(),
+    }))
+    .filter((s) => s.content.length > 0);
 }
 
 export const conversioneTree: TreeData = {
@@ -144,8 +155,14 @@ export const conversioneTree: TreeData = {
       question: 'Stai frequentando un percorso universitario?',
     },
 
+    c_data_5mag_2023: {
+      id: 'c_data_5mag_2023',
+      type: 'question',
+      question: 'La domanda per il tuo attuale permesso è stata presentata prima o dopo il 5 maggio 2023?',
+    },
+
     // =============================================
-    // RESULT NODES (all unchanged)
+    // RESULT NODES
     // =============================================
 
     // --- LAVORO OUTCOMES ---
@@ -227,7 +244,7 @@ export const conversioneTree: TreeData = {
         {
           heading: '\u2696\ufe0f Situazione',
           content:
-            'Se la domanda di protezione è stata presentata prima del 10 marzo 2023, la conversione potrebbe essere possibile. È necessario verificare con un esperto legale.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
+            'Se la domanda di protezione è stata presentata prima del 5 maggio 2023, la conversione è possibile.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
         },
         {
           heading: "\ud83d\udc68\u200d\u2696\ufe0f Serve un avvocato",
@@ -247,7 +264,7 @@ export const conversioneTree: TreeData = {
         {
           heading: '\u2696\ufe0f Situazione attuale',
           content:
-            "Il DL 50/2023 ha modificato le regole. In generale, la conversione non è più possibile. Tuttavia, potrebbe esserci un'eccezione se la domanda è stata presentata prima di marzo 2024.",
+            "Il DL 50/2023 ha modificato le regole. La conversione è possibile solo se la domanda è stata presentata prima del 5 maggio 2023.",
         },
         {
           heading: "\ud83d\udc68\u200d\u2696\ufe0f Serve un avvocato",
@@ -267,7 +284,7 @@ export const conversioneTree: TreeData = {
         {
           heading: '\u2696\ufe0f Situazione',
           content:
-            "La conversione non è più possibile. Potrebbe esserci un'eccezione se la domanda è stata presentata prima del 6 maggio 2023.",
+            "La conversione è possibile solo se la domanda è stata presentata prima del 5 maggio 2023.",
         },
         {
           heading: "\ud83d\udc68\u200d\u2696\ufe0f Serve un avvocato",
@@ -282,12 +299,22 @@ export const conversioneTree: TreeData = {
       type: 'result',
       title: 'Conversione Minore Età \u2192 Lavoro: situazione delicata',
       introText:
-        'La conversione del permesso per minore età in lavoro è possibile ma presenta complessità.',
+        'La conversione è possibile, ma è subordinata al rispetto di requisiti specifici, ai tempi di presentazione della domanda e — dal 6 ottobre 2023 — alla verifica del contratto di lavoro da parte di consulenti del lavoro o organizzazioni sindacali.',
       sections: [
         {
-          heading: '\u2696\ufe0f Situazione',
+          heading: '\ud83d\udccb Requisiti per la conversione',
           content:
-            "La conversione potrebbe richiedere un parere della Direzione Generale dell'Immigrazione. Dipende dal tempo trascorso in Italia e dal progetto dei servizi sociali.",
+            'Per convertire il permesso per minore età in un altro permesso servono:\n• **Passaporto valido** (o documento equipollente)\n• **Presenza in Italia da almeno 3 anni** e ammissione ad un progetto di integrazione sociale e civile per almeno 2 anni (con disponibilità di alloggio)\n\nIn alternativa al secondo requisito:\n• **Parere positivo della Direzione Generale dell\'Immigrazione**, basato su almeno 6 mesi di permanenza in Italia prima dei 18 anni e su un percorso di integrazione avviato (scuola, formazione, lavoro). Il parere è necessario ma **non vincolante**: la Questura mantiene autonomia di giudizio.',
+        },
+        {
+          heading: '\ud83d\udcc5 Tempi',
+          content:
+            'La domanda di conversione va presentata alla Questura competente:\n• **60 giorni prima** del compimento dei 18 anni, dal tutore;\n• oppure **entro 60 giorni dopo** il compimento dei 18 anni, dal diretto interessato.',
+        },
+        {
+          heading: '\ud83d\udd0d Verifica del contratto di lavoro (dal 6 ottobre 2023)',
+          content:
+            'Per la conversione in permesso per lavoro subordinato o autonomo è prevista una verifica aggiuntiva dei requisiti del contratto:\n• **Regolarità del contratto** sottoscritto;\n• **Rispetto del contratto collettivo** di lavoro applicabile;\n• **Esistenza concreta dell\'attività autonoma**, se applicabile.\n\nLa verifica è effettuata da consulenti del lavoro o dalle organizzazioni sindacali dei datori di lavoro.',
         },
         {
           heading: "\ud83d\udc68\u200d\u2696\ufe0f Serve un avvocato",
@@ -358,19 +385,8 @@ export const conversioneTree: TreeData = {
       type: 'result',
       title: 'Conversione in Attesa Occupazione: INCERTA',
       introText:
-        'La conversione probabilmente non è possibile, ma le Questure interpretano le regole in modo diverso.',
-      sections: [
-        {
-          heading: '\u2696\ufe0f Situazione',
-          content:
-            "Non c'è una risposta certa. Alcune Questure accettano la conversione, altre no.",
-        },
-        {
-          heading: '\ud83d\udc68\u200d\u2696\ufe0f Serve consulenza legale',
-          content:
-            'È necessario rivolgersi a un esperto per valutare la tua situazione specifica.',
-        },
-      ],
+        'È una situazione delicata: la conversione non è automatica e le Questure interpretano le regole in modo diverso. Tuttavia, se hai lavorato di recente in Italia e adesso sei senza impiego, può valere la pena tentare — il permesso per attesa occupazione è pensato proprio per chi si trova in questa condizione. Per valutare il tuo caso ti consigliamo di rivolgerti a un esperto legale.',
+      sections: [],
     },
 
     c_end_att_minore: {
@@ -378,8 +394,18 @@ export const conversioneTree: TreeData = {
       type: 'result',
       title: 'Conversione Minore Età \u2192 Attesa Occupazione: situazione particolare',
       introText:
-        'La conversione è possibile ma potrebbe richiedere un parere della Direzione Generale.',
+        'La conversione è possibile, ma è subordinata al rispetto di requisiti specifici e ai tempi di presentazione della domanda rispetto al compimento dei 18 anni.',
       sections: [
+        {
+          heading: '\ud83d\udccb Requisiti per la conversione',
+          content:
+            'Per convertire il permesso per minore età in un altro permesso servono:\n• **Passaporto valido** (o documento equipollente)\n• **Presenza in Italia da almeno 3 anni** e ammissione ad un progetto di integrazione sociale e civile per almeno 2 anni (con disponibilità di alloggio)\n\nIn alternativa al secondo requisito:\n• **Parere positivo della Direzione Generale dell\'Immigrazione**, basato su almeno 6 mesi di permanenza in Italia prima dei 18 anni e su un percorso di integrazione avviato (scuola, formazione, lavoro). Il parere è necessario ma **non vincolante**: la Questura mantiene autonomia di giudizio.',
+        },
+        {
+          heading: '\ud83d\udcc5 Tempi',
+          content:
+            'La domanda di conversione va presentata alla Questura competente:\n• **60 giorni prima** del compimento dei 18 anni, dal tutore;\n• oppure **entro 60 giorni dopo** il compimento dei 18 anni, dal diretto interessato.',
+        },
         {
           heading: '\ud83d\udc68\u200d\u2696\ufe0f Serve assistenza',
           content:
@@ -429,8 +455,18 @@ export const conversioneTree: TreeData = {
       type: 'result',
       title: 'Conversione Minore Età \u2192 Studio: situazione particolare',
       introText:
-        'La conversione è possibile ma potrebbe richiedere un parere della Direzione Generale.',
+        'La conversione è possibile, ma è subordinata al rispetto di requisiti specifici e ai tempi di presentazione della domanda rispetto al compimento dei 18 anni.',
       sections: [
+        {
+          heading: '\ud83d\udccb Requisiti per la conversione',
+          content:
+            'Per convertire il permesso per minore età in un altro permesso servono:\n• **Passaporto valido** (o documento equipollente)\n• **Presenza in Italia da almeno 3 anni** e ammissione ad un progetto di integrazione sociale e civile per almeno 2 anni (con disponibilità di alloggio)\n\nIn alternativa al secondo requisito:\n• **Parere positivo della Direzione Generale dell\'Immigrazione**, basato su almeno 6 mesi di permanenza in Italia prima dei 18 anni e su un percorso di integrazione avviato (scuola, formazione, lavoro). Il parere è necessario ma **non vincolante**: la Questura mantiene autonomia di giudizio.',
+        },
+        {
+          heading: '\ud83d\udcc5 Tempi',
+          content:
+            'La domanda di conversione va presentata alla Questura competente:\n• **60 giorni prima** del compimento dei 18 anni, dal tutore;\n• oppure **entro 60 giorni dopo** il compimento dei 18 anni, dal diretto interessato.',
+        },
         {
           heading: '\ud83d\udc68\u200d\u2696\ufe0f Serve assistenza',
           content:
@@ -449,7 +485,7 @@ export const conversioneTree: TreeData = {
         {
           heading: '\u2696\ufe0f Situazione',
           content:
-            'Se la domanda di protezione è stata presentata prima del 10 marzo 2023, la conversione potrebbe essere possibile.',
+            'Se la domanda di protezione è stata presentata prima del 5 maggio 2023, la conversione è possibile.',
         },
         {
           heading: "\ud83d\udc68\u200d\u2696\ufe0f Serve un avvocato",
@@ -485,7 +521,7 @@ export const conversioneTree: TreeData = {
         {
           heading: '\ud83d\udca1 Lo sapevi?',
           content:
-            'Esistono molti tipi di permesso per motivi familiari, e tutti possono essere ottenuti come conversione da un altro permesso. Per saperne di più, consulta la sezione dedicata nel database di [SOS Permesso](https://www.sospermesso.it/database?categoria=Motivi+Familiari).',
+            'Esistono molti tipi di permesso per motivi familiari, e tutti possono essere ottenuti come conversione da un altro permesso.',
         },
       ],
     },
@@ -495,32 +531,21 @@ export const conversioneTree: TreeData = {
       type: 'result',
       title: 'Conversione in Famiglia: permesso scaduto da oltre un anno',
       introText:
-        'La situazione potrebbe essere problematica dato che il tuo permesso è scaduto da più di un anno.',
-      sections: [
-        {
-          heading: '\u2696\ufe0f Situazione',
-          content:
-            'La possibilità di conversione dipende dalla tua situazione specifica e dalla Questura competente.',
-        },
-        {
-          heading: '\ud83d\udc68\u200d\u2696\ufe0f Serve consulenza legale',
-          content:
-            'Ti consigliamo di rivolgerti a un esperto legale per valutare le opzioni disponibili.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
-        },
-      ],
+        'La situazione potrebbe essere problematica: il tuo permesso è scaduto da più di un anno e la possibilità di conversione dipende dalla tua situazione specifica e dalla Questura competente.',
+      sections: [],
     },
 
     // --- CARTA DI SOGGIORNO UE OUTCOMES ---
     c_end_carta_ok: {
       id: 'c_end_carta_ok',
       type: 'result',
-      title: 'Carta di Soggiorno UE: POSSIBILE',
+      title: 'Permesso UE lungo periodo: POSSIBILE',
       introText:
         'È possibile convertire il tuo permesso per [PermessoAttuale] in [PermessoTarget].',
       sections: [
         {
           heading: '\u2705 Conversione possibile — puoi fare da solo',
-          content: 'Puoi richiedere la Carta di Soggiorno UE per soggiornanti di lungo periodo.',
+          content: 'Puoi richiedere il Permesso UE per soggiornanti di lungo periodo (anche detto Carta di soggiorno).',
         },
         {
           heading: '\u2139\ufe0f Requisiti',
@@ -539,7 +564,7 @@ export const conversioneTree: TreeData = {
     c_end_carta_minori: {
       id: 'c_end_carta_minori',
       type: 'result',
-      title: 'Conversione Assistenza Minori \u2192 Carta di Soggiorno: possibile',
+      title: 'Conversione Assistenza Minori \u2192 Permesso UE lungo periodo: possibile',
       introText:
         'La conversione è possibile ma richiede requisiti specifici.',
       sections: [
@@ -554,9 +579,9 @@ export const conversioneTree: TreeData = {
     c_end_carta_no: {
       id: 'c_end_carta_no',
       type: 'result',
-      title: 'Carta di Soggiorno UE: NON POSSIBILE',
+      title: 'Permesso UE lungo periodo: NON POSSIBILE',
       introText:
-        'Purtroppo, con il tuo attuale permesso la conversione in Carta di Soggiorno UE non è possibile.',
+        'Purtroppo, con il tuo attuale permesso la conversione in Permesso UE lungo periodo non è possibile.',
       sections: [
         {
           heading: '\ud83d\udcac Consiglio',
@@ -572,19 +597,8 @@ export const conversioneTree: TreeData = {
       type: 'result',
       title: 'Permesso Scaduto',
       introText:
-        'Il tuo permesso di soggiorno è scaduto. Puoi comunque tentare la conversione, ma ti consigliamo assistenza legale.',
-      sections: [
-        {
-          heading: '\u2696\ufe0f Situazione',
-          content:
-            'Con un permesso scaduto la procedura è più complessa e le possibilità di successo dipendono da diversi fattori.',
-        },
-        {
-          heading: '\ud83d\udc68\u200d\u2696\ufe0f Serve consulenza legale',
-          content:
-            'Rivolgiti a un servizio di consulenza legale gratuita per valutare la tua situazione.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
-        },
-      ],
+        'Il tuo permesso di soggiorno è scaduto. La procedura di conversione è più complessa e le possibilità di successo dipendono da diversi fattori.',
+      sections: [],
     },
 
     c_end_scaduto_soft: {
@@ -718,7 +732,7 @@ export const conversioneTree: TreeData = {
 
     // Shared scaduto handling (Famiglia exception)
     { from: 'c_scaduto_quanto', to: 'c_scaduto_vorresti', label: 'Da meno di un anno', optionKey: 'meno_anno' },
-    { from: 'c_scaduto_quanto', to: 'c_end_scaduto', label: 'Da più di un anno', optionKey: 'piu_anno' },
+    { from: 'c_scaduto_quanto', to: 'c_end_complicata', label: 'Da più di un anno', optionKey: 'piu_anno' },
     { from: 'c_scaduto_vorresti', to: 'c_end_fam_ok', label: 'Famiglia', optionKey: 'famiglia' },
     { from: 'c_scaduto_vorresti', to: 'c_end_scaduto_soft', label: 'Lavoro subordinato', optionKey: 'lav_sub' },
     { from: 'c_scaduto_vorresti', to: 'c_end_scaduto_soft', label: 'Lavoro autonomo', optionKey: 'lav_aut' },
@@ -779,7 +793,7 @@ export const conversioneTree: TreeData = {
     { from: 'c_vorresti_asilo', to: 'c_end_altro_wip', label: 'Altro tipo di permesso', optionKey: 'altro' },
 
     // --- Current: Protezione speciale ---
-    { from: 'c_vorresti_prot_spec', to: 'c_end_lav_speciale', label: 'Lavoro', optionKey: 'lavoro' },
+    { from: 'c_vorresti_prot_spec', to: 'c_data_5mag_2023', label: 'Lavoro', optionKey: 'lavoro' },
     { from: 'c_vorresti_prot_spec', to: 'c_end_att_no', label: 'Attesa occupazione', optionKey: 'att_occ' },
     { from: 'c_vorresti_prot_spec', to: 'c_end_stu_speciale', label: 'Studio', optionKey: 'studio' },
     { from: 'c_vorresti_prot_spec', to: 'c_end_fam_ok', label: 'Famiglia', optionKey: 'famiglia' },
@@ -821,15 +835,15 @@ export const conversioneTree: TreeData = {
     { from: 'c_vorresti_ass_minori', to: 'c_end_altro_wip', label: 'Altro tipo di permesso', optionKey: 'altro' },
 
     // --- Current: Calamità naturale ---
-    { from: 'c_vorresti_calamita', to: 'c_end_lav_calam', label: 'Lavoro', optionKey: 'lavoro' },
+    { from: 'c_vorresti_calamita', to: 'c_data_5mag_2023', label: 'Lavoro', optionKey: 'lavoro' },
     { from: 'c_vorresti_calamita', to: 'c_end_att_no', label: 'Attesa occupazione', optionKey: 'att_occ' },
     { from: 'c_vorresti_calamita', to: 'c_end_stu_ok', label: 'Studio', optionKey: 'studio' },
     { from: 'c_vorresti_calamita', to: 'c_end_fam_ok', label: 'Famiglia', optionKey: 'famiglia' },
-    { from: 'c_vorresti_calamita', to: 'c_end_complicata', label: 'Permesso UE lungo periodo ("Carta di soggiorno")', optionKey: 'carta_ue' },
+    { from: 'c_vorresti_calamita', to: 'c_end_carta_no', label: 'Permesso UE lungo periodo ("Carta di soggiorno")', optionKey: 'carta_ue' },
     { from: 'c_vorresti_calamita', to: 'c_end_altro_wip', label: 'Altro tipo di permesso', optionKey: 'altro' },
 
     // --- Current: Cure mediche ---
-    { from: 'c_vorresti_cure', to: 'c_end_lav_cure', label: 'Lavoro', optionKey: 'lavoro' },
+    { from: 'c_vorresti_cure', to: 'c_data_5mag_2023', label: 'Lavoro', optionKey: 'lavoro' },
     { from: 'c_vorresti_cure', to: 'c_end_att_incerta', label: 'Attesa occupazione', optionKey: 'att_occ' },
     { from: 'c_vorresti_cure', to: 'c_end_stu_no', label: 'Studio', optionKey: 'studio' },
     { from: 'c_vorresti_cure', to: 'c_end_fam_ok', label: 'Famiglia', optionKey: 'famiglia' },
@@ -906,6 +920,10 @@ export const conversioneTree: TreeData = {
     { from: 'c_vorresti_generico', to: 'c_end_fam_ok', label: 'Famiglia', optionKey: 'famiglia' },
     { from: 'c_vorresti_generico', to: 'c_end_carta_no', label: 'Permesso UE lungo periodo ("Carta di soggiorno")', optionKey: 'carta_ue' },
     { from: 'c_vorresti_generico', to: 'c_end_altro_wip', label: 'Altro tipo di permesso', optionKey: 'altro' },
+
+    // --- Date check 5 maggio 2023 (Protezione speciale, Cure mediche, Calamità → Lavoro) ---
+    { from: 'c_data_5mag_2023', to: 'c_end_lav_sub_ok', label: 'Prima del 5 maggio 2023', optionKey: 'ante_5mag' },
+    { from: 'c_data_5mag_2023', to: 'c_end_complicata', label: 'Dopo il 5 maggio 2023', optionKey: 'post_5mag' },
 
     // =============================================
     // FOLLOW-UP: Studio → Lavoro (studi finiti + titolo)

@@ -55,7 +55,12 @@
     "linksTitle": "پیوندهای مفید",
     "breadcrumbExpand": "...",
     "emergencyCallNow": "همین الان تماس بگیرید",
-    "readFullGuide": "راهنمای کامل را در SOSpermesso بخوانید"
+    "readFullGuide": "راهنمای کامل را در SOSpermesso بخوانید",
+    "share": {
+      "label": "اشتراک‌گذاری",
+      "copied": "لینک کپی شد!"
+    },
+    "lawyerFindHelp": "کمک حقوقی رایگان پیدا کنید"
   },
   "contact": {
     "common": {

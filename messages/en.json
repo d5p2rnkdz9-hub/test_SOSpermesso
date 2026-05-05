@@ -55,7 +55,12 @@
     "linksTitle": "Useful links",
     "breadcrumbExpand": "...",
     "emergencyCallNow": "Call now",
-    "readFullGuide": "Read the full guide on SOSpermesso"
+    "readFullGuide": "Read the full guide on SOSpermesso",
+    "share": {
+      "label": "Share",
+      "copied": "Link copied!"
+    },
+    "lawyerFindHelp": "Find free legal assistance"
   },
   "contact": {
     "common": {

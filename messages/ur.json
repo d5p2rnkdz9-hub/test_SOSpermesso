@@ -55,7 +55,12 @@
     "linksTitle": "مفید لنکس",
     "breadcrumbExpand": "...",
     "emergencyCallNow": "ابھی کال کریں",
-    "readFullGuide": "SOSpermesso پر مکمل گائیڈ پڑھیں"
+    "readFullGuide": "SOSpermesso پر مکمل گائیڈ پڑھیں",
+    "share": {
+      "label": "شیئر کریں",
+      "copied": "لنک کاپی ہو گیا!"
+    },
+    "lawyerFindHelp": "مفت قانونی مدد تلاش کریں"
   },
   "contact": {
     "common": {

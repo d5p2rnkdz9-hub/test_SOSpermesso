@@ -22,8 +22,8 @@ export function LawyerBanner({ level }: LawyerBannerProps) {
   }
 
   return (
-    <div className="flex items-center gap-3 rounded-lg border-2 border-orange-800 bg-orange-100 px-4 py-3 text-orange-900 shadow-[2px_2px_0_#9a3412]">
-      <AlertTriangle className="h-5 w-5 shrink-0" />
+    <div className="flex items-center gap-3 rounded-lg border-2 border-[#1A1A1A] bg-white px-4 py-3 text-[#1A1A1A] shadow-[2px_2px_0_#1A1A1A]">
+      <AlertTriangle className="h-5 w-5 shrink-0 fill-[#FFD700] text-[#1A1A1A]" />
       <span className="font-semibold">{t('lawyerRecommended')}</span>
     </div>
   );

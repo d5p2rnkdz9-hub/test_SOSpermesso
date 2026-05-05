@@ -55,7 +55,12 @@
     "linksTitle": "有用的链接",
     "breadcrumbExpand": "...",
     "emergencyCallNow": "立即致电",
-    "readFullGuide": "在 SOSpermesso 阅读完整指南"
+    "readFullGuide": "在 SOSpermesso 阅读完整指南",
+    "share": {
+      "label": "分享",
+      "copied": "链接已复制！"
+    },
+    "lawyerFindHelp": "寻找免费法律援助"
   },
   "contact": {
     "common": {

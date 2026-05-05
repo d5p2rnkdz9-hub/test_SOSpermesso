@@ -6,3 +6,4 @@ export { LinksSummary } from './LinksSummary';
 export { LegalDisclaimer } from './LegalDisclaimer';
 export { TreeBreadcrumbs } from './TreeBreadcrumbs';
 export { EmergencyNumbers } from './EmergencyNumbers';
+export { ShareButton } from './ShareButton';

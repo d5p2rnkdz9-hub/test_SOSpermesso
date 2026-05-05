@@ -55,7 +55,12 @@
     "linksTitle": "روابط مفيدة",
     "breadcrumbExpand": "...",
     "emergencyCallNow": "اتصل الآن",
-    "readFullGuide": "اقرأ الدليل الكامل على SOSpermesso"
+    "readFullGuide": "اقرأ الدليل الكامل على SOSpermesso",
+    "share": {
+      "label": "مشاركة",
+      "copied": "تم نسخ الرابط!"
+    },
+    "lawyerFindHelp": "ابحث عن مساعدة قانونية مجانية"
   },
   "contact": {
     "common": {

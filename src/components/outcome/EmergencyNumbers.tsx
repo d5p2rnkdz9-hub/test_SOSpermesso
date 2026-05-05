@@ -18,7 +18,7 @@ export function EmergencyNumbers({ numbers }: EmergencyNumbersProps) {
         <a
           key={number}
           href={`tel:${number.replace(/\s/g, '')}`}
-          className="flex items-center gap-3 py-1 text-lg font-bold text-primary"
+          className="flex items-center gap-3 py-1 text-lg font-bold text-[#1565C0]"
         >
           <Phone className="h-5 w-5 shrink-0" />
           <span>{number}</span>

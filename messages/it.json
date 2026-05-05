@@ -51,11 +51,16 @@
     "readMore": "Leggi di piu...",
     "disclaimer": "Queste informazioni hanno scopo puramente orientativo e non costituiscono consulenza legale. Per una valutazione del tuo caso specifico, rivolgiti a un avvocato o a uno sportello di assistenza legale.",
     "lawyerSelf": "Puoi fare da solo",
-    "lawyerRecommended": "E meglio parlare con un consulente legale",
+    "lawyerRecommended": "È meglio parlare con un consulente legale",
+    "lawyerFindHelp": "Trova assistenza legale gratuita",
     "linksTitle": "Link utili",
     "breadcrumbExpand": "...",
     "emergencyCallNow": "Chiama ora",
-    "readFullGuide": "Leggi la guida completa su SOSpermesso"
+    "readFullGuide": "Leggi la guida completa su SOSpermesso",
+    "share": {
+      "label": "Condividi questa pagina",
+      "copied": "Link copiato!"
+    }
   },
   "contact": {
     "common": {

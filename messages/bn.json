@@ -55,7 +55,12 @@
     "linksTitle": "দরকারী লিঙ্ক",
     "breadcrumbExpand": "...",
     "emergencyCallNow": "এখনই কল করুন",
-    "readFullGuide": "SOSpermesso-এ সম্পূর্ণ গাইড পড়ুন"
+    "readFullGuide": "SOSpermesso-এ সম্পূর্ণ গাইড পড়ুন",
+    "share": {
+      "label": "শেয়ার করুন",
+      "copied": "লিঙ্ক কপি হয়েছে!"
+    },
+    "lawyerFindHelp": "বিনামূল্যে আইনি সহায়তা খুঁজুন"
   },
   "contact": {
     "common": {

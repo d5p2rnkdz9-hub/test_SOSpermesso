@@ -97,11 +97,18 @@ export function buildResult(
     // Skip if extraSections already provides a custom Durata
     const hasOverrideDuration = overrides?.extraSections?.some((s) => s.heading.includes('Durata'));
     if (permit.duration && !hasOverrideDuration) {
-      let durationContent = `Il permesso dura ${permit.duration}.`;
+      const isIllimitata = /illimitat/i.test(permit.duration);
+      let durationContent = isIllimitata
+        ? 'Il permesso **non ha scadenza**. Ogni 10 anni deve essere aggiornato con nuove fotografie, ma il rinnovo dovrebbe essere automatico.'
+        : `Il permesso dura ${permit.duration}.`;
       if (permit.infoExtra) {
         const durationWarnings = permit.infoExtra
           .split('\n\n')
-          .filter((s) => /durat|anni|mesi|scaden|rinnov/i.test(s));
+          .filter((s) => {
+            const trimmed = s.trim();
+            if (/^NOTA documenti|^Quali documenti/i.test(trimmed)) return false;
+            return /\b(dura(?:ta)?|durer[aà]|scaden(?:za|te)|rinnov(?:o|are|abile|ato|ata)|valid(?:o|a|ità))\b/i.test(s);
+          });
         if (durationWarnings.length > 0) {
           durationContent += '\n\n' + durationWarnings.join('\n\n');
         }
@@ -127,11 +134,28 @@ export function buildResult(
       });
     }
 
-    // --- Warnings section (excluding duration-related ones already merged) ---
+    // --- Kit-doc sub-blocks (separate section so it doesn't pollute Durata or Note importanti) ---
+    if (permit.infoExtra) {
+      const kitDocBlocks = permit.infoExtra
+        .split('\n\n')
+        .filter((s) => /^NOTA documenti|^Quali documenti/i.test(s.trim()));
+      if (kitDocBlocks.length > 0) {
+        sections.push({
+          heading: '📄 Documenti aggiuntivi per familiari',
+          content: kitDocBlocks.join('\n\n'),
+        });
+      }
+    }
+
+    // --- Warnings section (excluding duration-related and kit-doc paragraphs already routed) ---
     if (permit.infoExtra) {
       const nonDurationWarnings = permit.infoExtra
         .split('\n\n')
-        .filter((s) => !/durat|anni|mesi|scaden|rinnov/i.test(s));
+        .filter((s) => {
+          const trimmed = s.trim();
+          if (/^NOTA documenti|^Quali documenti/i.test(trimmed)) return false;
+          return !/\b(dura(?:ta)?|durer[aà]|scaden(?:za|te)|rinnov(?:o|are|abile|ato|ata)|valid(?:o|a|ità))\b/i.test(s);
+        });
       if (nonDurationWarnings.length > 0) {
         sections.push({
           heading: '\u26a0\ufe0f Note importanti',

@@ -55,7 +55,12 @@
     "linksTitle": "Полезные ссылки",
     "breadcrumbExpand": "...",
     "emergencyCallNow": "Позвонить сейчас",
-    "readFullGuide": "Читать полное руководство на SOSpermesso"
+    "readFullGuide": "Читать полное руководство на SOSpermesso",
+    "share": {
+      "label": "Поделиться",
+      "copied": "Ссылка скопирована!"
+    },
+    "lawyerFindHelp": "Найти бесплатную юридическую помощь"
   },
   "contact": {
     "common": {

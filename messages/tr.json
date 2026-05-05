@@ -55,7 +55,12 @@
     "linksTitle": "Yararlı bağlantılar",
     "breadcrumbExpand": "...",
     "emergencyCallNow": "Hemen ara",
-    "readFullGuide": "SOSpermesso'daki tam rehberi okuyun"
+    "readFullGuide": "SOSpermesso'daki tam rehberi okuyun",
+    "share": {
+      "label": "Paylaş",
+      "copied": "Bağlantı kopyalandı!"
+    },
+    "lawyerFindHelp": "Ücretsiz hukuki yardım bulun"
   },
   "contact": {
     "common": {

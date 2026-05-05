@@ -30,7 +30,7 @@ function linkify(text: string): ReactNode[] {
     }
     // The markdown link itself
     result.push(
-      <a key={key++} href={seg.href} target="_blank" rel="noopener noreferrer" className="underline text-primary">
+      <a key={key++} href={seg.href} target="_blank" rel="noopener noreferrer" className="underline text-[#1565C0]">
         {seg.label}
       </a>,
     );
@@ -75,7 +75,7 @@ function linkifyPlainUrls(text: string, keyStart: number): ReactNode[] {
   for (const part of parts) {
     if (URL_REGEX.test(part)) {
       result.push(
-        <a key={key++} href={part} target="_blank" rel="noopener noreferrer" className="underline text-primary">
+        <a key={key++} href={part} target="_blank" rel="noopener noreferrer" className="underline text-[#1565C0]">
           {part}
         </a>,
       );
@@ -113,9 +113,7 @@ export function FaqAccordion({ sections, substituteVars }: FaqAccordionProps) {
             borderInlineStartWidth: '4px',
             borderInlineStartStyle: 'solid',
             borderInlineStartColor: BORDER_COLORS[index % BORDER_COLORS.length],
-            boxShadow: index % 2 === 0
-              ? '2.5px 2.5px 0 #1A1A1A'
-              : '2.5px 2.5px 0 #FFD700, 4px 4px 0 #1A1A1A',
+            boxShadow: '2.5px 2.5px 0 #1A1A1A',
           }}
         >
           <h3 className="text-base font-bold text-card-foreground">
