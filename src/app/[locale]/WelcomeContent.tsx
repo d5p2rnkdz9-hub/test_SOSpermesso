@@ -69,11 +69,11 @@ export default function WelcomeContent() {
           {tTree('startButton')}
         </Button>
 
-        <p className="mt-6 text-sm text-muted-foreground">
-          Hai già un permesso e vuoi rinnovarlo o convertirlo?{' '}
+        <p className="mt-6 text-base text-foreground">
+          Hai già un permesso e vuoi <strong>rinnovarlo</strong> o <strong>convertirlo</strong>?{' '}
           <Link
             href="/tree/rinnovo-conversione"
-            className="underline"
+            className="underline font-semibold text-[#1565C0]"
             onClick={() => rcReset()}
           >
             Vai al test rinnovo/conversione
