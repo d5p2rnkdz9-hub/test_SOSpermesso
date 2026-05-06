@@ -6,6 +6,8 @@ import { rinnovoConversioneTree } from '@/lib/rinnovo-conversione-tree';
 import { getNode } from '@/lib/tree-engine';
 import { buildOutcomeMetadata } from '@/lib/outcome-metadata';
 import { OutcomeJsonLd } from '@/components/outcome/OutcomeJsonLd';
+import { translateTree } from '@/i18n/translateTree';
+import { getTranslationMap } from '@/i18n/loadTranslations';
 import RCOutcomeContent from './RCOutcomeContent';
 
 export function generateStaticParams() {
@@ -21,7 +23,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const nodeId = RC_OUTCOME_SLUGS[slug];
   if (!nodeId) return {};
 
-  const node = getNode(rinnovoConversioneTree, nodeId);
+  const tree = translateTree(rinnovoConversioneTree, getTranslationMap(locale));
+  const node = getNode(tree, nodeId);
   if (!node) return {};
 
   return buildOutcomeMetadata({
@@ -39,7 +42,8 @@ export default async function RCOutcomePage({ params }: Props) {
   const nodeId = RC_OUTCOME_SLUGS[slug];
   if (!nodeId) notFound();
 
-  const node = getNode(rinnovoConversioneTree, nodeId);
+  const tree = translateTree(rinnovoConversioneTree, getTranslationMap(locale));
+  const node = getNode(tree, nodeId);
 
   return (
     <>

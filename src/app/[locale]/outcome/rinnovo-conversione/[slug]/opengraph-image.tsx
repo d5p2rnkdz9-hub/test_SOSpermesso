@@ -6,6 +6,8 @@ import {
   OG_IMAGE_SIZE,
   OG_CONTENT_TYPE,
 } from '@/lib/outcome-og';
+import { translateTree } from '@/i18n/translateTree';
+import { getTranslationMap } from '@/i18n/loadTranslations';
 
 export const size = OG_IMAGE_SIZE;
 export const contentType = OG_CONTENT_TYPE;
@@ -17,7 +19,8 @@ export default async function Image({
   params: { locale: string; slug: string };
 }) {
   const nodeId = RC_OUTCOME_SLUGS[params.slug];
-  const node = nodeId ? getNode(rinnovoConversioneTree, nodeId) : undefined;
+  const tree = translateTree(rinnovoConversioneTree, getTranslationMap(params.locale));
+  const node = nodeId ? getNode(tree, nodeId) : undefined;
   if (!node) {
     return renderOutcomeOgImage({
       id: 'fallback',

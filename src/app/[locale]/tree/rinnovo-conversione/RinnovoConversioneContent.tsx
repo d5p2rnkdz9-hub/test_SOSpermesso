@@ -1,8 +1,8 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Loader2 } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 import { ContentColumn } from '@/components/layout/ContentColumn';
 import { Button } from '@/components/ui/button';
@@ -16,9 +16,16 @@ import {
   useRinnovoConversioneStore,
 } from '@/store/rinnovo-conversione-store';
 import { useTrackStep } from '@/hooks/useTrackStep';
+import { translateTree } from '@/i18n/translateTree';
+import { getTranslationMap } from '@/i18n/loadTranslations';
 
 export default function RinnovoConversioneContent() {
   const router = useRouter();
+  const locale = useLocale();
+  const tree = useMemo(
+    () => translateTree(rinnovoConversioneTree, getTranslationMap(locale)),
+    [locale],
+  );
   const tRC = useTranslations('rinnovareConvertire');
   const tTree = useTranslations('tree');
 
@@ -39,7 +46,7 @@ export default function RinnovoConversioneContent() {
 
   // Redirect to outcome page when tree reaches a terminal node
   useEffect(() => {
-    if (isHydrated && outcomeId && isTerminalNode(rinnovoConversioneTree, outcomeId)) {
+    if (isHydrated && outcomeId && isTerminalNode(tree, outcomeId)) {
       const slug = getRCSlugFromNodeId(outcomeId);
       if (slug) {
         router.replace(`/outcome/rinnovo-conversione/${slug}`);
@@ -61,7 +68,7 @@ export default function RinnovoConversioneContent() {
   }
 
   // Redirect in progress
-  if (outcomeId && isTerminalNode(rinnovoConversioneTree, outcomeId)) {
+  if (outcomeId && isTerminalNode(tree, outcomeId)) {
     return (
       <ContentColumn>
         <div className="flex min-h-[calc(100vh-3.5rem)] items-center justify-center">
@@ -138,7 +145,7 @@ export default function RinnovoConversioneContent() {
   return (
     <ContentColumn>
       <TreePlayer
-        tree={rinnovoConversioneTree}
+        tree={tree}
         currentNodeId={currentNodeId}
         answers={answers}
         historyLength={history.length}

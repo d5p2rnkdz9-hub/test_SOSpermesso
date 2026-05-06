@@ -1,5 +1,8 @@
 'use client';
 
+import { useMemo } from 'react';
+import { useLocale } from 'next-intl';
+
 import { OutcomePage } from '@/components/outcome';
 import { rinnovoConversioneTree } from '@/lib/rinnovo-conversione-tree';
 import { getRCSlugFromNodeId } from '@/lib/rinnovo-conversione-outcome-slugs';
@@ -8,12 +11,20 @@ import {
   useRinnovoConversioneStore,
 } from '@/store/rinnovo-conversione-store';
 import { useTrackOutcome } from '@/hooks/useTrackOutcome';
+import { translateTree } from '@/i18n/translateTree';
+import { getTranslationMap } from '@/i18n/loadTranslations';
 
 interface RCOutcomeContentProps {
   nodeId: string;
 }
 
 export default function RCOutcomeContent({ nodeId }: RCOutcomeContentProps) {
+  const locale = useLocale();
+  const tree = useMemo(
+    () => translateTree(rinnovoConversioneTree, getTranslationMap(locale)),
+    [locale],
+  );
+
   const isHydrated = useRinnovoConversioneHydration();
   const userName = useRinnovoConversioneStore((s) => s.userName);
   const answers = useRinnovoConversioneStore((s) => s.answers);
@@ -35,7 +46,7 @@ export default function RCOutcomeContent({ nodeId }: RCOutcomeContentProps) {
   return (
     <OutcomePage
       nodeId={nodeId}
-      tree={rinnovoConversioneTree}
+      tree={tree}
       isHydrated={isHydrated}
       userName={userName}
       answers={answers}

@@ -8,6 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "fetch:rinnovo": "tsx scripts/fetch-rinnovo-data.ts",
+    "translations:extract": "tsx scripts/extract-it-strings.ts",
+    "translations:split": "tsx scripts/split-batches.ts",
+    "translations:review": "node scripts/review-translations.js",
     "db:seed": "npx prisma db seed",
     "postinstall": "prisma generate"
   },

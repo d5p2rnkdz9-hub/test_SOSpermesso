@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { Loader2 } from 'lucide-react';
+import { useLocale } from 'next-intl';
 
 import { ContentColumn } from '@/components/layout/ContentColumn';
 import { TreePlayer } from '@/components/tree';
@@ -14,9 +15,16 @@ import {
   useConversioneStore,
 } from '@/store/conversione-store';
 import { useTrackStep } from '@/hooks/useTrackStep';
+import { translateTree } from '@/i18n/translateTree';
+import { getTranslationMap } from '@/i18n/loadTranslations';
 
 export default function ConversioneContent() {
   const router = useRouter();
+  const locale = useLocale();
+  const tree = useMemo(
+    () => translateTree(conversioneTree, getTranslationMap(locale)),
+    [locale],
+  );
 
   const isHydrated = useConversioneHydration();
   const currentNodeId = useConversioneStore((s) => s.currentNodeId);
@@ -38,7 +46,7 @@ export default function ConversioneContent() {
 
   // Redirect to outcome page when tree reaches a terminal node
   useEffect(() => {
-    if (isHydrated && outcomeId && isTerminalNode(conversioneTree, outcomeId)) {
+    if (isHydrated && outcomeId && isTerminalNode(tree, outcomeId)) {
       const slug = getConversioneSlugFromNodeId(outcomeId);
       if (slug) {
         router.replace(`/outcome/conversione/${slug}`);
@@ -60,7 +68,7 @@ export default function ConversioneContent() {
   }
 
   // Redirect in progress
-  if (outcomeId && isTerminalNode(conversioneTree, outcomeId)) {
+  if (outcomeId && isTerminalNode(tree, outcomeId)) {
     return (
       <ContentColumn>
         <div className="flex min-h-[calc(100vh-3.5rem)] items-center justify-center">
@@ -75,7 +83,7 @@ export default function ConversioneContent() {
   return (
     <ContentColumn>
       <TreePlayer
-        tree={conversioneTree}
+        tree={tree}
         currentNodeId={currentNodeId}
         answers={answers}
         historyLength={history.length}

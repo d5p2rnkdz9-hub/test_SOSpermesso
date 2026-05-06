@@ -6,6 +6,8 @@ import { italianTree } from '@/lib/tree-data';
 import { getNode } from '@/lib/tree-engine';
 import { buildOutcomeMetadata } from '@/lib/outcome-metadata';
 import { OutcomeJsonLd } from '@/components/outcome/OutcomeJsonLd';
+import { translateTree } from '@/i18n/translateTree';
+import { getTranslationMap } from '@/i18n/loadTranslations';
 import OutcomeContent from '../OutcomeContent';
 
 export function generateStaticParams() {
@@ -21,7 +23,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const nodeId = OUTCOME_SLUGS[slug];
   if (!nodeId) return {};
 
-  const node = getNode(italianTree, nodeId);
+  const tree = translateTree(italianTree, getTranslationMap(locale));
+  const node = getNode(tree, nodeId);
   if (!node) return {};
 
   return buildOutcomeMetadata({
@@ -39,7 +42,8 @@ export default async function OutcomePage({ params }: Props) {
   const nodeId = OUTCOME_SLUGS[slug];
   if (!nodeId) notFound();
 
-  const node = getNode(italianTree, nodeId);
+  const tree = translateTree(italianTree, getTranslationMap(locale));
+  const node = getNode(tree, nodeId);
 
   return (
     <>

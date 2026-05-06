@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { Loader2 } from 'lucide-react';
+import { useLocale } from 'next-intl';
 
 import { ContentColumn } from '@/components/layout/ContentColumn';
 import { TreePlayer } from '@/components/tree';
@@ -11,9 +12,13 @@ import { isTerminalNode, getNode } from '@/lib/tree-engine';
 import { getSlugFromNodeId } from '@/lib/outcome-slugs';
 import { useTreeHydration, useTreeStore } from '@/store/tree-store';
 import { useTrackStep } from '@/hooks/useTrackStep';
+import { translateTree } from '@/i18n/translateTree';
+import { getTranslationMap } from '@/i18n/loadTranslations';
 
 export default function TreeContent() {
   const router = useRouter();
+  const locale = useLocale();
+  const tree = useMemo(() => translateTree(italianTree, getTranslationMap(locale)), [locale]);
 
   const isHydrated = useTreeHydration();
   const currentNodeId = useTreeStore((s) => s.currentNodeId);
@@ -29,7 +34,7 @@ export default function TreeContent() {
 
   // Reset stale session if current node no longer exists in tree
   useEffect(() => {
-    if (isHydrated && sessionStartedAt && !getNode(italianTree, currentNodeId)) {
+    if (isHydrated && sessionStartedAt && !getNode(tree, currentNodeId)) {
       reset();
       router.replace('/');
     }
@@ -41,7 +46,7 @@ export default function TreeContent() {
       isHydrated &&
       sessionStartedAt === null &&
       history.length === 0 &&
-      currentNodeId === italianTree.startNodeId &&
+      currentNodeId === tree.startNodeId &&
       outcomeId === null
     ) {
       router.replace('/');
@@ -50,7 +55,7 @@ export default function TreeContent() {
 
   // Redirect to outcome page when tree reaches a terminal node
   useEffect(() => {
-    if (isHydrated && outcomeId && isTerminalNode(italianTree, outcomeId)) {
+    if (isHydrated && outcomeId && isTerminalNode(tree, outcomeId)) {
       const slug = getSlugFromNodeId(outcomeId);
       if (slug) {
         router.replace(`/outcome/${slug}`);
@@ -72,7 +77,7 @@ export default function TreeContent() {
   }
 
   // Redirect in progress: show spinner while navigating to outcome page
-  if (outcomeId && isTerminalNode(italianTree, outcomeId)) {
+  if (outcomeId && isTerminalNode(tree, outcomeId)) {
     return (
       <ContentColumn>
         <div className="flex min-h-[calc(100vh-3.5rem)] items-center justify-center">
@@ -88,7 +93,7 @@ export default function TreeContent() {
   return (
     <ContentColumn>
       <TreePlayer
-        tree={italianTree}
+        tree={tree}
         currentNodeId={currentNodeId}
         answers={answers}
         historyLength={history.length}

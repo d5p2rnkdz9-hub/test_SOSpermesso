@@ -1,5 +1,8 @@
 'use client';
 
+import { useMemo } from 'react';
+import { useLocale } from 'next-intl';
+
 import { OutcomePage } from '@/components/outcome';
 import { conversioneTree } from '@/lib/conversione-tree';
 import { getConversioneSlugFromNodeId } from '@/lib/conversione-outcome-slugs';
@@ -8,6 +11,8 @@ import {
   useConversioneStore,
 } from '@/store/conversione-store';
 import { useTrackOutcome } from '@/hooks/useTrackOutcome';
+import { translateTree } from '@/i18n/translateTree';
+import { getTranslationMap } from '@/i18n/loadTranslations';
 
 interface ConversioneOutcomeContentProps {
   nodeId: string;
@@ -16,6 +21,12 @@ interface ConversioneOutcomeContentProps {
 export default function ConversioneOutcomeContent({
   nodeId,
 }: ConversioneOutcomeContentProps) {
+  const locale = useLocale();
+  const tree = useMemo(
+    () => translateTree(conversioneTree, getTranslationMap(locale)),
+    [locale],
+  );
+
   const isHydrated = useConversioneHydration();
   const answers = useConversioneStore((s) => s.answers);
   const history = useConversioneStore((s) => s.history);
@@ -35,7 +46,7 @@ export default function ConversioneOutcomeContent({
   return (
     <OutcomePage
       nodeId={nodeId}
-      tree={conversioneTree}
+      tree={tree}
       isHydrated={isHydrated}
       userName={null}
       answers={answers}

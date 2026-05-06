@@ -47,3 +47,7 @@ prisma/*.db-journal
 *.pdf
 *.rtf
 *.txt
+
+# Translation pipeline artifacts (intermediate)
+translations/_batches/
+review-reports/
