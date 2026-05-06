@@ -13,26 +13,27 @@ import type { TranslationMap } from './translateTree';
 // Static imports — bundled by Next.js. Add more as locales are translated.
 // Until a JSON exists for a locale, leave it null and the app gracefully falls
 // back to Italian.
-let enMap: TranslationMap | null = null;
-try {
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  enMap = require('../../translations/en.json');
-} catch {
-  enMap = null;
+function tryLoad(rel: string): TranslationMap | null {
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    return require(rel);
+  } catch {
+    return null;
+  }
 }
 
 const MAPS: Record<string, TranslationMap | null> = {
   it: null, // no translation needed; tree is already IT
-  en: enMap,
-  fr: null,
-  es: null,
-  ar: null,
-  fa: null,
-  ur: null,
-  ru: null,
-  tr: null,
-  zh: null,
-  bn: null,
+  en: tryLoad('../../translations/en.json'),
+  fr: tryLoad('../../translations/fr.json'),
+  es: tryLoad('../../translations/es.json'),
+  ar: tryLoad('../../translations/ar.json'),
+  fa: tryLoad('../../translations/fa.json'),
+  ur: tryLoad('../../translations/ur.json'),
+  ru: tryLoad('../../translations/ru.json'),
+  tr: tryLoad('../../translations/tr.json'),
+  zh: tryLoad('../../translations/zh.json'),
+  bn: tryLoad('../../translations/bn.json'),
 };
 
 export function getTranslationMap(locale: string): TranslationMap | null {

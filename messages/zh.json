@@ -10,7 +10,8 @@
     "title": "几个问题帮您了解您是否可以在意大利<hl>获得</hl><hl>居留许可</hl>",
     "subtitle": "回答几个问题以了解您可以申请哪种居留许可",
     "start": "开始检查",
-    "disclaimer": "此工具提供一般信息,不构成法律咨询。"
+    "disclaimer": "此工具提供一般信息,不构成法律咨询。",
+    "alreadyHavePermit": "您已经有许可证并想<b>续签</b>或<b>转换</b>它吗？<link>前往续签/转换测试</link>"
   },
   "header": {
     "backToStart": "返回首页",
@@ -124,5 +125,9 @@
       "consensoLabel": "我同意处理我的数据以便与我联系",
       "successMessage": "谢谢!我们将尽快与您联系。"
     }
+  },
+  "meta": {
+    "title": "S.O.S. Permesso — 检查您的居留许可权利",
+    "description": "几分钟内了解您可以在意大利申请哪种居留许可。免费、多语言、无需注册。"
   }
 }

@@ -70,14 +70,18 @@ export default function WelcomeContent() {
         </Button>
 
         <p className="mt-6 text-base text-foreground">
-          Hai già un permesso e vuoi <strong>rinnovarlo</strong> o <strong>convertirlo</strong>?{' '}
-          <Link
-            href="/tree/rinnovo-conversione"
-            className="underline font-semibold text-[#1565C0]"
-            onClick={() => rcReset()}
-          >
-            Vai al test rinnovo/conversione
-          </Link>
+          {t.rich('alreadyHavePermit', {
+            b: (chunks) => <strong>{chunks}</strong>,
+            link: (chunks) => (
+              <Link
+                href="/tree/rinnovo-conversione"
+                className="underline font-semibold text-[#1565C0]"
+                onClick={() => rcReset()}
+              >
+                {chunks}
+              </Link>
+            ),
+          })}
         </p>
       </div>
     </ContentColumn>

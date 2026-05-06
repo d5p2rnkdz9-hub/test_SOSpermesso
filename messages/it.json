@@ -10,7 +10,8 @@
     "title": "Poche domande per scoprire se puoi <hl>avere</hl> un <hl>permesso di soggiorno</hl> in Italia",
     "subtitle": "Rispondi ad alcune domande per scoprire quale permesso puoi richiedere",
     "start": "Inizia la verifica",
-    "disclaimer": "Questo strumento fornisce informazioni generali, non consulenza legale."
+    "disclaimer": "Questo strumento fornisce informazioni generali, non consulenza legale.",
+    "alreadyHavePermit": "Hai già un permesso e vuoi <b>rinnovarlo</b> o <b>convertirlo</b>? <link>Vai al test rinnovo/conversione</link>"
   },
   "header": {
     "backToStart": "Torna all'inizio",
@@ -124,5 +125,9 @@
       "consensoLabel": "Acconsento al trattamento dei miei dati per essere contattato",
       "successMessage": "Grazie! Ti contatteremo presto."
     }
+  },
+  "meta": {
+    "title": "S.O.S. Permesso — Verifica il tuo diritto al permesso di soggiorno",
+    "description": "Scopri in pochi minuti quale permesso di soggiorno puoi richiedere in Italia. Gratuito, in più lingue, senza registrazione."
   }
 }

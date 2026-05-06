@@ -10,7 +10,8 @@
     "title": "İtalya'da <hl>oturma izni</hl> alıp alamayacağınızı öğrenmek için <hl>birkaç soru</hl>",
     "subtitle": "Hangi oturma iznini talep edebileceğinizi öğrenmek için birkaç soruyu yanıtlayın",
     "start": "Kontrolü başlat",
-    "disclaimer": "Bu araç genel bilgi sağlar, hukuki tavsiye değildir."
+    "disclaimer": "Bu araç genel bilgi sağlar, hukuki tavsiye değildir.",
+    "alreadyHavePermit": "Zaten bir izniniz var ve <b>yenilemek</b> veya <b>dönüştürmek</b> mi istiyorsunuz? <link>Yenileme/dönüştürme testine git</link>"
   },
   "header": {
     "backToStart": "Başa dön",
@@ -124,5 +125,9 @@
       "consensoLabel": "İletişime geçilmesi için verilerimin işlenmesine izin veriyorum",
       "successMessage": "Teşekkürler! En kısa sürede size ulaşacağız."
     }
+  },
+  "meta": {
+    "title": "S.O.S. Permesso — Oturma izni hakkınızı kontrol edin",
+    "description": "İtalya'da hangi oturma iznine başvurabileceğinizi dakikalar içinde öğrenin. Ücretsiz, birden çok dilde, kayıt gerektirmez."
   }
 }

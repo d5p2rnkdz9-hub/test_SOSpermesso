@@ -10,7 +10,8 @@
     "title": "Quelques questions pour savoir si vous pouvez obtenir un <hl>permis de séjour</hl> en Italie",
     "subtitle": "Répondez à quelques questions pour découvrir quel permis vous pouvez demander",
     "start": "Commencer la vérification",
-    "disclaimer": "Cet outil fournit des informations générales, pas des conseils juridiques."
+    "disclaimer": "Cet outil fournit des informations générales, pas des conseils juridiques.",
+    "alreadyHavePermit": "Vous avez déjà un permis et souhaitez le <b>renouveler</b> ou le <b>convertir</b> ? <link>Allez au test de renouvellement/conversion</link>"
   },
   "header": {
     "backToStart": "Retour au début",
@@ -124,5 +125,9 @@
       "consensoLabel": "Je consens au traitement de mes donnees pour etre contacte",
       "successMessage": "Merci ! Nous vous contacterons bientot."
     }
+  },
+  "meta": {
+    "title": "S.O.S. Permesso — Vérifiez votre droit au permis de séjour",
+    "description": "Découvrez en quelques minutes quel permis de séjour vous pouvez demander en Italie. Gratuit, en plusieurs langues, sans inscription."
   }
 }

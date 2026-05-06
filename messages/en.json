@@ -10,7 +10,8 @@
     "title": "A few questions to find out if you can get a <hl>residence permit</hl> in Italy",
     "subtitle": "Answer a few questions to find out which permit you can apply for",
     "start": "Start the check",
-    "disclaimer": "This tool provides general information, not legal advice."
+    "disclaimer": "This tool provides general information, not legal advice.",
+    "alreadyHavePermit": "Do you already have a permit and want to <b>renew</b> or <b>convert</b> it? <link>Go to the renewal/conversion test</link>"
   },
   "header": {
     "backToStart": "Back to start",
@@ -124,5 +125,9 @@
       "consensoLabel": "I consent to the processing of my data to be contacted",
       "successMessage": "Thank you! We will be in touch soon."
     }
+  },
+  "meta": {
+    "title": "S.O.S. Permesso — Check your right to a residence permit",
+    "description": "Find out in minutes which residence permit you can apply for in Italy. Free, in multiple languages, no registration."
   }
 }

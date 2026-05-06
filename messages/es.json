@@ -10,7 +10,8 @@
     "title": "Unas pocas preguntas para descubrir si puedes obtener un <hl>permiso de residencia</hl> en Italia",
     "subtitle": "Responde algunas preguntas para descubrir qué permiso puedes solicitar",
     "start": "Comenzar la verificación",
-    "disclaimer": "Esta herramienta proporciona información general, no asesoramiento legal."
+    "disclaimer": "Esta herramienta proporciona información general, no asesoramiento legal.",
+    "alreadyHavePermit": "¿Ya tienes un permiso y quieres <b>renovarlo</b> o <b>convertirlo</b>? <link>Ve al test de renovación/conversión</link>"
   },
   "header": {
     "backToStart": "Volver al inicio",
@@ -124,5 +125,9 @@
       "consensoLabel": "Acepto el tratamiento de mis datos para ser contactado",
       "successMessage": "Gracias! Te contactaremos pronto."
     }
+  },
+  "meta": {
+    "title": "S.O.S. Permesso — Verifica tu derecho al permiso de residencia",
+    "description": "Descubre en pocos minutos qué permiso de residencia puedes solicitar en Italia. Gratis, en varios idiomas, sin registro."
   }
 }
