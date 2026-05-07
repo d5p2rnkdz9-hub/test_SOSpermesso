@@ -269,11 +269,30 @@ function main() {
     'utf-8',
   );
 
+  // ─── Plain-text batches for AI subagents ────────────────────────────────────
+  // Mirrors Sito_Nuovo/review-reports/{lang}-batch-N.txt: subagents work
+  // better on flat text than on nested JSON.
+  const txtPaths = [];
+  for (const { batchId, entries: batchEntries } of batches) {
+    const lines = [];
+    batchEntries.forEach((e, i) => {
+      const n = (batchId - 1) * BATCH_SIZE + i + 1;
+      lines.push(`=== ENTRY ${n} ===`);
+      lines.push(`IT: ${e.it}`);
+      lines.push(`${LANG.toUpperCase()}: ${e.translated}`);
+      lines.push('');
+    });
+    const txtPath = path.join(REPORTS_DIR, `${LANG}-batch-${batchId}.txt`);
+    fs.writeFileSync(txtPath, lines.join('\n'), 'utf-8');
+    txtPaths.push(txtPath);
+  }
+
   console.log(`\n${LANG.toUpperCase()} review:`);
   console.log(`  Coverage: ${Object.keys(target).length}/${Object.keys(source).length} keys; ${coverage.missing.length} missing, ${coverage.untranslated.length} untranslated.`);
   console.log(`  Automated issues: ${entryIssues.length} entries flagged.`);
   console.log(`  → ${path.relative(ROOT, mdPath)}`);
   console.log(`  → ${path.relative(ROOT, jsonPath)} (${batches.length} batches)`);
+  console.log(`  → ${path.relative(ROOT, REPORTS_DIR)}/${LANG}-batch-{1..${batches.length}}.txt`);
 }
 
 main();

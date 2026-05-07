@@ -17,6 +17,7 @@ import ur from '../../translations/ur.json';
 import ru from '../../translations/ru.json';
 import tr from '../../translations/tr.json';
 import zh from '../../translations/zh.json';
+import bn from '../../translations/bn.json';
 
 const MAPS: Record<string, TranslationMap | null> = {
   it: null, // tree is already IT, no swap needed
@@ -29,7 +30,7 @@ const MAPS: Record<string, TranslationMap | null> = {
   ru: ru as TranslationMap,
   tr: tr as TranslationMap,
   zh: zh as TranslationMap,
-  bn: null, // not yet translated
+  bn: bn as TranslationMap,
 };
 
 export function getTranslationMap(locale: string): TranslationMap | null {
