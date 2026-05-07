@@ -2,38 +2,34 @@
  * Locale → translation-map loader.
  *
  * Italian is the source; for each non-IT locale we ship a flat JSON at
- * translations/{locale}.json — read at build time via static import so Next.js
- * bundles it for both server and client components.
- *
+ * translations/{locale}.json. Next.js bundles these via static imports.
  * Missing locale = null (caller falls back to Italian).
  */
 
 import type { TranslationMap } from './translateTree';
 
-// Static imports — bundled by Next.js. Add more as locales are translated.
-// Until a JSON exists for a locale, leave it null and the app gracefully falls
-// back to Italian.
-function tryLoad(rel: string): TranslationMap | null {
-  try {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    return require(rel);
-  } catch {
-    return null;
-  }
-}
+import en from '../../translations/en.json';
+import fr from '../../translations/fr.json';
+import es from '../../translations/es.json';
+import ar from '../../translations/ar.json';
+import fa from '../../translations/fa.json';
+import ur from '../../translations/ur.json';
+import ru from '../../translations/ru.json';
+import tr from '../../translations/tr.json';
+import zh from '../../translations/zh.json';
 
 const MAPS: Record<string, TranslationMap | null> = {
-  it: null, // no translation needed; tree is already IT
-  en: tryLoad('../../translations/en.json'),
-  fr: tryLoad('../../translations/fr.json'),
-  es: tryLoad('../../translations/es.json'),
-  ar: tryLoad('../../translations/ar.json'),
-  fa: tryLoad('../../translations/fa.json'),
-  ur: tryLoad('../../translations/ur.json'),
-  ru: tryLoad('../../translations/ru.json'),
-  tr: tryLoad('../../translations/tr.json'),
-  zh: tryLoad('../../translations/zh.json'),
-  bn: tryLoad('../../translations/bn.json'),
+  it: null, // tree is already IT, no swap needed
+  en: en as TranslationMap,
+  fr: fr as TranslationMap,
+  es: es as TranslationMap,
+  ar: ar as TranslationMap,
+  fa: fa as TranslationMap,
+  ur: ur as TranslationMap,
+  ru: ru as TranslationMap,
+  tr: tr as TranslationMap,
+  zh: zh as TranslationMap,
+  bn: null, // not yet translated
 };
 
 export function getTranslationMap(locale: string): TranslationMap | null {
