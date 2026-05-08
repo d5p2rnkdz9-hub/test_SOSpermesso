@@ -46,7 +46,8 @@
     }
   },
   "rinnovareConvertire": {
-    "welcomeTitle": "几个问题帮您了解如何<hl>续签</hl>或<hl>转换</hl>您的居留许可"
+    "welcomeTitle": "几个问题帮您了解如何<hl>续签</hl>或<hl>转换</hl>您的居留许可",
+    "alreadyDoNotHavePermit": "您还没有许可证？<link>看看您是否可以<b>获得一个</b></link>"
   },
   "outcome": {
     "readMore": "阅读更多...",

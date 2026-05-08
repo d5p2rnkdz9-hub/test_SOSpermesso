@@ -46,7 +46,8 @@
     }
   },
   "rinnovareConvertire": {
-    "welcomeTitle": "بضعة أسئلة لمعرفة كيفية <hl>تجديد</hl> أو <hl>تحويل</hl> تصريح إقامتك"
+    "welcomeTitle": "بضعة أسئلة لمعرفة كيفية <hl>تجديد</hl> أو <hl>تحويل</hl> تصريح إقامتك",
+    "alreadyDoNotHavePermit": "ليس لديك تصريح بعد؟ <link>اكتشف ما إذا كان بإمكانك <b>الحصول على واحد</b></link>"
   },
   "outcome": {
     "readMore": "اقرأ المزيد...",

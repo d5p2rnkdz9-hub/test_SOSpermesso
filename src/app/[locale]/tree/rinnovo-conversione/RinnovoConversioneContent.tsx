@@ -131,11 +131,19 @@ export default function RinnovoConversioneContent() {
             {tTree('startButton')}
           </Button>
 
-          <p className="mt-6 text-sm text-muted-foreground">
-            Non hai ancora un permesso?{' '}
-            <Link href="/" className="underline">
-              Scopri se puoi ottenerne uno
-            </Link>
+          <p className="mt-6 text-base text-foreground">
+            {tRC.rich('alreadyDoNotHavePermit', {
+              b: (chunks) => <strong>{chunks}</strong>,
+              link: (chunks) => (
+                <Link
+                  href="/"
+                  className="underline font-semibold text-[#1565C0]"
+                  onClick={() => reset()}
+                >
+                  {chunks}
+                </Link>
+              ),
+            })}
           </p>
         </div>
       </ContentColumn>

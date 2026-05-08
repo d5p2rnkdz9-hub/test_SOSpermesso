@@ -46,7 +46,8 @@
     }
   },
   "rinnovareConvertire": {
-    "welcomeTitle": "Oturma izninizi nasıl <hl>yenileyeceğinizi</hl> veya <hl>dönüştüreceğinizi</hl> öğrenmek için birkaç soru"
+    "welcomeTitle": "Oturma izninizi nasıl <hl>yenileyeceğinizi</hl> veya <hl>dönüştüreceğinizi</hl> öğrenmek için birkaç soru",
+    "alreadyDoNotHavePermit": "Henüz bir oturma izniniz yok mu? <link>Bir <b>tane alabilir misiniz</b> öğrenin</link>"
   },
   "outcome": {
     "readMore": "Devamını oku...",

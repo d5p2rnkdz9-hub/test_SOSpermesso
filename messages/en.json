@@ -46,7 +46,8 @@
     }
   },
   "rinnovareConvertire": {
-    "welcomeTitle": "A few questions to find out how to <hl>renew</hl> or <hl>convert</hl> your residence permit"
+    "welcomeTitle": "A few questions to find out how to <hl>renew</hl> or <hl>convert</hl> your residence permit",
+    "alreadyDoNotHavePermit": "Don't have a permit yet? <link>Find out if you can <b>get one</b></link>"
   },
   "outcome": {
     "readMore": "Read more...",

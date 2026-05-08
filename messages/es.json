@@ -46,7 +46,8 @@
     }
   },
   "rinnovareConvertire": {
-    "welcomeTitle": "Unas pocas preguntas para descubrir cómo <hl>renovar</hl> o <hl>convertir</hl> tu permiso de residencia"
+    "welcomeTitle": "Unas pocas preguntas para descubrir cómo <hl>renovar</hl> o <hl>convertir</hl> tu permiso de residencia",
+    "alreadyDoNotHavePermit": "¿Aún no tiene un permiso? <link>Descubra si puede <b>obtener uno</b></link>"
   },
   "outcome": {
     "readMore": "Leer mas...",
