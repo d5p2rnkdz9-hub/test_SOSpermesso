@@ -11,10 +11,7 @@ import { useRouter, Link } from '@/i18n/navigation';
 import { rinnovoConversioneTree } from '@/lib/rinnovo-conversione-tree';
 import { isTerminalNode } from '@/lib/tree-engine';
 import { getRCSlugFromNodeId } from '@/lib/rinnovo-conversione-outcome-slugs';
-import {
-  useRinnovoConversioneHydration,
-  useRinnovoConversioneStore,
-} from '@/store/rinnovo-conversione-store';
+import { useRinnovoConversioneStore } from '@/store/rinnovo-conversione-store';
 import { useTrackStep } from '@/hooks/useTrackStep';
 import { translateTree } from '@/i18n/translateTree';
 import { getTranslationMap } from '@/i18n/loadTranslations';
@@ -29,7 +26,6 @@ export default function RinnovoConversioneContent() {
   const tRC = useTranslations('rinnovareConvertire');
   const tTree = useTranslations('tree');
 
-  const isHydrated = useRinnovoConversioneHydration();
   const currentNodeId = useRinnovoConversioneStore((s) => s.currentNodeId);
   const answers = useRinnovoConversioneStore((s) => s.answers);
   const outcomeId = useRinnovoConversioneStore((s) => s.outcomeId);
@@ -46,26 +42,13 @@ export default function RinnovoConversioneContent() {
 
   // Redirect to outcome page when tree reaches a terminal node
   useEffect(() => {
-    if (isHydrated && outcomeId && isTerminalNode(tree, outcomeId)) {
+    if (outcomeId && isTerminalNode(tree, outcomeId)) {
       const slug = getRCSlugFromNodeId(outcomeId);
       if (slug) {
         router.replace(`/outcome/rinnovo-conversione/${slug}`);
       }
     }
-  }, [isHydrated, outcomeId, router]);
-
-  // Hydration guard
-  if (!isHydrated) {
-    return (
-      <ContentColumn>
-        <div className="flex min-h-[calc(100vh-3.5rem)] items-center justify-center">
-          <div className="bg-foreground/5 rounded-2xl p-5">
-            <Loader2 className="h-8 w-8 animate-spin text-foreground/40" />
-          </div>
-        </div>
-      </ContentColumn>
-    );
-  }
+  }, [outcomeId, router]);
 
   // Redirect in progress
   if (outcomeId && isTerminalNode(tree, outcomeId)) {

@@ -11,7 +11,6 @@ interface TrackOutcomeParams {
   sessionStartedAt: string | null;
   userName?: string | null;
   getSlug: (nodeId: string) => string | null;
-  isHydrated: boolean;
 }
 
 export function useTrackOutcome(nodeId: string, params: TrackOutcomeParams) {
@@ -22,13 +21,12 @@ export function useTrackOutcome(nodeId: string, params: TrackOutcomeParams) {
     sessionStartedAt,
     userName,
     getSlug,
-    isHydrated,
   } = params;
   const locale = useLocale();
   const hasFired = useRef(false);
 
   useEffect(() => {
-    if (!isHydrated || hasFired.current || !sessionStartedAt) return;
+    if (hasFired.current || !sessionStartedAt) return;
 
     const sessionToken = `${sessionStartedAt}::${treeType}`;
     const storageKey = `analytics-tracked::${sessionToken}`;
@@ -80,5 +78,5 @@ export function useTrackOutcome(nodeId: string, params: TrackOutcomeParams) {
       body: JSON.stringify(payload),
       keepalive: true,
     }).catch(() => {});
-  }, [isHydrated, nodeId, locale, answers, history, sessionStartedAt, userName, treeType, getSlug]);
+  }, [nodeId, locale, answers, history, sessionStartedAt, userName, treeType, getSlug]);
 }

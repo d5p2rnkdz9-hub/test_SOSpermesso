@@ -6,7 +6,7 @@ import { useLocale } from 'next-intl';
 import { OutcomePage } from '@/components/outcome';
 import { italianTree } from '@/lib/tree-data';
 import { getSlugFromNodeId } from '@/lib/outcome-slugs';
-import { useTreeHydration, useTreeStore } from '@/store/tree-store';
+import { useTreeStore } from '@/store/tree-store';
 import { useTrackOutcome } from '@/hooks/useTrackOutcome';
 import { translateTree } from '@/i18n/translateTree';
 import { getTranslationMap } from '@/i18n/loadTranslations';
@@ -19,7 +19,6 @@ export default function OutcomeContent({ nodeId }: OutcomeContentProps) {
   const locale = useLocale();
   const tree = useMemo(() => translateTree(italianTree, getTranslationMap(locale)), [locale]);
 
-  const isHydrated = useTreeHydration();
   const userName = useTreeStore((s) => s.userName);
   const answers = useTreeStore((s) => s.answers);
   const history = useTreeStore((s) => s.history);
@@ -34,14 +33,12 @@ export default function OutcomeContent({ nodeId }: OutcomeContentProps) {
     sessionStartedAt,
     userName,
     getSlug: (id) => getSlugFromNodeId(id) ?? null,
-    isHydrated,
   });
 
   return (
     <OutcomePage
       nodeId={nodeId}
       tree={tree}
-      isHydrated={isHydrated}
       userName={userName}
       answers={answers}
       history={history}

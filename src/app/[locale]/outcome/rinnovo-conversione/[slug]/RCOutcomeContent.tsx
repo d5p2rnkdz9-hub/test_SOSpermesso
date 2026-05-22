@@ -6,10 +6,7 @@ import { useLocale } from 'next-intl';
 import { OutcomePage } from '@/components/outcome';
 import { rinnovoConversioneTree } from '@/lib/rinnovo-conversione-tree';
 import { getRCSlugFromNodeId } from '@/lib/rinnovo-conversione-outcome-slugs';
-import {
-  useRinnovoConversioneHydration,
-  useRinnovoConversioneStore,
-} from '@/store/rinnovo-conversione-store';
+import { useRinnovoConversioneStore } from '@/store/rinnovo-conversione-store';
 import { useTrackOutcome } from '@/hooks/useTrackOutcome';
 import { translateTree } from '@/i18n/translateTree';
 import { getTranslationMap } from '@/i18n/loadTranslations';
@@ -25,7 +22,6 @@ export default function RCOutcomeContent({ nodeId }: RCOutcomeContentProps) {
     [locale],
   );
 
-  const isHydrated = useRinnovoConversioneHydration();
   const userName = useRinnovoConversioneStore((s) => s.userName);
   const answers = useRinnovoConversioneStore((s) => s.answers);
   const history = useRinnovoConversioneStore((s) => s.history);
@@ -40,14 +36,12 @@ export default function RCOutcomeContent({ nodeId }: RCOutcomeContentProps) {
     sessionStartedAt,
     userName,
     getSlug: (id) => getRCSlugFromNodeId(id) ?? null,
-    isHydrated,
   });
 
   return (
     <OutcomePage
       nodeId={nodeId}
       tree={tree}
-      isHydrated={isHydrated}
       userName={userName}
       answers={answers}
       history={history}

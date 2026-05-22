@@ -10,10 +10,7 @@ import { useRouter } from '@/i18n/navigation';
 import { conversioneTree } from '@/lib/conversione-tree';
 import { isTerminalNode } from '@/lib/tree-engine';
 import { getConversioneSlugFromNodeId } from '@/lib/conversione-outcome-slugs';
-import {
-  useConversioneHydration,
-  useConversioneStore,
-} from '@/store/conversione-store';
+import { useConversioneStore } from '@/store/conversione-store';
 import { useTrackStep } from '@/hooks/useTrackStep';
 import { translateTree } from '@/i18n/translateTree';
 import { getTranslationMap } from '@/i18n/loadTranslations';
@@ -26,7 +23,6 @@ export default function ConversioneContent() {
     [locale],
   );
 
-  const isHydrated = useConversioneHydration();
   const currentNodeId = useConversioneStore((s) => s.currentNodeId);
   const answers = useConversioneStore((s) => s.answers);
   const outcomeId = useConversioneStore((s) => s.outcomeId);
@@ -39,33 +35,20 @@ export default function ConversioneContent() {
 
   // Auto-start session on first visit (no welcome page for conversione test)
   useEffect(() => {
-    if (isHydrated && sessionStartedAt === null) {
+    if (sessionStartedAt === null) {
       startSession();
     }
-  }, [isHydrated, sessionStartedAt, startSession]);
+  }, [sessionStartedAt, startSession]);
 
   // Redirect to outcome page when tree reaches a terminal node
   useEffect(() => {
-    if (isHydrated && outcomeId && isTerminalNode(tree, outcomeId)) {
+    if (outcomeId && isTerminalNode(tree, outcomeId)) {
       const slug = getConversioneSlugFromNodeId(outcomeId);
       if (slug) {
         router.replace(`/outcome/conversione/${slug}`);
       }
     }
-  }, [isHydrated, outcomeId, router]);
-
-  // Hydration guard
-  if (!isHydrated) {
-    return (
-      <ContentColumn>
-        <div className="flex min-h-[calc(100vh-3.5rem)] items-center justify-center">
-          <div className="bg-foreground/5 rounded-2xl p-5">
-            <Loader2 className="h-8 w-8 animate-spin text-foreground/40" />
-          </div>
-        </div>
-      </ContentColumn>
-    );
-  }
+  }, [outcomeId, router]);
 
   // Redirect in progress
   if (outcomeId && isTerminalNode(tree, outcomeId)) {

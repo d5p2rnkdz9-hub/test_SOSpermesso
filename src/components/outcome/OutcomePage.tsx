@@ -21,7 +21,6 @@ import { ShareButton } from './ShareButton';
 interface OutcomePageProps {
   nodeId: string;
   tree: TreeData;
-  isHydrated: boolean;
   userName: string | null;
   answers: Record<string, string>;
   history: string[];
@@ -36,7 +35,6 @@ interface OutcomePageProps {
 export function OutcomePage({
   nodeId,
   tree,
-  isHydrated,
   userName,
   answers,
   history,
@@ -62,12 +60,8 @@ export function OutcomePage({
   });
   const permitUrl = getPermitUrl(nodeId, locale);
 
-  // Variable substitution: use hydrated values or empty defaults
-  const hydratedName = isHydrated ? userName : null;
-  const hydratedAnswers = isHydrated ? answers : {};
-
   const sub = (text: string) =>
-    substituteVariables(text, hydratedName, hydratedAnswers);
+    substituteVariables(text, userName, answers);
   const subWithLinks = (text: string) =>
     withDictionaryLinks(sub(text));
 

@@ -6,10 +6,7 @@ import { useLocale } from 'next-intl';
 import { OutcomePage } from '@/components/outcome';
 import { conversioneTree } from '@/lib/conversione-tree';
 import { getConversioneSlugFromNodeId } from '@/lib/conversione-outcome-slugs';
-import {
-  useConversioneHydration,
-  useConversioneStore,
-} from '@/store/conversione-store';
+import { useConversioneStore } from '@/store/conversione-store';
 import { useTrackOutcome } from '@/hooks/useTrackOutcome';
 import { translateTree } from '@/i18n/translateTree';
 import { getTranslationMap } from '@/i18n/loadTranslations';
@@ -27,7 +24,6 @@ export default function ConversioneOutcomeContent({
     [locale],
   );
 
-  const isHydrated = useConversioneHydration();
   const answers = useConversioneStore((s) => s.answers);
   const history = useConversioneStore((s) => s.history);
   const sessionStartedAt = useConversioneStore((s) => s.sessionStartedAt);
@@ -40,14 +36,12 @@ export default function ConversioneOutcomeContent({
     history,
     sessionStartedAt,
     getSlug: (id) => getConversioneSlugFromNodeId(id) ?? null,
-    isHydrated,
   });
 
   return (
     <OutcomePage
       nodeId={nodeId}
       tree={tree}
-      isHydrated={isHydrated}
       userName={null}
       answers={answers}
       history={history}
