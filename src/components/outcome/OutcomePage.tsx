@@ -80,9 +80,6 @@ export function OutcomePage({
             {node.title && sub(node.title)}
           </h1>
 
-          {/* Lawyer Banner */}
-          <LawyerBanner level={lawyerLevel} />
-
           {/* Intro Text */}
           {node.introText && <IntroText text={sub(node.introText)} />}
 
@@ -93,6 +90,9 @@ export function OutcomePage({
 
           {/* FAQ Sections */}
           <FaqAccordion sections={visibleSections} substituteVars={subWithLinks} />
+
+          {/* Lawyer Banner */}
+          <LawyerBanner level={lawyerLevel} />
 
           {/* Link out to sospermesso.it */}
           {permitUrl && (

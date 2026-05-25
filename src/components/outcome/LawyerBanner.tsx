@@ -14,7 +14,7 @@ export function LawyerBanner({ level }: LawyerBannerProps) {
 
   if (level === 'self') {
     return (
-      <div className="flex items-center gap-3 rounded-lg border-2 border-green-800 bg-green-100 px-4 py-3 text-green-900 shadow-[2px_2px_0_#166534]">
+      <div className="flex items-center gap-3 rounded-lg border-2 border-green-800 bg-green-100 px-4 py-3 text-green-900 shadow-[2px_2px_0_#1A1A1A]">
         <CheckCircle className="h-5 w-5 shrink-0" />
         <span className="font-semibold">{t('lawyerSelf')}</span>
       </div>
