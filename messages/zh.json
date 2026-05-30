@@ -125,6 +125,16 @@
       "emailLabel": "您的电子邮件",
       "consensoLabel": "我同意处理我的数据以便与我联系",
       "successMessage": "谢谢!我们将尽快与您联系。"
+    },
+    "landing": {
+      "title": "我们能为您做些什么？",
+      "subtitle": "请选择最符合您情况的选项。",
+      "problemaLegale_title": "我有法律问题",
+      "problemaLegale_desc": "描述您的情况，我们将为您指引合适的支持。",
+      "segnalaErrore_title": "报告错误",
+      "segnalaErrore_desc": "发现了错误信息或技术问题？",
+      "contribuisci_title": "我想参与贡献",
+      "contribuisci_desc": "帮助我们发展 SOSpermesso 项目。"
     }
   },
   "meta": {

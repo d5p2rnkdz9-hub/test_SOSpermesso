@@ -125,6 +125,16 @@
       "emailLabel": "Tu email",
       "consensoLabel": "Acepto el tratamiento de mis datos para ser contactado",
       "successMessage": "Gracias! Te contactaremos pronto."
+    },
+    "landing": {
+      "title": "¿Cómo podemos ayudarte?",
+      "subtitle": "Elige la opción que mejor describe tu situación.",
+      "problemaLegale_title": "Tengo un problema legal",
+      "problemaLegale_desc": "Describe tu situación y te orientaremos hacia el apoyo adecuado.",
+      "segnalaErrore_title": "Informar de un error",
+      "segnalaErrore_desc": "¿Has encontrado información incorrecta o un problema técnico?",
+      "contribuisci_title": "Quiero contribuir",
+      "contribuisci_desc": "Ayúdanos a hacer crecer el proyecto SOSpermesso."
     }
   },
   "meta": {
