@@ -6,7 +6,7 @@ export const TIPO_ERRORE = [
   'tecnico',
 ] as const;
 
-export const LINGUA_ERRORE = ['it', 'en', 'fr', 'ar', 'es'] as const;
+export const LINGUA_ERRORE = ['it', 'en', 'fr', 'es', 'ar', 'tr', 'ru', 'ur', 'fa', 'bn', 'zh'] as const;
 
 export const SITUAZIONE_LEGALE = [
   'ha_permesso',
