@@ -64,6 +64,15 @@
     },
     "lawyerFindHelp": "Trouve une aide juridique gratuite"
   },
+  "sportello": {
+    "toggle": "Opérateur",
+    "badgeActive": "Mode opérateur",
+    "ariaToggle": "Activer ou désactiver le mode opérateur",
+    "welcomeSubtitle": "Mode opérateur : évaluation rapide du dossier",
+    "startPossoAvere": "Puis-je obtenir un permis ?",
+    "startRinnovoConversione": "Renouvellement ou conversion",
+    "consentNote": "Politiques déjà acceptées sur cet appareil"
+  },
   "contact": {
     "common": {
       "submit": "Envoyer",

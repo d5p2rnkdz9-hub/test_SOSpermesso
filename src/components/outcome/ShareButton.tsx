@@ -39,7 +39,7 @@ export function ShareButton({ title, text }: ShareButtonProps) {
     <button
       type="button"
       onClick={handleShare}
-      className="flex items-center justify-center gap-2 rounded-lg border-2 border-[#1A1A1A] bg-[#FFD700] px-4 py-3 font-semibold text-[#1A1A1A] shadow-[2.5px_2.5px_0_#1A1A1A] transition-all duration-150 ease-in-out hover:translate-x-[1.5px] hover:translate-y-[1.5px] hover:shadow-[1px_1px_0_#1A1A1A] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[0.5px_0.5px_0_#1A1A1A]"
+      className="flex items-center justify-center gap-2 rounded-lg border-2 border-foreground bg-primary px-4 py-3 font-semibold text-primary-foreground shadow-[2.5px_2.5px_0_hsl(var(--foreground))] transition-all duration-150 ease-in-out hover:translate-x-[1.5px] hover:translate-y-[1.5px] hover:shadow-[1px_1px_0_hsl(var(--foreground))] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[0.5px_0.5px_0_hsl(var(--foreground))]"
       aria-label={t('label')}
     >
       {copied ? (

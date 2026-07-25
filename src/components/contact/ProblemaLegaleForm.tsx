@@ -13,9 +13,9 @@ import {
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
 const fieldBase =
-  'w-full border-2 border-[#1A1A1A] rounded-lg bg-white px-4 py-3 text-base ' +
-  'shadow-[2px_2px_0_#1A1A1A] transition-all duration-150 ' +
-  'focus:outline-none focus:translate-x-[1px] focus:translate-y-[1px] focus:shadow-[1px_1px_0_#1A1A1A] ' +
+  'w-full border-2 border-foreground rounded-lg bg-white px-4 py-3 text-base ' +
+  'shadow-[2px_2px_0_hsl(var(--foreground))] transition-all duration-150 ' +
+  'focus:outline-none focus:translate-x-[1px] focus:translate-y-[1px] focus:shadow-[1px_1px_0_hsl(var(--foreground))] ' +
   'placeholder:text-muted-foreground';
 
 export function ProblemaLegaleForm() {
@@ -72,8 +72,8 @@ export function ProblemaLegaleForm() {
 
   if (status === 'success') {
     return (
-      <div className="rounded-lg border-2 border-[#1A1A1A] bg-card shadow-[3px_3px_0_#1A1A1A] p-6">
-        <h2 className="text-2xl font-extrabold text-[#1A1A1A] mb-2">
+      <div className="rounded-lg border-2 border-foreground bg-card shadow-[3px_3px_0_hsl(var(--foreground))] p-6">
+        <h2 className="text-2xl font-extrabold text-foreground mb-2">
           {tCommon('successTitle')}
         </h2>
         <p>{t('successMessage')}</p>
@@ -82,8 +82,8 @@ export function ProblemaLegaleForm() {
   }
 
   return (
-    <div className="rounded-lg border-2 border-[#1A1A1A] bg-card shadow-[3px_3px_0_#1A1A1A] p-6">
-      <h2 className="text-3xl font-extrabold text-[#1A1A1A] leading-tight">
+    <div className="rounded-lg border-2 border-foreground bg-card shadow-[3px_3px_0_hsl(var(--foreground))] p-6">
+      <h2 className="text-3xl font-extrabold text-foreground leading-tight">
         {t('title')}
       </h2>
       <p className="text-sm text-muted-foreground mt-3 mb-6">{t('intro')}</p>
@@ -91,17 +91,17 @@ export function ProblemaLegaleForm() {
       <form onSubmit={onSubmit} className="space-y-6">
         {/* Situazione */}
         <fieldset className="space-y-3">
-          <Label className="font-semibold text-[#1A1A1A]">{t('situazioneLabel')}</Label>
+          <Label className="font-semibold text-foreground">{t('situazioneLabel')}</Label>
           <div className="space-y-2">
             {SITUAZIONE_LEGALE.map((v) => {
               const selected = situazione === v;
               return (
                 <label
                   key={v}
-                  className={`flex items-center gap-3 cursor-pointer rounded-lg border-2 border-[#1A1A1A] px-4 py-3 font-semibold transition-all duration-150 ${
+                  className={`flex items-center gap-3 cursor-pointer rounded-lg border-2 border-foreground px-4 py-3 font-semibold transition-all duration-150 ${
                     selected
-                      ? 'bg-[#FFD700] text-[#1A1A1A] shadow-[2px_2px_0_#1A1A1A]'
-                      : 'bg-white text-[#1A1A1A] shadow-[2px_2px_0_#1A1A1A] hover:bg-[#FFF9CC]'
+                      ? 'bg-primary text-primary-foreground shadow-[2px_2px_0_hsl(var(--foreground))]'
+                      : 'bg-white text-foreground shadow-[2px_2px_0_hsl(var(--foreground))] hover:bg-[#FFF9CC]'
                   }`}
                 >
                   <input
@@ -113,10 +113,10 @@ export function ProblemaLegaleForm() {
                     className="sr-only"
                   />
                   <span
-                    className="h-5 w-5 shrink-0 rounded-full border-2 border-[#1A1A1A] grid place-content-center bg-white"
+                    className="h-5 w-5 shrink-0 rounded-full border-2 border-foreground grid place-content-center bg-white"
                     aria-hidden="true"
                   >
-                    {selected && <span className="h-2.5 w-2.5 rounded-full bg-[#1A1A1A]" />}
+                    {selected && <span className="h-2.5 w-2.5 rounded-full bg-foreground" />}
                   </span>
                   <span className="flex-1">{t(`situazione_${v}`)}</span>
                 </label>
@@ -131,7 +131,7 @@ export function ProblemaLegaleForm() {
         {/* Quale permesso (conditional) */}
         {situazione === 'ha_permesso' && (
           <div className="space-y-2">
-            <Label htmlFor="quale" className="font-semibold text-[#1A1A1A]">{t('qualePermessoLabel')}</Label>
+            <Label htmlFor="quale" className="font-semibold text-foreground">{t('qualePermessoLabel')}</Label>
             <input
               id="quale"
               type="text"
@@ -145,7 +145,7 @@ export function ProblemaLegaleForm() {
 
         {/* Descrizione */}
         <div className="space-y-2">
-          <Label htmlFor="descrizione" className="font-semibold text-[#1A1A1A]">{t('descrizioneLabel')}</Label>
+          <Label htmlFor="descrizione" className="font-semibold text-foreground">{t('descrizioneLabel')}</Label>
           <textarea
             id="descrizione"
             value={descrizione}
@@ -161,7 +161,7 @@ export function ProblemaLegaleForm() {
 
         {/* Tempo Italia */}
         <div className="space-y-2">
-          <Label htmlFor="tempo" className="font-semibold text-[#1A1A1A]">{t('tempoItaliaLabel')}</Label>
+          <Label htmlFor="tempo" className="font-semibold text-foreground">{t('tempoItaliaLabel')}</Label>
           <input
             id="tempo"
             type="text"
@@ -174,7 +174,7 @@ export function ProblemaLegaleForm() {
 
         {/* Email */}
         <div className="space-y-2">
-          <Label htmlFor="email" className="font-semibold text-[#1A1A1A]">{t('emailLabel')}</Label>
+          <Label htmlFor="email" className="font-semibold text-foreground">{t('emailLabel')}</Label>
           <input
             id="email"
             type="email"
@@ -189,7 +189,7 @@ export function ProblemaLegaleForm() {
         </div>
 
         {/* Consenso */}
-        <label className="flex items-start gap-3 cursor-pointer rounded-lg border-2 border-[#1A1A1A] bg-white p-4 shadow-[2px_2px_0_#1A1A1A]">
+        <label className="flex items-start gap-3 cursor-pointer rounded-lg border-2 border-foreground bg-white p-4 shadow-[2px_2px_0_hsl(var(--foreground))]">
           <input
             type="checkbox"
             checked={consenso}
@@ -197,18 +197,18 @@ export function ProblemaLegaleForm() {
             className="sr-only"
           />
           <span
-            className={`h-5 w-5 shrink-0 rounded-sm border-2 border-[#1A1A1A] grid place-content-center mt-0.5 ${
-              consenso ? 'bg-[#FFD700]' : 'bg-white'
+            className={`h-5 w-5 shrink-0 rounded-sm border-2 border-foreground grid place-content-center mt-0.5 ${
+              consenso ? 'bg-primary' : 'bg-white'
             }`}
             aria-hidden="true"
           >
             {consenso && (
-              <svg viewBox="0 0 16 16" className="h-3.5 w-3.5 stroke-[#1A1A1A]" fill="none" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <svg viewBox="0 0 16 16" className="h-3.5 w-3.5 stroke-primary-foreground" fill="none" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M3 8l3 3 7-7" />
               </svg>
             )}
           </span>
-          <span className="flex-1 font-semibold text-[#1A1A1A] leading-snug">
+          <span className="flex-1 font-semibold text-foreground leading-snug">
             {t('consensoLabel')}
           </span>
         </label>

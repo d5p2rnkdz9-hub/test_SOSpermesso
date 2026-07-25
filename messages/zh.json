@@ -64,6 +64,15 @@
     },
     "lawyerFindHelp": "寻找免费法律援助"
   },
+  "sportello": {
+    "toggle": "操作员",
+    "badgeActive": "操作员模式",
+    "ariaToggle": "开启或关闭操作员模式",
+    "welcomeSubtitle": "操作员模式：快速案例筛查",
+    "startPossoAvere": "我能获得许可证吗？",
+    "startRinnovoConversione": "续签或转换",
+    "consentNote": "本设备已接受政策"
+  },
   "contact": {
     "common": {
       "submit": "提交",

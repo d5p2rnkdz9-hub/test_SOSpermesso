@@ -64,6 +64,15 @@
     },
     "lawyerFindHelp": "Ücretsiz hukuki yardım bulun"
   },
+  "sportello": {
+    "toggle": "Operatör",
+    "badgeActive": "Operatör modu",
+    "ariaToggle": "Operatör modunu aç veya kapat",
+    "welcomeSubtitle": "Operatör modu: hızlı vaka değerlendirmesi",
+    "startPossoAvere": "İzin alabilir miyim?",
+    "startRinnovoConversione": "Yenileme veya dönüştürme",
+    "consentNote": "Politikalar bu cihazda zaten kabul edildi"
+  },
   "contact": {
     "common": {
       "submit": "Gönder",

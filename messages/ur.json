@@ -64,6 +64,15 @@
     },
     "lawyerFindHelp": "مفت قانونی مدد تلاش کریں"
   },
+  "sportello": {
+    "toggle": "کارکن",
+    "badgeActive": "کارکن موڈ",
+    "ariaToggle": "کارکن موڈ فعال یا غیر فعال کریں",
+    "welcomeSubtitle": "کارکن موڈ: کیس کی فوری جانچ",
+    "startPossoAvere": "کیا مجھے پرمٹ مل سکتا ہے؟",
+    "startRinnovoConversione": "تجدید یا تبدیل",
+    "consentNote": "اس ڈیوائس پر پالیسی پہلے ہی قبول کی جا چکی ہے"
+  },
   "contact": {
     "common": {
       "submit": "بھیجیں",

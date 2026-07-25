@@ -3,6 +3,7 @@
 import type { TreeEdge } from '@/types/tree';
 import { substituteVariables } from '@/lib/text-utils';
 import { useTreeStore } from '@/store/tree-store';
+import { useUiStore } from '@/store/ui-store';
 
 import { AnswerCard } from './AnswerCard';
 
@@ -54,6 +55,7 @@ export function QuestionScreen({
 }: QuestionScreenProps) {
   const userName = useTreeStore((s) => s.userName);
   const answers = useTreeStore((s) => s.answers);
+  const compact = useUiStore((s) => s.mode) === 'sportello';
   const useCategories = false;
 
   const displayQuestion = substituteVariables(question, userName, answers);
@@ -62,10 +64,10 @@ export function QuestionScreen({
     : undefined;
 
   return (
-    <div className="bg-card rounded-xl border-2 border-[#1A1A1A] p-6 shadow-[3px_3px_0_#1A1A1A]">
-      <h2 className="text-2xl font-bold leading-tight">{displayQuestion}</h2>
+    <div className={`bg-card rounded-xl border-2 border-foreground shadow-[3px_3px_0_hsl(var(--foreground))] ${compact ? 'p-5' : 'p-6'}`}>
+      <h2 className={`font-bold leading-tight ${compact ? 'text-xl' : 'text-2xl'}`}>{displayQuestion}</h2>
       {displayDescription && (
-        <p className="mt-2 text-foreground/70">{displayDescription}</p>
+        <p className={`mt-2 text-foreground/70 ${compact ? 'text-sm' : ''}`}>{displayDescription}</p>
       )}
 
       {useCategories ? (
@@ -98,7 +100,7 @@ export function QuestionScreen({
           })}
         </div>
       ) : (
-        <div className="mt-8 flex flex-col gap-3">
+        <div className={`flex flex-col ${compact ? 'mt-5 gap-2' : 'mt-8 gap-3'}`}>
           {options.map((option) => (
             <AnswerCard
               key={option.optionKey}

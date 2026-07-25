@@ -64,6 +64,15 @@
     },
     "lawyerFindHelp": "Find free legal assistance"
   },
+  "sportello": {
+    "toggle": "Operator",
+    "badgeActive": "Operator mode",
+    "ariaToggle": "Turn operator mode on or off",
+    "welcomeSubtitle": "Operator mode: quick case screening",
+    "startPossoAvere": "Can I get a permit?",
+    "startRinnovoConversione": "Renewal or conversion",
+    "consentNote": "Policies already accepted on this device"
+  },
   "contact": {
     "common": {
       "submit": "Send",

@@ -64,6 +64,15 @@
     },
     "lawyerFindHelp": "ابحث عن مساعدة قانونية مجانية"
   },
+  "sportello": {
+    "toggle": "الموظف",
+    "badgeActive": "وضع الموظف",
+    "ariaToggle": "تفعيل أو إيقاف وضع الموظف",
+    "welcomeSubtitle": "وضع الموظف: فحص سريع للحالة",
+    "startPossoAvere": "هل يمكنني الحصول على تصريح؟",
+    "startRinnovoConversione": "تجديد أو تحويل",
+    "consentNote": "تم قبول السياسات بالفعل على هذا الجهاز"
+  },
   "contact": {
     "common": {
       "submit": "إرسال",

@@ -1,6 +1,7 @@
 import { BackButton } from '@/components/tree/BackButton';
 
 import { LanguageSelector } from './LanguageSelector';
+import { ModeToggle } from './ModeToggle';
 
 export function StickyHeader() {
   return (
@@ -21,7 +22,8 @@ export function StickyHeader() {
             />
           </a>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
+          <ModeToggle />
           <LanguageSelector />
         </div>
       </div>

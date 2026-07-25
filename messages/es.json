@@ -64,6 +64,15 @@
     },
     "lawyerFindHelp": "Encuentra asistencia legal gratuita"
   },
+  "sportello": {
+    "toggle": "Operador",
+    "badgeActive": "Modo operador",
+    "ariaToggle": "Activar o desactivar el modo operador",
+    "welcomeSubtitle": "Modo operador: evaluación rápida del caso",
+    "startPossoAvere": "¿Puedo obtener un permiso?",
+    "startRinnovoConversione": "Renovación o conversión",
+    "consentNote": "Políticas ya aceptadas en este dispositivo"
+  },
   "contact": {
     "common": {
       "submit": "Enviar",

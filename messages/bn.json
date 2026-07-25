@@ -64,6 +64,15 @@
     },
     "lawyerFindHelp": "বিনামূল্যে আইনি সহায়তা খুঁজুন"
   },
+  "sportello": {
+    "toggle": "কর্মী",
+    "badgeActive": "কর্মী মোড",
+    "ariaToggle": "কর্মী মোড চালু বা বন্ধ করুন",
+    "welcomeSubtitle": "কর্মী মোড: দ্রুত কেস যাচাই",
+    "startPossoAvere": "আমি কি অনুমতি পেতে পারি?",
+    "startRinnovoConversione": "নবায়ন বা রূপান্তর",
+    "consentNote": "এই ডিভাইসে নীতি ইতিমধ্যে গৃহীত হয়েছে"
+  },
   "contact": {
     "common": {
       "submit": "পাঠান",

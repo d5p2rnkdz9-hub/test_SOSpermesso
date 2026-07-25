@@ -64,6 +64,15 @@
       "copied": "Link copiato!"
     }
   },
+  "sportello": {
+    "toggle": "Sportello",
+    "badgeActive": "Modalità sportello",
+    "ariaToggle": "Attiva o disattiva la modalità sportello",
+    "welcomeSubtitle": "Modalità operatore: screening rapido del caso",
+    "startPossoAvere": "Posso avere un permesso?",
+    "startRinnovoConversione": "Rinnovo o conversione",
+    "consentNote": "Policy già accettate su questo dispositivo"
+  },
   "contact": {
     "common": {
       "submit": "Invia",

@@ -75,14 +75,14 @@ export default function RinnovoConversioneContent() {
           <h1 className="text-4xl font-bold leading-tight sm:text-5xl">
             {tRC.rich('welcomeTitle', {
               hl: (chunks) => (
-                <span className="font-extrabold" style={{ background: 'linear-gradient(180deg, transparent 50%, #FFD700 50%)', padding: '0 4px' }}>
+                <span className="font-extrabold" style={{ background: 'linear-gradient(180deg, transparent 50%, hsl(var(--primary)) 50%)', padding: '0 4px' }}>
                   {chunks}
                 </span>
               ),
             })}
           </h1>
 
-          <div className="mt-8 w-full rounded-lg border-2 border-[#1A1A1A] bg-card p-5 text-start text-sm text-muted-foreground shadow-[2.5px_2.5px_0_#1A1A1A]">
+          <div className="mt-8 w-full rounded-lg border-2 border-foreground bg-card p-5 text-start text-sm text-muted-foreground shadow-[2.5px_2.5px_0_hsl(var(--foreground))]">
             <label className="flex items-start gap-3 cursor-pointer">
               <input
                 type="checkbox"
@@ -120,7 +120,7 @@ export default function RinnovoConversioneContent() {
               link: (chunks) => (
                 <Link
                   href="/"
-                  className="underline font-semibold text-[#1565C0]"
+                  className="underline font-semibold text-[hsl(var(--link))]"
                   onClick={() => reset()}
                 >
                   {chunks}

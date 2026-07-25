@@ -64,6 +64,15 @@
     },
     "lawyerFindHelp": "Найти бесплатную юридическую помощь"
   },
+  "sportello": {
+    "toggle": "Оператор",
+    "badgeActive": "Режим оператора",
+    "ariaToggle": "Включить или выключить режим оператора",
+    "welcomeSubtitle": "Режим оператора: быстрая проверка дела",
+    "startPossoAvere": "Могу ли я получить разрешение?",
+    "startRinnovoConversione": "Продление или конвертация",
+    "consentNote": "Политика уже принята на этом устройстве"
+  },
   "contact": {
     "common": {
       "submit": "Отправить",

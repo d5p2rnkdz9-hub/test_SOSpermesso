@@ -64,6 +64,15 @@
     },
     "lawyerFindHelp": "کمک حقوقی رایگان پیدا کنید"
   },
+  "sportello": {
+    "toggle": "کارمند",
+    "badgeActive": "حالت کارمند",
+    "ariaToggle": "فعال یا غیرفعال کردن حالت کارمند",
+    "welcomeSubtitle": "حالت کارمند: بررسی سریع پرونده",
+    "startPossoAvere": "آیا می‌توانم اجازه بگیرم؟",
+    "startRinnovoConversione": "تمدید یا تبدیل",
+    "consentNote": "سیاست‌ها قبلاً در این دستگاه پذیرفته شده‌اند"
+  },
   "contact": {
     "common": {
       "submit": "ارسال",

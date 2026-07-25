@@ -15,9 +15,9 @@ type Status = 'idle' | 'submitting' | 'success' | 'error';
 
 // Brutalist input/textarea classes — bordo nero spesso, ombra offset rigida
 const fieldBase =
-  'w-full border-2 border-[#1A1A1A] rounded-lg bg-white px-4 py-3 text-base ' +
-  'shadow-[2px_2px_0_#1A1A1A] transition-all duration-150 ' +
-  'focus:outline-none focus:translate-x-[1px] focus:translate-y-[1px] focus:shadow-[1px_1px_0_#1A1A1A] ' +
+  'w-full border-2 border-foreground rounded-lg bg-white px-4 py-3 text-base ' +
+  'shadow-[2px_2px_0_hsl(var(--foreground))] transition-all duration-150 ' +
+  'focus:outline-none focus:translate-x-[1px] focus:translate-y-[1px] focus:shadow-[1px_1px_0_hsl(var(--foreground))] ' +
   'placeholder:text-muted-foreground';
 
 export function SegnalaErroreForm() {
@@ -72,8 +72,8 @@ export function SegnalaErroreForm() {
 
   if (status === 'success') {
     return (
-      <div className="rounded-lg border-2 border-[#1A1A1A] bg-card shadow-[3px_3px_0_#1A1A1A] p-6">
-        <h2 className="text-2xl font-extrabold text-[#1A1A1A] mb-2">
+      <div className="rounded-lg border-2 border-foreground bg-card shadow-[3px_3px_0_hsl(var(--foreground))] p-6">
+        <h2 className="text-2xl font-extrabold text-foreground mb-2">
           {tCommon('successTitle')}
         </h2>
         <p>{t('successMessage')}</p>
@@ -82,8 +82,8 @@ export function SegnalaErroreForm() {
   }
 
   return (
-    <div className="rounded-lg border-2 border-[#1A1A1A] bg-card shadow-[3px_3px_0_#1A1A1A] p-6">
-      <h2 className="text-3xl font-extrabold text-[#1A1A1A] leading-tight">
+    <div className="rounded-lg border-2 border-foreground bg-card shadow-[3px_3px_0_hsl(var(--foreground))] p-6">
+      <h2 className="text-3xl font-extrabold text-foreground leading-tight">
         {t('title')}
       </h2>
       <p className="text-sm text-muted-foreground mt-3 mb-6">{t('intro')}</p>
@@ -91,17 +91,17 @@ export function SegnalaErroreForm() {
       <form onSubmit={onSubmit} className="space-y-6">
         {/* Tipo errore */}
         <fieldset className="space-y-3">
-          <Label className="font-semibold text-[#1A1A1A]">{t('tipoLabel')}</Label>
+          <Label className="font-semibold text-foreground">{t('tipoLabel')}</Label>
           <div className="space-y-2">
             {TIPO_ERRORE.map((v) => {
               const selected = tipoErrore === v;
               return (
                 <label
                   key={v}
-                  className={`flex items-center gap-3 cursor-pointer rounded-lg border-2 border-[#1A1A1A] px-4 py-3 font-semibold transition-all duration-150 ${
+                  className={`flex items-center gap-3 cursor-pointer rounded-lg border-2 border-foreground px-4 py-3 font-semibold transition-all duration-150 ${
                     selected
-                      ? 'bg-[#FFD700] text-[#1A1A1A] shadow-[2px_2px_0_#1A1A1A]'
-                      : 'bg-white text-[#1A1A1A] shadow-[2px_2px_0_#1A1A1A] hover:bg-[#FFF9CC]'
+                      ? 'bg-primary text-primary-foreground shadow-[2px_2px_0_hsl(var(--foreground))]'
+                      : 'bg-white text-foreground shadow-[2px_2px_0_hsl(var(--foreground))] hover:bg-[#FFF9CC]'
                   }`}
                 >
                   <input
@@ -113,10 +113,10 @@ export function SegnalaErroreForm() {
                     className="sr-only"
                   />
                   <span
-                    className={`h-5 w-5 shrink-0 rounded-full border-2 border-[#1A1A1A] grid place-content-center bg-white`}
+                    className={`h-5 w-5 shrink-0 rounded-full border-2 border-foreground grid place-content-center bg-white`}
                     aria-hidden="true"
                   >
-                    {selected && <span className="h-2.5 w-2.5 rounded-full bg-[#1A1A1A]" />}
+                    {selected && <span className="h-2.5 w-2.5 rounded-full bg-foreground" />}
                   </span>
                   <span className="flex-1">{t(`tipo_${v}`)}</span>
                 </label>
@@ -131,17 +131,17 @@ export function SegnalaErroreForm() {
         {/* Lingua (conditional) */}
         {tipoErrore === 'traduzione' && (
           <fieldset className="space-y-3">
-            <Label className="font-semibold text-[#1A1A1A]">{t('linguaLabel')}</Label>
+            <Label className="font-semibold text-foreground">{t('linguaLabel')}</Label>
             <div className="flex flex-wrap gap-2">
               {LINGUA_ERRORE.map((l) => {
                 const selected = lingua === l;
                 return (
                   <label
                     key={l}
-                    className={`cursor-pointer uppercase font-bold text-sm rounded-lg border-2 border-[#1A1A1A] px-4 py-2 transition-all duration-150 ${
+                    className={`cursor-pointer uppercase font-bold text-sm rounded-lg border-2 border-foreground px-4 py-2 transition-all duration-150 ${
                       selected
-                        ? 'bg-[#FFD700] text-[#1A1A1A] shadow-[2px_2px_0_#1A1A1A]'
-                        : 'bg-white text-[#1A1A1A] shadow-[2px_2px_0_#1A1A1A] hover:bg-[#FFF9CC]'
+                        ? 'bg-primary text-primary-foreground shadow-[2px_2px_0_hsl(var(--foreground))]'
+                        : 'bg-white text-foreground shadow-[2px_2px_0_hsl(var(--foreground))] hover:bg-[#FFF9CC]'
                     }`}
                   >
                     <input
@@ -165,7 +165,7 @@ export function SegnalaErroreForm() {
 
         {/* Dove */}
         <div className="space-y-2">
-          <Label htmlFor="dove" className="font-semibold text-[#1A1A1A]">{t('doveLabel')}</Label>
+          <Label htmlFor="dove" className="font-semibold text-foreground">{t('doveLabel')}</Label>
           <input
             id="dove"
             type="text"
@@ -181,7 +181,7 @@ export function SegnalaErroreForm() {
 
         {/* Descrizione */}
         <div className="space-y-2">
-          <Label htmlFor="descrizione" className="font-semibold text-[#1A1A1A]">{t('descrizioneLabel')}</Label>
+          <Label htmlFor="descrizione" className="font-semibold text-foreground">{t('descrizioneLabel')}</Label>
           <textarea
             id="descrizione"
             value={descrizione}
@@ -197,7 +197,7 @@ export function SegnalaErroreForm() {
 
         {/* Email */}
         <div className="space-y-2">
-          <Label htmlFor="email" className="font-semibold text-[#1A1A1A]">{t('emailLabel')}</Label>
+          <Label htmlFor="email" className="font-semibold text-foreground">{t('emailLabel')}</Label>
           <input
             id="email"
             type="email"

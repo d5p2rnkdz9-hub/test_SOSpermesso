@@ -3,7 +3,7 @@
 import type { ReactNode } from 'react';
 import type { ResultSection } from '@/types/tree';
 
-const BORDER_COLORS = ['#42A5F5', '#FFD700', '#FF5252'] as const;
+const BORDER_COLORS = ['#42A5F5', 'hsl(var(--primary))', '#FF5252'] as const;
 
 const MD_LINK_REGEX = /\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g;
 const URL_REGEX = /(https?:\/\/[^\s]+)/g;
@@ -30,7 +30,7 @@ function linkify(text: string): ReactNode[] {
     }
     // The markdown link itself
     result.push(
-      <a key={key++} href={seg.href} target="_blank" rel="noopener noreferrer" className="underline text-[#1565C0]">
+      <a key={key++} href={seg.href} target="_blank" rel="noopener noreferrer" className="underline text-[hsl(var(--link))]">
         {seg.label}
       </a>,
     );
@@ -75,7 +75,7 @@ function linkifyPlainUrls(text: string, keyStart: number): ReactNode[] {
   for (const part of parts) {
     if (URL_REGEX.test(part)) {
       result.push(
-        <a key={key++} href={part} target="_blank" rel="noopener noreferrer" className="underline text-[#1565C0]">
+        <a key={key++} href={part} target="_blank" rel="noopener noreferrer" className="underline text-[hsl(var(--link))]">
           {part}
         </a>,
       );
@@ -108,12 +108,12 @@ export function FaqAccordion({ sections, substituteVars }: FaqAccordionProps) {
       {displaySections.map((section, index) => (
         <div
           key={index}
-          className="rounded-xl border-2 border-[#1A1A1A] bg-card p-6"
+          className="rounded-xl border-2 border-foreground bg-card p-6"
           style={{
             borderInlineStartWidth: '4px',
             borderInlineStartStyle: 'solid',
             borderInlineStartColor: BORDER_COLORS[index % BORDER_COLORS.length],
-            boxShadow: '2.5px 2.5px 0 #1A1A1A',
+            boxShadow: '2.5px 2.5px 0 hsl(var(--foreground))',
           }}
         >
           <h3 className="text-base font-bold text-card-foreground">

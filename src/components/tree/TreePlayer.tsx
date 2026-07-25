@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { getNode, getOptionsForNode } from '@/lib/tree-engine';
+import { useUiStore } from '@/store/ui-store';
 import type { TreeData } from '@/types/tree';
 
 import { QuestionScreen } from './QuestionScreen';
@@ -36,6 +37,9 @@ export function TreePlayer({
   const [direction, setDirection] = useState<'forward' | 'back'>('forward');
   const [isTransitioning, setIsTransitioning] = useState(false);
   const prevHistoryLengthRef = useRef(historyLength);
+  // Sportello mode: operators answer dozens of times a day — advance
+  // immediately, no selected-state pause, no slide animation.
+  const instant = useUiStore((s) => s.mode) === 'sportello';
 
   // Detect goBack by watching historyLength changes
   useEffect(() => {
@@ -49,6 +53,12 @@ export function TreePlayer({
     (optionKey: string) => {
       if (isTransitioning) return;
 
+      if (instant) {
+        setDirection('forward');
+        onSelectOption(optionKey);
+        return;
+      }
+
       setIsTransitioning(true);
       setDirection('forward');
 
@@ -58,7 +68,7 @@ export function TreePlayer({
         setIsTransitioning(false);
       }, 200);
     },
-    [isTransitioning, onSelectOption],
+    [isTransitioning, instant, onSelectOption],
   );
 
   const node = getNode(tree, currentNodeId);
@@ -72,7 +82,7 @@ export function TreePlayer({
   }
 
   return (
-    <SlideTransition nodeId={currentNodeId} direction={direction}>
+    <SlideTransition nodeId={currentNodeId} direction={direction} instant={instant}>
       <QuestionScreen
         question={node.question ?? ''}
         description={node.description}

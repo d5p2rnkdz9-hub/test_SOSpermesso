@@ -11,6 +11,8 @@ import {
 interface SlideTransitionProps {
   nodeId: string;
   direction: 'forward' | 'back';
+  /** Sportello mode: swap content synchronously, no fade/slide. */
+  instant?: boolean;
   children: ReactNode;
 }
 
@@ -27,6 +29,7 @@ interface SlideTransitionProps {
 export function SlideTransition({
   nodeId,
   direction,
+  instant = false,
   children,
 }: SlideTransitionProps) {
   const [displayedChildren, setDisplayedChildren] = useState(children);
@@ -55,12 +58,17 @@ export function SlideTransition({
   useEffect(() => {
     if (nodeId !== previousNodeIdRef.current) {
       previousNodeIdRef.current = nodeId;
-      animateTransition(children);
+      if (instant) {
+        setDisplayedChildren(children);
+        setVisible(true);
+      } else {
+        animateTransition(children);
+      }
     } else {
       // Same node, just update children directly (e.g. selection state change)
       setDisplayedChildren(children);
     }
-  }, [nodeId, children, animateTransition]);
+  }, [nodeId, children, animateTransition, instant]);
 
   // Cleanup timeout on unmount
   useEffect(() => {
@@ -84,6 +92,10 @@ export function SlideTransition({
     // Back: exit to end; enter from start
     return '-translate-x-5 rtl:translate-x-5';
   };
+
+  if (instant) {
+    return <div>{displayedChildren}</div>;
+  }
 
   return (
     <div

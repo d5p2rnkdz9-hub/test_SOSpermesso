@@ -55,7 +55,7 @@ export function IntroText({ text }: IntroTextProps) {
         <button
           type="button"
           onClick={() => setIsExpanded(true)}
-          className="mt-1 text-sm font-medium text-[#1565C0] underline underline-offset-2"
+          className="mt-1 text-sm font-medium text-[hsl(var(--link))] underline underline-offset-2"
         >
           {t('readMore')}
         </button>

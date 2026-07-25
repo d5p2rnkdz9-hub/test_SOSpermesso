@@ -90,6 +90,15 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html lang={locale} dir={dir} className={fontClass}>
       <body className="antialiased">
+        {/* Pre-paint sportello-mode detection: synchronous script so the
+            data-mode attribute (and its CSS token overrides) apply before
+            first render — same pattern as dark-mode toggles, no FOUC. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if(localStorage.getItem('sos-mode')==='sportello')document.documentElement.setAttribute('data-mode','sportello')}catch(e){}",
+          }}
+        />
         <Providers dir={dir}>
           <NextIntlClientProvider locale={locale} messages={messages}>
             <StickyHeader />
