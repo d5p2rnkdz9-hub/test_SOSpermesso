@@ -88,20 +88,25 @@ invariato in modalità persona.
 | C | Notion "Riferimenti normativi" → blocco free sugli esiti | 1–2 gg + contenuto |
 | D | Auth + entitlements + sentenze premium + PDF brandizzato | 1–2 settimane |
 
-### Fase A — checklist file
+### Fase A — checklist file (✅ completata, commit 17fe130)
 
-- [ ] `globals.css`: blocco `html[data-mode="sportello"]`, `--primary-foreground`
+- [x] `globals.css`: blocco `html[data-mode="sportello"]`, `--primary-foreground`
       → `0 0% 10%`, `--accent` → `45 100% 51%` (vero #FFC107), token `--link`,
       focus outline via `var(--ring)`.
-- [ ] Migrazione hex→token nei componenti (NON `globals.css`, NON `outcome-og.tsx`
+- [x] Migrazione hex→token nei componenti (NON `globals.css`, NON `outcome-og.tsx`
       che genera immagini OG e non vede i CSS custom properties).
-- [ ] `src/store/ui-store.ts` (nuovo): mode + setMode, sync localStorage/cookie/attr.
-- [ ] `src/components/layout/ModeToggle.tsx` (nuovo) + inserimento in StickyHeader.
-- [ ] `[locale]/layout.tsx`: script inline anti-FOUC a inizio body.
-- [ ] `TreePlayer`/`SlideTransition`: no delay/transizioni in sportello.
-- [ ] `AnswerCard`/`QuestionScreen`: variante compatta in sportello.
-- [ ] `WelcomeContent`: sottotitolo, consenso persistente, doppia CTA.
-- [ ] `messages/*.json` (11 locale): namespace `sportello`.
+- [x] `src/store/ui-store.ts` (nuovo): mode + setMode, sync localStorage/cookie/attr.
+- [x] `src/components/layout/ModeToggle.tsx` (nuovo) + inserimento in StickyHeader.
+- [x] `[locale]/layout.tsx`: script inline anti-FOUC a inizio body.
+- [x] `TreePlayer`/`SlideTransition`: no delay/transizioni in sportello.
+- [x] `AnswerCard`/`QuestionScreen`: variante compatta in sportello.
+- [x] `WelcomeContent`: sottotitolo, consenso persistente, doppia CTA.
+- [x] `messages/*.json` (11 locale): namespace `sportello`.
+
+Verificato in browser (dev): toggle e persistenza pre-paint dopo reload, tema
+navy/oro, consenso ricordato, avanzamento istantaneo, ritorno pulito a persona.
+Nota semantica: warning `AlertTriangle` in LawyerBanner usa `fill-accent`
+(giallo semantico in entrambi i temi), non `fill-primary`.
 
 ## Decisioni aperte
 
