@@ -65,8 +65,8 @@
     "lawyerFindHelp": "ابحث عن مساعدة قانونية مجانية"
   },
   "sportello": {
-    "toggle": "الموظف",
-    "badgeActive": "وضع الموظف",
+    "toggle": "PRO",
+    "badgeActive": "PRO",
     "ariaToggle": "تفعيل أو إيقاف وضع الموظف",
     "welcomeSubtitle": "وضع الموظف: فحص سريع للحالة",
     "startPossoAvere": "هل يمكنني الحصول على تصريح؟",

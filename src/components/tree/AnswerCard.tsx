@@ -15,7 +15,7 @@ interface AnswerCardProps {
  *
  * Brutalist style: thick border, hard offset shadow,
  * hover moves card into its own shadow.
- * Sportello mode: tighter padding for faster scanning.
+ * PRO mode: tighter padding for faster scanning.
  */
 export function AnswerCard({
   label,
@@ -24,7 +24,7 @@ export function AnswerCard({
   onSelect,
   disabled,
 }: AnswerCardProps) {
-  const compact = useUiStore((s) => s.mode) === 'sportello';
+  const compact = useUiStore((s) => s.mode) === 'pro';
 
   return (
     <button

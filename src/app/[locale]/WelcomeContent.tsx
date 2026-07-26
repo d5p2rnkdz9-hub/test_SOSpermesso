@@ -11,10 +11,10 @@ import { useRinnovoConversioneStore } from '@/store/rinnovo-conversione-store';
 import { useUiStore } from '@/store/ui-store';
 
 /**
- * Sportello mode remembers the policy acceptance per device: the operator
+ * PRO mode remembers the policy acceptance per device: the operator
  * accepts once, not before every screening. Only the flag is stored.
  */
-const CONSENT_KEY = 'sos-sportello-consent';
+const CONSENT_KEY = 'sos-pro-consent';
 
 export default function WelcomeContent() {
   const t = useTranslations('welcome');
@@ -24,13 +24,13 @@ export default function WelcomeContent() {
 
   const startSession = useTreeStore((s) => s.startSession);
   const rcReset = useRinnovoConversioneStore((s) => s.reset);
-  const sportello = useUiStore((s) => s.mode) === 'sportello';
+  const pro = useUiStore((s) => s.mode) === 'pro';
 
   const [accepted, setAccepted] = useState(false);
   const [consentStored, setConsentStored] = useState(false);
 
   useEffect(() => {
-    if (!sportello) return;
+    if (!pro) return;
     try {
       if (localStorage.getItem(CONSENT_KEY) === '1') {
         setConsentStored(true);
@@ -39,10 +39,10 @@ export default function WelcomeContent() {
     } catch {
       // Storage unavailable: fall back to the checkbox
     }
-  }, [sportello]);
+  }, [pro]);
 
   const rememberConsent = () => {
-    if (!sportello) return;
+    if (!pro) return;
     try {
       localStorage.setItem(CONSENT_KEY, '1');
     } catch {
@@ -75,13 +75,13 @@ export default function WelcomeContent() {
           })}
         </h1>
 
-        {sportello && (
+        {pro && (
           <p className="mt-4 text-sm font-bold uppercase tracking-wide text-foreground/60">
             {tSportello('welcomeSubtitle')}
           </p>
         )}
 
-        {sportello && consentStored ? (
+        {pro && consentStored ? (
           <p className="mt-8 text-sm text-muted-foreground">
             {tSportello('consentNote')}
             {' · '}
@@ -119,7 +119,7 @@ export default function WelcomeContent() {
           </div>
         )}
 
-        {sportello ? (
+        {pro ? (
           <div className="mt-6 flex w-full flex-col gap-3">
             <Button
               size="lg"

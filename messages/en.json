@@ -65,8 +65,8 @@
     "lawyerFindHelp": "Find free legal assistance"
   },
   "sportello": {
-    "toggle": "Operator",
-    "badgeActive": "Operator mode",
+    "toggle": "PRO",
+    "badgeActive": "PRO version",
     "ariaToggle": "Turn operator mode on or off",
     "welcomeSubtitle": "Operator mode: quick case screening",
     "startPossoAvere": "Can I get a permit?",

@@ -65,8 +65,8 @@
     "lawyerFindHelp": "Найти бесплатную юридическую помощь"
   },
   "sportello": {
-    "toggle": "Оператор",
-    "badgeActive": "Режим оператора",
+    "toggle": "PRO",
+    "badgeActive": "PRO",
     "ariaToggle": "Включить или выключить режим оператора",
     "welcomeSubtitle": "Режим оператора: быстрая проверка дела",
     "startPossoAvere": "Могу ли я получить разрешение?",

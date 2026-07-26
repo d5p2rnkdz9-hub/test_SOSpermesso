@@ -65,8 +65,8 @@
     "lawyerFindHelp": "کمک حقوقی رایگان پیدا کنید"
   },
   "sportello": {
-    "toggle": "کارمند",
-    "badgeActive": "حالت کارمند",
+    "toggle": "PRO",
+    "badgeActive": "PRO",
     "ariaToggle": "فعال یا غیرفعال کردن حالت کارمند",
     "welcomeSubtitle": "حالت کارمند: بررسی سریع پرونده",
     "startPossoAvere": "آیا می‌توانم اجازه بگیرم؟",

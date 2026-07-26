@@ -11,7 +11,7 @@ import {
 interface SlideTransitionProps {
   nodeId: string;
   direction: 'forward' | 'back';
-  /** Sportello mode: swap content synchronously, no fade/slide. */
+  /** PRO mode: swap content synchronously, no fade/slide. */
   instant?: boolean;
   children: ReactNode;
 }

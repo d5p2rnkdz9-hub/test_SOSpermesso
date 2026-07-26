@@ -65,8 +65,8 @@
     "lawyerFindHelp": "Trouve une aide juridique gratuite"
   },
   "sportello": {
-    "toggle": "Opérateur",
-    "badgeActive": "Mode opérateur",
+    "toggle": "PRO",
+    "badgeActive": "Version PRO",
     "ariaToggle": "Activer ou désactiver le mode opérateur",
     "welcomeSubtitle": "Mode opérateur : évaluation rapide du dossier",
     "startPossoAvere": "Puis-je obtenir un permis ?",

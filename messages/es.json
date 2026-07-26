@@ -65,8 +65,8 @@
     "lawyerFindHelp": "Encuentra asistencia legal gratuita"
   },
   "sportello": {
-    "toggle": "Operador",
-    "badgeActive": "Modo operador",
+    "toggle": "PRO",
+    "badgeActive": "Versión PRO",
     "ariaToggle": "Activar o desactivar el modo operador",
     "welcomeSubtitle": "Modo operador: evaluación rápida del caso",
     "startPossoAvere": "¿Puedo obtener un permiso?",

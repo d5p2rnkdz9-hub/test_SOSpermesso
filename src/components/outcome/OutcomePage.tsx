@@ -6,9 +6,11 @@ import { useLocale, useTranslations } from 'next-intl';
 import { getNode } from '@/lib/tree-engine';
 import { getLawyerLevel } from '@/lib/lawyer-level';
 import { getPermitUrl } from '@/lib/permit-url-map';
+import { getProContent, PRO_CONTENT_DRAFT } from '@/lib/pro-content';
 import { substituteVariables, withDictionaryLinks } from '@/lib/text-utils';
 import { useRouter } from '@/i18n/navigation';
 import { ContentColumn } from '@/components/layout/ContentColumn';
+import { useUiStore } from '@/store/ui-store';
 import type { TreeData } from '@/types/tree';
 
 import { LawyerBanner } from './LawyerBanner';
@@ -16,6 +18,7 @@ import { IntroText } from './IntroText';
 import { FaqAccordion } from './FaqAccordion';
 import { EmergencyNumbers } from './EmergencyNumbers';
 import { LegalDisclaimer } from './LegalDisclaimer';
+import { ProCard } from './ProCard';
 import { ShareButton } from './ShareButton';
 
 interface OutcomePageProps {
@@ -47,6 +50,7 @@ export function OutcomePage({
   const tTree = useTranslations('tree');
   const locale = useLocale();
   const router = useRouter();
+  const pro = useUiStore((s) => s.mode) === 'pro';
 
   const node = getNode(tree, nodeId);
   if (!node) return null;
@@ -59,6 +63,7 @@ export function OutcomePage({
     return !isLawyerHeading && !linksToAiutoLegale;
   });
   const permitUrl = getPermitUrl(nodeId, locale);
+  const proData = getProContent(getPermitUrl(nodeId, 'it'));
 
   const sub = (text: string) =>
     substituteVariables(text, userName, answers);
@@ -80,8 +85,11 @@ export function OutcomePage({
             {node.title && sub(node.title)}
           </h1>
 
+          {/* PRO: professional card replaces the warm intro (kept for persona) */}
+          {pro && proData && <ProCard content={proData} draft={PRO_CONTENT_DRAFT} />}
+
           {/* Intro Text */}
-          {node.introText && <IntroText text={sub(node.introText)} />}
+          {!(pro && proData) && node.introText && <IntroText text={sub(node.introText)} />}
 
           {/* Emergency Numbers */}
           {node.emergencyNumbers && node.emergencyNumbers.length > 0 && (

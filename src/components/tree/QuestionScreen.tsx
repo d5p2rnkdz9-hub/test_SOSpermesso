@@ -55,7 +55,7 @@ export function QuestionScreen({
 }: QuestionScreenProps) {
   const userName = useTreeStore((s) => s.userName);
   const answers = useTreeStore((s) => s.answers);
-  const compact = useUiStore((s) => s.mode) === 'sportello';
+  const compact = useUiStore((s) => s.mode) === 'pro';
   const useCategories = false;
 
   const displayQuestion = substituteVariables(question, userName, answers);

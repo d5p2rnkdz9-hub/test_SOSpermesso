@@ -37,9 +37,9 @@ export function TreePlayer({
   const [direction, setDirection] = useState<'forward' | 'back'>('forward');
   const [isTransitioning, setIsTransitioning] = useState(false);
   const prevHistoryLengthRef = useRef(historyLength);
-  // Sportello mode: operators answer dozens of times a day — advance
+  // PRO mode: operators answer dozens of times a day — advance
   // immediately, no selected-state pause, no slide animation.
-  const instant = useUiStore((s) => s.mode) === 'sportello';
+  const instant = useUiStore((s) => s.mode) === 'pro';
 
   // Detect goBack by watching historyLength changes
   useEffect(() => {

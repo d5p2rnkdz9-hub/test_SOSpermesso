@@ -65,8 +65,8 @@
     }
   },
   "sportello": {
-    "toggle": "Sportello",
-    "badgeActive": "Modalità sportello",
+    "toggle": "PRO",
+    "badgeActive": "Versione PRO",
     "ariaToggle": "Attiva o disattiva la modalità sportello",
     "welcomeSubtitle": "Modalità operatore: screening rapido del caso",
     "startPossoAvere": "Posso avere un permesso?",

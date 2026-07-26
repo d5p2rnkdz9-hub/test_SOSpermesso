@@ -65,8 +65,8 @@
     "lawyerFindHelp": "Ücretsiz hukuki yardım bulun"
   },
   "sportello": {
-    "toggle": "Operatör",
-    "badgeActive": "Operatör modu",
+    "toggle": "PRO",
+    "badgeActive": "PRO",
     "ariaToggle": "Operatör modunu aç veya kapat",
     "welcomeSubtitle": "Operatör modu: hızlı vaka değerlendirmesi",
     "startPossoAvere": "İzin alabilir miyim?",

@@ -7,7 +7,7 @@ import { useTranslations } from 'next-intl';
 import { useUiStore } from '@/store/ui-store';
 
 /**
- * Header toggle for the sportello (operator) mode.
+ * Header toggle for the PRO (operator) mode — shared with sospermesso.it.
  *
  * Renders inactive on the server; syncs from the pre-paint data-mode
  * attribute on mount, so the theme is never wrong (applied by the inline
@@ -23,7 +23,7 @@ export function ModeToggle() {
     initFromDevice();
   }, [initFromDevice]);
 
-  const active = mode === 'sportello';
+  const active = mode === 'pro';
 
   return (
     <button

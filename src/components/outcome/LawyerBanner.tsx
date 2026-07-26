@@ -24,7 +24,7 @@ export function LawyerBanner({ level }: LawyerBannerProps) {
   return (
     <div className="flex items-center gap-3 rounded-lg border-2 border-foreground bg-white px-4 py-3 text-foreground shadow-[2px_2px_0_hsl(var(--foreground))]">
       {/* fill-accent, not fill-primary: warning yellow is semantic and must
-          survive the sportello theme (where primary turns navy) */}
+          survive the PRO theme (where primary turns navy) */}
       <AlertTriangle className="h-5 w-5 shrink-0 fill-accent text-foreground" />
       <span className="font-semibold">{t('lawyerRecommended')}</span>
     </div>

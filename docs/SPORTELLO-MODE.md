@@ -1,4 +1,27 @@
-# Modalità Sportello — Design & Piano
+# Versione PRO (ex "Modalità Sportello") — Design & Piano
+
+> **REVISIONE 2026-07-26** — feedback utente: (1) lo switch si chiama **"Versione
+> PRO"** e si estende a TUTTO sospermesso.it, non solo all'app; (2) sul sito la
+> pagina resta identica, cambia solo la palette con smooth transition; (3) i
+> contenuti aggiuntivi (sintesi professionale, norme, sentenze con teaser →
+> paywall, circolari) compaiono su ENTRAMBE le proprietà; (4) contenuti demo
+> ricercati online per 3 permessi (protezione speciale, lavoro subordinato
+> flussi, lungo periodo UE).
+>
+> Implementazione cross-proprietà: valore condiviso `pro` in
+> `localStorage['sos-mode']` + cookie `sos_mode` su `.sospermesso.it`;
+> `data-mode="pro"` su `<html>` applicato pre-paint da script inline in entrambi
+> i layout. Contenuti canonici in `../pro-content-shared/pro-content.json`
+> (sibling dei due repo): il sito li legge da `_data/proContent.js` (con
+> snapshot committato in `_cache/pro-content.json` per Netlify), l'app li
+> bundla via `scripts/generate-pro-content.js` → `src/lib/pro-content.generated.ts`
+> (componente `ProCard` sugli esiti in modalità PRO, al posto dell'intro
+> colloquiale). Lato sito: `src/styles/pro.css` (tema navy + `.pro-only` +
+> scheda PRO), toggle in `header.liquid`, logica in `app.js`, sezione `#pro`
+> in `permits.liquid`, chip PRO in `database.html`.
+>
+> Il resto di questo documento descrive il design originale (fase A) — ancora
+> valido per l'architettura dell'app, con "sportello" da leggersi come "PRO".
 
 > Obiettivo: rendere l'app utile agli utenti intermedi (CAF, patronati, sportelli
 > gratuiti) con uno **switch di modalità** device-persistent. La modalità è gratis;
