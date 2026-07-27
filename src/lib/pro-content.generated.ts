@@ -322,6 +322,136 @@ export const proContent = {
         "https://www.gazzettaufficiale.it/eli/id/2023/05/05/23G00058/SG",
         "https://www.normattiva.it/eli/id/2008/02/16/008G0044/CONSOLIDATED"
       ]
+    },
+    "ue-per-soggiornanti-di-lungo-periodo-carta-di-soggiorno": {
+      "slug": "ue-per-soggiornanti-di-lungo-periodo-carta-di-soggiorno",
+      "titolo": "Permesso di soggiorno UE per soggiornanti di lungo periodo",
+      "aggiornato_al": "2026-07",
+      "sintesi": {
+        "descrizione": "Status a tempo indeterminato (già 'carta di soggiorno') che il cittadino di paese terzo acquisisce dopo 5 anni di soggiorno regolare e continuativo in Italia, in presenza di requisiti reddituali, alloggiativi e linguistici. Attribuisce parità di trattamento con i cittadini italiani in numerosi ambiti (art. 11 dir. 2003/109/CE) e la possibilità di soggiornare in altri Stati UE (mobilità intra-UE, art. 9-bis TUI per chi arriva in Italia con status rilasciato da altro Stato membro).",
+        "base_giuridica": "Art. 9, 9-bis, 9-ter d.lgs. 286/1998 (T.U. immigrazione); direttiva 2003/109/CE del Consiglio, come modificata dalla direttiva 2011/51/UE (estensione ai titolari di protezione internazionale); d.lgs. 8 gennaio 2007 n. 3 (recepimento); D.M. 4 giugno 2010 (test di lingua); Reg. (UE) 2017/1954 e L. 238/2021 (formato/validità decennale del documento).",
+        "requisiti": [
+          "Soggiorno regolare e continuativo in Italia da almeno 5 anni, con permesso in corso di validità al momento della domanda (art. 9 co. 1 TUI)",
+          "Reddito non inferiore all'importo annuo dell'assegno sociale: per il 2026 pari a circa € 7.101,12 annui (13 mensilità da € 546,24, rivalutazione ISTAT — verificare importo aggiornato su interno.gov.it/INPS al momento della domanda), aumentato in caso di familiari conviventi a carico secondo i parametri di cui all'art. 29 co. 3 lett. b) TUI richiamati dall'art. 9",
+          "Alloggio idoneo per i parametri igienico-sanitari (ASL) o per l'edilizia residenziale pubblica",
+          "Superamento del test di conoscenza della lingua italiana, livello A2 QCER (D.M. 4.6.2010), con esenzioni per: minori di 14 anni, patologie certificate dal servizio sanitario pubblico, titolari di certificazioni A2 di enti riconosciuti (Università per Stranieri Siena/Perugia, Roma Tre, Dante Alighieri), livello A2 attestato in sede di accordo di integrazione o corsi CPIA, titoli di studio italiani, alte professionalità; titolari di protezione internazionale esenti anche dal requisito alloggiativo e dal test (art. 9 co. 1-ter TUI)",
+          "Permessi ESCLUSI dal computo del quinquennio (art. 9 co. 3 TUI, elenco non esaustivo): permessi per motivi di studio/formazione professionale, protezione temporanea, cure mediche, lavoro stagionale, personale di rappresentanze diplomatiche/domestico, e periodo di esame di domande di protezione internazionale non ancora definite",
+          "Assenze massime senza perdita di continuità del quinquennio (art. 9 co. 6 TUI): singola assenza inferiore a 6 mesi consecutivi e non oltre 10 mesi complessivi nel quinquennio; non rilevano le assenze per obblighi militari, gravi motivi di salute documentati o altri gravi motivi comprovati",
+          "Assenza di pericolosità sociale: valutazione in concreto, non automatica, delle eventuali condanne penali"
+        ],
+        "durata": "Status a tempo indeterminato, senza scadenza. Il documento fisico (permesso di soggiorno UE) ha però validità 10 anni per i maggiorenni e 5 anni per i minori (dal 1.2.2022, a seguito di Reg. UE 2017/1954 e L. 238/2021) e va aggiornato alla scadenza; l'aggiornamento del documento non equivale a un nuovo accertamento pieno dei requisiti originari.",
+        "rinnovo": "Non è un rinnovo del titolo (che resta a tempo indeterminato) ma un aggiornamento del documento alla scadenza decennale/quinquennale, con nuove foto e verifica dei soli dati anagrafici/ostativi; richiesta tramite kit postale presso gli uffici abilitati (Poste Italiane) o questura secondo le indicazioni locali.",
+        "convertibilita": "Revoca (art. 9 co. 7-9 TUI) per: acquisizione fraudolenta dello status; adozione di provvedimento di espulsione; pericolo per l'ordine pubblico o la sicurezza dello Stato (valutazione in concreto, non automatica); assenza dal territorio dell'Unione europea per 12 mesi consecutivi; assenza dal territorio nazionale per 6 anni; acquisizione dello status di soggiornante di lungo periodo in altro Stato membro. Lo status consente mobilità intra-UE (soggiorno in altro Stato membro oltre 3 mesi per lavoro, studio o altro motivo lecito) e, specularmente, l'art. 9-bis TUI disciplina l'ingresso in Italia di soggiornanti di lungo periodo titolari di status rilasciato da altro Stato UE.",
+        "note_operative": [
+          "Calcolo del reddito: si sommano i redditi dei familiari conviventi; verificare sempre l'importo aggiornato dell'assegno sociale nell'anno di presentazione (rivalutazione ISTAT annuale) e conservare documentazione fiscale (CU/dichiarazioni) per l'intero periodo rilevante, non solo l'ultimo anno",
+          "Prova del livello A2: raccogliere preventivamente certificazione equipollente (enti riconosciuti, CPIA, accordo di integrazione, titolo di studio italiano) per evitare l'attesa delle sessioni di test in prefettura, specie per pratiche con scadenze incombenti",
+          "Titolari di protezione internazionale: verificare con attenzione la decorrenza del quinquennio e la dicitura da apporre sul titolo ('protezione internazionale riconosciuta dall'Italia il...'); l'esenzione dal test lingua e dal requisito alloggiativo (art. 9 co. 1-ter) non esonera dal requisito reddituale",
+          "Diniego/revoca per condanne penali o pericolosità sociale: pretendere sempre motivazione puntuale su integrazione, legami familiari e tempo trascorso dal fatto — l'automatismo condanna-diniego è costantemente censurato in giurisprudenza",
+          "Documentare accuratamente le uscite dal territorio (timbri, titoli di viaggio): rilevano sia ai fini del computo del quinquennio (co. 6) sia come autonoma causa di revoca (assenza UE/Italia), motivo frequente di contestazione in sede di aggiornamento del documento"
+        ]
+      },
+      "norme": [
+        {
+          "fonte": "D.Lgs. 25 luglio 1998, n. 286 (T.U. Immigrazione)",
+          "estremi": "Art. 9",
+          "oggetto": "Permesso di soggiorno UE per soggiornanti di lungo periodo: requisiti (soggiorno quinquennale, reddito, alloggio, lingua), permessi esclusi dal computo, assenze rilevanti, durata, revoca",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286"
+        },
+        {
+          "fonte": "D.Lgs. 25 luglio 1998, n. 286 (T.U. Immigrazione)",
+          "estremi": "Art. 9-bis",
+          "oggetto": "Stranieri titolari di permesso UE per soggiornanti di lungo periodo rilasciato da altro Stato membro: ingresso e soggiorno in Italia oltre 3 mesi per lavoro, studio o altro motivo lecito",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286"
+        },
+        {
+          "fonte": "Consiglio UE",
+          "estremi": "Direttiva 2003/109/CE del 25 novembre 2003",
+          "oggetto": "Status dei cittadini di paesi terzi che siano soggiornanti di lungo periodo: requisiti, parità di trattamento (art. 11), mobilità intra-UE",
+          "url": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32003L0109"
+        },
+        {
+          "fonte": "Parlamento europeo e Consiglio",
+          "estremi": "Direttiva 2011/51/UE dell'11 maggio 2011",
+          "oggetto": "Modifica la direttiva 2003/109/CE estendendone l'ambito di applicazione ai beneficiari di protezione internazionale",
+          "url": "https://eur-lex.europa.eu/legal-content/IT/ALL/?uri=celex:32003L0109"
+        },
+        {
+          "fonte": "D.Lgs. 8 gennaio 2007, n. 3",
+          "estremi": "Intero testo",
+          "oggetto": "Attuazione della direttiva 2003/109/CE relativa allo status di cittadini di paesi terzi soggiornanti di lungo periodo (introduce artt. 9-bis, 9-ter e riformula l'art. 9 TUI)",
+          "url": "https://www.gazzettaufficiale.it/eli/id/2007/01/22/007G0014/sg"
+        },
+        {
+          "fonte": "Ministero dell'Interno - Ministero dell'Istruzione, dell'Università e della Ricerca",
+          "estremi": "Decreto Ministeriale 4 giugno 2010",
+          "oggetto": "Test di conoscenza della lingua italiana per il rilascio del permesso di soggiorno CE per soggiornanti di lungo periodo (livello A2 QCER), procedure ed esenzioni",
+          "url": "https://www.gazzettaufficiale.it/eli/id/2010/07/09/10A08344/sg"
+        },
+        {
+          "fonte": "Parlamento europeo e Consiglio / Legge nazionale",
+          "estremi": "Regolamento (UE) 2017/1954 e L. 30 dicembre 2021, n. 238 (legge europea 2019-2020)",
+          "oggetto": "Nuovo formato del titolo di soggiorno UE: validità decennale (maggiorenni) e quinquennale (minori) del documento, in luogo della precedente validità illimitata",
+          "url": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32017R1954"
+        }
+      ],
+      "sentenze": [
+        {
+          "corte": "Corte di Giustizia UE, Terza Sezione",
+          "estremi": "causa C-302/18, X c. Belgische Staat",
+          "data": "2019-10-03",
+          "massima": "La nozione di 'risorse' (art. 5 §1 lett. a dir. 2003/109/CE) non è limitata al reddito proprio del richiedente: comprende anche risorse messe stabilmente a disposizione da terzi, purché stabili, regolari e sufficienti rispetto alla situazione individuale, senza ricorso all'assistenza sociale.",
+          "rilevanza_operativa": "Utile quando il richiedente non raggiunge da solo la soglia reddituale: il reddito di un familiare convivente, con impegno di sostentamento, può integrare il requisito.",
+          "url_fonte": "https://www.asgi.it/banca-dati/sentenza-della-corte-di-giustizia-terza-sezione-del-3-ottobre-2019-nella-causa-c-302-18/",
+          "confidenza": "alta"
+        },
+        {
+          "corte": "Corte di Giustizia UE, Grande Sezione",
+          "estremi": "cause riunite C-112/22 e C-223/22",
+          "data": "2024-07-29",
+          "massima": "L'art. 11 §1 lett. d) dir. 2003/109/CE, letto alla luce dell'art. 34 Carta dei diritti fondamentali, osta a normativa nazionale che subordini l'accesso dei soggiornanti di lungo periodo a prestazione di assistenza sociale (reddito di cittadinanza) a un requisito di residenza decennale, con due anni continuativi, sanzionato anche penalmente se falsamente dichiarato.",
+          "rilevanza_operativa": "Rilevante per assistere soggiornanti di lungo periodo a cui sia negato il reddito di cittadinanza o misure equivalenti per mancanza di 10 anni di residenza: il requisito è contrario al diritto UE.",
+          "url_fonte": "https://www.eius.it/giurisprudenza/2024/4353801",
+          "confidenza": "alta"
+        },
+        {
+          "corte": "Corte di Giustizia UE, Grande Sezione",
+          "estremi": "causa C-571/10, Kamberaj c. IPES Bolzano",
+          "data": "2012-04-24",
+          "massima": "L'art. 11 §1 lett. d) dir. 2003/109/CE osta a normativa nazionale che riservi ai soggiornanti di lungo periodo un trattamento deteriore rispetto ai cittadini nazionali in materia di assistenza abitativa; le deroghe per 'prestazioni essenziali' vanno interpretate restrittivamente e richiedono espressa volontà dello Stato di avvalersene.",
+          "rilevanza_operativa": "Precedente di riferimento per contestare trattamenti deteriori dei soggiornanti di lungo periodo in materia di prestazioni sociali/alloggiative rispetto ai cittadini italiani.",
+          "url_fonte": "https://infocuria.curia.europa.eu/tabs/redirect/juris/document/document.jsf?docid=121961&doclang=IT",
+          "confidenza": "alta"
+        }
+      ],
+      "circolari": [
+        {
+          "ente": "Ministero dell'Interno",
+          "estremi": "Circolare n. 7589 del 16 novembre 2010",
+          "data": "2010-11-16",
+          "oggetto": "Procedure attuative del D.M. 4 giugno 2010 per lo svolgimento del test di conoscenza della lingua italiana ai fini del permesso di soggiorno CE per soggiornanti di lungo periodo",
+          "url": null
+        },
+        {
+          "ente": "Ministero dell'Interno",
+          "estremi": "Circolare n. 8071 del 1 dicembre 2010",
+          "data": "2010-12-01",
+          "oggetto": "Ulteriori chiarimenti operativi sulla procedura del test di lingua italiana per soggiornanti di lungo periodo",
+          "url": null
+        }
+      ],
+      "fonti_consultate": [
+        "https://www.brocardi.it/testo-unico-immigrazione/titolo-ii/capo-i/art9.html",
+        "https://www.brocardi.it/testo-unico-immigrazione/titolo-ii/capo-i/art9bis.html",
+        "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286",
+        "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32003L0109",
+        "https://www.interno.gov.it/it/temi/immigrazione-e-asilo/modalita-dingresso/test-conoscenza-lingua-italiana",
+        "https://www.gazzettaufficiale.it/eli/id/2010/07/09/10A08344/sg",
+        "https://www.asgi.it/banca-dati/sentenza-della-corte-di-giustizia-terza-sezione-del-3-ottobre-2019-nella-causa-c-302-18/",
+        "https://www.eius.it/giurisprudenza/2024/4353801",
+        "https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:62022CJ0112",
+        "https://infocuria.curia.europa.eu/tabs/redirect/juris/document/document.jsf?docid=121961&doclang=IT",
+        "https://www.asgi.it/wp-content/uploads/2024/02/PERMESSO-DI-SOGGIORNO-UE-PER-SOGGIORNANTI-DI-LUNGO-PERIODO_feb24.pdf"
+      ]
     }
   }
 } as const;
