@@ -11,7 +11,12 @@
     "subtitle": "Hangi oturma iznini talep edebileceğinizi öğrenmek için birkaç soruyu yanıtlayın",
     "start": "Kontrolü başlat",
     "disclaimer": "Bu araç genel bilgi sağlar, hukuki tavsiye değildir.",
-    "alreadyHavePermit": "Zaten bir izniniz var ve <b>yenilemek</b> veya <b>dönüştürmek</b> mi istiyorsunuz? <link>Yenileme/dönüştürme testine git</link>"
+    "alreadyHavePermit": "Zaten bir izniniz var ve <b>yenilemek</b> veya <b>dönüştürmek</b> mi istiyorsunuz? <link>Yenileme/dönüştürme testine git</link>",
+    "chooseTitle": "<hl>Oturma izniniz</hl> için ne yapabileceğinizi öğrenmek için birkaç soru",
+    "noPermitEyebrow": "İznim yok",
+    "noPermit": "İzin alabilir miyim?",
+    "havePermitEyebrow": "Zaten iznim var",
+    "havePermit": "Yenileyebilir veya dönüştürebilir miyim?"
   },
   "header": {
     "backToStart": "Başa dön",

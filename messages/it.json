@@ -11,7 +11,12 @@
     "subtitle": "Rispondi ad alcune domande per scoprire quale permesso puoi richiedere",
     "start": "Inizia la verifica",
     "disclaimer": "Questo strumento fornisce informazioni generali, non consulenza legale.",
-    "alreadyHavePermit": "Hai già un permesso e vuoi <b>rinnovarlo</b> o <b>convertirlo</b>? <link>Vai al test rinnovo/conversione</link>"
+    "alreadyHavePermit": "Hai già un permesso e vuoi <b>rinnovarlo</b> o <b>convertirlo</b>? <link>Vai al test rinnovo/conversione</link>",
+    "chooseTitle": "Poche domande per capire cosa puoi fare con il tuo <hl>permesso di soggiorno</hl>",
+    "noPermitEyebrow": "Non ho un permesso",
+    "noPermit": "Posso avere un permesso?",
+    "havePermitEyebrow": "Ho già un permesso",
+    "havePermit": "Posso rinnovarlo o convertirlo?"
   },
   "header": {
     "backToStart": "Torna all'inizio",

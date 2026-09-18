@@ -11,7 +11,12 @@
     "subtitle": "回答几个问题以了解您可以申请哪种居留许可",
     "start": "开始检查",
     "disclaimer": "此工具提供一般信息,不构成法律咨询。",
-    "alreadyHavePermit": "您已经有许可证并想<b>续签</b>或<b>转换</b>它吗？<link>前往续签/转换测试</link>"
+    "alreadyHavePermit": "您已经有许可证并想<b>续签</b>或<b>转换</b>它吗？<link>前往续签/转换测试</link>",
+    "chooseTitle": "几个问题帮您了解您可以为自己的<hl>居留许可</hl>做什么",
+    "noPermitEyebrow": "我没有居留许可",
+    "noPermit": "我能获得许可证吗？",
+    "havePermitEyebrow": "我已有居留许可",
+    "havePermit": "我能续签或转换吗？"
   },
   "header": {
     "backToStart": "返回首页",

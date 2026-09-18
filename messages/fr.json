@@ -11,7 +11,12 @@
     "subtitle": "Répondez à quelques questions pour découvrir quel permis vous pouvez demander",
     "start": "Commencer la vérification",
     "disclaimer": "Cet outil fournit des informations générales, pas des conseils juridiques.",
-    "alreadyHavePermit": "Vous avez déjà un permis et souhaitez le <b>renouveler</b> ou le <b>convertir</b> ? <link>Allez au test de renouvellement/conversion</link>"
+    "alreadyHavePermit": "Vous avez déjà un permis et souhaitez le <b>renouveler</b> ou le <b>convertir</b> ? <link>Allez au test de renouvellement/conversion</link>",
+    "chooseTitle": "Quelques questions pour savoir ce que vous pouvez faire pour votre <hl>permis de séjour</hl>",
+    "noPermitEyebrow": "Je n'ai pas de permis",
+    "noPermit": "Puis-je obtenir un permis ?",
+    "havePermitEyebrow": "J'ai déjà un permis",
+    "havePermit": "Puis-je le renouveler ou le convertir ?"
   },
   "header": {
     "backToStart": "Retour au début",

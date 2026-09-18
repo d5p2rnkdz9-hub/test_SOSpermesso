@@ -11,7 +11,12 @@
     "subtitle": "Answer a few questions to find out which permit you can apply for",
     "start": "Start the check",
     "disclaimer": "This tool provides general information, not legal advice.",
-    "alreadyHavePermit": "Do you already have a permit and want to <b>renew</b> or <b>convert</b> it? <link>Go to the renewal/conversion test</link>"
+    "alreadyHavePermit": "Do you already have a permit and want to <b>renew</b> or <b>convert</b> it? <link>Go to the renewal/conversion test</link>",
+    "chooseTitle": "A few questions to find out what you can do about your <hl>residence permit</hl>",
+    "noPermitEyebrow": "I don't have a permit",
+    "noPermit": "Can I get a permit?",
+    "havePermitEyebrow": "I already have a permit",
+    "havePermit": "Can I renew or convert it?"
   },
   "header": {
     "backToStart": "Back to start",
