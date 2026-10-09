@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 
 import { ContentColumn } from '@/components/layout/ContentColumn';
 import { Button } from '@/components/ui/button';
-import { useRouter } from '@/i18n/navigation';
+import { Link, useRouter } from '@/i18n/navigation';
 import { useTreeStore } from '@/store/tree-store';
 import { useRinnovoConversioneStore } from '@/store/rinnovo-conversione-store';
 import { useUiStore } from '@/store/ui-store';
@@ -66,7 +66,7 @@ export default function WelcomeContent() {
     <ContentColumn>
       <div className="flex min-h-[calc(100vh-3.5rem)] flex-col items-center justify-center text-center">
         <h1 className="text-4xl font-bold leading-tight sm:text-5xl">
-          {t.rich('chooseTitle', {
+          {t.rich(pro ? 'chooseTitle' : 'title', {
             hl: (chunks) => (
               <span className="font-extrabold" style={{ background: 'linear-gradient(180deg, transparent 50%, hsl(var(--accent)) 50%)', padding: '0 4px' }}>
                 {chunks}
@@ -140,30 +140,31 @@ export default function WelcomeContent() {
             </Button>
           </div>
         ) : (
-          <div className="mt-6 flex w-full flex-col gap-3">
+          <>
             <Button
               size="lg"
-              className="h-auto w-full flex-col gap-1 py-4 text-lg font-semibold"
+              className="mt-6 w-full text-lg font-semibold"
               disabled={!accepted}
               onClick={handleStart}
             >
-              <span className="text-xs font-bold uppercase tracking-widest opacity-70">
-                {t('noPermitEyebrow')}
-              </span>
-              <span>{t('noPermit')}</span>
+              {tTree('startButton')}
             </Button>
-            <Button
-              size="lg"
-              className="h-auto w-full flex-col gap-1 py-4 text-lg font-semibold"
-              disabled={!accepted}
-              onClick={handleStartRinnovoConversione}
-            >
-              <span className="text-xs font-bold uppercase tracking-widest opacity-70">
-                {t('havePermitEyebrow')}
-              </span>
-              <span>{t('havePermit')}</span>
-            </Button>
-          </div>
+
+            <p className="mt-6 text-base text-foreground">
+              {t.rich('alreadyHavePermit', {
+                b: (chunks) => <strong>{chunks}</strong>,
+                link: (chunks) => (
+                  <Link
+                    href="/tree/rinnovo-conversione"
+                    className="underline font-semibold text-[hsl(var(--link))]"
+                    onClick={() => rcReset()}
+                  >
+                    {chunks}
+                  </Link>
+                ),
+              })}
+            </p>
+          </>
         )}
       </div>
     </ContentColumn>
