@@ -115,7 +115,7 @@ const QUESTION_LABELS: Record<string, string> = {
   c_vorresti_prot_soc: 'Quale vorresti?',
   c_vorresti_generico: 'Quale vorresti?',
   c_lav_studi_finiti: 'Studi finiti?',
-  c_lav_studi_uni: 'Percorso universitario?',
+  c_att_titolo_ita: 'Titolo universitario in Italia?',
   c_lav_titolo: 'Titolo di studio',
 };
 

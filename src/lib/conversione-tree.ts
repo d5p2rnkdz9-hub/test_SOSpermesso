@@ -149,10 +149,12 @@ export const conversioneTree: TreeData = {
       question: 'Qual è il tuo titolo di studio?',
     },
 
-    c_lav_studi_uni: {
-      id: 'c_lav_studi_uni',
+    // Studio → Attesa occupazione: solo con titolo universitario ottenuto in Italia
+    c_att_titolo_ita: {
+      id: 'c_att_titolo_ita',
       type: 'question',
-      question: 'Stai frequentando un percorso universitario?',
+      question:
+        'Hai ottenuto in Italia una laurea o un altro titolo universitario (laurea, master, dottorato, diploma di specializzazione)?',
     },
 
     c_data_5mag_2023: {
@@ -231,6 +233,28 @@ export const conversioneTree: TreeData = {
           content:
             'Puoi tornare indietro e provare con un altro tipo di permesso, oppure rivolgerti a un servizio di consulenza legale gratuita.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
         },
+      ],
+    },
+
+    // Studio senza titolo universitario italiano → lavoro solo con nulla osta
+    c_end_lav_nullaosta: {
+      id: 'c_end_lav_nullaosta',
+      type: 'result',
+      title: 'Conversione in Lavoro: possibile solo con nulla osta',
+      introText:
+        'Puoi convertire il tuo permesso per [PermessoAttuale] in permesso per lavoro, ma solo con il nulla osta.',
+      sections: [
+        {
+          heading: '\u2139\ufe0f Perché',
+          content:
+            'Senza una laurea o un altro titolo universitario ottenuto in Italia, il permesso per studio si può convertire in lavoro solo con il nulla osta. Non puoi chiedere il permesso per attesa occupazione.',
+        },
+        {
+          heading: '\ud83d\udce6 Come fare',
+          content:
+            'Prima serve il nulla osta dello Sportello Unico per l\'Immigrazione, poi si presenta la domanda di conversione. Ti consigliamo di farti aiutare da un servizio di consulenza legale.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
+        },
+        ...getTargetPermitSections('lav_sub_conv').filter((s) => !s.heading.includes('Durata')),
       ],
     },
 
@@ -356,6 +380,26 @@ export const conversioneTree: TreeData = {
           heading: '\ud83d\udcac Consiglio',
           content:
             'Puoi tornare indietro e provare con un altro tipo di permesso, oppure rivolgerti a un servizio di consulenza legale gratuita.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
+        },
+      ],
+    },
+
+    c_end_att_studio_no: {
+      id: 'c_end_att_studio_no',
+      type: 'result',
+      title: 'Conversione in Attesa Occupazione: NON POSSIBILE',
+      introText:
+        'Purtroppo, senza un titolo universitario ottenuto in Italia non puoi convertire il permesso per studio in attesa occupazione.',
+      sections: [
+        {
+          heading: '\u2139\ufe0f Perché',
+          content:
+            'Il permesso per studio si può convertire in attesa occupazione solo se hai ottenuto in Italia una laurea o un altro titolo universitario (laurea, master, dottorato, diploma di specializzazione).',
+        },
+        {
+          heading: '\ud83d\udcbc Cosa puoi fare',
+          content:
+            'Puoi chiedere solo la conversione in permesso per lavoro, con il nulla osta. Ti consigliamo di farti aiutare da un servizio di consulenza legale.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
         },
       ],
     },
@@ -762,7 +806,7 @@ export const conversioneTree: TreeData = {
 
     // --- Current: Studio ---
     { from: 'c_vorresti_studio', to: 'c_lav_studi_finiti', label: 'Lavoro', optionKey: 'lavoro' },
-    { from: 'c_vorresti_studio', to: 'c_end_att_ok', label: 'Attesa occupazione', optionKey: 'att_occ' },
+    { from: 'c_vorresti_studio', to: 'c_att_titolo_ita', label: 'Attesa occupazione', optionKey: 'att_occ' },
     { from: 'c_vorresti_studio', to: 'c_end_fam_ok', label: 'Famiglia', optionKey: 'famiglia' },
     { from: 'c_vorresti_studio', to: 'c_end_carta_no', label: 'Permesso UE lungo periodo ("Carta di soggiorno")', optionKey: 'carta_ue' },
     { from: 'c_vorresti_studio', to: 'c_end_altro_wip', label: 'Altro tipo di permesso', optionKey: 'altro' },
@@ -929,11 +973,8 @@ export const conversioneTree: TreeData = {
     // FOLLOW-UP: Studio → Lavoro (studi finiti + titolo)
     // =============================================
     { from: 'c_lav_studi_finiti', to: 'c_lav_titolo', label: 'Sì', optionKey: 'si' },
-    { from: 'c_lav_studi_finiti', to: 'c_lav_studi_uni', label: 'No', optionKey: 'no' },
-
-    // University check for ongoing studies — goes to subordinato (degree holders)
-    { from: 'c_lav_studi_uni', to: 'c_end_lav_sub_ok', label: 'Sì, percorso universitario', optionKey: 'si' },
-    { from: 'c_lav_studi_uni', to: 'c_end_lav_no', label: 'No', optionKey: 'no' },
+    // Studi non finiti: nessun titolo universitario italiano → lavoro solo con nulla osta
+    { from: 'c_lav_studi_finiti', to: 'c_end_lav_nullaosta', label: 'No', optionKey: 'no' },
 
     { from: 'c_lav_titolo', to: 'c_end_lav_sub_ok', label: 'Laurea triennale', optionKey: 'laurea_tri' },
     { from: 'c_lav_titolo', to: 'c_end_lav_sub_ok', label: 'Laurea specialistica', optionKey: 'laurea_spec' },
@@ -941,7 +982,13 @@ export const conversioneTree: TreeData = {
     { from: 'c_lav_titolo', to: 'c_end_lav_sub_ok', label: 'Dottorato di ricerca', optionKey: 'dottorato' },
     { from: 'c_lav_titolo', to: 'c_end_lav_sub_ok', label: 'Master I livello', optionKey: 'master_1' },
     { from: 'c_lav_titolo', to: 'c_end_lav_sub_ok', label: 'Master II livello', optionKey: 'master_2' },
-    { from: 'c_lav_titolo', to: 'c_end_lav_ok', label: 'Attestato / diploma perfezionamento', optionKey: 'attestato' },
-    { from: 'c_lav_titolo', to: 'c_end_lav_no', label: 'Altro / non ho titolo', optionKey: 'nessuno' },
+    { from: 'c_lav_titolo', to: 'c_end_lav_nullaosta', label: 'Attestato / diploma perfezionamento', optionKey: 'attestato' },
+    { from: 'c_lav_titolo', to: 'c_end_lav_nullaosta', label: 'Altro / non ho titolo', optionKey: 'nessuno' },
+
+    // =============================================
+    // FOLLOW-UP: Studio → Attesa occupazione (titolo universitario in Italia)
+    // =============================================
+    { from: 'c_att_titolo_ita', to: 'c_end_att_ok', label: 'Sì', optionKey: 'si' },
+    { from: 'c_att_titolo_ita', to: 'c_end_att_studio_no', label: 'No', optionKey: 'no' },
   ],
 };
