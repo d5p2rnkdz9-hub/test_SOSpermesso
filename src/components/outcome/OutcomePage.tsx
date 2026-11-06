@@ -20,6 +20,7 @@ import { EmergencyNumbers } from './EmergencyNumbers';
 import { LegalDisclaimer } from './LegalDisclaimer';
 import { ProCard } from './ProCard';
 import { ShareButton } from './ShareButton';
+import { TreeBreadcrumbs } from './TreeBreadcrumbs';
 
 interface OutcomePageProps {
   nodeId: string;
@@ -128,6 +129,16 @@ export function OutcomePage({
             </a>
           )}
         </div>
+
+        {/* Le tue risposte: each answer can be changed */}
+        <TreeBreadcrumbs
+          history={history}
+          answers={answers}
+          tree={tree}
+          treePath={treePath}
+          onGoBackTo={onGoBackTo}
+          formatText={sub}
+        />
 
         {/* Share + Restart row */}
         <div className="flex flex-col gap-2 sm:flex-row">

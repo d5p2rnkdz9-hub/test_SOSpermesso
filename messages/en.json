@@ -60,7 +60,8 @@
     "lawyerSelf": "You can do it yourself",
     "lawyerRecommended": "It is better to consult a legal expert",
     "linksTitle": "Useful links",
-    "breadcrumbExpand": "...",
+    "yourAnswers": "Your answers ({count})",
+    "changeAnswer": "Change",
     "emergencyCallNow": "Call now",
     "readFullGuide": "Read the full guide on SOSpermesso",
     "share": {

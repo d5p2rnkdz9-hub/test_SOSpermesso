@@ -60,7 +60,8 @@
     "lawyerSelf": "Vous pouvez le faire seul",
     "lawyerRecommended": "Il est preferable de consulter un expert juridique",
     "linksTitle": "Liens utiles",
-    "breadcrumbExpand": "...",
+    "yourAnswers": "Vos réponses ({count})",
+    "changeAnswer": "Modifier",
     "emergencyCallNow": "Appelez maintenant",
     "readFullGuide": "Lire le guide complet sur SOSpermesso",
     "share": {

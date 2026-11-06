@@ -23,6 +23,8 @@ export interface TreeNode {
   type: 'question' | 'result' | 'info';
   /** Question text shown to the user (question and info nodes) */
   question?: string;
+  /** Short label for the "Le tue risposte" recap (falls back to question) */
+  short?: string;
   /** Short description for question context */
   description?: string;
   /** Result card title (result nodes only) */

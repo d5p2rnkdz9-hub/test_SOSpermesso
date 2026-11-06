@@ -60,7 +60,8 @@
     "lawyerSelf": "您可以自己办理",
     "lawyerRecommended": "最好咨询法律顾问",
     "linksTitle": "有用的链接",
-    "breadcrumbExpand": "...",
+    "yourAnswers": "你的回答（{count}）",
+    "changeAnswer": "修改",
     "emergencyCallNow": "立即致电",
     "readFullGuide": "在 SOSpermesso 阅读完整指南",
     "share": {

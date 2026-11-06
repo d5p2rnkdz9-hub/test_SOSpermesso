@@ -61,7 +61,8 @@
     "lawyerRecommended": "È meglio parlare con un consulente legale",
     "lawyerFindHelp": "Trova assistenza legale gratuita",
     "linksTitle": "Link utili",
-    "breadcrumbExpand": "...",
+    "yourAnswers": "Le tue risposte ({count})",
+    "changeAnswer": "Cambia",
     "emergencyCallNow": "Chiama ora",
     "readFullGuide": "Leggi la guida completa su SOSpermesso",
     "share": {

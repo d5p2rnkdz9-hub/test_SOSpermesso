@@ -60,7 +60,8 @@
     "lawyerSelf": "می‌توانید خودتان انجام دهید",
     "lawyerRecommended": "بهتر است با یک مشاور حقوقی صحبت کنید",
     "linksTitle": "پیوندهای مفید",
-    "breadcrumbExpand": "...",
+    "yourAnswers": "پاسخ‌های شما ({count})",
+    "changeAnswer": "تغییر",
     "emergencyCallNow": "همین الان تماس بگیرید",
     "readFullGuide": "راهنمای کامل را در SOSpermesso بخوانید",
     "share": {

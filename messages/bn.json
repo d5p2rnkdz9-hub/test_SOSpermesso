@@ -60,7 +60,8 @@
     "lawyerSelf": "আপনি নিজেই করতে পারেন",
     "lawyerRecommended": "একজন আইনি পরামর্শদাতার সাথে কথা বলা ভাল",
     "linksTitle": "দরকারী লিঙ্ক",
-    "breadcrumbExpand": "...",
+    "yourAnswers": "আপনার উত্তর ({count})",
+    "changeAnswer": "পরিবর্তন করুন",
     "emergencyCallNow": "এখনই কল করুন",
     "readFullGuide": "SOSpermesso-এ সম্পূর্ণ গাইড পড়ুন",
     "share": {

@@ -60,7 +60,8 @@
     "lawyerSelf": "آپ خود کر سکتے ہیں",
     "lawyerRecommended": "قانونی مشیر سے بات کرنا بہتر ہے",
     "linksTitle": "مفید لنکس",
-    "breadcrumbExpand": "...",
+    "yourAnswers": "آپ کے جوابات ({count})",
+    "changeAnswer": "تبدیل کریں",
     "emergencyCallNow": "ابھی کال کریں",
     "readFullGuide": "SOSpermesso پر مکمل گائیڈ پڑھیں",
     "share": {

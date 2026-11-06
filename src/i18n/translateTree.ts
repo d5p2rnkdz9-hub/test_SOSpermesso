@@ -26,6 +26,8 @@ export function translateNode(node: TreeNode, map: TranslationMap | null): TreeN
   if (!map) return node;
   const out: TreeNode = { ...node };
   out.question = tx(node.question, map);
+  // Untranslated short labels are dropped so the recap falls back to the translated question
+  out.short = node.short ? map[node.short] : undefined;
   out.description = tx(node.description, map);
   out.title = tx(node.title, map);
   out.introText = tx(node.introText, map);

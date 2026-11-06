@@ -60,7 +60,8 @@
     "lawyerSelf": "Kendiniz yapabilirsiniz",
     "lawyerRecommended": "Bir hukuk danışmanıyla konuşmak daha iyidir",
     "linksTitle": "Yararlı bağlantılar",
-    "breadcrumbExpand": "...",
+    "yourAnswers": "Cevaplarınız ({count})",
+    "changeAnswer": "Değiştir",
     "emergencyCallNow": "Hemen ara",
     "readFullGuide": "SOSpermesso'daki tam rehberi okuyun",
     "share": {

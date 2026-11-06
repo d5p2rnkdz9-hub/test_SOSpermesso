@@ -28,6 +28,7 @@ export const italianTree: TreeData = {
     start: {
       id: 'start',
       type: 'question',
+      short: 'Cittadino UE?',
       question: 'Hai la cittadinanza di uno Stato dell\'Unione Europea (UE)?',
     },
 
@@ -60,6 +61,7 @@ export const italianTree: TreeData = {
     q_situazione: {
       id: 'q_situazione',
       type: 'question',
+      short: 'Situazione',
       question: 'Va bene. Se non hai mai avuto un permesso di soggiorno in Italia, dobbiamo capire se sei in una di queste situazioni.',
       description: 'Seleziona una delle opzioni qui sotto.',
     },
@@ -71,6 +73,7 @@ export const italianTree: TreeData = {
     paura_start: {
       id: 'paura_start',
       type: 'question',
+      short: 'Tipo di pericolo',
       question: 'Ci dispiace che il tuo paese per te sia pericoloso. Di che tipo di pericolo si tratta?',
     },
 
@@ -115,6 +118,7 @@ export const italianTree: TreeData = {
     brutta_start: {
       id: 'brutta_start',
       type: 'question',
+      short: 'Tipo di problema',
       question: 'Ci dispiace! Di cosa si tratta esattamente?',
     },
 
@@ -241,6 +245,7 @@ export const italianTree: TreeData = {
     minore_start: {
       id: 'minore_start',
       type: 'question',
+      short: 'Genitore in Italia?',
       question: 'Almeno uno dei tuoi genitori è in Italia in questo momento?',
     },
 
@@ -248,6 +253,7 @@ export const italianTree: TreeData = {
     min_gen_pds: {
       id: 'min_gen_pds',
       type: 'question',
+      short: 'Permesso del genitore',
       question: 'Tua mamma o tuo papà in questo momento:',
     },
 
@@ -281,6 +287,7 @@ export const italianTree: TreeData = {
     min_parenti: {
       id: 'min_parenti',
       type: 'question',
+      short: 'Familiare con cui vivi',
       question: 'In Italia vivi nella stessa casa con uno di questi famigliari?',
     },
 
@@ -288,6 +295,7 @@ export const italianTree: TreeData = {
     min_par_ita1: {
       id: 'min_par_ita1',
       type: 'question',
+      short: 'Situazione del parente',
       question: 'Qual è la situazione di tuo [Parente selezionato]?',
     },
 
@@ -295,6 +303,7 @@ export const italianTree: TreeData = {
     min_affido1: {
       id: 'min_affido1',
       type: 'question',
+      short: 'Affidamento?',
       question: 'C\'è una decisione del tribunale per i minorenni o almeno dei servizi sociali di affidarti a tuo [Parente selezionato]?',
     },
 
@@ -302,6 +311,7 @@ export const italianTree: TreeData = {
     min_par_ita2: {
       id: 'min_par_ita2',
       type: 'question',
+      short: 'Situazione del parente',
       question: 'Qual è la situazione di tuo [Parente selezionato]?',
     },
 
@@ -309,6 +319,7 @@ export const italianTree: TreeData = {
     min_affido2: {
       id: 'min_affido2',
       type: 'question',
+      short: 'Affidamento?',
       question: 'C\'è una decisione del tribunale per i minorenni o almeno dei servizi sociali di affidarti a tuo [Parente selezionato]?',
     },
 
@@ -316,6 +327,7 @@ export const italianTree: TreeData = {
     min_par_ita3: {
       id: 'min_par_ita3',
       type: 'question',
+      short: 'Situazione del parente',
       question: 'Qual è la situazione di tuo [Parente selezionato]?',
     },
 
@@ -323,6 +335,7 @@ export const italianTree: TreeData = {
     min_affido3: {
       id: 'min_affido3',
       type: 'question',
+      short: 'Affidamento?',
       question: 'C\'è una decisione del tribunale per i minorenni o almeno dei servizi sociali di affidarti a tuo [Parente selezionato]?',
     },
 
@@ -330,6 +343,7 @@ export const italianTree: TreeData = {
     min_par_ita4: {
       id: 'min_par_ita4',
       type: 'question',
+      short: 'Situazione del parente',
       question: 'Qual è la situazione di tuo [Parente selezionato]?',
     },
 
@@ -337,6 +351,7 @@ export const italianTree: TreeData = {
     min_affido4: {
       id: 'min_affido4',
       type: 'question',
+      short: 'Affidamento?',
       question: 'C\'è una decisione del tribunale per i minorenni o almeno dei servizi sociali di affidarti a tuo [Parente selezionato]?',
     },
 
@@ -344,6 +359,7 @@ export const italianTree: TreeData = {
     min_par_ita5: {
       id: 'min_par_ita5',
       type: 'question',
+      short: 'Situazione del parente',
       question: 'Qual è la situazione di tuo [Parente selezionato]?',
     },
 
@@ -351,6 +367,7 @@ export const italianTree: TreeData = {
     min_affido5: {
       id: 'min_affido5',
       type: 'question',
+      short: 'Affidamento?',
       question: 'C\'è una decisione del tribunale per i minorenni o almeno dei servizi sociali di affidarti a tuo [Parente selezionato]?',
     },
 
@@ -412,6 +429,7 @@ export const italianTree: TreeData = {
     famiglia_start: {
       id: 'famiglia_start',
       type: 'question',
+      short: 'Chi c\'è in Italia?',
       question: 'Molto bene. Chi c\'è in Italia della tua famiglia?',
     },
 
@@ -420,6 +438,7 @@ export const italianTree: TreeData = {
     figlio_start: {
       id: 'figlio_start',
       type: 'question',
+      short: 'Figlio italiano?',
       question: 'Almeno uno dei tuoi figli ha la cittadinanza italiana?',
       description: 'Ricorda: se l\'altro genitore è cittadino italiano, vostro figlio è molto probabilmente cittadino italiano.',
     },
@@ -428,6 +447,7 @@ export const italianTree: TreeData = {
     fig_ita_min: {
       id: 'fig_ita_min',
       type: 'question',
+      short: 'Figlio minorenne?',
       question: 'Tuo figlio italiano ha meno di 18 anni?',
     },
 
@@ -452,6 +472,7 @@ export const italianTree: TreeData = {
     fig_mant: {
       id: 'fig_mant',
       type: 'question',
+      short: 'Tuo figlio ti mantiene?',
       question: 'Tuo figlio maggiorenne cittadino italiano ti mantiene?',
       description: 'Per capirci: questo figlio paga la maggior parte delle tue spese per casa, cibo, vestiti, ecc.?',
     },
@@ -477,6 +498,7 @@ export const italianTree: TreeData = {
     fig_conv: {
       id: 'fig_conv',
       type: 'question',
+      short: 'Vivi con tuo figlio?',
       question: 'Tuo figlio italiano maggiorenne vive con te?',
     },
 
@@ -484,6 +506,7 @@ export const italianTree: TreeData = {
     fig_ue: {
       id: 'fig_ue',
       type: 'question',
+      short: 'Figlio cittadino UE?',
       question: 'Tuo figlio è cittadino di uno Stato dell\'Unione Europea (UE)?',
     },
 
@@ -491,6 +514,7 @@ export const italianTree: TreeData = {
     fig_ue_min: {
       id: 'fig_ue_min',
       type: 'question',
+      short: 'Figlio minorenne?',
       question: 'Tuo figlio (cittadino UE) è minore di 18 anni?',
     },
 
@@ -510,6 +534,7 @@ export const italianTree: TreeData = {
     fig_ue_mant: {
       id: 'fig_ue_mant',
       type: 'question',
+      short: 'Tuo figlio ti mantiene?',
       question: 'Tuo figlio (maggiorenne, cittadino UE) ti mantiene?',
       description: 'Per capirci: questo figlio paga la maggior parte delle tue spese per casa, cibo, vestiti, ecc.?',
     },
@@ -536,6 +561,7 @@ export const italianTree: TreeData = {
     fig_stra_min: {
       id: 'fig_stra_min',
       type: 'question',
+      short: 'Figlio minorenne?',
       question: 'Tuo figlio ha meno di 18 anni?',
     },
 
@@ -561,6 +587,7 @@ export const italianTree: TreeData = {
     fig_stra_pds: {
       id: 'fig_stra_pds',
       type: 'question',
+      short: 'Hai mai avuto un permesso?',
       question: 'Hai mai avuto un permesso di soggiorno da quando sei in Italia?',
     },
 
@@ -568,6 +595,7 @@ export const italianTree: TreeData = {
     fig_stra_mant: {
       id: 'fig_stra_mant',
       type: 'question',
+      short: 'Tuo figlio ti mantiene?',
       question: 'Tuo figlio ti mantiene?',
       description: 'Per capirci: questo figlio paga la maggior parte delle tue spese per casa, cibo, vestiti, ecc.?',
     },
@@ -592,6 +620,7 @@ export const italianTree: TreeData = {
     genitore_start: {
       id: 'genitore_start',
       type: 'question',
+      short: 'Genitore italiano o UE?',
       question: 'Mamma o papà hanno la cittadinanza italiana o la cittadinanza di un altro Stato membro della UE?',
       description: 'È sufficiente uno di loro.',
     },
@@ -600,6 +629,7 @@ export const italianTree: TreeData = {
     gen_ita_eta: {
       id: 'gen_ita_eta',
       type: 'question',
+      short: 'Tra 18 e 21 anni?',
       question: 'Hai tra 18 e 21 anni?',
       description: 'Se hai meno di 18 anni, sei nel posto sbagliato, torna indietro e seleziona "ho meno di 18 anni".',
     },
@@ -608,6 +638,7 @@ export const italianTree: TreeData = {
     gen_ita_tipo: {
       id: 'gen_ita_tipo',
       type: 'question',
+      short: 'Genitore italiano?',
       question: 'Il tuo genitore è cittadino italiano?',
     },
 
@@ -631,6 +662,7 @@ export const italianTree: TreeData = {
     gen_mant: {
       id: 'gen_mant',
       type: 'question',
+      short: 'Il genitore ti mantiene?',
       question: 'Il tuo genitore ti mantiene?',
       description: 'Per capirci: questo genitore paga la maggior parte delle tue spese per casa, cibo, vestiti, scuola, ecc.?',
     },
@@ -639,6 +671,7 @@ export const italianTree: TreeData = {
     gen_mant_tipo: {
       id: 'gen_mant_tipo',
       type: 'question',
+      short: 'Il tuo genitore è',
       question: 'Il tuo genitore è:',
     },
 
@@ -646,6 +679,7 @@ export const italianTree: TreeData = {
     gen_ita_conv: {
       id: 'gen_ita_conv',
       type: 'question',
+      short: 'Genitore italiano?',
       question: 'Il tuo genitore è cittadino italiano?',
     },
 
@@ -653,6 +687,7 @@ export const italianTree: TreeData = {
     gen_pds: {
       id: 'gen_pds',
       type: 'question',
+      short: 'Permesso familiare da minorenne?',
       question: 'Hai avuto fino ai 18 anni un permesso di soggiorno per motivi familiari?',
       description: 'Se hai ancora adesso meno di 18 anni, sei nel posto sbagliato: torna indietro e seleziona "ho meno di 18 anni".',
     },
@@ -677,6 +712,7 @@ export const italianTree: TreeData = {
     gen_inv: {
       id: 'gen_inv',
       type: 'question',
+      short: 'Invalidità totale?',
       question: 'Sei in una situazione di invalidità totale?',
       description: '"Totale" significa una certificazione 100% di invalidità. Hai problemi fisici o mentali gravi che non ti consentono di svolgere nessun lavoro.',
     },
@@ -685,6 +721,7 @@ export const italianTree: TreeData = {
     gen_inv_mant: {
       id: 'gen_inv_mant',
       type: 'question',
+      short: 'A carico dei genitori?',
       question: 'Sei a carico dei tuoi genitori?',
       description: 'Per capirci: pagano loro la maggior parte delle tue spese per casa, cibo, vestiti, scuola, ecc.?',
     },
@@ -725,6 +762,7 @@ export const italianTree: TreeData = {
     nonno_frat: {
       id: 'nonno_frat',
       type: 'question',
+      short: 'Familiare italiano?',
       question: 'Il tuo familiare in Italia è cittadino/a italiano/a?',
     },
 
@@ -749,6 +787,7 @@ export const italianTree: TreeData = {
     coniuge_start: {
       id: 'coniuge_start',
       type: 'question',
+      short: 'Il partner è',
       question: 'Tuo marito/moglie/partner è:',
     },
 
@@ -756,6 +795,7 @@ export const italianTree: TreeData = {
     con_ita_sposi: {
       id: 'con_ita_sposi',
       type: 'question',
+      short: 'Sposati?',
       question: 'Siete sposati?',
     },
 
@@ -763,6 +803,7 @@ export const italianTree: TreeData = {
     con_ita_conv: {
       id: 'con_ita_conv',
       type: 'question',
+      short: 'Convivenza registrata?',
       question: 'Avete un contratto di convivenza registrato all\'anagrafe del Comune di residenza?',
     },
 
@@ -785,6 +826,7 @@ export const italianTree: TreeData = {
     con_ue_sposi: {
       id: 'con_ue_sposi',
       type: 'question',
+      short: 'Sposati?',
       question: 'Siete sposati?',
     },
 
@@ -792,6 +834,7 @@ export const italianTree: TreeData = {
     con_ue_conv: {
       id: 'con_ue_conv',
       type: 'question',
+      short: 'Convivenza registrata?',
       question: 'Avete un contratto di convivenza registrato all\'anagrafe del Comune di residenza?',
     },
 
@@ -799,6 +842,7 @@ export const italianTree: TreeData = {
     con_str_sposi: {
       id: 'con_str_sposi',
       type: 'question',
+      short: 'Sposati?',
       question: 'Siete sposati?',
     },
 
@@ -806,6 +850,7 @@ export const italianTree: TreeData = {
     con_str_pds: {
       id: 'con_str_pds',
       type: 'question',
+      short: 'Permesso del coniuge',
       question: 'Che permesso di soggiorno ha tua moglie/tuo marito?',
       description: 'Sì, bisogna essere sposati. Puoi consultare la nostra guida per stranieri irregolari che vogliono sposarsi in Italia.',
     },
@@ -848,6 +893,7 @@ export const italianTree: TreeData = {
     con_str_prec: {
       id: 'con_str_prec',
       type: 'question',
+      short: 'Permesso o visto precedente?',
       question: 'Hai avuto in passato un permesso di soggiorno, o un visto di ingresso, scaduto da meno di un anno?',
     },
 

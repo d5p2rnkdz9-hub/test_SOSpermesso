@@ -60,7 +60,8 @@
     "lawyerSelf": "Вы можете справиться самостоятельно",
     "lawyerRecommended": "Лучше поговорить с юридическим консультантом",
     "linksTitle": "Полезные ссылки",
-    "breadcrumbExpand": "...",
+    "yourAnswers": "Ваши ответы ({count})",
+    "changeAnswer": "Изменить",
     "emergencyCallNow": "Позвонить сейчас",
     "readFullGuide": "Читать полное руководство на SOSpermesso",
     "share": {

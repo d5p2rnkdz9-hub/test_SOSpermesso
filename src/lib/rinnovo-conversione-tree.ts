@@ -39,6 +39,7 @@ const sharedNodes: Record<string, TreeNode> = {
   rc_fork: {
     id: 'rc_fork',
     type: 'question',
+    short: 'Cosa vuoi fare',
     question: 'Cosa vuoi fare con il tuo permesso di soggiorno?',
   },
 };
@@ -52,12 +53,14 @@ const rinnovoQuestionNodes: Record<string, TreeNode> = {
   r_valid_check: {
     id: 'r_valid_check',
     type: 'question',
+    short: 'Permesso valido?',
     question: 'Il tuo permesso è ancora valido?',
   },
 
   r_scad_check: {
     id: 'r_scad_check',
     type: 'question',
+    short: 'Scaduto da meno di 60 giorni?',
     question: 'È scaduto da meno di 60 giorni?',
     description: 'Il termine massimo per rinnovare è 60 giorni dopo la scadenza.',
   },
@@ -66,12 +69,14 @@ const rinnovoQuestionNodes: Record<string, TreeNode> = {
   r_quale_hai: {
     id: 'r_quale_hai',
     type: 'question',
+    short: 'Permesso attuale',
     question: 'Quale permesso di soggiorno hai adesso?',
   },
 
   r_hai_altro: {
     id: 'r_hai_altro',
     type: 'question',
+    short: 'Altro permesso',
     question: 'Quale altro permesso hai?',
   },
 
@@ -80,18 +85,21 @@ const rinnovoQuestionNodes: Record<string, TreeNode> = {
   r_quale_fam: {
     id: 'r_quale_fam',
     type: 'question',
+    short: 'Tipo di permesso familiare',
     question: 'Che tipo di permesso per motivi familiari hai?',
   },
 
   r_quale_cure: {
     id: 'r_quale_cure',
     type: 'question',
+    short: 'Tipo di permesso per cure',
     question: 'Che tipo di permesso per cure mediche hai?',
   },
 
   r_quale_prot_soc: {
     id: 'r_quale_prot_soc',
     type: 'question',
+    short: 'Tipo di protezione sociale',
     question: 'Che tipo di protezione sociale hai? (Art. 18, 18bis e 18ter)',
   },
 };

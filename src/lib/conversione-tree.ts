@@ -59,12 +59,14 @@ export const conversioneTree: TreeData = {
     c_quale_hai: {
       id: 'c_quale_hai',
       type: 'question',
+      short: 'Permesso attuale',
       question: 'CONVERSIONE: quale permesso di soggiorno hai adesso?',
     },
 
     c_hai_altro: {
       id: 'c_hai_altro',
       type: 'question',
+      short: 'Altro permesso',
       question: 'Quale altro permesso hai?',
     },
 
@@ -72,37 +74,39 @@ export const conversioneTree: TreeData = {
     // STEP 2 — VALIDITY CHECK (one per current permit)
     // =============================================
 
-    c_val_lav: { id: 'c_val_lav', type: 'question', question: 'Il tuo permesso di soggiorno è ancora valido?' },
-    c_val_famiglia: { id: 'c_val_famiglia', type: 'question', question: 'Il tuo permesso di soggiorno è ancora valido?' },
-    c_val_studio: { id: 'c_val_studio', type: 'question', question: 'Il tuo permesso di soggiorno è ancora valido?' },
-    c_val_att_occ: { id: 'c_val_att_occ', type: 'question', question: 'Il tuo permesso di soggiorno è ancora valido?' },
-    c_val_prot_suss: { id: 'c_val_prot_suss', type: 'question', question: 'Il tuo permesso di soggiorno è ancora valido?' },
-    c_val_asilo: { id: 'c_val_asilo', type: 'question', question: 'Il tuo permesso di soggiorno è ancora valido?' },
-    c_val_prot_spec: { id: 'c_val_prot_spec', type: 'question', question: 'Il tuo permesso di soggiorno è ancora valido?' },
-    c_val_minore: { id: 'c_val_minore', type: 'question', question: 'Il tuo permesso di soggiorno è ancora valido?' },
-    c_val_rich_asilo: { id: 'c_val_rich_asilo', type: 'question', question: 'Il tuo permesso di soggiorno è ancora valido?' },
-    c_val_stagionale: { id: 'c_val_stagionale', type: 'question', question: 'Il tuo permesso di soggiorno è ancora valido?' },
-    c_val_ass_minori: { id: 'c_val_ass_minori', type: 'question', question: 'Il tuo permesso di soggiorno è ancora valido?' },
-    c_val_calamita: { id: 'c_val_calamita', type: 'question', question: 'Il tuo permesso di soggiorno è ancora valido?' },
-    c_val_cure: { id: 'c_val_cure', type: 'question', question: 'Il tuo permesso di soggiorno è ancora valido?' },
-    c_val_sport_art: { id: 'c_val_sport_art', type: 'question', question: 'Il tuo permesso di soggiorno è ancora valido?' },
-    c_val_cittadinanza: { id: 'c_val_cittadinanza', type: 'question', question: 'Il tuo permesso di soggiorno è ancora valido?' },
-    c_val_res_elett: { id: 'c_val_res_elett', type: 'question', question: 'Il tuo permesso di soggiorno è ancora valido?' },
-    c_val_religiosi: { id: 'c_val_religiosi', type: 'question', question: 'Il tuo permesso di soggiorno è ancora valido?' },
-    c_val_ricerca: { id: 'c_val_ricerca', type: 'question', question: 'Il tuo permesso di soggiorno è ancora valido?' },
-    c_val_sfruttamento: { id: 'c_val_sfruttamento', type: 'question', question: 'Il tuo permesso di soggiorno è ancora valido?' },
-    c_val_prot_soc: { id: 'c_val_prot_soc', type: 'question', question: 'Il tuo permesso di soggiorno è ancora valido?' },
-    c_val_generico: { id: 'c_val_generico', type: 'question', question: 'Il tuo permesso di soggiorno è ancora valido?' },
+    c_val_lav: { id: 'c_val_lav', type: 'question', short: 'Permesso valido?', question: 'Il tuo permesso di soggiorno è ancora valido?' },
+    c_val_famiglia: { id: 'c_val_famiglia', type: 'question', short: 'Permesso valido?', question: 'Il tuo permesso di soggiorno è ancora valido?' },
+    c_val_studio: { id: 'c_val_studio', type: 'question', short: 'Permesso valido?', question: 'Il tuo permesso di soggiorno è ancora valido?' },
+    c_val_att_occ: { id: 'c_val_att_occ', type: 'question', short: 'Permesso valido?', question: 'Il tuo permesso di soggiorno è ancora valido?' },
+    c_val_prot_suss: { id: 'c_val_prot_suss', type: 'question', short: 'Permesso valido?', question: 'Il tuo permesso di soggiorno è ancora valido?' },
+    c_val_asilo: { id: 'c_val_asilo', type: 'question', short: 'Permesso valido?', question: 'Il tuo permesso di soggiorno è ancora valido?' },
+    c_val_prot_spec: { id: 'c_val_prot_spec', type: 'question', short: 'Permesso valido?', question: 'Il tuo permesso di soggiorno è ancora valido?' },
+    c_val_minore: { id: 'c_val_minore', type: 'question', short: 'Permesso valido?', question: 'Il tuo permesso di soggiorno è ancora valido?' },
+    c_val_rich_asilo: { id: 'c_val_rich_asilo', type: 'question', short: 'Permesso valido?', question: 'Il tuo permesso di soggiorno è ancora valido?' },
+    c_val_stagionale: { id: 'c_val_stagionale', type: 'question', short: 'Permesso valido?', question: 'Il tuo permesso di soggiorno è ancora valido?' },
+    c_val_ass_minori: { id: 'c_val_ass_minori', type: 'question', short: 'Permesso valido?', question: 'Il tuo permesso di soggiorno è ancora valido?' },
+    c_val_calamita: { id: 'c_val_calamita', type: 'question', short: 'Permesso valido?', question: 'Il tuo permesso di soggiorno è ancora valido?' },
+    c_val_cure: { id: 'c_val_cure', type: 'question', short: 'Permesso valido?', question: 'Il tuo permesso di soggiorno è ancora valido?' },
+    c_val_sport_art: { id: 'c_val_sport_art', type: 'question', short: 'Permesso valido?', question: 'Il tuo permesso di soggiorno è ancora valido?' },
+    c_val_cittadinanza: { id: 'c_val_cittadinanza', type: 'question', short: 'Permesso valido?', question: 'Il tuo permesso di soggiorno è ancora valido?' },
+    c_val_res_elett: { id: 'c_val_res_elett', type: 'question', short: 'Permesso valido?', question: 'Il tuo permesso di soggiorno è ancora valido?' },
+    c_val_religiosi: { id: 'c_val_religiosi', type: 'question', short: 'Permesso valido?', question: 'Il tuo permesso di soggiorno è ancora valido?' },
+    c_val_ricerca: { id: 'c_val_ricerca', type: 'question', short: 'Permesso valido?', question: 'Il tuo permesso di soggiorno è ancora valido?' },
+    c_val_sfruttamento: { id: 'c_val_sfruttamento', type: 'question', short: 'Permesso valido?', question: 'Il tuo permesso di soggiorno è ancora valido?' },
+    c_val_prot_soc: { id: 'c_val_prot_soc', type: 'question', short: 'Permesso valido?', question: 'Il tuo permesso di soggiorno è ancora valido?' },
+    c_val_generico: { id: 'c_val_generico', type: 'question', short: 'Permesso valido?', question: 'Il tuo permesso di soggiorno è ancora valido?' },
 
     // Shared scaduto handling (Famiglia exception)
     c_scaduto_quanto: {
       id: 'c_scaduto_quanto',
       type: 'question',
+      short: 'Da quanto è scaduto?',
       question: 'Da quanto tempo è scaduto il tuo permesso?',
     },
     c_scaduto_vorresti: {
       id: 'c_scaduto_vorresti',
       type: 'question',
+      short: 'In cosa convertire',
       question: 'In quale permesso vorresti convertire?',
       description: 'Attenzione: con un permesso scaduto, la conversione potrebbe non essere possibile per tutti i tipi di permesso.',
     },
@@ -111,27 +115,27 @@ export const conversioneTree: TreeData = {
     // STEP 3 — QUALE PERMESSO VORRESTI? (one per current permit)
     // =============================================
 
-    c_vorresti_lav: { id: 'c_vorresti_lav', type: 'question', question: 'In quale permesso vorresti convertire?' },
-    c_vorresti_famiglia: { id: 'c_vorresti_famiglia', type: 'question', question: 'In quale permesso vorresti convertire?' },
-    c_vorresti_studio: { id: 'c_vorresti_studio', type: 'question', question: 'In quale permesso vorresti convertire?' },
-    c_vorresti_att_occ: { id: 'c_vorresti_att_occ', type: 'question', question: 'In quale permesso vorresti convertire?' },
-    c_vorresti_prot_suss: { id: 'c_vorresti_prot_suss', type: 'question', question: 'In quale permesso vorresti convertire?' },
-    c_vorresti_asilo: { id: 'c_vorresti_asilo', type: 'question', question: 'In quale permesso vorresti convertire?' },
-    c_vorresti_prot_spec: { id: 'c_vorresti_prot_spec', type: 'question', question: 'In quale permesso vorresti convertire?' },
-    c_vorresti_minore: { id: 'c_vorresti_minore', type: 'question', question: 'In quale permesso vorresti convertire?' },
-    c_vorresti_rich_asilo: { id: 'c_vorresti_rich_asilo', type: 'question', question: 'In quale permesso vorresti convertire?' },
-    c_vorresti_stagionale: { id: 'c_vorresti_stagionale', type: 'question', question: 'In quale permesso vorresti convertire?' },
-    c_vorresti_ass_minori: { id: 'c_vorresti_ass_minori', type: 'question', question: 'In quale permesso vorresti convertire?' },
-    c_vorresti_calamita: { id: 'c_vorresti_calamita', type: 'question', question: 'In quale permesso vorresti convertire?' },
-    c_vorresti_cure: { id: 'c_vorresti_cure', type: 'question', question: 'In quale permesso vorresti convertire?' },
-    c_vorresti_sport_art: { id: 'c_vorresti_sport_art', type: 'question', question: 'In quale permesso vorresti convertire?' },
-    c_vorresti_cittadinanza: { id: 'c_vorresti_cittadinanza', type: 'question', question: 'In quale permesso vorresti convertire?' },
-    c_vorresti_res_elett: { id: 'c_vorresti_res_elett', type: 'question', question: 'In quale permesso vorresti convertire?' },
-    c_vorresti_religiosi: { id: 'c_vorresti_religiosi', type: 'question', question: 'In quale permesso vorresti convertire?' },
-    c_vorresti_ricerca: { id: 'c_vorresti_ricerca', type: 'question', question: 'In quale permesso vorresti convertire?' },
-    c_vorresti_sfruttamento: { id: 'c_vorresti_sfruttamento', type: 'question', question: 'In quale permesso vorresti convertire?' },
-    c_vorresti_prot_soc: { id: 'c_vorresti_prot_soc', type: 'question', question: 'In quale permesso vorresti convertire?' },
-    c_vorresti_generico: { id: 'c_vorresti_generico', type: 'question', question: 'In quale permesso vorresti convertire?' },
+    c_vorresti_lav: { id: 'c_vorresti_lav', type: 'question', short: 'In cosa convertire', question: 'In quale permesso vorresti convertire?' },
+    c_vorresti_famiglia: { id: 'c_vorresti_famiglia', type: 'question', short: 'In cosa convertire', question: 'In quale permesso vorresti convertire?' },
+    c_vorresti_studio: { id: 'c_vorresti_studio', type: 'question', short: 'In cosa convertire', question: 'In quale permesso vorresti convertire?' },
+    c_vorresti_att_occ: { id: 'c_vorresti_att_occ', type: 'question', short: 'In cosa convertire', question: 'In quale permesso vorresti convertire?' },
+    c_vorresti_prot_suss: { id: 'c_vorresti_prot_suss', type: 'question', short: 'In cosa convertire', question: 'In quale permesso vorresti convertire?' },
+    c_vorresti_asilo: { id: 'c_vorresti_asilo', type: 'question', short: 'In cosa convertire', question: 'In quale permesso vorresti convertire?' },
+    c_vorresti_prot_spec: { id: 'c_vorresti_prot_spec', type: 'question', short: 'In cosa convertire', question: 'In quale permesso vorresti convertire?' },
+    c_vorresti_minore: { id: 'c_vorresti_minore', type: 'question', short: 'In cosa convertire', question: 'In quale permesso vorresti convertire?' },
+    c_vorresti_rich_asilo: { id: 'c_vorresti_rich_asilo', type: 'question', short: 'In cosa convertire', question: 'In quale permesso vorresti convertire?' },
+    c_vorresti_stagionale: { id: 'c_vorresti_stagionale', type: 'question', short: 'In cosa convertire', question: 'In quale permesso vorresti convertire?' },
+    c_vorresti_ass_minori: { id: 'c_vorresti_ass_minori', type: 'question', short: 'In cosa convertire', question: 'In quale permesso vorresti convertire?' },
+    c_vorresti_calamita: { id: 'c_vorresti_calamita', type: 'question', short: 'In cosa convertire', question: 'In quale permesso vorresti convertire?' },
+    c_vorresti_cure: { id: 'c_vorresti_cure', type: 'question', short: 'In cosa convertire', question: 'In quale permesso vorresti convertire?' },
+    c_vorresti_sport_art: { id: 'c_vorresti_sport_art', type: 'question', short: 'In cosa convertire', question: 'In quale permesso vorresti convertire?' },
+    c_vorresti_cittadinanza: { id: 'c_vorresti_cittadinanza', type: 'question', short: 'In cosa convertire', question: 'In quale permesso vorresti convertire?' },
+    c_vorresti_res_elett: { id: 'c_vorresti_res_elett', type: 'question', short: 'In cosa convertire', question: 'In quale permesso vorresti convertire?' },
+    c_vorresti_religiosi: { id: 'c_vorresti_religiosi', type: 'question', short: 'In cosa convertire', question: 'In quale permesso vorresti convertire?' },
+    c_vorresti_ricerca: { id: 'c_vorresti_ricerca', type: 'question', short: 'In cosa convertire', question: 'In quale permesso vorresti convertire?' },
+    c_vorresti_sfruttamento: { id: 'c_vorresti_sfruttamento', type: 'question', short: 'In cosa convertire', question: 'In quale permesso vorresti convertire?' },
+    c_vorresti_prot_soc: { id: 'c_vorresti_prot_soc', type: 'question', short: 'In cosa convertire', question: 'In quale permesso vorresti convertire?' },
+    c_vorresti_generico: { id: 'c_vorresti_generico', type: 'question', short: 'In cosa convertire', question: 'In quale permesso vorresti convertire?' },
 
     // =============================================
     // FOLLOW-UP QUESTIONS (Studio → Lavoro path)
@@ -140,12 +144,14 @@ export const conversioneTree: TreeData = {
     c_lav_studi_finiti: {
       id: 'c_lav_studi_finiti',
       type: 'question',
+      short: 'Studi finiti?',
       question: 'Hai finito il percorso di studi?',
     },
 
     c_lav_titolo: {
       id: 'c_lav_titolo',
       type: 'question',
+      short: 'Titolo di studio',
       question: 'Qual è il tuo titolo di studio?',
     },
 
@@ -153,6 +159,7 @@ export const conversioneTree: TreeData = {
     c_att_titolo_ita: {
       id: 'c_att_titolo_ita',
       type: 'question',
+      short: 'Titolo universitario in Italia?',
       question:
         'Hai ottenuto in Italia una laurea o un altro titolo universitario (laurea, master, dottorato, diploma di specializzazione)?',
     },
@@ -160,6 +167,7 @@ export const conversioneTree: TreeData = {
     c_data_5mag_2023: {
       id: 'c_data_5mag_2023',
       type: 'question',
+      short: 'Domanda prima del 5/5/2023?',
       question: 'La domanda per il tuo attuale permesso è stata presentata prima o dopo il 5 maggio 2023?',
     },
 
