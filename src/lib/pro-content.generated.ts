@@ -89,36 +89,32 @@ export const proContent = {
           "corte": "TAR Lazio, sez. I-ter",
           "estremi": "ordinanza n. 1046/2026",
           "data": "2026-02-18",
-          "massima": "L'amministrazione non puo' revocare il nulla osta basandosi su verifiche meramente formali (asseverazione incompleta, idoneita' alloggiativa) quando i requisiti sostanziali risultano successivamente integrati: la tutela del diritto al lavoro prevale sul rigore procedurale, specie se i ritardi derivano da disfunzioni amministrative.",
-          "rilevanza_operativa": "In caso di revoca per motivi documentali, conviene integrare subito la documentazione mancante e valorizzarla anche in sede di ricorso: il giudice puo' tenere conto di quanto sopravvenuto nelle more del giudizio.",
-          "url_fonte": "https://integrazionemigranti.gov.it/it-it/Ricerca-news/Dettaglio-news/id/4641/Tar-Lazio-se-i-requisiti-sostanziali-esistono-il-nulla-osta-deve-essere-salvaguardato",
+          "teaser": "L'amministrazione non puo' revocare il nulla osta basandosi su verifiche meramente formali (asseverazione incompleta, idoneita' alloggiativa",
+          "troncata": true,
           "confidenza": "alta"
         },
         {
           "corte": "TAR Emilia-Romagna, sez. I",
           "estremi": "sentenza n. 69/2025",
           "data": "2025-01-22",
-          "massima": "La scadenza del permesso di soggiorno per lavoro stagionale non impedisce, di per se', la conversione in permesso per lavoro subordinato se sussistono i presupposti sostanziali (contratto, disponibilita' di quote): il termine di validita' ha natura ordinatoria e non perentoria.",
-          "rilevanza_operativa": "Utile quando la pratica si trascina oltre la scadenza del titolo per ritardi imputabili all'amministrazione: la sola scadenza formale non giustifica da sola il diniego o la revoca del nulla osta.",
-          "url_fonte": "https://www.eius.it/giurisprudenza/2025/0431766",
+          "teaser": "La scadenza del permesso di soggiorno per lavoro stagionale non impedisce, di per se', la conversione in permesso per lavoro subordinato se ",
+          "troncata": true,
           "confidenza": "media"
         },
         {
           "corte": "TAR Lazio, sede di Latina, sez. I",
           "estremi": "sentenza n. 839/2025",
           "data": "2025",
-          "massima": "Il nulla osta e' atto funzionale al rapporto con uno specifico datore di lavoro: in assenza di sottoscrizione del contratto la sua revoca e' legittima. Le esimenti per forza maggiore restano circoscritte a eventi estremi (morte o fallimento del datore), escluse le generiche sopravvenute difficolta' economiche.",
-          "rilevanza_operativa": "Da segnalare al lavoratore assistito che la sola indisponibilita' economica sopravvenuta del datore non salva il nulla osta: conviene attivarsi subito per la richiesta del permesso per attesa occupazione.",
-          "url_fonte": "https://avvocatibgp.it/decreto-flussi-revoca-nulla-osta/",
+          "teaser": "Il nulla osta e' atto funzionale al rapporto con uno specifico datore di lavoro: in assenza di sottoscrizione del contratto la sua revoca e'",
+          "troncata": true,
           "confidenza": "media"
         },
         {
           "corte": "TAR Campania, sede di Napoli",
           "estremi": "sentenza n. 7323/2025",
           "data": "2025",
-          "massima": "La revoca del nulla osta e' sproporzionata quando il datore non si presenta per la firma del contratto ma il lavoratore ha nel frattempo reperito autonomamente un'altra occupazione regolare: l'amministrazione deve bilanciare gli interessi in gioco e valutare il rilascio di un titolo di soggiorno alternativo.",
-          "rilevanza_operativa": "Nei casi di abbandono da parte del datore, documentare tempestivamente ogni nuova occasione di lavoro regolare trovata dallo straniero rafforza la posizione in sede di opposizione alla revoca.",
-          "url_fonte": "https://avvocatibgp.it/decreto-flussi-revoca-nulla-osta/",
+          "teaser": "La revoca del nulla osta e' sproporzionata quando il datore non si presenta per la firma del contratto ma il lavoratore ha nel frattempo rep",
+          "troncata": true,
           "confidenza": "media"
         }
       ],
@@ -252,36 +248,32 @@ export const proContent = {
           "corte": "Cass. civ., Sez. Un.",
           "estremi": "n. 24413/2021",
           "data": "2021-09-09",
-          "massima": "Nel valutare il radicamento dello straniero, il giudice opera un giudizio di comparazione attenuata: quanto più intenso è il grado di integrazione raggiunto in Italia, tanto minore rilievo assumono le condizioni oggettive del Paese d'origine; lo sradicamento può costituire di per sé fattore di vulnerabilità tutelato anche alla luce dell'art. 8 CEDU.",
-          "rilevanza_operativa": "Principio guida tuttora applicato dalla giurisprudenza di merito e di legittimità per valutare il radicamento in Italia anche dopo la riforma Cutro, pur in assenza dei criteri legislativi espliciti abrogati nel 2023.",
-          "url_fonte": "https://www.asgi.it/asilo-e-protezione-internazionale/protezione-umanitaria-e-protezione-speciale-vulnerabilita-cass-24413-2021/",
+          "teaser": "Nel valutare il radicamento dello straniero, il giudice opera un giudizio di comparazione attenuata: quanto più intenso è il grado di integr",
+          "troncata": true,
           "confidenza": "alta"
         },
         {
           "corte": "Cass. civ., Sez. I",
           "estremi": "ord. n. 29593/2025",
           "data": "2025-11-10",
-          "massima": "L'abrogazione del riferimento testuale alla vita privata/familiare nell'art. 19 co. 1.1 TUI, operata dal d.l. 20/2023, ha valore solo formale: la protezione resta operante tramite il rinvio dell'art. 19 co. 1.1 all'art. 5 co. 6 TUI e agli obblighi costituzionali e convenzionali (art. 8 CEDU), da bilanciare con giudizio di proporzionalità tra radicamento e condizioni nel Paese d'origine.",
-          "rilevanza_operativa": "Decisione di riferimento da citare quando Questura o Commissione territoriale neghino la protezione speciale assumendo che la tutela della vita privata/familiare non sarebbe più prevista dopo il decreto Cutro.",
-          "url_fonte": "https://www.giuseppebriganti.it/wordpress/2025/11/protezione-complementare-e-vita-privata-e-familiare-dopo-il-decreto-cutro-cassazione-n-29593-2025/",
+          "teaser": "L'abrogazione del riferimento testuale alla vita privata/familiare nell'art. 19 co. 1.1 TUI, operata dal d.l. 20/2023, ha valore solo formal",
+          "troncata": true,
           "confidenza": "alta"
         },
         {
           "corte": "Cass. civ., Sez. I",
           "estremi": "ord. n. 29443/2025",
           "data": "2025-11-07",
-          "massima": "Anche dopo l'abrogazione parziale dell'art. 19 co. 1.1 TUI, il giudice deve compiere una valutazione globale e comparativa di radicamento sociale/lavorativo e condizioni nel Paese d'origine; la mera precarietà del titolo di soggiorno pregresso non è di per sé ostativa, restando la protezione ancorata a fonti costituzionali e alla CEDU.",
-          "rilevanza_operativa": "Utile per contrastare dinieghi automatici motivati unicamente sulla precarietà pregressa della posizione di soggiorno del richiedente.",
-          "url_fonte": "https://www.osservatoriofamiglia.it/contenuti/17522571/stranieri-labrogazione-dellart-19-del-d-lgs-2861998-effetti.html",
+          "teaser": "Anche dopo l'abrogazione parziale dell'art. 19 co. 1.1 TUI, il giudice deve compiere una valutazione globale e comparativa di radicamento so",
+          "troncata": true,
           "confidenza": "media"
         },
         {
           "corte": "Cass. civ.",
           "estremi": "ord. n. 1802/2026",
           "data": "2026-01-26",
-          "massima": "L'inserimento in una rete anti-sfruttamento, la conoscenza dell'italiano e la consapevolezza dei propri diritti lavorativi costituiscono indici di integrazione sociale rilevanti per la protezione speciale; lo sfruttamento lavorativo integra vulnerabilità tutelabile anche senza denuncia formale a carico del datore di lavoro.",
-          "rilevanza_operativa": "Rilevante per gli sportelli che assistono vittime di caporalato/sfruttamento lavorativo nella richiesta di protezione speciale, anche in assenza di querela penale pregressa.",
-          "url_fonte": "http://stranieriinitalia.it/attualita/protezione-speciale-per-la-cassazione-la-rete-anti-sfruttamento-puo-indicare-integrazione/",
+          "teaser": "L'inserimento in una rete anti-sfruttamento, la conoscenza dell'italiano e la consapevolezza dei propri diritti lavorativi costituiscono ind",
+          "troncata": true,
           "confidenza": "alta"
         }
       ],
@@ -399,27 +391,24 @@ export const proContent = {
           "corte": "Corte di Giustizia UE, Terza Sezione",
           "estremi": "causa C-302/18, X c. Belgische Staat",
           "data": "2019-10-03",
-          "massima": "La nozione di 'risorse' (art. 5 §1 lett. a dir. 2003/109/CE) non è limitata al reddito proprio del richiedente: comprende anche risorse messe stabilmente a disposizione da terzi, purché stabili, regolari e sufficienti rispetto alla situazione individuale, senza ricorso all'assistenza sociale.",
-          "rilevanza_operativa": "Utile quando il richiedente non raggiunge da solo la soglia reddituale: il reddito di un familiare convivente, con impegno di sostentamento, può integrare il requisito.",
-          "url_fonte": "https://www.asgi.it/banca-dati/sentenza-della-corte-di-giustizia-terza-sezione-del-3-ottobre-2019-nella-causa-c-302-18/",
+          "teaser": "La nozione di 'risorse' (art. 5 §1 lett. a dir. 2003/109/CE) non è limitata al reddito proprio del richiedente: comprende anche risorse mess",
+          "troncata": true,
           "confidenza": "alta"
         },
         {
           "corte": "Corte di Giustizia UE, Grande Sezione",
           "estremi": "cause riunite C-112/22 e C-223/22",
           "data": "2024-07-29",
-          "massima": "L'art. 11 §1 lett. d) dir. 2003/109/CE, letto alla luce dell'art. 34 Carta dei diritti fondamentali, osta a normativa nazionale che subordini l'accesso dei soggiornanti di lungo periodo a prestazione di assistenza sociale (reddito di cittadinanza) a un requisito di residenza decennale, con due anni continuativi, sanzionato anche penalmente se falsamente dichiarato.",
-          "rilevanza_operativa": "Rilevante per assistere soggiornanti di lungo periodo a cui sia negato il reddito di cittadinanza o misure equivalenti per mancanza di 10 anni di residenza: il requisito è contrario al diritto UE.",
-          "url_fonte": "https://www.eius.it/giurisprudenza/2024/4353801",
+          "teaser": "L'art. 11 §1 lett. d) dir. 2003/109/CE, letto alla luce dell'art. 34 Carta dei diritti fondamentali, osta a normativa nazionale che subordin",
+          "troncata": true,
           "confidenza": "alta"
         },
         {
           "corte": "Corte di Giustizia UE, Grande Sezione",
           "estremi": "causa C-571/10, Kamberaj c. IPES Bolzano",
           "data": "2012-04-24",
-          "massima": "L'art. 11 §1 lett. d) dir. 2003/109/CE osta a normativa nazionale che riservi ai soggiornanti di lungo periodo un trattamento deteriore rispetto ai cittadini nazionali in materia di assistenza abitativa; le deroghe per 'prestazioni essenziali' vanno interpretate restrittivamente e richiedono espressa volontà dello Stato di avvalersene.",
-          "rilevanza_operativa": "Precedente di riferimento per contestare trattamenti deteriori dei soggiornanti di lungo periodo in materia di prestazioni sociali/alloggiative rispetto ai cittadini italiani.",
-          "url_fonte": "https://infocuria.curia.europa.eu/tabs/redirect/juris/document/document.jsf?docid=121961&doclang=IT",
+          "teaser": "L'art. 11 §1 lett. d) dir. 2003/109/CE osta a normativa nazionale che riservi ai soggiornanti di lungo periodo un trattamento deteriore risp",
+          "troncata": true,
           "confidenza": "alta"
         }
       ],

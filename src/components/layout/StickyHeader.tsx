@@ -1,5 +1,6 @@
 import { BackButton } from '@/components/tree/BackButton';
 
+import { HeaderAccount } from './HeaderAccount';
 import { LanguageSelector } from './LanguageSelector';
 
 export function StickyHeader() {
@@ -22,6 +23,7 @@ export function StickyHeader() {
           </a>
         </div>
         <div className="flex items-center gap-2">
+          <HeaderAccount />
           <LanguageSelector />
         </div>
       </div>

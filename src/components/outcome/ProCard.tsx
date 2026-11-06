@@ -1,26 +1,65 @@
 'use client';
 
 import { ExternalLink, Lock, Scale } from 'lucide-react';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
-import type { ProPermitContent } from '@/lib/pro-content';
+import { Link } from '@/i18n/navigation';
+import { authClient } from '@/lib/auth-client';
+import type { ProPermitContent, ProSentenza } from '@/lib/pro-content';
 
 interface ProCardProps {
   content: ProPermitContent;
   draft: boolean;
 }
 
-const TEASER_CHARS = 140;
+const BLURRED_FILLER =
+  'Il testo completo della massima e la sua rilevanza operativa sono riservati agli utenti registrati.';
+
+/**
+ * Full case law from /api/pro/sentenze/[slug].
+ * undefined = loading, null = not signed in or request failed.
+ */
+function usePremiumSentenze(slug: string, signedIn: boolean) {
+  const [sentenze, setSentenze] = useState<readonly ProSentenza[] | null | undefined>(null);
+
+  useEffect(() => {
+    if (!signedIn) {
+      setSentenze(null);
+      return;
+    }
+    setSentenze(undefined);
+    let cancelled = false;
+    fetch(`/api/pro/sentenze/${encodeURIComponent(slug)}`)
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data: { sentenze: readonly ProSentenza[] } | null) => {
+        if (!cancelled) setSentenze(data?.sentenze ?? null);
+      })
+      .catch(() => {
+        if (!cancelled) setSentenze(null);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [slug, signedIn]);
+
+  return sentenze;
+}
 
 /**
  * Professional permit card shown on outcome pages in PRO mode.
  *
  * Register is deliberately technical (no colloquial tone): succinct
- * summary, normative references, key case law. Case law shows a teaser
- * (first lines of the massima); the rest is blurred behind the future
- * PRO subscription — demo paywall, no real entitlement check yet.
+ * summary, normative references, key case law. Case law ships to the
+ * browser only as a teaser; signed-in users get the full text from
+ * /api/pro/sentenze/[slug] (access decided in src/lib/pro-access.ts).
  */
 export function ProCard({ content, draft }: ProCardProps) {
   const s = content.sintesi;
+  const { data: session, isPending } = authClient.useSession();
+  const premium = usePremiumSentenze(content.slug, Boolean(session));
+  const pathname = usePathname();
+  const loginHref = `/accedi?da=${encodeURIComponent(pathname)}`;
 
   return (
     <div className="flex flex-col gap-4 rounded-lg border-2 border-foreground bg-card p-5 text-start shadow-[3px_3px_0_hsl(var(--foreground))]">
@@ -126,38 +165,67 @@ export function ProCard({ content, draft }: ProCardProps) {
           </h3>
           <ul className="space-y-3">
             {content.sentenze.map((sent) => {
-              const teaser = sent.massima.slice(0, TEASER_CHARS);
-              const rest = sent.massima.slice(TEASER_CHARS);
+              const key = `${sent.corte}-${sent.estremi}`;
+              const full = premium?.find(
+                (p) => p.corte === sent.corte && p.estremi === sent.estremi,
+              );
               return (
-                <li
-                  key={`${sent.corte}-${sent.estremi}`}
-                  className="rounded-md border border-border p-3"
-                >
+                <li key={key} className="rounded-md border border-border p-3">
                   <p className="font-semibold text-foreground">
                     {sent.corte}, {sent.estremi}
                     <span className="ms-2 font-normal text-muted-foreground">{sent.data}</span>
                   </p>
-                  <p className="mt-1 text-muted-foreground">
-                    {teaser}
-                    {rest && (
-                      <span aria-hidden="true" className="select-none blur-[3px]">
-                        {rest}
-                      </span>
-                    )}
-                  </p>
-                  <button
-                    type="button"
-                    disabled
-                    title="Disponibile con l'abbonamento PRO (in arrivo)"
-                    className="mt-2 flex cursor-not-allowed items-center gap-1.5 rounded-md border border-foreground/30 px-2.5 py-1 text-xs font-semibold text-foreground/60"
-                  >
-                    <Lock className="h-3 w-3" />
-                    Massima integrale e rilevanza operativa — PRO
-                  </button>
+                  {full ? (
+                    <>
+                      <p className="mt-1 text-muted-foreground">{full.massima}</p>
+                      <p className="mt-1.5 text-muted-foreground">
+                        <span className="font-semibold text-foreground">
+                          Rilevanza operativa:{' '}
+                        </span>
+                        {full.rilevanza_operativa}
+                      </p>
+                      {full.url_fonte && (
+                        <a
+                          href={full.url_fonte}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[hsl(var(--link))] underline"
+                        >
+                          Fonte
+                          <ExternalLink className="h-3 w-3" />
+                        </a>
+                      )}
+                    </>
+                  ) : (
+                    <p className="mt-1 text-muted-foreground">
+                      {sent.teaser}
+                      {sent.troncata && (
+                        // Placeholder only: the real text never reaches the browser.
+                        <span aria-hidden="true" className="select-none blur-[3px]">
+                          {' '}
+                          {BLURRED_FILLER}
+                        </span>
+                      )}
+                    </p>
+                  )}
                 </li>
               );
             })}
           </ul>
+          {premium === null && !isPending && !session && (
+            <Link
+              href={loginHref}
+              className="mt-3 flex w-fit items-center gap-1.5 rounded-md border-2 border-foreground bg-primary px-3 py-1.5 text-xs font-bold text-primary-foreground shadow-[2px_2px_0_hsl(var(--foreground))]"
+            >
+              <Lock className="h-3 w-3" />
+              Registrati gratis per leggere massime integrali e rilevanza operativa
+            </Link>
+          )}
+          {premium === null && session && (
+            <p className="mt-2 text-xs text-muted-foreground">
+              Non è stato possibile caricare il testo completo. Ricarica la pagina.
+            </p>
+          )}
         </div>
       )}
 

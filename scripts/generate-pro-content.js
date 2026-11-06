@@ -1,12 +1,19 @@
 #!/usr/bin/env node
 /**
  * Copies the canonical PRO content (../pro-content-shared/pro-content.json)
- * into src/lib/pro-content.generated.ts so Next.js can bundle it.
+ * into two files so Next.js can bundle it:
+ *
+ * - src/lib/pro-content.generated.ts — public, shipped to the browser.
+ *   Case law keeps only a teaser of the massima (TEASER_CHARS); no
+ *   rilevanza_operativa, no source link.
+ * - src/lib/pro-content-premium.generated.ts — `server-only`, full case law
+ *   keyed by permit slug, served by /api/pro/sentenze/[slug] to users
+ *   with PRO access (src/lib/pro-access.ts).
  *
  * Run manually after editing the shared JSON:
  *   node scripts/generate-pro-content.js
  *
- * Same pattern as the rinnovo Notion data generator: generated file is
+ * Same pattern as the rinnovo Notion data generator: generated files are
  * committed, regeneration is explicit.
  */
 
@@ -14,7 +21,11 @@ const fs = require('fs');
 const path = require('path');
 
 const SRC = path.join(__dirname, '..', '..', 'pro-content-shared', 'pro-content.json');
-const DEST = path.join(__dirname, '..', 'src', 'lib', 'pro-content.generated.ts');
+const LIB = path.join(__dirname, '..', 'src', 'lib');
+const DEST = path.join(LIB, 'pro-content.generated.ts');
+const DEST_PREMIUM = path.join(LIB, 'pro-content-premium.generated.ts');
+
+const TEASER_CHARS = 140;
 
 const raw = fs.readFileSync(SRC, 'utf-8');
 const data = JSON.parse(raw); // validate before writing
@@ -27,12 +38,35 @@ const banner = `/**
 /* eslint-disable */
 `;
 
-const body = `export const proContent = ${JSON.stringify(data, null, 2)} as const;
+const publicData = { ...data, permits: {} };
+const premiumSentenze = {};
+for (const [slug, permit] of Object.entries(data.permits)) {
+  publicData.permits[slug] = {
+    ...permit,
+    sentenze: permit.sentenze.map((s) => ({
+      corte: s.corte,
+      estremi: s.estremi,
+      data: s.data,
+      teaser: s.massima.slice(0, TEASER_CHARS),
+      troncata: s.massima.length > TEASER_CHARS,
+      confidenza: s.confidenza,
+    })),
+  };
+  premiumSentenze[slug] = permit.sentenze;
+}
+
+const body = `export const proContent = ${JSON.stringify(publicData, null, 2)} as const;
 
 export type ProContentData = typeof proContent;
 `;
 
+const premiumBody = `import 'server-only';
+
+export const proSentenze = ${JSON.stringify(premiumSentenze, null, 2)} as const;
+`;
+
 fs.writeFileSync(DEST, banner + body);
+fs.writeFileSync(DEST_PREMIUM, banner + premiumBody);
 console.log(
-  `[generate-pro-content] wrote ${DEST} (${Object.keys(data.permits).length} permits, draft=${data.draft})`,
+  `[generate-pro-content] wrote ${DEST} + ${path.basename(DEST_PREMIUM)} (${Object.keys(data.permits).length} permits, draft=${data.draft})`,
 );

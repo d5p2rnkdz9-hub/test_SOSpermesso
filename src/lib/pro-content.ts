@@ -17,6 +17,18 @@ export interface ProNorma {
   url: string | null;
 }
 
+/** Public case-law entry: only the first lines of the massima. */
+export interface ProSentenzaTeaser {
+  corte: string;
+  estremi: string;
+  data: string;
+  teaser: string;
+  /** True when the massima continues past the teaser. */
+  troncata: boolean;
+  confidenza: string;
+}
+
+/** Full case-law entry — premium, served only by /api/pro/sentenze/[slug]. */
 export interface ProSentenza {
   corte: string;
   estremi: string;
@@ -49,7 +61,7 @@ export interface ProPermitContent {
     note_operative: readonly string[];
   };
   norme: readonly ProNorma[];
-  sentenze: readonly ProSentenza[];
+  sentenze: readonly ProSentenzaTeaser[];
   circolari: readonly ProCircolare[];
 }
 
