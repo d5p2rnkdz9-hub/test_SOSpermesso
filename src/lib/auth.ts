@@ -7,7 +7,7 @@ import { PostgresDialect } from 'kysely';
 import { Pool } from 'pg';
 
 import { sendEmail } from './email';
-import { SITE_URL } from './site-url';
+import { PROD_HOSTS, SITE_URL } from './site-url';
 
 /**
  * Accounts for the PRO premium area (docs/PRO-PREMIUM-PIANO.md).
@@ -21,15 +21,23 @@ import { SITE_URL } from './site-url';
 
 const MAGIC_LINK_MINUTES = 10;
 const BASE_URL = process.env.BETTER_AUTH_URL ?? SITE_URL;
+const PROD = process.env.NODE_ENV === 'production';
 
+/**
+ * Due nomi per lo stesso deploy: app.sospermesso.it (test gratuiti) e
+ * pro.sospermesso.it (area PRO). In produzione il base URL segue l'host della
+ * richiesta, così il link magico rimanda allo stesso sottodominio da cui si è
+ * partiti, e il cookie di sessione vale su .sospermesso.it: un solo login.
+ */
 export const auth = betterAuth({
   appName: 'SOS Permesso',
-  baseURL: BASE_URL,
+  baseURL: PROD ? { allowedHosts: [...PROD_HOSTS], protocol: 'https', fallback: BASE_URL } : BASE_URL,
   trustedOrigins: [
-    'https://app.sospermesso.it',
+    ...PROD_HOSTS.map((h) => `https://${h}`),
     // Local dev server (any port), never in production builds.
-    ...(process.env.NODE_ENV === 'production' ? [] : [BASE_URL]),
+    ...(PROD ? [] : [BASE_URL]),
   ],
+  advanced: PROD ? { crossSubDomainCookies: { enabled: true, domain: '.sospermesso.it' } } : undefined,
   database: {
     dialect: new PostgresDialect({
       pool: new Pool({ connectionString: process.env.NEON_DATABASE_URL, max: 3 }),

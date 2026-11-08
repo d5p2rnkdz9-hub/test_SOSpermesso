@@ -10,6 +10,7 @@ import {
 } from 'next/font/google';
 import { routing } from '@/i18n/routing';
 import { Providers } from './providers';
+import { ModeSync } from '@/components/layout/ModeSync';
 import { StickyHeader } from '@/components/layout/StickyHeader';
 
 const inter = Inter({
@@ -105,6 +106,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         />
         <Providers dir={dir}>
           <NextIntlClientProvider locale={locale} messages={messages}>
+            <ModeSync />
             <StickyHeader />
             {children}
           </NextIntlClientProvider>

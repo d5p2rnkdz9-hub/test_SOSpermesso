@@ -1,9 +1,11 @@
+import { CalendarClock, Library, MessageSquareText } from 'lucide-react';
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 
 import { ContentColumn } from '@/components/layout/ContentColumn';
+import { Link } from '@/i18n/navigation';
 import { getProAccess } from '@/lib/pro-access';
 
 import { AccountActions } from './AccountActions';
@@ -59,6 +61,39 @@ export default async function AccountPage({ params }: Props) {
           </dd>
         </div>
       </dl>
+
+      <nav className="mt-6 flex flex-col gap-3" aria-label="Strumenti PRO">
+        <Link
+          href="/account/pratiche"
+          className="flex items-center justify-between rounded-lg border-2 border-foreground bg-primary px-5 py-4 text-primary-foreground shadow-[3px_3px_0_hsl(var(--foreground))]"
+        >
+          <span>
+            <span className="block font-extrabold">Scadenziario</span>
+            <span className="block text-sm opacity-90">Le pratiche che segui, con avviso email a 90, 60 e 30 giorni</span>
+          </span>
+          <CalendarClock className="h-6 w-6 shrink-0" aria-hidden="true" />
+        </Link>
+        <Link
+          href="/pro/circolari"
+          className="flex items-center justify-between rounded-lg border-2 border-foreground bg-card px-5 py-4 text-foreground shadow-[3px_3px_0_hsl(var(--foreground))]"
+        >
+          <span>
+            <span className="block font-extrabold">Archivio circolari</span>
+            <span className="block text-sm text-muted-foreground">Oltre 1.900 documenti con ricerca nel testo e avvisi sulle novità</span>
+          </span>
+          <Library className="h-6 w-6 shrink-0" aria-hidden="true" />
+        </Link>
+        <Link
+          href="/pro/assistente"
+          className="flex items-center justify-between rounded-lg border-2 border-foreground bg-card px-5 py-4 text-foreground shadow-[3px_3px_0_hsl(var(--foreground))]"
+        >
+          <span>
+            <span className="block font-extrabold">Assistente PRO</span>
+            <span className="block text-sm text-muted-foreground">Descrivi il caso: cerca nelle circolari e risponde con le fonti</span>
+          </span>
+          <MessageSquareText className="h-6 w-6 shrink-0" aria-hidden="true" />
+        </Link>
+      </nav>
 
       <AccountActions locale={locale} />
     </ContentColumn>

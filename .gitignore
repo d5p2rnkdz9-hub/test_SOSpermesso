@@ -52,3 +52,6 @@ prisma/*.db-journal
 translations/_batches/
 review-reports/
 /.next-build/
+
+# Corpus circolari esportato dal SQLite del sito (scripts/import-circolari.mjs)
+.cache/
