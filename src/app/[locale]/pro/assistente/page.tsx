@@ -14,9 +14,9 @@ export const metadata: Metadata = {
   robots: { index: false },
 };
 
-type Props = { params: Promise<{ locale: string }> };
+type Props = { params: Promise<{ locale: string }>; searchParams: Promise<{ c?: string }> };
 
-export default async function AssistentePage({ params }: Props) {
+export default async function AssistentePage({ params, searchParams }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
 
@@ -45,6 +45,9 @@ export default async function AssistentePage({ params }: Props) {
 
   const userId = access.session.user.id;
   const [conversazioni, quota] = await Promise.all([listConversazioni(userId), quotaUsata(userId)]);
+  // ?c=<id> dalla dashboard: si apre solo se è davvero una conversazione dell'utente.
+  const { c } = await searchParams;
+  const iniziale = conversazioni.some((x) => x.id === c) ? c : undefined;
 
   return (
     <ContentColumn>
@@ -53,7 +56,7 @@ export default async function AssistentePage({ params }: Props) {
         Descrivi il caso o fai una domanda: l&apos;assistente cerca nell&apos;archivio circolari e nelle schede
         e risponde citando i documenti.
       </p>
-      <ChatPro conversazioni={conversazioni} dailyLimit={DAILY_LIMIT} maxTurns={MAX_TURNS} usatiOggi={quota.utente} />
+      <ChatPro iniziale={iniziale} conversazioni={conversazioni} dailyLimit={DAILY_LIMIT} maxTurns={MAX_TURNS} usatiOggi={quota.utente} />
     </ContentColumn>
   );
 }

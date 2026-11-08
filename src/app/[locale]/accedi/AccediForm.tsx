@@ -26,7 +26,8 @@ export function AccediForm({ callbackURL, locale }: AccediFormProps) {
       email: email.trim(),
       name: name.trim() || undefined,
       callbackURL,
-      newUserCallbackURL: callbackURL,
+      // Primo accesso: completa l'account prima di tornare dove si era.
+      newUserCallbackURL: `/${locale}/account/benvenuto?da=${encodeURIComponent(callbackURL)}`,
       errorCallbackURL: `/${locale}/accedi?errore=link`,
     });
     if (error) {

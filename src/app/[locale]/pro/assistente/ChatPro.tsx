@@ -14,6 +14,8 @@ import { Markdown } from './Markdown';
  */
 
 interface Props {
+  /** Conversazione da aprire subito (link dalla dashboard). */
+  iniziale?: string;
   conversazioni: ConversazioneSummary[];
   dailyLimit: number;
   maxTurns: number;
@@ -36,7 +38,7 @@ const SUGGESTIONS = [
   'Protezione speciale: la Questura può negare il rinnovo per assenza di integrazione?',
 ];
 
-export function ChatPro({ conversazioni: initial, dailyLimit, maxTurns, usatiOggi }: Props) {
+export function ChatPro({ iniziale, conversazioni: initial, dailyLimit, maxTurns, usatiOggi }: Props) {
   const [conversazioni, setConversazioni] = useState(initial);
   const [current, setCurrent] = useState<string | null>(null);
   const [bubbles, setBubbles] = useState<Bubble[]>([]);
@@ -69,6 +71,11 @@ export function ChatPro({ conversazioni: initial, dailyLimit, maxTurns, usatiOgg
       (data.messaggi as MessaggioView[]).map((m) => ({ id: String(m.id), ruolo: m.ruolo, testo: m.testo, fonti: m.fonti })),
     );
   }
+
+  useEffect(() => {
+    if (iniziale) void openConversazione(iniziale);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- solo al primo render
+  }, []);
 
   function nuova() {
     abortRef.current?.abort();
