@@ -84,11 +84,11 @@ Ti aspettiamo al corso "AI e professione forense" di DigiCrazy Lab!`,
     // Build enhanced prompt using rules result
     const claudePrompt = buildEnhancedPrompt(rulesResult)
 
-    // Call Claude Haiku to generate feedback
+    // Call Claude Sonnet to generate feedback
     const anthropic = new Anthropic()
 
     const message = await anthropic.messages.create({
-      model: "claude-3-haiku-20240307",
+      model: "claude-sonnet-5-5",
       max_tokens: 1500,
       messages: [
         {
@@ -99,10 +99,8 @@ Ti aspettiamo al corso "AI e professione forense" di DigiCrazy Lab!`,
     })
 
     // Extract the text from the response
-    const responseText =
-      message.content[0].type === "text"
-        ? message.content[0].text
-        : "Feedback non disponibile"
+    const textBlock = message.content.find((b) => b.type === "text")
+    const responseText = textBlock?.type === "text" ? textBlock.text : "Feedback non disponibile"
 
     // Parse JSON response with fallback
     let feedbackText = responseText
