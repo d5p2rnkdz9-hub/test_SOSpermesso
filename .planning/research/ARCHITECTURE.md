@@ -779,9 +779,9 @@ The decision tree, i18n, and RTL are deeply intertwined. Building them sequentia
 
 ## Sources
 
-- Corso AI codebase: `/Users/albertopasquero/Desktop/TECH/corso_ai/` (Prisma schema, quiz store, types, seed data) -- analyzed directly
-- SOSpermesso decision tree: `/Users/albertopasquero/Desktop/TECH/SOSpermesso/TYPEFORM_CLONE/flowchart_permessi.mermaid` and `data.js` -- analyzed directly
-- SOSpermesso PROJECT.md: `/Users/albertopasquero/Desktop/TECH/SOSpermesso/app/.planning/PROJECT.md` -- analyzed directly
+- Corso AI codebase: `/Users/albertopasquero/TECH/corso_ai/` (Prisma schema, quiz store, types, seed data) -- analyzed directly
+- SOSpermesso decision tree: `/Users/albertopasquero/TECH/SOSpermesso/TYPEFORM_CLONE/flowchart_permessi.mermaid` and `data.js` -- analyzed directly
+- SOSpermesso PROJECT.md: `/Users/albertopasquero/TECH/SOSpermesso/app/.planning/PROJECT.md` -- analyzed directly
 - [next-intl App Router setup](https://next-intl.dev/docs/getting-started/app-router) -- official documentation, HIGH confidence
 - [next-intl rendering translations](https://next-intl.dev/docs/usage/translations) -- official documentation for t.rich() and t.markup(), HIGH confidence
 - [Next.js official i18n guide](https://nextjs.org/docs/app/guides/internationalization) -- confirms [locale] segment pattern, HIGH confidence

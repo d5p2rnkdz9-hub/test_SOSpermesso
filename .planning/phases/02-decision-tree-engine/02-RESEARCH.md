@@ -832,14 +832,14 @@ export default function TreeContent() {
 ## Sources
 
 ### Primary (HIGH confidence)
-- [Existing `data.js`](/Users/albertopasquero/Desktop/TECH/SOSpermesso/TYPEFORM_CLONE/data.js) -- Complete Italian decision tree with 46 question nodes and 29 outcome nodes. Direct source for all tree content.
-- [Existing `flowchart_permessi.mermaid`](/Users/albertopasquero/Desktop/TECH/SOSpermesso/TYPEFORM_CLONE/flowchart_permessi.mermaid) -- Visual graph structure confirming all paths and shared terminals.
-- [Existing `quiz-store.ts`](/Users/albertopasquero/Desktop/TECH/SOSpermesso/app/src/store/quiz-store.ts) -- Proven navigation history stack pattern, Zustand persist usage with `partialize`.
+- [Existing `data.js`](/Users/albertopasquero/TECH/SOSpermesso/TYPEFORM_CLONE/data.js) -- Complete Italian decision tree with 46 question nodes and 29 outcome nodes. Direct source for all tree content.
+- [Existing `flowchart_permessi.mermaid`](/Users/albertopasquero/TECH/SOSpermesso/TYPEFORM_CLONE/flowchart_permessi.mermaid) -- Visual graph structure confirming all paths and shared terminals.
+- [Existing `quiz-store.ts`](/Users/albertopasquero/TECH/SOSpermesso/app/src/store/quiz-store.ts) -- Proven navigation history stack pattern, Zustand persist usage with `partialize`.
 - [Zustand persist middleware docs](https://zustand.docs.pmnd.rs/middlewares/persist) -- API reference for `persist`, `createJSONStorage`, `partialize`, `onRehydrateStorage`, `skipHydration`.
 - [Zustand SSR and Hydration guide](https://zustand.docs.pmnd.rs/guides/ssr-and-hydration) -- Patterns for handling SSR hydration with persist middleware.
-- [Phase 1 Research](/Users/albertopasquero/Desktop/TECH/SOSpermesso/app/.planning/phases/01-i18n-foundation-design-system/01-RESEARCH.md) -- CSS slide transition pattern, design tokens, logical properties.
-- [Architecture Research](/Users/albertopasquero/Desktop/TECH/SOSpermesso/app/.planning/research/ARCHITECTURE.md) -- DAG pattern, tree-engine separation, store design.
-- [Phase 2 CONTEXT.md](/Users/albertopasquero/Desktop/TECH/SOSpermesso/app/.planning/phases/02-decision-tree-engine/02-CONTEXT.md) -- Locked design decisions.
+- [Phase 1 Research](/Users/albertopasquero/TECH/SOSpermesso/app/.planning/phases/01-i18n-foundation-design-system/01-RESEARCH.md) -- CSS slide transition pattern, design tokens, logical properties.
+- [Architecture Research](/Users/albertopasquero/TECH/SOSpermesso/app/.planning/research/ARCHITECTURE.md) -- DAG pattern, tree-engine separation, store design.
+- [Phase 2 CONTEXT.md](/Users/albertopasquero/TECH/SOSpermesso/app/.planning/phases/02-decision-tree-engine/02-CONTEXT.md) -- Locked design decisions.
 
 ### Secondary (MEDIUM confidence)
 - [Zustand persist SSR hydration fix v5.0.10](https://github.com/pmndrs/zustand/discussions/2788) -- v5.0.10 (January 2026) fixes persist middleware state inconsistencies.
