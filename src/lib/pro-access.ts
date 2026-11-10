@@ -6,9 +6,11 @@ import { auth, type AuthSession } from './auth';
  * The single place that decides who may read premium content.
  * Every protected route and page goes through getProAccess().
  *
- * PRO_ACCESS_MODE=free (launch period): any signed-in user.
- * Step 2 (Stripe, docs/PRO-PREMIUM-PIANO.md) adds the subscription check
- * here — callers don't change.
+ * Launch period: any signed-in user is active. There is no switch for this
+ * (the old PRO_ACCESS_MODE variable was never read and has been dropped):
+ * to turn the assistant off use CHATBOT_PRO_DISABLED=1.
+ * Step 2 (Stripe, docs/PRO-PREMIUM-PIANO.md) adds the per-product entitlement
+ * check here — callers don't change.
  */
 
 export type ProAccess =

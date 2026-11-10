@@ -60,7 +60,6 @@ host da cui si parte, home di pro. → `/it/account`, link delle email PRO su pr
 | `RESEND_FROM` | `SOS Permesso <accesso@sospermesso.it>` | facoltativa, dominio verificato su Resend |
 | `ANTHROPIC_API_KEY` | stessa del sito | assistente PRO |
 | `CRON_SECRET` | `openssl rand -hex 24` | letta dalla route e dalla scheduled function |
-| `PRO_ACCESS_MODE` | `free` | periodo di lancio (vedi pro-access.ts) |
 | `CHATBOT_PRO_DISABLED` | `1` solo per spegnere l'assistente | kill switch |
 
 `URL` la mette Netlify da sola (usata dalla scheduled function per chiamare la route).

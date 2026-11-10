@@ -8,5 +8,7 @@
 # Variabili che contengono indirizzi o modalità pubbliche, non segreti: il loro
 # valore (es. https://app.sospermesso.it) compare legittimamente nel codice e
 # farebbe fallire la scansione dei segreti di Netlify.
+# PRO_ACCESS_MODE non è più letta dal codice: resta in elenco finché la variabile
+# esiste su Netlify (valore "free", che altrimenti bloccherebbe la scansione).
 [build.environment]
   SECRETS_SCAN_OMIT_KEYS = "BETTER_AUTH_URL,NEXT_PUBLIC_PRO_URL,PRO_ACCESS_MODE"

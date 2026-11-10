@@ -10,7 +10,7 @@
 - **Login senza password** con link via email (Better Auth `magicLink`, email via Resend).
   Google/Microsoft eventualmente dopo, come `socialProviders`.
 - **Lancio gratuito**: primi giorni / primi ~100 utenti, basta essere registrati
-  (`PRO_ACCESS_MODE=free`). `user.createdAt` permette di riconoscere i primi iscritti.
+  (nessun interruttore: lo decide `src/lib/pro-access.ts`). `user.createdAt` permette di riconoscere i primi iscritti.
 - **Poi a pagamento**: prova di **5 giorni con carta** richiesta subito, addebito automatico al
   giorno 6 salvo disdetta (Stripe).
 - **Fatture automatiche**: Stripe + **Fatture in Cloud** via API, fattura elettronica allo SDI
