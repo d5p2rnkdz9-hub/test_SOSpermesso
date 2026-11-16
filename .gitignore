@@ -55,3 +55,8 @@ review-reports/
 
 # Corpus circolari esportato dal SQLite del sito (scripts/import-circolari.mjs)
 .cache/
+
+# File di lavoro locali
+TYPEFORM_CLONE/
+*Typeform*.xlsx
+.claude/
