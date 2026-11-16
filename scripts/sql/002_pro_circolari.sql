@@ -2,7 +2,7 @@
 -- SQLite del sito) con ricerca full-text, permessi seguiti e avvisi inviati.
 
 CREATE TABLE IF NOT EXISTS pro.circolare (
-  id             text PRIMARY KEY,                 -- 'biz:123' | 'pds:909'
+  id             text PRIMARY KEY,                 -- 'biz:123' | 'pds:909' | 'man:1' (inserimento manuale)
   fonte          text NOT NULL,                    -- immigrazione.biz | permessidisoggiorno.info
   slug_pubblico  text,                             -- 'circolare-123' se esiste la pagina pubblica sul sito
   source_url     text,

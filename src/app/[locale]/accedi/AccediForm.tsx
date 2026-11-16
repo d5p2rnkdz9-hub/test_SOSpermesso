@@ -14,7 +14,6 @@ type Status = 'idle' | 'sending' | 'sent' | 'error';
 
 export function AccediForm({ callbackURL, locale }: AccediFormProps) {
   const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
   const [consent, setConsent] = useState(false);
   const [status, setStatus] = useState<Status>('idle');
   const [errorMsg, setErrorMsg] = useState('');
@@ -24,7 +23,6 @@ export function AccediForm({ callbackURL, locale }: AccediFormProps) {
     setStatus('sending');
     const { error } = await authClient.signIn.magicLink({
       email: email.trim(),
-      name: name.trim() || undefined,
       callbackURL,
       // Primo accesso: completa l'account prima di tornare dove si era.
       newUserCallbackURL: `/${locale}/account/benvenuto?da=${encodeURIComponent(callbackURL)}`,
@@ -34,7 +32,7 @@ export function AccediForm({ callbackURL, locale }: AccediFormProps) {
       setStatus('error');
       setErrorMsg(
         error.status === 429
-          ? 'Troppi tentativi. Aspetta un minuto e riprova.'
+          ? 'Troppi tentativi. Aspetta qualche minuto e riprova.'
           : 'Non siamo riusciti a inviare il link. Controlla l’indirizzo e riprova.',
       );
       return;
@@ -67,20 +65,6 @@ export function AccediForm({ callbackURL, locale }: AccediFormProps) {
           autoComplete="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="rounded-md border-2 border-foreground bg-white px-3 py-2 text-base font-normal"
-        />
-      </label>
-      <label className="flex flex-col gap-1.5 text-sm font-semibold text-foreground">
-        <span>
-          Nome e organizzazione <span className="font-normal text-muted-foreground">(facoltativo)</span>
-        </span>
-        <input
-          type="text"
-          autoComplete="name"
-          maxLength={120}
-          placeholder="Es. Maria Rossi — CAF di Torino"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
           className="rounded-md border-2 border-foreground bg-white px-3 py-2 text-base font-normal"
         />
       </label>

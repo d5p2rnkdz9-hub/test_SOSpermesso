@@ -64,7 +64,7 @@ export interface SearchResult {
 }
 
 export function fromUrlId(urlId: string): string | null {
-  const m = /^(biz|pds)-(\d{1,8})$/.exec(urlId);
+  const m = /^(biz|pds|man)-(\d{1,8})$/.exec(urlId);
   return m ? `${m[1]}:${m[2]}` : null;
 }
 
