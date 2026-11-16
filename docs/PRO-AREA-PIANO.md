@@ -1,4 +1,4 @@
-# Area PRO — piano (scadenziario, circolari complete, chatbot PRO)
+# Area PRO — piano (scadenziario, circolari complete, chatbot PRO sospeso)
 
 > Concordato il 2026-11-07. Si appoggia a `PRO-PREMIUM-PIANO.md` (account e pagamenti).
 > Target: CAF, consulenti del lavoro, sindacati; avvocati in futuro.
@@ -36,7 +36,80 @@
 - Netlify scheduled function giornaliera: promemoria a 90/60/30 giorni con link alla checklist
   di rinnovo sul sito.
 
-### 3. Chatbot PRO (retrieval agentico)
+### 3. Chatbot PRO (retrieval agentico) — SOSPESO il 16/11/2026
+
+**Stato.** Spento: `src/lib/assistente-pro.ts` (`ASSISTENTE_PRO_ATTIVO`, si riaccende solo con
+`CHATBOT_PRO_ENABLED=1`). La route risponde 503, `/pro/assistente` e la dashboard rimandano al
+chatbot gratuito del sito. Il codice (`chat-pro.ts`, `ChatPro.tsx`, tabelle `pro.chat_*`) resta.
+
+**Perché.** Prova di Alberto: «Conversione da studio a lavoro subordinato fuori quota: cosa serve?»
+(2° suggerimento della schermata vuota). Quattro difetti, analizzati in
+`.planning/chatbot-qualita/` (sintesi in `0-piano.md`):
+1. **Forma** (`1-forma.md`): scrive «la scheda indica…» e mette il link alla scheda dopo ogni
+   elenco. Causa: regola 2 del prompt (`chat-pro.ts:59`) + `Scheda pubblica: URL` in testa ai
+   risultati (`generate-permits-kb.js:42`). Le schede devono restare conoscenza di fondo, con i
+   link solo in «Per approfondire».
+2. **Norme** (`2-norme.md`): «conviene verificare il testo vigente dell'art. 6 TUI»: il bot non
+   ha uno strumento per le norme, e la regola 3 lo invita a rimandare la verifica. I testi
+   aggiornati ci sono nella KB immigrazbot-norme (TUI al 4/6/2026 + d.l. 100, DPR 394 al
+   29/10/2026, verificati su Normattiva).
+3. **Conflitti legge/circolari** (`3-conflitti.md`): la Circ. 5969/2023 (`biz-1227`) dice già
+   «fuori quota» (d.l. 20/2023 + art. 24 c. 5 d.l. 75/2023), ma il bot ne ha letto solo l'inizio.
+   Il ranking premia le circolari flussi 2005-2022, non c'è nessun dato su cosa è superato e il
+   prompt non dà una gerarchia delle fonti. Trappola: l'art. 14 cc. 5-6 DPR 394 dice ancora
+   «nei limiti delle quote» (regolamento non adeguato), e la nostra scheda PRO flussi riporta la
+   regola anteriore al 2023.
+4. **Testo troncato** (`4-troncato.md`): `TOOL_TEXT_CAP = 10_000` taglia senza modo di
+   proseguire. 280 documenti su 1.929 superano i 10.000 caratteri; il passaggio decisivo di
+   `biz-1227` è intorno al carattere 34.000 di 52.000.
+
+**TODO per riaccenderlo** (dettagli, file e righe nei documenti citati):
+
+*Fase 1: risolve il caso segnalato (~2 giorni)*
+- [ ] Prompt: blocco «FONTI E CITAZIONI» (`1-forma.md` §3), «GERARCHIA DELLE FONTI»
+      (`3-conflitti.md` §3.1), «mai scaricare la verifica sull'utente» (`2-norme.md` §7), regola
+      sui documenti lunghi (`4-troncato.md` §5). Togliere la regola 3 attuale.
+- [ ] `leggi_circolare`: parametri `cerca` (paragrafi pertinenti, FTS italiano) e `da_paragrafo`;
+      taglio su confine di paragrafo; messaggio di fine blocco che dice come proseguire;
+      `cercaInCircolare()` in `circolari.ts`.
+- [ ] `scheda_permesso`: etichette neutre («Approfondimento giuridico» invece di «Scheda PRO»,
+      link in coda «per Per approfondire»).
+- [ ] Ranking `cerca_circolari`: `ts_rank_cd(..., 32)` + recenza; escludere `fuori_ambito`.
+- [ ] Correggere la conversione da studio nella scheda PRO flussi
+      (`pro-content-shared/pro-content.json`) — **da validare da Alberto**.
+- [ ] Valida Alberto: regola «la legge prevale sul regolamento non adeguato; una circolare
+      anteriore all'ultima modifica dell'articolo è potenzialmente superata».
+- [ ] Test: esportare `runTool`; `scripts/check-chat-forma.mjs` (bozza in
+      `.planning/chatbot-qualita/check-forma.bozza.mjs`); `scripts/eval-chat-pro.ts` su Neon dev
+      con i casi di `1-forma.md` §4c, `3-conflitti.md` §3.4 e `4-troncato.md` §6
+      (`env -u ANTHROPIC_API_KEY`).
+- [ ] Lettura (sola) di `pro.chat_messaggio` in produzione, da terminale di Alberto: traccia
+      reale del turno, numero di letture troncate, il «prima» della regex.
+
+*Fase 2: norme nel bot (~2 giorni)*
+- [ ] `scripts/sql/007_pro_norme.sql` (`pro.norma_atto`, `pro.norma_articolo`) +
+      `scripts/import-norme.mjs` dalla KB immigrazbot-norme (primo lotto 19 atti, ~10 MB).
+      Pulizia: soppressioni `....` → «[parole soppresse dal legislatore]»; falso tag `lett.a`
+      nel DPR 394 art. 14.
+- [ ] Strumenti `leggi_norma` / `cerca_norme` con «testo vigente al…», rinvii, «richiamato da»,
+      avvertenza GU; elenco ATTI NORMATIVI nel prompt.
+- [ ] Sentinella Normattiva mensile (`scripts/sync-norme-normattiva.mjs`, in locale).
+- [ ] A monte, pipeline IMMIGRAZBOT (`export_norme.py`): correggere i due difetti di parsing,
+      `vigente_dal` + atto modificante, atti mancanti (d.l. 20/2023, 145/2024, 146/2025,
+      d.lgs. 83/2026, l. 91/1992, d.P.R. 179/2011, DPCM flussi 2025, d.m. 4/6/2010).
+- [ ] Verificare gli estremi della conversione del d.l. 75/2023 (l. 112/2023) su Normattiva.
+
+*Fase 3: circolari superate (~5-6 giorni + 5-10 ore di revisione di Alberto)*
+- [ ] Tabelle `pro.norma_articolo_versione`, `pro.circolare_norma`, `pro.circolare_stato`, dal
+      file versionato `Sito_Nuovo/data-pipeline/data/circolari-stato.json`.
+- [ ] Pipeline: multivigenza Normattiva → regex sulle norme citate → LLM in batch sugli ~810 documenti
+      in ambito → regola sulla data (`da_verificare`) → `efficacia_esaurita` per quote/click
+      day/emersioni.
+- [ ] Revisione umana delle 150 circolari più usate; avviso di stato in testa ai risultati; solo
+      «superata» verificata abbassa il ranking.
+- [ ] Facoltativo: togliere il trattino morbido U+00AD in `export_circolari_site.py`.
+
+**Progetto originale** (resta valido):
 - Route `/api/pro/chat` dietro `getProAccess()`, streaming, storico per utente.
 - Strumenti (tool use) sulla tabella del punto 1: `cerca_circolari`, `leggi_circolare`,
   `scheda_permesso`. Tetto di 6-8 chiamate per domanda, limite giornaliero per utente.

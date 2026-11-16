@@ -18,6 +18,7 @@ import { redirect } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
 
 import { Link } from '@/i18n/navigation';
+import { CHATBOT_FREE_URL } from '@/lib/assistente-pro';
 import { getDashboard, type ScadenzaView } from '@/lib/dashboard';
 import { getProAccess } from '@/lib/pro-access';
 import { getProfilo } from '@/lib/profilo';
@@ -97,7 +98,9 @@ export default async function DashboardPage({ params }: Props) {
     month: 'long',
     year: 'numeric',
   });
-  const quotaPct = Math.min(100, Math.round((d.assistente.usatiOggi / d.assistente.limite) * 100));
+  const quotaPct = d.assistente
+    ? Math.min(100, Math.round((d.assistente.usatiOggi / d.assistente.limite) * 100))
+    : 0;
   const urgenti = d.pratiche.scadute + d.pratiche.entro30;
 
   const stats = [
@@ -192,13 +195,23 @@ export default async function DashboardPage({ params }: Props) {
             >
               <Plus className="h-5 w-5" aria-hidden="true" /> Nuova pratica
             </Link>
-            <Link
-              href="/pro/assistente"
-              className={`flex items-center gap-2 rounded-xl border-[2.5px] bg-white px-4 py-2.5 font-extrabold shadow-[4px_4px_0_#141414] ${lift}`}
-              style={{ borderColor: INK }}
-            >
-              <Sparkles className="h-5 w-5" aria-hidden="true" /> Chiedi all&apos;assistente
-            </Link>
+            {d.assistente ? (
+              <Link
+                href="/pro/assistente"
+                className={`flex items-center gap-2 rounded-xl border-[2.5px] bg-white px-4 py-2.5 font-extrabold shadow-[4px_4px_0_#141414] ${lift}`}
+                style={{ borderColor: INK }}
+              >
+                <Sparkles className="h-5 w-5" aria-hidden="true" /> Chiedi all&apos;assistente
+              </Link>
+            ) : (
+              <a
+                href={CHATBOT_FREE_URL}
+                className={`flex items-center gap-2 rounded-xl border-[2.5px] bg-white px-4 py-2.5 font-extrabold shadow-[4px_4px_0_#141414] ${lift}`}
+                style={{ borderColor: INK }}
+              >
+                <MessageSquareText className="h-5 w-5" aria-hidden="true" /> Chiedi al chatbot
+              </a>
+            )}
           </div>
         </div>
       </section>
@@ -275,51 +288,73 @@ export default async function DashboardPage({ params }: Props) {
         </section>
 
         <div className="flex flex-col gap-7">
-          {/* Assistente */}
-          <section
-            className={`${sticker} p-5`}
-            style={{ background: C.purpleTint }}
-            aria-labelledby="assistente"
-          >
-            <div className="flex items-center justify-between gap-3">
-              <h2 id="assistente" className="flex items-center gap-2 text-xl font-extrabold">
-                <MessageSquareText className="h-6 w-6" aria-hidden="true" /> Assistente PRO
-              </h2>
-              <span className="text-xs font-bold tabular-nums">
-                {d.assistente.usatiOggi}/{d.assistente.limite} oggi
-              </span>
-            </div>
-            <div
-              className="mt-3 h-3 overflow-hidden rounded-full border-2 bg-white"
-              style={{ borderColor: INK }}
-              role="meter"
-              aria-label="Domande usate oggi"
-              aria-valuemin={0}
-              aria-valuemax={d.assistente.limite}
-              aria-valuenow={d.assistente.usatiOggi}
+          {/* Assistente: spento → rimando al chatbot gratuito del sito */}
+          {!d.assistente ? (
+            <section
+              className={`${sticker} p-5`}
+              style={{ background: C.purpleTint }}
+              aria-labelledby="assistente"
             >
-              <div className="h-full" style={{ width: `${quotaPct}%`, background: C.purple }} />
-            </div>
-
-            {d.assistente.recenti.length > 0 ? (
-              <ul className="mt-4 flex flex-col gap-2">
-                {d.assistente.recenti.map((c) => (
-                  <li key={c.id}>
-                    <Link
-                      href={`/pro/assistente?c=${c.id}`}
-                      className="flex items-center justify-between gap-3 rounded-lg border-2 bg-white px-3 py-2 text-sm font-semibold hover:bg-[#FFFDF5]"
-                      style={{ borderColor: INK }}
-                    >
-                      <span className="line-clamp-1">{c.titolo}</span>
-                      <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p className="mt-4 text-sm" style={{ color: C.muted }}>
-                Descrivi un caso: l&apos;assistente cerca nelle circolari e nelle schede e risponde con le fonti.
+              <h2 id="assistente" className="flex items-center gap-2 text-xl font-extrabold">
+                <MessageSquareText className="h-6 w-6" aria-hidden="true" /> Domande veloci
+              </h2>
+              <p className="mt-3 text-sm" style={{ color: C.muted }}>
+                Per una domanda rapida su un permesso usa il chatbot di SOS Permesso: lo trovi in basso a destra
+                in ogni pagina del sito. L&apos;assistente PRO con circolari e norme è in lavorazione.
               </p>
+              <a
+                href={CHATBOT_FREE_URL}
+                className={`mt-4 flex items-center justify-center gap-2 rounded-xl border-[2.5px] px-4 py-2.5 font-extrabold shadow-[4px_4px_0_#141414] ${lift}`}
+                style={{ background: C.purple, borderColor: INK }}
+              >
+                <ArrowUpRight className="h-5 w-5" aria-hidden="true" /> Apri il chatbot sul sito
+              </a>
+            </section>
+          ) : (
+            <section
+              className={`${sticker} p-5`}
+              style={{ background: C.purpleTint }}
+              aria-labelledby="assistente"
+            >
+              <div className="flex items-center justify-between gap-3">
+                <h2 id="assistente" className="flex items-center gap-2 text-xl font-extrabold">
+                  <MessageSquareText className="h-6 w-6" aria-hidden="true" /> Assistente PRO
+                </h2>
+                <span className="text-xs font-bold tabular-nums">
+                  {d.assistente.usatiOggi}/{d.assistente.limite} oggi
+                </span>
+              </div>
+              <div
+                className="mt-3 h-3 overflow-hidden rounded-full border-2 bg-white"
+                style={{ borderColor: INK }}
+                role="meter"
+                aria-label="Domande usate oggi"
+                aria-valuemin={0}
+                aria-valuemax={d.assistente.limite}
+                aria-valuenow={d.assistente.usatiOggi}
+              >
+                <div className="h-full" style={{ width: `${quotaPct}%`, background: C.purple }} />
+              </div>
+
+              {d.assistente.recenti.length > 0 ? (
+                <ul className="mt-4 flex flex-col gap-2">
+                  {d.assistente.recenti.map((c) => (
+                    <li key={c.id}>
+                      <Link
+                        href={`/pro/assistente?c=${c.id}`}
+                        className="flex items-center justify-between gap-3 rounded-lg border-2 bg-white px-3 py-2 text-sm font-semibold hover:bg-[#FFFDF5]"
+                        style={{ borderColor: INK }}
+                      >
+                        <span className="line-clamp-1">{c.titolo}</span>
+                        <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="mt-4 text-sm" style={{ color: C.muted }}>
+                  Descrivi un caso: l&apos;assistente cerca nelle circolari e nelle schede e risponde con le fonti.
+                </p>
             )}
             <Link
               href="/pro/assistente"
@@ -329,6 +364,7 @@ export default async function DashboardPage({ params }: Props) {
               <Sparkles className="h-5 w-5" aria-hidden="true" /> Nuova domanda
             </Link>
           </section>
+          )}
 
           {/* Circolari */}
           <section className={`${sticker} bg-white`} aria-labelledby="circolari">

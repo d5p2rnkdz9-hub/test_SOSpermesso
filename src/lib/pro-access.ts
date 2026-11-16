@@ -8,7 +8,7 @@ import { auth, type AuthSession } from './auth';
  *
  * Launch period: any signed-in user is active. There is no switch for this
  * (the old PRO_ACCESS_MODE variable was never read and has been dropped):
- * to turn the assistant off use CHATBOT_PRO_DISABLED=1.
+ * The PRO assistant is off unless CHATBOT_PRO_ENABLED=1 (see assistente-pro.ts).
  * Step 2 (Stripe, docs/PRO-PREMIUM-PIANO.md) adds the per-product entitlement
  * check here — callers don't change.
  */

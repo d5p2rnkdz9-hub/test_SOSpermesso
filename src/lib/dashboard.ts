@@ -1,5 +1,6 @@
 import 'server-only';
 
+import { ASSISTENTE_PRO_ATTIVO } from './assistente-pro';
 import { DAILY_LIMIT, listConversazioni, quotaUsata } from './chat-pro';
 import type { ConversazioneSummary } from './chat-pro-types';
 import { SEGUI_TUTTI, listFollows, toUrlId } from './circolari';
@@ -39,11 +40,12 @@ export interface DashboardData {
     nuove30: number;
     ultime: NovitaCircolare[];
   };
+  /** null quando l'assistente PRO è spento (ASSISTENTE_PRO_ATTIVO). */
   assistente: {
     usatiOggi: number;
     limite: number;
     recenti: ConversazioneSummary[];
-  };
+  } | null;
 }
 
 async function novitaCircolari(follows: string[]) {
@@ -77,8 +79,8 @@ export async function getDashboard(userId: string): Promise<DashboardData> {
   const [pratiche, follows, conversazioni, quota] = await Promise.all([
     listPratiche(userId),
     listFollows(userId),
-    listConversazioni(userId),
-    quotaUsata(userId),
+    ASSISTENTE_PRO_ATTIVO ? listConversazioni(userId) : null,
+    ASSISTENTE_PRO_ATTIVO ? quotaUsata(userId) : null,
   ]);
   const circ = await novitaCircolari(follows);
 
@@ -100,6 +102,9 @@ export async function getDashboard(userId: string): Promise<DashboardData> {
       tutti: follows.includes(SEGUI_TUTTI),
       ...circ,
     },
-    assistente: { usatiOggi: quota.utente, limite: DAILY_LIMIT, recenti: conversazioni.slice(0, 3) },
+    assistente:
+      conversazioni && quota
+        ? { usatiOggi: quota.utente, limite: DAILY_LIMIT, recenti: conversazioni.slice(0, 3) }
+        : null,
   };
 }

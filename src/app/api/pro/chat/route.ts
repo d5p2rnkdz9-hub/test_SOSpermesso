@@ -11,6 +11,7 @@ import {
   quotaUsata,
   runChatTurn,
 } from '@/lib/chat-pro';
+import { ASSISTENTE_PRO_ATTIVO } from '@/lib/assistente-pro';
 import { getSQL } from '@/lib/neon';
 import { getProAccess } from '@/lib/pro-access';
 import { sameOrigin } from '@/lib/request-guard';
@@ -38,7 +39,7 @@ export async function POST(request: Request) {
   const access = await getProAccess(request.headers);
   if (access.status !== 'active') return NextResponse.json({ error: 'login_required' }, { status: 401 });
   if (!process.env.ANTHROPIC_API_KEY) return NextResponse.json({ error: 'not_configured' }, { status: 503 });
-  if (process.env.CHATBOT_PRO_DISABLED === '1') return NextResponse.json({ error: 'disabled' }, { status: 503 });
+  if (!ASSISTENTE_PRO_ATTIVO) return NextResponse.json({ error: 'disabled' }, { status: 503 });
 
   let body: { conversazioneId?: unknown; messaggio?: unknown };
   try {

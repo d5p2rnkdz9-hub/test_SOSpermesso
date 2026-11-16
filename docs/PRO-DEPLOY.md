@@ -60,7 +60,7 @@ host da cui si parte, home di pro. → `/it/account`, link delle email PRO su pr
 | `RESEND_FROM` | `SOS Permesso <accesso@sospermesso.it>` | facoltativa, dominio verificato su Resend |
 | `ANTHROPIC_API_KEY` | stessa del sito | assistente PRO |
 | `CRON_SECRET` | `openssl rand -hex 24` | letta dalla route e dalla scheduled function |
-| `CHATBOT_PRO_DISABLED` | `1` solo per spegnere l'assistente | kill switch |
+| `CHATBOT_PRO_ENABLED` | non impostarla | assistente PRO sospeso dal 16/11/2026: si accende solo con `1` (test in locale) |
 
 `URL` la mette Netlify da sola (usata dalla scheduled function per chiamare la route).
 

@@ -4,6 +4,7 @@ import { setRequestLocale } from 'next-intl/server';
 
 import { ContentColumn } from '@/components/layout/ContentColumn';
 import { ProGate } from '@/components/pro/ProGate';
+import { ASSISTENTE_PRO_ATTIVO, CHATBOT_FREE_URL } from '@/lib/assistente-pro';
 import { DAILY_LIMIT, MAX_TURNS, listConversazioni, quotaUsata } from '@/lib/chat-pro';
 import { getProAccess } from '@/lib/pro-access';
 
@@ -19,6 +20,24 @@ type Props = { params: Promise<{ locale: string }>; searchParams: Promise<{ c?: 
 export default async function AssistentePage({ params, searchParams }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
+
+  if (!ASSISTENTE_PRO_ATTIVO) {
+    return (
+      <ContentColumn>
+        <h1 className="text-3xl font-extrabold leading-tight text-foreground">Assistente PRO</h1>
+        <p className="mt-2 mb-6 text-muted-foreground">
+          L&apos;assistente PRO con circolari e norme è in lavorazione. Per una domanda rapida su un permesso usa il
+          chatbot di SOS Permesso: lo trovi in basso a destra in ogni pagina del sito.
+        </p>
+        <a
+          href={CHATBOT_FREE_URL}
+          className="inline-flex items-center gap-2 rounded-xl border-2 border-foreground px-4 py-2.5 font-bold hover:bg-muted"
+        >
+          Apri il chatbot sul sito
+        </a>
+      </ContentColumn>
+    );
+  }
 
   const access = await getProAccess(await headers());
   if (access.status !== 'active') {
