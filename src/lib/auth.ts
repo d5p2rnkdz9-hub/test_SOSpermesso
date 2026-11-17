@@ -22,7 +22,9 @@ import { PROD_HOSTS, SITE_URL } from './site-url';
 /**
  * Accounts for the PRO premium area (docs/PRO-PREMIUM-PIANO.md).
  *
- * - Passwordless: magic link by email only (no email+password).
+ * - Magic link by email (also creates the account), or email + password for
+ *   accounts that have one. As on sosflussi.it, nobody signs up with a password:
+ *   it is set (or reset) only through the reset link sent by email.
  * - Tables live in the Postgres schema "auth" of the Neon database that
  *   already holds the analytics tables (public schema), so the two never
  *   collide. The Prisma schema (legacy quiz) is not involved.
@@ -33,6 +35,7 @@ import { PROD_HOSTS, SITE_URL } from './site-url';
  */
 
 const MAGIC_LINK_MINUTES = 10;
+const RESET_MINUTES = 60;
 const BASE_URL = process.env.BETTER_AUTH_URL ?? SITE_URL;
 const PROD = process.env.NODE_ENV === 'production';
 /**
@@ -101,6 +104,20 @@ async function annullaLinkPrecedenti(email: string): Promise<void> {
   );
 }
 
+/** Come per i link di accesso: resta valido solo l'ultimo link per la password. */
+async function annullaResetPrecedenti(userId: string): Promise<void> {
+  await pool.query(
+    `DELETE FROM auth.verification
+      WHERE identifier LIKE 'reset-password:%' AND value = $1
+        AND id <> (
+          SELECT id FROM auth.verification
+           WHERE identifier LIKE 'reset-password:%' AND value = $1
+           ORDER BY "createdAt" DESC LIMIT 1
+        )`,
+    [userId],
+  );
+}
+
 /**
  * Due nomi per lo stesso deploy: app.sospermesso.it (test gratuiti) e
  * pro.sospermesso.it (area PRO). In produzione il base URL segue l'host della
@@ -124,7 +141,39 @@ export const auth = betterAuth({
     type: 'postgres',
     schemaName: 'auth',
   },
-  emailAndPassword: { enabled: false },
+  emailAndPassword: {
+    enabled: true,
+    disableSignUp: true, // stessa regola di sosflussi.it: la password si imposta solo dal link via email
+    minPasswordLength: 10,
+    maxPasswordLength: 128,
+    resetPasswordTokenExpiresIn: 60 * RESET_MINUTES,
+    revokeSessionsOnPasswordReset: true,
+    async sendResetPassword({ user, url }) {
+      const email = user.email.trim().toLowerCase();
+      if (!(await entroIlTettoInvii(email))) {
+        // Risposta identica a quella normale: non si rivela nulla, l'email non parte.
+        console.warn('[auth] tetto invii reset password raggiunto');
+        return;
+      }
+      await annullaResetPrecedenti(user.id);
+      await sendEmail({
+        to: user.email,
+        subject: 'Imposta la password di SOS Permesso PRO',
+        text: [
+          `Ciao${user.name ? ` ${user.name}` : ''},`,
+          '',
+          'per impostare una nuova password di SOS Permesso PRO apri questo link:',
+          url,
+          '',
+          `Il link vale ${RESET_MINUTES} minuti e si può usare una sola volta.`,
+          'Se non hai chiesto tu di cambiare la password, ignora questa email: la password attuale resta valida.',
+          ...RIGA_ACCOUNT_UNICO,
+          '',
+          'SOS Permesso — sospermesso.it',
+        ].join('\n'),
+      });
+    },
+  },
   session: {
     expiresIn: 60 * 60 * 24 * 30, // 30 days
     updateAge: 60 * 60 * 24, // refreshed at most once a day while in use
