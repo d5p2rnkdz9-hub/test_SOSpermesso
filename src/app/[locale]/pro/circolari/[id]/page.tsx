@@ -103,8 +103,14 @@ export default async function CircolarePage({ params }: Props) {
             <span>{doc.fonte}</span>
           )}
           {doc.pdfUrl && (
-            <a href={doc.pdfUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 underline">
-              PDF originale <FileText className="h-3 w-3" aria-hidden="true" />
+            <a
+              href={doc.pdfUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 font-semibold text-foreground underline"
+              title={doc.pdfFonte ? `PDF da ${doc.pdfFonte}` : undefined}
+            >
+              PDF ufficiale <FileText className="h-3 w-3" aria-hidden="true" />
             </a>
           )}
           {doc.slugPubblico && (
@@ -129,7 +135,9 @@ export default async function CircolarePage({ params }: Props) {
       </article>
 
       <p className="mt-6 text-xs text-muted-foreground">
-        Testo estratto automaticamente dalla fonte: per l&apos;uso in atti verificare sull&apos;originale.
+        {doc.pdfUrl
+          ? 'Testo estratto automaticamente: per l\u2019uso in atti verificare sul PDF ufficiale.'
+          : `Testo da fonte secondaria${doc.pdfFonte ? ` (${doc.pdfFonte})` : ''}: PDF ufficiale non disponibile. Per l\u2019uso in atti verificare sull\u2019originale.`}
       </p>
 
       {collegate.length > 0 && (

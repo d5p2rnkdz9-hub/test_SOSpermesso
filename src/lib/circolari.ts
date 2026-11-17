@@ -42,6 +42,9 @@ export interface CircolareSummary {
 export interface Circolare extends CircolareSummary {
   sourceUrl: string | null;
   pdfUrl: string | null;
+  /** null = nessun PDF; false = solo fonte secondaria (nessun link pubblico) */
+  pdfUfficiale: boolean | null;
+  pdfFonte: string | null;
   tema: string | null;
   testo: string[];
 }
@@ -173,16 +176,18 @@ export async function searchCircolari(params: SearchParams): Promise<SearchResul
 export async function getCircolare(id: string): Promise<Circolare | null> {
   const sql = getSQL();
   const rows = (await sql.query(
-    `SELECT ${SUMMARY_COLS}, c.source_url, c.pdf_url, c.tema, c.testo
+    `SELECT ${SUMMARY_COLS}, c.source_url, c.pdf_url, c.pdf_ufficiale, c.pdf_fonte, c.tema, c.testo
      FROM pro.circolare c WHERE c.id = $1`,
     [id],
-  )) as (SummaryRow & { source_url: string | null; pdf_url: string | null; tema: string | null; testo: string[] })[];
+  )) as (SummaryRow & { source_url: string | null; pdf_url: string | null; pdf_ufficiale: boolean | null; pdf_fonte: string | null; tema: string | null; testo: string[] })[];
   const r = rows[0];
   if (!r) return null;
   return {
     ...toSummary(r),
     sourceUrl: r.source_url,
-    pdfUrl: r.pdf_url,
+    pdfUrl: r.pdf_ufficiale ? r.pdf_url : null,
+    pdfUfficiale: r.pdf_ufficiale,
+    pdfFonte: r.pdf_fonte,
     tema: r.tema,
     testo: Array.isArray(r.testo) ? r.testo : [],
   };

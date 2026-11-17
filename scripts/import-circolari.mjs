@@ -7,7 +7,8 @@
  *
  * Upsert per id: i documenti nuovi prendono importata_at = now() (è la data
  * che alimenta gli avvisi email), quelli esistenti aggiornano solo i campi
- * e aggiornata_at. Niente viene cancellato: un documento sparito dalla fonte
+ * e aggiornata_at. I campi pdf_url/pdf_fonte/pdf_ufficiale li scrive solo
+ * import-circolari-pdf.mjs (abbinamenti verificati). Niente viene cancellato: un documento sparito dalla fonte
  * resta consultabile.
  */
 import { readFileSync } from 'node:fs';
@@ -26,7 +27,7 @@ const docs = JSON.parse(readFileSync(file, 'utf-8'));
 console.log(`[import-circolari] ${docs.length} documenti → ${prod ? 'PRODUZIONE' : 'dev'}`);
 
 const COLS = [
-  'id', 'fonte', 'slug_pubblico', 'source_url', 'pdf_url', 'tipo', 'ente', 'numero', 'data',
+  'id', 'fonte', 'slug_pubblico', 'source_url', 'tipo', 'ente', 'numero', 'data',
   'titolo', 'oggetto', 'tema', 'permessi', 'trasversale', 'fuori_ambito', 'testo', 'testo_piano',
 ];
 const UPDATE = COLS.filter((c) => c !== 'id').map((c) => `${c} = EXCLUDED.${c}`).join(', ');
@@ -43,7 +44,7 @@ try {
     const placeholders = chunk.map((d, j) => {
       const base = j * COLS.length;
       values.push(
-        d.id, d.fonte, d.slug_pubblico, d.source_url, d.pdf_url, d.tipo, d.ente, d.numero, d.data,
+        d.id, d.fonte, d.slug_pubblico, d.source_url, d.tipo, d.ente, d.numero, d.data,
         d.titolo, d.oggetto, d.tema, d.permessi, d.trasversale, d.fuori_ambito,
         JSON.stringify(d.testo), d.testo.join('\n\n'),
       );
