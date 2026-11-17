@@ -127,9 +127,11 @@ export function ChatPro({ iniziale, conversazioni: initial, dailyLimit, maxTurns
               ? 'Questa conversazione è lunga: aprine una nuova.'
               : code === 'login_required'
                 ? 'La sessione è scaduta: ricarica la pagina e accedi di nuovo.'
-                : code === 'not_configured' || code === 'disabled'
-                  ? 'L’assistente non è disponibile al momento.'
-                  : 'Non siamo riusciti a inviare il messaggio. Riprova.',
+                : code === 'subscription_required'
+                  ? 'Il tuo account non ha più l’accesso PRO: trovi come abbonarti nella pagina del tuo account.'
+                  : code === 'not_configured' || code === 'disabled'
+                    ? 'L’assistente non è disponibile al momento.'
+                    : 'Non siamo riusciti a inviare il messaggio. Riprova.',
         );
         setBubbles((b) => b.filter((x) => x.id !== pendingId && x.testo !== messaggio));
         return;

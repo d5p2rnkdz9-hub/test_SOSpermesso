@@ -51,6 +51,7 @@ export default async function AssistentePage({ params, searchParams }: Props) {
           titolo="Un assistente che cita le fonti"
           descrizione="Non risponde a memoria: per ogni domanda cerca nell’archivio di oltre 1.900 circolari e nelle schede dei permessi, e linka il documento da cui ricava la risposta."
           da={`/${locale}/pro/assistente`}
+          connesso={access.status === 'no-plan'}
           punti={[
             'Ricerca automatica nelle circolari e nelle schede permesso',
             'Ogni risposta con il link alla fonte, da verificare',

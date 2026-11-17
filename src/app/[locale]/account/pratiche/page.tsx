@@ -4,6 +4,7 @@ import { redirect } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
 
 import { ContentColumn } from '@/components/layout/ContentColumn';
+import { ProGate } from '@/components/pro/ProGate';
 import { permitsList } from '@/lib/permits-list.generated';
 import { listPratiche } from '@/lib/pratiche';
 import { getProAccess } from '@/lib/pro-access';
@@ -24,8 +25,29 @@ export default async function PratichePage({ params }: Props) {
   setRequestLocale(locale);
 
   const access = await getProAccess(await headers());
-  if (access.status !== 'active') {
+  if (access.status === 'anonymous') {
     redirect(`/${locale}/accedi?da=${encodeURIComponent(`/${locale}/account/pratiche`)}`);
+  }
+  if (access.status !== 'active') {
+    return (
+      <ContentColumn>
+        <h1 className="text-3xl font-extrabold leading-tight text-foreground">Scadenziario</h1>
+        <p className="mt-2 mb-6 text-sm text-muted-foreground">
+          Le pratiche che segui, con i promemoria prima della scadenza del permesso.
+        </p>
+        <ProGate
+          titolo="Non perdere più una scadenza"
+          descrizione="Inserisci le pratiche che segui: ti scriviamo prima che il permesso scada, con il link alla checklist di rinnovo. Le pratiche già salvate restano nel tuo account."
+          da={`/${locale}/account/pratiche`}
+          connesso
+          punti={[
+            'Promemoria email a 90, 60 e 30 giorni dalla scadenza',
+            'Checklist di rinnovo per ogni permesso',
+            'Archivio completo delle circolari, con avvisi sui permessi che segui',
+          ]}
+        />
+      </ContentColumn>
+    );
   }
   const pratiche = await listPratiche(access.session.user.id);
 

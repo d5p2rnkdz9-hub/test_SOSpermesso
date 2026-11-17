@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 
 import { ContentColumn } from '@/components/layout/ContentColumn';
+import { accountUnicoOn, freeLaunchOn } from '@/lib/pro-entitlement';
 
 import { AccediForm } from './AccediForm';
 
@@ -40,8 +41,9 @@ export default async function AccediPage({ params, searchParams }: Props) {
       )}
       <p className="mt-3 mb-6 text-sm text-muted-foreground">
         Niente password: inserisci la tua email e ti mandiamo un link per entrare. Se non hai
-        ancora un account, lo creiamo con lo stesso link. Durante il periodo di lancio l&apos;accesso
-        PRO è gratuito.
+        ancora un account, lo creiamo con lo stesso link.
+        {freeLaunchOn() && <> Durante il periodo di lancio l&apos;accesso PRO è gratuito.</>}
+        {accountUnicoOn() && <> Con lo stesso indirizzo accedi anche a SOS Flussi PRO: l&apos;account è unico.</>}
       </p>
       <AccediForm callbackURL={safeReturnPath(da, locale)} locale={locale} />
     </ContentColumn>

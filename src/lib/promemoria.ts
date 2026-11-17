@@ -2,6 +2,7 @@ import "server-only";
 
 import { sendEmail } from "./email";
 import { getSQL } from "./neon";
+import { makeProAccessCheck } from "./pro-entitlement";
 import {
   REMINDER_DAYS,
   checklistUrl,
@@ -84,6 +85,9 @@ function buildEmail(row: DueRow, giorni: number) {
 
 export async function runPromemoria(): Promise<PromemoriaReport> {
   const sql = getSQL();
+  const haAccessoPro = makeProAccessCheck(
+    (text, params) => sql.query(text, params) as Promise<Record<string, unknown>[]>,
+  );
   const today = todayInItaly();
   const maxDays = Math.max(...REMINDER_DAYS);
 
@@ -116,6 +120,8 @@ export async function runPromemoria(): Promise<PromemoriaReport> {
       (t) => !registrate.has(t) && giorniResidui <= t,
     );
     if (dovute.length === 0) continue;
+    // Lancio gratuito spento: solo chi ha ancora l'accesso PRO (le pratiche restano salvate).
+    if (!(await haAccessoPro(row.user_id))) continue;
 
     const daInviare = Math.min(...dovute);
     const daSaltare = dovute.filter((t) => t !== daInviare);

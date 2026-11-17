@@ -3,6 +3,7 @@ import "server-only";
 import { SEGUI_TUTTI, toUrlId } from "./circolari";
 import { sendEmail } from "./email";
 import { getSQL } from "./neon";
+import { makeProAccessCheck } from "./pro-entitlement";
 import { permitsBySlug } from "./permits-list.generated";
 import { sleep } from "./request-guard";
 import { PRO_URL } from "./site-url";
@@ -53,6 +54,9 @@ function formatDateIt(iso: string | null): string {
 
 export async function runAvvisiCircolari(): Promise<AvvisiReport> {
   const sql = getSQL();
+  const haAccessoPro = makeProAccessCheck(
+    (text, params) => sql.query(text, params) as Promise<Record<string, unknown>[]>,
+  );
   const report: AvvisiReport = { utenti: 0, email: 0, documenti: 0, errori: 0 };
 
   const followers = (await sql.query(
@@ -63,6 +67,8 @@ export async function runAvvisiCircolari(): Promise<AvvisiReport> {
   report.utenti = followers.length;
 
   for (const f of followers) {
+    // Lancio gratuito spento: gli avvisi solo a chi ha ancora l'accesso PRO.
+    if (!(await haAccessoPro(f.user_id))) continue;
     const tutti = f.slugs.includes(SEGUI_TUTTI);
     const nuove = (await sql.query(
       `SELECT c.id, c.titolo, c.ente, to_char(c.data, 'YYYY-MM-DD') AS data, c.permessi

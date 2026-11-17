@@ -50,6 +50,7 @@ export default async function CircolariPage({ params, searchParams }: Props) {
           titolo="Oltre 1.900 documenti con ricerca nel testo"
           descrizione="Il sito pubblico mostra le circolari più importanti. L’archivio PRO contiene tutto il corpus, compresi i documenti mai pubblicati, e lo tiene aggiornato."
           da={`/${locale}/pro/circolari`}
+          connesso={access.status === 'no-plan'}
           punti={[
             'Ricerca nel testo integrale, con i passaggi evidenziati',
             'Filtri per permesso, ente, tipo di atto e anno',

@@ -61,6 +61,13 @@ host da cui si parte, home di pro. → `/it/account`, link delle email PRO su pr
 | `ANTHROPIC_API_KEY` | stessa del sito | assistente PRO |
 | `CRON_SECRET` | `openssl rand -hex 24` | letta dalla route e dalla scheduled function |
 | `CHATBOT_PRO_ENABLED` | non impostarla | assistente PRO sospeso dal 16/11/2026: si accende solo con `1` (test in locale) |
+| `ACCOUNT_UNICO` | `1` solo quando SOS Flussi PRO è online con l'account unico | testi dell'account unico (email, accedi, account, avviso prima di eliminare); spenta per default |
+| `PRO_ACCESSO_LIBERO` | **non impostarla** finché il PRO è gratis; `0` quando si fa pagare | **qui il lancio gratuito è acceso se manca**, si spegne solo con `0` (su SOS Flussi il default è l'opposto) |
+| `STRIPE_SECRET_KEY` | facoltativa, stessa di SOS Flussi | solo per annullare l'abbonamento quando l'account si elimina da qui; senza, chi ha un abbonamento vivo non può eliminare l'account da qui (messaggio che rimanda a sosflussi.it) |
+
+Le variabili sono lette anche da pagine generate in build (es. `/accedi`): dopo averle cambiate su Netlify
+rifare il deploy. Non servono qui: `STRIPE_WEBHOOK_SECRET`, `STRIPE_PRICE_ID_*` (checkout e webhook stanno su
+sosflussi.it).
 
 `URL` la mette Netlify da sola (usata dalla scheduled function per chiamare la route).
 
@@ -80,10 +87,34 @@ curl -s -X POST -H "Authorization: Bearer $CRON_SECRET" https://app.sospermesso.
    `Your credit balance is too low`: fino alla ricarica l'assistente (e il chatbot del sito)
    rispondono con un errore.
 
+## 3-bis. Account unico con SOS Flussi (ramo `account-unico`)
+
+Piano in `PRO-PREMIUM-PIANO.md`, «Account unico». Ordine:
+
+1. **Neon, branch di produzione → backup** (branch Neon, es. `prima-account-unico`).
+2. **Migrazione da SOS Flussi** (`SOSflussi/strumenti/pro/migra.mjs`, prima `--controllo`): aggiunge allo
+   schema `auth` la colonna `user."stripeCustomerId"` e la tabella `subscription` (crea tutto se `auth`
+   non esistesse ancora). Lo stesso sul branch dev. Qui non serve nessuna migrazione: `better-auth`
+   1.7.25 ha le stesse tabelle della 1.7.18.
+3. **Deploy di questo ramo** (merge in `main`, solo col permesso di Alberto). Senza variabili nuove non
+   cambia niente per gli utenti: il lancio gratuito resta acceso, nessun testo nomina SOS Flussi. Il
+   codice tollera la tabella `subscription` assente, quindi l'ordine 2 → 3 è prudente ma non obbligato.
+4. Quando SOS Flussi PRO è online con `ACCOUNT_UNICO=1`: qui `ACCOUNT_UNICO=1` (+ `STRIPE_SECRET_KEY` se si
+   vuole che l'eliminazione da qui annulli l'abbonamento) → deploy.
+5. **Solo quando si vuole far pagare**: `PRO_ACCESSO_LIBERO=0` → deploy. Da quel momento chi non ha un
+   abbonamento `pro` attivo o in prova vede i teaser con «Abbonati» (link a sosflussi.it), non riceve
+   promemoria e avvisi, ma conserva account e pratiche salvate.
+
+Verifica: stessa email sui due siti → stesso utente (`auth."user"`); abbonamento di prova fatto su
+sosflussi.it → qui il piano risulta «in prova fino al…»; con `PRO_ACCESSO_LIBERO=0` un account senza
+abbonamento vede il teaser su `/pro/circolari` e `/account/pratiche`; eliminazione da qui con
+abbonamento vivo e senza `STRIPE_SECRET_KEY` → rifiutata con il messaggio. Test automatici della regola
+(Postgres in memoria): `npm test`.
+
 ## 4. Dopo il lancio
 
-- Quando si passa a pagamento: `getProAccess()` aggiunge il controllo abbonamento Stripe
-  (piano in `PRO-PREMIUM-PIANO.md`), nessuna pagina cambia.
+- Passaggio a pagamento: `PRO_ACCESSO_LIBERO=0` (sezione 3-bis); `getProAccess()` controlla già
+  l'abbonamento nella tabella comune, nessuna pagina cambia.
 - Costi assistente: `claude-opus-5-5`, effort `low`, tetto `DAILY_LIMIT` messaggi/utente/giorno e
   `GLOBAL_DAILY_LIMIT` globale in `src/lib/chat-pro.ts`. Il modello è una costante (`CHAT_MODEL`).
 - Il sito (11ty) non sa chi è loggato: le sezioni PRO del sito restano teaser + link all'app.

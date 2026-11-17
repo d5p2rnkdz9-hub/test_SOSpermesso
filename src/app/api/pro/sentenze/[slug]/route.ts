@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-import { getProAccess } from '@/lib/pro-access';
+import { getProAccess, proDenied } from '@/lib/pro-access';
 import type { ProSentenza } from '@/lib/pro-content';
 import { proSentenze } from '@/lib/pro-content-premium.generated';
 
@@ -13,9 +13,7 @@ export async function GET(
   { params }: { params: Promise<{ slug: string }> },
 ) {
   const access = await getProAccess(request.headers);
-  if (access.status !== 'active') {
-    return NextResponse.json({ error: 'login_required' }, { status: 401 });
-  }
+  if (access.status !== 'active') return proDenied(access);
 
   const { slug } = await params;
   const sentenze = (proSentenze as Record<string, readonly ProSentenza[] | undefined>)[slug];

@@ -10,7 +10,8 @@
     "fetch:rinnovo": "tsx scripts/fetch-rinnovo-data.ts",
     "translations:extract": "tsx scripts/extract-it-strings.ts",
     "translations:split": "tsx scripts/split-batches.ts",
-    "translations:review": "node scripts/review-translations.js"
+    "translations:review": "node scripts/review-translations.js",
+    "test": "tsx --test tests/*.test.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.72.1",
@@ -22,7 +23,7 @@
     "@radix-ui/react-progress": "^1.1.8",
     "@radix-ui/react-radio-group": "^1.3.8",
     "@radix-ui/react-slot": "^1.2.4",
-    "better-auth": "^1.7.18",
+    "better-auth": "1.7.25",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "kysely": "^0.29.8",
@@ -39,6 +40,7 @@
     "zustand": "^5.0.11"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "^0.5.16",
     "@netlify/plugin-nextjs": "^5.15.9",
     "@types/node": "^20",
     "@types/pg": "^8.23.1",

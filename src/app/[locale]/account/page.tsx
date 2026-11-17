@@ -20,7 +20,9 @@ import { setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { CHATBOT_FREE_URL } from '@/lib/assistente-pro';
 import { getDashboard, type ScadenzaView } from '@/lib/dashboard';
-import { getProAccess } from '@/lib/pro-access';
+import { AbbonatiCta } from '@/components/pro/ProGate';
+import { getProAccess, type ProAccess } from '@/lib/pro-access';
+import { SOSFLUSSI_ABBONAMENTO_URL, accountUnicoOn } from '@/lib/pro-entitlement';
 import { getProfilo } from '@/lib/profilo';
 import { tipoLabel } from '@/lib/profilo-shared';
 
@@ -65,6 +67,28 @@ function fmtData(iso: string | null, opts: Intl.DateTimeFormatOptions) {
   return new Date(Date.UTC(y, m - 1, d)).toLocaleDateString('it-IT', { timeZone: 'UTC', ...opts });
 }
 
+/** Stato dell'accesso PRO: etichetta breve (saluto) e testo per «Piano». */
+function statoPiano(access: Exclude<ProAccess, { status: 'anonymous' }>) {
+  const sub = access.subscription;
+  const fine = sub?.periodEnd ? fmtData(sub.periodEnd, { day: 'numeric', month: 'long', year: 'numeric' }) : '';
+  if (access.status === 'active') {
+    if (access.reason === 'free-launch') return { badge: 'PRO · gratis nel lancio', testo: 'PRO gratuito durante il lancio' };
+    if (access.reason === 'trial') {
+      return { badge: 'PRO · in prova', testo: fine ? `PRO in prova fino al ${fine}` : 'PRO in prova' };
+    }
+    const testo = fine
+      ? sub?.cancelAtPeriodEnd
+        ? `Abbonamento PRO annullato: resta attivo fino al ${fine}`
+        : `Abbonamento PRO attivo fino al ${fine}, poi si rinnova`
+      : 'Abbonamento PRO attivo';
+    return { badge: 'PRO · abbonamento attivo', testo };
+  }
+  if (sub && ['past_due', 'unpaid'].includes(sub.status)) {
+    return { badge: 'PRO sospeso', testo: 'Abbonamento sospeso: il pagamento non è riuscito' };
+  }
+  return { badge: 'Senza abbonamento PRO', testo: 'Nessun abbonamento PRO attivo' };
+}
+
 function urgenza(giorni: number) {
   if (giorni < 0) return { bg: C.red, fg: '#fff', label: `Scaduta da ${-giorni} gg` };
   if (giorni === 0) return { bg: C.red, fg: '#fff', label: 'Scade oggi' };
@@ -78,11 +102,15 @@ export default async function DashboardPage({ params }: Props) {
   setRequestLocale(locale);
 
   const access = await getProAccess(await headers());
-  if (access.status !== 'active') {
+  if (access.status === 'anonymous') {
     redirect(`/${locale}/accedi?da=${encodeURIComponent(`/${locale}/account`)}`);
   }
+  // Senza accesso PRO la pagina resta (account, abbonamento, eliminazione), senza i dati PRO.
+  const pro = access.status === 'active';
+  const piano = statoPiano(access);
+  const accountUnico = accountUnicoOn();
   const { user } = access.session;
-  const [profilo, d] = await Promise.all([getProfilo(user.id), getDashboard(user.id)]);
+  const [profilo, d] = await Promise.all([getProfilo(user.id), pro ? getDashboard(user.id) : null]);
   // Account creato dal link ma mai completato (anche chi è entrato prima del benvenuto).
   if (!profilo) redirect(`/${locale}/account/benvenuto`);
 
@@ -98,6 +126,64 @@ export default async function DashboardPage({ params }: Props) {
     month: 'long',
     year: 'numeric',
   });
+  // Un abbonamento ancora gestibile su Stripe (anche annullato a fine periodo o non pagato).
+  const abbonamentoInCorso = Boolean(
+    access.subscription && !['canceled', 'incomplete_expired'].includes(access.subscription.status),
+  );
+  const accountSection = (
+    <section
+      className={`${sticker} mt-8 grid gap-5 p-5 sm:grid-cols-[1fr_auto] sm:items-start`}
+      style={{ background: C.paper }}
+      aria-labelledby="account"
+    >
+      <div>
+        <h2 id="account" className="flex items-center gap-2 text-lg font-extrabold">
+          <Settings2 className="h-5 w-5" aria-hidden="true" /> Il tuo account
+        </h2>
+        <dl className="mt-3 grid gap-x-8 gap-y-2 text-sm sm:grid-cols-3">
+          <div>
+            <dt className="font-bold">Email</dt>
+            <dd className="[overflow-wrap:anywhere] [hyphens:none]" style={{ color: C.muted }}>{user.email}</dd>
+          </div>
+          <div>
+            <dt className="font-bold">Iscritto dal</dt>
+            <dd style={{ color: C.muted }}>{iscritto}</dd>
+          </div>
+          <div>
+            <dt className="font-bold">Piano</dt>
+            <dd style={{ color: C.muted }}>{piano.testo}</dd>
+          </div>
+        </dl>
+        {accountUnico && (
+          <p className="mt-3 text-sm">
+            Lo stesso account e lo stesso abbonamento valgono anche su SOS Flussi PRO.{' '}
+            <a href={SOSFLUSSI_ABBONAMENTO_URL} className="font-bold underline underline-offset-4">
+              {abbonamentoInCorso ? 'Gestisci abbonamento' : 'Abbonati'}
+            </a>
+          </p>
+        )}
+        <Link
+          href="/account/benvenuto"
+          className="mt-3 inline-flex items-center gap-1 text-sm font-bold underline underline-offset-4"
+        >
+          Modifica profilo
+        </Link>
+      </div>
+      <div className="sm:w-56">
+        <AccountActions locale={locale} accountUnico={accountUnico} />
+      </div>
+    </section>
+  );
+
+  if (!d) {
+    return (
+      <main className="mx-auto w-full max-w-[1080px] px-4 py-6 sm:py-8" style={{ color: INK }}>
+        <SenzaAbbonamento nome={nome} oggi={oggi} badge={piano.badge} />
+        {accountSection}
+      </main>
+    );
+  }
+
   const quotaPct = d.assistente
     ? Math.min(100, Math.round((d.assistente.usatiOggi / d.assistente.limite) * 100))
     : 0;
@@ -178,7 +264,7 @@ export default async function DashboardPage({ params }: Props) {
                 className="inline-block -rotate-2 rounded-md px-2.5 py-1 text-xs font-extrabold uppercase tracking-wide text-white"
                 style={{ background: INK }}
               >
-                PRO · gratis nel lancio
+                {piano.badge}
               </span>
               <span className="font-semibold">
                 {tipoLabel(profilo.tipo)}
@@ -413,41 +499,42 @@ export default async function DashboardPage({ params }: Props) {
       </div>
 
       {/* ---------- Account ---------- */}
-      <section
-        className={`${sticker} mt-8 grid gap-5 p-5 sm:grid-cols-[1fr_auto] sm:items-start`}
-        style={{ background: C.paper }}
-        aria-labelledby="account"
-      >
-        <div>
-          <h2 id="account" className="flex items-center gap-2 text-lg font-extrabold">
-            <Settings2 className="h-5 w-5" aria-hidden="true" /> Il tuo account
-          </h2>
-          <dl className="mt-3 grid gap-x-8 gap-y-2 text-sm sm:grid-cols-3">
-            <div>
-              <dt className="font-bold">Email</dt>
-              <dd className="[overflow-wrap:anywhere] [hyphens:none]" style={{ color: C.muted }}>{user.email}</dd>
-            </div>
-            <div>
-              <dt className="font-bold">Iscritto dal</dt>
-              <dd style={{ color: C.muted }}>{iscritto}</dd>
-            </div>
-            <div>
-              <dt className="font-bold">Piano</dt>
-              <dd style={{ color: C.muted }}>PRO gratuito durante il lancio</dd>
-            </div>
-          </dl>
-          <Link
-            href="/account/benvenuto"
-            className="mt-3 inline-flex items-center gap-1 text-sm font-bold underline underline-offset-4"
-          >
-            Modifica profilo
-          </Link>
-        </div>
-        <div className="sm:w-56">
-          <AccountActions locale={locale} />
-        </div>
-      </section>
+      {accountSection}
     </main>
+  );
+}
+
+/**
+ * Account senza accesso PRO (lancio finito, nessun abbonamento): niente dati
+ * PRO, il link per abbonarsi e la gestione dell'account (anche l'eliminazione).
+ */
+function SenzaAbbonamento({ nome, oggi, badge }: { nome: string; oggi: string; badge: string }) {
+  return (
+    <section
+      className={`${sticker} relative overflow-hidden p-5 sm:p-7`}
+      style={{ background: C.yellow }}
+      aria-labelledby="saluto"
+    >
+      <p className="text-sm font-bold capitalize">{oggi}</p>
+      <h1 id="saluto" className="mt-1 text-4xl font-extrabold leading-[1.05] sm:text-5xl">
+        Ciao, {nome}!
+      </h1>
+      <p className="mt-3">
+        <span
+          className="inline-block -rotate-2 rounded-md px-2.5 py-1 text-xs font-extrabold uppercase tracking-wide text-white"
+          style={{ background: INK }}
+        >
+          {badge}
+        </span>
+      </p>
+      <p className="mt-3 max-w-[560px] text-base font-semibold">
+        Scadenziario, archivio delle circolari e avvisi sono riservati agli abbonati PRO. Le pratiche che hai
+        già salvato restano nel tuo account.
+      </p>
+      <div className="max-w-[560px]">
+        <AbbonatiCta />
+      </div>
+    </section>
   );
 }
 

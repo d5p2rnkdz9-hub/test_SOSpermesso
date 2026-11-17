@@ -34,7 +34,7 @@ export default async function BenvenutoPage({ params, searchParams }: Props) {
   const { da } = await searchParams;
 
   const access = await getProAccess(await headers());
-  if (access.status !== 'active') {
+  if (access.status === 'anonymous') {
     redirect(`/${locale}/accedi?da=${encodeURIComponent(`/${locale}/account/benvenuto`)}`);
   }
   const { user } = access.session;

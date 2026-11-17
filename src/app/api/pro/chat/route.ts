@@ -13,7 +13,7 @@ import {
 } from '@/lib/chat-pro';
 import { ASSISTENTE_PRO_ATTIVO } from '@/lib/assistente-pro';
 import { getSQL } from '@/lib/neon';
-import { getProAccess } from '@/lib/pro-access';
+import { getProAccess, proDenied } from '@/lib/pro-access';
 import { sameOrigin } from '@/lib/request-guard';
 
 export const maxDuration = 60;
@@ -24,7 +24,7 @@ const UUID_RE = /^[0-9a-f-]{36}$/i;
 /** GET: elenco conversazioni dell'utente. */
 export async function GET(request: Request) {
   const access = await getProAccess(request.headers);
-  if (access.status !== 'active') return NextResponse.json({ error: 'login_required' }, { status: 401 });
+  if (access.status !== 'active') return proDenied(access);
   const conversazioni = await listConversazioni(access.session.user.id);
   return NextResponse.json({ conversazioni }, { headers: NO_STORE });
 }
@@ -37,7 +37,7 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
   if (!sameOrigin(request)) return NextResponse.json({ error: 'forbidden' }, { status: 403 });
   const access = await getProAccess(request.headers);
-  if (access.status !== 'active') return NextResponse.json({ error: 'login_required' }, { status: 401 });
+  if (access.status !== 'active') return proDenied(access);
   if (!process.env.ANTHROPIC_API_KEY) return NextResponse.json({ error: 'not_configured' }, { status: 503 });
   if (!ASSISTENTE_PRO_ATTIVO) return NextResponse.json({ error: 'disabled' }, { status: 503 });
 

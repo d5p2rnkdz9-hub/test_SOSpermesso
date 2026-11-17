@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 import { listFollows, setFollows } from '@/lib/circolari';
-import { getProAccess } from '@/lib/pro-access';
+import { getProAccess, proDenied } from '@/lib/pro-access';
 import { sameOrigin } from '@/lib/request-guard';
 
 const NO_STORE = { 'Cache-Control': 'private, no-store' };
@@ -9,9 +9,7 @@ const NO_STORE = { 'Cache-Control': 'private, no-store' };
 /** Permessi seguiti per gli avvisi email sulle nuove circolari ('*' = tutte). */
 export async function GET(request: Request) {
   const access = await getProAccess(request.headers);
-  if (access.status !== 'active') {
-    return NextResponse.json({ error: 'login_required' }, { status: 401 });
-  }
+  if (access.status !== 'active') return proDenied(access);
   const slugs = await listFollows(access.session.user.id);
   return NextResponse.json({ slugs }, { headers: NO_STORE });
 }
@@ -20,9 +18,7 @@ export async function GET(request: Request) {
 export async function PUT(request: Request) {
   if (!sameOrigin(request)) return NextResponse.json({ error: 'forbidden' }, { status: 403 });
   const access = await getProAccess(request.headers);
-  if (access.status !== 'active') {
-    return NextResponse.json({ error: 'login_required' }, { status: 401 });
-  }
+  if (access.status !== 'active') return proDenied(access);
   let body: unknown;
   try {
     body = await request.json();

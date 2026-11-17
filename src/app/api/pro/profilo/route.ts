@@ -6,8 +6,9 @@ import { sameOrigin } from '@/lib/request-guard';
 
 export async function POST(request: Request) {
   if (!sameOrigin(request)) return NextResponse.json({ error: 'forbidden' }, { status: 403 });
+  // Il profilo è dell'account, non del PRO: basta essere registrati.
   const access = await getProAccess(request.headers);
-  if (access.status !== 'active') {
+  if (access.status === 'anonymous') {
     return NextResponse.json({ error: 'login_required' }, { status: 401 });
   }
   let body: unknown;
