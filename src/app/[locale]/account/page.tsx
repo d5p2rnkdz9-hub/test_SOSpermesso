@@ -18,7 +18,6 @@ import { redirect } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
 
 import { Link } from '@/i18n/navigation';
-import { CHATBOT_FREE_URL } from '@/lib/assistente-pro';
 import { getDashboard, type ScadenzaView } from '@/lib/dashboard';
 import { AbbonatiCta } from '@/components/pro/ProGate';
 import { getProAccess, type ProAccess } from '@/lib/pro-access';
@@ -281,7 +280,7 @@ export default async function DashboardPage({ params }: Props) {
             >
               <Plus className="h-5 w-5" aria-hidden="true" /> Nuova pratica
             </Link>
-            {d.assistente ? (
+            {d.assistente && (
               <Link
                 href="/pro/assistente"
                 className={`flex items-center gap-2 rounded-xl border-[2.5px] bg-white px-4 py-2.5 font-extrabold shadow-[4px_4px_0_#141414] ${lift}`}
@@ -289,14 +288,6 @@ export default async function DashboardPage({ params }: Props) {
               >
                 <Sparkles className="h-5 w-5" aria-hidden="true" /> Chiedi all&apos;assistente
               </Link>
-            ) : (
-              <a
-                href={CHATBOT_FREE_URL}
-                className={`flex items-center gap-2 rounded-xl border-[2.5px] bg-white px-4 py-2.5 font-extrabold shadow-[4px_4px_0_#141414] ${lift}`}
-                style={{ borderColor: INK }}
-              >
-                <MessageSquareText className="h-5 w-5" aria-hidden="true" /> Chiedi al chatbot
-              </a>
             )}
           </div>
         </div>
@@ -374,29 +365,8 @@ export default async function DashboardPage({ params }: Props) {
         </section>
 
         <div className="flex flex-col gap-7">
-          {/* Assistente: spento → rimando al chatbot gratuito del sito */}
-          {!d.assistente ? (
-            <section
-              className={`${sticker} p-5`}
-              style={{ background: C.purpleTint }}
-              aria-labelledby="assistente"
-            >
-              <h2 id="assistente" className="flex items-center gap-2 text-xl font-extrabold">
-                <MessageSquareText className="h-6 w-6" aria-hidden="true" /> Domande veloci
-              </h2>
-              <p className="mt-3 text-sm" style={{ color: C.muted }}>
-                Per una domanda rapida su un permesso usa il chatbot di SOS Permesso: lo trovi in basso a destra
-                in ogni pagina del sito. L&apos;assistente PRO con circolari e norme è in lavorazione.
-              </p>
-              <a
-                href={CHATBOT_FREE_URL}
-                className={`mt-4 flex items-center justify-center gap-2 rounded-xl border-[2.5px] px-4 py-2.5 font-extrabold shadow-[4px_4px_0_#141414] ${lift}`}
-                style={{ background: C.purple, borderColor: INK }}
-              >
-                <ArrowUpRight className="h-5 w-5" aria-hidden="true" /> Apri il chatbot sul sito
-              </a>
-            </section>
-          ) : (
+          {/* Assistente PRO: solo se attivo (oggi è sospeso). */}
+          {d.assistente && (
             <section
               className={`${sticker} p-5`}
               style={{ background: C.purpleTint }}
