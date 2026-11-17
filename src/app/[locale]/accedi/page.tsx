@@ -84,14 +84,7 @@ export default async function AccediPage({ params, searchParams }: Props) {
             <li className="flex gap-2.5">
               <span aria-hidden="true" className="font-extrabold">✓</span>
               <span>
-                <strong>Le mie pratiche</strong>: i permessi che segui, con la prossima scadenza e i promemoria via
-                email.
-              </span>
-            </li>
-            <li className="flex gap-2.5">
-              <span aria-hidden="true" className="font-extrabold">✓</span>
-              <span>
-                <strong>La tua dashboard</strong>: scadenze, novità e strumenti in una pagina sola.
+                <strong>La tua dashboard</strong>: le ultime circolari e le novità sui permessi che segui.
               </span>
             </li>
           </ul>

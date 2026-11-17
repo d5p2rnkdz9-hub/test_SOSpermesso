@@ -22,6 +22,7 @@ import { getDashboard, type ScadenzaView } from '@/lib/dashboard';
 import { AbbonatiCta } from '@/components/pro/ProGate';
 import { getProAccess, type ProAccess } from '@/lib/pro-access';
 import { SOSFLUSSI_ABBONAMENTO_URL, accountUnicoOn } from '@/lib/pro-entitlement';
+import { PRATICHE_ATTIVE } from '@/lib/pratiche';
 import { getProfilo } from '@/lib/profilo';
 import { tipoLabel } from '@/lib/profilo-shared';
 
@@ -252,7 +253,11 @@ export default async function DashboardPage({ params }: Props) {
               Ciao, {nome}!
             </h1>
             <p className="mt-2 text-base font-semibold">
-              {urgenti > 0
+              {!PRATICHE_ATTIVE
+                ? d.circolari.nuove30 > 0
+                  ? `${d.circolari.nuove30} ${d.circolari.nuove30 === 1 ? 'circolare nuova' : 'circolari nuove'} negli ultimi 30 giorni.`
+                  : 'Nessuna circolare nuova negli ultimi 30 giorni.'
+                : urgenti > 0
                 ? `Hai ${urgenti} ${urgenti === 1 ? 'pratica che richiede' : 'pratiche che richiedono'} attenzione.`
                 : d.pratiche.attive > 0
                   ? 'Nessuna scadenza nei prossimi 30 giorni. Tutto sotto controllo.'
@@ -273,13 +278,23 @@ export default async function DashboardPage({ params }: Props) {
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
-            <Link
-              href="/account/pratiche"
-              className={`flex items-center gap-2 rounded-xl border-[2.5px] px-4 py-2.5 font-extrabold text-white shadow-[4px_4px_0_#141414] ${lift}`}
-              style={{ background: C.red, borderColor: INK }}
-            >
-              <Plus className="h-5 w-5" aria-hidden="true" /> Nuova pratica
-            </Link>
+            {PRATICHE_ATTIVE ? (
+              <Link
+                href="/account/pratiche"
+                className={`flex items-center gap-2 rounded-xl border-[2.5px] px-4 py-2.5 font-extrabold text-white shadow-[4px_4px_0_#141414] ${lift}`}
+                style={{ background: C.red, borderColor: INK }}
+              >
+                <Plus className="h-5 w-5" aria-hidden="true" /> Nuova pratica
+              </Link>
+            ) : (
+              <Link
+                href="/pro/circolari"
+                className={`flex items-center gap-2 rounded-xl border-[2.5px] bg-white px-4 py-2.5 font-extrabold shadow-[4px_4px_0_#141414] ${lift}`}
+                style={{ borderColor: INK }}
+              >
+                <Library className="h-5 w-5" aria-hidden="true" /> Tutte le circolari
+              </Link>
+            )}
             {d.assistente && (
               <Link
                 href="/pro/assistente"
@@ -293,76 +308,80 @@ export default async function DashboardPage({ params }: Props) {
         </div>
       </section>
 
-      {/* ---------- Numeri ---------- */}
-      <section aria-label="In sintesi" className="mt-7 grid grid-cols-2 gap-4 lg:grid-cols-4">
-        {stats.map((s) => (
-          <Link
-            key={s.label}
-            href={s.href}
-            className={`${sticker} ${lift} flex flex-col gap-2 bg-white p-4`}
-          >
-            <span className="flex items-center justify-between">
-              <span
-                className="flex h-10 w-10 items-center justify-center rounded-xl border-[2.5px]"
-                style={{ background: s.color, borderColor: INK, color: s.color === C.red ? '#fff' : INK }}
-              >
-                <s.icon className="h-5 w-5" aria-hidden="true" />
+      {/* ---------- Numeri (solo con lo scadenziario) ---------- */}
+      {PRATICHE_ATTIVE && (
+        <section aria-label="In sintesi" className="mt-7 grid grid-cols-2 gap-4 lg:grid-cols-4">
+          {stats.map((s) => (
+            <Link
+              key={s.label}
+              href={s.href}
+              className={`${sticker} ${lift} flex flex-col gap-2 bg-white p-4`}
+            >
+              <span className="flex items-center justify-between">
+                <span
+                  className="flex h-10 w-10 items-center justify-center rounded-xl border-[2.5px]"
+                  style={{ background: s.color, borderColor: INK, color: s.color === C.red ? '#fff' : INK }}
+                >
+                  <s.icon className="h-5 w-5" aria-hidden="true" />
+                </span>
+                <ArrowRight className="h-4 w-4 opacity-40" aria-hidden="true" />
               </span>
-              <ArrowRight className="h-4 w-4 opacity-40" aria-hidden="true" />
-            </span>
-            <span className="text-4xl font-extrabold tabular-nums leading-none">{s.value}</span>
-            <span>
-              <span className="block text-sm font-extrabold">{s.label}</span>
-              <span
-                className="mt-1 inline-block rounded-full px-2 py-0.5 text-xs font-semibold"
-                style={{ background: s.tint }}
-              >
-                {s.hint}
+              <span className="text-4xl font-extrabold tabular-nums leading-none">{s.value}</span>
+              <span>
+                <span className="block text-sm font-extrabold">{s.label}</span>
+                <span
+                  className="mt-1 inline-block rounded-full px-2 py-0.5 text-xs font-semibold"
+                  style={{ background: s.tint }}
+                >
+                  {s.hint}
+                </span>
               </span>
-            </span>
-          </Link>
-        ))}
-      </section>
+            </Link>
+          ))}
+        </section>
+      )}
 
       {/* ---------- Corpo ---------- */}
-      <div className="mt-8 grid gap-7 lg:grid-cols-[1.35fr_1fr]">
+      <div className={`mt-8 grid gap-7 ${PRATICHE_ATTIVE ? 'lg:grid-cols-[1.35fr_1fr]' : ''}`}>
         {/* Scadenze */}
-        <section className={`${sticker} bg-white lg:self-start`} aria-labelledby="scadenze">
-          <header
-            className="flex items-center justify-between gap-3 rounded-t-[14px] border-b-[2.5px] px-5 py-4"
-            style={{ background: C.orangeTint, borderColor: INK }}
-          >
-            <h2 id="scadenze" className="flex items-center gap-2 text-xl font-extrabold">
-              <CalendarClock className="h-6 w-6" aria-hidden="true" /> Prossime scadenze
-            </h2>
-            <Link href="/account/pratiche" className="text-sm font-bold underline underline-offset-4">
-              Scadenziario
-            </Link>
-          </header>
-
-          {d.pratiche.prossime.length === 0 ? (
-            <div className="flex flex-col items-start gap-3 p-6">
-              <p className="text-lg font-extrabold">Nessuna pratica ancora.</p>
-              <p className="text-sm" style={{ color: C.muted }}>
-                Inserisci nome o sigla della persona, il permesso e la data di scadenza. Ti scriviamo a 90, 60 e
-                30 giorni con il link alla checklist di rinnovo.
-              </p>
-              <Link
-                href="/account/pratiche"
-                className={`mt-1 flex items-center gap-2 rounded-xl border-[2.5px] px-4 py-2.5 font-extrabold shadow-[4px_4px_0_#141414] ${lift}`}
-                style={{ background: C.yellow, borderColor: INK }}
-              >
-                <Plus className="h-5 w-5" aria-hidden="true" /> Aggiungi la prima pratica
+        {PRATICHE_ATTIVE && (
+          <section className={`${sticker} bg-white lg:self-start`} aria-labelledby="scadenze">
+            <header
+              className="flex items-center justify-between gap-3 rounded-t-[14px] border-b-[2.5px] px-5 py-4"
+              style={{ background: C.orangeTint, borderColor: INK }}
+            >
+              <h2 id="scadenze" className="flex items-center gap-2 text-xl font-extrabold">
+                <CalendarClock className="h-6 w-6" aria-hidden="true" /> Prossime scadenze
+              </h2>
+              <Link href="/account/pratiche" className="text-sm font-bold underline underline-offset-4">
+                Scadenziario
               </Link>
-            </div>
-          ) : (
-            <ul className="divide-y-2 divide-dashed" style={{ borderColor: '#E6E1D3' }}>
-              {d.pratiche.prossime.map((p) => (
-                <ScadenzaRow key={p.id} p={p} />
-              ))}
-            </ul>
-          )}
-        </section>
+            </header>
+
+            {d.pratiche.prossime.length === 0 ? (
+              <div className="flex flex-col items-start gap-3 p-6">
+                <p className="text-lg font-extrabold">Nessuna pratica ancora.</p>
+                <p className="text-sm" style={{ color: C.muted }}>
+                  Inserisci nome o sigla della persona, il permesso e la data di scadenza. Ti scriviamo a 90, 60 e
+                  30 giorni con il link alla checklist di rinnovo.
+                </p>
+                <Link
+                  href="/account/pratiche"
+                  className={`mt-1 flex items-center gap-2 rounded-xl border-[2.5px] px-4 py-2.5 font-extrabold shadow-[4px_4px_0_#141414] ${lift}`}
+                  style={{ background: C.yellow, borderColor: INK }}
+                >
+                  <Plus className="h-5 w-5" aria-hidden="true" /> Aggiungi la prima pratica
+                </Link>
+              </div>
+            ) : (
+              <ul className="divide-y-2 divide-dashed" style={{ borderColor: '#E6E1D3' }}>
+                {d.pratiche.prossime.map((p) => (
+                  <ScadenzaRow key={p.id} p={p} />
+                ))}
+              </ul>
+            )}
+          </section>
+        )}
 
         <div className="flex flex-col gap-7">
           {/* Assistente PRO: solo se attivo (oggi è sospeso). */}
@@ -498,8 +517,9 @@ function SenzaAbbonamento({ nome, oggi, badge }: { nome: string; oggi: string; b
         </span>
       </p>
       <p className="mt-3 max-w-[560px] text-base font-semibold">
-        Scadenziario, archivio delle circolari e avvisi sono riservati agli abbonati PRO. Le pratiche che hai
-        già salvato restano nel tuo account.
+        {PRATICHE_ATTIVE
+          ? 'Scadenziario, archivio delle circolari e avvisi sono riservati agli abbonati PRO. Le pratiche che hai già salvato restano nel tuo account.'
+          : 'L’archivio completo delle circolari e gli avvisi sono riservati agli abbonati PRO.'}
       </p>
       <div className="max-w-[560px]">
         <AbbonatiCta />

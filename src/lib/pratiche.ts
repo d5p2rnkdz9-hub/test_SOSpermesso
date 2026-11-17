@@ -9,6 +9,13 @@ import { permitsBySlug } from "./permits-list.generated";
  * (scripts/sql/001_pro_pratiche.sql). Le email partono da promemoria.ts.
  */
 
+/**
+ * Scadenziario spento (17/11/2026): dati personali di terzi, privacy da
+ * sistemare prima di riaprirlo. Con false: niente pagina, API, voci in
+ * dashboard né promemoria. Le righe già salvate restano nel database.
+ */
+export const PRATICHE_ATTIVE = false;
+
 /** Soglie dei promemoria, in giorni prima della scadenza (ordine decrescente). */
 export const REMINDER_DAYS = [90, 60, 30] as const;
 

@@ -5,7 +5,7 @@ import { DAILY_LIMIT, listConversazioni, quotaUsata } from './chat-pro';
 import type { ConversazioneSummary } from './chat-pro-types';
 import { SEGUI_TUTTI, listFollows, toUrlId } from './circolari';
 import { getSQL } from './neon';
-import { checklistUrl, daysUntil, listPratiche, type Pratica } from './pratiche';
+import { PRATICHE_ATTIVE, checklistUrl, daysUntil, listPratiche, type Pratica } from './pratiche';
 
 /**
  * Tutti i numeri della dashboard /account in una sola chiamata, in parallelo.
@@ -77,7 +77,7 @@ async function novitaCircolari(follows: string[]) {
 
 export async function getDashboard(userId: string): Promise<DashboardData> {
   const [pratiche, follows, conversazioni, quota] = await Promise.all([
-    listPratiche(userId),
+    PRATICHE_ATTIVE ? listPratiche(userId) : ([] as Pratica[]),
     listFollows(userId),
     ASSISTENTE_PRO_ATTIVO ? listConversazioni(userId) : null,
     ASSISTENTE_PRO_ATTIVO ? quotaUsata(userId) : null,

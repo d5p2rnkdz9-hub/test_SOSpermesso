@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 
 import { runAvvisiCircolari } from '@/lib/avvisi-circolari';
+import { PRATICHE_ATTIVE } from '@/lib/pratiche';
 import { runPromemoria } from '@/lib/promemoria';
 import { bearerMatches } from '@/lib/request-guard';
 
@@ -16,7 +17,7 @@ async function handle(request: Request) {
   if (!bearerMatches(request, process.env.CRON_SECRET)) {
     return NextResponse.json({ error: 'unauthorized' }, { status: 401 });
   }
-  const promemoria = await runPromemoria();
+  const promemoria = PRATICHE_ATTIVE ? await runPromemoria() : 'scadenziario spento';
   const circolari = await runAvvisiCircolari();
   const report = { promemoria, circolari };
   console.log('[cron/promemoria]', JSON.stringify(report));

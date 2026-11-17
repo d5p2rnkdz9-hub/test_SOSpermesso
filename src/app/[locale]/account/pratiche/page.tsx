@@ -6,7 +6,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { ContentColumn } from '@/components/layout/ContentColumn';
 import { ProGate } from '@/components/pro/ProGate';
 import { permitsList } from '@/lib/permits-list.generated';
-import { listPratiche } from '@/lib/pratiche';
+import { PRATICHE_ATTIVE, listPratiche } from '@/lib/pratiche';
 import { getProAccess } from '@/lib/pro-access';
 
 import { PraticheManager } from './PraticheManager';
@@ -23,6 +23,7 @@ type Props = {
 export default async function PratichePage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
+  if (!PRATICHE_ATTIVE) redirect(`/${locale}/account`);
 
   const access = await getProAccess(await headers());
   if (access.status === 'anonymous') {
