@@ -35,6 +35,14 @@ import { PROD_HOSTS, SITE_URL } from './site-url';
 const MAGIC_LINK_MINUTES = 10;
 const BASE_URL = process.env.BETTER_AUTH_URL ?? SITE_URL;
 const PROD = process.env.NODE_ENV === 'production';
+/**
+ * Anteprima Netlify (next.config.ts): l'accesso deve funzionare sull'indirizzo del
+ * deploy, non sui domini di produzione, e il cookie non può valere su .sospermesso.it.
+ * Vuoto in produzione e in locale.
+ */
+const ANTEPRIMA = /^https:\/\/[a-z0-9-]+--testsospermesso\.netlify\.app$/.test(process.env.ANTEPRIMA_URL ?? '')
+  ? (process.env.ANTEPRIMA_URL as string)
+  : '';
 
 const pool = new Pool({ connectionString: process.env.NEON_DATABASE_URL, max: 3 });
 const query: Query = async (text, params) => (await pool.query(text, params)).rows;
@@ -101,13 +109,14 @@ async function annullaLinkPrecedenti(email: string): Promise<void> {
  */
 export const auth = betterAuth({
   appName: 'SOS Permesso',
-  baseURL: PROD ? { allowedHosts: [...PROD_HOSTS], protocol: 'https', fallback: BASE_URL } : BASE_URL,
+  baseURL: ANTEPRIMA || (PROD ? { allowedHosts: [...PROD_HOSTS], protocol: 'https', fallback: BASE_URL } : BASE_URL),
   trustedOrigins: [
     ...PROD_HOSTS.map((h) => `https://${h}`),
     // Local dev server (any port), never in production builds.
     ...(PROD ? [] : [BASE_URL]),
+    ...(ANTEPRIMA ? [ANTEPRIMA] : []),
   ],
-  advanced: PROD ? { crossSubDomainCookies: { enabled: true, domain: '.sospermesso.it' } } : undefined,
+  advanced: PROD && !ANTEPRIMA ? { crossSubDomainCookies: { enabled: true, domain: '.sospermesso.it' } } : undefined,
   database: {
     dialect: new PostgresDialect({
       pool,
