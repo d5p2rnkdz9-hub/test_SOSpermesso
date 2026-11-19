@@ -48,15 +48,20 @@ export default async function InformativaPage({ params }: Props) {
           <h2 className="text-xl font-extrabold">Quali dati e perché</h2>
           <ul className="mt-2 grid list-disc gap-2 ps-5 text-base">
             <li>
-              <strong>Email e dati di accesso</strong> (link di accesso, sessione, eventuale password cifrata, nome e
-              ruolo se li indichi): per creare l&apos;account e farti entrare. Base giuridica: esecuzione del servizio
+              <strong>Email e dati di accesso</strong> (link di accesso, sessione, eventuale password cifrata; nome, tipo di
+              struttura, organizzazione e città se li indichi): per creare l&apos;account e farti entrare. Base giuridica: esecuzione del servizio
               che richiedi (art. 6.1.b GDPR).
             </li>
             <li>
               <strong>Dati che salvi nell&apos;area PRO</strong> (permessi che segui, profilo, conversazioni con
               l&apos;assistente, scadenziario): per offrirti le funzioni che usi. Per i dati di terzi che inserisci nello
-              scadenziario sei tu il titolare e valgono le condizioni dell&apos;accordo art. 28 GDPR che accetti prima
-              di usarlo.
+              scadenziario sei tu il titolare e valgono le condizioni dell&apos;accordo art. 28 GDPR, che accetti con la
+              spunta del modulo di prova gratuita o, se hai già un account, prima di usarlo.
+            </li>
+            <li>
+              <strong>Accettazione dell&apos;accordo</strong> (data, versione, email, indirizzo IP e tipo di browser): per
+              dimostrare che l&apos;accordo è stato concluso. Base giuridica: esecuzione del contratto (art. 6.1.b). Si
+              cancella con l&apos;account.
             </li>
             <li>
               <strong>Dati tecnici</strong> (indirizzo IP, registro degli invii dei link, con l&apos;email conservata
@@ -66,7 +71,7 @@ export default async function InformativaPage({ params }: Props) {
           </ul>
           <p className="mt-3 text-base">
             Non usiamo i tuoi dati per pubblicità né per addestrare sistemi di intelligenza artificiale, e non li
-            vendiamo.
+            vendiamo. Senza email non possiamo creare l&apos;account; non prendiamo decisioni automatizzate su di te.
           </p>
         </section>
 
@@ -75,7 +80,10 @@ export default async function InformativaPage({ params }: Props) {
           <p className="mt-2 text-base">
             Fornitori che trattano i dati per nostro conto: Neon (database, Francoforte), Netlify (hosting), Resend
             (invio delle email), il fornitore del modello linguistico dell&apos;assistente per le domande che gli scrivi.
-            Alcuni sono negli Stati Uniti, con Data Privacy Framework o clausole contrattuali tipo.
+            Netlify, Resend e Databricks (la società che controlla Neon) sono negli Stati Uniti: il trasferimento si
+            basa sulla decisione di adeguatezza della Commissione europea (Data Privacy Framework, decisione (UE)
+            2023/1795), a cui sono iscritte. Per gli altri fornitori fuori dall&apos;Unione valgono il Data Privacy
+            Framework o le clausole contrattuali tipo della Commissione.
           </p>
         </section>
 

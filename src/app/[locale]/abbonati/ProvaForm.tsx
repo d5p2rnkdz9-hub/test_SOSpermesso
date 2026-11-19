@@ -20,6 +20,7 @@ const bottone = `inline-flex min-h-[56px] w-full items-center justify-center rou
 /**
  * «Chiedi un link di prova gratuita», come sosflussi.it/abbonati/: email, che lavoro fai, informativa, poi il magic link.
  * Al primo accesso si completa l'account in /account/benvenuto (il tipo arriva già scelto, ?tipo=), poi si torna a `da`.
+ * La stessa spunta accetta l'accordo art. 28 dello scadenziario: ?accordo=1, registrato da /account/benvenuto.
  */
 export function ProvaForm({ callbackURL, locale }: { callbackURL: string; locale: string }) {
   const [email, setEmail] = useState('');
@@ -51,7 +52,7 @@ export function ProvaForm({ callbackURL, locale }: { callbackURL: string; locale
       return;
     }
     if (!privacy) {
-      setMsg('Per continuare devi aver letto l’informativa privacy.');
+      setMsg('Per continuare devi accettare l’informativa privacy e l’accordo sul trattamento dei dati.');
       setInvalido('privacy');
       privacyRef.current?.focus();
       return;
@@ -60,7 +61,7 @@ export function ProvaForm({ callbackURL, locale }: { callbackURL: string; locale
     const { error } = await authClient.signIn.magicLink({
       email: indirizzo,
       callbackURL,
-      newUserCallbackURL: `/${locale}/account/benvenuto?tipo=${encodeURIComponent(tipo)}&da=${encodeURIComponent(callbackURL)}`,
+      newUserCallbackURL: `/${locale}/account/benvenuto?tipo=${encodeURIComponent(tipo)}&accordo=1&da=${encodeURIComponent(callbackURL)}`,
       errorCallbackURL: `/${locale}/accedi?errore=link`,
     });
     if (error) {
@@ -150,8 +151,17 @@ export function ProvaForm({ callbackURL, locale }: { callbackURL: string; locale
             className="font-semibold underline underline-offset-2"
           >
             informativa privacy
-          </a>
-          .
+          </a>{' '}
+          e accetto l&apos;
+          <a
+            href={`/${locale}/account/pratiche/accordo`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold underline underline-offset-2"
+          >
+            accordo sul trattamento dei dati
+          </a>{' '}
+          dello scadenziario (art. 28 GDPR).
         </span>
       </label>
       <p aria-live="polite" className="text-base font-semibold empty:hidden" style={{ color: C.errore }}>

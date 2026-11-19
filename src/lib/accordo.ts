@@ -34,6 +34,8 @@ interface Accettazione {
   nome: string | null;
   ip: string | null;
   userAgent: string | null;
+  /** finestra: scorso il testo nello scadenziario; iscrizione: spunta del modulo di prova (/abbonati). */
+  modo?: "finestra" | "iscrizione";
 }
 
 /**
@@ -56,7 +58,7 @@ export async function registraAccettazione(a: Accettazione): Promise<void> {
   const text = [
     `Ciao${a.nome ? ` ${a.nome}` : ""},`,
     "",
-    `il ${rows[0].quando} (ora italiana) hai accettato, con l'account ${a.email} e dopo averne scorso il testo fino in fondo, l'Accordo sul trattamento dei dati personali degli scadenziari dell'area PRO, versione ${ACCORDO_VERSIONE}.`,
+    `il ${rows[0].quando} (ora italiana) hai accettato, con l'account ${a.email} e ${a.modo === "iscrizione" ? "con la spunta del modulo di richiesta della prova gratuita, insieme all'informativa privacy" : "dopo averne scorso il testo fino in fondo"}, l'Accordo sul trattamento dei dati personali degli scadenziari dell'area PRO, versione ${ACCORDO_VERSIONE}.`,
     "",
     `Impronta SHA-256 del testo accettato: ${ACCORDO_SHA256}`,
     `Lo trovi anche qui: ${PRO_URL}/it/account/pratiche/accordo`,

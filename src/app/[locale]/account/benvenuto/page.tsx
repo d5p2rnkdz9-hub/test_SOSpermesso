@@ -3,6 +3,8 @@ import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
 
+import { clientIp, registraAccettazione } from '@/lib/accordo';
+import { PRATICHE_ATTIVE } from '@/lib/pratiche';
 import { getProAccess } from '@/lib/pro-access';
 import { getProfilo } from '@/lib/profilo';
 import { TIPI_PROFILO } from '@/lib/profilo-shared';
@@ -16,8 +18,11 @@ export const metadata: Metadata = {
 
 type Props = {
   params: Promise<{ locale: string }>;
-  /** tipo: scelto nel modulo di prova di /abbonati, arriva già selezionato. */
-  searchParams: Promise<{ da?: string; tipo?: string }>;
+  /**
+   * tipo: scelto nel modulo di prova di /abbonati, arriva già selezionato.
+   * accordo=1: nello stesso modulo la spunta accetta anche l'accordo art. 28 dello scadenziario.
+   */
+  searchParams: Promise<{ da?: string; tipo?: string; accordo?: string }>;
 };
 
 function safeReturnPath(raw: string | undefined, locale: string): string {
@@ -33,14 +38,31 @@ function safeReturnPath(raw: string | undefined, locale: string): string {
 export default async function BenvenutoPage({ params, searchParams }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const { da, tipo } = await searchParams;
+  const { da, tipo, accordo } = await searchParams;
   const tipoScelto = TIPI_PROFILO.find((t) => t.value === tipo)?.value ?? null;
 
-  const access = await getProAccess(await headers());
+  const h = await headers();
+  const access = await getProAccess(h);
   if (access.status === 'anonymous') {
     redirect(`/${locale}/accedi?da=${encodeURIComponent(`/${locale}/account/benvenuto`)}`);
   }
   const { user } = access.session;
+  // Accordo accettato con la spunta della prova: si registra all'arrivo (idempotente, versione corrente).
+  // Se non riesce, lo scadenziario mostrerà comunque la finestra dell'accordo.
+  if (accordo === '1' && access.status === 'active' && PRATICHE_ATTIVE) {
+    try {
+      await registraAccettazione({
+        userId: user.id,
+        email: user.email,
+        nome: user.name || null,
+        ip: clientIp(h),
+        userAgent: h.get('user-agent'),
+        modo: 'iscrizione',
+      });
+    } catch (err) {
+      console.error(`[accordo] registrazione all'iscrizione non riuscita: ${err instanceof Error ? err.message : err}`);
+    }
+  }
   const profilo = await getProfilo(user.id);
   const nuovo = !profilo;
 
