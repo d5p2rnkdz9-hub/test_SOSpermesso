@@ -87,6 +87,7 @@ const PERMIT_PATHS: Record<string, string | null> = {
   c_end_altro_wip: null,
   c_end_lav_no: null,
   c_end_lav_nullaosta: '/permesso-lavoro-subordinato-conversione-da-altro-permesso.html',
+  c_end_lav_formazione_attesa: null,
   c_end_lav_speciale: '/permesso-lavoro-subordinato-conversione-da-altro-permesso.html',
   c_end_lav_cure: '/permesso-lavoro-subordinato-conversione-da-altro-permesso.html',
   c_end_lav_calam: '/permesso-lavoro-subordinato-conversione-da-altro-permesso.html',

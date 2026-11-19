@@ -7,7 +7,7 @@
  *   1. "Quale permesso hai adesso?" → select current permit
  *   2. "È ancora valido?" → per-current-permit validity gate
  *   3. "In quale permesso vorresti convertire?" → per-current-permit targets
- *   4. Follow-up questions if needed (e.g. studi finiti)
+ *   4. Follow-up questions if needed (e.g. tipo di percorso di studio)
  *   5. Result
  *
  * Node IDs use `c_` prefix to avoid collisions with the main Italian tree.
@@ -140,28 +140,35 @@ export const conversioneTree: TreeData = {
     // =============================================
     // FOLLOW-UP QUESTIONS (Studio → Lavoro path)
     // =============================================
+    // Art. 6 c. 1 d.lgs. 286/1998 (testo dal 2023): il permesso per studio e
+    // formazione si converte in lavoro FUORI QUOTA, prima della scadenza, con il
+    // contratto di soggiorno (subordinato) o la certificazione art. 26 (autonomo).
+    // Non serve aver finito gli studi. Solo per corsi di formazione e tirocini
+    // la conversione è possibile "soltanto dopo la conclusione" (art. 14 c. 6
+    // d.P.R. 394/1999).
 
-    c_lav_studi_finiti: {
-      id: 'c_lav_studi_finiti',
+    c_lav_tipo_studio: {
+      id: 'c_lav_tipo_studio',
       type: 'question',
-      short: 'Studi finiti?',
-      question: 'Hai finito il percorso di studi?',
+      short: 'Percorso di studio',
+      question: 'Per quale percorso ti hanno dato il permesso per studio?',
+      description: 'Guarda il motivo per cui sei entrato in Italia o per cui ti hanno rinnovato il permesso.',
     },
 
-    c_lav_titolo: {
-      id: 'c_lav_titolo',
+    c_lav_corso_finito: {
+      id: 'c_lav_corso_finito',
       type: 'question',
-      short: 'Titolo di studio',
-      question: 'Qual è il tuo titolo di studio?',
+      short: 'Corso finito?',
+      question: 'Hai finito il corso di formazione o il tirocinio?',
     },
 
-    // Studio → Attesa occupazione: solo con titolo universitario ottenuto in Italia
+    // Studio → Attesa occupazione: titoli dell'art. 39-bis.1 c. 1 d.lgs. 286/1998
     c_att_titolo_ita: {
       id: 'c_att_titolo_ita',
       type: 'question',
-      short: 'Titolo universitario in Italia?',
+      short: 'Titolo ottenuto in Italia?',
       question:
-        'Hai ottenuto in Italia una laurea o un altro titolo universitario (laurea, master, dottorato, diploma di specializzazione)?',
+        'Hai ottenuto in Italia uno di questi titoli: laurea (triennale o magistrale), master universitario, dottorato, diploma di accademia o conservatorio (AFAM), diploma di tecnico superiore (ITS)?',
     },
 
     c_data_5mag_2023: {
@@ -244,25 +251,63 @@ export const conversioneTree: TreeData = {
       ],
     },
 
-    // Studio senza titolo universitario italiano → lavoro solo con nulla osta
+    // Studio → Lavoro: possibile anche prima di finire gli studi (art. 6 c. 1 TU,
+    // fuori quota dal 2023). Node id/slug kept for old links ("lavoro-con-nulla-osta").
     c_end_lav_nullaosta: {
       id: 'c_end_lav_nullaosta',
       type: 'result',
-      title: 'Conversione in Lavoro: possibile solo con nulla osta',
+      title: 'Conversione da Studio a Lavoro: POSSIBILE',
       introText:
-        'Puoi convertire il tuo permesso per [PermessoAttuale] in permesso per lavoro, ma solo con il nulla osta.',
+        'Se hai un lavoro, puoi convertire il tuo permesso per studio in permesso per lavoro. Se studi all\'università non devi aspettare di aver finito gli studi.',
       sections: [
         {
-          heading: '\u2139\ufe0f Perché',
+          heading: '✅ Cosa serve',
           content:
-            'Senza una laurea o un altro titolo universitario ottenuto in Italia, il permesso per studio si può convertire in lavoro solo con il nulla osta. Non puoi chiedere il permesso per attesa occupazione.',
+            '• **Un lavoro**: un contratto di lavoro dipendente (lavoro subordinato) oppure i requisiti per lavorare in proprio (lavoro autonomo).\n• **Il permesso per studio ancora valido**: fai la domanda prima che scada.\n\nSe studi all\'università (o in accademia, conservatorio, ITS, scuola superiore) non serve la laurea o il diploma: puoi convertire anche a metà del percorso. Solo per i corsi di formazione professionale e i tirocini bisogna aver finito.\n\nNon devi aspettare il decreto flussi: la conversione da studio a lavoro è fuori dalle quote.',
         },
         {
-          heading: '\ud83d\udce6 Come fare',
+          heading: '📦 Come fare',
           content:
-            'Prima serve il nulla osta dello Sportello Unico per l\'Immigrazione, poi si presenta la domanda di conversione. Ti consigliamo di farti aiutare da un servizio di consulenza legale.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
+            'La domanda si fa allo Sportello Unico per l\'Immigrazione della Prefettura. Per il lavoro dipendente lo Sportello Unico ti convoca per firmare il contratto di soggiorno; per il lavoro autonomo rilascia una certificazione dei requisiti. Poi chiedi il permesso per lavoro con il [kit postale](https://www.sospermesso.it/kit-postale).',
+        },
+        {
+          heading: '🎓 Puoi continuare a studiare',
+          content:
+            'Con il permesso per lavoro puoi continuare a frequentare l\'università. Ricorda però che dopo la conversione il permesso dipende dal lavoro: per rinnovarlo conta il lavoro, non gli esami.',
+        },
+        {
+          heading: '⚠️ Se il permesso per studio è già scaduto',
+          content:
+            'La legge chiede di fare la domanda prima della scadenza. Se l\'hai fatta pochi giorni dopo e avevi già un contratto di lavoro, alcuni giudici hanno accolto lo stesso la conversione. In questo caso fatti aiutare da un servizio di consulenza legale.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
         },
         ...getTargetPermitSections('lav_sub_conv').filter((s) => !s.heading.includes('Durata')),
+      ],
+    },
+
+    // Formazione professionale / tirocinio → Lavoro: solo dopo la fine del corso
+    // (art. 14 c. 6 d.P.R. 394/1999, ultimo periodo)
+    c_end_lav_formazione_attesa: {
+      id: 'c_end_lav_formazione_attesa',
+      type: 'result',
+      title: 'Conversione in Lavoro: devi prima finire il corso',
+      introText:
+        'Con un permesso per un corso di formazione professionale o per un tirocinio puoi convertire in permesso per lavoro solo dopo aver finito il corso o il tirocinio.',
+      sections: [
+        {
+          heading: 'ℹ️ Perché',
+          content:
+            'Per l\'università e gli altri percorsi di studio la conversione è possibile anche prima di finire. Per i corsi di formazione professionale e i tirocini, invece, la legge dice che la conversione è possibile soltanto dopo la fine del corso o del tirocinio.',
+        },
+        {
+          heading: '💼 Cosa puoi fare adesso',
+          content:
+            '• **Finisci il corso o il tirocinio**, poi chiedi la conversione prima che il permesso scada.\n• **Nel frattempo puoi già lavorare**: con il permesso per studio o formazione puoi lavorare fino a 20 ore a settimana (massimo 1.040 ore all\'anno).',
+        },
+        {
+          heading: '💬 Consiglio',
+          content:
+            'Se non sei sicuro del tipo di permesso che hai (studio o formazione), guarda il visto con cui sei entrato o chiedi a un servizio di consulenza legale.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
+        },
       ],
     },
 
@@ -397,17 +442,17 @@ export const conversioneTree: TreeData = {
       type: 'result',
       title: 'Conversione in Attesa Occupazione: NON POSSIBILE',
       introText:
-        'Purtroppo, senza un titolo universitario ottenuto in Italia non puoi convertire il permesso per studio in attesa occupazione.',
+        'Purtroppo, senza uno dei titoli previsti dalla legge, ottenuto in Italia, non puoi convertire il permesso per studio in attesa occupazione.',
       sections: [
         {
           heading: '\u2139\ufe0f Perché',
           content:
-            'Il permesso per studio si può convertire in attesa occupazione solo se hai ottenuto in Italia una laurea o un altro titolo universitario (laurea, master, dottorato, diploma di specializzazione).',
+            'Il permesso per studio si può convertire in attesa occupazione solo se hai ottenuto in Italia uno di questi titoli: laurea (triennale o magistrale), master universitario, dottorato, diploma di accademia o conservatorio (AFAM), diploma di tecnico superiore (ITS).',
         },
         {
           heading: '\ud83d\udcbc Cosa puoi fare',
           content:
-            'Puoi chiedere solo la conversione in permesso per lavoro, con il nulla osta. Ti consigliamo di farti aiutare da un servizio di consulenza legale.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
+            'Se hai un lavoro puoi chiedere la conversione in permesso per lavoro, anche senza aver finito gli studi. Torna indietro e scegli "Lavoro". Se hai dubbi, fatti aiutare da un servizio di consulenza legale.\n\n[Trova assistenza legale gratuita](https://www.sospermesso.it/aiuto-legale)',
         },
       ],
     },
@@ -813,7 +858,7 @@ export const conversioneTree: TreeData = {
     { from: 'c_vorresti_famiglia', to: 'c_end_altro_wip', label: 'Altro tipo di permesso', optionKey: 'altro' },
 
     // --- Current: Studio ---
-    { from: 'c_vorresti_studio', to: 'c_lav_studi_finiti', label: 'Lavoro', optionKey: 'lavoro' },
+    { from: 'c_vorresti_studio', to: 'c_lav_tipo_studio', label: 'Lavoro', optionKey: 'lavoro' },
     { from: 'c_vorresti_studio', to: 'c_att_titolo_ita', label: 'Attesa occupazione', optionKey: 'att_occ' },
     { from: 'c_vorresti_studio', to: 'c_end_fam_ok', label: 'Famiglia', optionKey: 'famiglia' },
     { from: 'c_vorresti_studio', to: 'c_end_carta_no', label: 'Permesso UE lungo periodo ("Carta di soggiorno")', optionKey: 'carta_ue' },
@@ -978,23 +1023,19 @@ export const conversioneTree: TreeData = {
     { from: 'c_data_5mag_2023', to: 'c_end_complicata', label: 'Dopo il 5 maggio 2023', optionKey: 'post_5mag' },
 
     // =============================================
-    // FOLLOW-UP: Studio → Lavoro (studi finiti + titolo)
+    // FOLLOW-UP: Studio → Lavoro (tipo di percorso)
+    // Università e altri percorsi di studio: conversione anche prima di finire.
+    // Formazione professionale e tirocini: solo dopo la fine (art. 14 c. 6 d.P.R. 394/1999).
     // =============================================
-    { from: 'c_lav_studi_finiti', to: 'c_lav_titolo', label: 'Sì', optionKey: 'si' },
-    // Studi non finiti: nessun titolo universitario italiano → lavoro solo con nulla osta
-    { from: 'c_lav_studi_finiti', to: 'c_end_lav_nullaosta', label: 'No', optionKey: 'no' },
+    { from: 'c_lav_tipo_studio', to: 'c_end_lav_nullaosta', label: 'Università (laurea, master, dottorato, specializzazione)', optionKey: 'universita' },
+    { from: 'c_lav_tipo_studio', to: 'c_end_lav_nullaosta', label: 'Accademia, conservatorio, ITS o scuola superiore', optionKey: 'altro_studio' },
+    { from: 'c_lav_tipo_studio', to: 'c_lav_corso_finito', label: 'Corso di formazione professionale o tirocinio', optionKey: 'formazione' },
 
-    { from: 'c_lav_titolo', to: 'c_end_lav_sub_ok', label: 'Laurea triennale', optionKey: 'laurea_tri' },
-    { from: 'c_lav_titolo', to: 'c_end_lav_sub_ok', label: 'Laurea specialistica', optionKey: 'laurea_spec' },
-    { from: 'c_lav_titolo', to: 'c_end_lav_sub_ok', label: 'Diploma di specializzazione', optionKey: 'diploma_spec' },
-    { from: 'c_lav_titolo', to: 'c_end_lav_sub_ok', label: 'Dottorato di ricerca', optionKey: 'dottorato' },
-    { from: 'c_lav_titolo', to: 'c_end_lav_sub_ok', label: 'Master I livello', optionKey: 'master_1' },
-    { from: 'c_lav_titolo', to: 'c_end_lav_sub_ok', label: 'Master II livello', optionKey: 'master_2' },
-    { from: 'c_lav_titolo', to: 'c_end_lav_nullaosta', label: 'Attestato / diploma perfezionamento', optionKey: 'attestato' },
-    { from: 'c_lav_titolo', to: 'c_end_lav_nullaosta', label: 'Altro / non ho titolo', optionKey: 'nessuno' },
+    { from: 'c_lav_corso_finito', to: 'c_end_lav_nullaosta', label: 'Sì, l\'ho finito', optionKey: 'si' },
+    { from: 'c_lav_corso_finito', to: 'c_end_lav_formazione_attesa', label: 'No, non ancora', optionKey: 'no' },
 
     // =============================================
-    // FOLLOW-UP: Studio → Attesa occupazione (titolo universitario in Italia)
+    // FOLLOW-UP: Studio → Attesa occupazione (titoli art. 39-bis.1 TU ottenuti in Italia)
     // =============================================
     { from: 'c_att_titolo_ita', to: 'c_end_att_ok', label: 'Sì', optionKey: 'si' },
     { from: 'c_att_titolo_ita', to: 'c_end_att_studio_no', label: 'No', optionKey: 'no' },
