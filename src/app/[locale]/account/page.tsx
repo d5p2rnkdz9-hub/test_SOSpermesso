@@ -303,15 +303,13 @@ export default async function DashboardPage({ params }: Props) {
             >
               <ListTree className="h-5 w-5" aria-hidden="true" /> Questionario PRO
             </Link>
-            {d.assistente && (
-              <Link
-                href="/pro/assistente"
-                className={`flex items-center gap-2 rounded-xl border-[2.5px] bg-white px-4 py-2.5 font-extrabold shadow-[4px_4px_0_#141414] ${lift}`}
-                style={{ borderColor: INK }}
-              >
-                <Sparkles className="h-5 w-5" aria-hidden="true" /> Chiedi all&apos;assistente
-              </Link>
-            )}
+            <Link
+              href="/pro/assistente"
+              className={`flex items-center gap-2 rounded-xl border-[2.5px] bg-white px-4 py-2.5 font-extrabold shadow-[4px_4px_0_#141414] ${lift}`}
+              style={{ borderColor: INK }}
+            >
+              <Sparkles className="h-5 w-5" aria-hidden="true" /> {d.assistente ? <>Chiedi all&apos;assistente</> : 'Chiedi al chatbot'}
+            </Link>
           </div>
         </div>
       </section>

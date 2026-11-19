@@ -12,7 +12,7 @@ import { ProvaForm } from './ProvaForm';
 export const metadata: Metadata = {
   title: 'Prova gratis SOS Permesso PRO',
   description:
-    'Gli strumenti di lavoro per le pratiche di permesso di soggiorno: archivio delle circolari, questionario per operatori, assistente con le fonti, scadenziario e avvisi via email.',
+    'Gli strumenti di lavoro per le pratiche di permesso di soggiorno: archivio delle circolari, questionario per operatori, chatbot, scadenziario e avvisi via email.',
 };
 
 type Props = {
@@ -71,15 +71,17 @@ export default async function AbbonatiPage({ params, searchParams }: Props) {
       gratis: { testo: 'No', tipo: 'no' },
       pro: 'La conversione del permesso, coppia per coppia: ammissibilità, base normativa, procedura, giurisprudenza e casi limite (primo rilascio e rinnovo in arrivo)',
     },
-    ...(ASSISTENTE_PRO_ATTIVO
-      ? [
-          {
-            cosa: 'Assistente PRO',
-            gratis: { testo: 'No', tipo: 'no' as const },
-            pro: 'Risponde cercando nelle circolari e nelle schede, con il link alla fonte di ogni risposta',
-          },
-        ]
-      : []),
+    ASSISTENTE_PRO_ATTIVO
+      ? {
+          cosa: 'Assistente PRO',
+          gratis: { testo: 'No', tipo: 'no' as const },
+          pro: 'Risponde cercando nelle circolari e nelle schede, con il link alla fonte di ogni risposta',
+        }
+      : {
+          cosa: 'Chatbot sui permessi di soggiorno',
+          gratis: { testo: 'No', tipo: 'no' as const },
+          pro: 'Fai una domanda e ricevi la risposta in pochi secondi, basata sulle schede di SOS Permesso: documenti, costi, primo rilascio e rinnovo',
+        },
     ...(PRATICHE_ATTIVE
       ? [
           {

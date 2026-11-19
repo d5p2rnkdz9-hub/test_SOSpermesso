@@ -4,10 +4,11 @@ import { setRequestLocale } from 'next-intl/server';
 
 import { ContentColumn } from '@/components/layout/ContentColumn';
 import { ProGate } from '@/components/pro/ProGate';
-import { ASSISTENTE_PRO_ATTIVO, CHATBOT_FREE_URL } from '@/lib/assistente-pro';
+import { ASSISTENTE_PRO_ATTIVO, CHATBOT_BASE_MAX_CHARS, CHATBOT_BASE_MAX_TURNS } from '@/lib/assistente-pro';
 import { DAILY_LIMIT, MAX_TURNS, listConversazioni, quotaUsata } from '@/lib/chat-pro';
 import { getProAccess } from '@/lib/pro-access';
 
+import { ChatBase } from './ChatBase';
 import { ChatPro } from './ChatPro';
 
 export const metadata: Metadata = {
@@ -21,44 +22,37 @@ export default async function AssistentePage({ params, searchParams }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  if (!ASSISTENTE_PRO_ATTIVO) {
-    return (
-      <ContentColumn>
-        <h1 className="text-3xl font-extrabold leading-tight text-foreground">Assistente PRO</h1>
-        <p className="mt-2 mb-6 text-muted-foreground">
-          L&apos;assistente PRO con circolari e norme è in lavorazione. Per una domanda rapida su un permesso usa il
-          chatbot di SOS Permesso: lo trovi in basso a destra in ogni pagina del sito.
-        </p>
-        <a
-          href={CHATBOT_FREE_URL}
-          className="inline-flex items-center gap-2 rounded-xl border-2 border-foreground px-4 py-2.5 font-bold hover:bg-muted"
-        >
-          Apri il chatbot sul sito
-        </a>
-      </ContentColumn>
-    );
-  }
-
   const access = await getProAccess(await headers());
   if (access.status !== 'active') {
     return (
       <ContentColumn>
-        <h1 className="text-3xl font-extrabold leading-tight text-foreground">Assistente PRO</h1>
+        <h1 className="text-3xl font-extrabold leading-tight text-foreground">Chatbot PRO</h1>
         <p className="mt-2 mb-6 text-sm text-muted-foreground">
-          Descrivi il caso, l&apos;assistente cerca nelle circolari e nelle schede e risponde con le fonti.
+          Fai una domanda su un permesso di soggiorno: il chatbot risponde con le informazioni delle schede di SOS Permesso.
         </p>
         <ProGate
-          titolo="Un assistente che cita le fonti"
-          descrizione="Non risponde a memoria: per ogni domanda cerca nell’archivio di oltre 1.900 circolari e nelle schede dei permessi, e linka il documento da cui ricava la risposta."
+          titolo="Il chatbot di SOS Permesso"
+          descrizione="Risponde alle domande sui permessi di soggiorno usando solo le schede di SOS Permesso: documenti, costi, procedure di primo rilascio e rinnovo."
           da={`/${locale}/pro/assistente`}
           connesso={access.status === 'no-plan'}
           punti={[
-            'Ricerca automatica nelle circolari e nelle schede permesso',
-            'Ogni risposta con il link alla fonte, da verificare',
-            'Registro professionale, pensato per chi segue pratiche',
-            'Conversazioni salvate nel tuo account',
+            'Risposte basate sulle schede dei permessi, non a memoria',
+            'Documenti e costi di primo rilascio e rinnovo',
+            'Pensato per chi segue le pratiche allo sportello',
           ]}
         />
+      </ContentColumn>
+    );
+  }
+
+  if (!ASSISTENTE_PRO_ATTIVO) {
+    return (
+      <ContentColumn>
+        <h1 className="text-3xl font-extrabold leading-tight text-foreground">Chatbot PRO</h1>
+        <p className="mt-2 mb-5 text-sm text-muted-foreground">
+          Fai una domanda su un permesso di soggiorno: il chatbot risponde con le informazioni delle schede di SOS Permesso.
+        </p>
+        <ChatBase maxTurns={CHATBOT_BASE_MAX_TURNS} maxChars={CHATBOT_BASE_MAX_CHARS} />
       </ContentColumn>
     );
   }
