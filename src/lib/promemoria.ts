@@ -3,12 +3,8 @@ import "server-only";
 import { sendEmail } from "./email";
 import { getSQL } from "./neon";
 import { makeProAccessCheck } from "./pro-entitlement";
-import {
-  REMINDER_DAYS,
-  checklistUrl,
-  daysUntil,
-  todayInItaly,
-} from "./pratiche";
+import { ACCORDO_VERSIONE } from "./accordo";
+import { REMINDER_DAYS, daysUntil, todayInItaly } from "./pratiche";
 import { PRO_URL } from "./site-url";
 import { sleep } from "./request-guard";
 
@@ -28,9 +24,6 @@ interface DueRow {
   user_id: string;
   email: string;
   nome: string | null;
-  riferimento: string;
-  permesso_slug: string;
-  permesso_titolo: string;
   scadenza: string;
   registrate: number[] | null;
 }
@@ -53,7 +46,13 @@ function formatDateIt(iso: string): string {
   });
 }
 
-function buildEmail(row: DueRow, giorni: number) {
+/**
+ * Testo del promemoria. Per l'accordo art. 28 (Allegato 1) l'email non porta
+ * dati della pratica: niente riferimento né tipo di permesso, che rivelerebbe
+ * dati particolari (salute, religione, tratta...). Solo la data e il link allo
+ * scadenziario, dove l'utente vede il resto dopo l'accesso.
+ */
+export function buildEmail(row: Pick<DueRow, "nome" | "scadenza">, giorni: number) {
   const quando =
     giorni > 1
       ? `tra ${giorni} giorni`
@@ -63,16 +62,13 @@ function buildEmail(row: DueRow, giorni: number) {
           ? "oggi"
           : `da ${-giorni} giorni`;
   const verbo = giorni >= 0 ? "scade" : "è scaduto";
-  const subject = `${row.permesso_titolo} di ${row.riferimento} ${verbo} ${quando}`;
+  const subject = `Scadenziario: un permesso ${verbo} ${quando}`;
   const text = [
     `Ciao${row.nome ? ` ${row.nome}` : ""},`,
     "",
-    `il permesso "${row.permesso_titolo}" della pratica "${row.riferimento}" ${verbo} ${quando}, il ${formatDateIt(row.scadenza)}.`,
+    `nel tuo scadenziario c'è un permesso di soggiorno che ${verbo} ${quando}, il ${formatDateIt(row.scadenza)}.`,
     "",
-    "Documenti e passaggi per il rinnovo:",
-    checklistUrl(row.permesso_slug),
-    "",
-    "Il tuo scadenziario:",
+    "Apri lo scadenziario per vedere la pratica e la lista dei documenti per il rinnovo:",
     `${PRO_URL}/it/account/pratiche`,
     "",
     "Ricevi questa email perché hai inserito la pratica nello scadenziario di SOS Permesso PRO.",
@@ -92,7 +88,7 @@ export async function runPromemoria(): Promise<PromemoriaReport> {
   const maxDays = Math.max(...REMINDER_DAYS);
 
   const rows = (await sql.query(
-    `SELECT p.id, p.user_id, u.email, u.name AS nome, p.riferimento, p.permesso_slug, p.permesso_titolo,
+    `SELECT p.id, p.user_id, u.email, u.name AS nome,
             to_char(p.scadenza, 'YYYY-MM-DD') AS scadenza,
             (SELECT array_agg(giorni) FROM pro.pratica_promemoria m WHERE m.pratica_id = p.id
                AND (m.esito IN ('inviato', 'saltato') OR (m.esito = 'in_corso' AND m.created_at > now() - interval '1 hour'))) AS registrate
@@ -101,8 +97,11 @@ export async function runPromemoria(): Promise<PromemoriaReport> {
      WHERE NOT p.archiviata
        AND p.scadenza <= ($1::date + ($2::int || ' days')::interval)
        AND p.scadenza >= ($1::date - interval '30 days')
+       -- Solo chi ha accettato la versione corrente dell'accordo art. 28.
+       AND EXISTS (SELECT 1 FROM pro.accordo_accettazione a
+                    WHERE a.user_id = p.user_id AND a.versione = $3)
      ORDER BY p.scadenza`,
-    [today, maxDays],
+    [today, maxDays, ACCORDO_VERSIONE],
   )) as DueRow[];
 
   const report: PromemoriaReport = {

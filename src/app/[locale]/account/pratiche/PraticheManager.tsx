@@ -160,7 +160,7 @@ function PraticaForm({
           className={FIELD}
           value={form.riferimento}
           onChange={(e) => setForm({ ...form, riferimento: e.target.value })}
-          placeholder="Es. Rossi M. oppure pratica 2026/14"
+          placeholder="Una sigla, non nome e cognome: es. RM-14 o pratica 2026/14"
           maxLength={80}
           required
         />

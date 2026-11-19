@@ -36,6 +36,25 @@
 - Netlify scheduled function giornaliera: promemoria a 90/60/30 giorni con link alla checklist
   di rinnovo sul sito.
 
+**Privacy (19/11/2026).** Lo scadenziario si attiva solo dopo l'accettazione dell'Accordo sul
+trattamento dei dati art. 28 GDPR (Alberto Pasquero responsabile, l'utente titolare): testo in
+`src/lib/accordo-testo.ts`, finestra con scorrimento fino in fondo in `AccordoGate.tsx`,
+accettazioni in `pro.accordo_accettazione` (`scripts/sql/008_pro_accordo.sql`), copia per email.
+Ogni modifica al testo = nuova `ACCORDO_VERSIONE` in `src/lib/accordo.ts` e preavviso di 30
+giorni agli utenti (art. 13 dell'accordo). I promemoria non contengono più riferimento né tipo
+di permesso.
+
+**TODO per riaprirlo** (`PRATICHE_ATTIVE` in `src/lib/pratiche.ts`):
+- [ ] Applicare `008_pro_accordo.sql` su dev e prod (`scripts/db-migrate.mjs`).
+- [ ] Decidere se ridurre il menu dei permessi a categorie neutre (lavoro, famiglia, studio,
+      altro): oggi il tipo di permesso rivela dati sanitari, religiosi, su vittime di tratta.
+      Se si cambia, aggiornare l'Allegato 1 dell'accordo (nuova versione).
+- [ ] Note libere: toglierle o lasciarle con il divieto di dati sanitari e penali (art. 3.3).
+- [ ] Titolarità degli account: allineare l'informativa di SOS Flussi (titolare lo Studio) con
+      SOS Permesso, visto che l'account è unico.
+- [ ] Verificare quanto dichiarato nell'Allegato 2: 2FA su Neon, Netlify, Resend e GitHub;
+      ripristino Neon di 7 giorni; nessun dato delle pratiche nei log di Netlify.
+
 ### 3. Chatbot PRO (retrieval agentico) — SOSPESO il 16/11/2026
 
 **Stato.** Spento: `src/lib/assistente-pro.ts` (`ASSISTENTE_PRO_ATTIVO`, si riaccende solo con
@@ -64,6 +83,13 @@ chatbot gratuito del sito. Il codice (`chat-pro.ts`, `ChatPro.tsx`, tabelle `pro
    `biz-1227` è intorno al carattere 34.000 di 52.000.
 
 **TODO per riaccenderlo** (dettagli, file e righe nei documenti citati):
+
+*Privacy (prima di riaccenderlo)*
+- [ ] Gli utenti scrivono nella chat anche dati dei clienti: i messaggi restano in `pro.chat_*`
+      e vanno ad Anthropic (USA). Verificare il DPA di Anthropic e la certificazione Data Privacy
+      Framework, poi aggiungere la chat all'accordo art. 28 (art. 1.1, 3.3, Allegati 1-3) con
+      Anthropic tra i sub-responsabili: nuova `ACCORDO_VERSIONE` e preavviso di 30 giorni
+      (art. 6.2). In alternativa vietare i dati personali nella chat.
 
 *Fase 1: risolve il caso segnalato (~2 giorni)*
 - [ ] Prompt: blocco «FONTI E CITAZIONI» (`1-forma.md` §3), «GERARCHIA DELLE FONTI»
