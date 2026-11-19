@@ -2,13 +2,14 @@ import { Atkinson_Hyperlegible } from 'next/font/google';
 import { getLocale } from 'next-intl/server';
 
 import { Link } from '@/i18n/navigation';
+import { PRATICHE_ATTIVE } from '@/lib/pratiche';
 
 import { HeaderAccount } from './HeaderAccount';
 import { HeaderBack } from './HeaderBack';
 import { LanguageSelector } from './LanguageSelector';
 
 /* La stessa testata di sospermesso.it (_includes/components/header.liquid + nav.js):
- * logo a sinistra, pill bianche con bordo e ombra d'inchiostro, Accedi PRO, lingua.
+ * logo a sinistra, pill bianche con bordo e ombra d'inchiostro, tendina «SOS Permesso PRO», lingua.
  * Così sito e app sembrano un sito solo, con l'area PRO riservata. */
 const atkinson = Atkinson_Hyperlegible({
   weight: ['400', '700'],
@@ -65,7 +66,7 @@ export async function StickyHeader() {
         <nav aria-label="Menu principale" className="ms-auto flex items-center gap-2.5">
           <div className="hidden items-center gap-2.5 lg:flex">{voci}</div>
           <div className="hidden items-center gap-2.5 sm:flex">
-            <HeaderAccount className={pill} />
+            <HeaderAccount className={pill} pratiche={PRATICHE_ATTIVE} />
             <LanguageSelector />
           </div>
           {/* Da telefono le voci stanno in una tendina, come il ☰ del sito (sotto 640px anche account e lingua). */}
@@ -76,7 +77,7 @@ export async function StickyHeader() {
             <div className="absolute end-0 top-[calc(100%+8px)] flex min-w-[220px] flex-col gap-2 rounded-[18px] border-2 border-[#141414] bg-white p-3 shadow-[5px_5px_0_#141414]">
               {voci}
               <div className="flex flex-col gap-2 sm:hidden">
-                <HeaderAccount className={pill} />
+                <HeaderAccount className={`${pill} w-full`} inline pratiche={PRATICHE_ATTIVE} />
                 <LanguageSelector />
               </div>
             </div>
