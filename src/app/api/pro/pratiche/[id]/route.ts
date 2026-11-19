@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server';
 
-import { deletePratica, setArchiviata, updatePratica, validatePratica } from '@/lib/pratiche';
-import { getProAccess } from '@/lib/pro-access';
+import { PRATICHE_ATTIVE, deletePratica, setArchiviata, updatePratica, validatePratica } from '@/lib/pratiche';
+import { accordoRichiesto, haAccettatoAccordo } from '@/lib/accordo';
+import { getProAccess, proDenied } from '@/lib/pro-access';
 import { sameOrigin } from '@/lib/request-guard';
 
 const NO_STORE = { 'Cache-Control': 'private, no-store' };
@@ -14,11 +15,11 @@ type Ctx = { params: Promise<{ id: string }> };
  * A changed deadline resets the reminder cycle (see updatePratica).
  */
 export async function PATCH(request: Request, { params }: Ctx) {
+  if (!PRATICHE_ATTIVE) return NextResponse.json({ error: 'not_found' }, { status: 404 });
   if (!sameOrigin(request)) return NextResponse.json({ error: 'forbidden' }, { status: 403 });
   const access = await getProAccess(request.headers);
-  if (access.status !== 'active') {
-    return NextResponse.json({ error: 'login_required' }, { status: 401 });
-  }
+  if (access.status !== 'active') return proDenied(access);
+  if (!(await haAccettatoAccordo(access.session.user.id))) return accordoRichiesto();
   const { id } = await params;
   if (!UUID_RE.test(id)) return NextResponse.json({ error: 'not_found' }, { status: 404 });
 
@@ -46,11 +47,11 @@ export async function PATCH(request: Request, { params }: Ctx) {
 }
 
 export async function DELETE(request: Request, { params }: Ctx) {
+  if (!PRATICHE_ATTIVE) return NextResponse.json({ error: 'not_found' }, { status: 404 });
   if (!sameOrigin(request)) return NextResponse.json({ error: 'forbidden' }, { status: 403 });
   const access = await getProAccess(request.headers);
-  if (access.status !== 'active') {
-    return NextResponse.json({ error: 'login_required' }, { status: 401 });
-  }
+  if (access.status !== 'active') return proDenied(access);
+  if (!(await haAccettatoAccordo(access.session.user.id))) return accordoRichiesto();
   const { id } = await params;
   if (!UUID_RE.test(id)) return NextResponse.json({ error: 'not_found' }, { status: 404 });
   const ok = await deletePratica(access.session.user.id, id);

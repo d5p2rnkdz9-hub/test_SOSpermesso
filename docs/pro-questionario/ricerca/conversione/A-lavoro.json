@@ -1,0 +1,2210 @@
+{
+  "gruppo": "A - Lavoro subordinato e autonomo, lavoro stagionale, attesa occupazione, permesso scaduto",
+  "regime": "vigente al 19/11/2026; note transitorie dove indicato (d.l. 145/2024 sull'art. 24 c. 10 TU; d.lgs. 83/2026 sull'art. 5 cc. 4 e 9 TU, applicabile dal 22.5.2026). Le materie del gruppo non sono toccate dal Patto UE (d.l. 100/2026).",
+  "fonti_note": "Norme lette dalla KB immigrazbot-norme (testo coordinato non ufficiale, base Normattiva al 4.6.2026) e verificate su Normattiva per gli artt. 5, 22 e 24 TU (testo vigente; art. 24 anche al 1.6.2024). Le citazioni tra virgolette sono copiate dai file della KB (grafia con apostrofi di Normattiva). Fa fede la Gazzetta Ufficiale. Giurisprudenza: schede della KB immigrazbot-kb (letta_integrale=false: principio ricavato dalla scheda) e provvedimenti aperti sul portale della giustizia amministrativa. Non e' stata fatta la ricerca su SentenzeWeb (Cassazione fuori KB) ne' su ITFPLUS.",
+  "conversioni": [
+    {
+      "da": "lavoro_subordinato",
+      "a": "attesa_occupazione",
+      "nodo_albero": "c_end_att_ok",
+      "esito_albero": "POSSIBILE",
+      "esito_verificato": "condizionato",
+      "discrepanza": "L'albero dice 'possibile' senza condizioni e aggiunge che si puo' chiedere 'anche senza precedente esperienza lavorativa': per chi parte da un permesso per lavoro subordinato la base e' proprio la perdita di un lavoro (art. 22 c. 11 TU), con DID al Centro per l'impiego. Inoltre non e' una conversione in senso tecnico: con il permesso ancora valido la perdita del lavoro non ne comporta la revoca; l'attesa occupazione si ottiene alla scadenza come rinnovo. La frase sull'assenza di esperienza lavorativa vale per altri permessi di partenza (es. minore eta', studio), non per questa coppia.",
+      "sintesi": "Il titolare di permesso per lavoro subordinato (non stagionale) che perde il posto, anche per dimissioni, non subisce la revoca del permesso (art. 22, c. 11, primo periodo, TU) e, resa la DID ex art. 19 d.lgs. 150/2015, conserva il soggiorno per la residua validita' e comunque per almeno un anno, o per la durata della prestazione di sostegno al reddito se superiore. In pratica, alla scadenza si chiede il rinnovo 'per attesa occupazione' alla questura; prima di negare il rinnovo per carenza di reddito il questore deve verificare questa possibilita' (Cons. Stato 4448/2020). Decorso il periodo minimo, il rinnovo dell'attesa occupazione richiede i requisiti reddituali dell'art. 29, c. 3, lett. b), valutati anche in chiave prognostica sulle concrete chances di reimpiego (Cons. Stato 6422/2022). Il ritardo nell'iscrizione al collocamento puo' essere letto come indice di irregolarita' (Cass. SU 7892/2003).",
+      "requisiti": [
+        "Permesso per lavoro subordinato non stagionale (lo stagionale e' escluso: art. 24 c. 1 e art. 22 c. 11)",
+        "Cessazione del rapporto (licenziamento, dimissioni, fine contratto)",
+        "DID al Centro per l'impiego / sistema informativo (art. 22 c. 11; art. 37 c. 2 d.P.R. 394/1999: entro 40 giorni dalla cessazione)",
+        "Domanda di rinnovo per attesa occupazione alla scadenza, con prova della DID",
+        "Assenza di motivi ostativi generali (art. 4 c. 3 e art. 5 c. 5 TU)"
+      ],
+      "procedura": "Questura della provincia di dimora; domanda tramite kit postale (rinnovo); niente Sportello unico, niente quote; contributo ex art. 5 c. 2-ter TU e marca da bollo; termine per chiedere il rinnovo: almeno 90 giorni prima della scadenza (art. 5 c. 4, testo dal 22.5.2026; termine ordinatorio). Durata: almeno un anno o pari alla prestazione di sostegno al reddito se superiore.",
+      "norme": [
+        {
+          "estremi": "art. 22, c. 11, d.lgs. 286/1998",
+          "contenuto": "La perdita del lavoro non e' causa di revoca; il titolare di permesso per lavoro subordinato che perde il posto (anche per dimissioni) rende la DID ex art. 19 d.lgs. 150/2015 e conserva gli effetti per la residua validita' del permesso e comunque, salvo lo stagionale, per almeno un anno o per la durata della prestazione di sostegno al reddito se superiore; poi si applicano i requisiti reddituali dell'art. 29 c. 3 lett. b).",
+          "citazione": "La perdita del posto di lavoro non costituisce motivo di revoca del permesso di soggiorno al lavoratore extracomunitario ed ai suoi familiari legalmente soggiornanti.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art22"
+        },
+        {
+          "estremi": "art. 22, c. 11, terzo periodo, d.lgs. 286/1998",
+          "contenuto": "Decorso il periodo minimo, per il rinnovo dell'attesa occupazione servono i requisiti reddituali dell'art. 29, c. 3, lett. b) (assegno sociale).",
+          "citazione": "Decorso il termine di cui al secondo periodo, trovano applicazione i requisiti reddituali di cui all'articolo 29, comma 3, lettera b).",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art22"
+        },
+        {
+          "estremi": "art. 37, cc. 2, 3, 5 e 6, d.P.R. 394/1999",
+          "contenuto": "Procedura di iscrizione al Centro per l'impiego dopo licenziamento o dimissioni: presentazione entro il quarantesimo giorno dalla cessazione; rinnovo del permesso da parte della questura previa verifica dell'iscrizione. Il testo rinvia al d.lgs. 181/2000 (sostituito dal d.lgs. 150/2015, richiamato ora dall'art. 22 c. 11 TU) e prevede ancora il periodo minimo di sei mesi superato dalla legge (un anno): va letto in modo coordinato con la norma primaria.",
+          "citazione": "deve presentarsi, non oltre il quarantesimo giorno dalla data di cessazione del rapporto di lavoro, presso il Centro per l'impiego",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art37"
+        },
+        {
+          "estremi": "art. 13, cc. 2 e 4, d.P.R. 394/1999",
+          "contenuto": "Al rinnovo il reddito puo' essere accertato d'ufficio su dichiarazione sostitutiva, fermo l'art. 22 c. 11 TU; il permesso non si rinnova se il soggiorno e' stato interrotto per oltre sei mesi continuativi (o oltre meta' della validita' per i permessi almeno biennali), salvo gravi motivi.",
+          "citazione": null,
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art13"
+        },
+        {
+          "estremi": "art. 5, c. 4, d.lgs. 286/1998 (testo vigente, come modificato dal d.lgs. 16 aprile 2026, n. 83, applicabile dal 22.5.2026)",
+          "contenuto": "Il rinnovo si chiede al questore della provincia di dimora almeno novanta giorni prima della scadenza (prima della novella del d.lgs. 83/2026 il termine era di sessanta giorni) ed e' soggetto alla verifica delle condizioni del rilascio. Il termine e' ordinatorio secondo la giurisprudenza amministrativa.",
+          "citazione": "Il rinnovo del permesso di soggiorno e' richiesto dallo straniero al questore della provincia in cui dimora, almeno novanta giorni prima della scadenza",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art5"
+        },
+        {
+          "estremi": "art. 5, c. 5, d.lgs. 286/1998",
+          "contenuto": "Rifiuto/revoca quando mancano i requisiti, salvo nuovi elementi sopravvenuti e irregolarita' amministrative sanabili; valutazione dei legami familiari (estesa a tutti gli stranieri con legami familiari da C. cost. 202/2013, nota Normattiva).",
+          "citazione": "sempre che non siano sopraggiunti nuovi elementi che ne consentano il rilascio e che non si tratti di irregolarita' amministrative sanabili",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art5"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Cons. Stato",
+          "data": "2020",
+          "numero": "n. 4448/2020",
+          "principio": "Prima di negare il rinnovo per insufficienza di reddito il questore deve verificare se spetti la conservazione del permesso per attesa occupazione ex art. 22, c. 11, TU e art. 37 d.P.R. 394/1999; il periodo minimo decorre dall'iscrizione al collocamento. I fatti sopravvenuti al provvedimento non lo rendono illegittimo (al piu' riesame).",
+          "esito": "favorevole allo straniero",
+          "url": "https://docs.google.com/document/d/1pSCF_khMCaSYzqf3bAbE8hnxKVUiaIHR/edit?usp=drivesdk&ouid=107611503497693748116&rtpof=true&sd=true",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "Cons. Stato, sez. III",
+          "data": "2022-07-22",
+          "numero": "n. 6422/2022",
+          "principio": "La legge non pone un limite temporale insuperabile all'attesa occupazione ne' al suo rinnovo: superato l'anno minimo, l'interessato deve dimostrare, anche in chiave prognostica, i requisiti reddituali dell'art. 29, c. 3, lett. b); per l'attesa occupazione la verifica riguarda la serieta' e concretezza delle chances di rientrare nel lavoro. Nel caso: appello respinto, disoccupazione protratta da circa un anno prima della scadenza senza iscrizione tempestiva.",
+          "esito": "favorevole alla PA",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=cds&nrg=201810411&nomeFile=202206422_11.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "letta_integrale": false
+        },
+        {
+          "corte": "Cass., sez. un. civ.",
+          "data": "2003-05-20",
+          "numero": "n. 7892/2003",
+          "principio": "La spontanea domanda di rinnovo oltre i sessanta giorni dalla scadenza non consente l'espulsione automatica: l'espulsione e' legittima solo se la domanda e' respinta per mancanza dei requisiti; il ritardo e' solo indice rivelatore, ostativo quando lo straniero ha atteso di ricostituire requisiti gia' venuti meno (es. perdita del lavoro senza tempestiva iscrizione al collocamento). La forza maggiore giustifica il ritardo anche nel rinnovo.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1XR2f4rJ-JCvKJ_DYq2BikyPXbEaBnX-w/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [
+        {
+          "ente": "Ministero dell'Interno",
+          "estremi": "circolare 20 agosto 2007, n. 3836",
+          "data": "2007-08-20",
+          "oggetto": "Permesso per attesa occupazione allo straniero entrato con visto per lavoro subordinato che non puo' formalizzare il rapporto per indisponibilita' sopravvenuta del datore (dichiarazione del responsabile dello Sportello unico).",
+          "url": "https://drive.google.com/file/d/1d8dpvTKdPJCl4yCOAyPARRfHPNQeWQJ5/view?usp=drivesdk"
+        }
+      ],
+      "casi_limite": [
+        {
+          "titolo": "Rinnovo dell'attesa occupazione oltre l'anno",
+          "testo": "La legge non pone un limite massimo: dopo l'anno si rinnova se c'e' reddito ex art. 29 c. 3 lett. b), anche in prognosi (Cons. Stato 6422/2022). Senza reddito, il diniego e' legittimo; valutare coesione familiare o lavoro nel frattempo trovato."
+        },
+        {
+          "titolo": "Disoccupazione maturata durante la validita' del permesso",
+          "testo": "Se il lavoratore e' rimasto disoccupato a lungo prima della scadenza senza DID, la questura puo' contare quel periodo e negare il rinnovo (Cons. Stato 6422/2022, caso con disoccupazione di circa un anno senza iscrizione). La tempestivita' della DID e' decisiva."
+        },
+        {
+          "titolo": "Mai firmato il contratto di soggiorno (ingresso con flussi)",
+          "testo": "Fuori da questa coppia ma frequente: chi e' entrato con visto per lavoro e non e' mai stato assunto. Contrasto: Cons. Stato 2403/2025 (e altre pronunce del Consiglio di Stato elencate nella mappa KB imm_2, cluster 3) negano l'attesa occupazione senza primo contratto; TAR Campania 119/2024 e la circolare 20.8.2007 la ammettono per indisponibilita' sopravvenuta del datore."
+        },
+        {
+          "titolo": "Testo regolamentare superato",
+          "testo": "L'art. 37 d.P.R. 394/1999 prevede ancora un periodo minimo di sei mesi e rinvia al d.lgs. 181/2000: prevale la legge (un anno; d.lgs. 150/2015). Il termine di 40 giorni per presentarsi al CPI resta nel regolamento: non e' chiaro se sia perentorio (punto da validare)."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Come e quando e' cessato l'ultimo rapporto di lavoro?",
+          "perche": "Art. 22 c. 11 TU copre licenziamento, dimissioni e fine contratto, ma serve la DID e la tempestivita' (art. 37 d.P.R. 394/1999: 40 giorni; Cass. SU 7892/2003 sul ritardo come indice di irregolarita').",
+          "opzioni": [
+            "Licenziamento o fine contratto da meno di 40 giorni",
+            "Dimissioni",
+            "Cessazione da piu' di 40 giorni senza DID",
+            "Non ha mai lavorato con questo permesso"
+          ]
+        },
+        {
+          "domanda": "Ha reso la dichiarazione di immediata disponibilita' (DID) al Centro per l'impiego / SIISL?",
+          "perche": "E' il presupposto degli effetti dell'art. 22 c. 11 e la questura ne verifica l'esistenza (art. 37 c. 5 d.P.R. 394/1999).",
+          "opzioni": [
+            "Si', entro 40 giorni",
+            "Si', in ritardo",
+            "No"
+          ]
+        },
+        {
+          "domanda": "Percepisce NASpI o altra prestazione di sostegno al reddito? Fino a quando?",
+          "perche": "La durata dell'attesa occupazione e' almeno un anno o pari alla prestazione se superiore (art. 22 c. 11).",
+          "opzioni": [
+            "No",
+            "Si', durata inferiore a un anno",
+            "Si', durata superiore a un anno"
+          ]
+        },
+        {
+          "domanda": "Data di scadenza del permesso attuale e data in cui verra' presentata la domanda?",
+          "perche": "Sotto i 60 giorni dalla scadenza non c'e' base per l'espulsione ex art. 13 c. 2 lett. b); oltre, la domanda resta esaminabile (termine non perentorio: Cons. Stato 7156/2022) ma il ritardo pesa nella valutazione; per la coesione familiare il limite e' un anno (art. 30 c. 1 lett. c).",
+          "opzioni": [
+            "Ancora valido",
+            "Scaduto da meno di 60 giorni",
+            "Scaduto da 60 giorni a un anno",
+            "Scaduto da piu' di un anno"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "lavoro_autonomo",
+      "a": "attesa_occupazione",
+      "nodo_albero": "c_end_att_ok",
+      "esito_albero": "POSSIBILE",
+      "esito_verificato": "non_possibile",
+      "discrepanza": "L'albero usa lo stesso nodo (c_vorresti_lav) per subordinato e autonomo e da' 'POSSIBILE' anche all'autonomo. L'art. 22 c. 11 TU riguarda solo il titolare di permesso per lavoro subordinato; la stessa amministrazione ritiene l'estensione all'autonomo 'una forzatura' (posizione riferita in Cons. Stato 6070/2014). La tutela dell'autonomo che resta senza reddito passa per altre vie: valutazione ragionevole delle carenze temporanee di reddito al rinnovo, passaggio al lavoro subordinato (art. 14 c. 1 lett. b d.P.R. 394/1999), coesione familiare.",
+      "sintesi": "Il permesso per attesa occupazione e' disciplinato dall'art. 22, c. 11, TU per il lavoratore titolare di permesso per lavoro subordinato che perde il posto; non esiste una norma che lo preveda per il lavoratore autonomo. Il Consiglio di Stato (sez. III, 6070/2014) ha riconosciuto che la norma e' riferita al lavoro subordinato, ma ne ha tratto una regola di ragionevolezza: al rinnovo del permesso per lavoro autonomo vanno tollerate carenze temporanee di reddito se il richiedente dimostra capacita' di produrre reddito, valutando i fatti sopravvenuti prima del provvedimento. Per il CAF la strada utile e' quindi il rinnovo per lavoro autonomo con documentazione della ripresa dell'attivita', oppure il rinnovo per lavoro subordinato se nel frattempo e' stato assunto (art. 14 c. 1 lett. b e c. 3 d.P.R. 394/1999). Se l'interessato ha anche avuto in passato un permesso per lavoro subordinato, va verificata la situazione concreta.",
+      "requisiti": [
+        "Nessun titolo diretto; in alternativa: reddito da lavoro autonomo al rinnovo (art. 26 c. 3 TU) anche con valutazione prognostica, oppure contratto di lavoro subordinato in corso"
+      ],
+      "procedura": "Rinnovo in Questura con kit postale per lavoro autonomo (o per lavoro subordinato se nel frattempo assunto); nessuna quota.",
+      "norme": [
+        {
+          "estremi": "art. 22, c. 11, d.lgs. 286/1998",
+          "contenuto": "La perdita del lavoro non e' causa di revoca; il titolare di permesso per lavoro subordinato che perde il posto (anche per dimissioni) rende la DID ex art. 19 d.lgs. 150/2015 e conserva gli effetti per la residua validita' del permesso e comunque, salvo lo stagionale, per almeno un anno o per la durata della prestazione di sostegno al reddito se superiore; poi si applicano i requisiti reddituali dell'art. 29 c. 3 lett. b).",
+          "citazione": "La perdita del posto di lavoro non costituisce motivo di revoca del permesso di soggiorno al lavoratore extracomunitario ed ai suoi familiari legalmente soggiornanti.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art22"
+        },
+        {
+          "estremi": "art. 14, c. 1, lett. a) e b), d.P.R. 394/1999",
+          "contenuto": "Il permesso per lavoro subordinato NON stagionale consente il lavoro autonomo (con titolo abilitativo e requisiti); quello per lavoro autonomo consente il lavoro subordinato (previa comunicazione del datore), senza conversione del documento per il periodo di validita'.",
+          "citazione": "il permesso di soggiorno rilasciato per lavoro subordinato non stagionale consente l'esercizio di lavoro autonomo, previa acquisizione del titolo abilitativo o autorizzatorio eventualmente prescritto",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art14"
+        },
+        {
+          "estremi": "art. 14, c. 3, d.P.R. 394/1999",
+          "contenuto": "Al rinnovo si rilascia il permesso per l'attivita' effettivamente svolta.",
+          "citazione": "Con il rinnovo, e' rilasciato un nuovo permesso di soggiorno per l'attivita' effettivamente svolta.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art14"
+        },
+        {
+          "estremi": "art. 26, cc. 1-3, d.lgs. 286/1998",
+          "contenuto": "Requisiti del lavoro autonomo: attivita' non riservata, risorse adeguate, requisiti per l'esercizio (albi, registri, licenze; attestazione dell'autorita' competente non anteriore a tre mesi), alloggio idoneo e reddito annuo lecito superiore al minimo per l'esenzione dalla spesa sanitaria.",
+          "citazione": null,
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art26"
+        },
+        {
+          "estremi": "art. 5, c. 5, d.lgs. 286/1998",
+          "contenuto": "Rifiuto/revoca quando mancano i requisiti, salvo nuovi elementi sopravvenuti e irregolarita' amministrative sanabili; valutazione dei legami familiari (estesa a tutti gli stranieri con legami familiari da C. cost. 202/2013, nota Normattiva).",
+          "citazione": "sempre che non siano sopraggiunti nuovi elementi che ne consentano il rilascio e che non si tratti di irregolarita' amministrative sanabili",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art5"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Cons. Stato, sez. III",
+          "data": "2014-10-30",
+          "numero": "n. 6070/2014 (data indicata = data della decisione; il portale non riporta la data di pubblicazione)",
+          "principio": "L'art. 22, c. 11, TU e' riferito al lavoro subordinato; per il lavoro autonomo non si rilascia l'attesa occupazione, ma da un'interpretazione sistematica (artt. 5 c. 5, 9 c. 7, 22 c. 11) discende una regola di ragionevolezza che tollera temporanee carenze di reddito se il richiedente dimostra capacita' di produrre reddito; la normativa non vieta il passaggio fra permesso per lavoro autonomo e subordinato. Fatti sopravvenuti prima del provvedimento vanno valutati.",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=cds&nrg=201404423&nomeFile=201406070_11.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "letta_integrale": true
+        },
+        {
+          "corte": "Cons. Stato",
+          "data": "2018-01-24",
+          "numero": "n. 476/2018",
+          "principio": "Principio di tipicita' delle conversioni: la conversione, provvedimento novativo del titolo, presuppone un'espressa previsione normativa; l'art. 14 d.P.R. 394/1999 disciplina solo casi specifici. Nel caso, permesso religioso non convertibile in lavoro.",
+          "esito": "favorevole alla PA",
+          "url": "https://drive.google.com/file/d/1UAz09J1Y5L_w701yRjbYrqJiFbQECqz6/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Autonomo con periodi alterni di lavoro dipendente",
+          "testo": "Se durante la validita' del permesso per lavoro autonomo ha lavorato come dipendente (consentito dall'art. 14 c. 1 lett. b d.P.R. 394/1999) e poi ha perso quel lavoro, e' sostenibile chiedere il rinnovo come subordinato e invocare l'art. 22 c. 11: non c'e' giurisprudenza specifica trovata (punto da validare)."
+        },
+        {
+          "titolo": "Carenza di reddito temporanea",
+          "testo": "Il diniego non puo' fondarsi su una carenza temporanea se il reddito si e' ristabilito prima del provvedimento (Cons. Stato 6070/2014)."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Durante la validita' del permesso per lavoro autonomo ha avuto anche rapporti di lavoro subordinato?",
+          "perche": "Determina se si puo' ragionare come lavoratore subordinato che ha perso il posto (art. 14 c. 1 lett. b e c. 3 d.P.R. 394/1999).",
+          "opzioni": [
+            "Si', rapporto cessato",
+            "Si', rapporto in corso",
+            "No"
+          ]
+        },
+        {
+          "domanda": "L'attivita' autonoma e' cessata (partita IVA chiusa) o solo ridotta?",
+          "perche": "Se l'attivita' prosegue con reddito ridotto si chiede il rinnovo per lavoro autonomo invocando la tolleranza per carenze temporanee (Cons. Stato 6070/2014).",
+          "opzioni": [
+            "Cessata",
+            "Ridotta ma attiva",
+            "Attiva con reddito sufficiente"
+          ]
+        },
+        {
+          "domanda": "Reddito degli ultimi 12 mesi (proprio e dei familiari conviventi) rispetto all'assegno sociale?",
+          "perche": "Requisito per UE lungo periodo (art. 9 c. 1), per il rinnovo dell'attesa occupazione dopo l'anno (art. 22 c. 11) e per la coesione (art. 29 c. 3 lett. b). La giurisprudenza ammette redditi di familiari e valutazione prognostica (CGUE C-302/18; TAR Piemonte 668/2022).",
+          "opzioni": [
+            "Sopra la soglia con reddito proprio",
+            "Sopra la soglia solo con redditi familiari",
+            "Sotto la soglia",
+            "Non documentabile"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "lavoro_subordinato",
+      "a": "studio",
+      "nodo_albero": "c_end_stu_ok",
+      "esito_albero": "POSSIBILE",
+      "esito_verificato": "incerto",
+      "discrepanza": "L'albero dice 'possibile, puoi fare da solo' con kit postale. Nessuna norma del TU o del d.P.R. 394/1999 disciplina la conversione da lavoro a studio (l'art. 14 d.P.R. 394/1999 regola solo la direzione inversa, studio -> lavoro), e il Consiglio di Stato afferma la tipicita' delle conversioni (Cons. Stato 476/2018). D'altra parte la conversione spesso non serve: chi ha un permesso per lavoro puo' gia' iscriversi all'universita' a parita' con gli italiani (art. 39 c. 5 TU). L'esito andrebbe riformulato in 'di solito non serve convertire; se il lavoro cessa, la conversione non ha base normativa espressa e dipende dalla questura'.",
+      "sintesi": "Il permesso per lavoro subordinato consente gia' l'accesso ai corsi universitari, di istruzione tecnica superiore e di specializzazione a parita' di condizioni con gli studenti italiani (art. 39, c. 5, TU) e puo' essere utilizzato per le altre attivita' consentite (art. 6, c. 1, TU; art. 14, c. 1, d.P.R. 394/1999): finche' il permesso e' rinnovabile per lavoro, la conversione in studio non serve. Il problema nasce quando il lavoro cessa e lo straniero vuole restare come studente: la legge non prevede la conversione lavoro -> studio e, secondo il principio di tipicita' affermato dal Consiglio di Stato (476/2018), una conversione non prevista non puo' essere disposta; e' sostenibile, ma non verificato in giurisprudenza, invocare l'art. 5, c. 9, TU (rilascio di 'altro tipo di permesso' se ne ricorrono i requisiti), dimostrando iscrizione, mezzi di sussistenza e alloggio. Inoltre il passaggio a studio ha costi rilevanti: il permesso per studio e' escluso dal permesso UE di lungo periodo e il periodo non si computa (art. 9, c. 3, lett. a, TU).",
+      "requisiti": [
+        "Nessuna base normativa espressa",
+        "Se si tenta: iscrizione a un corso, mezzi di sussistenza, assicurazione sanitaria e alloggio come per il permesso per studio (non verificati in questa ricerca per la conversione)"
+      ],
+      "procedura": "Prassi non uniforme: alcune questure accettano la richiesta con kit postale come rinnovo/conversione per studio; altre la respingono per assenza di norma. Nessuna quota.",
+      "norme": [
+        {
+          "estremi": "art. 39, c. 5, d.lgs. 286/1998",
+          "contenuto": "I titolari di permesso per lavoro subordinato o autonomo (e UE lungo periodo, familiari, ecc.) accedono all'universita' e alla formazione superiore a parita' con gli italiani, senza bisogno di un permesso per studio.",
+          "citazione": "E' comunque consentito l'accesso ai corsi di istruzione tecnica superiore o di formazione superiore e alle scuole di specializzazione delle universita', a parita' di condizioni con gli studenti italiani, agli stranieri titolari di permesso di soggiorno UE per soggiornanti di lungo periodo, di permesso di soggiorno per lavoro subordinato, per lavoro autonomo",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art39"
+        },
+        {
+          "estremi": "art. 6, c. 1, d.lgs. 286/1998",
+          "contenuto": "Il permesso per lavoro subordinato, autonomo e familiari puo' essere utilizzato per le altre attivita' consentite; la conversione studio-lavoro e' fuori quota ma va chiesta prima della scadenza (rilevante come termine di confronto: e' l'unica conversione per cui la legge fissa espressamente la validita' del titolo).",
+          "citazione": "Quello rilasciato per motivi di studio e formazione puo' essere convertito, al di fuori delle quote di cui all'articolo 3, comma 4, comunque prima della sua scadenza",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art6"
+        },
+        {
+          "estremi": "art. 14, c. 1, lett. a) e b), d.P.R. 394/1999",
+          "contenuto": "Il permesso per lavoro subordinato NON stagionale consente il lavoro autonomo (con titolo abilitativo e requisiti); quello per lavoro autonomo consente il lavoro subordinato (previa comunicazione del datore), senza conversione del documento per il periodo di validita'.",
+          "citazione": "il permesso di soggiorno rilasciato per lavoro subordinato non stagionale consente l'esercizio di lavoro autonomo, previa acquisizione del titolo abilitativo o autorizzatorio eventualmente prescritto",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art14"
+        },
+        {
+          "estremi": "art. 5, cc. 9 e 9-bis, d.lgs. 286/1998",
+          "contenuto": "Rilascio, rinnovo o conversione entro novanta giorni (termine portato a 90 dal d.lgs. 83/2026), anche per altro tipo di permesso se ne ricorrono i requisiti; con la ricevuta della domanda lo straniero soggiorna legalmente e puo' lavorare fino all'eventuale comunicazione di motivi ostativi.",
+          "citazione": "Il permesso di soggiorno e' rilasciato, rinnovato o convertito entro novanta giorni dalla data in cui e' stata presentata la domanda",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art5"
+        },
+        {
+          "estremi": "art. 9, cc. 3 e 5, d.lgs. 286/1998",
+          "contenuto": "Esclusi gli stranieri che soggiornano per studio o formazione (lett. a) e i titolari di permesso di breve durata (lett. d); i periodi di soggiorno di cui alle lett. d) ed e) non si computano nel quinquennio (c. 5). Il permesso per attesa occupazione non e' tra le esclusioni.",
+          "citazione": "d) sono titolari di un permesso di soggiorno di breve durata previsto dal presente testo unico e dal regolamento di attuazione;",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art9"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Cons. Stato",
+          "data": "2018-01-24",
+          "numero": "n. 476/2018",
+          "principio": "Principio di tipicita' delle conversioni: la conversione, provvedimento novativo del titolo, presuppone un'espressa previsione normativa; l'art. 14 d.P.R. 394/1999 disciplina solo casi specifici. Nel caso, permesso religioso non convertibile in lavoro.",
+          "esito": "favorevole alla PA",
+          "url": "https://drive.google.com/file/d/1UAz09J1Y5L_w701yRjbYrqJiFbQECqz6/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Lavoratore che si iscrive all'universita' mantenendo un lavoro part-time",
+          "testo": "Nessuna conversione: rinnova per lavoro se il reddito e' sufficiente (art. 39 c. 5 TU). E' la soluzione piu' sicura e conserva il computo dei cinque anni per il permesso UE."
+        },
+        {
+          "titolo": "Lavoro cessato e corso universitario in corso",
+          "testo": "Prima strada: attesa occupazione (solo per il subordinato), che lascia libero di studiare; la conversione in studio e' un rischio da valutare con un avvocato."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Il lavoro e' ancora in corso o e' cessato?",
+          "perche": "Se prosegue non serve convertire (art. 39 c. 5 TU); se e' cessato si valuta attesa occupazione o tentativo di conversione.",
+          "opzioni": [
+            "In corso",
+            "Cessato da poco",
+            "Cessato da tempo"
+          ]
+        },
+        {
+          "domanda": "Puo' dimostrare mezzi di sussistenza per lo studio (borsa, redditi propri o di familiari)?",
+          "perche": "Senza mezzi, anche una questura favorevole respingera'.",
+          "opzioni": [
+            "Si'",
+            "No"
+          ]
+        },
+        {
+          "domanda": "Le interessa ottenere il permesso UE di lungo periodo nei prossimi anni?",
+          "perche": "Il periodo per studio non si computa e lo studente e' escluso (art. 9 c. 3 lett. a TU).",
+          "opzioni": [
+            "Si'",
+            "No / non so"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "lavoro_autonomo",
+      "a": "studio",
+      "nodo_albero": "c_end_stu_ok",
+      "esito_albero": "POSSIBILE",
+      "esito_verificato": "incerto",
+      "discrepanza": "L'albero dice 'possibile, puoi fare da solo' con kit postale. Nessuna norma del TU o del d.P.R. 394/1999 disciplina la conversione da lavoro a studio (l'art. 14 d.P.R. 394/1999 regola solo la direzione inversa, studio -> lavoro), e il Consiglio di Stato afferma la tipicita' delle conversioni (Cons. Stato 476/2018). D'altra parte la conversione spesso non serve: chi ha un permesso per lavoro puo' gia' iscriversi all'universita' a parita' con gli italiani (art. 39 c. 5 TU). L'esito andrebbe riformulato in 'di solito non serve convertire; se il lavoro cessa, la conversione non ha base normativa espressa e dipende dalla questura'.",
+      "sintesi": "Il permesso per lavoro autonomo consente gia' l'accesso ai corsi universitari, di istruzione tecnica superiore e di specializzazione a parita' di condizioni con gli studenti italiani (art. 39, c. 5, TU) e puo' essere utilizzato per le altre attivita' consentite (art. 6, c. 1, TU; art. 14, c. 1, d.P.R. 394/1999): finche' il permesso e' rinnovabile per lavoro, la conversione in studio non serve. Il problema nasce quando il lavoro cessa e lo straniero vuole restare come studente: la legge non prevede la conversione lavoro -> studio e, secondo il principio di tipicita' affermato dal Consiglio di Stato (476/2018), una conversione non prevista non puo' essere disposta; e' sostenibile, ma non verificato in giurisprudenza, invocare l'art. 5, c. 9, TU (rilascio di 'altro tipo di permesso' se ne ricorrono i requisiti), dimostrando iscrizione, mezzi di sussistenza e alloggio. Inoltre il passaggio a studio ha costi rilevanti: il permesso per studio e' escluso dal permesso UE di lungo periodo e il periodo non si computa (art. 9, c. 3, lett. a, TU).",
+      "requisiti": [
+        "Nessuna base normativa espressa",
+        "Se si tenta: iscrizione a un corso, mezzi di sussistenza, assicurazione sanitaria e alloggio come per il permesso per studio (non verificati in questa ricerca per la conversione)"
+      ],
+      "procedura": "Prassi non uniforme: alcune questure accettano la richiesta con kit postale come rinnovo/conversione per studio; altre la respingono per assenza di norma. Nessuna quota.",
+      "norme": [
+        {
+          "estremi": "art. 39, c. 5, d.lgs. 286/1998",
+          "contenuto": "I titolari di permesso per lavoro subordinato o autonomo (e UE lungo periodo, familiari, ecc.) accedono all'universita' e alla formazione superiore a parita' con gli italiani, senza bisogno di un permesso per studio.",
+          "citazione": "E' comunque consentito l'accesso ai corsi di istruzione tecnica superiore o di formazione superiore e alle scuole di specializzazione delle universita', a parita' di condizioni con gli studenti italiani, agli stranieri titolari di permesso di soggiorno UE per soggiornanti di lungo periodo, di permesso di soggiorno per lavoro subordinato, per lavoro autonomo",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art39"
+        },
+        {
+          "estremi": "art. 6, c. 1, d.lgs. 286/1998",
+          "contenuto": "Il permesso per lavoro subordinato, autonomo e familiari puo' essere utilizzato per le altre attivita' consentite; la conversione studio-lavoro e' fuori quota ma va chiesta prima della scadenza (rilevante come termine di confronto: e' l'unica conversione per cui la legge fissa espressamente la validita' del titolo).",
+          "citazione": "Quello rilasciato per motivi di studio e formazione puo' essere convertito, al di fuori delle quote di cui all'articolo 3, comma 4, comunque prima della sua scadenza",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art6"
+        },
+        {
+          "estremi": "art. 14, c. 1, lett. a) e b), d.P.R. 394/1999",
+          "contenuto": "Il permesso per lavoro subordinato NON stagionale consente il lavoro autonomo (con titolo abilitativo e requisiti); quello per lavoro autonomo consente il lavoro subordinato (previa comunicazione del datore), senza conversione del documento per il periodo di validita'.",
+          "citazione": "il permesso di soggiorno rilasciato per lavoro subordinato non stagionale consente l'esercizio di lavoro autonomo, previa acquisizione del titolo abilitativo o autorizzatorio eventualmente prescritto",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art14"
+        },
+        {
+          "estremi": "art. 5, cc. 9 e 9-bis, d.lgs. 286/1998",
+          "contenuto": "Rilascio, rinnovo o conversione entro novanta giorni (termine portato a 90 dal d.lgs. 83/2026), anche per altro tipo di permesso se ne ricorrono i requisiti; con la ricevuta della domanda lo straniero soggiorna legalmente e puo' lavorare fino all'eventuale comunicazione di motivi ostativi.",
+          "citazione": "Il permesso di soggiorno e' rilasciato, rinnovato o convertito entro novanta giorni dalla data in cui e' stata presentata la domanda",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art5"
+        },
+        {
+          "estremi": "art. 9, cc. 3 e 5, d.lgs. 286/1998",
+          "contenuto": "Esclusi gli stranieri che soggiornano per studio o formazione (lett. a) e i titolari di permesso di breve durata (lett. d); i periodi di soggiorno di cui alle lett. d) ed e) non si computano nel quinquennio (c. 5). Il permesso per attesa occupazione non e' tra le esclusioni.",
+          "citazione": "d) sono titolari di un permesso di soggiorno di breve durata previsto dal presente testo unico e dal regolamento di attuazione;",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art9"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Cons. Stato",
+          "data": "2018-01-24",
+          "numero": "n. 476/2018",
+          "principio": "Principio di tipicita' delle conversioni: la conversione, provvedimento novativo del titolo, presuppone un'espressa previsione normativa; l'art. 14 d.P.R. 394/1999 disciplina solo casi specifici. Nel caso, permesso religioso non convertibile in lavoro.",
+          "esito": "favorevole alla PA",
+          "url": "https://drive.google.com/file/d/1UAz09J1Y5L_w701yRjbYrqJiFbQECqz6/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Lavoratore che si iscrive all'universita' mantenendo un lavoro part-time",
+          "testo": "Nessuna conversione: rinnova per lavoro se il reddito e' sufficiente (art. 39 c. 5 TU). E' la soluzione piu' sicura e conserva il computo dei cinque anni per il permesso UE."
+        },
+        {
+          "titolo": "Lavoro cessato e corso universitario in corso",
+          "testo": "Prima strada: attesa occupazione (solo per il subordinato), che lascia libero di studiare; la conversione in studio e' un rischio da valutare con un avvocato."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Il lavoro e' ancora in corso o e' cessato?",
+          "perche": "Se prosegue non serve convertire (art. 39 c. 5 TU); se e' cessato si valuta attesa occupazione o tentativo di conversione.",
+          "opzioni": [
+            "In corso",
+            "Cessato da poco",
+            "Cessato da tempo"
+          ]
+        },
+        {
+          "domanda": "Puo' dimostrare mezzi di sussistenza per lo studio (borsa, redditi propri o di familiari)?",
+          "perche": "Senza mezzi, anche una questura favorevole respingera'.",
+          "opzioni": [
+            "Si'",
+            "No"
+          ]
+        },
+        {
+          "domanda": "Le interessa ottenere il permesso UE di lungo periodo nei prossimi anni?",
+          "perche": "Il periodo per studio non si computa e lo studente e' escluso (art. 9 c. 3 lett. a TU).",
+          "opzioni": [
+            "Si'",
+            "No / non so"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "lavoro_subordinato / lavoro_autonomo",
+      "a": "famiglia",
+      "nodo_albero": "c_end_fam_ok",
+      "esito_albero": "POSSIBILE",
+      "esito_verificato": "condizionato",
+      "discrepanza": "Sostanzialmente corretto, ma l'albero riduce i requisiti al legame di parentela: servono i requisiti per il ricongiungimento in capo al familiare (reddito ex art. 29 c. 3 lett. b e alloggio) e il soggiorno regolare; il termine di un anno dalla scadenza vale per la coesione ex art. 30 c. 1 lett. c). Le controversie sono del giudice ordinario, non del TAR.",
+      "sintesi": "Il titolare di permesso per lavoro puo' ottenere il permesso per motivi familiari per coesione (art. 30, c. 1, lett. c, TU) se e' regolarmente soggiornante ed e' in possesso dei requisiti per il ricongiungimento con il familiare cittadino italiano/UE residente o straniero regolarmente soggiornante: il permesso viene convertito, e la conversione puo' chiedersi entro un anno dalla scadenza del titolo. In alternativa: matrimonio in Italia dopo almeno un anno di regolare soggiorno (lett. b) o genitore di minore italiano (lett. d). La Cassazione legge la lett. c) in senso ampio (basta il regolare soggiorno e i requisiti del ricongiungimento: Cass. 20020/2025) e i giudici di merito valorizzano il reddito complessivo dei conviventi e l'art. 5, c. 5, come interpretato da C. cost. 202/2013 (Trib. Torino 19232/2023). Il passaggio a famiglia conviene quando il lavoro e' cessato o il reddito personale e' insufficiente; il permesso per motivi familiari consente comunque il lavoro (art. 14 c. 1 lett. c d.P.R. 394/1999).",
+      "requisiti": [
+        "Regolare soggiorno (permesso valido o scaduto da non oltre un anno per la lett. c)",
+        "Familiare rientrante nell'art. 29 c. 1 TU (coniuge, figlio minore, figlio maggiorenne a carico invalido totale, genitore a carico alle condizioni di legge)",
+        "Reddito del nucleo ex art. 29 c. 3 lett. b) e alloggio idoneo (se il familiare e' straniero; per familiari di italiani/UE si applica anche il d.lgs. 30/2007)",
+        "Assenza di motivi ostativi; per il matrimonio, effettivita' della convivenza (art. 30 c. 1-bis)"
+      ],
+      "procedura": "Questura con kit postale (ricongiungimento/coesione con documentazione del vincolo, reddito e alloggio); nessuna quota; contributo. Il diniego si impugna davanti al tribunale ordinario (non TAR).",
+      "norme": [
+        {
+          "estremi": "art. 30, c. 1, lett. c), d.lgs. 286/1998",
+          "contenuto": "Il familiare regolarmente soggiornante in possesso dei requisiti per il ricongiungimento converte il proprio permesso in permesso per motivi familiari; la conversione puo' essere chiesta entro un anno dalla scadenza del titolo posseduto (unica base normativa della soglia di un anno usata dall'albero). Per il familiare di rifugiato si prescinde dal permesso valido.",
+          "citazione": "La conversione puo' essere richiesta entro un anno dalla data di scadenza del titolo di soggiorno originariamente posseduto dal familiare.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art30"
+        },
+        {
+          "estremi": "art. 30, c. 1, lett. b) e d), d.lgs. 286/1998",
+          "contenuto": "Lett. b): straniero regolarmente soggiornante da almeno un anno che sposa in Italia un cittadino italiano/UE o uno straniero regolarmente soggiornante. Lett. d): genitore di minore italiano residente, anche senza titolo valido.",
+          "citazione": null,
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art30"
+        },
+        {
+          "estremi": "art. 5, c. 5, d.lgs. 286/1998",
+          "contenuto": "Rifiuto/revoca quando mancano i requisiti, salvo nuovi elementi sopravvenuti e irregolarita' amministrative sanabili; valutazione dei legami familiari (estesa a tutti gli stranieri con legami familiari da C. cost. 202/2013, nota Normattiva).",
+          "citazione": "sempre che non siano sopraggiunti nuovi elementi che ne consentano il rilascio e che non si tratti di irregolarita' amministrative sanabili",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art5"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Cass., sez. I civ.",
+          "data": "2025-07-17",
+          "numero": "n. 20020/2025",
+          "principio": "L'art. 30, c. 1, lett. c), richiede solo regolare soggiorno e requisiti per il ricongiungimento, non un permesso da convertire; il termine di un anno dalla scadenza regola un'ipotesi particolare e non restringe la platea. La coesione sul territorio e' alternativa al visto per ricongiungimento (art. 5, par. 3, dir. 2003/86/CE).",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1O7rHYgSfzJaIPV7Q19qnEgNpJPb9fMK8/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "Trib. Torino",
+          "data": "2024-04-01",
+          "numero": "n. 19232/2023 (R.G.)",
+          "principio": "Il permesso per motivi familiari puo' essere rilasciato anche prescindendo dai prerequisiti formali della coesione (permesso scaduto da meno di un anno) quando sussistono coniugio, convivenza, reddito familiare complessivo e alloggio; tutela rafforzata ex art. 5, c. 5, per chiunque abbia legami familiari (C. cost. 202/2013).",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1UDUB_ruSd0rgfiYgML83dhvck0u-Cjo7/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Familiare sponsor con reddito insufficiente",
+          "testo": "Si somma il reddito dei conviventi (Trib. Torino 19232/2023); se il richiedente lavora, il suo reddito puo' rientrare nel computo familiare (punto da verificare caso per caso)."
+        },
+        {
+          "titolo": "Coniuge di cittadino UE",
+          "testo": "Si applica la carta di soggiorno ex d.lgs. 30/2007 (fuori dal perimetro di questa ricerca)."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Chi e' il familiare in Italia e che titolo ha (italiano, UE, straniero con quale permesso)?",
+          "perche": "Cambia la norma applicabile (art. 30 TU o d.lgs. 30/2007) e i requisiti.",
+          "opzioni": [
+            "Cittadino italiano",
+            "Cittadino UE",
+            "Straniero con permesso",
+            "Rifugiato"
+          ]
+        },
+        {
+          "domanda": "Quale legame (coniuge, figlio, genitore, convivente di fatto)?",
+          "perche": "Solo i familiari dell'art. 29 c. 1 accedono alla coesione; per il convivente la giurisprudenza di merito e' aperta ma non uniforme.",
+          "opzioni": [
+            "Coniuge",
+            "Figlio minore",
+            "Figlio maggiorenne",
+            "Genitore",
+            "Convivente non sposato"
+          ]
+        },
+        {
+          "domanda": "Reddito degli ultimi 12 mesi (proprio e dei familiari conviventi) rispetto all'assegno sociale?",
+          "perche": "Requisito per UE lungo periodo (art. 9 c. 1), per il rinnovo dell'attesa occupazione dopo l'anno (art. 22 c. 11) e per la coesione (art. 29 c. 3 lett. b). La giurisprudenza ammette redditi di familiari e valutazione prognostica (CGUE C-302/18; TAR Piemonte 668/2022).",
+          "opzioni": [
+            "Sopra la soglia con reddito proprio",
+            "Sopra la soglia solo con redditi familiari",
+            "Sotto la soglia",
+            "Non documentabile"
+          ]
+        },
+        {
+          "domanda": "Data di scadenza del permesso attuale e data in cui verra' presentata la domanda?",
+          "perche": "Sotto i 60 giorni dalla scadenza non c'e' base per l'espulsione ex art. 13 c. 2 lett. b); oltre, la domanda resta esaminabile (termine non perentorio: Cons. Stato 7156/2022) ma il ritardo pesa nella valutazione; per la coesione familiare il limite e' un anno (art. 30 c. 1 lett. c).",
+          "opzioni": [
+            "Ancora valido",
+            "Scaduto da meno di 60 giorni",
+            "Scaduto da 60 giorni a un anno",
+            "Scaduto da piu' di un anno"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "lavoro_subordinato / lavoro_autonomo",
+      "a": "ue_lungo_periodo",
+      "nodo_albero": "c_end_carta_ok",
+      "esito_albero": "POSSIBILE",
+      "esito_verificato": "condizionato",
+      "discrepanza": "Corretto nella sostanza. Due precisazioni: il permesso UE non e' una conversione ma un titolo autonomo che si chiede con il permesso attuale ancora valido; i periodi computabili non sono tutti (esclusi studio, stagionale e permessi di breve durata; assenze oltre i limiti dell'art. 9 c. 6), e il reddito puo' essere anche familiare (CGUE C-302/18).",
+      "sintesi": "Il permesso UE per soggiornanti di lungo periodo si rilascia a chi possiede da almeno cinque anni un permesso in corso di validita', dimostra un reddito non inferiore all'assegno sociale (e, per i familiari, il reddito ex art. 29 c. 3 lett. b e un alloggio idoneo) e supera il test di italiano (art. 9, cc. 1 e 2-bis, TU). I periodi per lavoro subordinato e autonomo si computano; non si computano i periodi per soggiorni di breve durata (art. 9, cc. 3 e 5) e le assenze superiori a sei mesi consecutivi o a dieci mesi nel quinquennio interrompono il periodo, salvo gravi motivi (c. 6). Il reddito puo' provenire da qualsiasi fonte lecita, anche familiare (CGUE C-302/18), e va valutato in prognosi, non al singolo momento della cessazione di un rapporto (TAR Piemonte 668/2022). Ostano la pericolosita' per ordine pubblico e le condanne indicate nel c. 4, con bilanciamento della durata del soggiorno e dell'inserimento.",
+      "requisiti": [
+        "Cinque anni di permesso valido (computo dei periodi ex art. 9 cc. 3, 5, 6)",
+        "Reddito >= assegno sociale (anche familiare, prognostico)",
+        "Test di italiano (art. 9 c. 2-bis)",
+        "Per i familiari: reddito ex art. 29 c. 3 lett. b) e alloggio idoneo",
+        "Assenza di pericolosita' (art. 9 c. 4)"
+      ],
+      "procedura": "Questura con kit postale; nessuna quota; contributo e marca da bollo; rilascio entro 90 giorni (art. 9 c. 2). Il permesso attuale deve essere in corso di validita' al momento della domanda.",
+      "norme": [
+        {
+          "estremi": "art. 9, c. 1, d.lgs. 286/1998",
+          "contenuto": "Permesso UE per soggiornanti di lungo periodo: cinque anni di permesso in corso di validita', reddito non inferiore all'assegno sociale (parametri dell'art. 29 c. 3 lett. b e alloggio idoneo solo se la domanda e' estesa ai familiari).",
+          "citazione": "Lo straniero in possesso, da almeno cinque anni, di un permesso di soggiorno in corso di validita', che dimostra la disponibilita' di un reddito non inferiore all'importo annuo dell'assegno sociale",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art9"
+        },
+        {
+          "estremi": "art. 9, c. 2-bis, d.lgs. 286/1998",
+          "contenuto": "Test di conoscenza della lingua italiana (A2 secondo il decreto attuativo, non letto in questa ricerca).",
+          "citazione": "Il rilascio del permesso di soggiorno UE per soggiornanti di lungo periodo e' subordinato al superamento, da parte del richiedente, di un test di conoscenza della lingua italiana",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art9"
+        },
+        {
+          "estremi": "art. 9, cc. 3 e 5, d.lgs. 286/1998",
+          "contenuto": "Esclusi gli stranieri che soggiornano per studio o formazione (lett. a) e i titolari di permesso di breve durata (lett. d); i periodi di soggiorno di cui alle lett. d) ed e) non si computano nel quinquennio (c. 5). Il permesso per attesa occupazione non e' tra le esclusioni.",
+          "citazione": "d) sono titolari di un permesso di soggiorno di breve durata previsto dal presente testo unico e dal regolamento di attuazione;",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art9"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "CGUE, sez. III",
+          "data": "2019-10-03",
+          "numero": "C-302/18",
+          "principio": "Le risorse stabili, regolari e sufficienti richieste per lo status di soggiornante di lungo periodo possono provenire da qualsiasi fonte, anche da un terzo o da un familiare.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1go2I1ZmG5DZKbnrh-hOGuM5K1YQZeoNZ/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "TAR Piemonte",
+          "data": "2023-03-09",
+          "numero": "n. 668/2022 (R.G.)",
+          "principio": "Per il permesso UE di lungo periodo l'art. 9 TU non richiede un lavoro stabile per tutto l'anno ma il raggiungimento della soglia di reddito annuo; la valutazione delle risorse e' prospettica (CGUE C-558/14) e non puo' fermarsi alla cessazione di un rapporto di lavoro. Richiamare l'art. 22 c. 11 per una domanda individuale e' inconferente.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1EGUusv-COtSLSSqA6gsHR3PNkiE33i1N/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Lavoratore stagionale poi convertito",
+          "testo": "Gli anni da stagionale non si computano (art. 3 par. 2 lett. e e art. 4 par. 2 dir. 2003/109; art. 9 c. 5 TU per i permessi di breve durata): il quinquennio decorre dalla conversione in lavoro subordinato (interpretazione da validare)."
+        },
+        {
+          "titolo": "Periodo in attesa occupazione nel quinquennio",
+          "testo": "Si computa (non e' tra le esclusioni dell'art. 9 c. 3); il problema e' il reddito."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Da quanti anni ha un permesso valido senza interruzioni e con quali titoli?",
+          "perche": "Alcuni titoli non si computano (studio, stagionale, breve durata); buchi tra un permesso e il rinnovo possono interrompere il periodo.",
+          "opzioni": [
+            "Meno di 5 anni",
+            "5 anni o piu', solo lavoro/famiglia",
+            "5 anni o piu', con periodi di studio o stagionale",
+            "Con interruzioni o rinnovi tardivi"
+          ]
+        },
+        {
+          "domanda": "Reddito degli ultimi 12 mesi (proprio e dei familiari conviventi) rispetto all'assegno sociale?",
+          "perche": "Requisito per UE lungo periodo (art. 9 c. 1), per il rinnovo dell'attesa occupazione dopo l'anno (art. 22 c. 11) e per la coesione (art. 29 c. 3 lett. b). La giurisprudenza ammette redditi di familiari e valutazione prognostica (CGUE C-302/18; TAR Piemonte 668/2022).",
+          "opzioni": [
+            "Sopra la soglia con reddito proprio",
+            "Sopra la soglia solo con redditi familiari",
+            "Sotto la soglia",
+            "Non documentabile"
+          ]
+        },
+        {
+          "domanda": "Ha gia' il certificato del test A2 o un titolo che ne esonera?",
+          "perche": "Requisito dell'art. 9 c. 2-bis.",
+          "opzioni": [
+            "Si'",
+            "No"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "lavoro_subordinato",
+      "a": "lavoro_autonomo",
+      "nodo_albero": null,
+      "esito_albero": "non presente nell'albero",
+      "esito_verificato": "possibile",
+      "discrepanza": "Coppia assente dall'albero. Serve una domanda nel questionario PRO perche' il passaggio non e' una conversione tradizionale: durante la validita' il permesso per lavoro subordinato non stagionale consente gia' il lavoro autonomo; al rinnovo si rilascia il permesso per l'attivita' effettivamente svolta.",
+      "sintesi": "Il permesso per lavoro subordinato non stagionale consente l'esercizio di lavoro autonomo, previa acquisizione dei titoli abilitativi e dei requisiti di legge, senza conversione o rettifica del documento per il periodo di validita' (art. 14, c. 1, lett. a, d.P.R. 394/1999); al rinnovo si rilascia un permesso per l'attivita' effettivamente svolta (c. 3), che dovra' rispettare i requisiti dell'art. 26 TU (reddito, alloggio, requisiti per l'attivita'). Non servono quote ne' nulla osta dello Sportello unico: le quote per lavoro autonomo (art. 26 c. 5) riguardano l'ingresso dall'estero e la conversione da studio (art. 39 c. 9 d.P.R. 394/1999). Il Consiglio di Stato ha osservato che la normativa non vieta il passaggio tra le due forme di permesso (6070/2014). Attenzione: lo stagionale e' escluso (vedi coppia stagionale -> autonomo).",
+      "requisiti": [
+        "Permesso per lavoro subordinato non stagionale valido",
+        "Titoli abilitativi/iscrizioni per l'attivita' (camera di commercio, albi, licenze)",
+        "Al rinnovo: reddito da lavoro autonomo sufficiente (art. 26 c. 3 TU), alloggio idoneo"
+      ],
+      "procedura": "Nessuna istanza durante la validita' (comunicazione alla questura a cura dell'ufficio che rilascia il titolo abilitativo, art. 14 c. 2 d.P.R. 394/1999); al rinnovo kit postale in Questura per lavoro autonomo; nessuna quota.",
+      "norme": [
+        {
+          "estremi": "art. 14, c. 1, lett. a) e b), d.P.R. 394/1999",
+          "contenuto": "Il permesso per lavoro subordinato NON stagionale consente il lavoro autonomo (con titolo abilitativo e requisiti); quello per lavoro autonomo consente il lavoro subordinato (previa comunicazione del datore), senza conversione del documento per il periodo di validita'.",
+          "citazione": "il permesso di soggiorno rilasciato per lavoro subordinato non stagionale consente l'esercizio di lavoro autonomo, previa acquisizione del titolo abilitativo o autorizzatorio eventualmente prescritto",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art14"
+        },
+        {
+          "estremi": "art. 14, c. 3, d.P.R. 394/1999",
+          "contenuto": "Al rinnovo si rilascia il permesso per l'attivita' effettivamente svolta.",
+          "citazione": "Con il rinnovo, e' rilasciato un nuovo permesso di soggiorno per l'attivita' effettivamente svolta.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art14"
+        },
+        {
+          "estremi": "art. 26, cc. 1-3, d.lgs. 286/1998",
+          "contenuto": "Requisiti del lavoro autonomo: attivita' non riservata, risorse adeguate, requisiti per l'esercizio (albi, registri, licenze; attestazione dell'autorita' competente non anteriore a tre mesi), alloggio idoneo e reddito annuo lecito superiore al minimo per l'esenzione dalla spesa sanitaria.",
+          "citazione": null,
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art26"
+        },
+        {
+          "estremi": "art. 5, cc. 3-bis e 3-quater, d.lgs. 286/1998",
+          "contenuto": "Durata del permesso per lavoro: stagionale max 9 mesi complessivi; tempo determinato max 1 anno; tempo indeterminato max 2 anni; lavoro autonomo max 2 anni; ciascun rinnovo (TI e autonomo) max 3 anni.",
+          "citazione": "b) in relazione ad un contratto di lavoro subordinato a tempo determinato, la durata di un anno;",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art5"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Cons. Stato, sez. III",
+          "data": "2014-10-30",
+          "numero": "n. 6070/2014 (data indicata = data della decisione; il portale non riporta la data di pubblicazione)",
+          "principio": "L'art. 22, c. 11, TU e' riferito al lavoro subordinato; per il lavoro autonomo non si rilascia l'attesa occupazione, ma da un'interpretazione sistematica (artt. 5 c. 5, 9 c. 7, 22 c. 11) discende una regola di ragionevolezza che tollera temporanee carenze di reddito se il richiedente dimostra capacita' di produrre reddito; la normativa non vieta il passaggio fra permesso per lavoro autonomo e subordinato. Fatti sopravvenuti prima del provvedimento vanno valutati.",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=cds&nrg=201404423&nomeFile=201406070_11.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "letta_integrale": true
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Attivita' avviata da poco al momento del rinnovo",
+          "testo": "Il reddito del primo anno puo' essere basso: valutazione prognostica e tolleranza delle carenze temporanee (Cons. Stato 6070/2014); se c'e' ancora un rapporto dipendente parallelo, conviene rinnovare per lavoro subordinato."
+        },
+        {
+          "titolo": "Socio lavoratore di cooperativa",
+          "testo": "Espressamente consentito dall'art. 14 c. 1 lett. a) d.P.R. 394/1999."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Vuole svolgere l'attivita' autonoma ora (durante la validita') o rinnovare il permesso come autonomo?",
+          "perche": "Durante la validita' basta il titolo abilitativo; al rinnovo servono i requisiti dell'art. 26.",
+          "opzioni": [
+            "Durante la validita'",
+            "Al rinnovo",
+            "Entrambi"
+          ]
+        },
+        {
+          "domanda": "Il permesso attuale e' per lavoro stagionale?",
+          "perche": "Lo stagionale non consente il lavoro autonomo (art. 14 c. 1 lett. a d.P.R. 394/1999).",
+          "opzioni": [
+            "No",
+            "Si'"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "lavoro_autonomo",
+      "a": "lavoro_subordinato",
+      "nodo_albero": null,
+      "esito_albero": "non presente nell'albero",
+      "esito_verificato": "possibile",
+      "discrepanza": "Coppia assente dall'albero; come per il verso opposto, si tratta di uso del permesso per altra attivita' e di rinnovo per l'attivita' svolta, non di conversione con nulla osta. Una sola domanda del questionario PRO puo' coprire entrambi i versi.",
+      "sintesi": "Il permesso per lavoro autonomo consente il lavoro subordinato per il periodo di validita', previa comunicazione del datore (art. 14, c. 1, lett. b, d.P.R. 394/1999); al rinnovo si rilascia il permesso per lavoro subordinato (c. 3), con durata secondo l'art. 5, c. 3-bis, TU. Non servono quote ne' nulla osta. Il diniego per carenze temporanee di reddito durante il passaggio va valutato con ragionevolezza (Cons. Stato 6070/2014).",
+      "requisiti": [
+        "Permesso per lavoro autonomo valido",
+        "Contratto di lavoro subordinato con comunicazione obbligatoria del datore",
+        "Al rinnovo: reddito sufficiente"
+      ],
+      "procedura": "Comunicazione del datore (Unilav); al rinnovo kit postale in Questura per lavoro subordinato; nessuna quota.",
+      "norme": [
+        {
+          "estremi": "art. 14, c. 1, lett. a) e b), d.P.R. 394/1999",
+          "contenuto": "Il permesso per lavoro subordinato NON stagionale consente il lavoro autonomo (con titolo abilitativo e requisiti); quello per lavoro autonomo consente il lavoro subordinato (previa comunicazione del datore), senza conversione del documento per il periodo di validita'.",
+          "citazione": "il permesso di soggiorno rilasciato per lavoro subordinato non stagionale consente l'esercizio di lavoro autonomo, previa acquisizione del titolo abilitativo o autorizzatorio eventualmente prescritto",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art14"
+        },
+        {
+          "estremi": "art. 14, c. 3, d.P.R. 394/1999",
+          "contenuto": "Al rinnovo si rilascia il permesso per l'attivita' effettivamente svolta.",
+          "citazione": "Con il rinnovo, e' rilasciato un nuovo permesso di soggiorno per l'attivita' effettivamente svolta.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art14"
+        },
+        {
+          "estremi": "art. 5, cc. 3-bis e 3-quater, d.lgs. 286/1998",
+          "contenuto": "Durata del permesso per lavoro: stagionale max 9 mesi complessivi; tempo determinato max 1 anno; tempo indeterminato max 2 anni; lavoro autonomo max 2 anni; ciascun rinnovo (TI e autonomo) max 3 anni.",
+          "citazione": "b) in relazione ad un contratto di lavoro subordinato a tempo determinato, la durata di un anno;",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art5"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Cons. Stato, sez. III",
+          "data": "2014-10-30",
+          "numero": "n. 6070/2014 (data indicata = data della decisione; il portale non riporta la data di pubblicazione)",
+          "principio": "L'art. 22, c. 11, TU e' riferito al lavoro subordinato; per il lavoro autonomo non si rilascia l'attesa occupazione, ma da un'interpretazione sistematica (artt. 5 c. 5, 9 c. 7, 22 c. 11) discende una regola di ragionevolezza che tollera temporanee carenze di reddito se il richiedente dimostra capacita' di produrre reddito; la normativa non vieta il passaggio fra permesso per lavoro autonomo e subordinato. Fatti sopravvenuti prima del provvedimento vanno valutati.",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=cds&nrg=201404423&nomeFile=201406070_11.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "letta_integrale": true
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Rapporto subordinato cessato prima del rinnovo",
+          "testo": "Se al rinnovo il rapporto subordinato e' cessato, la qualifica del permesso da rinnovare determina se si applica l'art. 22 c. 11 (attesa occupazione): punto non risolto dalla giurisprudenza trovata (vedi coppia autonomo -> attesa occupazione)."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Il rapporto di lavoro subordinato e' in corso alla data del rinnovo?",
+          "perche": "Determina la tipologia del permesso rinnovato (art. 14 c. 3 d.P.R. 394/1999).",
+          "opzioni": [
+            "Si'",
+            "No, cessato",
+            "No, solo autonomo"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "lavoro_stagionale",
+      "a": "lavoro_subordinato",
+      "nodo_albero": "c_end_lav_sub_ok",
+      "esito_albero": "POSSIBILE",
+      "esito_verificato": "condizionato",
+      "discrepanza": "Corretto che si passi prima dallo Sportello unico (nulla osta alla conversione). Mancano le condizioni decisive: almeno tre mesi di regolare lavoro stagionale, offerta di contratto subordinato (TD o TI), divieto di svolgere lavoro non stagionale prima della conversione. La durata indicata ('normalmente due anni; tre se a tempo indeterminato') non corrisponde all'art. 5 c. 3-bis TU: il primo permesso per lavoro subordinato dura fino a un anno (TD) o due anni (TI); i rinnovi del TI fino a tre anni.",
+      "sintesi": "Il lavoratore stagionale che ha svolto regolare attivita' lavorativa in Italia per almeno tre mesi e riceve un'offerta di contratto subordinato a tempo determinato o indeterminato puo' chiedere allo Sportello unico la conversione in lavoro subordinato (art. 24, c. 10, TU). Dal 2025 la conversione non e' piu' 'nei limiti delle quote': l'inciso e' stato soppresso dal d.l. 145/2024 (conv. l. 187/2024), con applicazione dalla decorrenza delle quote 2025 del DPCM 27.9.2023, e il DPCM 2026-2028 la colloca tra gli ingressi fuori quota (testo definitivo da verificare). La giurisprudenza amministrativa ritiene che la scadenza del permesso stagionale non precluda di per se' la conversione, contando i presupposti sostanziali (Cons. Stato 5604/2023; TAR Palermo 2368/2026), ma il lavoratore non deve iniziare un lavoro non stagionale prima del nulla osta: in tal caso la revoca del permesso stagionale e' vincolata e preclude la conversione (Cons. Stato 9770/2022, art. 24 c. 13 lett. b). Lo Sportello unico verifica anche la capacita' economica del datore tramite l'Ispettorato del lavoro.",
+      "requisiti": [
+        "Permesso per lavoro stagionale (art. 24 TU)",
+        "Almeno tre mesi di regolare lavoro stagionale in Italia (il conteggio in giornate e' oggetto di prassi: TAR Toscana 1380/2023, cautelare, https://drive.google.com/file/d/1NfWpT3e_PyPtcNRBtqVzxliA1IzABg8a/view?usp=drivesdk ; TAR Marche 688/2019, https://drive.google.com/file/d/119jwmGTAALA4GTOOB_p-WrBG61ole0aH/view?usp=drivesdk)",
+        "Offerta di contratto subordinato TD o TI e proposta di contratto di soggiorno",
+        "Requisiti del datore (capacita' economica, assenza di condanne ex art. 22 c. 5-bis)",
+        "Nessun lavoro non stagionale svolto prima del nulla osta alla conversione"
+      ],
+      "procedura": "Domanda telematica allo Sportello unico per l'immigrazione (Prefettura) a cura del datore/lavoratore; parere dell'Ispettorato del lavoro; nulla osta e firma del contratto di soggiorno; poi richiesta del permesso per lavoro subordinato in Questura (kit postale o inoltro dallo Sportello, a seconda della prassi locale: da verificare). Fuori quota dal 2025. Il diniego dello Sportello e il diniego della Questura sono atti distinti, entrambi impugnabili al TAR (60 giorni) o con ricorso straordinario (120 giorni).",
+      "norme": [
+        {
+          "estremi": "art. 24, c. 10, d.lgs. 286/1998 (testo vigente dopo il d.l. 145/2024, conv. l. 187/2024)",
+          "contenuto": "Conversione dello stagionale in lavoro subordinato: almeno tre mesi di regolare lavoro stagionale + offerta di contratto subordinato a tempo determinato o indeterminato; domanda allo Sportello unico. Il d.l. 145/2024 ha soppresso l'inciso 'nei limiti delle quote di cui all'articolo 3, comma 4' (presente nel testo vigente al 1.6.2024, verificato su Normattiva); le modifiche si applicano dalla decorrenza delle quote 2025 del DPCM 27.9.2023 (nota di aggiornamento 104 di Normattiva).",
+          "citazione": "Il lavoratore stagionale, che ha svolto regolare attivita' lavorativa sul territorio nazionale per almeno tre mesi, al quale e' offerto un contratto di lavoro subordinato a tempo determinato o indeterminato, puo' chiedere allo sportello unico per l'immigrazione la conversione del permesso di soggiorno in lavoro subordinato.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art24"
+        },
+        {
+          "estremi": "art. 24, c. 13, lett. b), d.lgs. 286/1998",
+          "contenuto": "Rifiuto/revoca del permesso stagionale se lo straniero soggiorna per fini diversi da quelli del nulla osta (es. lavoro non stagionale prima della conversione).",
+          "citazione": "b) risulta che lo straniero non soddisfaceva o non soddisfa piu' le condizioni di ingresso e di soggiorno previste dal presente testo unico o se soggiorna per fini diversi da quelli per cui ha ottenuto il nulla osta ai sensi del presente articolo;",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art24"
+        },
+        {
+          "estremi": "art. 24, cc. 7 e 8, d.lgs. 286/1998",
+          "contenuto": "Nulla osta stagionale fino a 9 mesi in 12; proroga/rinnovo per nuova opportunita' stagionale entro 60 giorni dalla fine del contratto precedente; alla fine dei 9 mesi obbligo di rientro salvo permesso per motivi diversi dal lavoro stagionale.",
+          "citazione": "Al termine del periodo di cui al comma 7, il lavoratore deve rientrare nello Stato di provenienza, salvo che sia in possesso di permesso di soggiorno rilasciato per motivi diversi dal lavoro stagionale.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art24"
+        },
+        {
+          "estremi": "art. 5, cc. 3-bis e 3-quater, d.lgs. 286/1998",
+          "contenuto": "Durata del permesso per lavoro: stagionale max 9 mesi complessivi; tempo determinato max 1 anno; tempo indeterminato max 2 anni; lavoro autonomo max 2 anni; ciascun rinnovo (TI e autonomo) max 3 anni.",
+          "citazione": "b) in relazione ad un contratto di lavoro subordinato a tempo determinato, la durata di un anno;",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art5"
+        },
+        {
+          "estremi": "art. 14, par. 1, dir. 2014/36/UE (lavoratori stagionali)",
+          "contenuto": "Soggiorno stagionale tra 5 e 9 mesi in 12; al termine il lavoratore lascia lo Stato salvo che gli sia stato rilasciato un permesso per motivi diversi dal lavoro stagionale (base UE della convertibilita' nazionale).",
+          "citazione": "Al termine di tale periodo il cittadino del paese terzo lascia il territorio dello Stato membro a meno che lo Stato membro interessato non abbia rilasciato un permesso di soggiorno a norma del diritto nazionale o del diritto dell’Unione per motivi diversi dal lavoro stagionale",
+          "url": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32014L0036"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Cons. Stato, sez. III",
+          "data": "2023-06-07",
+          "numero": "n. 5604/2023",
+          "principio": "La scadenza del permesso stagionale non osta di per se' alla conversione in lavoro subordinato: contano i presupposti sostanziali (contratto idoneo, quota allora richiesta, volonta' di integrazione); prima di dichiarare irricevibile l'istanza serve il preavviso di rigetto ex art. 10-bis l. 241/1990.",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=cds&nrg=202300118&nomeFile=202305604_11.html&subDir=Provvedimenti",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "TAR Sicilia, Palermo",
+          "data": "2026-08-03",
+          "numero": "n. 2368/2026",
+          "principio": "L'art. 24, c. 10, TU non fissa un termine perentorio per la domanda: e' illegittimo il diniego di nulla osta alla conversione motivato solo con la scadenza del permesso stagionale (conforme a Cons. Stato 5604/2023). La comunicazione del diniego al solo datore non fa decorrere il termine d'impugnazione per il lavoratore.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1gLs-2CFn5qQVh_nZIFgF81xuNJhwA7gI/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "Cons. Stato, sez. III",
+          "data": "2022-11-07",
+          "numero": "n. 9770/2022",
+          "principio": "La revoca del permesso stagionale ex art. 24, c. 13, lett. b) e' vincolata se lo straniero, durante la validita', svolge un lavoro non stagionale prima di ottenere la conversione; e' irrilevante che abbia gia' maturato il periodo minimo di lavoro stagionale. La revoca preclude la conversione e l'esonero dall'obbligo di rientro presuppone una domanda di conversione ritualmente presentata. Decisione resa nel regime con quote (testo previgente del c. 10).",
+          "esito": "favorevole alla PA",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=cds&nrg=202207712&nomeFile=202209770_23.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "letta_integrale": true
+        }
+      ],
+      "prassi": [
+        {
+          "ente": "Ministero dell'Interno / Ministero del Lavoro (da verificare)",
+          "estremi": "circolare 5 gennaio 2022 (estremi completi non verificati: citata in Cons. Stato n. 9770/2022)",
+          "data": "2022-01-05",
+          "oggetto": "Conversione del permesso stagionale: la domanda si presenta dopo almeno tre mesi di regolare lavoro stagionale (secondo quanto riferito in sentenza). Il testo non e' stato letto.",
+          "url": null
+        },
+        {
+          "ente": "Presidenza del Consiglio dei ministri",
+          "estremi": "DPCM 27 settembre 2023 (flussi 2023-2025), G.U. n. 231 del 3.10.2023",
+          "data": "2023-09-27",
+          "oggetto": "Programmazione triennale dei flussi; la sua decorrenza per il 2025 segna l'applicazione delle modifiche del d.l. 145/2024 all'art. 24 TU (nota Normattiva 104).",
+          "url": "https://drive.google.com/file/d/1qCGjXTFwnFx7s95HqUsnSb1mzJuq7Ob7/view?usp=drivesdk"
+        },
+        {
+          "ente": "Presidenza del Consiglio dei ministri",
+          "estremi": "DPCM flussi 2026-2028 (scheda KB su schema/bozza del 2.7.2025; testo definitivo da verificare in G.U.)",
+          "data": "2025-07-02",
+          "oggetto": "Tra gli ingressi fuori quota: conversione dei permessi stagionali dopo tre mesi di lavoro (art. 24 c. 10 TU) e conversione studio/formazione (art. 6 c. 1 TU).",
+          "url": "https://drive.google.com/file/d/17dEatyyCeGOcPVyzWpFJVqB8sRz0CUjp/view?usp=drivesdk"
+        }
+      ],
+      "casi_limite": [
+        {
+          "titolo": "Domanda presentata dopo la scadenza del permesso stagionale",
+          "testo": "Ammessa da Cons. Stato 5604/2023 e TAR Palermo 2368/2026 (nessun termine perentorio), ma il lavoratore resta esposto all'obbligo di rientro (art. 24 c. 8) e all'espulsione se nel frattempo non ha una domanda ritualmente presentata. Conviene presentarla prima della scadenza."
+        },
+        {
+          "titolo": "Lavoro non stagionale iniziato prima del nulla osta",
+          "testo": "Revoca vincolata e conversione preclusa (Cons. Stato 9770/2022). La decisione e' del regime con quote, ma la ratio (soggiorno per fini diversi, art. 24 c. 13 lett. b) resta nel testo vigente."
+        },
+        {
+          "titolo": "Istanze presentate prima del 2025",
+          "testo": "Per le domande soggette al vecchio testo la conversione era 'nei limiti delle quote': i dinieghi per quota esaurita vanno valutati con il regime ratione temporis (vedi anche TAR Lombardia 188/2025, cautelare, https://drive.google.com/file/d/1JtuJRpACTOi6jmna1G25oIJIS5ClOrGv/view?usp=drivesdk , che valorizza il nuovo regime: punto da validare)."
+        },
+        {
+          "titolo": "Capacita' economica del datore",
+          "testo": "Il parere negativo dell'Ispettorato sulla capacita' del datore (es. numero di quote gia' utilizzate) e' una causa frequente di diniego; valutare subentro di altro datore prima del provvedimento."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Quanti mesi (e giornate) di lavoro stagionale regolare ha svolto con questo permesso?",
+          "perche": "Soglia dei tre mesi dell'art. 24 c. 10.",
+          "opzioni": [
+            "Meno di 3 mesi",
+            "3 mesi o piu'"
+          ]
+        },
+        {
+          "domanda": "Ha gia' iniziato a lavorare per il nuovo datore con contratto non stagionale?",
+          "perche": "Se si', rischio di revoca vincolata (art. 24 c. 13 lett. b; Cons. Stato 9770/2022).",
+          "opzioni": [
+            "No",
+            "Si'"
+          ]
+        },
+        {
+          "domanda": "Il permesso stagionale e' ancora valido? Quando e' stata (o sara') presentata la domanda?",
+          "perche": "La scadenza non e' preclusiva per la giurisprudenza, ma incide sul rischio di espulsione e sulla prassi degli Sportelli.",
+          "opzioni": [
+            "Valido",
+            "Scaduto, domanda gia' presentata prima della scadenza",
+            "Scaduto, domanda non ancora presentata"
+          ]
+        },
+        {
+          "domanda": "Data della domanda: prima o dopo l'avvio delle quote 2025?",
+          "perche": "Determina se si applica il limite delle quote (testo previgente) o il regime fuori quota (d.l. 145/2024).",
+          "opzioni": [
+            "Prima del 2025",
+            "Dal 2025"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "lavoro_stagionale",
+      "a": "lavoro_autonomo",
+      "nodo_albero": "c_end_lav_aut_ok",
+      "esito_albero": "POSSIBILE",
+      "esito_verificato": "non_possibile",
+      "discrepanza": "L'albero da' 'POSSIBILE'. Nessuna norma prevede la conversione dello stagionale in lavoro autonomo: l'art. 24 c. 10 TU prevede solo la conversione in lavoro subordinato; l'art. 14 c. 1 lett. a) d.P.R. 394/1999 consente il lavoro autonomo solo al titolare di permesso per lavoro subordinato 'non stagionale'; l'unica conversione in autonomo espressamente regolata e' da studio/formazione (art. 39 c. 9 d.P.R. 394/1999). La via praticabile e' in due tempi: stagionale -> subordinato (art. 24 c. 10), poi subordinato -> autonomo (art. 14 c. 1 lett. a e c. 3).",
+      "sintesi": "Il permesso per lavoro stagionale ha una disciplina chiusa: alla fine dei nove mesi il lavoratore deve rientrare salvo permesso per motivi diversi (art. 24, c. 8, TU; art. 14, par. 1, dir. 2014/36/UE) e la legge apre un'unica uscita lavorativa, la conversione in lavoro subordinato dopo tre mesi di lavoro (art. 24, c. 10). Il lavoro autonomo e' consentito al titolare di permesso per lavoro subordinato non stagionale (art. 14, c. 1, lett. a, d.P.R. 394/1999), sicche' lo stagionale non puo' svolgerlo durante la validita' del permesso e, per il principio di tipicita' delle conversioni (Cons. Stato 476/2018), non puo' convertire direttamente in lavoro autonomo. Svolgere un'attivita' diversa da quella stagionale espone alla revoca vincolata del permesso (art. 24, c. 13, lett. b; Cons. Stato 9770/2022). Il questionario dovrebbe indirizzare al percorso in due fasi.",
+      "requisiti": [
+        "Nessuna conversione diretta",
+        "Percorso alternativo: conversione in lavoro subordinato (requisiti art. 24 c. 10), poi lavoro autonomo durante la validita' o al rinnovo"
+      ],
+      "procedura": "Non esiste un procedimento di conversione diretta. Percorso alternativo: Sportello unico (conversione in subordinato), poi Questura al rinnovo per lavoro autonomo.",
+      "norme": [
+        {
+          "estremi": "art. 24, c. 10, d.lgs. 286/1998 (testo vigente dopo il d.l. 145/2024, conv. l. 187/2024)",
+          "contenuto": "Conversione dello stagionale in lavoro subordinato: almeno tre mesi di regolare lavoro stagionale + offerta di contratto subordinato a tempo determinato o indeterminato; domanda allo Sportello unico. Il d.l. 145/2024 ha soppresso l'inciso 'nei limiti delle quote di cui all'articolo 3, comma 4' (presente nel testo vigente al 1.6.2024, verificato su Normattiva); le modifiche si applicano dalla decorrenza delle quote 2025 del DPCM 27.9.2023 (nota di aggiornamento 104 di Normattiva).",
+          "citazione": "Il lavoratore stagionale, che ha svolto regolare attivita' lavorativa sul territorio nazionale per almeno tre mesi, al quale e' offerto un contratto di lavoro subordinato a tempo determinato o indeterminato, puo' chiedere allo sportello unico per l'immigrazione la conversione del permesso di soggiorno in lavoro subordinato.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art24"
+        },
+        {
+          "estremi": "art. 14, c. 1, lett. a) e b), d.P.R. 394/1999",
+          "contenuto": "Il permesso per lavoro subordinato NON stagionale consente il lavoro autonomo (con titolo abilitativo e requisiti); quello per lavoro autonomo consente il lavoro subordinato (previa comunicazione del datore), senza conversione del documento per il periodo di validita'.",
+          "citazione": "il permesso di soggiorno rilasciato per lavoro subordinato non stagionale consente l'esercizio di lavoro autonomo, previa acquisizione del titolo abilitativo o autorizzatorio eventualmente prescritto",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art14"
+        },
+        {
+          "estremi": "art. 39, c. 9, d.P.R. 394/1999",
+          "contenuto": "Conversione per lavoro autonomo disciplinata espressamente solo dal permesso per studio o formazione (certificazione dello Sportello unico): non esiste una norma analoga per lo stagionale.",
+          "citazione": null,
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art39"
+        },
+        {
+          "estremi": "art. 24, c. 13, lett. b), d.lgs. 286/1998",
+          "contenuto": "Rifiuto/revoca del permesso stagionale se lo straniero soggiorna per fini diversi da quelli del nulla osta (es. lavoro non stagionale prima della conversione).",
+          "citazione": "b) risulta che lo straniero non soddisfaceva o non soddisfa piu' le condizioni di ingresso e di soggiorno previste dal presente testo unico o se soggiorna per fini diversi da quelli per cui ha ottenuto il nulla osta ai sensi del presente articolo;",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art24"
+        },
+        {
+          "estremi": "art. 24, cc. 7 e 8, d.lgs. 286/1998",
+          "contenuto": "Nulla osta stagionale fino a 9 mesi in 12; proroga/rinnovo per nuova opportunita' stagionale entro 60 giorni dalla fine del contratto precedente; alla fine dei 9 mesi obbligo di rientro salvo permesso per motivi diversi dal lavoro stagionale.",
+          "citazione": "Al termine del periodo di cui al comma 7, il lavoratore deve rientrare nello Stato di provenienza, salvo che sia in possesso di permesso di soggiorno rilasciato per motivi diversi dal lavoro stagionale.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art24"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Cons. Stato",
+          "data": "2018-01-24",
+          "numero": "n. 476/2018",
+          "principio": "Principio di tipicita' delle conversioni: la conversione, provvedimento novativo del titolo, presuppone un'espressa previsione normativa; l'art. 14 d.P.R. 394/1999 disciplina solo casi specifici. Nel caso, permesso religioso non convertibile in lavoro.",
+          "esito": "favorevole alla PA",
+          "url": "https://drive.google.com/file/d/1UAz09J1Y5L_w701yRjbYrqJiFbQECqz6/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "Cons. Stato, sez. III",
+          "data": "2022-11-07",
+          "numero": "n. 9770/2022",
+          "principio": "La revoca del permesso stagionale ex art. 24, c. 13, lett. b) e' vincolata se lo straniero, durante la validita', svolge un lavoro non stagionale prima di ottenere la conversione; e' irrilevante che abbia gia' maturato il periodo minimo di lavoro stagionale. La revoca preclude la conversione e l'esonero dall'obbligo di rientro presuppone una domanda di conversione ritualmente presentata. Decisione resa nel regime con quote (testo previgente del c. 10).",
+          "esito": "favorevole alla PA",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=cds&nrg=202207712&nomeFile=202209770_23.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "letta_integrale": true
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Stagionale che apre partita IVA",
+          "testo": "Rischio di revoca per soggiorno a fini diversi da quelli del nulla osta (art. 24 c. 13 lett. b). Non risultano precedenti specifici sullo stagionale che chiede direttamente il lavoro autonomo (ricerca nella KB e sul portale GA senza risultati)."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Ha un'offerta di lavoro subordinato (anche a tempo determinato) da cui partire?",
+          "perche": "E' la sola via normativa (art. 24 c. 10), poi passaggio all'autonomo.",
+          "opzioni": [
+            "Si'",
+            "No"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "lavoro_stagionale",
+      "a": "attesa_occupazione",
+      "nodo_albero": "c_end_att_incerta",
+      "esito_albero": "INCERTA",
+      "esito_verificato": "non_possibile",
+      "discrepanza": "L'albero dice 'incerta' e invita a tentare. Per il titolare di permesso stagionale la legge esclude l'attesa occupazione: l'art. 24 c. 1 TU applica l'art. 22 'ad eccezione dei commi 5, secondo periodo, e 11', e lo stesso art. 22 c. 11 esclude lo stagionale dal periodo minimo di un anno. L'unica apertura giurisprudenziale riguarda chi e' entrato con visto per lavoro e non e' mai stato assunto per indisponibilita' del datore (TAR Campania 119/2024, circ. 20.8.2007), ma il Consiglio di Stato la esclude proprio per lo stagionale (2403/2025). L'esito andrebbe portato a 'non possibile, salvo casi particolari da valutare con un avvocato'.",
+      "sintesi": "Il permesso per attesa occupazione non spetta al lavoratore stagionale: l'art. 24, c. 1, TU richiama l'art. 22 escludendone espressamente il c. 11 (esclusione gia' presente nel testo anteriore al d.l. 145/2024), e l'art. 22, c. 11, a sua volta esclude lo stagionale dal periodo minimo annuale; coerentemente, alla fine dei nove mesi lo stagionale deve rientrare (art. 24, c. 8). Il Consiglio di Stato ha negato l'attesa occupazione allo straniero entrato con visto stagionale e mai assunto, ritenendo la circolare 20.8.2007 riferita al solo ingresso per lavoro subordinato (2403/2025); in senso opposto, nel merito, TAR Campania 119/2024 l'ha ammessa per indisponibilita' sopravvenuta del datore anche nei flussi stagionali. Lo stagionale che perde il lavoro ha due vie: un nuovo lavoro stagionale entro 60 giorni dalla fine del contratto, con proroga del nulla osta (art. 24, c. 8), oppure la conversione in lavoro subordinato se ha gia' tre mesi di lavoro e un'offerta (art. 24, c. 10).",
+      "requisiti": [
+        "Nessun titolo per il permesso stagionale",
+        "Alternative: nuovo lavoro stagionale entro 60 giorni (art. 24 c. 8, anche tramite SIISL) oppure conversione ex art. 24 c. 10"
+      ],
+      "procedura": "Nessun procedimento di attesa occupazione. Per le alternative: proroga/rinnovo dello stagionale in Questura oppure conversione allo Sportello unico.",
+      "norme": [
+        {
+          "estremi": "art. 24, c. 1, d.lgs. 286/1998",
+          "contenuto": "Al lavoro stagionale si applica l'art. 22 in quanto compatibile, ESCLUSI il c. 5 secondo periodo e il c. 11 (attesa occupazione). L'esclusione del c. 11 c'era gia' nel testo previgente (che escludeva i commi 11 e 11-bis).",
+          "citazione": "Si applicano, ove compatibili, le disposizioni di cui all'articolo 22, ad eccezione dei commi 5, secondo periodo, e 11.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art24"
+        },
+        {
+          "estremi": "art. 22, c. 11, d.lgs. 286/1998",
+          "contenuto": "La perdita del lavoro non e' causa di revoca; il titolare di permesso per lavoro subordinato che perde il posto (anche per dimissioni) rende la DID ex art. 19 d.lgs. 150/2015 e conserva gli effetti per la residua validita' del permesso e comunque, salvo lo stagionale, per almeno un anno o per la durata della prestazione di sostegno al reddito se superiore; poi si applicano i requisiti reddituali dell'art. 29 c. 3 lett. b).",
+          "citazione": "La perdita del posto di lavoro non costituisce motivo di revoca del permesso di soggiorno al lavoratore extracomunitario ed ai suoi familiari legalmente soggiornanti.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art22"
+        },
+        {
+          "estremi": "art. 24, cc. 7 e 8, d.lgs. 286/1998",
+          "contenuto": "Nulla osta stagionale fino a 9 mesi in 12; proroga/rinnovo per nuova opportunita' stagionale entro 60 giorni dalla fine del contratto precedente; alla fine dei 9 mesi obbligo di rientro salvo permesso per motivi diversi dal lavoro stagionale.",
+          "citazione": "Al termine del periodo di cui al comma 7, il lavoratore deve rientrare nello Stato di provenienza, salvo che sia in possesso di permesso di soggiorno rilasciato per motivi diversi dal lavoro stagionale.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art24"
+        },
+        {
+          "estremi": "art. 24, c. 10, d.lgs. 286/1998 (testo vigente dopo il d.l. 145/2024, conv. l. 187/2024)",
+          "contenuto": "Conversione dello stagionale in lavoro subordinato: almeno tre mesi di regolare lavoro stagionale + offerta di contratto subordinato a tempo determinato o indeterminato; domanda allo Sportello unico. Il d.l. 145/2024 ha soppresso l'inciso 'nei limiti delle quote di cui all'articolo 3, comma 4' (presente nel testo vigente al 1.6.2024, verificato su Normattiva); le modifiche si applicano dalla decorrenza delle quote 2025 del DPCM 27.9.2023 (nota di aggiornamento 104 di Normattiva).",
+          "citazione": "Il lavoratore stagionale, che ha svolto regolare attivita' lavorativa sul territorio nazionale per almeno tre mesi, al quale e' offerto un contratto di lavoro subordinato a tempo determinato o indeterminato, puo' chiedere allo sportello unico per l'immigrazione la conversione del permesso di soggiorno in lavoro subordinato.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art24"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Cons. Stato",
+          "data": "2025-03-24",
+          "numero": "n. 2403/2025",
+          "principio": "L'attesa occupazione presuppone un rapporto di lavoro effettivamente instaurato; la circolare 20.8.2007 riguarda l'ingresso per lavoro subordinato e non quello stagionale: per lo stagionale mai assunto la scadenza del nulla osta determina irregolarita' ostativa anche all'attesa occupazione.",
+          "esito": "favorevole alla PA",
+          "url": "https://drive.google.com/file/d/1ylhT_3MeN9kw5ls4ub7AgGYIxHp2BzHB/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "TAR Campania",
+          "data": "2024-01-09",
+          "numero": "n. 119/2024",
+          "principio": "Allo straniero entrato con visto per lavoro che non riesce a formalizzare il rapporto per indisponibilita' sopravvenuta del datore spetta l'attesa occupazione (circ. 20.8.2007), anche nel contesto dei flussi stagionali; il mancato riscontro all'istanza integra silenzio-inadempimento.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1bGlDeehYtXLkHl7pDvSF9AYuy_dKaGnl/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [
+        {
+          "ente": "Ministero dell'Interno",
+          "estremi": "circolare 20 agosto 2007, n. 3836",
+          "data": "2007-08-20",
+          "oggetto": "Permesso per attesa occupazione allo straniero entrato con visto per lavoro subordinato che non puo' formalizzare il rapporto per indisponibilita' sopravvenuta del datore (dichiarazione del responsabile dello Sportello unico).",
+          "url": "https://drive.google.com/file/d/1d8dpvTKdPJCl4yCOAyPARRfHPNQeWQJ5/view?usp=drivesdk"
+        }
+      ],
+      "casi_limite": [
+        {
+          "titolo": "Entrato con visto stagionale, datore irreperibile, mai assunto",
+          "testo": "Contrasto: TAR Campania 119/2024 (attesa occupazione possibile per causa non imputabile al lavoratore) contro Cons. Stato 2403/2025 (no per lo stagionale). Caso da avvocato, con ricorso al TAR."
+        },
+        {
+          "titolo": "Stagionale con tre mesi di lavoro e nessuna offerta",
+          "testo": "Nessuna tutela specifica: occorre un nuovo lavoro stagionale entro 60 giorni o un'offerta subordinata. Valutare altri titoli (famiglia, protezione) se ne ricorrono i presupposti."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "E' stato effettivamente assunto e ha lavorato con il permesso stagionale?",
+          "perche": "Distingue il caso del mai assunto per colpa del datore (contrasto giurisprudenziale) da quello dello stagionale che ha finito il lavoro (attesa occupazione esclusa).",
+          "opzioni": [
+            "Si', ha lavorato",
+            "No, il datore non lo ha mai assunto"
+          ]
+        },
+        {
+          "domanda": "Da quanto e' terminato l'ultimo contratto stagionale?",
+          "perche": "La nuova opportunita' stagionale deve intervenire entro 60 giorni (art. 24 c. 8).",
+          "opzioni": [
+            "Meno di 60 giorni",
+            "Piu' di 60 giorni"
+          ]
+        },
+        {
+          "domanda": "Ha gia' tre mesi di lavoro stagionale e un'offerta di lavoro subordinato?",
+          "perche": "Apre la conversione ex art. 24 c. 10.",
+          "opzioni": [
+            "Si'",
+            "No"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "lavoro_stagionale",
+      "a": "studio",
+      "nodo_albero": "c_end_stu_no",
+      "esito_albero": "NON POSSIBILE",
+      "esito_verificato": "non_possibile",
+      "discrepanza": null,
+      "sintesi": "Nessuna norma prevede la conversione del permesso stagionale in permesso per studio; l'art. 24, c. 8, TU impone il rientro al termine dei nove mesi salvo permesso per motivi diversi gia' posseduto, e la conversione e' soggetta al principio di tipicita' (Cons. Stato 476/2018). Il permesso per studio presuppone di regola il visto per studio rilasciato all'estero (art. 39 TU e art. 44-bis d.P.R. 394/1999). L'esito dell'albero e' corretto.",
+      "requisiti": [
+        "Nessuna base normativa; percorso: rientro e visto per studio dall'estero"
+      ],
+      "procedura": "Visto per studio presso la rappresentanza consolare nel Paese di origine o residenza.",
+      "norme": [
+        {
+          "estremi": "art. 24, cc. 7 e 8, d.lgs. 286/1998",
+          "contenuto": "Nulla osta stagionale fino a 9 mesi in 12; proroga/rinnovo per nuova opportunita' stagionale entro 60 giorni dalla fine del contratto precedente; alla fine dei 9 mesi obbligo di rientro salvo permesso per motivi diversi dal lavoro stagionale.",
+          "citazione": "Al termine del periodo di cui al comma 7, il lavoratore deve rientrare nello Stato di provenienza, salvo che sia in possesso di permesso di soggiorno rilasciato per motivi diversi dal lavoro stagionale.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art24"
+        },
+        {
+          "estremi": "art. 14, par. 1, dir. 2014/36/UE (lavoratori stagionali)",
+          "contenuto": "Soggiorno stagionale tra 5 e 9 mesi in 12; al termine il lavoratore lascia lo Stato salvo che gli sia stato rilasciato un permesso per motivi diversi dal lavoro stagionale (base UE della convertibilita' nazionale).",
+          "citazione": "Al termine di tale periodo il cittadino del paese terzo lascia il territorio dello Stato membro a meno che lo Stato membro interessato non abbia rilasciato un permesso di soggiorno a norma del diritto nazionale o del diritto dell’Unione per motivi diversi dal lavoro stagionale",
+          "url": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32014L0036"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Cons. Stato",
+          "data": "2018-01-24",
+          "numero": "n. 476/2018",
+          "principio": "Principio di tipicita' delle conversioni: la conversione, provvedimento novativo del titolo, presuppone un'espressa previsione normativa; l'art. 14 d.P.R. 394/1999 disciplina solo casi specifici. Nel caso, permesso religioso non convertibile in lavoro.",
+          "esito": "favorevole alla PA",
+          "url": "https://drive.google.com/file/d/1UAz09J1Y5L_w701yRjbYrqJiFbQECqz6/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Stagionale che si iscrive a un corso in Italia",
+          "testo": "L'iscrizione non crea un titolo di soggiorno; resta l'obbligo di rientro alla scadenza."
+        }
+      ],
+      "domande_discriminanti": []
+    },
+    {
+      "da": "lavoro_stagionale",
+      "a": "famiglia",
+      "nodo_albero": "c_end_fam_ok",
+      "esito_albero": "POSSIBILE",
+      "esito_verificato": "condizionato",
+      "discrepanza": "Sostanzialmente corretto: l'art. 24 c. 8 TU e l'art. 14 par. 1 dir. 2014/36 fanno salvo il permesso per motivi diversi dallo stagionale, e l'art. 30 c. 1 lett. c) non esclude lo stagionale. Mancano i requisiti (reddito e alloggio del familiare) e manca l'avvertenza che lo stagionale come sponsor non puo' chiedere il ricongiungimento (qui pero' la coppia riguarda lo stagionale come familiare).",
+      "sintesi": "Lo stagionale e' regolarmente soggiornante finche' il permesso e' valido e puo' chiedere la coesione familiare ex art. 30, c. 1, lett. c), TU se ha in Italia un familiare (italiano, UE o straniero regolarmente soggiornante) in possesso dei requisiti per il ricongiungimento; il permesso viene convertito in permesso per motivi familiari. La normativa sul lavoro stagionale fa salvo proprio il caso del permesso per motivi diversi (art. 24, c. 8, TU; art. 14, par. 1, dir. 2014/36/UE). La Cassazione legge in senso ampio il requisito del regolare soggiorno (Cass. 20020/2025). Le controversie sono del tribunale ordinario.",
+      "requisiti": [
+        "Permesso stagionale valido (o scaduto da meno di un anno, con le cautele sull'obbligo di rientro)",
+        "Familiare dell'art. 29 c. 1 TU presente in Italia",
+        "Reddito del nucleo ex art. 29 c. 3 lett. b) e alloggio idoneo"
+      ],
+      "procedura": "Questura con kit postale (coesione familiare); nessuna quota; contributo.",
+      "norme": [
+        {
+          "estremi": "art. 30, c. 1, lett. c), d.lgs. 286/1998",
+          "contenuto": "Il familiare regolarmente soggiornante in possesso dei requisiti per il ricongiungimento converte il proprio permesso in permesso per motivi familiari; la conversione puo' essere chiesta entro un anno dalla scadenza del titolo posseduto (unica base normativa della soglia di un anno usata dall'albero). Per il familiare di rifugiato si prescinde dal permesso valido.",
+          "citazione": "La conversione puo' essere richiesta entro un anno dalla data di scadenza del titolo di soggiorno originariamente posseduto dal familiare.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art30"
+        },
+        {
+          "estremi": "art. 24, cc. 7 e 8, d.lgs. 286/1998",
+          "contenuto": "Nulla osta stagionale fino a 9 mesi in 12; proroga/rinnovo per nuova opportunita' stagionale entro 60 giorni dalla fine del contratto precedente; alla fine dei 9 mesi obbligo di rientro salvo permesso per motivi diversi dal lavoro stagionale.",
+          "citazione": "Al termine del periodo di cui al comma 7, il lavoratore deve rientrare nello Stato di provenienza, salvo che sia in possesso di permesso di soggiorno rilasciato per motivi diversi dal lavoro stagionale.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art24"
+        },
+        {
+          "estremi": "art. 14, par. 1, dir. 2014/36/UE (lavoratori stagionali)",
+          "contenuto": "Soggiorno stagionale tra 5 e 9 mesi in 12; al termine il lavoratore lascia lo Stato salvo che gli sia stato rilasciato un permesso per motivi diversi dal lavoro stagionale (base UE della convertibilita' nazionale).",
+          "citazione": "Al termine di tale periodo il cittadino del paese terzo lascia il territorio dello Stato membro a meno che lo Stato membro interessato non abbia rilasciato un permesso di soggiorno a norma del diritto nazionale o del diritto dell’Unione per motivi diversi dal lavoro stagionale",
+          "url": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32014L0036"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Cass., sez. I civ.",
+          "data": "2025-07-17",
+          "numero": "n. 20020/2025",
+          "principio": "L'art. 30, c. 1, lett. c), richiede solo regolare soggiorno e requisiti per il ricongiungimento, non un permesso da convertire; il termine di un anno dalla scadenza regola un'ipotesi particolare e non restringe la platea. La coesione sul territorio e' alternativa al visto per ricongiungimento (art. 5, par. 3, dir. 2003/86/CE).",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1O7rHYgSfzJaIPV7Q19qnEgNpJPb9fMK8/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Matrimonio con straniero regolare durante la stagione",
+          "testo": "La lett. b) dell'art. 30 richiede un anno di regolare soggiorno ad altro titolo: di regola non raggiungibile con il solo stagionale; resta la lett. c) se ricorrono i requisiti del ricongiungimento."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Chi e' il familiare in Italia e che titolo ha?",
+          "perche": "Requisiti diversi per familiari di italiani/UE e di stranieri.",
+          "opzioni": [
+            "Cittadino italiano",
+            "Cittadino UE",
+            "Straniero con permesso"
+          ]
+        },
+        {
+          "domanda": "Reddito degli ultimi 12 mesi (proprio e dei familiari conviventi) rispetto all'assegno sociale?",
+          "perche": "Requisito per UE lungo periodo (art. 9 c. 1), per il rinnovo dell'attesa occupazione dopo l'anno (art. 22 c. 11) e per la coesione (art. 29 c. 3 lett. b). La giurisprudenza ammette redditi di familiari e valutazione prognostica (CGUE C-302/18; TAR Piemonte 668/2022).",
+          "opzioni": [
+            "Sopra la soglia con reddito proprio",
+            "Sopra la soglia solo con redditi familiari",
+            "Sotto la soglia",
+            "Non documentabile"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "lavoro_stagionale",
+      "a": "ue_lungo_periodo",
+      "nodo_albero": "c_end_carta_no",
+      "esito_albero": "NON POSSIBILE",
+      "esito_verificato": "non_possibile",
+      "discrepanza": null,
+      "sintesi": "Il lavoratore stagionale e' escluso dallo status di soggiornante di lungo periodo: la direttiva 2003/109/CE non si applica a chi soggiorna per motivi di carattere temporaneo, espressamente i lavoratori stagionali (art. 3, par. 2, lett. e), e quei periodi non si computano nel quinquennio (art. 4, par. 2). Nel TU la regola si ricava dall'art. 9, c. 3, lett. d) (permessi di breve durata) e c. 5, oltre che dalla struttura del permesso stagionale (massimo nove mesi l'anno con obbligo di rientro: art. 5, c. 3-bis, lett. a, e art. 24, cc. 7-8). L'esito dell'albero e' corretto; va aggiunto che, dopo la conversione in lavoro subordinato, il quinquennio comincia a decorrere.",
+      "requisiti": [
+        "Non accessibile da stagionale; dopo conversione in lavoro subordinato servono cinque anni di permesso computabile"
+      ],
+      "procedura": "Nessuna.",
+      "norme": [
+        {
+          "estremi": "art. 3, par. 2, lett. e), e art. 4, par. 2, dir. 2003/109/CE",
+          "contenuto": "La direttiva non si applica a chi soggiorna per motivi di carattere temporaneo, espressamente i lavoratori stagionali; quei periodi non si computano nel quinquennio.",
+          "citazione": "e) soggiornano unicamente per motivi di carattere temporaneo ad esempio in qualità di persone «alla pari», lavoratori stagionali",
+          "url": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32003L0109"
+        },
+        {
+          "estremi": "art. 9, cc. 3 e 5, d.lgs. 286/1998",
+          "contenuto": "Esclusi gli stranieri che soggiornano per studio o formazione (lett. a) e i titolari di permesso di breve durata (lett. d); i periodi di soggiorno di cui alle lett. d) ed e) non si computano nel quinquennio (c. 5). Il permesso per attesa occupazione non e' tra le esclusioni.",
+          "citazione": "d) sono titolari di un permesso di soggiorno di breve durata previsto dal presente testo unico e dal regolamento di attuazione;",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art9"
+        },
+        {
+          "estremi": "art. 24, cc. 7 e 8, d.lgs. 286/1998",
+          "contenuto": "Nulla osta stagionale fino a 9 mesi in 12; proroga/rinnovo per nuova opportunita' stagionale entro 60 giorni dalla fine del contratto precedente; alla fine dei 9 mesi obbligo di rientro salvo permesso per motivi diversi dal lavoro stagionale.",
+          "citazione": "Al termine del periodo di cui al comma 7, il lavoratore deve rientrare nello Stato di provenienza, salvo che sia in possesso di permesso di soggiorno rilasciato per motivi diversi dal lavoro stagionale.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art24"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Permesso stagionale pluriennale (art. 5 c. 3-ter)",
+          "testo": "Anche il permesso pluriennale fino a tre annualita' resta stagionale (validita' annuale e rientro): non computabile. Non sono state trovate decisioni specifiche (punto da validare)."
+        }
+      ],
+      "domande_discriminanti": []
+    },
+    {
+      "da": "attesa_occupazione",
+      "a": "lavoro_subordinato",
+      "nodo_albero": "c_end_lav_sub_ok",
+      "esito_albero": "POSSIBILE",
+      "esito_verificato": "possibile",
+      "discrepanza": "Esito corretto, procedura sbagliata: il nodo condiviso dice 'devi prima richiedere il nulla osta presso lo Sportello Unico'. Chi ha l'attesa occupazione e' gia' titolare di un permesso che consente il lavoro: viene assunto con comunicazione obbligatoria del datore e chiede in Questura (kit postale) il rinnovo/aggiornamento per lavoro subordinato; non serve nulla osta ne' quota. Anche la durata va corretta secondo l'art. 5 c. 3-bis TU.",
+      "sintesi": "Il permesso per attesa occupazione e' un permesso per lavoro subordinato in fase di disoccupazione (art. 22, c. 11, TU): consente di lavorare e, una volta trovato un impiego, si chiede in Questura il permesso per lavoro subordinato sulla base del nuovo contratto, senza nulla osta dello Sportello unico e senza quote. Nelle more vale la ricevuta (art. 5, c. 9-bis). La durata segue l'art. 5, c. 3-bis: fino a un anno per il tempo determinato, fino a due per il tempo indeterminato (rinnovi successivi del TI fino a tre). Se il contratto e' trovato dopo la scadenza dell'attesa occupazione, il ritardo non e' di per se' ostativo (Cons. Stato 7156/2022), ma la questura valuta l'insieme (Cass. SU 7892/2003).",
+      "requisiti": [
+        "Permesso per attesa occupazione valido (o domanda presentata)",
+        "Contratto di lavoro subordinato con comunicazione obbligatoria",
+        "Reddito sufficiente in prognosi"
+      ],
+      "procedura": "Questura con kit postale (aggiornamento/rinnovo per lavoro subordinato); nessuna quota; nessun nulla osta dello Sportello unico; contributo e marca da bollo.",
+      "norme": [
+        {
+          "estremi": "art. 22, c. 11, d.lgs. 286/1998",
+          "contenuto": "La perdita del lavoro non e' causa di revoca; il titolare di permesso per lavoro subordinato che perde il posto (anche per dimissioni) rende la DID ex art. 19 d.lgs. 150/2015 e conserva gli effetti per la residua validita' del permesso e comunque, salvo lo stagionale, per almeno un anno o per la durata della prestazione di sostegno al reddito se superiore; poi si applicano i requisiti reddituali dell'art. 29 c. 3 lett. b).",
+          "citazione": "La perdita del posto di lavoro non costituisce motivo di revoca del permesso di soggiorno al lavoratore extracomunitario ed ai suoi familiari legalmente soggiornanti.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art22"
+        },
+        {
+          "estremi": "art. 5, cc. 3-bis e 3-quater, d.lgs. 286/1998",
+          "contenuto": "Durata del permesso per lavoro: stagionale max 9 mesi complessivi; tempo determinato max 1 anno; tempo indeterminato max 2 anni; lavoro autonomo max 2 anni; ciascun rinnovo (TI e autonomo) max 3 anni.",
+          "citazione": "b) in relazione ad un contratto di lavoro subordinato a tempo determinato, la durata di un anno;",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art5"
+        },
+        {
+          "estremi": "art. 5, cc. 9 e 9-bis, d.lgs. 286/1998",
+          "contenuto": "Rilascio, rinnovo o conversione entro novanta giorni (termine portato a 90 dal d.lgs. 83/2026), anche per altro tipo di permesso se ne ricorrono i requisiti; con la ricevuta della domanda lo straniero soggiorna legalmente e puo' lavorare fino all'eventuale comunicazione di motivi ostativi.",
+          "citazione": "Il permesso di soggiorno e' rilasciato, rinnovato o convertito entro novanta giorni dalla data in cui e' stata presentata la domanda",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art5"
+        },
+        {
+          "estremi": "art. 5, c. 4, d.lgs. 286/1998 (testo vigente, come modificato dal d.lgs. 16 aprile 2026, n. 83, applicabile dal 22.5.2026)",
+          "contenuto": "Il rinnovo si chiede al questore della provincia di dimora almeno novanta giorni prima della scadenza (prima della novella del d.lgs. 83/2026 il termine era di sessanta giorni) ed e' soggetto alla verifica delle condizioni del rilascio. Il termine e' ordinatorio secondo la giurisprudenza amministrativa.",
+          "citazione": "Il rinnovo del permesso di soggiorno e' richiesto dallo straniero al questore della provincia in cui dimora, almeno novanta giorni prima della scadenza",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art5"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Cons. Stato, sez. III",
+          "data": "2022-07-22",
+          "numero": "n. 6422/2022",
+          "principio": "La legge non pone un limite temporale insuperabile all'attesa occupazione ne' al suo rinnovo: superato l'anno minimo, l'interessato deve dimostrare, anche in chiave prognostica, i requisiti reddituali dell'art. 29, c. 3, lett. b); per l'attesa occupazione la verifica riguarda la serieta' e concretezza delle chances di rientrare nel lavoro. Nel caso: appello respinto, disoccupazione protratta da circa un anno prima della scadenza senza iscrizione tempestiva.",
+          "esito": "favorevole alla PA",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=cds&nrg=201810411&nomeFile=202206422_11.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "letta_integrale": false
+        },
+        {
+          "corte": "Cons. Stato, sez. III",
+          "data": "2022-08-17",
+          "numero": "n. 7156/2022",
+          "principio": "Il termine dell'art. 5, c. 4, TU per chiedere il rinnovo non e' perentorio: la tardivita' non e' motivo ostativo all'esame nel merito, anche senza giustificazioni; dall'art. 13, c. 2, lett. b) non si desume la perentorieta', anzi la norma presuppone che una domanda di rinnovo successiva alla scadenza vada esaminata se anteriore all'espulsione. Decisione sul testo che prevedeva 60 giorni.",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=cds&nrg=201903379&nomeFile=202207156_11.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "letta_integrale": true
+        }
+      ],
+      "prassi": [
+        {
+          "ente": "Ministero dell'Interno, Dipartimento della Pubblica Sicurezza",
+          "estremi": "circolare del novembre 2024 sulla ricevuta postale (scheda KB datata 13.11.2024; estremi di protocollo non verificati)",
+          "data": "2024-11-13",
+          "oggetto": "Dall'11.11.2024 la ricevuta dell'istanza di rilascio/rinnovo del permesso ha validita' di nove mesi (rilevante per lavorare ex art. 5 c. 9-bis nelle more).",
+          "url": "https://drive.google.com/file/d/1Afs_6DmYOM-r3kbEDy8vp2yGyrTZmGup/view?usp=drivesdk"
+        }
+      ],
+      "casi_limite": [
+        {
+          "titolo": "Contratto breve o part-time con reddito basso",
+          "testo": "La questura puo' contestare l'insufficienza: valutazione prognostica e del reddito dell'anno (Cons. Stato 6422/2022); in alternativa rinnovo dell'attesa occupazione se ancora nel periodo minimo."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Data di scadenza del permesso attuale e data in cui verra' presentata la domanda?",
+          "perche": "Sotto i 60 giorni dalla scadenza non c'e' base per l'espulsione ex art. 13 c. 2 lett. b); oltre, la domanda resta esaminabile (termine non perentorio: Cons. Stato 7156/2022) ma il ritardo pesa nella valutazione; per la coesione familiare il limite e' un anno (art. 30 c. 1 lett. c).",
+          "opzioni": [
+            "Ancora valido",
+            "Scaduto da meno di 60 giorni",
+            "Scaduto da 60 giorni a un anno",
+            "Scaduto da piu' di un anno"
+          ]
+        },
+        {
+          "domanda": "Tipo di contratto trovato (TD, TI, part-time, somministrazione) e retribuzione annua prevista?",
+          "perche": "Determina durata (art. 5 c. 3-bis) e sufficienza del reddito.",
+          "opzioni": [
+            "Tempo indeterminato",
+            "Tempo determinato",
+            "Part-time",
+            "Somministrazione / intermittente"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "attesa_occupazione",
+      "a": "lavoro_autonomo",
+      "nodo_albero": "c_end_lav_aut_ok",
+      "esito_albero": "POSSIBILE",
+      "esito_verificato": "condizionato",
+      "discrepanza": "L'esito e' plausibile ma la procedura indicata (nulla osta dello Sportello unico) e' quella della conversione da studio (art. 39 c. 9 d.P.R. 394/1999), non di questo caso. Mancano i requisiti dell'art. 26 TU, che sono il vero filtro.",
+      "sintesi": "Il permesso per attesa occupazione deriva da un permesso per lavoro subordinato non stagionale, che consente l'esercizio del lavoro autonomo previa acquisizione dei titoli abilitativi (art. 14, c. 1, lett. a, d.P.R. 394/1999); al rinnovo si rilascia il permesso per l'attivita' effettivamente svolta (c. 3). Il passaggio richiede i requisiti dell'art. 26 TU: risorse adeguate, requisiti per l'esercizio dell'attivita' (albi, registri, licenze), alloggio idoneo e reddito annuo lecito superiore alla soglia di esenzione dalla spesa sanitaria. Non risultano quote per questo passaggio interno (le quote per autonomo riguardano ingressi e conversione da studio). Il nodo critico e' il reddito del primo periodo: il Consiglio di Stato ammette la valutazione prognostica e la tolleranza di carenze temporanee (6070/2014). Che l'attesa occupazione rientri nella nozione di 'lavoro subordinato non stagionale' dell'art. 14 e' interpretazione ragionevole ma non verificata in giurisprudenza.",
+      "requisiti": [
+        "Permesso per attesa occupazione valido",
+        "Avvio dell'attivita' con titoli abilitativi (partita IVA, iscrizioni)",
+        "Requisiti dell'art. 26 c. 2-3 TU (reddito, alloggio)"
+      ],
+      "procedura": "Questura con kit postale per lavoro autonomo; nessuna quota e nessun nulla osta dello Sportello unico (prassi da verificare localmente); contributo.",
+      "norme": [
+        {
+          "estremi": "art. 14, c. 1, lett. a) e b), d.P.R. 394/1999",
+          "contenuto": "Il permesso per lavoro subordinato NON stagionale consente il lavoro autonomo (con titolo abilitativo e requisiti); quello per lavoro autonomo consente il lavoro subordinato (previa comunicazione del datore), senza conversione del documento per il periodo di validita'.",
+          "citazione": "il permesso di soggiorno rilasciato per lavoro subordinato non stagionale consente l'esercizio di lavoro autonomo, previa acquisizione del titolo abilitativo o autorizzatorio eventualmente prescritto",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art14"
+        },
+        {
+          "estremi": "art. 14, c. 3, d.P.R. 394/1999",
+          "contenuto": "Al rinnovo si rilascia il permesso per l'attivita' effettivamente svolta.",
+          "citazione": "Con il rinnovo, e' rilasciato un nuovo permesso di soggiorno per l'attivita' effettivamente svolta.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art14"
+        },
+        {
+          "estremi": "art. 26, cc. 1-3, d.lgs. 286/1998",
+          "contenuto": "Requisiti del lavoro autonomo: attivita' non riservata, risorse adeguate, requisiti per l'esercizio (albi, registri, licenze; attestazione dell'autorita' competente non anteriore a tre mesi), alloggio idoneo e reddito annuo lecito superiore al minimo per l'esenzione dalla spesa sanitaria.",
+          "citazione": null,
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art26"
+        },
+        {
+          "estremi": "art. 22, c. 11, d.lgs. 286/1998",
+          "contenuto": "La perdita del lavoro non e' causa di revoca; il titolare di permesso per lavoro subordinato che perde il posto (anche per dimissioni) rende la DID ex art. 19 d.lgs. 150/2015 e conserva gli effetti per la residua validita' del permesso e comunque, salvo lo stagionale, per almeno un anno o per la durata della prestazione di sostegno al reddito se superiore; poi si applicano i requisiti reddituali dell'art. 29 c. 3 lett. b).",
+          "citazione": "La perdita del posto di lavoro non costituisce motivo di revoca del permesso di soggiorno al lavoratore extracomunitario ed ai suoi familiari legalmente soggiornanti.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art22"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Cons. Stato, sez. III",
+          "data": "2014-10-30",
+          "numero": "n. 6070/2014 (data indicata = data della decisione; il portale non riporta la data di pubblicazione)",
+          "principio": "L'art. 22, c. 11, TU e' riferito al lavoro subordinato; per il lavoro autonomo non si rilascia l'attesa occupazione, ma da un'interpretazione sistematica (artt. 5 c. 5, 9 c. 7, 22 c. 11) discende una regola di ragionevolezza che tollera temporanee carenze di reddito se il richiedente dimostra capacita' di produrre reddito; la normativa non vieta il passaggio fra permesso per lavoro autonomo e subordinato. Fatti sopravvenuti prima del provvedimento vanno valutati.",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=cds&nrg=201404423&nomeFile=201406070_11.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "letta_integrale": true
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Attivita' appena avviata senza reddito",
+          "testo": "Rischio di diniego per reddito: se si e' ancora nel periodo minimo dell'attesa occupazione, conviene rinnovare quella e documentare l'avvio dell'attivita'."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "L'attivita' autonoma e' gia' avviata (partita IVA, iscrizioni) e produce reddito?",
+          "perche": "Requisiti dell'art. 26 TU al rinnovo.",
+          "opzioni": [
+            "Avviata con reddito",
+            "Avviata senza reddito",
+            "Non ancora avviata"
+          ]
+        },
+        {
+          "domanda": "Quanto manca alla fine del periodo minimo di attesa occupazione?",
+          "perche": "Entro il periodo minimo il permesso non richiede reddito; dopo si applica l'art. 29 c. 3 lett. b).",
+          "opzioni": [
+            "Piu' di 3 mesi",
+            "Meno di 3 mesi",
+            "Gia' scaduto"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "attesa_occupazione",
+      "a": "studio",
+      "nodo_albero": "c_end_complicata",
+      "esito_albero": "Situazione complicata",
+      "esito_verificato": "incerto",
+      "discrepanza": null,
+      "sintesi": "Come per il permesso per lavoro, nessuna norma prevede la conversione in studio e vale il principio di tipicita' (Cons. Stato 476/2018). Chi ha l'attesa occupazione puo' gia' accedere ai corsi universitari a parita' con gli italiani come titolare di permesso per lavoro subordinato (art. 39, c. 5, TU), e puo' rinnovare l'attesa occupazione per il periodo minimo; dopo, il rinnovo richiede reddito (art. 22, c. 11). La conversione in studio e' un tentativo con esito dipendente dalla questura. L'esito 'complicata' dell'albero e' adeguato.",
+      "requisiti": [
+        "Nessuna base normativa espressa"
+      ],
+      "procedura": "Prassi non uniforme; valutazione legale.",
+      "norme": [
+        {
+          "estremi": "art. 39, c. 5, d.lgs. 286/1998",
+          "contenuto": "I titolari di permesso per lavoro subordinato o autonomo (e UE lungo periodo, familiari, ecc.) accedono all'universita' e alla formazione superiore a parita' con gli italiani, senza bisogno di un permesso per studio.",
+          "citazione": "E' comunque consentito l'accesso ai corsi di istruzione tecnica superiore o di formazione superiore e alle scuole di specializzazione delle universita', a parita' di condizioni con gli studenti italiani, agli stranieri titolari di permesso di soggiorno UE per soggiornanti di lungo periodo, di permesso di soggiorno per lavoro subordinato, per lavoro autonomo",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art39"
+        },
+        {
+          "estremi": "art. 22, c. 11, d.lgs. 286/1998",
+          "contenuto": "La perdita del lavoro non e' causa di revoca; il titolare di permesso per lavoro subordinato che perde il posto (anche per dimissioni) rende la DID ex art. 19 d.lgs. 150/2015 e conserva gli effetti per la residua validita' del permesso e comunque, salvo lo stagionale, per almeno un anno o per la durata della prestazione di sostegno al reddito se superiore; poi si applicano i requisiti reddituali dell'art. 29 c. 3 lett. b).",
+          "citazione": "La perdita del posto di lavoro non costituisce motivo di revoca del permesso di soggiorno al lavoratore extracomunitario ed ai suoi familiari legalmente soggiornanti.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art22"
+        },
+        {
+          "estremi": "art. 5, cc. 9 e 9-bis, d.lgs. 286/1998",
+          "contenuto": "Rilascio, rinnovo o conversione entro novanta giorni (termine portato a 90 dal d.lgs. 83/2026), anche per altro tipo di permesso se ne ricorrono i requisiti; con la ricevuta della domanda lo straniero soggiorna legalmente e puo' lavorare fino all'eventuale comunicazione di motivi ostativi.",
+          "citazione": "Il permesso di soggiorno e' rilasciato, rinnovato o convertito entro novanta giorni dalla data in cui e' stata presentata la domanda",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art5"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Cons. Stato",
+          "data": "2018-01-24",
+          "numero": "n. 476/2018",
+          "principio": "Principio di tipicita' delle conversioni: la conversione, provvedimento novativo del titolo, presuppone un'espressa previsione normativa; l'art. 14 d.P.R. 394/1999 disciplina solo casi specifici. Nel caso, permesso religioso non convertibile in lavoro.",
+          "esito": "favorevole alla PA",
+          "url": "https://drive.google.com/file/d/1UAz09J1Y5L_w701yRjbYrqJiFbQECqz6/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Studente-lavoratore in attesa occupazione",
+          "testo": "Iscriversi senza convertire e cercare un lavoro anche part-time che consenta il rinnovo per lavoro."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Ha mezzi di sussistenza per lo studio (borsa, familiari)?",
+          "perche": "Senza mezzi il tentativo di conversione e' privo di prospettive.",
+          "opzioni": [
+            "Si'",
+            "No"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "attesa_occupazione",
+      "a": "famiglia",
+      "nodo_albero": "c_end_fam_ok",
+      "esito_albero": "POSSIBILE",
+      "esito_verificato": "condizionato",
+      "discrepanza": "Corretto nella sostanza; valgono le stesse integrazioni della coppia lavoro -> famiglia (requisiti di reddito e alloggio del familiare, termine di un anno, competenza del giudice ordinario). E' spesso la via migliore quando l'attesa occupazione sta per scadere senza lavoro.",
+      "sintesi": "Il titolare di attesa occupazione e' regolarmente soggiornante e puo' convertire il permesso in permesso per motivi familiari ex art. 30, c. 1, lett. c), TU se il familiare in Italia ha i requisiti per il ricongiungimento; la conversione si puo' chiedere fino a un anno dalla scadenza del titolo. Il reddito considerato e' quello del nucleo (Trib. Torino 19232/2023) e la Cassazione non richiede un permesso da convertire, ma il regolare soggiorno (Cass. 20020/2025). E' la soluzione tipica quando, finito il periodo minimo, l'interessato non ha un reddito personale sufficiente per rinnovare l'attesa occupazione.",
+      "requisiti": [
+        "Regolare soggiorno",
+        "Familiare dell'art. 29 c. 1 TU",
+        "Reddito del nucleo ex art. 29 c. 3 lett. b) e alloggio idoneo"
+      ],
+      "procedura": "Questura con kit postale; nessuna quota; giudice ordinario in caso di diniego.",
+      "norme": [
+        {
+          "estremi": "art. 30, c. 1, lett. c), d.lgs. 286/1998",
+          "contenuto": "Il familiare regolarmente soggiornante in possesso dei requisiti per il ricongiungimento converte il proprio permesso in permesso per motivi familiari; la conversione puo' essere chiesta entro un anno dalla scadenza del titolo posseduto (unica base normativa della soglia di un anno usata dall'albero). Per il familiare di rifugiato si prescinde dal permesso valido.",
+          "citazione": "La conversione puo' essere richiesta entro un anno dalla data di scadenza del titolo di soggiorno originariamente posseduto dal familiare.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art30"
+        },
+        {
+          "estremi": "art. 22, c. 11, terzo periodo, d.lgs. 286/1998",
+          "contenuto": "Decorso il periodo minimo, per il rinnovo dell'attesa occupazione servono i requisiti reddituali dell'art. 29, c. 3, lett. b) (assegno sociale).",
+          "citazione": "Decorso il termine di cui al secondo periodo, trovano applicazione i requisiti reddituali di cui all'articolo 29, comma 3, lettera b).",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art22"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Cass., sez. I civ.",
+          "data": "2025-07-17",
+          "numero": "n. 20020/2025",
+          "principio": "L'art. 30, c. 1, lett. c), richiede solo regolare soggiorno e requisiti per il ricongiungimento, non un permesso da convertire; il termine di un anno dalla scadenza regola un'ipotesi particolare e non restringe la platea. La coesione sul territorio e' alternativa al visto per ricongiungimento (art. 5, par. 3, dir. 2003/86/CE).",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1O7rHYgSfzJaIPV7Q19qnEgNpJPb9fMK8/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "Trib. Torino",
+          "data": "2024-04-01",
+          "numero": "n. 19232/2023 (R.G.)",
+          "principio": "Il permesso per motivi familiari puo' essere rilasciato anche prescindendo dai prerequisiti formali della coesione (permesso scaduto da meno di un anno) quando sussistono coniugio, convivenza, reddito familiare complessivo e alloggio; tutela rafforzata ex art. 5, c. 5, per chiunque abbia legami familiari (C. cost. 202/2013).",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1UDUB_ruSd0rgfiYgML83dhvck0u-Cjo7/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Attesa occupazione scaduta senza rinnovo",
+          "testo": "La coesione resta possibile entro un anno dalla scadenza (art. 30 c. 1 lett. c) e i giudici ordinari non la negano per la sola tardivita' (Trib. Milano 28780/2019)."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Reddito degli ultimi 12 mesi (proprio e dei familiari conviventi) rispetto all'assegno sociale?",
+          "perche": "Requisito per UE lungo periodo (art. 9 c. 1), per il rinnovo dell'attesa occupazione dopo l'anno (art. 22 c. 11) e per la coesione (art. 29 c. 3 lett. b). La giurisprudenza ammette redditi di familiari e valutazione prognostica (CGUE C-302/18; TAR Piemonte 668/2022).",
+          "opzioni": [
+            "Sopra la soglia con reddito proprio",
+            "Sopra la soglia solo con redditi familiari",
+            "Sotto la soglia",
+            "Non documentabile"
+          ]
+        },
+        {
+          "domanda": "Data di scadenza del permesso attuale e data in cui verra' presentata la domanda?",
+          "perche": "Sotto i 60 giorni dalla scadenza non c'e' base per l'espulsione ex art. 13 c. 2 lett. b); oltre, la domanda resta esaminabile (termine non perentorio: Cons. Stato 7156/2022) ma il ritardo pesa nella valutazione; per la coesione familiare il limite e' un anno (art. 30 c. 1 lett. c).",
+          "opzioni": [
+            "Ancora valido",
+            "Scaduto da meno di 60 giorni",
+            "Scaduto da 60 giorni a un anno",
+            "Scaduto da piu' di un anno"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "attesa_occupazione",
+      "a": "ue_lungo_periodo",
+      "nodo_albero": "c_end_complicata",
+      "esito_albero": "Situazione complicata",
+      "esito_verificato": "condizionato",
+      "discrepanza": "L'albero manda a 'situazione complicata', ma l'attesa occupazione non e' tra i permessi esclusi dall'art. 9 c. 3 TU e il periodo si computa. Il punto critico e' solo il reddito (assegno sociale), che la giurisprudenza consente di valutare in prognosi e anche con redditi familiari. L'esito corretto e' 'possibile se ha 5 anni di soggiorno e reddito sufficiente, anche familiare'.",
+      "sintesi": "Il permesso per attesa occupazione e' un permesso in corso di validita' computabile nel quinquennio dell'art. 9, c. 1, TU (non e' tra le esclusioni del c. 3). Il problema e' il reddito non inferiore all'assegno sociale: la nozione di risorse e' autonoma del diritto UE, le risorse possono provenire da qualsiasi fonte anche familiare (CGUE C-302/18) e vanno valutate in prognosi sull'evoluzione dei redditi, non sul solo dato della cessazione del lavoro (TAR Piemonte 668/2022). Un disoccupato con reddito dell'anno precedente sufficiente o con familiari conviventi a reddito adeguato puo' quindi ottenerlo; ottenuto il permesso UE, il venir meno del reddito non e' causa di revoca.",
+      "requisiti": [
+        "Cinque anni di permesso valido (inclusa l'attesa occupazione)",
+        "Reddito >= assegno sociale, anche familiare e in prognosi",
+        "Test di italiano",
+        "Assenza di pericolosita'"
+      ],
+      "procedura": "Questura con kit postale; nessuna quota; permesso attuale in corso di validita'.",
+      "norme": [
+        {
+          "estremi": "art. 9, c. 1, d.lgs. 286/1998",
+          "contenuto": "Permesso UE per soggiornanti di lungo periodo: cinque anni di permesso in corso di validita', reddito non inferiore all'assegno sociale (parametri dell'art. 29 c. 3 lett. b e alloggio idoneo solo se la domanda e' estesa ai familiari).",
+          "citazione": "Lo straniero in possesso, da almeno cinque anni, di un permesso di soggiorno in corso di validita', che dimostra la disponibilita' di un reddito non inferiore all'importo annuo dell'assegno sociale",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art9"
+        },
+        {
+          "estremi": "art. 9, cc. 3 e 5, d.lgs. 286/1998",
+          "contenuto": "Esclusi gli stranieri che soggiornano per studio o formazione (lett. a) e i titolari di permesso di breve durata (lett. d); i periodi di soggiorno di cui alle lett. d) ed e) non si computano nel quinquennio (c. 5). Il permesso per attesa occupazione non e' tra le esclusioni.",
+          "citazione": "d) sono titolari di un permesso di soggiorno di breve durata previsto dal presente testo unico e dal regolamento di attuazione;",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art9"
+        },
+        {
+          "estremi": "art. 9, c. 2-bis, d.lgs. 286/1998",
+          "contenuto": "Test di conoscenza della lingua italiana (A2 secondo il decreto attuativo, non letto in questa ricerca).",
+          "citazione": "Il rilascio del permesso di soggiorno UE per soggiornanti di lungo periodo e' subordinato al superamento, da parte del richiedente, di un test di conoscenza della lingua italiana",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art9"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "CGUE, sez. III",
+          "data": "2019-10-03",
+          "numero": "C-302/18",
+          "principio": "Le risorse stabili, regolari e sufficienti richieste per lo status di soggiornante di lungo periodo possono provenire da qualsiasi fonte, anche da un terzo o da un familiare.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1go2I1ZmG5DZKbnrh-hOGuM5K1YQZeoNZ/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "TAR Piemonte",
+          "data": "2023-03-09",
+          "numero": "n. 668/2022 (R.G.)",
+          "principio": "Per il permesso UE di lungo periodo l'art. 9 TU non richiede un lavoro stabile per tutto l'anno ma il raggiungimento della soglia di reddito annuo; la valutazione delle risorse e' prospettica (CGUE C-558/14) e non puo' fermarsi alla cessazione di un rapporto di lavoro. Richiamare l'art. 22 c. 11 per una domanda individuale e' inconferente.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1EGUusv-COtSLSSqA6gsHR3PNkiE33i1N/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Reddito del solo anno precedente sufficiente",
+          "testo": "La valutazione prospettica (TAR Piemonte 668/2022) consente di valorizzare i redditi recenti; prassi delle questure non uniforme."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Reddito degli ultimi 12 mesi (proprio e dei familiari conviventi) rispetto all'assegno sociale?",
+          "perche": "Requisito per UE lungo periodo (art. 9 c. 1), per il rinnovo dell'attesa occupazione dopo l'anno (art. 22 c. 11) e per la coesione (art. 29 c. 3 lett. b). La giurisprudenza ammette redditi di familiari e valutazione prognostica (CGUE C-302/18; TAR Piemonte 668/2022).",
+          "opzioni": [
+            "Sopra la soglia con reddito proprio",
+            "Sopra la soglia solo con redditi familiari",
+            "Sotto la soglia",
+            "Non documentabile"
+          ]
+        },
+        {
+          "domanda": "Da quanti anni ha un permesso valido senza interruzioni?",
+          "perche": "Requisito quinquennale.",
+          "opzioni": [
+            "Meno di 5",
+            "5 o piu'"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "permesso_scaduto (da meno di un anno; qualsiasi titolo di partenza)",
+      "a": "lavoro_subordinato / lavoro_autonomo / studio / attesa_occupazione",
+      "nodo_albero": "c_end_scaduto_soft",
+      "esito_albero": "Conversione teoricamente possibile",
+      "esito_verificato": "condizionato",
+      "discrepanza": "Il nodo e' condiviso da tutti i permessi di partenza e da tutti gli arrivi, ma la regola cambia: (a) per il RINNOVO dello stesso titolo il ritardo non e' ostativo (termine ordinatorio: Cons. Stato 7156/2022; Cass. SU 7892/2003); (b) per la conversione dello stagionale in subordinato la giurisprudenza la ammette anche dopo la scadenza (Cons. Stato 5604/2023); (c) per lo studio -> lavoro la legge richiede espressamente la domanda 'prima della scadenza' (art. 6 c. 1 TU), con sola apertura per ritardi minimi (Cons. Stato 7525/2021); (d) per le altre conversioni non c'e' regola espressa. Il questionario PRO deve chiedere il titolo di partenza e la data esatta di scadenza invece di usare solo la soglia di un anno.",
+      "sintesi": "Il termine per chiedere il rinnovo (almeno novanta giorni prima della scadenza, art. 5, c. 4, TU nel testo modificato dal d.lgs. 83/2026; prima sessanta) e' ordinatorio: la tardivita' non rende la domanda irricevibile e la questura deve esaminare i requisiti sostanziali (Cons. Stato, sez. III, 7156/2022; Cass. SU 7892/2003, che pero' considera il ritardo indice di irregolarita' quando lo straniero ha atteso di ricostituire requisiti perduti). L'espulsione ex art. 13, c. 2, lett. b), richiede che il permesso sia scaduto da piu' di sessanta giorni e che il rinnovo non sia stato chiesto: la domanda presentata prima del decreto di espulsione va esaminata (Cass. 20930/2022). Per la conversione la risposta dipende dal titolo: ammessa dopo la scadenza per lo stagionale (Cons. Stato 5604/2023; TAR Palermo 2368/2026), esclusa in linea di principio per lo studio (art. 6, c. 1: 'prima della sua scadenza'), salvo ritardi minimi e fatti sopravvenuti (Cons. Stato 7525/2021). L'art. 5, c. 5, impone comunque di valutare nuovi elementi sopravvenuti e irregolarita' sanabili. Nelle more si puo' lavorare con la ricevuta (art. 5, c. 9-bis), ma il datore rischia la sanzione penale se il rinnovo non e' stato chiesto (art. 22, c. 12).",
+      "requisiti": [
+        "Domanda presentata prima di un eventuale decreto di espulsione",
+        "Requisiti sostanziali del titolo richiesto alla data della decisione",
+        "Giustificazione del ritardo (forza maggiore, ritardi del consolato per il passaporto, detenzione, malattia) utile ma non indispensabile"
+      ],
+      "procedura": "Questura con kit postale per rinnovo/conversione (Sportello unico per stagionale -> subordinato e studio -> lavoro); in caso di irricevibilita' o diniego senza preavviso ex art. 10-bis l. 241/1990, ricorso al TAR entro 60 giorni.",
+      "norme": [
+        {
+          "estremi": "art. 5, c. 4, d.lgs. 286/1998 (testo vigente, come modificato dal d.lgs. 16 aprile 2026, n. 83, applicabile dal 22.5.2026)",
+          "contenuto": "Il rinnovo si chiede al questore della provincia di dimora almeno novanta giorni prima della scadenza (prima della novella del d.lgs. 83/2026 il termine era di sessanta giorni) ed e' soggetto alla verifica delle condizioni del rilascio. Il termine e' ordinatorio secondo la giurisprudenza amministrativa.",
+          "citazione": "Il rinnovo del permesso di soggiorno e' richiesto dallo straniero al questore della provincia in cui dimora, almeno novanta giorni prima della scadenza",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art5"
+        },
+        {
+          "estremi": "art. 5, c. 5, d.lgs. 286/1998",
+          "contenuto": "Rifiuto/revoca quando mancano i requisiti, salvo nuovi elementi sopravvenuti e irregolarita' amministrative sanabili; valutazione dei legami familiari (estesa a tutti gli stranieri con legami familiari da C. cost. 202/2013, nota Normattiva).",
+          "citazione": "sempre che non siano sopraggiunti nuovi elementi che ne consentano il rilascio e che non si tratti di irregolarita' amministrative sanabili",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art5"
+        },
+        {
+          "estremi": "art. 5, cc. 9 e 9-bis, d.lgs. 286/1998",
+          "contenuto": "Rilascio, rinnovo o conversione entro novanta giorni (termine portato a 90 dal d.lgs. 83/2026), anche per altro tipo di permesso se ne ricorrono i requisiti; con la ricevuta della domanda lo straniero soggiorna legalmente e puo' lavorare fino all'eventuale comunicazione di motivi ostativi.",
+          "citazione": "Il permesso di soggiorno e' rilasciato, rinnovato o convertito entro novanta giorni dalla data in cui e' stata presentata la domanda",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art5"
+        },
+        {
+          "estremi": "art. 13, c. 2, lett. b), d.lgs. 286/1998",
+          "contenuto": "Espulsione prefettizia, tra l'altro, quando il permesso e' scaduto da piu' di sessanta giorni e non ne e' stato chiesto il rinnovo; salvo forza maggiore per il ritardo nella prima richiesta.",
+          "citazione": "ovvero quando il permesso di soggiorno sia scaduto da piu' di sessanta giorni e non ne e' stato chiesto il rinnovo",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art13"
+        },
+        {
+          "estremi": "art. 6, c. 1, d.lgs. 286/1998",
+          "contenuto": "Il permesso per lavoro subordinato, autonomo e familiari puo' essere utilizzato per le altre attivita' consentite; la conversione studio-lavoro e' fuori quota ma va chiesta prima della scadenza (rilevante come termine di confronto: e' l'unica conversione per cui la legge fissa espressamente la validita' del titolo).",
+          "citazione": "Quello rilasciato per motivi di studio e formazione puo' essere convertito, al di fuori delle quote di cui all'articolo 3, comma 4, comunque prima della sua scadenza",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art6"
+        },
+        {
+          "estremi": "art. 22, c. 12, d.lgs. 286/1998",
+          "contenuto": "Reato del datore che occupa lavoratori con permesso scaduto di cui non sia stato chiesto il rinnovo nei termini di legge: rilevante perche' il datore spesso sospende il rapporto se il lavoratore non esibisce la ricevuta.",
+          "citazione": null,
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art22"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Cons. Stato, sez. III",
+          "data": "2022-08-17",
+          "numero": "n. 7156/2022",
+          "principio": "Il termine dell'art. 5, c. 4, TU per chiedere il rinnovo non e' perentorio: la tardivita' non e' motivo ostativo all'esame nel merito, anche senza giustificazioni; dall'art. 13, c. 2, lett. b) non si desume la perentorieta', anzi la norma presuppone che una domanda di rinnovo successiva alla scadenza vada esaminata se anteriore all'espulsione. Decisione sul testo che prevedeva 60 giorni.",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=cds&nrg=201903379&nomeFile=202207156_11.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "letta_integrale": true
+        },
+        {
+          "corte": "Cass., sez. un. civ.",
+          "data": "2003-05-20",
+          "numero": "n. 7892/2003",
+          "principio": "La spontanea domanda di rinnovo oltre i sessanta giorni dalla scadenza non consente l'espulsione automatica: l'espulsione e' legittima solo se la domanda e' respinta per mancanza dei requisiti; il ritardo e' solo indice rivelatore, ostativo quando lo straniero ha atteso di ricostituire requisiti gia' venuti meno (es. perdita del lavoro senza tempestiva iscrizione al collocamento). La forza maggiore giustifica il ritardo anche nel rinnovo.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1XR2f4rJ-JCvKJ_DYq2BikyPXbEaBnX-w/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "Cass., sez. I civ.",
+          "data": "2022-06-30",
+          "numero": "n. 20930/2022",
+          "principio": "Conforme alle Sezioni Unite: il mero ritardo nella domanda di rinnovo non autorizza l'espulsione ex art. 13, c. 2, lett. b); la pendenza del procedimento di rinnovo non definito esclude l'irregolarita' del soggiorno.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1bA7_sWLiyvqpM8_eqyEWegzf-EKo2cqh/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "Cons. Stato, sez. III",
+          "data": "2023-06-07",
+          "numero": "n. 5604/2023",
+          "principio": "La scadenza del permesso stagionale non osta di per se' alla conversione in lavoro subordinato: contano i presupposti sostanziali (contratto idoneo, quota allora richiesta, volonta' di integrazione); prima di dichiarare irricevibile l'istanza serve il preavviso di rigetto ex art. 10-bis l. 241/1990.",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=cds&nrg=202300118&nomeFile=202305604_11.html&subDir=Provvedimenti",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "Cons. Stato",
+          "data": "2021-11-11",
+          "numero": "n. 7525/2021",
+          "principio": "Il ritardo nella domanda di conversione studio-lavoro non comporta decadenza; l'art. 5, c. 5, consente di valorizzare fatti sopravvenuti introdotti prima della conclusione del procedimento, con valutazione prognostica del reddito futuro. Il collegio ammette che la conversione presupporrebbe a rigore un titolo valido e riconosce l'efficacia sanante in via eccezionale (ritardo di due giorni).",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/10co4FUBEr28mENTSSImNs0ZHhLh9MIos/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [
+        {
+          "ente": "Ministero dell'Interno, Dipartimento della Pubblica Sicurezza",
+          "estremi": "circolare del novembre 2024 sulla ricevuta postale (scheda KB datata 13.11.2024; estremi di protocollo non verificati)",
+          "data": "2024-11-13",
+          "oggetto": "Dall'11.11.2024 la ricevuta dell'istanza di rilascio/rinnovo del permesso ha validita' di nove mesi (rilevante per lavorare ex art. 5 c. 9-bis nelle more).",
+          "url": "https://drive.google.com/file/d/1Afs_6DmYOM-r3kbEDy8vp2yGyrTZmGup/view?usp=drivesdk"
+        }
+      ],
+      "casi_limite": [
+        {
+          "titolo": "Decreto di espulsione gia' notificato",
+          "testo": "Se l'espulsione e' gia' stata adottata la domanda tardiva non la travolge: si impugna il decreto davanti al Giudice di pace (termini brevi) valorizzando la persistenza dei requisiti; fuori dal perimetro TAR."
+        },
+        {
+          "titolo": "Ritardo dovuto al passaporto scaduto",
+          "testo": "E' il caso di Cons. Stato 7156/2022: il TAR aveva richiesto la forza maggiore, il Consiglio di Stato ha ritenuto il termine non perentorio a prescindere dalle giustificazioni."
+        },
+        {
+          "titolo": "Attesa occupazione chiesta tardi",
+          "testo": "Se lo straniero ha perso il lavoro durante la validita' e non ha reso la DID, il ritardo puo' essere letto come indice di soggiorno consapevolmente irregolare (Cass. SU 7892/2003; Cons. Stato 6422/2022)."
+        },
+        {
+          "titolo": "Interruzione del soggiorno all'estero",
+          "testo": "Il rinnovo e' escluso se il soggiorno e' stato interrotto per oltre sei mesi continuativi (o oltre meta' della validita' per i permessi biennali), salvo gravi motivi (art. 13 c. 4 d.P.R. 394/1999): domanda da porre."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Data di scadenza del permesso attuale e data in cui verra' presentata la domanda?",
+          "perche": "Sotto i 60 giorni dalla scadenza non c'e' base per l'espulsione ex art. 13 c. 2 lett. b); oltre, la domanda resta esaminabile (termine non perentorio: Cons. Stato 7156/2022) ma il ritardo pesa nella valutazione; per la coesione familiare il limite e' un anno (art. 30 c. 1 lett. c).",
+          "opzioni": [
+            "Ancora valido",
+            "Scaduto da meno di 60 giorni",
+            "Scaduto da 60 giorni a un anno",
+            "Scaduto da piu' di un anno"
+          ]
+        },
+        {
+          "domanda": "Qual era il titolo del permesso scaduto?",
+          "perche": "Le regole sulla conversione dopo la scadenza cambiano per titolo (stagionale: ammessa; studio: art. 6 c. 1 richiede la validita'; lavoro: rinnovo tardivo esaminabile).",
+          "opzioni": [
+            "Lavoro subordinato",
+            "Lavoro autonomo",
+            "Attesa occupazione",
+            "Stagionale",
+            "Studio",
+            "Altro"
+          ]
+        },
+        {
+          "domanda": "Ha ricevuto un decreto di espulsione o un ordine del questore?",
+          "perche": "Se si', la strada e' l'impugnazione davanti al Giudice di pace, non solo la domanda in Questura.",
+          "opzioni": [
+            "No",
+            "Si', da meno di 30 giorni",
+            "Si', da piu' di 30 giorni"
+          ]
+        },
+        {
+          "domanda": "Per quale motivo la domanda non e' stata presentata in tempo?",
+          "perche": "La forza maggiore rafforza la posizione (Cass. SU 7892/2003); il ritardo strumentale la indebolisce.",
+          "opzioni": [
+            "Passaporto/documenti",
+            "Malattia o detenzione",
+            "Lavoro perso e non ritrovato",
+            "Altro / nessun motivo"
+          ]
+        },
+        {
+          "domanda": "E' rimasto fuori dall'Italia per piu' di sei mesi consecutivi?",
+          "perche": "Art. 13 c. 4 d.P.R. 394/1999.",
+          "opzioni": [
+            "No",
+            "Si'"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "permesso_scaduto (da meno di un anno)",
+      "a": "famiglia",
+      "nodo_albero": "c_end_fam_ok",
+      "esito_albero": "POSSIBILE",
+      "esito_verificato": "condizionato",
+      "discrepanza": "La soglia di un anno usata dall'albero per tutti i permessi scaduti ha base normativa SOLO qui: art. 30 c. 1 lett. c) TU. Corretto rinviare a c_end_fam_ok; il nodo c_end_fam_anno (scaduto oltre un anno) esiste ma non e' collegato da alcun arco: oggi chi ha il permesso scaduto da piu' di un anno finisce in 'situazione complicata' senza indicazione specifica sulla famiglia (dove restano aperte la lett. d e l'art. 19 c. 2 lett. c TU).",
+      "sintesi": "La conversione in permesso per motivi familiari per coesione puo' essere chiesta entro un anno dalla data di scadenza del titolo originariamente posseduto (art. 30, c. 1, lett. c, TU); per il familiare di rifugiato si prescinde dal permesso valido. La giurisprudenza ordinaria valorizza i requisiti sostanziali anche oltre i limiti formali (Trib. Torino 19232/2023; Trib. Milano 28780/2019 contro l'irricevibilita' per tardivita') e la Cassazione richiede il regolare soggiorno, non un permesso da convertire (Cass. 20020/2025). Oltre l'anno restano il genitore di minore italiano (lett. d, a prescindere dal titolo) e i divieti di espulsione per legami familiari (art. 19 TU, non esaminati qui).",
+      "requisiti": [
+        "Domanda entro un anno dalla scadenza",
+        "Familiare dell'art. 29 c. 1 con requisiti per il ricongiungimento (reddito, alloggio)",
+        "Assenza di pericolosita'"
+      ],
+      "procedura": "Questura con kit postale; giudice ordinario in caso di diniego (non TAR).",
+      "norme": [
+        {
+          "estremi": "art. 30, c. 1, lett. c), d.lgs. 286/1998",
+          "contenuto": "Il familiare regolarmente soggiornante in possesso dei requisiti per il ricongiungimento converte il proprio permesso in permesso per motivi familiari; la conversione puo' essere chiesta entro un anno dalla scadenza del titolo posseduto (unica base normativa della soglia di un anno usata dall'albero). Per il familiare di rifugiato si prescinde dal permesso valido.",
+          "citazione": "La conversione puo' essere richiesta entro un anno dalla data di scadenza del titolo di soggiorno originariamente posseduto dal familiare.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art30"
+        },
+        {
+          "estremi": "art. 30, c. 1, lett. b) e d), d.lgs. 286/1998",
+          "contenuto": "Lett. b): straniero regolarmente soggiornante da almeno un anno che sposa in Italia un cittadino italiano/UE o uno straniero regolarmente soggiornante. Lett. d): genitore di minore italiano residente, anche senza titolo valido.",
+          "citazione": null,
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art30"
+        },
+        {
+          "estremi": "art. 5, c. 5, d.lgs. 286/1998",
+          "contenuto": "Rifiuto/revoca quando mancano i requisiti, salvo nuovi elementi sopravvenuti e irregolarita' amministrative sanabili; valutazione dei legami familiari (estesa a tutti gli stranieri con legami familiari da C. cost. 202/2013, nota Normattiva).",
+          "citazione": "sempre che non siano sopraggiunti nuovi elementi che ne consentano il rilascio e che non si tratti di irregolarita' amministrative sanabili",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art5"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Cass., sez. I civ.",
+          "data": "2025-07-17",
+          "numero": "n. 20020/2025",
+          "principio": "L'art. 30, c. 1, lett. c), richiede solo regolare soggiorno e requisiti per il ricongiungimento, non un permesso da convertire; il termine di un anno dalla scadenza regola un'ipotesi particolare e non restringe la platea. La coesione sul territorio e' alternativa al visto per ricongiungimento (art. 5, par. 3, dir. 2003/86/CE).",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1O7rHYgSfzJaIPV7Q19qnEgNpJPb9fMK8/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "Trib. Torino",
+          "data": "2024-04-01",
+          "numero": "n. 19232/2023 (R.G.)",
+          "principio": "Il permesso per motivi familiari puo' essere rilasciato anche prescindendo dai prerequisiti formali della coesione (permesso scaduto da meno di un anno) quando sussistono coniugio, convivenza, reddito familiare complessivo e alloggio; tutela rafforzata ex art. 5, c. 5, per chiunque abbia legami familiari (C. cost. 202/2013).",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1UDUB_ruSd0rgfiYgML83dhvck0u-Cjo7/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "Trib. Milano",
+          "data": "2020-02-11",
+          "numero": "n. 28780/2019 (R.G.)",
+          "principio": "Il permesso per motivi familiari non puo' essere rifiutato per la sola tardivita' della domanda, in assenza di un'espressa sanzione di irricevibilita'; contano i requisiti sostanziali dell'art. 30 (caso con un anno di ritardo).",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1eJfN8rQabfkHTesPtLjDGvMnLlLBxxNL/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Scaduto da piu' di un anno con coniuge regolare",
+          "testo": "La lett. c) non si applica alla lettera; la giurisprudenza di merito apre in base ai requisiti sostanziali e all'art. 5 c. 5 (Trib. Torino 19232/2023), ma e' un contenzioso: da avvocato."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Data di scadenza del permesso attuale e data in cui verra' presentata la domanda?",
+          "perche": "Sotto i 60 giorni dalla scadenza non c'e' base per l'espulsione ex art. 13 c. 2 lett. b); oltre, la domanda resta esaminabile (termine non perentorio: Cons. Stato 7156/2022) ma il ritardo pesa nella valutazione; per la coesione familiare il limite e' un anno (art. 30 c. 1 lett. c).",
+          "opzioni": [
+            "Ancora valido",
+            "Scaduto da meno di 60 giorni",
+            "Scaduto da 60 giorni a un anno",
+            "Scaduto da piu' di un anno"
+          ]
+        },
+        {
+          "domanda": "Reddito degli ultimi 12 mesi (proprio e dei familiari conviventi) rispetto all'assegno sociale?",
+          "perche": "Requisito per UE lungo periodo (art. 9 c. 1), per il rinnovo dell'attesa occupazione dopo l'anno (art. 22 c. 11) e per la coesione (art. 29 c. 3 lett. b). La giurisprudenza ammette redditi di familiari e valutazione prognostica (CGUE C-302/18; TAR Piemonte 668/2022).",
+          "opzioni": [
+            "Sopra la soglia con reddito proprio",
+            "Sopra la soglia solo con redditi familiari",
+            "Sotto la soglia",
+            "Non documentabile"
+          ]
+        },
+        {
+          "domanda": "Il familiare e' rifugiato o il richiedente e' genitore di un minore italiano?",
+          "perche": "In questi casi non serve un permesso valido (art. 30 c. 1 lett. c ultimo periodo e lett. d).",
+          "opzioni": [
+            "Familiare rifugiato",
+            "Genitore di minore italiano",
+            "Nessuno dei due"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "permesso_scaduto",
+      "a": "ue_lungo_periodo",
+      "nodo_albero": "c_end_scaduto_soft",
+      "esito_albero": "Conversione teoricamente possibile",
+      "esito_verificato": "non_possibile",
+      "discrepanza": "L'albero da' 'teoricamente possibile'. L'art. 9 c. 1 TU richiede il possesso da almeno cinque anni di un permesso 'in corso di validita'': con il permesso scaduto la domanda di permesso UE non e' accoglibile finche' non si ottiene il rinnovo del titolo. Il percorso corretto e' prima il rinnovo tardivo (esaminabile nel merito: Cons. Stato 7156/2022), poi la domanda di permesso UE; il ritardo puo' anche creare un 'buco' nel quinquennio.",
+      "sintesi": "Il permesso UE per soggiornanti di lungo periodo presuppone il possesso, da almeno cinque anni, di un permesso in corso di validita' (art. 9, c. 1, TU) e il soggiorno legale e ininterrotto immediatamente prima della domanda (art. 4, par. 1, dir. 2003/109/CE). Chi ha il permesso scaduto deve prima ottenerne il rinnovo, che resta esaminabile nel merito anche se chiesto in ritardo (Cons. Stato 7156/2022); solo dopo puo' chiedere il permesso UE. Il periodo tra la scadenza e la domanda di rinnovo puo' essere contestato come interruzione del soggiorno legale: punto da valutare caso per caso.",
+      "requisiti": [
+        "Rinnovo preventivo del titolo scaduto",
+        "Poi requisiti ordinari dell'art. 9"
+      ],
+      "procedura": "Prima kit postale per il rinnovo del titolo; poi kit postale per il permesso UE.",
+      "norme": [
+        {
+          "estremi": "art. 9, c. 1, d.lgs. 286/1998",
+          "contenuto": "Permesso UE per soggiornanti di lungo periodo: cinque anni di permesso in corso di validita', reddito non inferiore all'assegno sociale (parametri dell'art. 29 c. 3 lett. b e alloggio idoneo solo se la domanda e' estesa ai familiari).",
+          "citazione": "Lo straniero in possesso, da almeno cinque anni, di un permesso di soggiorno in corso di validita', che dimostra la disponibilita' di un reddito non inferiore all'importo annuo dell'assegno sociale",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art9"
+        },
+        {
+          "estremi": "art. 5, c. 4, d.lgs. 286/1998 (testo vigente, come modificato dal d.lgs. 16 aprile 2026, n. 83, applicabile dal 22.5.2026)",
+          "contenuto": "Il rinnovo si chiede al questore della provincia di dimora almeno novanta giorni prima della scadenza (prima della novella del d.lgs. 83/2026 il termine era di sessanta giorni) ed e' soggetto alla verifica delle condizioni del rilascio. Il termine e' ordinatorio secondo la giurisprudenza amministrativa.",
+          "citazione": "Il rinnovo del permesso di soggiorno e' richiesto dallo straniero al questore della provincia in cui dimora, almeno novanta giorni prima della scadenza",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art5"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Cons. Stato, sez. III",
+          "data": "2022-08-17",
+          "numero": "n. 7156/2022",
+          "principio": "Il termine dell'art. 5, c. 4, TU per chiedere il rinnovo non e' perentorio: la tardivita' non e' motivo ostativo all'esame nel merito, anche senza giustificazioni; dall'art. 13, c. 2, lett. b) non si desume la perentorieta', anzi la norma presuppone che una domanda di rinnovo successiva alla scadenza vada esaminata se anteriore all'espulsione. Decisione sul testo che prevedeva 60 giorni.",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=cds&nrg=201903379&nomeFile=202207156_11.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "letta_integrale": true
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Domanda di permesso UE presentata insieme al rinnovo tardivo",
+          "testo": "Alcune questure trattano la domanda di permesso UE come domanda di rinnovo del titolo (art. 5 c. 9: rilascio di altro permesso se ne ricorrono i requisiti): prassi da verificare."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Data di scadenza del permesso attuale e data in cui verra' presentata la domanda?",
+          "perche": "Sotto i 60 giorni dalla scadenza non c'e' base per l'espulsione ex art. 13 c. 2 lett. b); oltre, la domanda resta esaminabile (termine non perentorio: Cons. Stato 7156/2022) ma il ritardo pesa nella valutazione; per la coesione familiare il limite e' un anno (art. 30 c. 1 lett. c).",
+          "opzioni": [
+            "Ancora valido",
+            "Scaduto da meno di 60 giorni",
+            "Scaduto da 60 giorni a un anno",
+            "Scaduto da piu' di un anno"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "permesso_scaduto (da piu' di un anno)",
+      "a": "qualsiasi",
+      "nodo_albero": "c_end_complicata",
+      "esito_albero": "Situazione complicata",
+      "esito_verificato": "incerto",
+      "discrepanza": "La soglia 'meno/piu' di un anno' non ha base normativa generale: l'unico termine di un anno e' quello dell'art. 30 c. 1 lett. c) TU per la coesione familiare. Le soglie normative sono altre: 60 giorni (art. 13 c. 2 lett. b, espulsione se non e' stato chiesto il rinnovo) e il termine (ordinatorio) di 90 giorni prima della scadenza per il rinnovo (art. 5 c. 4). Oltre un anno il rinnovo non e' giuridicamente precluso (Cons. Stato 7156/2022), ma la lunga permanenza senza titolo pesa come indice di irregolarita' e rende probabile l'espulsione (Cass. SU 7892/2003). L'esito 'complicata' e' prudente e accettabile per il pubblico; nel PRO va sostituito da domande sul titolo di partenza, sui requisiti attuali e su un eventuale decreto di espulsione.",
+      "sintesi": "Dopo oltre un anno dalla scadenza la domanda di rinnovo non e' irricevibile per legge, perche' il termine dell'art. 5, c. 4, TU non e' perentorio e la tardivita' non e' un motivo ostativo autonomo (Cons. Stato 7156/2022); tuttavia l'interessato e' espellibile ex art. 13, c. 2, lett. b), finche' non presenta domanda, e il lungo ritardo e' valutabile come indice di soggiorno irregolare, specie se i requisiti erano venuti meno durante la validita' (Cass. SU 7892/2003). La coesione familiare ex art. 30, c. 1, lett. c) non e' piu' disponibile secondo la lettera della norma (un anno), salvo le aperture dei giudici ordinari. Restano da verificare titoli che prescindono dal permesso pregresso (genitore di minore italiano, art. 30 c. 1 lett. d; protezione speciale e divieti di espulsione, art. 19 TU; emersione), che sono fuori da questo gruppo.",
+      "requisiti": [
+        "Valutazione caso per caso"
+      ],
+      "procedura": "Consulenza legale; eventuale domanda di rinnovo in Questura con allegazione dei requisiti attuali e delle ragioni del ritardo; attenzione al rischio di espulsione al momento della presentazione.",
+      "norme": [
+        {
+          "estremi": "art. 5, c. 4, d.lgs. 286/1998 (testo vigente, come modificato dal d.lgs. 16 aprile 2026, n. 83, applicabile dal 22.5.2026)",
+          "contenuto": "Il rinnovo si chiede al questore della provincia di dimora almeno novanta giorni prima della scadenza (prima della novella del d.lgs. 83/2026 il termine era di sessanta giorni) ed e' soggetto alla verifica delle condizioni del rilascio. Il termine e' ordinatorio secondo la giurisprudenza amministrativa.",
+          "citazione": "Il rinnovo del permesso di soggiorno e' richiesto dallo straniero al questore della provincia in cui dimora, almeno novanta giorni prima della scadenza",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art5"
+        },
+        {
+          "estremi": "art. 13, c. 2, lett. b), d.lgs. 286/1998",
+          "contenuto": "Espulsione prefettizia, tra l'altro, quando il permesso e' scaduto da piu' di sessanta giorni e non ne e' stato chiesto il rinnovo; salvo forza maggiore per il ritardo nella prima richiesta.",
+          "citazione": "ovvero quando il permesso di soggiorno sia scaduto da piu' di sessanta giorni e non ne e' stato chiesto il rinnovo",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art13"
+        },
+        {
+          "estremi": "art. 30, c. 1, lett. c), d.lgs. 286/1998",
+          "contenuto": "Il familiare regolarmente soggiornante in possesso dei requisiti per il ricongiungimento converte il proprio permesso in permesso per motivi familiari; la conversione puo' essere chiesta entro un anno dalla scadenza del titolo posseduto (unica base normativa della soglia di un anno usata dall'albero). Per il familiare di rifugiato si prescinde dal permesso valido.",
+          "citazione": "La conversione puo' essere richiesta entro un anno dalla data di scadenza del titolo di soggiorno originariamente posseduto dal familiare.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art30"
+        },
+        {
+          "estremi": "art. 5, c. 5, d.lgs. 286/1998",
+          "contenuto": "Rifiuto/revoca quando mancano i requisiti, salvo nuovi elementi sopravvenuti e irregolarita' amministrative sanabili; valutazione dei legami familiari (estesa a tutti gli stranieri con legami familiari da C. cost. 202/2013, nota Normattiva).",
+          "citazione": "sempre che non siano sopraggiunti nuovi elementi che ne consentano il rilascio e che non si tratti di irregolarita' amministrative sanabili",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art5"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Cons. Stato, sez. III",
+          "data": "2022-08-17",
+          "numero": "n. 7156/2022",
+          "principio": "Il termine dell'art. 5, c. 4, TU per chiedere il rinnovo non e' perentorio: la tardivita' non e' motivo ostativo all'esame nel merito, anche senza giustificazioni; dall'art. 13, c. 2, lett. b) non si desume la perentorieta', anzi la norma presuppone che una domanda di rinnovo successiva alla scadenza vada esaminata se anteriore all'espulsione. Decisione sul testo che prevedeva 60 giorni.",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=cds&nrg=201903379&nomeFile=202207156_11.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "letta_integrale": true
+        },
+        {
+          "corte": "Cass., sez. un. civ.",
+          "data": "2003-05-20",
+          "numero": "n. 7892/2003",
+          "principio": "La spontanea domanda di rinnovo oltre i sessanta giorni dalla scadenza non consente l'espulsione automatica: l'espulsione e' legittima solo se la domanda e' respinta per mancanza dei requisiti; il ritardo e' solo indice rivelatore, ostativo quando lo straniero ha atteso di ricostituire requisiti gia' venuti meno (es. perdita del lavoro senza tempestiva iscrizione al collocamento). La forza maggiore giustifica il ritardo anche nel rinnovo.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1XR2f4rJ-JCvKJ_DYq2BikyPXbEaBnX-w/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "Trib. Torino",
+          "data": "2024-04-01",
+          "numero": "n. 19232/2023 (R.G.)",
+          "principio": "Il permesso per motivi familiari puo' essere rilasciato anche prescindendo dai prerequisiti formali della coesione (permesso scaduto da meno di un anno) quando sussistono coniugio, convivenza, reddito familiare complessivo e alloggio; tutela rafforzata ex art. 5, c. 5, per chiunque abbia legami familiari (C. cost. 202/2013).",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1UDUB_ruSd0rgfiYgML83dhvck0u-Cjo7/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Lavoratore con contratto regolare ma permesso scaduto da anni",
+          "testo": "Il rapporto di lavoro e' penalmente rilevante per il datore (art. 22 c. 12) e non sana la posizione; il rinnovo tardivo e' esaminabile ma con esito incerto."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Data di scadenza del permesso attuale e data in cui verra' presentata la domanda?",
+          "perche": "Sotto i 60 giorni dalla scadenza non c'e' base per l'espulsione ex art. 13 c. 2 lett. b); oltre, la domanda resta esaminabile (termine non perentorio: Cons. Stato 7156/2022) ma il ritardo pesa nella valutazione; per la coesione familiare il limite e' un anno (art. 30 c. 1 lett. c).",
+          "opzioni": [
+            "Ancora valido",
+            "Scaduto da meno di 60 giorni",
+            "Scaduto da 60 giorni a un anno",
+            "Scaduto da piu' di un anno"
+          ]
+        },
+        {
+          "domanda": "Ha un decreto di espulsione?",
+          "perche": "Cambia il rimedio (Giudice di pace) e la strategia.",
+          "opzioni": [
+            "No",
+            "Si'"
+          ]
+        },
+        {
+          "domanda": "Ha figli minori italiani, coniuge o familiari stretti in Italia, o rischi in caso di rientro?",
+          "perche": "Apre titoli che prescindono dal permesso pregresso (art. 30 c. 1 lett. d; art. 19 TU).",
+          "opzioni": [
+            "Figlio minore italiano",
+            "Coniuge/familiari regolari",
+            "Rischi nel Paese d'origine",
+            "Nessuno"
+          ]
+        }
+      ]
+    }
+  ],
+  "punti_da_validare": [
+    "Art. 24 c. 10 TU: la soppressione dell'inciso 'nei limiti delle quote' (d.l. 145/2024) rende la conversione dello stagionale fuori quota dal 2025; verificare il DPCM flussi 2026-2028 definitivo (la KB ha solo lo schema del 2.7.2025) e le circolari attuative, e come gli Sportelli trattano le domande presentate prima del 2025.",
+    "Requisito dei 'tre mesi' di lavoro stagionale: computo in mesi di calendario o in giornate (39 giornate agricole nella prassi citata da TAR Marche 688/2019 e Cons. Stato 9770/2022; TAR Toscana 1380/2023 solo cautelare). La circolare 5.1.2022 e' citata in sentenza ma non letta: estremi da verificare.",
+    "Lavoro (subordinato/autonomo) -> studio: nessuna norma espressa e nessuna giurisprudenza trovata; la tenuta della richiesta ex art. 5 c. 9 TU contro il principio di tipicita' (Cons. Stato 476/2018) va valutata da un avvocato, cosi' come la prassi delle questure.",
+    "Lavoro autonomo -> attesa occupazione: esclusa dal testo dell'art. 22 c. 11 e dalla posizione dell'amministrazione riferita in Cons. Stato 6070/2014; verificare se esistono pronunce recenti che estendono l'istituto all'autonomo o al titolare che ha svolto anche lavoro dipendente.",
+    "Attesa occupazione -> lavoro autonomo: che il permesso per attesa occupazione equivalga a 'lavoro subordinato non stagionale' ai fini dell'art. 14 c. 1 lett. a) d.P.R. 394/1999 e che non servano quote ne' certificazione dello Sportello unico e' interpretazione non verificata in giurisprudenza.",
+    "Stagionale -> attesa occupazione: contrasto fra TAR Campania 119/2024 (ammessa per indisponibilita' sopravvenuta del datore) e Cons. Stato 2403/2025 (esclusa per lo stagionale); la norma (art. 24 c. 1) esclude l'art. 22 c. 11. Verificare se vi sono pronunce successive del Consiglio di Stato.",
+    "Art. 37 d.P.R. 394/1999: natura del termine di 40 giorni per presentarsi al Centro per l'impiego e coordinamento con l'art. 22 c. 11 TU (un anno; DID ex d.lgs. 150/2015).",
+    "Art. 5 c. 4 TU: il passaggio del termine per chiedere il rinnovo da 60 a 90 giorni prima della scadenza (d.lgs. 83/2026, dal 22.5.2026) e' stato letto su Normattiva; la giurisprudenza sul carattere ordinatorio (Cons. Stato 7156/2022) riguarda il vecchio termine ma il principio non dipende dalla durata.",
+    "Durata del permesso dopo la conversione stagionale -> subordinato e dopo attesa occupazione -> subordinato (primo rilascio ex art. 5 c. 3-bis o rinnovo fino a tre anni): prassi delle questure da verificare.",
+    "Computo nel quinquennio UE dei periodi anteriori alla conversione dello stagionale e del permesso stagionale pluriennale (art. 5 c. 3-ter): nessuna decisione trovata.",
+    "Scaduto -> permesso UE: se la questura possa trattare la domanda di permesso UE come domanda di rinnovo (art. 5 c. 9 TU) e se il periodo di scopertura interrompa il quinquennio.",
+    "Le date di alcune decisioni sono quelle delle schede KB (Cons. Stato 4448/2020 indicata solo come 2020; Cons. Stato 6070/2014 con data della decisione): ricontrollare sugli originali prima di citarle in atti."
+  ]
+}

@@ -5,10 +5,11 @@ import { useState } from 'react';
 import { useRouter } from '@/i18n/navigation';
 import { authClient } from '@/lib/auth-client';
 
-export function AccountActions({ locale }: { locale: string }) {
+export function AccountActions({ locale, accountUnico = false }: { locale: string; accountUnico?: boolean }) {
   const router = useRouter();
   const [confirmDelete, setConfirmDelete] = useState(false);
   const [busy, setBusy] = useState(false);
+  const [deleteError, setDeleteError] = useState<string | null>(null);
 
   async function signOut() {
     setBusy(true);
@@ -19,9 +20,17 @@ export function AccountActions({ locale }: { locale: string }) {
 
   async function deleteAccount() {
     setBusy(true);
+    setDeleteError(null);
     const { error } = await authClient.deleteUser({ callbackURL: `/${locale}` });
     if (error) {
       setBusy(false);
+      // Messaggi del server (es. abbonamento ancora attivo, auth.ts); la sessione
+      // troppo vecchia per eliminare richiede un nuovo accesso.
+      setDeleteError(
+        error.code === 'SESSION_EXPIRED'
+          ? 'Per sicurezza esci, rientra con un nuovo link e riprova.'
+          : error.message || 'Non siamo riusciti a eliminare l’account. Riprova più tardi.',
+      );
       return;
     }
     router.push('/');
@@ -41,9 +50,20 @@ export function AccountActions({ locale }: { locale: string }) {
 
       {confirmDelete ? (
         <div className="rounded-md border-2 border-destructive p-4 text-sm">
+          {accountUnico && (
+            <p className="mb-2 text-foreground">
+              L&apos;account è unico per SOS Permesso e SOS Flussi: eliminandolo lo elimini su entrambi i siti,
+              con le pratiche salvate e l&apos;abbonamento.
+            </p>
+          )}
           <p className="font-semibold text-foreground">
             Eliminare l&apos;account? Email e dati di accesso vengono cancellati subito.
           </p>
+          {deleteError && (
+            <p role="alert" className="mt-2 font-semibold text-destructive">
+              {deleteError}
+            </p>
+          )}
           <div className="mt-3 flex gap-2">
             <button
               type="button"
@@ -55,7 +75,10 @@ export function AccountActions({ locale }: { locale: string }) {
             </button>
             <button
               type="button"
-              onClick={() => setConfirmDelete(false)}
+              onClick={() => {
+                setConfirmDelete(false);
+                setDeleteError(null);
+              }}
               className="rounded-md border border-foreground px-3 py-1.5 font-semibold"
             >
               Annulla

@@ -5,6 +5,7 @@ import {
   CalendarClock,
   FolderOpen,
   Library,
+  ListTree,
   MessageSquareText,
   Newspaper,
   Plus,
@@ -18,9 +19,11 @@ import { redirect } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
 
 import { Link } from '@/i18n/navigation';
-import { CHATBOT_FREE_URL } from '@/lib/assistente-pro';
 import { getDashboard, type ScadenzaView } from '@/lib/dashboard';
-import { getProAccess } from '@/lib/pro-access';
+import { AbbonatiCta } from '@/components/pro/ProGate';
+import { getProAccess, type ProAccess } from '@/lib/pro-access';
+import { SOSFLUSSI_ABBONAMENTO_URL, accountUnicoOn } from '@/lib/pro-entitlement';
+import { PRATICHE_ATTIVE } from '@/lib/pratiche';
 import { getProfilo } from '@/lib/profilo';
 import { tipoLabel } from '@/lib/profilo-shared';
 
@@ -65,6 +68,28 @@ function fmtData(iso: string | null, opts: Intl.DateTimeFormatOptions) {
   return new Date(Date.UTC(y, m - 1, d)).toLocaleDateString('it-IT', { timeZone: 'UTC', ...opts });
 }
 
+/** Stato dell'accesso PRO: etichetta breve (saluto) e testo per «Piano». */
+function statoPiano(access: Exclude<ProAccess, { status: 'anonymous' }>) {
+  const sub = access.subscription;
+  const fine = sub?.periodEnd ? fmtData(sub.periodEnd, { day: 'numeric', month: 'long', year: 'numeric' }) : '';
+  if (access.status === 'active') {
+    if (access.reason === 'free-launch') return { badge: 'PRO · gratis nel lancio', testo: 'PRO gratuito durante il lancio' };
+    if (access.reason === 'trial') {
+      return { badge: 'PRO · in prova', testo: fine ? `PRO in prova fino al ${fine}` : 'PRO in prova' };
+    }
+    const testo = fine
+      ? sub?.cancelAtPeriodEnd
+        ? `Abbonamento PRO annullato: resta attivo fino al ${fine}`
+        : `Abbonamento PRO attivo fino al ${fine}, poi si rinnova`
+      : 'Abbonamento PRO attivo';
+    return { badge: 'PRO · abbonamento attivo', testo };
+  }
+  if (sub && ['past_due', 'unpaid'].includes(sub.status)) {
+    return { badge: 'PRO sospeso', testo: 'Abbonamento sospeso: il pagamento non è riuscito' };
+  }
+  return { badge: 'Senza abbonamento PRO', testo: 'Nessun abbonamento PRO attivo' };
+}
+
 function urgenza(giorni: number) {
   if (giorni < 0) return { bg: C.red, fg: '#fff', label: `Scaduta da ${-giorni} gg` };
   if (giorni === 0) return { bg: C.red, fg: '#fff', label: 'Scade oggi' };
@@ -78,11 +103,15 @@ export default async function DashboardPage({ params }: Props) {
   setRequestLocale(locale);
 
   const access = await getProAccess(await headers());
-  if (access.status !== 'active') {
+  if (access.status === 'anonymous') {
     redirect(`/${locale}/accedi?da=${encodeURIComponent(`/${locale}/account`)}`);
   }
+  // Senza accesso PRO la pagina resta (account, abbonamento, eliminazione), senza i dati PRO.
+  const pro = access.status === 'active';
+  const piano = statoPiano(access);
+  const accountUnico = accountUnicoOn();
   const { user } = access.session;
-  const [profilo, d] = await Promise.all([getProfilo(user.id), getDashboard(user.id)]);
+  const [profilo, d] = await Promise.all([getProfilo(user.id), pro ? getDashboard(user.id) : null]);
   // Account creato dal link ma mai completato (anche chi è entrato prima del benvenuto).
   if (!profilo) redirect(`/${locale}/account/benvenuto`);
 
@@ -98,6 +127,64 @@ export default async function DashboardPage({ params }: Props) {
     month: 'long',
     year: 'numeric',
   });
+  // Un abbonamento ancora gestibile su Stripe (anche annullato a fine periodo o non pagato).
+  const abbonamentoInCorso = Boolean(
+    access.subscription && !['canceled', 'incomplete_expired'].includes(access.subscription.status),
+  );
+  const accountSection = (
+    <section
+      className={`${sticker} mt-8 grid gap-5 p-5 sm:grid-cols-[1fr_auto] sm:items-start`}
+      style={{ background: C.paper }}
+      aria-labelledby="account"
+    >
+      <div>
+        <h2 id="account" className="flex items-center gap-2 text-lg font-extrabold">
+          <Settings2 className="h-5 w-5" aria-hidden="true" /> Il tuo account
+        </h2>
+        <dl className="mt-3 grid gap-x-8 gap-y-2 text-sm sm:grid-cols-3">
+          <div>
+            <dt className="font-bold">Email</dt>
+            <dd className="[overflow-wrap:anywhere] [hyphens:none]" style={{ color: C.muted }}>{user.email}</dd>
+          </div>
+          <div>
+            <dt className="font-bold">Iscritto dal</dt>
+            <dd style={{ color: C.muted }}>{iscritto}</dd>
+          </div>
+          <div>
+            <dt className="font-bold">Piano</dt>
+            <dd style={{ color: C.muted }}>{piano.testo}</dd>
+          </div>
+        </dl>
+        {accountUnico && (
+          <p className="mt-3 text-sm">
+            Lo stesso account e lo stesso abbonamento valgono anche su SOS Flussi PRO.{' '}
+            <a href={SOSFLUSSI_ABBONAMENTO_URL} className="font-bold underline underline-offset-4">
+              {abbonamentoInCorso ? 'Gestisci abbonamento' : 'Abbonati'}
+            </a>
+          </p>
+        )}
+        <Link
+          href="/account/benvenuto"
+          className="mt-3 inline-flex items-center gap-1 text-sm font-bold underline underline-offset-4"
+        >
+          Modifica profilo
+        </Link>
+      </div>
+      <div className="sm:w-56">
+        <AccountActions locale={locale} accountUnico={accountUnico} />
+      </div>
+    </section>
+  );
+
+  if (!d) {
+    return (
+      <main className="mx-auto w-full max-w-[1080px] px-4 py-6 sm:py-8" style={{ color: INK }}>
+        <SenzaAbbonamento nome={nome} oggi={oggi} badge={piano.badge} />
+        {accountSection}
+      </main>
+    );
+  }
+
   const quotaPct = d.assistente
     ? Math.min(100, Math.round((d.assistente.usatiOggi / d.assistente.limite) * 100))
     : 0;
@@ -167,7 +254,11 @@ export default async function DashboardPage({ params }: Props) {
               Ciao, {nome}!
             </h1>
             <p className="mt-2 text-base font-semibold">
-              {urgenti > 0
+              {!PRATICHE_ATTIVE
+                ? d.circolari.nuove30 > 0
+                  ? `${d.circolari.nuove30} ${d.circolari.nuove30 === 1 ? 'circolare nuova' : 'circolari nuove'} negli ultimi 30 giorni.`
+                  : 'Nessuna circolare nuova negli ultimi 30 giorni.'
+                : urgenti > 0
                 ? `Hai ${urgenti} ${urgenti === 1 ? 'pratica che richiede' : 'pratiche che richiedono'} attenzione.`
                 : d.pratiche.attive > 0
                   ? 'Nessuna scadenza nei prossimi 30 giorni. Tutto sotto controllo.'
@@ -178,7 +269,7 @@ export default async function DashboardPage({ params }: Props) {
                 className="inline-block -rotate-2 rounded-md px-2.5 py-1 text-xs font-extrabold uppercase tracking-wide text-white"
                 style={{ background: INK }}
               >
-                PRO · gratis nel lancio
+                {piano.badge}
               </span>
               <span className="font-semibold">
                 {tipoLabel(profilo.tipo)}
@@ -188,14 +279,31 @@ export default async function DashboardPage({ params }: Props) {
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
+            {PRATICHE_ATTIVE ? (
+              <Link
+                href="/account/pratiche"
+                className={`flex items-center gap-2 rounded-xl border-[2.5px] px-4 py-2.5 font-extrabold text-white shadow-[4px_4px_0_#141414] ${lift}`}
+                style={{ background: C.red, borderColor: INK }}
+              >
+                <Plus className="h-5 w-5" aria-hidden="true" /> Nuova pratica
+              </Link>
+            ) : (
+              <Link
+                href="/pro/circolari"
+                className={`flex items-center gap-2 rounded-xl border-[2.5px] bg-white px-4 py-2.5 font-extrabold shadow-[4px_4px_0_#141414] ${lift}`}
+                style={{ borderColor: INK }}
+              >
+                <Library className="h-5 w-5" aria-hidden="true" /> Tutte le circolari
+              </Link>
+            )}
             <Link
-              href="/account/pratiche"
-              className={`flex items-center gap-2 rounded-xl border-[2.5px] px-4 py-2.5 font-extrabold text-white shadow-[4px_4px_0_#141414] ${lift}`}
-              style={{ background: C.red, borderColor: INK }}
+              href="/pro/questionario"
+              className={`flex items-center gap-2 rounded-xl border-[2.5px] bg-white px-4 py-2.5 font-extrabold shadow-[4px_4px_0_#141414] ${lift}`}
+              style={{ borderColor: INK }}
             >
-              <Plus className="h-5 w-5" aria-hidden="true" /> Nuova pratica
+              <ListTree className="h-5 w-5" aria-hidden="true" /> Questionario PRO
             </Link>
-            {d.assistente ? (
+            {d.assistente && (
               <Link
                 href="/pro/assistente"
                 className={`flex items-center gap-2 rounded-xl border-[2.5px] bg-white px-4 py-2.5 font-extrabold shadow-[4px_4px_0_#141414] ${lift}`}
@@ -203,114 +311,89 @@ export default async function DashboardPage({ params }: Props) {
               >
                 <Sparkles className="h-5 w-5" aria-hidden="true" /> Chiedi all&apos;assistente
               </Link>
-            ) : (
-              <a
-                href={CHATBOT_FREE_URL}
-                className={`flex items-center gap-2 rounded-xl border-[2.5px] bg-white px-4 py-2.5 font-extrabold shadow-[4px_4px_0_#141414] ${lift}`}
-                style={{ borderColor: INK }}
-              >
-                <MessageSquareText className="h-5 w-5" aria-hidden="true" /> Chiedi al chatbot
-              </a>
             )}
           </div>
         </div>
       </section>
 
-      {/* ---------- Numeri ---------- */}
-      <section aria-label="In sintesi" className="mt-7 grid grid-cols-2 gap-4 lg:grid-cols-4">
-        {stats.map((s) => (
-          <Link
-            key={s.label}
-            href={s.href}
-            className={`${sticker} ${lift} flex flex-col gap-2 bg-white p-4`}
-          >
-            <span className="flex items-center justify-between">
-              <span
-                className="flex h-10 w-10 items-center justify-center rounded-xl border-[2.5px]"
-                style={{ background: s.color, borderColor: INK, color: s.color === C.red ? '#fff' : INK }}
-              >
-                <s.icon className="h-5 w-5" aria-hidden="true" />
+      {/* ---------- Numeri (solo con lo scadenziario) ---------- */}
+      {PRATICHE_ATTIVE && (
+        <section aria-label="In sintesi" className="mt-7 grid grid-cols-2 gap-4 lg:grid-cols-4">
+          {stats.map((s) => (
+            <Link
+              key={s.label}
+              href={s.href}
+              className={`${sticker} ${lift} flex flex-col gap-2 bg-white p-4`}
+            >
+              <span className="flex items-center justify-between">
+                <span
+                  className="flex h-10 w-10 items-center justify-center rounded-xl border-[2.5px]"
+                  style={{ background: s.color, borderColor: INK, color: s.color === C.red ? '#fff' : INK }}
+                >
+                  <s.icon className="h-5 w-5" aria-hidden="true" />
+                </span>
+                <ArrowRight className="h-4 w-4 opacity-40" aria-hidden="true" />
               </span>
-              <ArrowRight className="h-4 w-4 opacity-40" aria-hidden="true" />
-            </span>
-            <span className="text-4xl font-extrabold tabular-nums leading-none">{s.value}</span>
-            <span>
-              <span className="block text-sm font-extrabold">{s.label}</span>
-              <span
-                className="mt-1 inline-block rounded-full px-2 py-0.5 text-xs font-semibold"
-                style={{ background: s.tint }}
-              >
-                {s.hint}
+              <span className="text-4xl font-extrabold tabular-nums leading-none">{s.value}</span>
+              <span>
+                <span className="block text-sm font-extrabold">{s.label}</span>
+                <span
+                  className="mt-1 inline-block rounded-full px-2 py-0.5 text-xs font-semibold"
+                  style={{ background: s.tint }}
+                >
+                  {s.hint}
+                </span>
               </span>
-            </span>
-          </Link>
-        ))}
-      </section>
+            </Link>
+          ))}
+        </section>
+      )}
 
       {/* ---------- Corpo ---------- */}
-      <div className="mt-8 grid gap-7 lg:grid-cols-[1.35fr_1fr]">
+      <div className={`mt-8 grid gap-7 ${PRATICHE_ATTIVE ? 'lg:grid-cols-[1.35fr_1fr]' : ''}`}>
         {/* Scadenze */}
-        <section className={`${sticker} bg-white lg:self-start`} aria-labelledby="scadenze">
-          <header
-            className="flex items-center justify-between gap-3 rounded-t-[14px] border-b-[2.5px] px-5 py-4"
-            style={{ background: C.orangeTint, borderColor: INK }}
-          >
-            <h2 id="scadenze" className="flex items-center gap-2 text-xl font-extrabold">
-              <CalendarClock className="h-6 w-6" aria-hidden="true" /> Prossime scadenze
-            </h2>
-            <Link href="/account/pratiche" className="text-sm font-bold underline underline-offset-4">
-              Scadenziario
-            </Link>
-          </header>
-
-          {d.pratiche.prossime.length === 0 ? (
-            <div className="flex flex-col items-start gap-3 p-6">
-              <p className="text-lg font-extrabold">Nessuna pratica ancora.</p>
-              <p className="text-sm" style={{ color: C.muted }}>
-                Inserisci nome o sigla della persona, il permesso e la data di scadenza. Ti scriviamo a 90, 60 e
-                30 giorni con il link alla checklist di rinnovo.
-              </p>
-              <Link
-                href="/account/pratiche"
-                className={`mt-1 flex items-center gap-2 rounded-xl border-[2.5px] px-4 py-2.5 font-extrabold shadow-[4px_4px_0_#141414] ${lift}`}
-                style={{ background: C.yellow, borderColor: INK }}
-              >
-                <Plus className="h-5 w-5" aria-hidden="true" /> Aggiungi la prima pratica
+        {PRATICHE_ATTIVE && (
+          <section className={`${sticker} bg-white lg:self-start`} aria-labelledby="scadenze">
+            <header
+              className="flex items-center justify-between gap-3 rounded-t-[14px] border-b-[2.5px] px-5 py-4"
+              style={{ background: C.orangeTint, borderColor: INK }}
+            >
+              <h2 id="scadenze" className="flex items-center gap-2 text-xl font-extrabold">
+                <CalendarClock className="h-6 w-6" aria-hidden="true" /> Prossime scadenze
+              </h2>
+              <Link href="/account/pratiche" className="text-sm font-bold underline underline-offset-4">
+                Scadenziario
               </Link>
-            </div>
-          ) : (
-            <ul className="divide-y-2 divide-dashed" style={{ borderColor: '#E6E1D3' }}>
-              {d.pratiche.prossime.map((p) => (
-                <ScadenzaRow key={p.id} p={p} />
-              ))}
-            </ul>
-          )}
-        </section>
+            </header>
+
+            {d.pratiche.prossime.length === 0 ? (
+              <div className="flex flex-col items-start gap-3 p-6">
+                <p className="text-lg font-extrabold">Nessuna pratica ancora.</p>
+                <p className="text-sm" style={{ color: C.muted }}>
+                  Inserisci nome o sigla della persona, il permesso e la data di scadenza. Ti scriviamo a 90, 60 e
+                  30 giorni con il link alla checklist di rinnovo.
+                </p>
+                <Link
+                  href="/account/pratiche"
+                  className={`mt-1 flex items-center gap-2 rounded-xl border-[2.5px] px-4 py-2.5 font-extrabold shadow-[4px_4px_0_#141414] ${lift}`}
+                  style={{ background: C.yellow, borderColor: INK }}
+                >
+                  <Plus className="h-5 w-5" aria-hidden="true" /> Aggiungi la prima pratica
+                </Link>
+              </div>
+            ) : (
+              <ul className="divide-y-2 divide-dashed" style={{ borderColor: '#E6E1D3' }}>
+                {d.pratiche.prossime.map((p) => (
+                  <ScadenzaRow key={p.id} p={p} />
+                ))}
+              </ul>
+            )}
+          </section>
+        )}
 
         <div className="flex flex-col gap-7">
-          {/* Assistente: spento → rimando al chatbot gratuito del sito */}
-          {!d.assistente ? (
-            <section
-              className={`${sticker} p-5`}
-              style={{ background: C.purpleTint }}
-              aria-labelledby="assistente"
-            >
-              <h2 id="assistente" className="flex items-center gap-2 text-xl font-extrabold">
-                <MessageSquareText className="h-6 w-6" aria-hidden="true" /> Domande veloci
-              </h2>
-              <p className="mt-3 text-sm" style={{ color: C.muted }}>
-                Per una domanda rapida su un permesso usa il chatbot di SOS Permesso: lo trovi in basso a destra
-                in ogni pagina del sito. L&apos;assistente PRO con circolari e norme è in lavorazione.
-              </p>
-              <a
-                href={CHATBOT_FREE_URL}
-                className={`mt-4 flex items-center justify-center gap-2 rounded-xl border-[2.5px] px-4 py-2.5 font-extrabold shadow-[4px_4px_0_#141414] ${lift}`}
-                style={{ background: C.purple, borderColor: INK }}
-              >
-                <ArrowUpRight className="h-5 w-5" aria-hidden="true" /> Apri il chatbot sul sito
-              </a>
-            </section>
-          ) : (
+          {/* Assistente PRO: solo se attivo (oggi è sospeso). */}
+          {d.assistente && (
             <section
               className={`${sticker} p-5`}
               style={{ background: C.purpleTint }}
@@ -413,41 +496,43 @@ export default async function DashboardPage({ params }: Props) {
       </div>
 
       {/* ---------- Account ---------- */}
-      <section
-        className={`${sticker} mt-8 grid gap-5 p-5 sm:grid-cols-[1fr_auto] sm:items-start`}
-        style={{ background: C.paper }}
-        aria-labelledby="account"
-      >
-        <div>
-          <h2 id="account" className="flex items-center gap-2 text-lg font-extrabold">
-            <Settings2 className="h-5 w-5" aria-hidden="true" /> Il tuo account
-          </h2>
-          <dl className="mt-3 grid gap-x-8 gap-y-2 text-sm sm:grid-cols-3">
-            <div>
-              <dt className="font-bold">Email</dt>
-              <dd className="[overflow-wrap:anywhere] [hyphens:none]" style={{ color: C.muted }}>{user.email}</dd>
-            </div>
-            <div>
-              <dt className="font-bold">Iscritto dal</dt>
-              <dd style={{ color: C.muted }}>{iscritto}</dd>
-            </div>
-            <div>
-              <dt className="font-bold">Piano</dt>
-              <dd style={{ color: C.muted }}>PRO gratuito durante il lancio</dd>
-            </div>
-          </dl>
-          <Link
-            href="/account/benvenuto"
-            className="mt-3 inline-flex items-center gap-1 text-sm font-bold underline underline-offset-4"
-          >
-            Modifica profilo
-          </Link>
-        </div>
-        <div className="sm:w-56">
-          <AccountActions locale={locale} />
-        </div>
-      </section>
+      {accountSection}
     </main>
+  );
+}
+
+/**
+ * Account senza accesso PRO (lancio finito, nessun abbonamento): niente dati
+ * PRO, il link per abbonarsi e la gestione dell'account (anche l'eliminazione).
+ */
+function SenzaAbbonamento({ nome, oggi, badge }: { nome: string; oggi: string; badge: string }) {
+  return (
+    <section
+      className={`${sticker} relative overflow-hidden p-5 sm:p-7`}
+      style={{ background: C.yellow }}
+      aria-labelledby="saluto"
+    >
+      <p className="text-sm font-bold capitalize">{oggi}</p>
+      <h1 id="saluto" className="mt-1 text-4xl font-extrabold leading-[1.05] sm:text-5xl">
+        Ciao, {nome}!
+      </h1>
+      <p className="mt-3">
+        <span
+          className="inline-block -rotate-2 rounded-md px-2.5 py-1 text-xs font-extrabold uppercase tracking-wide text-white"
+          style={{ background: INK }}
+        >
+          {badge}
+        </span>
+      </p>
+      <p className="mt-3 max-w-[560px] text-base font-semibold">
+        {PRATICHE_ATTIVE
+          ? 'Scadenziario, archivio delle circolari e avvisi sono riservati agli abbonati PRO. Le pratiche che hai già salvato restano nel tuo account.'
+          : 'L’archivio completo delle circolari e gli avvisi sono riservati agli abbonati PRO.'}
+      </p>
+      <div className="max-w-[560px]">
+        <AbbonatiCta />
+      </div>
+    </section>
   );
 }
 

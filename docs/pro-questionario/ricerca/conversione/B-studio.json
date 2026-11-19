@@ -1,0 +1,1735 @@
+{
+  "gruppo": "B - Studio, ricerca scientifica (art. 27-ter), attivita' sportiva e lavoro artistico (art. 27, c. 1, lett. m-p), motivi religiosi (art. 5, c. 2)",
+  "regime": "vigente al 19/11/2026; note transitorie dove indicato (fuori quota studio-lavoro dal d.l. 20/2023 e d.l. 75/2023; art. 6, c. 1-bis, TU in vigore dal 22.10.2020; testi italiani coordinati non ufficiali, fa fede la Gazzetta Ufficiale)",
+  "conversioni": [
+    {
+      "da": "studio",
+      "a": "lavoro_subordinato",
+      "nodo_albero": "c_vorresti_studio -> c_lav_tipo_studio -> c_end_lav_nullaosta | c_lav_corso_finito -> c_end_lav_formazione_attesa",
+      "esito_albero": "POSSIBILE (formazione/tirocinio: solo dopo la fine del corso)",
+      "esito_verificato": "possibile",
+      "discrepanza": "Nessuna sostanziale. Due precisazioni: (a) il discrimine 'formazione/tirocinio' va legato alla dicitura del permesso ('studente' / 'tirocinante' / 'alunno', art. 39-bis, c. 1-quater) e all'art. 39-bis, c. 1, lett. b), non alla percezione del migrante; (b) il nodo dice che la domanda va fatta prima della scadenza, ma la giurisprudenza del Consiglio di Stato considera il termine acceleratorio: il ramo 'scaduto' (c_scaduto_quanto -> c_end_scaduto_soft) e' piu' pessimista del dovuto per scadenze recenti.",
+      "sintesi": "Il permesso per studio e formazione si converte in lavoro subordinato fuori quota, prima della scadenza, previa stipula del contratto di soggiorno presso lo Sportello Unico (art. 6, c. 1, TU, come modificato dall'art. 3, c. 2, d.l. 20/2023 e dall'art. 24, c. 5, d.l. 75/2023; art. 14, c. 6, d.P.R. 394/1999, il cui riferimento alle quote e' superato). Non serve aver concluso gli studi universitari, AFAM, ITS o secondari; per i corsi di formazione professionale e i tirocini (permesso 'tirocinante') la conversione e' ammessa solo dopo la conclusione (art. 14, c. 6, ult. periodo). La giurisprudenza del Consiglio di Stato tratta il termine 'prima della scadenza' come acceleratorio e valorizza l'art. 5, c. 5, TU (Cons. Stato 7525/2021, 7318/2022, 8588/2021), ma l'esito per le domande tardive resta dipendente da buona fede, brevita' del ritardo e preesistenza del rapporto di lavoro. Le istanze pendenti si decidono con la normativa vigente al momento del provvedimento (TAR Lombardia 4084/2025).",
+      "requisiti": [
+        "Permesso per studio/formazione in corso di validita' alla data della domanda (scadenza tollerata in giurisprudenza solo in casi di ritardo breve o non imputabile)",
+        "Proposta di contratto di lavoro subordinato conforme al CCNL e sottoscrizione del contratto di soggiorno presso lo Sportello Unico (art. 5-bis TU)",
+        "Se il permesso e' 'tirocinante' o per formazione professionale (art. 39-bis, c. 1, lett. b): corso o tirocinio concluso (attestato)",
+        "Passaporto valido; idoneita' alloggiativa e impegno del datore per le spese di viaggio come da contratto di soggiorno",
+        "Assenza di clausole ostative negli accordi internazionali o nelle condizioni di ammissione (es. borse con obbligo di rientro: art. 14, c. 6, primo periodo, d.P.R. 394/1999)",
+        "Assenza di motivi ostativi di ordine pubblico ordinari"
+      ],
+      "procedura": "Domanda allo Sportello Unico per l'Immigrazione della Prefettura (procedura telematica del Ministero dell'Interno), fuori quota e senza attendere il click day; convocazione per il contratto di soggiorno; lo Sportello rilascia la documentazione di conversione (le Questure richiedono il 'Modello 209' dello Sportello Unico, come risulta dai provvedimenti esaminati in TAR Piemonte 562/2025 e TAR Toscana 11/2026); poi richiesta del permesso per lavoro subordinato con kit postale. Durata del primo permesso: quella del contratto, massimo 1 anno (TD) o 2 anni (TI), rinnovi fino a 3 anni (art. 5, c. 3-bis, TU). Durante il procedimento si puo' lavorare con la ricevuta (art. 5, c. 9-bis). Importi di contributo e bollettini non verificati in questa ricerca.",
+      "norme": [
+        {
+          "estremi": "art. 6, c. 1, d.lgs. 286/1998 (testo vigente, coordinato non ufficiale)",
+          "contenuto": "Il permesso per studio e formazione si converte in lavoro (subordinato, previo contratto di soggiorno; autonomo, previa certificazione dei requisiti dell'art. 26) fuori dalle quote dei decreti flussi e prima della scadenza. Il fuori quota deriva dall'art. 3, c. 2, d.l. 20/2023 (conv. l. 50/2023) e dall'art. 24, c. 5, d.l. 75/2023 (conv. l. 112/2023), come ricostruito da TAR Lombardia 4084/2025; nel testo Normattiva la frase finale soppressa compare come '....'.",
+          "citazione": "Quello rilasciato per motivi di studio e formazione puo' essere convertito, al di fuori delle quote di cui all'articolo 3, comma 4, comunque prima della sua scadenza, e previa stipula del contratto di soggiorno per lavoro ovvero previo rilascio della certificazione attestante la sussistenza dei requisiti previsti dall'articolo 26, in permesso di soggiorno per motivi di lavoro",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art6"
+        },
+        {
+          "estremi": "art. 14, c. 6, d.P.R. 394/1999",
+          "contenuto": "Procedura della conversione da studio a lavoro: contratto di soggiorno presso lo Sportello Unico (subordinato) o certificazione dello Sportello Unico (autonomo); per corsi di formazione e tirocini, conversione solo dopo la conclusione. Il riferimento alle quote e' superato dalla norma primaria (art. 6, c. 1, TU). Fa salve diverse previsioni di accordi internazionali o delle condizioni di ammissione al corso.",
+          "citazione": "In tali casi la conversione e' possibile soltanto dopo la conclusione del corso di formazione frequentato o del tirocinio svolto.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art14"
+        },
+        {
+          "estremi": "art. 14, c. 6, primo periodo, d.P.R. 394/1999",
+          "contenuto": "Clausola di salvezza: la conversione non opera se gli accordi internazionali o le condizioni di ammissione al corso dispongono diversamente (es. borse con obbligo di rientro).",
+          "citazione": "Salvo che sia diversamente stabilito dagli accordi internazionali o dalle condizioni per le quali lo straniero e' ammesso a frequentare corsi di studio in Italia",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art14"
+        },
+        {
+          "estremi": "art. 39-bis, c. 1-quater, d.lgs. 286/1998",
+          "contenuto": "Il permesso per studio reca la dicitura 'studente', 'tirocinante' o 'alunno': e' il dato documentale da cui dipende l'applicazione del limite 'dopo la conclusione' dell'art. 14, c. 6, d.P.R. 394/1999 (tirocinanti e formazione professionale, art. 39-bis, c. 1, lett. b).",
+          "citazione": "recante la dicitura «studente», «tirocinante» o «alunno»",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art39bis"
+        },
+        {
+          "estremi": "art. 14, c. 4, d.P.R. 394/1999",
+          "contenuto": "Il permesso per studio o formazione consente lavoro subordinato fino a 20 ore settimanali, cumulabili su 52 settimane, entro 1.040 ore annue (attua l'art. 24 dir. 2016/801, minimo 15 ore).",
+          "citazione": "l'esercizio di attivita' lavorative subordinate per un tempo non superiore a 20 ore settimanali, anche cumulabili per cinquantadue settimane, fermo restando il limite annuale di 1.040 ore",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art14"
+        },
+        {
+          "estremi": "art. 5, c. 5, d.lgs. 286/1998",
+          "contenuto": "Rilevanza dei nuovi elementi sopraggiunti e delle irregolarita' amministrative sanabili: base dell'orientamento che non rende decisiva la scadenza del permesso da convertire.",
+          "citazione": "sempre che non siano sopraggiunti nuovi elementi che ne consentano il rilascio e che non si tratti di irregolarita' amministrative sanabili",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art5"
+        },
+        {
+          "estremi": "art. 5, c. 3-bis, lett. b) e c), d.lgs. 286/1998",
+          "contenuto": "Il primo permesso per lavoro subordinato dura quanto il contratto di soggiorno, al massimo un anno (tempo determinato) o due anni (tempo indeterminato); ciascun rinnovo fino a tre anni.",
+          "citazione": "c) in relazione ad un contratto di lavoro subordinato a tempo indeterminato, la durata di due anni. Ciascun rinnovo non puo' superare la durata di tre anni.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art5"
+        },
+        {
+          "estremi": "art. 5, c. 9-bis, d.lgs. 286/1998",
+          "contenuto": "In attesa della conversione lo straniero soggiorna legittimamente e puo' lavorare, con la ricevuta della domanda, fino a eventuale comunicazione di motivi ostativi.",
+          "citazione": "In attesa del rilascio, del rinnovo o della conversione del permesso di soggiorno",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art5"
+        },
+        {
+          "estremi": "art. 24, parr. 1 e 3, dir. (UE) 2016/801",
+          "contenuto": "Diritto degli studenti a svolgere attivita' economica subordinata fuori dalle ore di studio, con un limite nazionale non inferiore a 15 ore settimanali.",
+          "citazione": "con un limite minimo di 15 ore per settimana",
+          "url": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32016L0801"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "TAR Lombardia, sez. IV",
+          "data": "2025-12-11",
+          "numero": "n. 4084/2025",
+          "principio": "La conversione da studio a lavoro avviene fuori dalle quote (art. 6, c. 1, TU come modificato dall'art. 3, c. 2, d.l. 20/2023 e dall'art. 24, c. 5, d.l. 75/2023); e' illegittimo il diniego che oppone l'esaurimento del decreto flussi, anche per istanza presentata prima della riforma ma decisa dopo. La PA deve considerare gli elementi sopravvenuti ex art. 5, c. 5, TU.",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=tar_mi&nrg=202501172&nomeFile=202504084_01.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "letta_integrale": true
+        },
+        {
+          "corte": "Cons. Stato, sez. III",
+          "data": "2021-11-11",
+          "numero": "n. 7525/2021",
+          "principio": "La scadenza del permesso per studio non preclude la conversione se la domanda e' presentata a brevissima distanza (due giorni) e il contratto di lavoro era stato stipulato prima della scadenza: l'art. 5, c. 5, TU consente di dare efficacia 'sanante' agli elementi di fatto, con valutazione prognostica sulla capacita' reddituale.",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=cds&nrg=202102535&nomeFile=202107525_11.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "letta_integrale": true
+        },
+        {
+          "corte": "Cons. Stato, sez. III",
+          "data": "2022-08-19",
+          "numero": "n. 7318/2022",
+          "principio": "Il termine 'prima della scadenza' per chiedere la conversione da studio a lavoro ha natura \"meramente acceleratoria del procedimento amministrativo\": accolta una domanda presentata circa due mesi e mezzo dopo la scadenza, con contratto stipulato tre giorni dopo la scadenza in prosecuzione di un rapporto gia' in corso; rileva la buona fede.",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=cds&nrg=202010111&nomeFile=202207318_11.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "letta_integrale": true
+        },
+        {
+          "corte": "Cons. Stato, sez. III",
+          "data": "2021-12-24",
+          "numero": "n. 8588/2021 (sentenza breve)",
+          "principio": "Laureato in Italia con permesso per studio scaduto da anni: il ritardo nella domanda di conversione in lavoro/attesa occupazione non legittima il diniego quando e' dovuto a forza maggiore documentata (ritardi consolari nel passaporto, grave disagio psichico) e la PA non ha ponderato la non imputabilita'.",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=cds&nrg=202109828&nomeFile=202108588_23.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "letta_integrale": true
+        },
+        {
+          "corte": "Cons. Stato, sez. III",
+          "data": "2022-08-04",
+          "numero": "n. 6884/2022",
+          "principio": "Conversione di permesso studio/tirocinio chiesta in Questura senza il nulla osta dello Sportello Unico: non grava sullo straniero l'onere di allegare la disponibilita' delle quote; la PA deve attivarsi per buona fede e leale collaborazione e valutare gli elementi sopravvenuti (art. 5, c. 5, TU). Principio formato sotto il regime delle quote, oggi superato, ma utile sul riparto degli oneri tra Questura e Sportello Unico.",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=cds&nrg=202101489&nomeFile=202206884_11.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "letta_integrale": true
+        }
+      ],
+      "prassi": [
+        {
+          "ente": "Ministero del Lavoro e delle Politiche Sociali, DG Immigrazione, Div. III",
+          "estremi": "circolare prot. n. 1077 (m_lps.35.REGISTRO UFFICIALE.U.0001077)",
+          "data": "2023-03-30",
+          "oggetto": "Conversione dei permessi per studio, tirocinio e formazione in lavoro subordinato e autonomo fuori quota dopo l'art. 3, c. 2, d.l. 20/2023; quote del d.P.C.M. 29.12.2022 riassegnate",
+          "url": "https://drive.google.com/file/d/1egZdhVTdF1rkpgJW46nBEZycnjJZkcAR/view?usp=drivesdk"
+        },
+        {
+          "ente": "Ispettorato Nazionale del Lavoro",
+          "estremi": "nota n. 320/2023",
+          "data": "2023-02-14",
+          "oggetto": "Il permesso per studio e formazione consente lo svolgimento di tirocini (curriculari ed extracurriculari)",
+          "url": "https://drive.google.com/file/d/1zLCpbTAMqyVQZp53UbKh6W4VzSuogU-3/view?usp=drivesdk"
+        }
+      ],
+      "casi_limite": [
+        {
+          "titolo": "Domanda presentata dopo la scadenza del permesso per studio",
+          "testo": "Il testo richiede la domanda 'comunque prima della sua scadenza'. Il Consiglio di Stato ha accolto domande presentate due giorni dopo (Cons. Stato 7525/2021) e circa due mesi e mezzo dopo (Cons. Stato 7318/2022, termine 'meramente acceleratorio'), con contratto in essere o in prosecuzione di un rapporto gia' avviato, e anche dopo anni per forza maggiore documentata (Cons. Stato 8588/2021). Le stesse sentenze compensano le spese per 'oscillazioni giurisprudenziali': in sede PRO conviene presentare la domanda allegando la prova del contratto e delle ragioni del ritardo, prevedendo il contenzioso. Oltre 60 giorni dalla scadenza c'e' anche il rischio espulsione (art. 13, c. 2, lett. b, TU)."
+        },
+        {
+          "titolo": "Tirocinio curriculare dello studente universitario",
+          "testo": "Il limite 'solo dopo la conclusione' dell'art. 14, c. 6, d.P.R. 394/1999 riguarda i permessi rilasciati per corsi di formazione e tirocini (art. 39-bis, c. 1, lett. b). Lo studente universitario con permesso 'studente' che svolge un tirocinio curriculare non dovrebbe esservi soggetto: va verificata la dicitura del permesso (art. 39-bis, c. 1-quater). Lettura non verificata in giurisprudenza."
+        },
+        {
+          "titolo": "Istanza presentata in Questura senza passare dallo Sportello Unico",
+          "testo": "Cons. Stato 6884/2022: non grava sullo straniero l'onere di produrre la documentazione dello Sportello Unico sulle quote; la PA deve collaborare e valutare i fatti sopravvenuti. Con il fuori quota il principio rileva soprattutto per evitare dichiarazioni di inammissibilita' per errore di canale; resta necessario il contratto di soggiorno."
+        },
+        {
+          "titolo": "Istanza presentata sotto il regime delle quote e decisa dopo il 2023",
+          "testo": "Si applica la norma vigente alla data del provvedimento: illegittimo il diniego per esaurimento delle quote (TAR Lombardia 4084/2025)."
+        },
+        {
+          "titolo": "Studente minorenne (art. 39-bis, c. 1, lett. c) o d)",
+          "testo": "Il permesso per 'alunno' dura al massimo un anno o quanto il programma; la conversione in lavoro presuppone l'eta' minima lavorativa e, in pratica, il raggiungimento della maggiore eta'. L'art. 14, c. 5, d.P.R. 394/1999 sulla decurtazione delle quote per le conversioni al compimento dei 18 anni e' superato dal fuori quota. Caso da verificare: nessun precedente trovato."
+        },
+        {
+          "titolo": "Permesso per studio ottenuto senza visto per studio (art. 39, cc. 5 e 5-bis)",
+          "testo": "L'art. 6, c. 1, TU riguarda il permesso 'rilasciato per motivi di studio e formazione' senza distinguere il canale di rilascio: anche chi ha ottenuto il permesso per studio dal questore ex art. 39, c. 5-bis (es. ex religioso, diplomato in Italia con un anno di soggiorno) puo' convertirlo. Nessun precedente specifico trovato."
+        },
+        {
+          "titolo": "Superamento delle 20 ore settimanali prima della conversione",
+          "testo": "Il lavoro oltre i limiti dell'art. 14, c. 4, d.P.R. 394/1999 puo' essere contestato come attivita' non consentita; non risultano precedenti che ne facciano un motivo ostativo alla conversione. Da valutare caso per caso."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Quale dicitura riporta il permesso di soggiorno: 'studente', 'tirocinante' o 'alunno'?",
+          "perche": "Determina se si applica il limite 'dopo la conclusione' (art. 14, c. 6, d.P.R. 394/1999) e la disciplina dei minori.",
+          "opzioni": [
+            "studente",
+            "tirocinante",
+            "alunno",
+            "non indicata / non so"
+          ]
+        },
+        {
+          "domanda": "Il permesso e' ancora valido? Se scaduto, da quanti giorni e il contratto di lavoro era gia' in corso prima della scadenza?",
+          "perche": "La giurisprudenza (Cons. Stato 7525/2021, 7318/2022) tollera ritardi brevi con contratto preesistente; oltre, serve prova di forza maggiore (8588/2021).",
+          "opzioni": [
+            "valido",
+            "scaduto da meno di 60 giorni con contratto gia' in corso",
+            "scaduto da meno di 60 giorni senza contratto",
+            "scaduto da oltre 60 giorni"
+          ]
+        },
+        {
+          "domanda": "L'ingresso per studio era legato a una borsa o a un programma con obbligo di rientro nel paese d'origine?",
+          "perche": "Clausola di salvezza dell'art. 14, c. 6, primo periodo, d.P.R. 394/1999.",
+          "opzioni": [
+            "si",
+            "no",
+            "non so"
+          ]
+        },
+        {
+          "domanda": "Il contratto proposto e' a tempo determinato o indeterminato, e con quale orario?",
+          "perche": "Durata del primo permesso (art. 5, c. 3-bis, TU) e valutazione prognostica del reddito.",
+          "opzioni": [
+            "tempo indeterminato",
+            "tempo determinato >= 12 mesi",
+            "tempo determinato < 12 mesi",
+            "part-time"
+          ]
+        },
+        {
+          "domanda": "Ha gia' presentato una domanda di conversione (allo Sportello Unico o in Questura) prima del 2023 o ancora pendente?",
+          "perche": "Istanze pendenti decise con la norma sopravvenuta (TAR Lombardia 4084/2025) e onere di collaborazione della PA (Cons. Stato 6884/2022).",
+          "opzioni": [
+            "no",
+            "si, pendente",
+            "si, respinta per quote",
+            "si, respinta per altro motivo"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "studio",
+      "a": "lavoro_autonomo",
+      "nodo_albero": "c_lav_tipo_studio -> c_end_lav_nullaosta (l'albero non distingue subordinato e autonomo)",
+      "esito_albero": "POSSIBILE",
+      "esito_verificato": "condizionato",
+      "discrepanza": "L'albero tratta l'autonomo come il subordinato ('i requisiti per lavorare in proprio'). In realta' servono i requisiti sostanziali dell'art. 26 TU, accertati dallo Sportello Unico, che rendono la conversione piu' selettiva; inoltre per l'autonomo il modulo del permesso e' raccolto dallo Sportello Unico e trasmesso alla Questura (art. 39, c. 9, d.P.R. 394/1999), non tramite kit postale.",
+      "sintesi": "La conversione da studio a lavoro autonomo e' ammessa fuori quota, prima della scadenza, previo rilascio da parte dello Sportello Unico della certificazione attestante i requisiti dell'art. 26 TU (art. 6, c. 1, TU; artt. 14, c. 6, e 39, c. 9, d.P.R. 394/1999). Lo straniero deve dimostrare risorse adeguate, i requisiti di legge per l'attivita' (iscrizioni ad albi e registri), l'attestazione dell'autorita' competente sull'assenza di motivi ostativi alla licenza, l'alloggio e un reddito lecito superiore alla soglia di esenzione dalla spesa sanitaria (art. 26, cc. 2-3). Valgono le regole dello studio -> subordinato sulla formazione/tirocinio e sulla tolleranza del ritardo; il Consiglio di Stato ha ammesso la conversione in autonomo dopo un master universitario di I livello anche con visto 'corso singolo' (Cons. Stato 8450/2021). Sotto il profilo del controllo, la revoca di un permesso autonomo gia' rilasciato richiede contraddittorio (Cons. Stato 7830/2026).",
+      "requisiti": [
+        "Permesso per studio/formazione valido alla domanda (formazione/tirocinio: corso concluso)",
+        "Attivita' non occasionale e non riservata ai cittadini italiani/UE (art. 26, c. 1)",
+        "Risorse adeguate per l'attivita', requisiti professionali (albi, registri), attestazione dell'autorita' competente non anteriore a tre mesi (art. 26, c. 2)",
+        "Idonea sistemazione alloggiativa e reddito annuo lecito superiore al minimo per l'esenzione dalla spesa sanitaria (art. 26, c. 3)",
+        "Per cariche societarie o societa': documentazione societaria e capitale adeguato (art. 26, c. 2)"
+      ],
+      "procedura": "Istanza allo Sportello Unico, che verifica la documentazione (art. 39, cc. 1-3, d.P.R. 394/1999), rilascia la certificazione ex art. 6, c. 1, TU, fa sottoscrivere il modulo di richiesta del permesso per lavoro autonomo e lo trasmette telematicamente alla Questura (art. 39, c. 9). Fuori quota (la 'verifica delle quote' del d.P.R. e' superata). Durata massima del primo permesso per lavoro autonomo: due anni (art. 5, c. 3-quater, TU).",
+      "norme": [
+        {
+          "estremi": "art. 6, c. 1, d.lgs. 286/1998 (testo vigente, coordinato non ufficiale)",
+          "contenuto": "Il permesso per studio e formazione si converte in lavoro (subordinato, previo contratto di soggiorno; autonomo, previa certificazione dei requisiti dell'art. 26) fuori dalle quote dei decreti flussi e prima della scadenza. Il fuori quota deriva dall'art. 3, c. 2, d.l. 20/2023 (conv. l. 50/2023) e dall'art. 24, c. 5, d.l. 75/2023 (conv. l. 112/2023), come ricostruito da TAR Lombardia 4084/2025; nel testo Normattiva la frase finale soppressa compare come '....'.",
+          "citazione": "Quello rilasciato per motivi di studio e formazione puo' essere convertito, al di fuori delle quote di cui all'articolo 3, comma 4, comunque prima della sua scadenza, e previa stipula del contratto di soggiorno per lavoro ovvero previo rilascio della certificazione attestante la sussistenza dei requisiti previsti dall'articolo 26, in permesso di soggiorno per motivi di lavoro",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art6"
+        },
+        {
+          "estremi": "art. 26, cc. 1-3, d.lgs. 286/1998",
+          "contenuto": "Requisiti del lavoro autonomo: attivita' non occasionale e non riservata ai cittadini; risorse adeguate, requisiti di legge per la singola attivita' (albi, registri), attestazione dell'autorita' competente di data non anteriore a tre mesi sull'assenza di motivi ostativi a licenza/autorizzazione; idonea sistemazione alloggiativa e reddito annuo lecito superiore al minimo per l'esenzione dalla spesa sanitaria.",
+          "citazione": "deve altresi' dimostrare di disporre di risorse adeguate per l'esercizio dell'attivita' che intende intraprendere in Italia",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art26"
+        },
+        {
+          "estremi": "art. 39, c. 9, d.P.R. 394/1999",
+          "contenuto": "Lo studente o il titolare di permesso per formazione puo' chiedere la conversione in lavoro autonomo allo Sportello Unico, che rilascia la certificazione dell'art. 6, c. 1, TU sulla base dei requisiti dell'art. 39, cc. 1-3, fa sottoscrivere il modulo di richiesta del permesso e lo trasmette telematicamente alla Questura. La 'verifica della disponibilita' delle quote' prevista dal testo e' superata dall'art. 6, c. 1, TU vigente.",
+          "citazione": null,
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art39"
+        },
+        {
+          "estremi": "art. 14, c. 6, d.P.R. 394/1999",
+          "contenuto": "Procedura della conversione da studio a lavoro: contratto di soggiorno presso lo Sportello Unico (subordinato) o certificazione dello Sportello Unico (autonomo); per corsi di formazione e tirocini, conversione solo dopo la conclusione. Il riferimento alle quote e' superato dalla norma primaria (art. 6, c. 1, TU). Fa salve diverse previsioni di accordi internazionali o delle condizioni di ammissione al corso.",
+          "citazione": "In tali casi la conversione e' possibile soltanto dopo la conclusione del corso di formazione frequentato o del tirocinio svolto.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art14"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Cons. Stato, sez. III",
+          "data": "2021-12-20",
+          "numero": "n. 8450/2021",
+          "principio": "Conversione da studio a lavoro autonomo dopo un master universitario di I livello (60 CFU): la qualificazione del visto come 'corso singolo' non e' ostativa se il corso e' stato utilmente frequentato e l'istanza presentata in vigenza del permesso. Richiama una circolare del Ministero dell'Interno (estremi oscurati) che recepisce il parere MIUR sulla convertibilita' per i titolari di master di I livello.",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=cds&nrg=202105158&nomeFile=202108450_11.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "letta_integrale": true
+        },
+        {
+          "corte": "Cons. Stato, sez. III",
+          "data": "2026-10-28",
+          "numero": "n. 7830/2026",
+          "principio": "Revoca di un permesso per lavoro autonomo ottenuto per conversione da studio, per carenza del nulla osta: non e' atto vincolato e richiede la comunicazione di avvio (art. 7 l. 241/1990); l'interessato avrebbe potuto colmare la lacuna o chiedere la conferma del permesso per studio ancora valido.",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=cds&nrg=202501674&nomeFile=202607830_11.pdf&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "letta_integrale": true
+        },
+        {
+          "corte": "TAR Lombardia, sez. IV",
+          "data": "2025-12-11",
+          "numero": "n. 4084/2025",
+          "principio": "La conversione da studio a lavoro avviene fuori dalle quote (art. 6, c. 1, TU come modificato dall'art. 3, c. 2, d.l. 20/2023 e dall'art. 24, c. 5, d.l. 75/2023); e' illegittimo il diniego che oppone l'esaurimento del decreto flussi, anche per istanza presentata prima della riforma ma decisa dopo. La PA deve considerare gli elementi sopravvenuti ex art. 5, c. 5, TU.",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=tar_mi&nrg=202501172&nomeFile=202504084_01.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "letta_integrale": true
+        }
+      ],
+      "prassi": [
+        {
+          "ente": "Ministero del Lavoro e delle Politiche Sociali, DG Immigrazione, Div. III",
+          "estremi": "circolare prot. n. 1077 (m_lps.35.REGISTRO UFFICIALE.U.0001077)",
+          "data": "2023-03-30",
+          "oggetto": "Conversione dei permessi per studio, tirocinio e formazione in lavoro subordinato e autonomo fuori quota dopo l'art. 3, c. 2, d.l. 20/2023; quote del d.P.C.M. 29.12.2022 riassegnate",
+          "url": "https://drive.google.com/file/d/1egZdhVTdF1rkpgJW46nBEZycnjJZkcAR/view?usp=drivesdk"
+        },
+        {
+          "ente": "Ministero dell'Interno",
+          "estremi": "circolare con estremi oscurati, richiamata da Cons. Stato 8450/2021",
+          "data": null,
+          "oggetto": "Recepisce il parere MIUR: conversione del permesso per studio consentita a chi ha conseguito, tra l'altro, un master universitario di I livello (almeno 60 CFU)",
+          "url": null
+        }
+      ],
+      "casi_limite": [
+        {
+          "titolo": "Visto per 'corso singolo' o master",
+          "testo": "Cons. Stato 8450/2021: la qualificazione del visto come 'corso singolo' non impedisce la conversione se lo straniero ha frequentato utilmente un master universitario di I livello e l'istanza e' tempestiva."
+        },
+        {
+          "titolo": "Permesso rilasciato senza valida certificazione dello Sportello Unico",
+          "testo": "Se il permesso autonomo e' stato rilasciato senza la certificazione e la Questura lo revoca, la revoca non e' vincolata e richiede la comunicazione di avvio: l'interessato puo' integrare o chiedere la conferma del permesso per studio ancora valido (Cons. Stato 7830/2026)."
+        },
+        {
+          "titolo": "Startup, partita IVA forfettaria e collaborazioni",
+          "testo": "La partita IVA senza attivita' reale o con un solo committente puo' essere riqualificata come lavoro subordinato mascherato. Per le startup innovative esistono canali specifici (art. 26-bis TU per investitori) non oggetto di questa ricerca."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Che tipo di attivita' autonoma intende svolgere (professione ordinistica, impresa individuale, societa', libera professione non regolamentata)?",
+          "perche": "Cambiano requisiti e attestazioni dell'art. 26, c. 2, TU.",
+          "opzioni": [
+            "professione ordinistica",
+            "impresa individuale/artigiana/commerciale",
+            "societa' o carica societaria",
+            "libera professione non regolamentata"
+          ]
+        },
+        {
+          "domanda": "Dispone gia' di iscrizioni, licenze o attestazioni dell'autorita' competente e di risorse documentabili?",
+          "perche": "Senza questi elementi lo Sportello Unico non rilascia la certificazione.",
+          "opzioni": [
+            "si, tutte",
+            "in parte",
+            "no"
+          ]
+        },
+        {
+          "domanda": "Il reddito annuo previsto supera la soglia di esenzione dalla spesa sanitaria?",
+          "perche": "Requisito dell'art. 26, c. 3, TU.",
+          "opzioni": [
+            "si",
+            "no",
+            "non so"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "studio",
+      "a": "attesa_occupazione (permesso per ricerca lavoro o imprenditorialita' degli studenti, art. 39-bis.1 TU)",
+      "nodo_albero": "c_att_titolo_ita -> c_end_att_ok | c_end_att_studio_no",
+      "esito_albero": "POSSIBILE solo con laurea, master universitario, dottorato, diploma AFAM o ITS ottenuti in Italia; altrimenti NON POSSIBILE",
+      "esito_verificato": "condizionato",
+      "discrepanza": "Tre punti. (1) Il permesso non e' 'attesa occupazione' (art. 22, c. 11, TU) ma 'ricerca lavoro o imprenditorialita'' (art. 39-bis.1), con requisiti propri (reddito ex art. 29, c. 3, lett. b; assicurazione sanitaria; DID): il nodo c_end_att_ok, condiviso, dice che basta chiederlo e non menziona questi requisiti. (2) L'esito NON POSSIBILE per chi non ha uno dei titoli elencati e' contraddetto da TAR Piemonte 562/2025 (e dai precedenti TAR Piemonte 1020/2023 e TAR Lombardia 135/2023 da esso citati), che estende la norma ai corsi di formazione superiore non universitari: meglio 'incerto/contestato'. (3) La norma vale per i permessi ex artt. 39 e 39-bis, c. 1, lett. a): i permessi per formazione professionale e tirocinio (lett. b) restano fuori.",
+      "sintesi": "Chi ha conseguito in Italia dottorato, master universitario, laurea triennale o specialistica, diploma accademico di I o II livello o diploma di tecnico superiore puo', alla scadenza del permesso per studio (artt. 39 e 39-bis, c. 1, lett. a, TU), dichiarare l'immediata disponibilita' al lavoro e chiedere un permesso di 9-12 mesi per cercare occupazione o avviare un'impresa coerente con il percorso (art. 39-bis.1 TU, attuativo dell'art. 25 dir. 2016/801), poi convertibile in lavoro. Servono passaporto, reddito ex art. 29, c. 3, lett. b), e assicurazione sanitaria ex art. 34, c. 3; il titolo puo' essere documentato entro 60 giorni dalla domanda. La giurisprudenza piemontese ha ritenuto irragionevole escludere i titoli non universitari di formazione superiore (TAR Piemonte 562/2025; ord. 114/2023), mentre le Questure applicano l'elenco tassativo: il punto e' contestato. La norma va letta con l'art. 5, c. 3, lett. c), che consente il prolungamento di 12 mesi del permesso per studio.",
+      "requisiti": [
+        "Titolo conseguito in Italia tra quelli dell'art. 39-bis.1, c. 1 (contestata l'estensione ad altri titoli di formazione superiore)",
+        "Permesso per studio ex art. 39 o 39-bis, c. 1, lett. a) (non per formazione professionale/tirocinio, lett. b)",
+        "Passaporto valido",
+        "Reddito ex art. 29, c. 3, lett. b), TU (anche da fonti di terzi, secondo i principi generali; non verificato su questo permesso)",
+        "Assicurazione sanitaria o iscrizione volontaria al SSN (art. 34, c. 3, TU)",
+        "Dichiarazione di immediata disponibilita' al Centro per l'impiego (art. 19 d.lgs. 150/2015)",
+        "Domanda alla scadenza del permesso per studio (la dir. 2016/801, art. 25, par. 5, consente agli Stati di chiederla 30 giorni prima; l'Italia non lo prevede espressamente)"
+      ],
+      "procedura": "Richiesta in Questura con kit postale (permesso per 'ricerca lavoro'), allegando DID, prova del reddito, assicurazione sanitaria e titolo (o sua produzione entro 60 giorni, art. 39-bis.1, c. 2). Nessuna quota. Durata 9-12 mesi; conversione successiva in lavoro subordinato o autonomo in presenza dei requisiti (art. 39-bis.1, c. 1, ult. periodo).",
+      "norme": [
+        {
+          "estremi": "art. 39-bis.1, cc. 1-3, d.lgs. 286/1998",
+          "contenuto": "Permesso per ricerca lavoro o imprenditorialita' degli studenti (9-12 mesi) per chi ha conseguito in Italia dottorato, master universitario, laurea triennale o specialistica, diploma accademico di I o II livello o diploma di tecnico superiore, alla scadenza del permesso ex artt. 39 e 39-bis, c. 1, lett. a); requisiti: passaporto, reddito ex art. 29, c. 3, lett. b), assicurazione sanitaria ex art. 34, c. 3, dichiarazione di immediata disponibilita' (DID) ex art. 19 d.lgs. 150/2015; titolo documentabile entro 60 giorni; poi conversione in lavoro.",
+          "citazione": "richiedere un permesso di soggiorno di durata non inferiore a nove e non superiore a dodici mesi al fine di cercare un'occupazione o avviare un'impresa coerente con il percorso formativo completato",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_39-bis.1"
+        },
+        {
+          "estremi": "art. 5, c. 3, lett. c), d.lgs. 286/1998",
+          "contenuto": "Durata del permesso per studio non inferiore al periodo di frequenza, con verifica annuale di profitto; prolungabile di ulteriori 12 mesi oltre il termine del percorso secondo l'art. 39-bis.1.",
+          "citazione": "Il permesso puo' essere prolungato per ulteriori dodici mesi oltre il termine del percorso formativo compiuto, secondo quanto disposto dall'articolo 39-bis. 1;",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art5"
+        },
+        {
+          "estremi": "art. 25, parr. 1-3 e 5-7, dir. (UE) 2016/801",
+          "contenuto": "Dopo gli studi o la ricerca, permesso di almeno nove mesi per cercare lavoro o avviare un'impresa; gli Stati possono fissare un livello minimo del titolo (non oltre EQF 7), chiedere la domanda 30 giorni prima della scadenza, consentire la produzione tardiva del titolo e, dopo tre mesi, verificare la reale possibilita' di assunzione.",
+          "citazione": "per un periodo di almeno nove mesi al fine di cercare un'occupazione o avviare un'impresa",
+          "url": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32016L0801"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "TAR Piemonte, sez. I",
+          "data": "2025-03-28",
+          "numero": "n. 562/2025",
+          "principio": "Il permesso ex art. 39-bis.1 TU spetta anche a chi ha concluso un corso di formazione superiore non universitario (master biennale IED): la lettura restrittiva dei titoli elencati, che esclude i percorsi non universitari pur convertibili in lavoro ex art. 6, c. 1, TU, \"risulta irragionevole e fonte di una possibile disparità di trattamento tra cittadini extracomunitari in situazioni assimilabili\". Richiama TAR Piemonte 1020/2023, ord. 114/2023 e TAR Lombardia 135/2023; compensa per 'diversi orientamenti giurisprudenziali'.",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=tar_to&nrg=202400841&nomeFile=202500562_01.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "letta_integrale": true
+        },
+        {
+          "corte": "TAR Piemonte (ordinanza cautelare)",
+          "data": "2023-04-20",
+          "numero": "ord. n. 114/2023",
+          "principio": "Il permesso per studio prosegue naturalmente, al completamento del percorso, nel permesso per ricerca lavoro o imprenditorialita' ex art. 39-bis.1 TU: incomprensibile il diniego della PA che ha rilasciato il permesso per studio e ne nega la prosecuzione lavorativa.",
+          "esito": "favorevole allo straniero",
+          "url": "https://docs.google.com/document/d/1CgJ65vq_HpjUvLWTKo9143t_KGR3DdJA/edit",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "Cons. Stato, sez. III",
+          "data": "2021-12-24",
+          "numero": "n. 8588/2021 (sentenza breve)",
+          "principio": "Laureato in Italia con permesso per studio scaduto da anni: il ritardo nella domanda di conversione in lavoro/attesa occupazione non legittima il diniego quando e' dovuto a forza maggiore documentata (ritardi consolari nel passaporto, grave disagio psichico) e la PA non ha ponderato la non imputabilita'.",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=cds&nrg=202109828&nomeFile=202108588_23.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "letta_integrale": true
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Master o diploma non universitario (IED, scuole private, master non MUR)",
+          "testo": "TAR Piemonte 562/2025 ha annullato il diniego per un master biennale IED, ritenendo irragionevole limitare l'art. 39-bis.1 ai titoli elencati quando il percorso dava titolo al permesso per studio. Orientamento non consolidato: le Questure applicano l'elenco."
+        },
+        {
+          "titolo": "Titolo non ancora rilasciato alla scadenza del permesso",
+          "testo": "La documentazione del titolo puo' essere presentata entro 60 giorni dalla richiesta (art. 39-bis.1, c. 2; art. 25, par. 6, dir. 2016/801)."
+        },
+        {
+          "titolo": "Domanda presentata molto dopo la scadenza del permesso per studio",
+          "testo": "Cons. Stato 8588/2021 ha annullato il diniego di conversione in lavoro/attesa occupazione di un laureato del Politecnico con permesso scaduto da anni, per forza maggiore documentata. Fuori da situazioni analoghe il ritardo e' rischioso."
+        },
+        {
+          "titolo": "Ricercatori o studenti con titolo diverso dal permesso (carta MAECI)",
+          "testo": "TAR Toscana 2072/2026 ha applicato per analogia l'art. 39-bis.1 a un ricercatore dell'Istituto Universitario Europeo soggiornante con carta MAECI."
+        },
+        {
+          "titolo": "Alternativa: lavoro gia' disponibile",
+          "testo": "Se c'e' gia' un'offerta di lavoro, conviene la conversione diretta studio -> lavoro (art. 6, c. 1, TU) prima della scadenza, che non richiede il titolo."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Quale titolo ha conseguito in Italia e presso quale istituzione (universita' statale/non statale riconosciuta, AFAM, ITS, ente privato)?",
+          "perche": "Elenco dell'art. 39-bis.1, c. 1, e possibile estensione giurisprudenziale ai titoli non universitari.",
+          "opzioni": [
+            "laurea triennale o magistrale",
+            "master universitario I/II livello",
+            "dottorato",
+            "diploma AFAM I/II livello",
+            "diploma ITS",
+            "altro titolo di formazione superiore",
+            "nessun titolo ancora"
+          ]
+        },
+        {
+          "domanda": "Il permesso per studio era per corso universitario/superiore (lett. a) o per formazione professionale/tirocinio (lett. b)?",
+          "perche": "La norma richiama solo l'art. 39 e l'art. 39-bis, c. 1, lett. a).",
+          "opzioni": [
+            "universita'/AFAM/ITS/secondaria",
+            "formazione professionale o tirocinio",
+            "non so"
+          ]
+        },
+        {
+          "domanda": "Dispone del reddito minimo (art. 29, c. 3, lett. b) e di un'assicurazione sanitaria?",
+          "perche": "Requisiti espressi dell'art. 39-bis.1, c. 1.",
+          "opzioni": [
+            "si",
+            "solo reddito",
+            "solo assicurazione",
+            "no"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "studio",
+      "a": "famiglia",
+      "nodo_albero": "c_vorresti_studio -> c_end_fam_ok",
+      "esito_albero": "POSSIBILE",
+      "esito_verificato": "condizionato",
+      "discrepanza": "Il brief indicava 'oggi NON POSSIBILE', ma l'albero porta a c_end_fam_ok (POSSIBILE): l'albero e' corretto. Il nodo pero' semplifica i requisiti: la conversione dipende dai requisiti del ricongiungimento in capo al familiare di riferimento (reddito e alloggio ex art. 29 per lo straniero; d.lgs. 30/2007 se il familiare e' cittadino UE). Va segnalato il termine di un anno dalla scadenza del permesso per studio.",
+      "sintesi": "Lo studente regolarmente soggiornante che e' familiare (coniuge, figlio minore, figlio maggiorenne a carico invalido, genitore a carico) di un cittadino italiano o UE residente o di uno straniero regolarmente soggiornante puo' convertire il permesso per studio in permesso per motivi familiari se ricorrono i requisiti del ricongiungimento (art. 30, c. 1, lett. c, TU); la conversione puo' essere chiesta entro un anno dalla scadenza del permesso posseduto. In alternativa, lo straniero regolarmente soggiornante da almeno un anno che contrae matrimonio in Italia con cittadino italiano, UE o straniero regolarmente soggiornante ottiene il permesso per famiglia (art. 30, c. 1, lett. b). Il passaggio a famiglia libera dai vincoli del permesso per studio (verifica di profitto, 20 ore) ma rende il soggiorno dipendente dal vincolo familiare. Per i familiari di cittadini UE vale il d.lgs. 30/2007 (carta di soggiorno), non oggetto di questa ricerca.",
+      "requisiti": [
+        "Rapporto familiare rientrante nell'art. 29, c. 1, TU (o art. 2 d.lgs. 30/2007 per familiari UE)",
+        "Familiare di riferimento cittadino italiano/UE residente o straniero titolare di permesso idoneo al ricongiungimento (art. 28, c. 1)",
+        "Requisiti di reddito e alloggio del familiare di riferimento ex art. 29, c. 3, TU (non per familiari di italiani/UE secondo la disciplina di settore)",
+        "Domanda entro un anno dalla scadenza del permesso per studio (art. 30, c. 1, lett. c)"
+      ],
+      "procedura": "Domanda di conversione in Questura con kit postale e documentazione del vincolo familiare e dei requisiti del familiare di riferimento. Nessuna quota. Durata pari al permesso del familiare di riferimento (art. 30, c. 3, non letto in questa ricerca).",
+      "norme": [
+        {
+          "estremi": "art. 30, c. 1, lett. c), d.lgs. 286/1998",
+          "contenuto": "Il familiare regolarmente soggiornante, in possesso dei requisiti per il ricongiungimento con cittadino italiano/UE residente o con straniero regolarmente soggiornante, converte il proprio permesso (di qualsiasi tipo) in permesso per motivi familiari; la conversione si puo' chiedere entro un anno dalla scadenza del titolo.",
+          "citazione": "La conversione puo' essere richiesta entro un anno dalla data di scadenza del titolo di soggiorno originariamente posseduto dal familiare.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art30"
+        },
+        {
+          "estremi": "art. 30, c. 1, lett. b), d.lgs. 286/1998",
+          "contenuto": "Permesso per motivi familiari allo straniero regolarmente soggiornante ad altro titolo da almeno un anno che abbia contratto matrimonio in Italia con cittadino italiano, UE o straniero regolarmente soggiornante.",
+          "citazione": "b) agli stranieri regolarmente soggiornanti ad altro titolo da almeno un anno che abbiano contratto matrimonio nel territorio dello Stato",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art30"
+        },
+        {
+          "estremi": "art. 28, c. 1, d.lgs. 286/1998",
+          "contenuto": "Il diritto all'unita' familiare spetta anche ai titolari di permesso di durata non inferiore a un anno per studio o per motivi religiosi: rileva per lo studente o il religioso come familiare 'di riferimento'.",
+          "citazione": "per studio, per motivi religiosi o per motivi familiari",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art28"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Matrimonio contratto in Italia dallo studente",
+          "testo": "Con un anno di soggiorno regolare si applica l'art. 30, c. 1, lett. b), TU; prima dell'anno occorre la lett. c) con i requisiti del ricongiungimento."
+        },
+        {
+          "titolo": "Coniuge anch'egli studente",
+          "testo": "Il titolare di permesso per studio di durata non inferiore a un anno e' familiare 'di riferimento' idoneo (art. 28, c. 1, TU): la conversione dell'altro coniuge in famiglia e' teoricamente ammessa con i requisiti di reddito e alloggio; utilita' pratica da valutare."
+        },
+        {
+          "titolo": "Permesso per studio scaduto",
+          "testo": "La conversione si puo' chiedere entro un anno dalla scadenza (art. 30, c. 1, lett. c): e' l'unica conversione del gruppo con termine espresso oltre la scadenza."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Chi e' il familiare di riferimento e che titolo di soggiorno ha?",
+          "perche": "Cambia la disciplina (TU o d.lgs. 30/2007) e i requisiti di reddito/alloggio.",
+          "opzioni": [
+            "cittadino italiano",
+            "cittadino UE",
+            "straniero con permesso per lavoro/famiglia/protezione/studio",
+            "straniero con permesso UE lungo periodo"
+          ]
+        },
+        {
+          "domanda": "Da quanto tempo e' scaduto il permesso per studio?",
+          "perche": "Termine di un anno dell'art. 30, c. 1, lett. c).",
+          "opzioni": [
+            "valido",
+            "scaduto da meno di un anno",
+            "scaduto da piu' di un anno"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "studio",
+      "a": "ue_lungo_periodo",
+      "nodo_albero": "c_vorresti_studio -> c_end_carta_no",
+      "esito_albero": "NON POSSIBILE",
+      "esito_verificato": "non_possibile",
+      "discrepanza": "L'esito diretto e' corretto (art. 9, c. 3, lett. a, TU), ma il nodo omette l'informazione utile per il professionista: gli anni con permesso per studio si computano interamente nel quinquennio dopo il passaggio a un titolo idoneo (art. 9, c. 5, TU non recepisce il dimezzamento facoltativo dell'art. 4, par. 2, dir. 2003/109; TAR Emilia-Romagna 834/2022). La strada e' quindi studio -> lavoro/famiglia e domanda di permesso UE subito dopo, se maturati i cinque anni.",
+      "sintesi": "Chi soggiorna per studio o formazione professionale non puo' chiedere il permesso UE per soggiornanti di lungo periodo (art. 9, c. 3, lett. a, TU; art. 3, par. 2, lett. a, dir. 2003/109). Tuttavia l'art. 9, c. 5, TU esclude dal computo del quinquennio solo i periodi con permesso di breve durata e lo status diplomatico, senza recepire la facolta' di computare per meta' i periodi di studio (art. 4, par. 2, dir. 2003/109): una volta ottenuto un titolo idoneo (lavoro, famiglia), gli anni di studio si contano per intero (TAR Emilia-Romagna 834/2022, in obiter, con elencazione esplicita dei periodi di studio tra quelli computabili). Restano i requisiti di reddito, alloggio, test di italiano e assenze (art. 9, cc. 1, 2-bis e 6). La Questura, investita di una domanda di conversione, deve valutare anche i requisiti del permesso UE se ricorrono (art. 5, c. 9, TU).",
+      "requisiti": [
+        "Titolo diverso dallo studio al momento della domanda (es. lavoro, famiglia)",
+        "Cinque anni di permesso in corso di validita', computando gli anni di studio",
+        "Reddito non inferiore all'assegno sociale; alloggio idoneo se la domanda riguarda i familiari",
+        "Test di lingua italiana A2 (art. 9, c. 2-bis) o esenzioni",
+        "Assenze entro i limiti dell'art. 9, c. 6"
+      ],
+      "procedura": "Prima conversione in lavoro o famiglia (Sportello Unico / Questura), poi domanda di permesso UE in Questura con kit postale; anche contestuale, chiedendo alla Questura di valutarla ex art. 5, c. 9, TU.",
+      "norme": [
+        {
+          "estremi": "art. 9, c. 3, lett. a), d.lgs. 286/1998",
+          "contenuto": "Chi soggiorna per studio o formazione professionale non puo' chiedere il permesso UE di lungo periodo.",
+          "citazione": "a) soggiornano per motivi di studio o formazione professionale;",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art9"
+        },
+        {
+          "estremi": "art. 9, c. 5, d.lgs. 286/1998",
+          "contenuto": "Dal quinquennio sono esclusi solo i periodi con permesso di breve durata (c. 3, lett. d) e con status diplomatico (lett. e). Non c'e' il dimezzamento dei periodi di studio previsto come facolta' dall'art. 4, par. 2, dir. 2003/109: la norma italiana e' piu' favorevole.",
+          "citazione": "Ai fini del calcolo del periodo di cui al comma 1, non si computano i periodi di soggiorno per i motivi indicati nelle lettere d) ed e) del comma 3.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art9"
+        },
+        {
+          "estremi": "art. 9, c. 1, d.lgs. 286/1998",
+          "contenuto": "Permesso UE per soggiornanti di lungo periodo: permesso in corso di validita' da almeno cinque anni, reddito non inferiore all'assegno sociale, alloggio idoneo (per i familiari), test di italiano (c. 2-bis).",
+          "citazione": "Lo straniero in possesso, da almeno cinque anni, di un permesso di soggiorno in corso di validita'",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art9"
+        },
+        {
+          "estremi": "art. 4, par. 2, secondo comma, dir. 2003/109/CE",
+          "contenuto": "Facolta' per gli Stati di computare per meta' i periodi di studio o formazione, quando il cittadino di paese terzo ha poi ottenuto un titolo che consente di acquisire lo status. L'Italia non l'ha recepita nell'art. 9, c. 5, TU.",
+          "citazione": "i periodi di soggiorno per motivi di studio o di formazione professionale possono essere computati soltanto per metà nel calcolo della durata del periodo di cui al paragrafo 1",
+          "url": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32003L0109"
+        },
+        {
+          "estremi": "art. 3, par. 2, dir. 2003/109/CE",
+          "contenuto": "La direttiva non si applica a chi soggiorna per studio o formazione (lett. a) ne' a chi soggiorna unicamente per motivi temporanei o con titolo formalmente limitato (lett. e). Ricercatori, religiosi e sportivi non sono esclusi espressamente.",
+          "citazione": "soggiornano unicamente per motivi di carattere temporaneo ad esempio in qualità di persone «alla pari», lavoratori stagionali",
+          "url": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32003L0109"
+        },
+        {
+          "estremi": "art. 5, c. 9, d.lgs. 286/1998",
+          "contenuto": "Il permesso e' rilasciato, rinnovato o convertito se ricorrono i requisiti per il titolo richiesto o, in mancanza, per altro titolo: fonda l'obbligo della Questura di valutare titoli alternativi (es. permesso UE di lungo periodo) prima del diniego.",
+          "citazione": "ovvero, in mancanza di questo, per altro tipo di permesso da rilasciare in applicazione del presente testo unico",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art5"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "TAR Emilia-Romagna, sez. I",
+          "data": "2022-10-25",
+          "numero": "n. 834/2022",
+          "principio": "Ai fini del quinquennio dell'art. 9 TU si escludono solo i permessi di breve durata e lo status diplomatico (c. 5); \"sono invece considerati ai fini del computo, ad esempio, i periodi di possesso di permesso per studio o formazione\" e quelli per protezione, purche' al momento della domanda si abbia un titolo che consente il permesso UE.",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=tar_bo&nrg=202200113&nomeFile=202200834_01.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "letta_integrale": true
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Ex studente da poco convertito in lavoro con cinque anni complessivi",
+          "testo": "Secondo l'art. 9, c. 5, TU e TAR Emilia-Romagna 834/2022 il periodo di studio si computa: la domanda di permesso UE e' ammissibile appena ottenuto il permesso per lavoro, se ricorrono reddito e lingua. Alcune Questure applicano in prassi il dimezzamento della direttiva: punto da validare (nessuna sentenza contraria trovata)."
+        },
+        {
+          "titolo": "Lunghi periodi all'estero durante gli studi (Erasmus, tirocini fuori Italia)",
+          "testo": "Le assenze superiori a sei mesi consecutivi o dieci mesi complessivi interrompono il quinquennio salvo gravi motivi (art. 9, c. 6); la mobilita' UE di studio non e' espressamente tutelata."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Da quanti anni soggiorna regolarmente in Italia, sommando studio e altri permessi?",
+          "perche": "Computo del quinquennio con gli anni di studio (art. 9, c. 5).",
+          "opzioni": [
+            "meno di 5",
+            "5 o piu'"
+          ]
+        },
+        {
+          "domanda": "Ha gia' un titolo diverso dallo studio o ne sta chiedendo la conversione?",
+          "perche": "La domanda di permesso UE non e' ammessa finche' si soggiorna per studio (art. 9, c. 3, lett. a).",
+          "opzioni": [
+            "ancora studio",
+            "conversione in corso",
+            "gia' lavoro/famiglia"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "studio",
+      "a": "carta_blu_ue (oggi 'Altro tipo di permesso')",
+      "nodo_albero": "c_vorresti_studio -> c_end_altro_wip",
+      "esito_albero": "IN COSTRUZIONE",
+      "esito_verificato": "condizionato",
+      "discrepanza": "L'albero non offre la Carta blu, che per i laureati e' un'alternativa fuori quota con vantaggi (mobilita' UE, ricongiungimento agevolato).",
+      "sintesi": "Lo studente regolarmente soggiornante in possesso di titolo terziario almeno triennale (o qualifiche equivalenti) e di un'offerta di lavoro altamente qualificato puo' ottenere la Carta blu UE fuori quota (art. 27-quater, cc. 1 e 2, lett. c, TU). La disciplina (soglie retributive, nulla osta dello Sportello Unico) non e' stata approfondita in questa ricerca: va trattata nel gruppo lavoro qualificato.",
+      "requisiti": [
+        "Titolo terziario almeno triennale o qualifica equivalente (art. 27-quater, c. 1)",
+        "Contratto o offerta vincolante per lavoro altamente qualificato con retribuzione minima di legge (non verificata qui)",
+        "Regolare soggiorno (art. 27-quater, c. 2, lett. c)"
+      ],
+      "procedura": "Nulla osta dello Sportello Unico su richiesta del datore, fuori quota; dettagli non verificati in questa ricerca.",
+      "norme": [
+        {
+          "estremi": "art. 27-quater, c. 2, lett. c), e c. 3, d.lgs. 286/1998",
+          "contenuto": "La Carta blu UE (fuori quota) e' accessibile anche allo straniero gia' regolarmente soggiornante in possesso dei requisiti (titolo terziario almeno triennale o qualifiche equivalenti); il c. 3, lett. c), esclude solo chi chiede di soggiornare come ricercatore ex art. 27-ter, non chi lo e' stato.",
+          "citazione": "c) agli stranieri in possesso dei requisiti di cui al comma 1, regolarmente soggiornanti sul territorio nazionale.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art27quater"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [],
+      "domande_discriminanti": [
+        {
+          "domanda": "Ha un titolo terziario almeno triennale e un'offerta per un lavoro qualificato con retribuzione elevata?",
+          "perche": "Apre la via della Carta blu (art. 27-quater) in alternativa alla conversione ordinaria.",
+          "opzioni": [
+            "si",
+            "no",
+            "non so"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "ricerca_scientifica (art. 27-ter TU)",
+      "a": "lavoro_subordinato / lavoro_autonomo",
+      "nodo_albero": "c_vorresti_ricerca -> c_end_lav_sub_ok | c_end_lav_aut_ok",
+      "esito_albero": "POSSIBILE (con nulla osta dello Sportello Unico e kit postale)",
+      "esito_verificato": "incerto",
+      "discrepanza": "Nessuna norma prevede la conversione diretta del permesso 'ricercatore' in lavoro: l'art. 6, c. 1-bis, TU non lo elenca e l'art. 27-ter prevede la conversione in lavoro solo dopo il permesso per ricerca lavoro (c. 9-bis). L'esito 'POSSIBILE' senza condizioni e' quindi eccessivo. Inoltre il nodo condiviso c_end_lav_sub_ok indica una durata errata (tre anni per il tempo indeterminato: il primo permesso dura al massimo due anni, art. 5, c. 3-bis, TU).",
+      "sintesi": "Il permesso 'ricercatore' (art. 27-ter TU) dura quanto il programma di ricerca e consente gia' lavoro subordinato o autonomo nell'ambito della convenzione di accoglienza (c. 7), ma non e' tra i permessi convertibili dell'art. 6, c. 1-bis, TU. La via espressa e' il permesso per ricerca lavoro di 9-12 mesi alla scadenza (c. 9-bis), poi convertibile in lavoro 'in presenza dei requisiti previsti dal presente testo unico'. Per i ricercatori qualificati e' percorribile la Carta blu UE fuori quota da regolarmente soggiornante (art. 27-quater, c. 2, lett. c; il c. 3, lett. c, esclude solo chi chiede di soggiornare come ricercatore). Una conversione diretta in corso di programma puo' essere sostenuta con l'art. 27-ter, c. 11-nonies (rinvio all'art. 22 TU) e con l'art. 5, c. 9, TU, ma non risultano precedenti: TAR Toscana 11/2026 ha lasciato aperta la questione.",
+      "requisiti": [
+        "Via principale: completamento della ricerca con conferma dell'istituto, permesso ex art. 27-ter, c. 9-bis, e poi contratto di lavoro (subordinato) o requisiti art. 26 (autonomo)",
+        "Via alternativa: requisiti della Carta blu (titolo terziario, offerta qualificata)",
+        "Passaporto valido; DID per il permesso di ricerca lavoro"
+      ],
+      "procedura": "Ricerca lavoro: Questura (kit postale), con DID e conferma di completamento (producibile entro 60 giorni, c. 9-ter). Conversione successiva in lavoro: Sportello Unico (contratto di soggiorno) e Questura; il regime delle quote per questa conversione non e' espresso: da validare. Carta blu: nulla osta dello Sportello Unico fuori quota.",
+      "norme": [
+        {
+          "estremi": "art. 27-ter, c. 7, d.lgs. 286/1998",
+          "contenuto": "Il permesso 'ricercatore' dura quanto il programma di ricerca e consente l'attivita' indicata nella convenzione di accoglienza come lavoro subordinato, autonomo o borsa di addestramento alla ricerca; si rinnova con la proroga del programma.",
+          "citazione": "consente lo svolgimento dell'attivita' indicata nella convenzione di accoglienza nelle forme di lavoro subordinato, di lavoro autonomo o borsa di addestramento alla ricerca",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art27ter"
+        },
+        {
+          "estremi": "art. 27-ter, cc. 9-bis, 9-ter e 9-quater, d.lgs. 286/1998",
+          "contenuto": "Al termine della ricerca, permesso di 9-12 mesi per cercare occupazione o avviare impresa coerente con la ricerca svolta (DID ex art. 19 d.lgs. 150/2015; conferma di completamento dell'istituto, producibile entro 60 giorni); i familiari rinnovano per la stessa durata; poi conversione in lavoro.",
+          "citazione": "In presenza dei requisiti previsti dal presente testo unico, puo' essere richiesta la conversione in permesso di soggiorno per lavoro.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art27ter"
+        },
+        {
+          "estremi": "art. 27-ter, c. 11-nonies, d.lgs. 286/1998",
+          "contenuto": "Per quanto non previsto si applica l'art. 22, ove compatibile (salvo il c. 6, secondo periodo).",
+          "citazione": "si applicano, ove compatibili, le disposizioni di cui all'articolo 22, ad eccezione del comma 6, secondo periodo",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art27ter"
+        },
+        {
+          "estremi": "art. 27-quater, c. 2, lett. c), e c. 3, d.lgs. 286/1998",
+          "contenuto": "La Carta blu UE (fuori quota) e' accessibile anche allo straniero gia' regolarmente soggiornante in possesso dei requisiti (titolo terziario almeno triennale o qualifiche equivalenti); il c. 3, lett. c), esclude solo chi chiede di soggiornare come ricercatore ex art. 27-ter, non chi lo e' stato.",
+          "citazione": "c) agli stranieri in possesso dei requisiti di cui al comma 1, regolarmente soggiornanti sul territorio nazionale.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art27quater"
+        },
+        {
+          "estremi": "art. 5, c. 9, d.lgs. 286/1998",
+          "contenuto": "Il permesso e' rilasciato, rinnovato o convertito se ricorrono i requisiti per il titolo richiesto o, in mancanza, per altro titolo: fonda l'obbligo della Questura di valutare titoli alternativi (es. permesso UE di lungo periodo) prima del diniego.",
+          "citazione": "ovvero, in mancanza di questo, per altro tipo di permesso da rilasciare in applicazione del presente testo unico",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art5"
+        },
+        {
+          "estremi": "art. 25, parr. 1-3 e 5-7, dir. (UE) 2016/801",
+          "contenuto": "Dopo gli studi o la ricerca, permesso di almeno nove mesi per cercare lavoro o avviare un'impresa; gli Stati possono fissare un livello minimo del titolo (non oltre EQF 7), chiedere la domanda 30 giorni prima della scadenza, consentire la produzione tardiva del titolo e, dopo tre mesi, verificare la reale possibilita' di assunzione.",
+          "citazione": "per un periodo di almeno nove mesi al fine di cercare un'occupazione o avviare un'impresa",
+          "url": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32016L0801"
+        },
+        {
+          "estremi": "art. 5, c. 3-bis, lett. b) e c), d.lgs. 286/1998",
+          "contenuto": "Il primo permesso per lavoro subordinato dura quanto il contratto di soggiorno, al massimo un anno (tempo determinato) o due anni (tempo indeterminato); ciascun rinnovo fino a tre anni.",
+          "citazione": "c) in relazione ad un contratto di lavoro subordinato a tempo indeterminato, la durata di due anni. Ciascun rinnovo non puo' superare la durata di tre anni.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art5"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "TAR Toscana, sez. II",
+          "data": "2026-01-05",
+          "numero": "n. 11/2026",
+          "principio": "Dottore di ricerca entrato con visto C per ricerca bimestrale poi prorogata oltre tre mesi: la Questura doveva valutare il rilascio del permesso ex art. 27-ter TU anziche' dichiarare improcedibile l'istanza per il tipo di visto. Sulla conversione ricerca-lavoro il TAR non si pronuncia (potere non ancora esercitato, art. 34, c. 2, c.p.a.).",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=tar_fi&nrg=202500924&nomeFile=202600011_01.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "letta_integrale": true
+        },
+        {
+          "corte": "TAR Toscana, sez. II",
+          "data": "2026-10-29",
+          "numero": "n. 2072/2026",
+          "principio": "Ricercatore/studente dell'Istituto Universitario Europeo, soggiornante con carta MAECI (esente da permesso): alla scadenza, per analogia (art. 12 preleggi; art. 1, c. 3, TU) si applica l'art. 39-bis.1 TU; illegittima l'archiviazione dell'istanza di permesso per ricerca lavoro motivata con l'assenza di visto specifico.",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=tar_fi&nrg=202600479&nomeFile=202602072_01.pdf&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "letta_integrale": true
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Ricercatore entrato con visto breve poi prorogato",
+          "testo": "TAR Toscana 11/2026: se la ricerca supera i tre mesi la Questura deve valutare il permesso ex art. 27-ter; la conversione in lavoro presuppone che il permesso per ricerca sia stato rilasciato."
+        },
+        {
+          "titolo": "Ricercatore con carta MAECI (Istituto Universitario Europeo)",
+          "testo": "TAR Toscana 2072/2026: applicazione analogica dell'art. 39-bis.1 alla scadenza della carta, poi conversione in lavoro."
+        },
+        {
+          "titolo": "Dottorando con permesso per studio anziche' ricercatore",
+          "testo": "Il dottorando iscritto a un corso di dottorato ha di regola permesso per studio (art. 39 TU): si applica la conversione studio -> lavoro dell'art. 6, c. 1, molto piu' agevole. Verificare il tipo di permesso."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Il permesso reca la dicitura 'ricercatore' (art. 27-ter) o 'studio' (es. dottorato)?",
+          "perche": "Per lo studio vale l'art. 6, c. 1, TU; per il ricercatore no.",
+          "opzioni": [
+            "ricercatore",
+            "mobilita'-ricercatore",
+            "studio (dottorato)",
+            "non so"
+          ]
+        },
+        {
+          "domanda": "Il programma di ricerca e' concluso e l'istituto puo' rilasciarne conferma?",
+          "perche": "Presupposto del permesso ex art. 27-ter, c. 9-bis.",
+          "opzioni": [
+            "concluso con conferma",
+            "in corso",
+            "interrotto"
+          ]
+        },
+        {
+          "domanda": "Ha un'offerta di lavoro altamente qualificato?",
+          "perche": "Via della Carta blu (art. 27-quater).",
+          "opzioni": [
+            "si",
+            "no"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "ricerca_scientifica",
+      "a": "attesa_occupazione (permesso per ricerca lavoro, art. 27-ter, c. 9-bis)",
+      "nodo_albero": "c_vorresti_ricerca -> c_end_att_ok",
+      "esito_albero": "POSSIBILE",
+      "esito_verificato": "possibile",
+      "discrepanza": "Corretto nell'esito, ma il permesso e' quello dell'art. 27-ter, c. 9-bis (ricerca lavoro, 9-12 mesi, dopo il completamento della ricerca), non l'attesa occupazione dell'art. 22, c. 11. Il nodo non menziona la conferma di completamento e la DID.",
+      "sintesi": "Il ricercatore che ha completato l'attivita' di ricerca puo', alla scadenza del permesso 'ricercatore', dichiarare l'immediata disponibilita' al lavoro e chiedere un permesso di 9-12 mesi per cercare un'occupazione o avviare un'impresa coerente con la ricerca (art. 27-ter, c. 9-bis, TU; art. 25 dir. 2016/801); i permessi dei familiari si rinnovano per la stessa durata. Va allegata la conferma di completamento rilasciata dall'istituto, producibile entro 60 giorni (c. 9-ter). Il rilascio dello stesso permesso fa cessare l'obbligo dell'istituto di farsi carico delle spese di eventuale irregolarita' (c. 2-bis). Poi e' possibile la conversione in lavoro.",
+      "requisiti": [
+        "Passaporto valido",
+        "Attivita' di ricerca completata con conferma dell'istituto",
+        "DID al Centro per l'impiego",
+        "Domanda alla scadenza del permesso 'ricercatore'"
+      ],
+      "procedura": "Questura (kit postale); nessuna quota; durata 9-12 mesi; familiari rinnovati per la stessa durata.",
+      "norme": [
+        {
+          "estremi": "art. 27-ter, cc. 9-bis, 9-ter e 9-quater, d.lgs. 286/1998",
+          "contenuto": "Al termine della ricerca, permesso di 9-12 mesi per cercare occupazione o avviare impresa coerente con la ricerca svolta (DID ex art. 19 d.lgs. 150/2015; conferma di completamento dell'istituto, producibile entro 60 giorni); i familiari rinnovano per la stessa durata; poi conversione in lavoro.",
+          "citazione": "In presenza dei requisiti previsti dal presente testo unico, puo' essere richiesta la conversione in permesso di soggiorno per lavoro.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art27ter"
+        },
+        {
+          "estremi": "art. 25, parr. 1-3 e 5-7, dir. (UE) 2016/801",
+          "contenuto": "Dopo gli studi o la ricerca, permesso di almeno nove mesi per cercare lavoro o avviare un'impresa; gli Stati possono fissare un livello minimo del titolo (non oltre EQF 7), chiedere la domanda 30 giorni prima della scadenza, consentire la produzione tardiva del titolo e, dopo tre mesi, verificare la reale possibilita' di assunzione.",
+          "citazione": "per un periodo di almeno nove mesi al fine di cercare un'occupazione o avviare un'impresa",
+          "url": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32016L0801"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "TAR Toscana, sez. II",
+          "data": "2026-10-29",
+          "numero": "n. 2072/2026",
+          "principio": "Ricercatore/studente dell'Istituto Universitario Europeo, soggiornante con carta MAECI (esente da permesso): alla scadenza, per analogia (art. 12 preleggi; art. 1, c. 3, TU) si applica l'art. 39-bis.1 TU; illegittima l'archiviazione dell'istanza di permesso per ricerca lavoro motivata con l'assenza di visto specifico.",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=tar_fi&nrg=202600479&nomeFile=202602072_01.pdf&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "letta_integrale": true
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Ricerca interrotta prima del termine",
+          "testo": "Il c. 9-bis richiede che la ricerca sia 'completata': in caso di interruzione la norma non soccorre e resta solo l'eventuale nuovo titolo (lavoro con nulla osta, studio). Punto da validare."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "L'istituto ha rilasciato (o rilascera' entro 60 giorni) la conferma di completamento della ricerca?",
+          "perche": "Requisito del c. 9-ter.",
+          "opzioni": [
+            "si",
+            "entro 60 giorni",
+            "no"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "ricerca_scientifica",
+      "a": "studio",
+      "nodo_albero": "c_vorresti_ricerca -> c_end_complicata",
+      "esito_albero": "SITUAZIONE COMPLICATA",
+      "esito_verificato": "condizionato",
+      "discrepanza": "Coerente. Si puo' precisare l'unica via espressa: art. 39, cc. 5 e 5-bis, TU per chi soggiorna regolarmente da almeno un anno con diploma di scuola secondaria superiore conseguito in Italia (i ricercatori non sono tra le categorie di permesso elencate).",
+      "sintesi": "Non c'e' una norma che converta il permesso 'ricercatore' in permesso per studio. L'art. 39, c. 5, TU consente l'accesso ai corsi di formazione superiore, con permesso per studio rilasciato dal questore senza visto (c. 5-bis), ai titolari dei permessi ivi elencati (non il ricercatore) e a chi soggiorna regolarmente da almeno un anno con diploma secondario superiore italiano: per il ricercatore la via e' praticabile solo in quest'ultimo caso. Altrimenti occorre il visto per studio dall'estero. Nessun precedente trovato.",
+      "requisiti": [
+        "Regolare soggiorno da almeno un anno e diploma di scuola secondaria superiore conseguito in Italia (art. 39, c. 5)",
+        "Iscrizione a un corso di formazione superiore e requisiti generali del permesso per studio"
+      ],
+      "procedura": "Richiesta di permesso per studio in Questura ex art. 39, c. 5-bis, TU; altrimenti visto per studio.",
+      "norme": [
+        {
+          "estremi": "art. 39, cc. 5 e 5-bis, d.lgs. 286/1998",
+          "contenuto": "Accesso ai corsi di formazione superiore a parita' con gli italiani per i titolari, tra gli altri, di permesso per lavoro, famiglia, asilo, protezione sussidiaria, motivi religiosi, e per chi soggiorna regolarmente da almeno un anno con diploma di scuola secondaria superiore conseguito in Italia; a questi il questore rilascia un permesso per studio senza nuovo visto (c. 5-bis, introdotto dal d.lgs. 71/2018).",
+          "citazione": "Agli stranieri di cui ai commi 4-ter e 5 e' rilasciato dal questore un permesso di soggiorno per studio ai sensi dell'articolo 5, commi 3, lettera c) e 8, recante la dicitura «studente».",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art39"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [],
+      "domande_discriminanti": [
+        {
+          "domanda": "Ha un diploma di scuola secondaria superiore conseguito in Italia?",
+          "perche": "Unica via espressa dell'art. 39, c. 5, per chi non ha un permesso tra quelli elencati.",
+          "opzioni": [
+            "si",
+            "no"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "ricerca_scientifica",
+      "a": "famiglia",
+      "nodo_albero": "c_vorresti_ricerca -> c_end_fam_ok",
+      "esito_albero": "POSSIBILE",
+      "esito_verificato": "condizionato",
+      "discrepanza": null,
+      "sintesi": "Come per ogni permesso, il ricercatore familiare di cittadino italiano/UE residente o di straniero regolarmente soggiornante puo' convertire in permesso per famiglia se ricorrono i requisiti del ricongiungimento, entro un anno dalla scadenza (art. 30, c. 1, lett. c, TU), o per matrimonio dopo un anno di soggiorno (lett. b). Da non confondere con i familiari del ricercatore, che ricevono un permesso per famiglia di durata pari a quello del ricercatore (art. 27-ter, c. 8).",
+      "requisiti": [
+        "Vincolo familiare ex art. 29, c. 1",
+        "Requisiti di reddito e alloggio del familiare di riferimento",
+        "Domanda entro un anno dalla scadenza"
+      ],
+      "procedura": "Questura con kit postale; nessuna quota.",
+      "norme": [
+        {
+          "estremi": "art. 30, c. 1, lett. c), d.lgs. 286/1998",
+          "contenuto": "Il familiare regolarmente soggiornante, in possesso dei requisiti per il ricongiungimento con cittadino italiano/UE residente o con straniero regolarmente soggiornante, converte il proprio permesso (di qualsiasi tipo) in permesso per motivi familiari; la conversione si puo' chiedere entro un anno dalla scadenza del titolo.",
+          "citazione": "La conversione puo' essere richiesta entro un anno dalla data di scadenza del titolo di soggiorno originariamente posseduto dal familiare.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art30"
+        },
+        {
+          "estremi": "art. 30, c. 1, lett. b), d.lgs. 286/1998",
+          "contenuto": "Permesso per motivi familiari allo straniero regolarmente soggiornante ad altro titolo da almeno un anno che abbia contratto matrimonio in Italia con cittadino italiano, UE o straniero regolarmente soggiornante.",
+          "citazione": "b) agli stranieri regolarmente soggiornanti ad altro titolo da almeno un anno che abbiano contratto matrimonio nel territorio dello Stato",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art30"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [],
+      "domande_discriminanti": [
+        {
+          "domanda": "Chi e' il familiare di riferimento e che titolo ha?",
+          "perche": "Requisiti ex artt. 29-30 TU o d.lgs. 30/2007.",
+          "opzioni": [
+            "italiano",
+            "UE",
+            "straniero regolarmente soggiornante"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "ricerca_scientifica",
+      "a": "ue_lungo_periodo",
+      "nodo_albero": "c_vorresti_ricerca -> c_end_carta_no",
+      "esito_albero": "NON POSSIBILE",
+      "esito_verificato": "condizionato",
+      "discrepanza": "L'esito NON POSSIBILE non trova riscontro normativo: l'art. 9, c. 3, TU non esclude i ricercatori (esclude studio/formazione, protezioni temporanee, richiedenti asilo, permessi di breve durata, diplomatici) e nemmeno l'art. 3, par. 2, dir. 2003/109. Con cinque anni di permesso, reddito e lingua, il ricercatore puo' chiedere il permesso UE.",
+      "sintesi": "Il titolare di permesso 'ricercatore' non rientra nelle esclusioni dell'art. 9, c. 3, TU ne' dell'art. 3, par. 2, dir. 2003/109: maturati cinque anni di permesso in corso di validita' (computando anche eventuali anni di studio, art. 9, c. 5) e con reddito non inferiore all'assegno sociale e test di italiano, puo' chiedere il permesso UE per soggiornanti di lungo periodo. Resta da verificare se la Questura qualifichi il permesso per ricerca, legato a un programma determinato, come 'titolo formalmente limitato' (art. 3, par. 2, lett. e, dir. 2003/109): l'art. 9 TU non riproduce questa esclusione. Nessun precedente trovato.",
+      "requisiti": [
+        "Cinque anni di permesso valido (ricerca, studio, altri titoli)",
+        "Reddito non inferiore all'assegno sociale",
+        "Test di italiano A2",
+        "Assenze nei limiti dell'art. 9, c. 6"
+      ],
+      "procedura": "Questura con kit postale.",
+      "norme": [
+        {
+          "estremi": "art. 9, c. 1, d.lgs. 286/1998",
+          "contenuto": "Permesso UE per soggiornanti di lungo periodo: permesso in corso di validita' da almeno cinque anni, reddito non inferiore all'assegno sociale, alloggio idoneo (per i familiari), test di italiano (c. 2-bis).",
+          "citazione": "Lo straniero in possesso, da almeno cinque anni, di un permesso di soggiorno in corso di validita'",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art9"
+        },
+        {
+          "estremi": "art. 9, c. 5, d.lgs. 286/1998",
+          "contenuto": "Dal quinquennio sono esclusi solo i periodi con permesso di breve durata (c. 3, lett. d) e con status diplomatico (lett. e). Non c'e' il dimezzamento dei periodi di studio previsto come facolta' dall'art. 4, par. 2, dir. 2003/109: la norma italiana e' piu' favorevole.",
+          "citazione": "Ai fini del calcolo del periodo di cui al comma 1, non si computano i periodi di soggiorno per i motivi indicati nelle lettere d) ed e) del comma 3.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art9"
+        },
+        {
+          "estremi": "art. 3, par. 2, dir. 2003/109/CE",
+          "contenuto": "La direttiva non si applica a chi soggiorna per studio o formazione (lett. a) ne' a chi soggiorna unicamente per motivi temporanei o con titolo formalmente limitato (lett. e). Ricercatori, religiosi e sportivi non sono esclusi espressamente.",
+          "citazione": "soggiornano unicamente per motivi di carattere temporaneo ad esempio in qualità di persone «alla pari», lavoratori stagionali",
+          "url": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32003L0109"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Ricercatore in mobilita' da altro Stato UE",
+          "testo": "I periodi trascorsi in Italia senza permesso (mobilita' breve, art. 27-ter, c. 11) non sono periodi di 'permesso in corso di validita'' ai fini dell'art. 9, c. 1: da escludere dal computo salvo diversa interpretazione."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Da quanti anni ha un permesso valido in Italia (ricerca, studio, altro)?",
+          "perche": "Quinquennio dell'art. 9, c. 1.",
+          "opzioni": [
+            "meno di 5",
+            "5 o piu'"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "attivita_sportiva / lavoro_artistico (art. 27, c. 1, lett. m-p, TU)",
+      "a": "lavoro_subordinato / lavoro_autonomo",
+      "nodo_albero": "c_vorresti_sport_art -> c_end_lav_sub_ok | c_end_lav_aut_ok",
+      "esito_albero": "POSSIBILE (nulla osta dello Sportello Unico e kit postale)",
+      "esito_verificato": "condizionato",
+      "discrepanza": "L'albero non distingue sport professionistico e dilettantistico: per l'art. 6, c. 1-bis, lett. e), TU e' convertibile solo il permesso per sport professionistico (art. 27, c. 1, lett. p); il permesso per sport dilettantistico non lo e' (TAR Sardegna 817/2026; TAR Emilia-Romagna ord. 317/2026). Per il lavoro artistico la conversione vale per le lett. m), n), o). Inoltre la durata indicata nel nodo condiviso (tre anni se a tempo indeterminato) e' errata per il primo permesso (art. 5, c. 3-bis, TU).",
+      "sintesi": "Dal 22.10.2020 il permesso per attivita' sportiva professionistica (art. 27, c. 1, lett. p, TU) e quello per lavoro artistico (lett. m, n, o) sono convertibili in permesso per motivi di lavoro, ove ne ricorrano i requisiti (art. 6, c. 1-bis, lett. e, f, introdotto dal d.l. 130/2020 e non toccato dal d.l. 20/2023). La norma primaria deroga per queste categorie al divieto di conversione dell'art. 40, c. 23, d.P.R. 394/1999, che resta operativo per gli altri permessi dell'art. 27. La giurisprudenza recente legge la lett. e) in senso stretto: il permesso per sport dilettantistico, anche con rimborsi, non e' convertibile (TAR Sardegna 817/2026, che richiama la l. 91/1981 sostituita dal d.lgs. 36/2021). La norma non dice se la conversione e' fuori quota: TAR Sardegna la descrive come tale; da validare.",
+      "requisiti": [
+        "Permesso per sport professionistico (dichiarazione nominativa di assenso CONI su richiesta di societa' sportiva, art. 40, c. 16, d.P.R. 394/1999) o per lavoro artistico ex art. 27, c. 1, lett. m), n), o)",
+        "Permesso in corso di validita' alla domanda",
+        "Contratto di lavoro subordinato (contratto di soggiorno) o requisiti dell'art. 26 per l'autonomo",
+        "Requisiti generali del permesso per lavoro"
+      ],
+      "procedura": "Le istanze esaminate nei precedenti sono state presentate in Questura (TAR Sardegna 817/2026: domanda alla Questura di Cagliari; TAR Emilia-Romagna 1259/2026: Questura di Ferrara). Il ruolo dello Sportello Unico per il contratto di soggiorno e il regime delle quote non sono disciplinati espressamente: da verificare con la prassi della Questura competente.",
+      "norme": [
+        {
+          "estremi": "art. 6, c. 1-bis, lett. e) e f), d.lgs. 286/1998 (inserito dal d.l. 130/2020, in vigore dal 22.10.2020)",
+          "contenuto": "Sono convertibili in permesso per motivi di lavoro, ove ne ricorrano i requisiti, il permesso per attivita' sportiva (art. 27, c. 1, lett. p: sport professionistico) e quello per lavoro artistico (art. 27, c. 1, lett. m, n, o). Le lettere a), b) e h-bis) sono state abrogate dal d.l. 20/2023; e), f) e g) restano vigenti.",
+          "citazione": "e) permesso di soggiorno per attivita' sportiva, di cui all'articolo 27, comma 1, lettera p);",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art6"
+        },
+        {
+          "estremi": "art. 27, c. 1, lett. m), n), o), p), d.lgs. 286/1998",
+          "contenuto": "Ingressi fuori quota per personale artistico e tecnico di spettacoli (m), ballerini, artisti e musicisti in locali di intrattenimento (n), artisti per enti musicali, teatrali, cinematografici, radiotelevisivi (o), sportivi professionisti presso societa' sportive italiane (p, rinvio alla l. 91/1981).",
+          "citazione": "p) stranieri che siano destinati a svolgere qualsiasi tipo di attivita' sportiva professionistica presso societa' sportive italiane ai sensi della legge 23 marzo 1981, n. 91;",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art27"
+        },
+        {
+          "estremi": "art. 40, c. 16, d.P.R. 394/1999",
+          "contenuto": "Per gli sportivi dell'art. 27, c. 1, lett. p) il nulla osta e' sostituito dalla dichiarazione nominativa di assenso del CONI, anche per lavoro autonomo; rinnovabile anche per trasferimento tra societa' della stessa federazione.",
+          "citazione": "il nullaosta al lavoro e' sostituito dalla dichiarazione nominativa di assenso del Comitato olimpico nazionale italiano (CONI)",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art40"
+        },
+        {
+          "estremi": "art. 40, c. 23, ultimo periodo, d.P.R. 394/1999",
+          "contenuto": "Divieto di conversione dei permessi rilasciati per i casi particolari dell'art. 27 TU (sport, spettacolo, ecc.), salvo l'art. 14, c. 5. Per sport professionistico e lavoro artistico e' derogato dalla norma primaria successiva (art. 6, c. 1-bis, lett. e-f, TU); resta operativo per le altre categorie dell'art. 27 (es. sport dilettantistico, secondo TAR Sardegna 817/2026). Il c. 23 applica l'art. 22, c. 11, solo alle lett. d), e) e r-bis) dell'art. 27.",
+          "citazione": "I permessi di soggiorno rilasciati a norma del presente articolo non possono essere convertiti, salvo quanto previsto dall'articolo 14, comma 5",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art40"
+        },
+        {
+          "estremi": "art. 5, c. 3-bis, lett. b) e c), d.lgs. 286/1998",
+          "contenuto": "Il primo permesso per lavoro subordinato dura quanto il contratto di soggiorno, al massimo un anno (tempo determinato) o due anni (tempo indeterminato); ciascun rinnovo fino a tre anni.",
+          "citazione": "c) in relazione ad un contratto di lavoro subordinato a tempo indeterminato, la durata di due anni. Ciascun rinnovo non puo' superare la durata di tre anni.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art5"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "TAR Sardegna, sez. II",
+          "data": "2026-05-22",
+          "numero": "n. 817/2026",
+          "principio": "L'art. 6, c. 1-bis, lett. e), TU, letto con l'art. 27, c. 1, lett. p), consente la conversione in lavoro solo del permesso per sport professionistico; il permesso per attivita' sportiva dilettantistica non e' convertibile (norme speciali, niente analogia) e resta soggetto all'art. 40, c. 23, d.P.R. 394/1999. Il permesso per sport professionistico riguarda gli stranieri \"e non anche gli sportivi dilettanti, assoggettati al diverso regime di cui alle disposizioni generali sul soggiorno per motivi di lavoro o di studio\".",
+          "esito": "favorevole alla PA",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=tar_ca&nrg=202500472&nomeFile=202600817_01.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "letta_integrale": true
+        },
+        {
+          "corte": "TAR Emilia-Romagna, sez. I (ordinanza cautelare)",
+          "data": "2026-09-10",
+          "numero": "ord. n. 317/2026",
+          "principio": "Respinta la sospensiva contro il diniego di conversione da attivita' sportiva a lavoro subordinato: il ricorrente non ha mai svolto attivita' sportiva professionistica presso societa' sportive ai sensi della l. 91/1981.",
+          "esito": "favorevole alla PA",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=tar_bo&nrg=202600992&nomeFile=202600317_05.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "letta_integrale": true
+        }
+      ],
+      "prassi": [
+        {
+          "ente": "Ministero dell'Interno, Dipartimento di Pubblica Sicurezza",
+          "estremi": "circolare 1.6.2023 (attuazione l. 50/2023)",
+          "data": "2023-06-01",
+          "oggetto": "Abrogazione della convertibilita' in lavoro di protezione speciale, calamita' e cure mediche (art. 6, c. 1-bis, lett. a, b, h-bis); restano convertibili sport professionistico, lavoro artistico, motivi religiosi; regime transitorio per istanze fino al 4.5.2023",
+          "url": "https://drive.google.com/file/d/1G05VoBKixbg5dCyI1V9-wwgbbax8Cl8Z/view?usp=drivesdk"
+        }
+      ],
+      "casi_limite": [
+        {
+          "titolo": "Sportivo dilettante con permesso per attivita' sportiva",
+          "testo": "Non convertibile: la lett. e) dell'art. 6, c. 1-bis richiama solo l'art. 27, c. 1, lett. p) (professionisti); ai dilettanti si applica l'art. 40, c. 23, d.P.R. 394/1999 (TAR Sardegna 817/2026, che giudica la distinzione non discriminatoria). Dopo la riforma del lavoro sportivo (d.lgs. 36/2021) il confine tra professionismo e dilettantismo dipende dalla qualificazione del settore da parte della federazione: argomento non ancora esaminato dalla giurisprudenza trovata."
+        },
+        {
+          "titolo": "Allenatori e preparatori atletici",
+          "testo": "L'art. 40, c. 17, d.P.R. 394/1999 li esclude dalle aliquote CONI; se il loro permesso e' qualificato ex art. 27, c. 1, lett. p) la conversione dovrebbe seguire la lett. e). Da verificare."
+        },
+        {
+          "titolo": "Ballerini e musicisti in locali di intrattenimento (lett. n)",
+          "testo": "Il permesso lett. n) non e' rinnovabile ne' utilizzabile per nuovi rapporti (art. 40, c. 23, d.P.R. 394/1999), ma e' espressamente convertibile ex art. 6, c. 1-bis, lett. f): la conversione va chiesta in costanza di validita'."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Il permesso e' per sport professionistico (con assenso CONI su richiesta di societa' di settore professionistico) o dilettantistico?",
+          "perche": "Solo il professionistico e' convertibile (art. 6, c. 1-bis, lett. e; TAR Sardegna 817/2026).",
+          "opzioni": [
+            "professionistico",
+            "dilettantistico",
+            "non so"
+          ]
+        },
+        {
+          "domanda": "Per gli artisti: in quale categoria dell'art. 27, c. 1, rientra il permesso (m, n, o)?",
+          "perche": "Convertibili solo le lett. m), n), o).",
+          "opzioni": [
+            "m) spettacoli lirici/teatrali/concertistici/balletto",
+            "n) locali di intrattenimento",
+            "o) enti musicali/teatrali/cinematografici/radio-TV",
+            "altro"
+          ]
+        },
+        {
+          "domanda": "Il permesso e' ancora valido?",
+          "perche": "La norma presuppone un permesso da convertire; non c'e' giurisprudenza sulla tolleranza del ritardo per queste categorie.",
+          "opzioni": [
+            "valido",
+            "scaduto"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "attivita_sportiva / lavoro_artistico",
+      "a": "attesa_occupazione",
+      "nodo_albero": "c_vorresti_sport_art -> c_end_att_ok",
+      "esito_albero": "POSSIBILE",
+      "esito_verificato": "incerto",
+      "discrepanza": "Nessuna norma prevede la conversione diretta in attesa occupazione: l'art. 22, c. 11, TU riguarda chi ha un permesso per lavoro subordinato e perde il lavoro; l'art. 40, c. 23, d.P.R. 394/1999 estende l'art. 22, c. 11, solo alle lett. d), e) e r-bis) dell'art. 27, non a sport e spettacolo. L'esito POSSIBILE non e' supportato.",
+      "sintesi": "Per sportivi professionisti e artisti la legge prevede la conversione in 'permesso per motivi di lavoro' (art. 6, c. 1-bis, lett. e-f, TU), non in attesa occupazione. L'attesa occupazione dell'art. 22, c. 11, TU presuppone un permesso per lavoro subordinato e la perdita del lavoro, e l'art. 40, c. 23, d.P.R. 394/1999 la estende a poche categorie dell'art. 27 (lett. d, e, r-bis) ma non alle lett. m-p. Si puo' sostenere che il permesso per sport professionistico subordinato sia gia' un permesso 'per lavoro subordinato' (art. 27, c. 1, alinea) e quindi soggetto all'art. 22, c. 11, alla cessazione del rapporto, ma la tesi non ha riscontri trovati. Esito da considerare incerto.",
+      "requisiti": [
+        "Permesso per sport professionistico o lavoro artistico",
+        "Cessazione del rapporto e DID (solo nella tesi estensiva)"
+      ],
+      "procedura": "Non disciplinata; eventuale istanza in Questura con richiamo all'art. 22, c. 11, e all'art. 5, c. 9, TU.",
+      "norme": [
+        {
+          "estremi": "art. 22, c. 11, d.lgs. 286/1998",
+          "contenuto": "L'attesa occupazione (disoccupazione con DID per almeno un anno) spetta al titolare di permesso per lavoro subordinato che perde il lavoro: non e' prevista come conversione diretta da permessi diversi.",
+          "citazione": "Il lavoratore straniero in possesso del permesso di soggiorno per lavoro subordinato che perde il posto di lavoro",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art22"
+        },
+        {
+          "estremi": "art. 40, c. 23, ultimo periodo, d.P.R. 394/1999",
+          "contenuto": "Divieto di conversione dei permessi rilasciati per i casi particolari dell'art. 27 TU (sport, spettacolo, ecc.), salvo l'art. 14, c. 5. Per sport professionistico e lavoro artistico e' derogato dalla norma primaria successiva (art. 6, c. 1-bis, lett. e-f, TU); resta operativo per le altre categorie dell'art. 27 (es. sport dilettantistico, secondo TAR Sardegna 817/2026). Il c. 23 applica l'art. 22, c. 11, solo alle lett. d), e) e r-bis) dell'art. 27.",
+          "citazione": "I permessi di soggiorno rilasciati a norma del presente articolo non possono essere convertiti, salvo quanto previsto dall'articolo 14, comma 5",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art40"
+        },
+        {
+          "estremi": "art. 6, c. 1-bis, lett. e) e f), d.lgs. 286/1998 (inserito dal d.l. 130/2020, in vigore dal 22.10.2020)",
+          "contenuto": "Sono convertibili in permesso per motivi di lavoro, ove ne ricorrano i requisiti, il permesso per attivita' sportiva (art. 27, c. 1, lett. p: sport professionistico) e quello per lavoro artistico (art. 27, c. 1, lett. m, n, o). Le lettere a), b) e h-bis) sono state abrogate dal d.l. 20/2023; e), f) e g) restano vigenti.",
+          "citazione": "e) permesso di soggiorno per attivita' sportiva, di cui all'articolo 27, comma 1, lettera p);",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art6"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [],
+      "domande_discriminanti": [
+        {
+          "domanda": "Il rapporto sportivo o artistico era di lavoro subordinato ed e' cessato?",
+          "perche": "Unico appiglio per l'art. 22, c. 11, TU.",
+          "opzioni": [
+            "subordinato, cessato",
+            "subordinato, in corso",
+            "autonomo"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "attivita_sportiva / lavoro_artistico",
+      "a": "studio",
+      "nodo_albero": "c_vorresti_sport_art -> c_end_complicata",
+      "esito_albero": "SITUAZIONE COMPLICATA",
+      "esito_verificato": "condizionato",
+      "discrepanza": null,
+      "sintesi": "Nessuna norma converte i permessi dell'art. 27 TU in studio e l'art. 40, c. 23, d.P.R. 394/1999 vieta le conversioni non previste. L'unica via e' l'art. 39, cc. 5 e 5-bis, TU: permesso per studio senza visto per chi soggiorna regolarmente da almeno un anno con diploma secondario superiore conseguito in Italia (sport e spettacolo non sono tra i permessi elencati). Lo sportivo dilettante, secondo TAR Sardegna 817/2026, e' assoggettato alle 'disposizioni generali' su lavoro o studio, il che non apre una conversione ma rinvia ai canali ordinari (visto).",
+      "requisiti": [
+        "Un anno di regolare soggiorno e diploma secondario superiore italiano (art. 39, c. 5)",
+        "Iscrizione a corso di formazione superiore"
+      ],
+      "procedura": "Questura (art. 39, c. 5-bis) se ricorrono i requisiti; altrimenti visto per studio.",
+      "norme": [
+        {
+          "estremi": "art. 39, cc. 5 e 5-bis, d.lgs. 286/1998",
+          "contenuto": "Accesso ai corsi di formazione superiore a parita' con gli italiani per i titolari, tra gli altri, di permesso per lavoro, famiglia, asilo, protezione sussidiaria, motivi religiosi, e per chi soggiorna regolarmente da almeno un anno con diploma di scuola secondaria superiore conseguito in Italia; a questi il questore rilascia un permesso per studio senza nuovo visto (c. 5-bis, introdotto dal d.lgs. 71/2018).",
+          "citazione": "Agli stranieri di cui ai commi 4-ter e 5 e' rilasciato dal questore un permesso di soggiorno per studio ai sensi dell'articolo 5, commi 3, lettera c) e 8, recante la dicitura «studente».",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art39"
+        },
+        {
+          "estremi": "art. 40, c. 23, ultimo periodo, d.P.R. 394/1999",
+          "contenuto": "Divieto di conversione dei permessi rilasciati per i casi particolari dell'art. 27 TU (sport, spettacolo, ecc.), salvo l'art. 14, c. 5. Per sport professionistico e lavoro artistico e' derogato dalla norma primaria successiva (art. 6, c. 1-bis, lett. e-f, TU); resta operativo per le altre categorie dell'art. 27 (es. sport dilettantistico, secondo TAR Sardegna 817/2026). Il c. 23 applica l'art. 22, c. 11, solo alle lett. d), e) e r-bis) dell'art. 27.",
+          "citazione": "I permessi di soggiorno rilasciati a norma del presente articolo non possono essere convertiti, salvo quanto previsto dall'articolo 14, comma 5",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art40"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "TAR Sardegna, sez. II",
+          "data": "2026-05-22",
+          "numero": "n. 817/2026",
+          "principio": "L'art. 6, c. 1-bis, lett. e), TU, letto con l'art. 27, c. 1, lett. p), consente la conversione in lavoro solo del permesso per sport professionistico; il permesso per attivita' sportiva dilettantistica non e' convertibile (norme speciali, niente analogia) e resta soggetto all'art. 40, c. 23, d.P.R. 394/1999. Il permesso per sport professionistico riguarda gli stranieri \"e non anche gli sportivi dilettanti, assoggettati al diverso regime di cui alle disposizioni generali sul soggiorno per motivi di lavoro o di studio\".",
+          "esito": "favorevole alla PA",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=tar_ca&nrg=202500472&nomeFile=202600817_01.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "letta_integrale": true
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [],
+      "domande_discriminanti": [
+        {
+          "domanda": "Ha un diploma di scuola secondaria superiore italiano e almeno un anno di soggiorno regolare?",
+          "perche": "Art. 39, c. 5, TU.",
+          "opzioni": [
+            "si",
+            "no"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "attivita_sportiva / lavoro_artistico",
+      "a": "famiglia",
+      "nodo_albero": "c_vorresti_sport_art -> c_end_fam_ok",
+      "esito_albero": "POSSIBILE",
+      "esito_verificato": "condizionato",
+      "discrepanza": "Coerente. Da segnalare il possibile contrasto con il divieto dell'art. 40, c. 23, d.P.R. 394/1999 ('non possono essere convertiti'), superabile perche' l'art. 30, c. 1, lett. c), TU (fonte primaria) riguarda il 'familiare straniero regolarmente soggiornante' senza distinguere il titolo.",
+      "sintesi": "L'art. 30, c. 1, lett. c), TU consente al familiare regolarmente soggiornante, con qualsiasi titolo, di convertire il permesso in famiglia se ricorrono i requisiti del ricongiungimento, entro un anno dalla scadenza; la lett. b) copre il matrimonio in Italia dopo un anno di soggiorno. La norma primaria prevale sul divieto regolamentare dell'art. 40, c. 23, d.P.R. 394/1999. Nessun precedente specifico trovato.",
+      "requisiti": [
+        "Vincolo familiare ex art. 29, c. 1",
+        "Requisiti di reddito e alloggio del familiare di riferimento",
+        "Domanda entro un anno dalla scadenza"
+      ],
+      "procedura": "Questura con kit postale.",
+      "norme": [
+        {
+          "estremi": "art. 30, c. 1, lett. c), d.lgs. 286/1998",
+          "contenuto": "Il familiare regolarmente soggiornante, in possesso dei requisiti per il ricongiungimento con cittadino italiano/UE residente o con straniero regolarmente soggiornante, converte il proprio permesso (di qualsiasi tipo) in permesso per motivi familiari; la conversione si puo' chiedere entro un anno dalla scadenza del titolo.",
+          "citazione": "La conversione puo' essere richiesta entro un anno dalla data di scadenza del titolo di soggiorno originariamente posseduto dal familiare.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art30"
+        },
+        {
+          "estremi": "art. 30, c. 1, lett. b), d.lgs. 286/1998",
+          "contenuto": "Permesso per motivi familiari allo straniero regolarmente soggiornante ad altro titolo da almeno un anno che abbia contratto matrimonio in Italia con cittadino italiano, UE o straniero regolarmente soggiornante.",
+          "citazione": "b) agli stranieri regolarmente soggiornanti ad altro titolo da almeno un anno che abbiano contratto matrimonio nel territorio dello Stato",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art30"
+        },
+        {
+          "estremi": "art. 40, c. 23, ultimo periodo, d.P.R. 394/1999",
+          "contenuto": "Divieto di conversione dei permessi rilasciati per i casi particolari dell'art. 27 TU (sport, spettacolo, ecc.), salvo l'art. 14, c. 5. Per sport professionistico e lavoro artistico e' derogato dalla norma primaria successiva (art. 6, c. 1-bis, lett. e-f, TU); resta operativo per le altre categorie dell'art. 27 (es. sport dilettantistico, secondo TAR Sardegna 817/2026). Il c. 23 applica l'art. 22, c. 11, solo alle lett. d), e) e r-bis) dell'art. 27.",
+          "citazione": "I permessi di soggiorno rilasciati a norma del presente articolo non possono essere convertiti, salvo quanto previsto dall'articolo 14, comma 5",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art40"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [],
+      "domande_discriminanti": [
+        {
+          "domanda": "Chi e' il familiare di riferimento e che titolo ha?",
+          "perche": "Requisiti ex artt. 29-30 TU o d.lgs. 30/2007.",
+          "opzioni": [
+            "italiano",
+            "UE",
+            "straniero regolarmente soggiornante"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "attivita_sportiva / lavoro_artistico",
+      "a": "ue_lungo_periodo",
+      "nodo_albero": "c_vorresti_sport_art -> c_end_carta_ok",
+      "esito_albero": "POSSIBILE",
+      "esito_verificato": "condizionato",
+      "discrepanza": "L'esito e' in linea con l'art. 9 TU (nessuna esclusione espressa), ma va condizionato: i permessi per spettacolo di breve durata (es. art. 40, c. 15, d.P.R. 394/1999, meno di 90 giorni) e quelli della lett. n), non rinnovabili, rischiano la qualificazione di 'breve durata' (art. 9, c. 3, lett. d, e c. 5) o di titolo 'formalmente limitato' (art. 3, par. 2, lett. e, dir. 2003/109).",
+      "sintesi": "Sport professionistico e lavoro artistico non sono esclusi dall'art. 9, c. 3, TU: con cinque anni di permesso in corso di validita', reddito non inferiore all'assegno sociale e test di italiano si puo' chiedere il permesso UE. Non si computano i periodi con permesso di breve durata (art. 9, c. 5): per gli artisti con permessi stagionali o per singole produzioni il quinquennio puo' non maturare. Nessun precedente specifico trovato.",
+      "requisiti": [
+        "Cinque anni di permesso valido non di breve durata",
+        "Reddito non inferiore all'assegno sociale",
+        "Test di italiano A2"
+      ],
+      "procedura": "Questura con kit postale.",
+      "norme": [
+        {
+          "estremi": "art. 9, c. 1, d.lgs. 286/1998",
+          "contenuto": "Permesso UE per soggiornanti di lungo periodo: permesso in corso di validita' da almeno cinque anni, reddito non inferiore all'assegno sociale, alloggio idoneo (per i familiari), test di italiano (c. 2-bis).",
+          "citazione": "Lo straniero in possesso, da almeno cinque anni, di un permesso di soggiorno in corso di validita'",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art9"
+        },
+        {
+          "estremi": "art. 9, c. 5, d.lgs. 286/1998",
+          "contenuto": "Dal quinquennio sono esclusi solo i periodi con permesso di breve durata (c. 3, lett. d) e con status diplomatico (lett. e). Non c'e' il dimezzamento dei periodi di studio previsto come facolta' dall'art. 4, par. 2, dir. 2003/109: la norma italiana e' piu' favorevole.",
+          "citazione": "Ai fini del calcolo del periodo di cui al comma 1, non si computano i periodi di soggiorno per i motivi indicati nelle lettere d) ed e) del comma 3.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art9"
+        },
+        {
+          "estremi": "art. 3, par. 2, dir. 2003/109/CE",
+          "contenuto": "La direttiva non si applica a chi soggiorna per studio o formazione (lett. a) ne' a chi soggiorna unicamente per motivi temporanei o con titolo formalmente limitato (lett. e). Ricercatori, religiosi e sportivi non sono esclusi espressamente.",
+          "citazione": "soggiornano unicamente per motivi di carattere temporaneo ad esempio in qualità di persone «alla pari», lavoratori stagionali",
+          "url": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32003L0109"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [],
+      "domande_discriminanti": [
+        {
+          "domanda": "I permessi degli ultimi cinque anni erano continuativi e di durata superiore a pochi mesi?",
+          "perche": "Esclusione dei permessi di breve durata (art. 9, c. 5).",
+          "opzioni": [
+            "si, continuativi",
+            "no, permessi brevi o intermittenti"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "motivi_religiosi (art. 5, c. 2, TU)",
+      "a": "lavoro_subordinato / lavoro_autonomo",
+      "nodo_albero": "c_vorresti_religiosi -> c_end_lav_sub_ok | c_end_lav_aut_ok",
+      "esito_albero": "POSSIBILE",
+      "esito_verificato": "possibile",
+      "discrepanza": "Esito corretto per le domande presentate dal 22.10.2020 (art. 6, c. 1-bis, lett. g, TU). Va segnalato che TAR Lazio 1001/2025 ha ancora negato la convertibilita' richiamando Cons. Stato 476/2018 senza menzionare la nuova norma, e che le Questure possono opporre l'orientamento previgente. La procedura indicata nel nodo condiviso (nulla osta dello Sportello Unico) e la durata (tre anni per il tempo indeterminato) non sono verificate o sono errate.",
+      "sintesi": "Fino al d.l. 130/2020 il Consiglio di Stato negava la conversione del permesso per motivi religiosi in lavoro per il principio di tipicita' delle conversioni (Cons. Stato 476/2018). Dal 22.10.2020 l'art. 6, c. 1-bis, lett. g), TU la prevede espressamente 'ove ne ricorrano i requisiti'; la lettera non e' stata toccata dal d.l. 20/2023, che ha abrogato solo le lett. a), b) e h-bis). Ciononostante TAR Lazio 1001/2025 ha confermato un diniego richiamando la giurisprudenza anteriore, senza dare conto della data dell'istanza ne' della nuova norma: in sede di ricorso occorre invocare espressamente la lett. g). Restano necessari un contratto di lavoro (o i requisiti dell'art. 26) e un permesso in corso di validita'; l'istanza va presentata personalmente nelle forme di legge (TAR Piemonte 442/2024).",
+      "requisiti": [
+        "Permesso per motivi religiosi in corso di validita' (o rinnovabile: il permesso cessa con il venir meno dello status religioso)",
+        "Contratto di lavoro subordinato o requisiti dell'art. 26 per l'autonomo",
+        "Istanza presentata personalmente dall'interessato (kit postale o ufficio immigrazione), non dal solo difensore",
+        "Domanda presentata dal 22.10.2020 (per le anteriori vale l'orientamento di Cons. Stato 476/2018)"
+      ],
+      "procedura": "Istanza di conversione in Questura (kit postale); il coinvolgimento dello Sportello Unico per il contratto di soggiorno e l'applicazione delle quote non sono disciplinati dall'art. 6, c. 1-bis: da verificare con la prassi locale. Primo permesso per lavoro subordinato: massimo 1 anno (TD) o 2 anni (TI) (art. 5, c. 3-bis, TU).",
+      "norme": [
+        {
+          "estremi": "art. 6, c. 1-bis, lett. g), d.lgs. 286/1998 (inserito dal d.l. 130/2020, in vigore dal 22.10.2020)",
+          "contenuto": "Il permesso per motivi religiosi (art. 5, c. 2) e' convertibile in permesso per motivi di lavoro, ove ne ricorrano i requisiti. La norma supera, per le domande successive al 22.10.2020, l'orientamento di Cons. Stato 476/2018 sulla non convertibilita' per tipicita' causale.",
+          "citazione": "g) permesso di soggiorno per motivi religiosi, di cui all'articolo 5, comma 2;",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art6"
+        },
+        {
+          "estremi": "art. 5, c. 3-bis, lett. b) e c), d.lgs. 286/1998",
+          "contenuto": "Il primo permesso per lavoro subordinato dura quanto il contratto di soggiorno, al massimo un anno (tempo determinato) o due anni (tempo indeterminato); ciascun rinnovo fino a tre anni.",
+          "citazione": "c) in relazione ad un contratto di lavoro subordinato a tempo indeterminato, la durata di due anni. Ciascun rinnovo non puo' superare la durata di tre anni.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art5"
+        },
+        {
+          "estremi": "art. 5, c. 9, d.lgs. 286/1998",
+          "contenuto": "Il permesso e' rilasciato, rinnovato o convertito se ricorrono i requisiti per il titolo richiesto o, in mancanza, per altro titolo: fonda l'obbligo della Questura di valutare titoli alternativi (es. permesso UE di lungo periodo) prima del diniego.",
+          "citazione": "ovvero, in mancanza di questo, per altro tipo di permesso da rilasciare in applicazione del presente testo unico",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art5"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Cons. Stato, sez. III",
+          "data": "2018-01-24",
+          "numero": "n. 476/2018",
+          "principio": "Prima del d.l. 130/2020: il permesso per motivi religiosi non era convertibile in lavoro subordinato per il principio di tipicita' delle conversioni (art. 14 d.P.R. 394/1999; divieti dell'art. 40, c. 23). Superato per le domande successive al 22.10.2020 dall'art. 6, c. 1-bis, lett. g), TU.",
+          "esito": "favorevole alla PA",
+          "url": "https://drive.google.com/file/d/1UAz09J1Y5L_w701yRjbYrqJiFbQECqz6/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "TAR Lazio, sez. I ter",
+          "data": "2025-01-20",
+          "numero": "n. 1001/2025",
+          "principio": "Ribadisce, richiamando Cons. Stato 476/2018 e i pareri 1048/2015 e 2292/2013, che il permesso per motivi religiosi non e' convertibile in lavoro per difetto di previsione normativa. La sentenza non menziona l'art. 6, c. 1-bis, lett. g), TU e non indica la data dell'istanza (ricorso notificato il 14.7.2021); la ricorrente aveva gia' ottenuto il permesso per emersione.",
+          "esito": "favorevole alla PA",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=tar_rm&nrg=202107127&nomeFile=202501001_01.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "letta_integrale": true
+        },
+        {
+          "corte": "TAR Piemonte, sez. I",
+          "data": "2024-05-07",
+          "numero": "n. 442/2024",
+          "principio": "Diniego di rinnovo del permesso per motivi religiosi (congregazione non riconosciuta ne' verificata dal Ministero dell'Interno) legittimo; inammissibile la doglianza sulla mancata conversione in lavoro autonomo, perche' l'istanza va presentata personalmente dall'interessato nelle forme di legge (kit postale o ufficio immigrazione), non dal difensore con procura solo processuale.",
+          "esito": "favorevole alla PA",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=tar_to&nrg=202100139&nomeFile=202400442_01.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "letta_integrale": true
+        }
+      ],
+      "prassi": [
+        {
+          "ente": "Ministero dell'Interno, Dipartimento di Pubblica Sicurezza",
+          "estremi": "circolare 1.6.2023 (attuazione l. 50/2023)",
+          "data": "2023-06-01",
+          "oggetto": "Abrogazione della convertibilita' in lavoro di protezione speciale, calamita' e cure mediche (art. 6, c. 1-bis, lett. a, b, h-bis); restano convertibili sport professionistico, lavoro artistico, motivi religiosi; regime transitorio per istanze fino al 4.5.2023",
+          "url": "https://drive.google.com/file/d/1G05VoBKixbg5dCyI1V9-wwgbbax8Cl8Z/view?usp=drivesdk"
+        }
+      ],
+      "casi_limite": [
+        {
+          "titolo": "Religioso dispensato dai voti",
+          "testo": "Con la cessazione dello status religioso il permesso puo' essere revocato o non rinnovato (art. 5, c. 5, TU): la conversione va chiesta finche' il permesso e' valido. Prima del 2020 Cons. Stato 476/2018 vedeva nella cessazione del titolo una 'cesura' preclusiva; oggi l'argomento rileva solo se il permesso e' gia' scaduto o revocato."
+        },
+        {
+          "titolo": "Ministro di culto di confessione non riconosciuta",
+          "testo": "Il rinnovo del permesso religioso richiede la verifica del Ministero dell'Interno sull'ente di culto (TAR Piemonte 442/2024, D.M. visti 11.5.2011): se il rinnovo e' negato non resta un permesso da convertire."
+        },
+        {
+          "titolo": "Lavoro gia' svolto dentro la comunita' religiosa",
+          "testo": "L'attivita' lavorativa resa all'ente religioso (es. infermiera in casa di riposo) puo' fondare la conversione solo se formalizzata in un contratto di lavoro."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Quando e' stata (o sara') presentata la domanda di conversione: prima o dopo il 22.10.2020?",
+          "perche": "Applicabilita' dell'art. 6, c. 1-bis, lett. g), TU.",
+          "opzioni": [
+            "dopo il 22.10.2020",
+            "prima del 22.10.2020"
+          ]
+        },
+        {
+          "domanda": "Il permesso per motivi religiosi e' ancora valido e lo status religioso e' ancora in essere?",
+          "perche": "La perdita dello status fa venir meno il presupposto del permesso.",
+          "opzioni": [
+            "valido e status in essere",
+            "valido ma dispensato dai voti",
+            "scaduto o revocato"
+          ]
+        },
+        {
+          "domanda": "La confessione o l'ente di appartenenza e' riconosciuto o verificato dal Ministero dell'Interno?",
+          "perche": "Condiziona il rinnovo del permesso (TAR Piemonte 442/2024).",
+          "opzioni": [
+            "si",
+            "no",
+            "non so"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "motivi_religiosi",
+      "a": "attesa_occupazione",
+      "nodo_albero": "c_vorresti_religiosi -> c_end_att_ok",
+      "esito_albero": "POSSIBILE",
+      "esito_verificato": "incerto",
+      "discrepanza": "Nessuna norma prevede la conversione diretta del permesso religioso in attesa occupazione: l'art. 6, c. 1-bis, lett. g) parla di 'permesso di soggiorno per motivi di lavoro' e l'art. 22, c. 11, presuppone un permesso per lavoro subordinato perso. L'esito POSSIBILE non e' supportato.",
+      "sintesi": "Il permesso per motivi religiosi e' convertibile in 'permesso per motivi di lavoro' (art. 6, c. 1-bis, lett. g, TU), il che presuppone un rapporto di lavoro o i requisiti del lavoro autonomo. L'attesa occupazione (art. 22, c. 11, TU) spetta solo a chi, titolare di permesso per lavoro subordinato, perde il lavoro: la via e' quindi prima la conversione in lavoro e, alla perdita del posto, l'attesa occupazione. Nessun precedente trovato.",
+      "requisiti": [
+        "Previa conversione in lavoro"
+      ],
+      "procedura": "Non disciplinata in via diretta.",
+      "norme": [
+        {
+          "estremi": "art. 6, c. 1-bis, lett. g), d.lgs. 286/1998 (inserito dal d.l. 130/2020, in vigore dal 22.10.2020)",
+          "contenuto": "Il permesso per motivi religiosi (art. 5, c. 2) e' convertibile in permesso per motivi di lavoro, ove ne ricorrano i requisiti. La norma supera, per le domande successive al 22.10.2020, l'orientamento di Cons. Stato 476/2018 sulla non convertibilita' per tipicita' causale.",
+          "citazione": "g) permesso di soggiorno per motivi religiosi, di cui all'articolo 5, comma 2;",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art6"
+        },
+        {
+          "estremi": "art. 22, c. 11, d.lgs. 286/1998",
+          "contenuto": "L'attesa occupazione (disoccupazione con DID per almeno un anno) spetta al titolare di permesso per lavoro subordinato che perde il lavoro: non e' prevista come conversione diretta da permessi diversi.",
+          "citazione": "Il lavoratore straniero in possesso del permesso di soggiorno per lavoro subordinato che perde il posto di lavoro",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art22"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [],
+      "domande_discriminanti": [
+        {
+          "domanda": "Ha un'offerta di lavoro?",
+          "perche": "Senza contratto la conversione ex art. 6, c. 1-bis, lett. g) non e' praticabile.",
+          "opzioni": [
+            "si",
+            "no"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "motivi_religiosi",
+      "a": "studio",
+      "nodo_albero": "c_vorresti_religiosi -> c_end_stu_ok",
+      "esito_albero": "POSSIBILE",
+      "esito_verificato": "possibile",
+      "discrepanza": "Esito corretto, ma la base non e' una 'conversione' in senso proprio: e' il rilascio del permesso per studio da parte del questore ai titolari di permesso per motivi religiosi iscritti a corsi di formazione superiore (art. 39, cc. 5 e 5-bis, TU). Il nodo non menziona l'iscrizione al corso e i mezzi di sostentamento.",
+      "sintesi": "L'art. 39, c. 5, TU ammette i titolari di permesso per motivi religiosi ai corsi di istruzione tecnica superiore e di formazione superiore a parita' con gli italiani, e il c. 5-bis (d.lgs. 71/2018) attribuisce al questore il rilascio del permesso per studio senza nuovo visto. TAR Lazio 3501/2020 ha annullato il diniego fondato sull'assenza di visto, precisando che il lavoro svolto rileva solo come prova dei mezzi di sostentamento e non pone problemi di quote. Cons. Stato 4317/2018, che aveva negato il passaggio da religioso a studio per tipicita' causale, e' anteriore all'applicazione del c. 5-bis. La Questura deve comunque valutare anche il permesso UE di lungo periodo se ne ricorrono i requisiti (art. 5, c. 9, TU).",
+      "requisiti": [
+        "Permesso per motivi religiosi valido",
+        "Iscrizione a corso di formazione superiore o ITS",
+        "Mezzi di sostentamento e assicurazione sanitaria come per il permesso per studio"
+      ],
+      "procedura": "Domanda in Questura (kit postale) di permesso per studio ex art. 39, c. 5-bis, TU; nessun visto e nessuna quota.",
+      "norme": [
+        {
+          "estremi": "art. 39, cc. 5 e 5-bis, d.lgs. 286/1998",
+          "contenuto": "Accesso ai corsi di formazione superiore a parita' con gli italiani per i titolari, tra gli altri, di permesso per lavoro, famiglia, asilo, protezione sussidiaria, motivi religiosi, e per chi soggiorna regolarmente da almeno un anno con diploma di scuola secondaria superiore conseguito in Italia; a questi il questore rilascia un permesso per studio senza nuovo visto (c. 5-bis, introdotto dal d.lgs. 71/2018).",
+          "citazione": "Agli stranieri di cui ai commi 4-ter e 5 e' rilasciato dal questore un permesso di soggiorno per studio ai sensi dell'articolo 5, commi 3, lettera c) e 8, recante la dicitura «studente».",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art39"
+        },
+        {
+          "estremi": "art. 5, c. 9, d.lgs. 286/1998",
+          "contenuto": "Il permesso e' rilasciato, rinnovato o convertito se ricorrono i requisiti per il titolo richiesto o, in mancanza, per altro titolo: fonda l'obbligo della Questura di valutare titoli alternativi (es. permesso UE di lungo periodo) prima del diniego.",
+          "citazione": "ovvero, in mancanza di questo, per altro tipo di permesso da rilasciare in applicazione del presente testo unico",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art5"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "TAR Lazio, sez. I ter",
+          "data": "2020-03-20",
+          "numero": "n. 3501/2020",
+          "principio": "Illegittimo il diniego di 'conversione' da motivi religiosi a studio motivato con l'assenza di visto: l'art. 39, c. 5-bis, TU (d.lgs. 71/2018) consente al questore di rilasciare il permesso per studio ai titolari di permesso per motivi religiosi; la PA deve inoltre valutare il permesso UE di lungo periodo ex artt. 5, c. 9, e 9 TU (richiama Cons. Stato 2261/2018 e 4317/2018).",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=tar_rm&nrg=201908026&nomeFile=202003501_01.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "letta_integrale": true
+        },
+        {
+          "corte": "Cons. Stato, sez. III",
+          "data": "2018-07-16",
+          "numero": "n. 4317/2018",
+          "principio": "Ex religiosa dispensata dai voti: nega la conversione in studio (tipicita' causale, disciplina anteriore all'art. 39, c. 5-bis), ma conferma l'annullamento del diniego per omessa valutazione del permesso UE di lungo periodo, considerando il reddito acquisito dopo la dispensa dai voti.",
+          "esito": "misto",
+          "url": "https://drive.google.com/file/d/14xjSYBTwEivWECRtgCSYjBbtulyysdDK/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Ex religiosa gia' iscritta all'universita' e con lavoro domestico",
+          "testo": "TAR Lazio 3501/2020: il lavoro non impedisce il permesso per studio, rileva come mezzo di sostentamento; obbligo della Questura di valutare anche il permesso UE di lungo periodo."
+        },
+        {
+          "titolo": "Corso non di formazione superiore (es. corso di lingua o formazione professionale)",
+          "testo": "L'art. 39, c. 5, copre i corsi di istruzione tecnica superiore, formazione superiore e scuole di specializzazione: i corsi di formazione professionale non vi rientrano."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "A quale corso e' iscritto o intende iscriversi?",
+          "perche": "Solo i corsi dell'art. 39, c. 5, consentono il rilascio senza visto.",
+          "opzioni": [
+            "universita'/AFAM",
+            "ITS",
+            "scuola di specializzazione",
+            "formazione professionale o altro"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "motivi_religiosi",
+      "a": "famiglia",
+      "nodo_albero": "c_vorresti_religiosi -> c_end_fam_ok",
+      "esito_albero": "POSSIBILE",
+      "esito_verificato": "condizionato",
+      "discrepanza": null,
+      "sintesi": "Valgono l'art. 30, c. 1, lett. c), TU (conversione del permesso del familiare regolarmente soggiornante con requisiti del ricongiungimento, entro un anno dalla scadenza) e la lett. b) per il matrimonio in Italia dopo un anno di soggiorno. Il titolare di permesso religioso di almeno un anno e' anche familiare 'di riferimento' per il ricongiungimento (art. 28, c. 1, TU).",
+      "requisiti": [
+        "Vincolo familiare ex art. 29, c. 1",
+        "Requisiti di reddito e alloggio del familiare di riferimento",
+        "Domanda entro un anno dalla scadenza"
+      ],
+      "procedura": "Questura con kit postale.",
+      "norme": [
+        {
+          "estremi": "art. 30, c. 1, lett. c), d.lgs. 286/1998",
+          "contenuto": "Il familiare regolarmente soggiornante, in possesso dei requisiti per il ricongiungimento con cittadino italiano/UE residente o con straniero regolarmente soggiornante, converte il proprio permesso (di qualsiasi tipo) in permesso per motivi familiari; la conversione si puo' chiedere entro un anno dalla scadenza del titolo.",
+          "citazione": "La conversione puo' essere richiesta entro un anno dalla data di scadenza del titolo di soggiorno originariamente posseduto dal familiare.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art30"
+        },
+        {
+          "estremi": "art. 30, c. 1, lett. b), d.lgs. 286/1998",
+          "contenuto": "Permesso per motivi familiari allo straniero regolarmente soggiornante ad altro titolo da almeno un anno che abbia contratto matrimonio in Italia con cittadino italiano, UE o straniero regolarmente soggiornante.",
+          "citazione": "b) agli stranieri regolarmente soggiornanti ad altro titolo da almeno un anno che abbiano contratto matrimonio nel territorio dello Stato",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art30"
+        },
+        {
+          "estremi": "art. 28, c. 1, d.lgs. 286/1998",
+          "contenuto": "Il diritto all'unita' familiare spetta anche ai titolari di permesso di durata non inferiore a un anno per studio o per motivi religiosi: rileva per lo studente o il religioso come familiare 'di riferimento'.",
+          "citazione": "per studio, per motivi religiosi o per motivi familiari",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art28"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [],
+      "domande_discriminanti": [
+        {
+          "domanda": "Chi e' il familiare di riferimento e che titolo ha?",
+          "perche": "Requisiti ex artt. 29-30 TU o d.lgs. 30/2007.",
+          "opzioni": [
+            "italiano",
+            "UE",
+            "straniero regolarmente soggiornante"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "motivi_religiosi",
+      "a": "ue_lungo_periodo",
+      "nodo_albero": "c_vorresti_religiosi -> c_end_carta_no",
+      "esito_albero": "NON POSSIBILE",
+      "esito_verificato": "condizionato",
+      "discrepanza": "Esito errato: il permesso per motivi religiosi non e' escluso dall'art. 9, c. 3, TU, e la giurisprudenza amministrativa impone alla Questura di valutare il permesso UE per chi soggiorna da oltre cinque anni con permesso religioso (Cons. Stato 4317/2018, 3868/2020 in ottemperanza; TAR Lazio 3501/2020, che richiama Cons. Stato 2261/2018).",
+      "sintesi": "Il permesso UE per soggiornanti di lungo periodo non e' soggetto ai limiti di convertibilita': l'art. 9 TU guarda ai soli requisiti sostanziali (cinque anni di permesso valido, reddito, alloggio, lingua), e il permesso religioso non e' tra le esclusioni del c. 3. Il Consiglio di Stato ha confermato l'annullamento del diniego che non aveva valutato il permesso UE di un'ex religiosa, precisando che rileva il reddito acquisito dopo la dispensa dai voti (Cons. Stato 4317/2018), e ne ha ordinato l'esecuzione (Cons. Stato 3868/2020); conforme TAR Lazio 3501/2020. Il punto critico e' il reddito: finche' il religioso e' mantenuto dall'ente, la sufficienza dei mezzi va dimostrata (non risultano precedenti sul mantenimento da parte dell'ente come reddito utile).",
+      "requisiti": [
+        "Cinque anni di permesso valido (anche religioso)",
+        "Reddito non inferiore all'assegno sociale (rileva quello dopo la dispensa dai voti, Cons. Stato 4317/2018)",
+        "Test di italiano A2",
+        "Alloggio idoneo se la domanda include familiari"
+      ],
+      "procedura": "Questura con kit postale; anche come domanda subordinata alla richiesta di conversione, da valutare ex art. 5, c. 9, TU.",
+      "norme": [
+        {
+          "estremi": "art. 9, c. 1, d.lgs. 286/1998",
+          "contenuto": "Permesso UE per soggiornanti di lungo periodo: permesso in corso di validita' da almeno cinque anni, reddito non inferiore all'assegno sociale, alloggio idoneo (per i familiari), test di italiano (c. 2-bis).",
+          "citazione": "Lo straniero in possesso, da almeno cinque anni, di un permesso di soggiorno in corso di validita'",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art9"
+        },
+        {
+          "estremi": "art. 9, c. 5, d.lgs. 286/1998",
+          "contenuto": "Dal quinquennio sono esclusi solo i periodi con permesso di breve durata (c. 3, lett. d) e con status diplomatico (lett. e). Non c'e' il dimezzamento dei periodi di studio previsto come facolta' dall'art. 4, par. 2, dir. 2003/109: la norma italiana e' piu' favorevole.",
+          "citazione": "Ai fini del calcolo del periodo di cui al comma 1, non si computano i periodi di soggiorno per i motivi indicati nelle lettere d) ed e) del comma 3.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art9"
+        },
+        {
+          "estremi": "art. 5, c. 9, d.lgs. 286/1998",
+          "contenuto": "Il permesso e' rilasciato, rinnovato o convertito se ricorrono i requisiti per il titolo richiesto o, in mancanza, per altro titolo: fonda l'obbligo della Questura di valutare titoli alternativi (es. permesso UE di lungo periodo) prima del diniego.",
+          "citazione": "ovvero, in mancanza di questo, per altro tipo di permesso da rilasciare in applicazione del presente testo unico",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art5"
+        },
+        {
+          "estremi": "art. 3, par. 2, dir. 2003/109/CE",
+          "contenuto": "La direttiva non si applica a chi soggiorna per studio o formazione (lett. a) ne' a chi soggiorna unicamente per motivi temporanei o con titolo formalmente limitato (lett. e). Ricercatori, religiosi e sportivi non sono esclusi espressamente.",
+          "citazione": "soggiornano unicamente per motivi di carattere temporaneo ad esempio in qualità di persone «alla pari», lavoratori stagionali",
+          "url": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32003L0109"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Cons. Stato, sez. III",
+          "data": "2018-07-16",
+          "numero": "n. 4317/2018",
+          "principio": "Ex religiosa dispensata dai voti: nega la conversione in studio (tipicita' causale, disciplina anteriore all'art. 39, c. 5-bis), ma conferma l'annullamento del diniego per omessa valutazione del permesso UE di lungo periodo, considerando il reddito acquisito dopo la dispensa dai voti.",
+          "esito": "misto",
+          "url": "https://drive.google.com/file/d/14xjSYBTwEivWECRtgCSYjBbtulyysdDK/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "Cons. Stato, sez. III",
+          "data": "2020-06-16",
+          "numero": "n. 3868/2020",
+          "principio": "Ottemperanza a Cons. Stato 4317/2018: ordina alla PA di valutare entro 30 giorni i requisiti del permesso UE di lungo periodo dell'ex religiosa (reddito successivo alla dispensa dai voti), nominando un commissario ad acta.",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=cds&nrg=201906176&nomeFile=202003868_11.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "letta_integrale": true
+        },
+        {
+          "corte": "TAR Lazio, sez. I ter",
+          "data": "2020-03-20",
+          "numero": "n. 3501/2020",
+          "principio": "Illegittimo il diniego di 'conversione' da motivi religiosi a studio motivato con l'assenza di visto: l'art. 39, c. 5-bis, TU (d.lgs. 71/2018) consente al questore di rilasciare il permesso per studio ai titolari di permesso per motivi religiosi; la PA deve inoltre valutare il permesso UE di lungo periodo ex artt. 5, c. 9, e 9 TU (richiama Cons. Stato 2261/2018 e 4317/2018).",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=tar_rm&nrg=201908026&nomeFile=202003501_01.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "letta_integrale": true
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Religioso ancora in servizio e mantenuto dall'ente",
+          "testo": "La disponibilita' di un reddito non inferiore all'assegno sociale e' requisito del c. 1; la presa in carico dell'ente religioso non e' stata esaminata dai precedenti trovati. Da validare."
+        },
+        {
+          "titolo": "Periodi con interruzione del soggiorno",
+          "testo": "TAR Lazio 3501/2020 ha valorizzato soggiorni 1998-2009 e dal 2013; il quinquennio deve pero' essere continuativo e immediatamente precedente la domanda (art. 4, par. 1, dir. 2003/109)."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Da quanti anni soggiorna continuativamente con permesso valido?",
+          "perche": "Quinquennio dell'art. 9, c. 1.",
+          "opzioni": [
+            "meno di 5",
+            "5 o piu'"
+          ]
+        },
+        {
+          "domanda": "Ha un reddito proprio (lavoro dopo la dispensa, pensione) almeno pari all'assegno sociale?",
+          "perche": "Requisito reddituale (Cons. Stato 4317/2018).",
+          "opzioni": [
+            "si",
+            "solo mantenimento dell'ente",
+            "no"
+          ]
+        }
+      ]
+    }
+  ],
+  "punti_da_validare": [
+    "Origine del fuori quota studio-lavoro: la circolare Min. Lavoro 1077/2023 e TAR Lombardia 4084/2025 indicano l'art. 3, c. 2, d.l. 20/2023; TAR Lombardia 4084/2025 aggiunge l'art. 24, c. 5, d.l. 75/2023 (che avrebbe eliminato il residuo riferimento alle quote). Il testo dell'art. 14, c. 6, e dell'art. 39, c. 9, d.P.R. 394/1999 menziona ancora le quote: verificare se Questure e Sportelli Unici le applichino ancora in qualche caso.",
+    "Tolleranza della domanda di conversione studio-lavoro dopo la scadenza: Cons. Stato 7525/2021 (2 giorni), 7318/2022 (circa 2 mesi e mezzo, termine acceleratorio), 8588/2021 (anni, forza maggiore). Orientamento favorevole ma con compensazione delle spese per 'oscillazioni giurisprudenziali': non va presentato come diritto acquisito.",
+    "Estensione dell'art. 39-bis.1 TU a titoli non elencati (TAR Piemonte 562/2025 e precedenti piemontesi e milanesi da esso citati): l'albero pubblico (c_end_att_studio_no) segue la lettura restrittiva delle Questure; decidere come rappresentare il contrasto.",
+    "Religiosi -> lavoro: TAR Lazio 1001/2025 nega la convertibilita' senza citare l'art. 6, c. 1-bis, lett. g), TU; non e' chiaro se l'istanza fosse anteriore al 22.10.2020. Verificare se esistano pronunce post-2020 che applicano la lett. g) (nessuna trovata con le ricerche svolte).",
+    "Procedura delle conversioni ex art. 6, c. 1-bis (sport, arte, religiosi): la norma non dice se si passa dallo Sportello Unico (contratto di soggiorno) ne' se si e' fuori quota; nei casi letti l'istanza e' presentata in Questura. Il nodo condiviso c_end_lav_sub_ok indica 'nulla osta presso lo Sportello Unico': da verificare con circolari del Ministero dell'Interno successive al d.l. 130/2020 (non trovate nella KB).",
+    "Durata del permesso nel nodo condiviso c_end_lav_sub_ok ('tre anni se a tempo indeterminato'): l'art. 5, c. 3-bis, TU fissa per il primo permesso un massimo di due anni a tempo indeterminato e un anno a tempo determinato, con rinnovi fino a tre anni. Da correggere anche fuori da questo gruppo.",
+    "Ricercatore -> lavoro: nessuna norma di conversione diretta; da validare se le Questure la ammettano in prassi (eventualmente ex art. 27-ter, c. 11-nonies, o art. 5, c. 9, TU).",
+    "Ricercatore e religioso -> permesso UE di lungo periodo: l'albero dice NON POSSIBILE, ma l'art. 9, c. 3, TU non li esclude; per il religioso la giurisprudenza (Cons. Stato 4317/2018, TAR Lazio 3501/2020) impone di valutarlo. Resta aperto il requisito del reddito per il religioso mantenuto dall'ente.",
+    "Computo integrale degli anni di studio nel quinquennio dell'art. 9 TU: affermato da TAR Emilia-Romagna 834/2022 (obiter) e coerente con l'art. 9, c. 5, TU; verificare la prassi delle Questure, che potrebbero applicare il dimezzamento facoltativo dell'art. 4, par. 2, dir. 2003/109 non recepito.",
+    "Sport -> lavoro: la distinzione professionismo/dilettantismo dopo il d.lgs. 36/2021 (che ha abrogato la l. 91/1981 richiamata dall'art. 27, c. 1, lett. p) e la conversione di allenatori e preparatori atletici non sono state affrontate dalle pronunce trovate.",
+    "Sport/arte/religiosi -> attesa occupazione: l'albero dice POSSIBILE, ma non c'e' base normativa per la conversione diretta; da confermare con un avvocato prima di cambiare l'esito.",
+    "Studente minorenne (art. 39-bis, c. 1, lett. c-d) -> lavoro: nessun precedente trovato sulle modalita' al compimento della maggiore eta'."
+  ]
+}

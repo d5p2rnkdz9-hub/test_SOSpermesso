@@ -18,10 +18,11 @@ const BLURRED_FILLER =
 
 /**
  * Full case law from /api/pro/sentenze/[slug].
- * undefined = loading, null = not signed in or request failed.
+ * undefined = loading, null = not signed in or request failed,
+ * 'blocked' = signed in without PRO access (403 subscription_required).
  */
 function usePremiumSentenze(slug: string, signedIn: boolean) {
-  const [sentenze, setSentenze] = useState<readonly ProSentenza[] | null | undefined>(null);
+  const [sentenze, setSentenze] = useState<readonly ProSentenza[] | null | undefined | 'blocked'>(null);
 
   useEffect(() => {
     if (!signedIn) {
@@ -31,9 +32,9 @@ function usePremiumSentenze(slug: string, signedIn: boolean) {
     setSentenze(undefined);
     let cancelled = false;
     fetch(`/api/pro/sentenze/${encodeURIComponent(slug)}`)
-      .then((res) => (res.ok ? res.json() : null))
-      .then((data: { sentenze: readonly ProSentenza[] } | null) => {
-        if (!cancelled) setSentenze(data?.sentenze ?? null);
+      .then((res) => (res.ok ? res.json() : res.status === 403 ? 'blocked' : null))
+      .then((data: { sentenze: readonly ProSentenza[] } | 'blocked' | null) => {
+        if (!cancelled) setSentenze(data === 'blocked' ? data : (data?.sentenze ?? null));
       })
       .catch(() => {
         if (!cancelled) setSentenze(null);
@@ -57,7 +58,9 @@ function usePremiumSentenze(slug: string, signedIn: boolean) {
 export function ProCard({ content, draft }: ProCardProps) {
   const s = content.sintesi;
   const { data: session, isPending } = authClient.useSession();
-  const premium = usePremiumSentenze(content.slug, Boolean(session));
+  const loaded = usePremiumSentenze(content.slug, Boolean(session));
+  const blocked = loaded === 'blocked';
+  const premium = blocked ? null : loaded;
   const pathname = usePathname();
   const loginHref = `/accedi?da=${encodeURIComponent(pathname)}`;
 
@@ -221,7 +224,16 @@ export function ProCard({ content, draft }: ProCardProps) {
               Registrati gratis per leggere massime integrali e rilevanza operativa
             </Link>
           )}
-          {premium === null && session && (
+          {blocked && (
+            <Link
+              href="/account"
+              className="mt-3 flex w-fit items-center gap-1.5 rounded-md border-2 border-foreground bg-primary px-3 py-1.5 text-xs font-bold text-primary-foreground shadow-[2px_2px_0_hsl(var(--foreground))]"
+            >
+              <Lock className="h-3 w-3" />
+              Massime integrali e rilevanza operativa sono riservate agli abbonati PRO
+            </Link>
+          )}
+          {premium === null && session && !blocked && (
             <p className="mt-2 text-xs text-muted-foreground">
               Non è stato possibile caricare il testo completo. Ricarica la pagina.
             </p>

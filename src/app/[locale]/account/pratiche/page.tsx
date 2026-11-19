@@ -4,10 +4,14 @@ import { redirect } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
 
 import { ContentColumn } from '@/components/layout/ContentColumn';
+import { ProGate } from '@/components/pro/ProGate';
+import { AccordoTesto } from '@/components/pro/AccordoTesto';
+import { ACCORDO_VERSIONE, haAccettatoAccordo } from '@/lib/accordo';
 import { permitsList } from '@/lib/permits-list.generated';
-import { listPratiche } from '@/lib/pratiche';
+import { PRATICHE_ATTIVE, listPratiche } from '@/lib/pratiche';
 import { getProAccess } from '@/lib/pro-access';
 
+import { AccordoGate } from './AccordoGate';
 import { PraticheManager } from './PraticheManager';
 
 export const metadata: Metadata = {
@@ -22,10 +26,45 @@ type Props = {
 export default async function PratichePage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
+  if (!PRATICHE_ATTIVE) redirect(`/${locale}/account`);
 
   const access = await getProAccess(await headers());
-  if (access.status !== 'active') {
+  if (access.status === 'anonymous') {
     redirect(`/${locale}/accedi?da=${encodeURIComponent(`/${locale}/account/pratiche`)}`);
+  }
+  if (access.status !== 'active') {
+    return (
+      <ContentColumn>
+        <h1 className="text-3xl font-extrabold leading-tight text-foreground">Scadenziario</h1>
+        <p className="mt-2 mb-6 text-sm text-muted-foreground">
+          Le pratiche che segui, con i promemoria prima della scadenza del permesso.
+        </p>
+        <ProGate
+          titolo="Non perdere più una scadenza"
+          descrizione="Inserisci le pratiche che segui: ti scriviamo prima che il permesso scada. Le pratiche già salvate restano nel tuo account."
+          da={`/${locale}/account/pratiche`}
+          connesso
+          punti={[
+            'Promemoria email a 90, 60 e 30 giorni dalla scadenza',
+            'Checklist di rinnovo per ogni permesso',
+            'Archivio completo delle circolari, con avvisi sui permessi che segui',
+          ]}
+        />
+      </ContentColumn>
+    );
+  }
+  if (!(await haAccettatoAccordo(access.session.user.id))) {
+    return (
+      <ContentColumn>
+        <h1 className="text-3xl font-extrabold leading-tight text-foreground">Scadenziario</h1>
+        <p className="mt-2 mb-6 text-sm text-muted-foreground">
+          Le persone che segui e la scadenza del loro permesso, con un promemoria via email prima della scadenza.
+        </p>
+        <AccordoGate versione={ACCORDO_VERSIONE} accordoHref={`/${locale}/account/pratiche/accordo`}>
+          <AccordoTesto />
+        </AccordoGate>
+      </ContentColumn>
+    );
   }
   const pratiche = await listPratiche(access.session.user.id);
 
@@ -34,8 +73,8 @@ export default async function PratichePage({ params }: Props) {
       <h1 className="text-3xl font-extrabold leading-tight text-foreground">Scadenziario</h1>
       <p className="mt-2 mb-6 text-sm text-muted-foreground">
         Le persone che segui e la scadenza del loro permesso. Ti mandiamo un&apos;email a{' '}
-        <strong>90, 60 e 30 giorni</strong> dalla scadenza, con il link alla lista dei documenti per il
-        rinnovo.
+        <strong>90, 60 e 30 giorni</strong> dalla scadenza, senza dati della pratica: la trovi qui, con la
+        lista dei documenti per il rinnovo.
       </p>
       <PraticheManager initial={pratiche} permits={permitsList} />
     </ContentColumn>

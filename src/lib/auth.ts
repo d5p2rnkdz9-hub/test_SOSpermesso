@@ -10,23 +10,50 @@ import { PostgresDialect } from 'kysely';
 import { Pool } from 'pg';
 
 import { sendEmail } from './email';
+import {
+  DeleteBlockedError,
+  accountUnicoOn,
+  cancelLiveSubscriptions,
+  deleteSubscriptionRows,
+  type Query,
+} from './pro-entitlement';
 import { PROD_HOSTS, SITE_URL } from './site-url';
 
 /**
  * Accounts for the PRO premium area (docs/PRO-PREMIUM-PIANO.md).
  *
- * - Passwordless: magic link by email only (no email+password).
+ * - Magic link by email (also creates the account), or email + password for
+ *   accounts that have one. As on sosflussi.it, nobody signs up with a password:
+ *   it is set (or reset) only through the reset link sent by email.
  * - Tables live in the Postgres schema "auth" of the Neon database that
  *   already holds the analytics tables (public schema), so the two never
  *   collide. The Prisma schema (legacy quiz) is not involved.
  * - Who may read premium content is decided in pro-access.ts, not here.
+ * - Account unico con SOS Flussi: stesso schema "auth"; abbonamenti nella
+ *   tabella auth.subscription, scritta solo da sosflussi.it (plugin Stripe e
+ *   webhook stanno là). better-auth è fissata alla stessa versione nelle due app.
  */
 
 const MAGIC_LINK_MINUTES = 10;
+const RESET_MINUTES = 60;
 const BASE_URL = process.env.BETTER_AUTH_URL ?? SITE_URL;
 const PROD = process.env.NODE_ENV === 'production';
+/**
+ * Anteprima Netlify (next.config.ts): l'accesso deve funzionare sull'indirizzo del
+ * deploy, non sui domini di produzione, e il cookie non può valere su .sospermesso.it.
+ * Vuoto in produzione e in locale.
+ */
+const ANTEPRIMA = /^https:\/\/[a-z0-9-]+--testsospermesso\.netlify\.app$/.test(process.env.ANTEPRIMA_URL ?? '')
+  ? (process.env.ANTEPRIMA_URL as string)
+  : '';
 
 const pool = new Pool({ connectionString: process.env.NEON_DATABASE_URL, max: 3 });
+const query: Query = async (text, params) => (await pool.query(text, params)).rows;
+
+/** Riga dell'email del link con ACCOUNT_UNICO=1 (pro-entitlement.ts). */
+const RIGA_ACCOUNT_UNICO = accountUnicoOn()
+  ? ['', 'Lo stesso account e lo stesso abbonamento valgono anche su SOS Flussi PRO (sosflussi.it).']
+  : [];
 
 /** Link di accesso per lo stesso indirizzo: al massimo 3 in 10 minuti, 10 in 24 ore. */
 const MAX_INVII_BREVE = 3;
@@ -77,6 +104,20 @@ async function annullaLinkPrecedenti(email: string): Promise<void> {
   );
 }
 
+/** Come per i link di accesso: resta valido solo l'ultimo link per la password. */
+async function annullaResetPrecedenti(userId: string): Promise<void> {
+  await pool.query(
+    `DELETE FROM auth.verification
+      WHERE identifier LIKE 'reset-password:%' AND value = $1
+        AND id <> (
+          SELECT id FROM auth.verification
+           WHERE identifier LIKE 'reset-password:%' AND value = $1
+           ORDER BY "createdAt" DESC LIMIT 1
+        )`,
+    [userId],
+  );
+}
+
 /**
  * Due nomi per lo stesso deploy: app.sospermesso.it (test gratuiti) e
  * pro.sospermesso.it (area PRO). In produzione il base URL segue l'host della
@@ -85,13 +126,14 @@ async function annullaLinkPrecedenti(email: string): Promise<void> {
  */
 export const auth = betterAuth({
   appName: 'SOS Permesso',
-  baseURL: PROD ? { allowedHosts: [...PROD_HOSTS], protocol: 'https', fallback: BASE_URL } : BASE_URL,
+  baseURL: ANTEPRIMA || (PROD ? { allowedHosts: [...PROD_HOSTS], protocol: 'https', fallback: BASE_URL } : BASE_URL),
   trustedOrigins: [
     ...PROD_HOSTS.map((h) => `https://${h}`),
     // Local dev server (any port), never in production builds.
     ...(PROD ? [] : [BASE_URL]),
+    ...(ANTEPRIMA ? [ANTEPRIMA] : []),
   ],
-  advanced: PROD ? { crossSubDomainCookies: { enabled: true, domain: '.sospermesso.it' } } : undefined,
+  advanced: PROD && !ANTEPRIMA ? { crossSubDomainCookies: { enabled: true, domain: '.sospermesso.it' } } : undefined,
   database: {
     dialect: new PostgresDialect({
       pool,
@@ -99,13 +141,75 @@ export const auth = betterAuth({
     type: 'postgres',
     schemaName: 'auth',
   },
-  emailAndPassword: { enabled: false },
+  emailAndPassword: {
+    enabled: true,
+    disableSignUp: true, // stessa regola di sosflussi.it: la password si imposta solo dal link via email
+    minPasswordLength: 10,
+    maxPasswordLength: 128,
+    resetPasswordTokenExpiresIn: 60 * RESET_MINUTES,
+    revokeSessionsOnPasswordReset: true,
+    async sendResetPassword({ user, url }) {
+      const email = user.email.trim().toLowerCase();
+      if (!(await entroIlTettoInvii(email))) {
+        // Risposta identica a quella normale: non si rivela nulla, l'email non parte.
+        console.warn('[auth] tetto invii reset password raggiunto');
+        return;
+      }
+      await annullaResetPrecedenti(user.id);
+      await sendEmail({
+        to: user.email,
+        subject: 'Imposta la password di SOS Permesso PRO',
+        text: [
+          `Ciao${user.name ? ` ${user.name}` : ''},`,
+          '',
+          'per impostare una nuova password di SOS Permesso PRO apri questo link:',
+          url,
+          '',
+          `Il link vale ${RESET_MINUTES} minuti e si può usare una sola volta.`,
+          'Se non hai chiesto tu di cambiare la password, ignora questa email: la password attuale resta valida.',
+          ...RIGA_ACCOUNT_UNICO,
+          '',
+          'SOS Permesso — sospermesso.it',
+        ].join('\n'),
+      });
+    },
+  },
   session: {
     expiresIn: 60 * 60 * 24 * 30, // 30 days
     updateAge: 60 * 60 * 24, // refreshed at most once a day while in use
   },
   user: {
-    deleteUser: { enabled: true },
+    deleteUser: {
+      enabled: true,
+      /**
+       * Account unico con SOS Flussi: l'utente eliminato qui sparisce anche là.
+       * Prima si annulla su Stripe l'abbonamento che potrebbe ancora addebitare
+       * (serve STRIPE_SECRET_KEY; senza, se ce n'è uno vivo, l'eliminazione è
+       * rifiutata con un messaggio che la pagina account mostra).
+       */
+      async beforeDelete(user) {
+        try {
+          await cancelLiveSubscriptions(query, user.id, process.env.STRIPE_SECRET_KEY);
+        } catch (err) {
+          if (err instanceof DeleteBlockedError) {
+            throw new APIError(err.code === 'SUBSCRIPTION_ACTIVE' ? 'BAD_REQUEST' : 'INTERNAL_SERVER_ERROR', {
+              message: err.message,
+              code: err.code,
+            });
+          }
+          throw err;
+        }
+      },
+      async afterDelete(user) {
+        // Le pratiche e i dati PRO se ne vanno con ON DELETE CASCADE; le righe
+        // subscription no (nessuna chiave verso user).
+        try {
+          await deleteSubscriptionRows(query, user.id);
+        } catch (err) {
+          console.error('[auth] righe subscription non tolte:', err);
+        }
+      },
+    },
   },
   // Serverless functions don't share memory: keep rate-limit counters in the DB.
   rateLimit: { enabled: true, storage: 'database' },
@@ -130,6 +234,7 @@ export const auth = betterAuth({
             '',
             `Il link vale ${MAGIC_LINK_MINUTES} minuti e si può usare una sola volta.`,
             'Se non hai chiesto tu di accedere, ignora questa email.',
+            ...RIGA_ACCOUNT_UNICO,
             '',
             'SOS Permesso — sospermesso.it',
           ].join('\n'),

@@ -1,26 +1,27 @@
 import { NextResponse } from 'next/server';
 
-import { LIMITS, countPratiche, createPratica, listPratiche, validatePratica } from '@/lib/pratiche';
-import { getProAccess } from '@/lib/pro-access';
+import { PRATICHE_ATTIVE, LIMITS, countPratiche, createPratica, listPratiche, validatePratica } from '@/lib/pratiche';
+import { accordoRichiesto, haAccettatoAccordo } from '@/lib/accordo';
+import { getProAccess, proDenied } from '@/lib/pro-access';
 import { sameOrigin } from '@/lib/request-guard';
 
 const NO_STORE = { 'Cache-Control': 'private, no-store' };
 
 export async function GET(request: Request) {
+  if (!PRATICHE_ATTIVE) return NextResponse.json({ error: 'not_found' }, { status: 404 });
   const access = await getProAccess(request.headers);
-  if (access.status !== 'active') {
-    return NextResponse.json({ error: 'login_required' }, { status: 401 });
-  }
+  if (access.status !== 'active') return proDenied(access);
+  if (!(await haAccettatoAccordo(access.session.user.id))) return accordoRichiesto();
   const pratiche = await listPratiche(access.session.user.id);
   return NextResponse.json({ pratiche }, { headers: NO_STORE });
 }
 
 export async function POST(request: Request) {
+  if (!PRATICHE_ATTIVE) return NextResponse.json({ error: 'not_found' }, { status: 404 });
   if (!sameOrigin(request)) return NextResponse.json({ error: 'forbidden' }, { status: 403 });
   const access = await getProAccess(request.headers);
-  if (access.status !== 'active') {
-    return NextResponse.json({ error: 'login_required' }, { status: 401 });
-  }
+  if (access.status !== 'active') return proDenied(access);
+  if (!(await haAccettatoAccordo(access.session.user.id))) return accordoRichiesto();
   let body: unknown;
   try {
     body = await request.json();

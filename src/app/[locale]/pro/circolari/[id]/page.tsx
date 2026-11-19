@@ -33,9 +33,11 @@ export default async function CircolarePage({ params }: Props) {
   if (!docId) notFound();
 
   const access = await getProAccess(await headers());
-  if (access.status !== 'active') {
+  if (access.status === 'anonymous') {
     redirect(`/${locale}/accedi?da=${encodeURIComponent(`/${locale}/pro/circolari/${id}`)}`);
   }
+  // Account senza accesso PRO: l'archivio mostra il teaser con il link per abbonarsi.
+  if (access.status !== 'active') redirect(`/${locale}/pro/circolari`);
 
   const doc = await getCircolare(docId);
   if (!doc) notFound();
