@@ -68,6 +68,7 @@ export const RC_OUTCOME_SLUGS: Record<string, string> = {
   'conversione-altro-wip': 'c_end_altro_wip',
   'conversione-lavoro-impossibile': 'c_end_lav_no',
   'conversione-lavoro-con-nulla-osta': 'c_end_lav_nullaosta',
+  'conversione-lavoro-dopo-fine-corso': 'c_end_lav_formazione_attesa',
   'conversione-lavoro-speciale': 'c_end_lav_speciale',
   'conversione-lavoro-cure-mediche': 'c_end_lav_cure',
   'conversione-lavoro-calamita': 'c_end_lav_calam',
