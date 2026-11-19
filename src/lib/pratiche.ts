@@ -10,11 +10,12 @@ import { permitsBySlug } from "./permits-list.generated";
  */
 
 /**
- * Scadenziario spento (17/11/2026): dati personali di terzi, privacy da
- * sistemare prima di riaprirlo. Con false: niente pagina, API, voci in
- * dashboard né promemoria. Le righe già salvate restano nel database.
+ * Scadenziario acceso (19/11/2026), dietro l'accordo art. 28 GDPR
+ * (accordo.ts): chi non l'ha accettato vede solo la finestra per farlo.
+ * Con false: niente pagina, API, voci in dashboard né promemoria. Le righe
+ * già salvate restano nel database.
  */
-export const PRATICHE_ATTIVE = false;
+export const PRATICHE_ATTIVE = true;
 
 /** Soglie dei promemoria, in giorni prima della scadenza (ordine decrescente). */
 export const REMINDER_DAYS = [90, 60, 30] as const;
