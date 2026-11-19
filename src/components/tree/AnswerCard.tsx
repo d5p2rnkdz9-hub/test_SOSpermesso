@@ -1,6 +1,5 @@
 'use client';
 
-import { useUiStore } from '@/store/ui-store';
 
 interface AnswerCardProps {
   label: string;
@@ -24,7 +23,6 @@ export function AnswerCard({
   onSelect,
   disabled,
 }: AnswerCardProps) {
-  const compact = useUiStore((s) => s.mode) === 'pro';
 
   return (
     <button
@@ -36,7 +34,7 @@ export function AnswerCard({
         text-start font-semibold
         transition-all duration-150 ease-in-out
         active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0_hsl(var(--foreground))]
-        ${compact ? 'min-h-[40px] px-4 py-2.5' : 'min-h-[48px] px-5 py-4'}
+        min-h-[48px] px-5 py-4
         ${
           selected
             ? 'bg-primary text-primary-foreground shadow-[3px_3px_0_hsl(var(--accent)),_4.5px_4.5px_0_hsl(var(--foreground))]'
@@ -47,7 +45,7 @@ export function AnswerCard({
     >
       {label}
       {description && (
-        <span className={`mt-1 block font-normal opacity-80 ${compact ? 'text-xs' : 'text-sm'}`}>
+        <span className={`mt-1 block font-normal opacity-80 text-sm`}>
           {description}
         </span>
       )}

@@ -10,7 +10,6 @@ import {
 } from 'next/font/google';
 import { routing } from '@/i18n/routing';
 import { Providers } from './providers';
-import { ModeSync } from '@/components/layout/ModeSync';
 import { StickyHeader } from '@/components/layout/StickyHeader';
 
 const inter = Inter({
@@ -89,24 +88,10 @@ export default async function LocaleLayout({ children, params }: Props) {
   })();
 
   return (
-    // suppressHydrationWarning: lo script inline sotto aggiunge data-mode
-    // prima dell'idratazione (pattern next-themes) — il mismatch è voluto
-    <html lang={locale} dir={dir} className={fontClass} suppressHydrationWarning>
+    <html lang={locale} dir={dir} className={fontClass}>
       <body className="antialiased">
-        {/* Pre-paint PRO-mode detection: synchronous script so the
-            data-mode attribute (and its CSS token overrides) apply before
-            first render — same pattern as dark-mode toggles, no FOUC.
-            Falls back to the sos_mode cookie set by sospermesso.it, so the
-            mode follows the operator across the two properties. */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html:
-              "try{var m=localStorage.getItem('sos-mode');if(!m){var c=document.cookie.match(/(?:^|; )sos_mode=([^;]*)/);m=c&&c[1]}if(m==='pro')document.documentElement.setAttribute('data-mode','pro')}catch(e){}",
-          }}
-        />
         <Providers dir={dir}>
           <NextIntlClientProvider locale={locale} messages={messages}>
-            <ModeSync />
             <StickyHeader />
             {children}
           </NextIntlClientProvider>

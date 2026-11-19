@@ -33,7 +33,7 @@ export function LanguageSelector() {
       value={locale}
       onChange={handleChange}
       aria-label="Select language"
-      className="min-h-[48px] rounded-md border border-border bg-transparent px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/50"
+      className="min-h-[44px] max-w-[9.5rem] cursor-pointer rounded-full border-2 border-[#141414] bg-white px-3 text-base font-bold text-[#141414] shadow-[2.5px_2.5px_0_#141414] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#FFD400]"
     >
       {routing.locales.map((loc) => (
         <option key={loc} value={loc}>

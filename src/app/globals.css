@@ -28,20 +28,6 @@ li {
   outline-offset: 2px;
 }
 
-/* Smooth color morph while toggling PRO mode: the ui-store adds this
-   class to <html> for ~400ms around the data-mode swap. */
-html.mode-transition,
-html.mode-transition *,
-html.mode-transition *::before,
-html.mode-transition *::after {
-  transition:
-    background-color 0.35s ease,
-    color 0.35s ease,
-    border-color 0.35s ease,
-    box-shadow 0.35s ease,
-    fill 0.35s ease !important;
-}
-
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
@@ -94,23 +80,6 @@ html {
     --transition-fast: 150ms ease-in-out;
     --transition-base: 250ms ease-in-out;
     --transition-slow: 350ms ease-in-out;
-  }
-
-  /*
-   * Versione PRO (operatori CAF/patronati/sportelli legali) — condivisa
-   * con sospermesso.it via cookie sos_mode. Attivata pre-paint da uno
-   * script inline che legge localStorage('sos-mode') e imposta data-mode
-   * su <html>. Stessa struttura brutalista, rapporto giallo/scuro
-   * invertito: CTA navy con testo oro, giallo taxi come accento.
-   */
-  html[data-mode='pro'] {
-    --background: 210 25% 96%;          /* off-white freddo */
-    --foreground: 215 30% 12%;          /* near-black freddo */
-    --card-foreground: 215 30% 12%;
-    --primary: 215 55% 22%;             /* navy */
-    --primary-foreground: 48 100% 60%;  /* oro su navy */
-    --ring: 215 55% 22%;
-    --radius: 0.5rem;                   /* 12px → 8px: più strumento, meno morbido */
   }
 }
 

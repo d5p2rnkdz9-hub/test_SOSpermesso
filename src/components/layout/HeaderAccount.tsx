@@ -1,29 +1,26 @@
 'use client';
 
-import { UserRound } from 'lucide-react';
-
 import { Link } from '@/i18n/navigation';
 import { authClient } from '@/lib/auth-client';
-import { useUiStore } from '@/store/ui-store';
 
 /**
- * "Accedi" / account link — PRO mode only, so the migrant-facing
- * interface stays free of account prompts.
+ * «Accedi PRO» / «Account PRO», come la voce «Accedi PRO» del menu del sito.
+ * Sempre visibile: PRO è solo «hai fatto il login», non c'è più una modalità da attivare.
  */
-export function HeaderAccount() {
-  const pro = useUiStore((s) => s.mode) === 'pro';
+export function HeaderAccount({ className }: { className: string }) {
   const { data: session, isPending } = authClient.useSession();
-
-  if (!pro || isPending) return null;
 
   return (
     <Link
       href={session ? '/account' : '/accedi'}
-      className="flex items-center gap-1.5 rounded-md border-2 border-foreground px-2.5 py-1.5 text-xs font-bold text-foreground"
+      className={className}
       title={session?.user.email}
+      aria-busy={isPending || undefined}
     >
-      <UserRound className="h-4 w-4" aria-hidden="true" />
       {session ? 'Account' : 'Accedi'}
+      <span className="ms-1 rounded-full border-[1.5px] border-[#141414] bg-[#FFD400] px-1.5 py-0.5 text-[10px] font-bold uppercase leading-[1.2] tracking-[.5px] shadow-[1.5px_1.5px_0_#141414]">
+        pro
+      </span>
     </Link>
   );
 }
