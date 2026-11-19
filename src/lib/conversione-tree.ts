@@ -849,7 +849,7 @@ export const conversioneTree: TreeData = {
     { from: 'c_vorresti_prot_spec', to: 'c_end_att_no', label: 'Attesa occupazione', optionKey: 'att_occ' },
     { from: 'c_vorresti_prot_spec', to: 'c_end_stu_speciale', label: 'Studio', optionKey: 'studio' },
     { from: 'c_vorresti_prot_spec', to: 'c_end_fam_ok', label: 'Famiglia', optionKey: 'famiglia' },
-    { from: 'c_vorresti_prot_spec', to: 'c_end_carta_ok', label: 'Permesso UE lungo periodo ("Carta di soggiorno")', optionKey: 'carta_ue' },
+    { from: 'c_vorresti_prot_spec', to: 'c_end_carta_no', label: 'Permesso UE lungo periodo ("Carta di soggiorno")', optionKey: 'carta_ue' },
     { from: 'c_vorresti_prot_spec', to: 'c_end_altro_wip', label: 'Altro tipo di permesso', optionKey: 'altro' },
 
     // --- Current: Minore età ---
@@ -944,14 +944,14 @@ export const conversioneTree: TreeData = {
     { from: 'c_vorresti_ricerca', to: 'c_end_att_ok', label: 'Attesa occupazione', optionKey: 'att_occ' },
     { from: 'c_vorresti_ricerca', to: 'c_end_complicata', label: 'Studio', optionKey: 'studio' },
     { from: 'c_vorresti_ricerca', to: 'c_end_fam_ok', label: 'Famiglia', optionKey: 'famiglia' },
-    { from: 'c_vorresti_ricerca', to: 'c_end_carta_no', label: 'Permesso UE lungo periodo ("Carta di soggiorno")', optionKey: 'carta_ue' },
+    { from: 'c_vorresti_ricerca', to: 'c_end_carta_ok', label: 'Permesso UE lungo periodo ("Carta di soggiorno")', optionKey: 'carta_ue' },
     { from: 'c_vorresti_ricerca', to: 'c_end_altro_wip', label: 'Altro tipo di permesso', optionKey: 'altro' },
 
     // --- Current: Sfruttamento lavorativo ---
     { from: 'c_vorresti_sfruttamento', to: 'c_end_lav_sub_ok', label: 'Lavoro subordinato', optionKey: 'lav_sub' },
     { from: 'c_vorresti_sfruttamento', to: 'c_end_lav_aut_ok', label: 'Lavoro autonomo', optionKey: 'lav_aut' },
     { from: 'c_vorresti_sfruttamento', to: 'c_end_att_ok', label: 'Attesa occupazione', optionKey: 'att_occ' },
-    { from: 'c_vorresti_sfruttamento', to: 'c_end_stu_no', label: 'Studio', optionKey: 'studio' },
+    { from: 'c_vorresti_sfruttamento', to: 'c_end_stu_ok', label: 'Studio', optionKey: 'studio' },
     { from: 'c_vorresti_sfruttamento', to: 'c_end_fam_ok', label: 'Famiglia', optionKey: 'famiglia' },
     { from: 'c_vorresti_sfruttamento', to: 'c_end_carta_no', label: 'Permesso UE lungo periodo ("Carta di soggiorno")', optionKey: 'carta_ue' },
     { from: 'c_vorresti_sfruttamento', to: 'c_end_altro_wip', label: 'Altro tipo di permesso', optionKey: 'altro' },
@@ -960,7 +960,7 @@ export const conversioneTree: TreeData = {
     { from: 'c_vorresti_prot_soc', to: 'c_end_lav_sub_ok', label: 'Lavoro subordinato', optionKey: 'lav_sub' },
     { from: 'c_vorresti_prot_soc', to: 'c_end_lav_aut_ok', label: 'Lavoro autonomo', optionKey: 'lav_aut' },
     { from: 'c_vorresti_prot_soc', to: 'c_end_att_incerta', label: 'Attesa occupazione', optionKey: 'att_occ' },
-    { from: 'c_vorresti_prot_soc', to: 'c_end_stu_no', label: 'Studio', optionKey: 'studio' },
+    { from: 'c_vorresti_prot_soc', to: 'c_end_stu_ok', label: 'Studio', optionKey: 'studio' },
     { from: 'c_vorresti_prot_soc', to: 'c_end_fam_ok', label: 'Famiglia', optionKey: 'famiglia' },
     { from: 'c_vorresti_prot_soc', to: 'c_end_carta_no', label: 'Permesso UE lungo periodo ("Carta di soggiorno")', optionKey: 'carta_ue' },
     { from: 'c_vorresti_prot_soc', to: 'c_end_altro_wip', label: 'Altro tipo di permesso', optionKey: 'altro' },
