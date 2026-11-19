@@ -5,6 +5,7 @@ import { setRequestLocale } from 'next-intl/server';
 
 import { getProAccess } from '@/lib/pro-access';
 import { getProfilo } from '@/lib/profilo';
+import { TIPI_PROFILO } from '@/lib/profilo-shared';
 
 import { BenvenutoForm } from './BenvenutoForm';
 
@@ -15,7 +16,8 @@ export const metadata: Metadata = {
 
 type Props = {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ da?: string }>;
+  /** tipo: scelto nel modulo di prova di /abbonati, arriva già selezionato. */
+  searchParams: Promise<{ da?: string; tipo?: string }>;
 };
 
 function safeReturnPath(raw: string | undefined, locale: string): string {
@@ -31,7 +33,8 @@ function safeReturnPath(raw: string | undefined, locale: string): string {
 export default async function BenvenutoPage({ params, searchParams }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const { da } = await searchParams;
+  const { da, tipo } = await searchParams;
+  const tipoScelto = TIPI_PROFILO.find((t) => t.value === tipo)?.value ?? null;
 
   const access = await getProAccess(await headers());
   if (access.status === 'anonymous') {
@@ -66,7 +69,7 @@ export default async function BenvenutoPage({ params, searchParams }: Props) {
         destinazione={safeReturnPath(da, locale)}
         iniziale={{
           nome: user.name ?? '',
-          tipo: profilo?.tipo ?? null,
+          tipo: profilo?.tipo ?? tipoScelto,
           organizzazione: profilo?.organizzazione ?? '',
           citta: profilo?.citta ?? '',
         }}

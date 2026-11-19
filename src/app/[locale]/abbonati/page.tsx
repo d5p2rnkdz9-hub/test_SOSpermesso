@@ -6,6 +6,7 @@ import { accountUnicoOn } from '@/lib/pro-entitlement';
 import { PRATICHE_ATTIVE } from '@/lib/pratiche';
 
 import { C, INK } from '../accedi/stile';
+import { atkinson, disp, poppins } from './fonts';
 import { ProvaForm } from './ProvaForm';
 
 export const metadata: Metadata = {
@@ -26,9 +27,10 @@ function safeReturnPath(raw: string | undefined, locale: string): string {
 }
 
 /* Stessa pagina di sosflussi.it/abbonati/ (design «Adesivo»), nel giallo di SOS Permesso. */
-const chip = 'rounded-[10px] border-[2.5px] border-[#141414] bg-white px-4 py-2 text-[17px] font-extrabold';
-const sezione = 'mx-auto w-full max-w-[1120px] px-4';
-const h2 = 'text-[clamp(28px,3.4vw,40px)] font-extrabold leading-tight';
+/* Misure prese da sosflussi.it/abbonati/index.html e assets/adesivo.css (wrap 1180px, bordi 2,5/3px, ombre a adesivo). */
+const chip = `rounded-[8px] border-2 border-[#141414] bg-white px-3.5 py-[5px] text-[15px] font-bold ${disp}`;
+const sezione = 'mx-auto w-full max-w-[1180px] px-4 sm:px-6';
+const h2 = `mb-2.5 text-[clamp(26px,3.4vw,34px)] font-extrabold leading-[1.15] ${disp}`;
 
 type Riga = { cosa: string; gratis: { testo: string; tipo: 'si' | 'parte' | 'no' }; pro: string };
 
@@ -37,8 +39,12 @@ function Segno({ tipo }: { tipo: 'si' | 'parte' | 'no' }) {
   return (
     <span
       aria-hidden="true"
-      className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 border-[#141414] text-xs font-extrabold"
-      style={{ background: tipo === 'si' ? C.accent : tipo === 'parte' ? '#fff' : '#eee' }}
+      className={`inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 text-[13px] font-extrabold ${disp}`}
+      style={{
+        background: tipo === 'si' ? C.accent : '#fff',
+        borderColor: tipo === 'no' ? C.muted : INK,
+        color: tipo === 'no' ? C.muted : INK,
+      }}
     >
       {testo}
     </span>
@@ -91,29 +97,38 @@ export default async function AbbonatiPage({ params, searchParams }: Props) {
   ];
 
   return (
-    <div style={{ color: INK }} className="bg-[#FFFDF5]">
+    <div
+      style={{ color: INK }}
+      className={`${poppins.variable} ${atkinson.variable} bg-[#FFFDF5] text-[17px] leading-[1.6] [font-family:var(--font-atkinson),system-ui,sans-serif]`}
+    >
       {/* ---------- Hero con la richiesta del link ---------- */}
-      <header className="border-b-[3px] border-[#141414] py-8 sm:py-12" style={{ background: C.accentTint }}>
-        <div className={`${sezione} grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(300px,380px)] lg:gap-12`}>
+      <header className="border-b-[3px] border-[#141414] pb-11 pt-8 sm:pb-14 sm:pt-12" style={{ background: C.accentTint }}>
+        <div
+          className={`${sezione} grid items-start gap-10 min-[901px]:grid-cols-[minmax(0,1fr)_minmax(300px,380px)] min-[901px]:gap-12`}
+        >
           <div>
-            <span className="inline-flex items-center gap-2 rounded-full border-[2.5px] border-[#141414] bg-white px-4 py-1.5 text-base font-extrabold">
+            <span
+              className={`mb-4 inline-flex items-center gap-2 rounded-full border-[2.5px] border-[#141414] bg-white px-3.5 py-1 text-sm font-bold ${disp}`}
+            >
               SOS Permesso
               <span
-                className="rounded-full border-2 border-[#141414] px-2.5 text-sm font-extrabold uppercase leading-6 tracking-wide"
+                className="rounded-full border-2 border-[#141414] px-2.5 text-[13px] font-extrabold uppercase leading-[1.5] tracking-[.04em]"
                 style={{ background: C.accent }}
               >
                 pro
               </span>
             </span>
-            <h1 className="mt-4 text-[clamp(36px,5.4vw,64px)] font-extrabold leading-[1.02] tracking-tight">
+            <h1
+              className={`mb-5 text-[clamp(34px,4.8vw,56px)] font-extrabold leading-[1.06] tracking-[-0.02em] [text-wrap:balance] ${disp}`}
+            >
               Gli strumenti di lavoro per le pratiche di permesso di soggiorno
             </h1>
-            <p className="mt-6 max-w-[62ch] text-lg leading-relaxed">
+            <p className="mb-[22px] max-w-[36em] text-lg leading-[1.5] [text-wrap:pretty] sm:text-[20px]">
               Tutte le circolari con ricerca nel testo, il questionario per gli operatori sulle conversioni, le scadenze
               dei permessi che segui con i promemoria e un avviso via email quando esce una circolare nuova. In un posto
               solo, curato dallo Studio Legale Oltre.
             </p>
-            <ul className="mt-6 flex flex-wrap gap-2" aria-label="A chi serve">
+            <ul className="flex flex-wrap gap-2" aria-label="A chi serve">
               {['CAF e patronati', 'Sindacati e sportelli', 'Consulenti del lavoro', 'Avvocati', 'Associazioni'].map(
                 (c) => (
                   <li key={c} className={chip}>
@@ -127,16 +142,18 @@ export default async function AbbonatiPage({ params, searchParams }: Props) {
           <aside
             id="prova"
             aria-labelledby="prova-titolo"
-            className="relative mt-5 max-w-[440px] rounded-[24px] border-[3px] border-[#141414] bg-white px-5 pb-6 pt-9 shadow-[8px_8px_0_#141414] sm:px-6"
+            className="relative mt-[18px] max-w-[440px] rounded-[28px] border-[3px] border-[#141414] bg-white px-[18px] pb-5 pt-8 shadow-[9px_9px_0_#141414] sm:px-[26px] sm:pb-6 sm:pt-[34px]"
           >
-            <p className="absolute -top-[19px] start-[22px] -rotate-3 rounded-lg bg-[#141414] px-4 pb-1.5 pt-1 text-base font-extrabold text-white">
+            <p
+              className={`absolute -top-[19px] start-[22px] origin-left -rotate-[4deg] rounded-[12px] bg-[#141414] px-4 pb-1.5 pt-1 text-base font-bold text-white ${disp}`}
+            >
               Gratis
             </p>
-            <h2 id="prova-titolo" className="mb-4 text-[clamp(26px,3vw,32px)] font-extrabold leading-[1.12]">
+            <h2 id="prova-titolo" className={`mb-4 text-[clamp(26px,3vw,32px)] font-extrabold leading-[1.12] ${disp}`}>
               Chiedi un link di prova gratuita
             </h2>
             <ProvaForm callbackURL={ritorno} locale={locale} />
-            <ul className="mt-5 grid gap-1.5 text-base">
+            <ul className="mb-5 mt-[18px] grid gap-1.5 text-base">
               {[
                 'Nessun pagamento, nessuna carta di credito',
                 'Entri con il link che ti mandiamo via email',
@@ -150,7 +167,7 @@ export default async function AbbonatiPage({ params, searchParams }: Props) {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 text-base">
+            <p className="text-center text-sm" style={{ color: C.muted }}>
               Hai già un account?{' '}
               <a
                 href={`/${locale}/accedi?da=${encodeURIComponent(ritorno)}`}
@@ -172,15 +189,15 @@ export default async function AbbonatiPage({ params, searchParams }: Props) {
               <caption className="sr-only">Confronto fra il sito gratuito e SOS Permesso PRO</caption>
               <thead className="max-sm:hidden">
                 <tr className="border-b-[2.5px] border-[#141414]">
-                  <th scope="col" className="px-4 py-3 font-extrabold">
+                  <th scope="col" className={`px-[18px] py-3.5 text-lg font-extrabold ${disp}`} style={{ background: C.brandTint }}>
                     Cosa trovi
                   </th>
-                  <th scope="col" className="px-4 py-3 font-extrabold">
+                  <th scope="col" className={`px-[18px] py-3.5 text-lg font-extrabold ${disp}`} style={{ background: C.brandTint }}>
                     Gratis
                   </th>
                   <th
                     scope="col"
-                    className="border-s-[2.5px] border-[#141414] px-4 py-3 font-extrabold"
+                    className={`border-s-[2.5px] border-[#141414] px-[18px] py-3.5 text-lg font-extrabold ${disp}`}
                     style={{ background: C.accent }}
                   >
                     PRO
@@ -189,22 +206,25 @@ export default async function AbbonatiPage({ params, searchParams }: Props) {
               </thead>
               <tbody className="max-sm:block">
                 {righe.map((r) => (
-                  <tr key={r.cosa} className="border-b border-[#141414]/20 align-top last:border-b-0 max-sm:block max-sm:border-b-[2.5px] max-sm:border-[#141414]">
-                    <th scope="row" className="w-[34%] px-4 py-3 font-extrabold max-sm:block max-sm:w-auto max-sm:pb-1">
+                  <tr key={r.cosa} className="border-b-[1.5px] border-[#E6E1D3] align-top last:border-b-0 max-sm:block max-sm:border-b-[2.5px] max-sm:border-[#141414]">
+                    <th
+                      scope="row"
+                      className={`w-[34%] px-[18px] py-3.5 text-[17px] font-bold leading-[1.35] max-sm:block max-sm:w-auto max-sm:pb-1 ${disp}`}
+                    >
                       {r.cosa}
                     </th>
-                    <td className="w-[22%] px-4 py-3 max-sm:block max-sm:w-auto max-sm:py-2">
-                      <span className="block text-sm font-extrabold sm:hidden">Gratis</span>
+                    <td className="w-[33%] px-[18px] py-3.5 leading-[1.45] max-sm:block max-sm:w-auto max-sm:py-2">
+                      <span className={`block text-sm font-extrabold sm:hidden ${disp}`}>Gratis</span>
                       <span className="flex gap-2.5" style={{ color: r.gratis.tipo === 'no' ? C.muted : undefined }}>
                         <Segno tipo={r.gratis.tipo} />
                         <span>{r.gratis.testo}</span>
                       </span>
                     </td>
                     <td
-                      className="border-s-[2.5px] border-[#141414] px-4 py-3 max-sm:block max-sm:border-s-0 max-sm:border-t-[1.5px] max-sm:border-dashed"
+                      className="border-s-[2.5px] border-[#141414] px-[18px] py-3.5 leading-[1.45] max-sm:block max-sm:border-s-0 max-sm:border-t-[1.5px] max-sm:border-dashed"
                       style={{ background: C.accentTint }}
                     >
-                      <span className="block text-sm font-extrabold sm:hidden">PRO</span>
+                      <span className={`block text-sm font-extrabold sm:hidden ${disp}`}>PRO</span>
                       <span className="flex gap-2.5">
                         <Segno tipo="si" />
                         <span>{r.pro}</span>
@@ -236,10 +256,10 @@ export default async function AbbonatiPage({ params, searchParams }: Props) {
           <h2 id="chi-titolo" className={h2}>
             Per chi è
           </h2>
-          <p className="mt-3 max-w-[62ch] text-lg">
+          <p className="mb-6 max-w-[60ch] text-lg">
             Per chi segue le pratiche di permesso di soggiorno come mestiere, o ne vede molte ogni anno.
           </p>
-          <ul className="mt-6 border-t-[2.5px] border-[#141414]">
+          <ul className="border-y-[2.5px] border-[#141414]">
             {[
               [
                 'CAF e patronati',
@@ -264,14 +284,14 @@ export default async function AbbonatiPage({ params, searchParams }: Props) {
             ].map(([t, d]) => (
               <li
                 key={t}
-                className="grid gap-1 border-b-[1.5px] border-[#141414]/30 py-4 sm:grid-cols-[260px_minmax(0,1fr)] sm:gap-6"
+                className="grid gap-1.5 border-b-[1.5px] border-[#E6E1D3] py-3.5 last:border-b-0 sm:grid-cols-[minmax(180px,280px)_minmax(0,1fr)] sm:gap-x-8 sm:py-[18px]"
               >
-                <h3 className="text-xl font-extrabold">{t}</h3>
-                <p className="text-base leading-relaxed">{d}</p>
+                <h3 className={`text-xl font-bold leading-[1.25] ${disp}`}>{t}</h3>
+                <p className="max-w-[62ch] text-[17px] leading-[1.5]">{d}</p>
               </li>
             ))}
           </ul>
-          <p className="mt-5 max-w-[62ch] text-[17px]">
+          <p className="mt-[18px] max-w-[62ch] text-[17px]">
             <strong>Ti serve per una pratica tua?</strong> Probabilmente ti basta il sito gratuito: parti da{' '}
             <a href="https://www.sospermesso.it" className="font-semibold underline underline-offset-2">
               sospermesso.it
@@ -285,8 +305,8 @@ export default async function AbbonatiPage({ params, searchParams }: Props) {
           <h2 id="patto-titolo" className={h2}>
             Come funziona la prova, in chiaro
           </h2>
-          <p className="mt-3 text-lg">Tutto quello che succede dal momento in cui chiedi il link.</p>
-          <dl className="mt-6 max-w-[860px] rounded-[18px] border-[3px] border-[#141414] bg-white px-5 py-1 shadow-[5px_5px_0_#141414] sm:px-6">
+          <p className="mb-6 max-w-[60ch] text-lg">Tutto quello che succede dal momento in cui chiedi il link.</p>
+          <dl className="max-w-[860px] rounded-[18px] border-[3px] border-[#141414] bg-white px-[18px] py-0.5 shadow-[5px_5px_0_#141414] sm:px-[26px] sm:py-1.5">
             {[
               ['Quanto costa', 'Niente. Non ti chiediamo una carta né altri dati di pagamento.'],
               [
@@ -309,14 +329,14 @@ export default async function AbbonatiPage({ params, searchParams }: Props) {
             ].map(([t, d]) => (
               <div
                 key={t}
-                className="grid gap-1 border-b-[1.5px] border-dashed border-[#141414]/40 py-4 last:border-b-0 sm:grid-cols-[200px_minmax(0,1fr)] sm:gap-6"
+                className="grid gap-1 border-t-2 border-dashed border-[#E6E1D3] py-3.5 first:border-t-0 sm:grid-cols-[170px_minmax(0,1fr)] sm:gap-x-6 sm:py-4"
               >
-                <dt className="font-extrabold">{t}</dt>
-                <dd className="text-base leading-relaxed">{d}</dd>
+                <dt className={`text-[17px] font-extrabold leading-[1.4] ${disp}`}>{t}</dt>
+                <dd className="text-[17px] leading-[1.5]">{d}</dd>
               </div>
             ))}
           </dl>
-          <p className="mt-4 max-w-[860px] text-base">
+          <p className="mt-[18px] max-w-[860px] text-base">
             Come trattiamo i tuoi dati è nell&apos;
             <a href={`/${locale}/accedi/informativa`} className="font-semibold underline underline-offset-2">
               informativa privacy
@@ -338,7 +358,7 @@ export default async function AbbonatiPage({ params, searchParams }: Props) {
           <h2 id="faq-titolo" className={h2}>
             Domande frequenti
           </h2>
-          <div className="mt-6 grid max-w-[820px] gap-3.5">
+          <div className="grid max-w-[820px] gap-3.5">
             {[
               [
                 'A chi serve?',
@@ -360,27 +380,27 @@ export default async function AbbonatiPage({ params, searchParams }: Props) {
             ].map(([q, a]) => (
               <details
                 key={q}
-                className="rounded-[18px] border-[2.5px] border-[#141414] bg-white px-5 py-4 shadow-[3px_3px_0_#141414]"
+                className="rounded-[18px] border-[2.5px] border-[#141414] bg-white px-5 py-1 shadow-[3px_3px_0_#141414] open:pb-[18px]"
               >
-                <summary className="cursor-pointer text-lg font-extrabold">{q}</summary>
-                <p className="mt-2 text-base leading-relaxed">{a}</p>
+                <summary className={`flex min-h-[48px] cursor-pointer items-center text-lg font-extrabold ${disp}`}>{q}</summary>
+                <p className="text-[17px] leading-[1.55]">{a}</p>
               </details>
             ))}
           </div>
 
           <div
-            className="mt-12 flex flex-wrap items-center justify-between gap-4 rounded-[18px] border-[2.5px] border-[#141414] p-6"
+            className="mt-12 flex flex-wrap items-center justify-between gap-x-7 gap-y-4 rounded-[18px] border-[2.5px] border-[#141414] px-[18px] py-[22px] sm:p-7"
             style={{ background: C.accentTint }}
           >
-            <h2 className="text-[clamp(24px,3vw,32px)] font-extrabold">Gratis, senza carta di credito</h2>
+            <h2 className={`text-[26px] font-extrabold leading-[1.15] ${disp}`}>Gratis, senza carta di credito</h2>
             <a
               href="#prova"
-              className="inline-flex min-h-[48px] items-center justify-center rounded-xl border-[2.5px] border-[#141414] bg-[#FFD400] px-5 font-extrabold shadow-[4px_4px_0_#141414]"
+              className={`inline-flex min-h-[56px] w-full max-w-[320px] items-center justify-center rounded-full border-[2.5px] border-[#141414] bg-[#FFD400] px-[22px] text-xl font-bold shadow-[4px_4px_0_#141414] ${disp}`}
             >
               Chiedi il link di prova
             </a>
           </div>
-          <p className="mt-7 max-w-[70ch] text-[15px]" style={{ color: C.muted }}>
+          <p className="mb-0 mt-7 max-w-[70ch] text-[15px]" style={{ color: C.muted }}>
             SOS Permesso PRO è un servizio informativo dello Studio Legale Oltre. Le informazioni non sostituiscono una
             consulenza legale.
           </p>
