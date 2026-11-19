@@ -1,0 +1,13 @@
+{
+  "_nota": "Decisioni della redazione SOS Permesso sulle ricerche di docs/pro-questionario/ricerca/conversione/. Applicate da scripts/pro-questionario/build-conversione.py dopo il merge. 'prassi' va in testa alla sintesi, 'esito_verificato' sostituisce quello della ricerca.",
+  "lavoro_autonomo__attesa_occupazione": {
+    "decisa_il": "2026-11-19",
+    "esito_verificato": "condizionato",
+    "prassi": "**Indicazione di prassi (redazione SOS Permesso).** Nella prassi la conversione si ottiene: al titolare di permesso per lavoro autonomo che ha cessato l'attività conviene chiedere il permesso per attesa occupazione, con la dichiarazione di immediata disponibilità (DID) al Centro per l'impiego. Il testo dell'art. 22, c. 11, TU parla però del lavoratore subordinato: in caso di diniego il ricorso non ha un esito scontato.\n\n**Quadro normativo.**"
+  },
+  "lavoro_stagionale__lavoro_autonomo": {
+    "decisa_il": "2026-11-19",
+    "esito_verificato": "incerto",
+    "prassi": "**Indicazione di prassi (redazione SOS Permesso).** La legge sembra escluderla, ma se la persona ha svolto lavoro autonomo durante la validità del permesso precedente conviene comunque presentare la domanda, documentando l'attività (partita IVA, iscrizioni, redditi). La via sicura resta la conversione in lavoro subordinato (art. 24, c. 10, TU).\n\n**Quadro normativo.**"
+  }
+}

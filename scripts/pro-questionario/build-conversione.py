@@ -22,6 +22,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / 'docs/pro-questionario/ricerca/conversione'
+DECISIONI = ROOT / 'docs/pro-questionario/decisioni/conversione.json'
 OUT = ROOT / 'src/lib/pro-questionario/dati/conversione-esiti.json'
 
 # raw token (after stripping parentheses) -> canonical keys
@@ -197,6 +198,19 @@ def main() -> int:
                 a = gen.split('__')[1]
                 if fonte != a:
                     tabella.setdefault(f'{fonte}__{a}', tabella[gen])
+    # Editorial decisions override the research (verdict) and put practice notes first.
+    for k, dec in json.loads(DECISIONI.read_text()).items():
+        if k.startswith('_'):
+            continue
+        if k not in tabella:
+            ignote.append(f'decisione senza voce: {k}')
+            continue
+        voce = dict(tabella[k])
+        voce['esito_verificato'] = dec.get('esito_verificato', voce['esito_verificato'])
+        if dec.get('prassi'):
+            voce['sintesi'] = dec['prassi'] + ' ' + voce['sintesi']
+        voce['decisione_redazione'] = dec.get('decisa_il')
+        tabella[k] = voce
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(dict(sorted(tabella.items())), ensure_ascii=False, indent=1) + '\n')
     print(f'{len(tabella)} voci → {OUT.relative_to(ROOT)}')

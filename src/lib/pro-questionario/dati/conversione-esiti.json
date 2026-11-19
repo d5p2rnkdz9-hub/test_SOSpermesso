@@ -5628,9 +5628,9 @@
   "a": "attesa_occupazione",
   "nodo_albero": "c_end_att_ok",
   "esito_albero": "POSSIBILE",
-  "esito_verificato": "non_possibile",
+  "esito_verificato": "condizionato",
   "discrepanza": "L'albero usa lo stesso nodo (c_vorresti_lav) per subordinato e autonomo e da' 'POSSIBILE' anche all'autonomo. L'art. 22 c. 11 TU riguarda solo il titolare di permesso per lavoro subordinato; la stessa amministrazione ritiene l'estensione all'autonomo 'una forzatura' (posizione riferita in Cons. Stato 6070/2014). La tutela dell'autonomo che resta senza reddito passa per altre vie: valutazione ragionevole delle carenze temporanee di reddito al rinnovo, passaggio al lavoro subordinato (art. 14 c. 1 lett. b d.P.R. 394/1999), coesione familiare.",
-  "sintesi": "Il permesso per attesa occupazione è disciplinato dall'art. 22, c. 11, TU per il lavoratore titolare di permesso per lavoro subordinato che perde il posto; non esiste una norma che lo preveda per il lavoratore autonomo. Il Consiglio di Stato (sez. III, 6070/2014) ha riconosciuto che la norma è riferita al lavoro subordinato, ma ne ha tratto una regola di ragionevolezza: al rinnovo del permesso per lavoro autonomo vanno tollerate carenze temporanee di reddito se il richiedente dimostra capacità di produrre reddito, valutando i fatti sopravvenuti prima del provvedimento. Per il CAF la strada utile è quindi il rinnovo per lavoro autonomo con documentazione della ripresa dell'attività, oppure il rinnovo per lavoro subordinato se nel frattempo è stato assunto (art. 14 c. 1 lett. b e c. 3 d.P.R. 394/1999). Se l'interessato ha anche avuto in passato un permesso per lavoro subordinato, va verificata la situazione concreta.",
+  "sintesi": "**Indicazione di prassi (redazione SOS Permesso).** Nella prassi la conversione si ottiene: al titolare di permesso per lavoro autonomo che ha cessato l'attività conviene chiedere il permesso per attesa occupazione, con la dichiarazione di immediata disponibilità (DID) al Centro per l'impiego. Il testo dell'art. 22, c. 11, TU parla però del lavoratore subordinato: in caso di diniego il ricorso non ha un esito scontato.\n\n**Quadro normativo.** Il permesso per attesa occupazione è disciplinato dall'art. 22, c. 11, TU per il lavoratore titolare di permesso per lavoro subordinato che perde il posto; non esiste una norma che lo preveda per il lavoratore autonomo. Il Consiglio di Stato (sez. III, 6070/2014) ha riconosciuto che la norma è riferita al lavoro subordinato, ma ne ha tratto una regola di ragionevolezza: al rinnovo del permesso per lavoro autonomo vanno tollerate carenze temporanee di reddito se il richiedente dimostra capacità di produrre reddito, valutando i fatti sopravvenuti prima del provvedimento. Per il CAF la strada utile è quindi il rinnovo per lavoro autonomo con documentazione della ripresa dell'attività, oppure il rinnovo per lavoro subordinato se nel frattempo è stato assunto (art. 14 c. 1 lett. b e c. 3 d.P.R. 394/1999). Se l'interessato ha anche avuto in passato un permesso per lavoro subordinato, va verificata la situazione concreta.",
   "requisiti": [
    "Nessun titolo diretto; in alternativa: reddito da lavoro autonomo al rinnovo (art. 26 c. 3 TU) anche con valutazione prognostica, oppure contratto di lavoro subordinato in corso"
   ],
@@ -5730,7 +5730,8 @@
     ]
    }
   ],
-  "fonte_ricerca": "A-lavoro.json"
+  "fonte_ricerca": "A-lavoro.json",
+  "decisione_redazione": "2026-11-19"
  },
  "lavoro_autonomo__famiglia": {
   "da": "lavoro_subordinato / lavoro_autonomo",
@@ -6625,9 +6626,9 @@
   "a": "lavoro_autonomo",
   "nodo_albero": "c_end_lav_aut_ok",
   "esito_albero": "POSSIBILE",
-  "esito_verificato": "non_possibile",
+  "esito_verificato": "incerto",
   "discrepanza": "L'albero da' 'POSSIBILE'. Nessuna norma prevede la conversione dello stagionale in lavoro autonomo: l'art. 24 c. 10 TU prevede solo la conversione in lavoro subordinato; l'art. 14 c. 1 lett. a) d.P.R. 394/1999 consente il lavoro autonomo solo al titolare di permesso per lavoro subordinato 'non stagionale'; l'unica conversione in autonomo espressamente regolata e' da studio/formazione (art. 39 c. 9 d.P.R. 394/1999). La via praticabile e' in due tempi: stagionale -> subordinato (art. 24 c. 10), poi subordinato -> autonomo (art. 14 c. 1 lett. a e c. 3).",
-  "sintesi": "Il permesso per lavoro stagionale ha una disciplina chiusa: alla fine dei nove mesi il lavoratore deve rientrare salvo permesso per motivi diversi (art. 24, c. 8, TU; art. 14, par. 1, dir. 2014/36/UE) e la legge apre un'unica uscita lavorativa, la conversione in lavoro subordinato dopo tre mesi di lavoro (art. 24, c. 10). Il lavoro autonomo è consentito al titolare di permesso per lavoro subordinato non stagionale (art. 14, c. 1, lett. a, d.P.R. 394/1999), sicché lo stagionale non può svolgerlo durante la validità del permesso e, per il principio di tipicità delle conversioni (Cons. Stato 476/2018), non può convertire direttamente in lavoro autonomo. Svolgere un'attività diversa da quella stagionale espone alla revoca vincolata del permesso (art. 24, c. 13, lett. b; Cons. Stato 9770/2022).",
+  "sintesi": "**Indicazione di prassi (redazione SOS Permesso).** La legge sembra escluderla, ma se la persona ha svolto lavoro autonomo durante la validità del permesso precedente conviene comunque presentare la domanda, documentando l'attività (partita IVA, iscrizioni, redditi). La via sicura resta la conversione in lavoro subordinato (art. 24, c. 10, TU).\n\n**Quadro normativo.** Il permesso per lavoro stagionale ha una disciplina chiusa: alla fine dei nove mesi il lavoratore deve rientrare salvo permesso per motivi diversi (art. 24, c. 8, TU; art. 14, par. 1, dir. 2014/36/UE) e la legge apre un'unica uscita lavorativa, la conversione in lavoro subordinato dopo tre mesi di lavoro (art. 24, c. 10). Il lavoro autonomo è consentito al titolare di permesso per lavoro subordinato non stagionale (art. 14, c. 1, lett. a, d.P.R. 394/1999), sicché lo stagionale non può svolgerlo durante la validità del permesso e, per il principio di tipicità delle conversioni (Cons. Stato 476/2018), non può convertire direttamente in lavoro autonomo. Svolgere un'attività diversa da quella stagionale espone alla revoca vincolata del permesso (art. 24, c. 13, lett. b; Cons. Stato 9770/2022).",
   "requisiti": [
    "Nessuna conversione diretta",
    "Percorso alternativo: conversione in lavoro subordinato (requisiti art. 24 c. 10), poi lavoro autonomo durante la validità o al rinnovo"
@@ -6704,7 +6705,8 @@
     ]
    }
   ],
-  "fonte_ricerca": "A-lavoro.json"
+  "fonte_ricerca": "A-lavoro.json",
+  "decisione_redazione": "2026-11-19"
  },
  "lavoro_stagionale__lavoro_subordinato": {
   "da": "lavoro_stagionale",

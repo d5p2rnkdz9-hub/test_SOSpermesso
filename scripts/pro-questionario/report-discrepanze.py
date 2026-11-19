@@ -60,6 +60,14 @@ righe = [
     *[f'| {t} | {len(voci[k])} |' for k, t, _ in CLASSI],
     f'| Punti da validare (in fondo) | {len(punti)} |',
     '',
+    '## Già decise (19/11/2026)',
+    '',
+    '- Protezione speciale → permesso UE: **non possibile**. Albero pubblico corretto su `main` (c11f98a).',
+    '- Ricerca scientifica → permesso UE: **possibile**. Albero pubblico corretto su `main` (c11f98a).',
+    '- Art. 18 → studio e art. 18-ter → studio: **possibile**. Albero pubblico corretto su `main` (c11f98a).',
+    '- Lavoro autonomo → attesa occupazione: resta **possibile** nell\'albero pubblico; nel PRO «condizionato» con indicazione di prassi (`docs/pro-questionario/decisioni/conversione.json`).',
+    '- Lavoro stagionale → lavoro autonomo: resta **possibile** nell\'albero pubblico; nel PRO «incerto», conviene provare se ha già svolto lavoro autonomo.',
+    '',
 ]
 for k, titolo, spiega in CLASSI:
     righe += [f'## {titolo} ({len(voci[k])})', '', spiega, '']
