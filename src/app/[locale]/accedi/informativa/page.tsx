@@ -56,7 +56,7 @@ export default async function InformativaPage({ params }: Props) {
               <strong>Dati che salvi nell&apos;area PRO</strong> (permessi che segui, profilo, conversazioni con
               l&apos;assistente, scadenziario): per offrirti le funzioni che usi. Per i dati di terzi che inserisci nello
               scadenziario sei tu il titolare e valgono le condizioni dell&apos;accordo art. 28 GDPR, che accetti con la
-              spunta del modulo di prova gratuita o, se hai già un account, prima di usarlo.
+              spunta del modulo con cui crei l&apos;account o, se l&apos;account l&apos;avevi già, prima di usarlo.
             </li>
             <li>
               <strong>Accettazione dell&apos;accordo</strong> (data, versione, email, indirizzo IP e tipo di browser): per

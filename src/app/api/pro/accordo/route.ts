@@ -7,8 +7,8 @@ import { sameOrigin } from '@/lib/request-guard';
 
 /**
  * POST { accetto: true, versione } — l'utente autenticato accetta l'accordo
- * art. 28 dalla finestra in cui ha scorso il testo fino in fondo, e lo
- * scadenziario si attiva. La versione deve essere quella corrente: chi ha la
+ * art. 28 dalla finestra dello scadenziario (chi aveva l'account prima della
+ * spunta unica all'iscrizione), e lo scadenziario si attiva. La versione deve essere quella corrente: chi ha la
  * pagina aperta da prima di una modifica del testo deve ricaricarla.
  */
 export async function POST(request: Request) {
@@ -34,7 +34,6 @@ export async function POST(request: Request) {
   await registraAccettazione({
     userId: user.id,
     email: user.email,
-    nome: user.name || null,
     ip: clientIp(request.headers),
     userAgent: request.headers.get('user-agent'),
   });

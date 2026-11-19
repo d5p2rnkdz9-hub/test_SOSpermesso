@@ -5,9 +5,7 @@ import { createHash } from "node:crypto";
 import { NextResponse } from "next/server";
 
 import { ACCORDO_TESTO } from "./accordo-testo";
-import { sendEmail } from "./email";
 import { getSQL } from "./neon";
-import { PRO_URL } from "./site-url";
 
 /**
  * Accordo art. 28 GDPR che sblocca lo scadenziario (tabella
@@ -31,58 +29,19 @@ export async function haAccettatoAccordo(userId: string): Promise<boolean> {
 interface Accettazione {
   userId: string;
   email: string;
-  nome: string | null;
   ip: string | null;
   userAgent: string | null;
-  /** finestra: scorso il testo nello scadenziario; iscrizione: spunta del modulo di prova (/abbonati). */
-  modo?: "finestra" | "iscrizione";
 }
 
-/**
- * Registra l'accettazione (idempotente) e manda all'utente la copia
- * dell'accordo con i dati dell'accettazione. L'email non blocca: se fallisce,
- * copia_inviata resta false e l'accettazione vale comunque.
- */
+/** Registra l'accettazione (idempotente). Nessuna email: l'accordo resta su /account/pratiche/accordo. */
 export async function registraAccettazione(a: Accettazione): Promise<void> {
-  const sql = getSQL();
-  const rows = (await sql.query(
+  await getSQL().query(
     `INSERT INTO pro.accordo_accettazione
        (user_id, versione, testo_sha256, email, ip, user_agent)
      VALUES ($1, $2, $3, $4, $5, $6)
-     ON CONFLICT (user_id, versione) DO NOTHING
-     RETURNING to_char(accettato_il AT TIME ZONE 'Europe/Rome', 'DD/MM/YYYY HH24:MI') AS quando`,
+     ON CONFLICT (user_id, versione) DO NOTHING`,
     [a.userId, ACCORDO_VERSIONE, ACCORDO_SHA256, a.email, a.ip, a.userAgent?.slice(0, 300) ?? null],
-  )) as { quando: string }[];
-  if (rows.length === 0) return; // già accettato: nessuna nuova copia
-
-  const text = [
-    `Ciao${a.nome ? ` ${a.nome}` : ""},`,
-    "",
-    `il ${rows[0].quando} (ora italiana) hai accettato, con l'account ${a.email} e ${a.modo === "iscrizione" ? "con la spunta del modulo di richiesta della prova gratuita, insieme all'informativa privacy" : "dopo averne scorso il testo fino in fondo"}, l'Accordo sul trattamento dei dati personali degli scadenziari dell'area PRO, versione ${ACCORDO_VERSIONE}.`,
-    "",
-    `Impronta SHA-256 del testo accettato: ${ACCORDO_SHA256}`,
-    `Lo trovi anche qui: ${PRO_URL}/it/account/pratiche/accordo`,
-    "",
-    "Conserva questa email: è la tua copia dell'accordo. Il testo completo segue qui sotto.",
-    "",
-    "----------------------------------------",
-    "",
-    ACCORDO_TESTO.replace(/^#{2,3} /gm, ""),
-  ].join("\n");
-
-  try {
-    await sendEmail({
-      to: a.email,
-      subject: `Accordo sul trattamento dei dati – scadenziari PRO (versione ${ACCORDO_VERSIONE})`,
-      text,
-    });
-    await sql.query(
-      "UPDATE pro.accordo_accettazione SET copia_inviata = true WHERE user_id = $1 AND versione = $2",
-      [a.userId, ACCORDO_VERSIONE],
-    );
-  } catch (err) {
-    console.error(`[accordo] copia non inviata a ${a.userId}: ${err instanceof Error ? err.message : err}`);
-  }
+  );
 }
 
 /** IP del client come lo passa Netlify, con ripiego sullo standard. */

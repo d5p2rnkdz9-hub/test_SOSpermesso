@@ -61,7 +61,7 @@ export function AccediForm({ callbackURL, locale, token, linkScaduto, accountUni
       return;
     }
     if (!privacy) {
-      setLinkMsg('Per continuare devi accettare l’informativa privacy.');
+      setLinkMsg('Per continuare devi accettare l’informativa privacy e l’accordo sul trattamento dei dati.');
       setLinkInvalido('privacy');
       privacyRef.current?.focus();
       return;
@@ -71,7 +71,7 @@ export function AccediForm({ callbackURL, locale, token, linkScaduto, accountUni
       email: indirizzo,
       callbackURL,
       // Primo accesso: completa l'account prima di tornare dove si era.
-      newUserCallbackURL: `/${locale}/account/benvenuto?da=${encodeURIComponent(callbackURL)}`,
+      newUserCallbackURL: `/${locale}/account/benvenuto?accordo=1&da=${encodeURIComponent(callbackURL)}`,
       errorCallbackURL: `/${locale}/accedi?errore=link`,
     });
     if (error) {
@@ -334,7 +334,16 @@ export function AccediForm({ callbackURL, locale, token, linkScaduto, accountUni
                     >
                       informativa privacy
                     </a>{' '}
-                    e accetto che il mio indirizzo email venga usato per l&apos;accesso{accountUnico ? ' (l\u2019informativa vale anche per SOS Flussi)' : ''}.
+                    {accountUnico ? '(vale anche per SOS Flussi) ' : ''}e accetto l&apos;
+                    <a
+                      href={`/${locale}/account/pratiche/accordo`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold underline underline-offset-2"
+                    >
+                      accordo sul trattamento dei dati
+                    </a>{' '}
+                    dello scadenziario (art. 28 GDPR).
                   </span>
                 </label>
                 {accountUnico && (

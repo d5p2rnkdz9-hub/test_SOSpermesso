@@ -20,7 +20,7 @@ type Props = {
   params: Promise<{ locale: string }>;
   /**
    * tipo: scelto nel modulo di prova di /abbonati, arriva già selezionato.
-   * accordo=1: nello stesso modulo la spunta accetta anche l'accordo art. 28 dello scadenziario.
+   * accordo=1: la spunta del modulo di iscrizione (/abbonati o /accedi) ha accettato anche l'accordo art. 28.
    */
   searchParams: Promise<{ da?: string; tipo?: string; accordo?: string }>;
 };
@@ -54,10 +54,8 @@ export default async function BenvenutoPage({ params, searchParams }: Props) {
       await registraAccettazione({
         userId: user.id,
         email: user.email,
-        nome: user.name || null,
         ip: clientIp(h),
         userAgent: h.get('user-agent'),
-        modo: 'iscrizione',
       });
     } catch (err) {
       console.error(`[accordo] registrazione all'iscrizione non riuscita: ${err instanceof Error ? err.message : err}`);

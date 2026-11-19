@@ -70,7 +70,7 @@ export function AccordoGate({ versione, accordoHref, children }: Props) {
       <p className="mt-2 text-sm text-foreground">
         Nello scadenziario inserisci dati delle persone che assisti: per quei dati il titolare sei tu, e Alberto
         Pasquero li conserva per tuo conto. Per questo, prima di iniziare, serve accettare l&apos;accordo sul
-        trattamento dei dati (art. 28 GDPR). Dopo l&apos;accettazione te ne mandiamo una copia per email.
+        trattamento dei dati (art. 28 GDPR).
       </p>
       <div className="mt-4 flex flex-wrap items-center gap-4">
         <button type="button" className={BTN_PRIMARY} onClick={apri}>
