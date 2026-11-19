@@ -12,7 +12,7 @@ import { ProvaForm } from './ProvaForm';
 export const metadata: Metadata = {
   title: 'Prova gratis SOS Permesso PRO',
   description:
-    'Gli strumenti di lavoro per le pratiche di permesso di soggiorno: archivio delle circolari, questionario per operatori, chatbot, scadenziario e avvisi via email.',
+    'Per chi segue i permessi di soggiorno ogni giorno: archivio delle circolari, questionario per operatori, chatbot, scadenziario e avvisi via email.',
 };
 
 type Props = {
@@ -123,12 +123,11 @@ export default async function AbbonatiPage({ params, searchParams }: Props) {
             <h1
               className={`mb-5 text-[clamp(34px,4.8vw,56px)] font-extrabold leading-[1.06] tracking-[-0.02em] [text-wrap:balance] ${disp}`}
             >
-              Gli strumenti di lavoro per le pratiche di permesso di soggiorno
+              Per chi segue i permessi di soggiorno ogni giorno
             </h1>
             <p className="mb-[22px] max-w-[36em] text-lg leading-[1.5] [text-wrap:pretty] sm:text-[20px]">
               Tutte le circolari con ricerca nel testo, il questionario per gli operatori sulle conversioni, le scadenze
-              dei permessi che segui con i promemoria e un avviso via email quando esce una circolare nuova. In un posto
-              solo, curato dallo Studio Legale Oltre.
+              dei permessi che segui con i promemoria e un avviso via email quando esce una circolare nuova.
             </p>
             <ul className="flex flex-wrap gap-2" aria-label="A chi serve">
               {['CAF e patronati', 'Sindacati e sportelli', 'Consulenti del lavoro', 'Avvocati', 'Associazioni'].map(
