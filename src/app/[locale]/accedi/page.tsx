@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 
-import { accountUnicoOn, freeLaunchOn } from '@/lib/pro-entitlement';
+import { accountUnicoOn } from '@/lib/pro-entitlement';
+
+import { atkinson, disp, poppins } from '../abbonati/fonts';
 
 import { AccediForm } from './AccediForm';
-import { C, INK, card } from './stile';
+import { C, INK } from './stile';
 
 export const metadata: Metadata = {
   title: 'Accedi — SOS Permesso PRO',
@@ -31,75 +33,43 @@ function safeReturnPath(raw: string | undefined, locale: string): string {
   return `/${locale}/account`;
 }
 
-/** Stessa pagina di sosflussi.it/accedi/ (hero giallo SOS Permesso, schede a adesivo). */
+/* Solo il modulo: la presentazione di PRO sta in /abbonati, l'unica pagina PRO.
+ * Qui arriva chi entra con la password, chi ha un link scaduto e chi imposta la password dall'email.
+ * Stile di /abbonati (design «Adesivo»): Poppins per titoli, etichette e bottoni, Atkinson per il testo. */
+const poppinsOvunque =
+  '[&_button]:[font-family:var(--font-poppins),system-ui,sans-serif] [&_h1]:[font-family:var(--font-poppins),system-ui,sans-serif] [&_h2]:[font-family:var(--font-poppins),system-ui,sans-serif] [&_label]:[font-family:var(--font-poppins),system-ui,sans-serif] [&_summary]:[font-family:var(--font-poppins),system-ui,sans-serif]';
+
 export default async function AccediPage({ params, searchParams }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const { da, errore, token, error } = await searchParams;
-  const unico = accountUnicoOn();
-  const gratis = freeLaunchOn();
+  const ritorno = safeReturnPath(da, locale);
 
   return (
-    <div style={{ color: INK }}>
-      <header className="border-b-[2.5px] border-[#141414]" style={{ background: C.accentTint }}>
-        <div className="mx-auto w-full max-w-[760px] px-4 py-8 sm:py-10">
-          <span className="inline-flex items-center gap-2 rounded-full border-2 border-[#141414] bg-white px-3 py-1 text-sm font-extrabold">
-            SOS Permesso
-            <span
-              className="rounded-full border-2 border-[#141414] px-2 text-xs font-extrabold uppercase leading-5 tracking-wide"
-              style={{ background: C.accent }}
-            >
-              pro
-            </span>
-          </span>
-          <h1 className="mt-4 text-3xl font-extrabold leading-tight sm:text-4xl">Accedi a SOS Permesso PRO</h1>
-          <p className="mt-3 max-w-[620px] text-base">
-            L&apos;area riservata a chi segue le pratiche di permesso di soggiorno: CAF, patronati, sindacati,
-            consulenti del lavoro, associazioni e studi legali.
-          </p>
-        </div>
-      </header>
-
-      <main className="mx-auto flex w-full max-w-[760px] flex-col gap-6 px-4 pb-16 pt-8" id="contenuto">
+    <div
+      style={{ color: INK, background: C.accentTint }}
+      className={`${poppins.variable} ${atkinson.variable} min-h-[calc(100vh-80px)] text-[17px] leading-[1.6] [font-family:var(--font-atkinson),system-ui,sans-serif] ${poppinsOvunque}`}
+    >
+      <main id="contenuto" className="mx-auto flex w-full max-w-[560px] flex-col gap-6 px-4 pb-16 pt-10">
+        <h1 className={`text-[clamp(30px,4vw,40px)] font-extrabold leading-[1.1] tracking-[-0.02em] ${disp}`}>
+          Accedi a SOS Permesso PRO
+        </h1>
         <AccediForm
-          callbackURL={safeReturnPath(da, locale)}
+          callbackURL={ritorno}
           locale={locale}
           token={token ?? ''}
           linkScaduto={!token && Boolean(errore || error)}
-          accountUnico={unico}
+          accountUnico={accountUnicoOn()}
         />
-
-        <section className={card} style={{ background: C.accentTint }} aria-labelledby="include-titolo">
-          <h2 id="include-titolo" className="text-2xl font-extrabold">
-            Cosa trovi in SOS Permesso PRO
-          </h2>
-          <ul className="mt-3 grid gap-2 text-base">
-            <li className="flex gap-2.5">
-              <span aria-hidden="true" className="font-extrabold">✓</span>
-              <span>
-                <strong>Tutte le circolari</strong>: l&apos;archivio completo, non solo le ultime, con gli avvisi sui
-                permessi che segui.
-              </span>
-            </li>
-            <li className="flex gap-2.5">
-              <span aria-hidden="true" className="font-extrabold">✓</span>
-              <span>
-                <strong>La tua dashboard</strong>: le ultime circolari e le novità sui permessi che segui.
-              </span>
-            </li>
-          </ul>
-          {gratis ? (
-            <p className="mt-4 text-base">Durante il periodo di lancio l&apos;accesso PRO è gratuito.</p>
-          ) : unico ? (
-            <p className="mt-4 text-base">
-              Non sei ancora abbonato?{' '}
-              <a href="https://sosflussi.it/abbonati/" className="font-bold underline underline-offset-2">
-                Vedi cosa include PRO
-              </a>
-              : l&apos;abbonamento vale anche per SOS Flussi PRO.
-            </p>
-          ) : null}
-        </section>
+        <p className="text-center text-base">
+          Non hai un account?{' '}
+          <a
+            href={`/${locale}/abbonati?da=${encodeURIComponent(ritorno)}`}
+            className="font-bold underline underline-offset-2"
+          >
+            Chiedi un link di prova gratuita
+          </a>
+        </p>
       </main>
     </div>
   );

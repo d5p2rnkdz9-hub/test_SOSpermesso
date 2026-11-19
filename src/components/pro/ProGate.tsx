@@ -53,7 +53,7 @@ export function ProGate({
         <AbbonatiCta />
       ) : (
         <>
-          <Link href={`/accedi?da=${encodeURIComponent(da)}`} className={cta}>
+          <Link href={`/abbonati?da=${encodeURIComponent(da)}`} className={cta}>
             {freeLaunchOn() ? 'Accedi o registrati gratis' : 'Accedi o registrati'}
           </Link>
           <p className="mt-3 text-xs text-muted-foreground">

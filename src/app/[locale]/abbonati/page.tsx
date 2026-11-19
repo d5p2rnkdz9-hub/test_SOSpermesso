@@ -169,7 +169,7 @@ export default async function AbbonatiPage({ params, searchParams }: Props) {
               ))}
             </ul>
             <p className="text-center text-sm" style={{ color: C.muted }}>
-              Hai già un account?{' '}
+              Entri con la password?{' '}
               <a
                 href={`/${locale}/accedi?da=${encodeURIComponent(ritorno)}`}
                 className="font-semibold underline underline-offset-2"

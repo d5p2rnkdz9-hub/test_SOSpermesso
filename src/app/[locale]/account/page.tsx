@@ -104,7 +104,7 @@ export default async function DashboardPage({ params }: Props) {
 
   const access = await getProAccess(await headers());
   if (access.status === 'anonymous') {
-    redirect(`/${locale}/accedi?da=${encodeURIComponent(`/${locale}/account`)}`);
+    redirect(`/${locale}/abbonati?da=${encodeURIComponent(`/${locale}/account`)}`);
   }
   // Senza accesso PRO la pagina resta (account, abbonamento, eliminazione), senza i dati PRO.
   const pro = access.status === 'active';

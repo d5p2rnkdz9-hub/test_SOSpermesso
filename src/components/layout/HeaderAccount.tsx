@@ -12,7 +12,7 @@ export function HeaderAccount({ className }: { className: string }) {
 
   return (
     <Link
-      href={session ? '/account' : '/accedi'}
+      href={session ? '/account' : '/abbonati'}
       className={className}
       title={session?.user.email}
       aria-busy={isPending || undefined}

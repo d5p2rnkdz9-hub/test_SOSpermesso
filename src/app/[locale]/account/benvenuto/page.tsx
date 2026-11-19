@@ -44,7 +44,7 @@ export default async function BenvenutoPage({ params, searchParams }: Props) {
   const h = await headers();
   const access = await getProAccess(h);
   if (access.status === 'anonymous') {
-    redirect(`/${locale}/accedi?da=${encodeURIComponent(`/${locale}/account/benvenuto`)}`);
+    redirect(`/${locale}/abbonati?da=${encodeURIComponent(`/${locale}/account/benvenuto`)}`);
   }
   const { user } = access.session;
   // Accordo accettato con la spunta della prova: si registra all'arrivo (idempotente, versione corrente).
