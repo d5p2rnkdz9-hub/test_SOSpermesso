@@ -327,14 +327,14 @@ export function AccediForm({ callbackURL, locale, token, linkScaduto, accountUni
                   <span>
                     Ho letto l&apos;
                     <a
-                      href="https://www.sospermesso.it/privacy-policy.html"
+                      href={`/${locale}/accedi/informativa`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="font-semibold underline underline-offset-2"
                     >
                       informativa privacy
                     </a>{' '}
-                    e accetto che il mio indirizzo email venga usato per l&apos;accesso.
+                    e accetto che il mio indirizzo email venga usato per l&apos;accesso{accountUnico ? ' (l\u2019informativa vale anche per SOS Flussi)' : ''}.
                   </span>
                 </label>
                 {accountUnico && (
