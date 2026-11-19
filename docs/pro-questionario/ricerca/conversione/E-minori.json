@@ -1,0 +1,2566 @@
+{
+  "gruppo": "E - Minori e casi speciali (minore età, assistenza minori art. 31 c. 3, protezione sociale art. 18, sfruttamento lavorativo art. 18-ter ex art. 22 c. 12-quater, violenza domestica art. 18-bis)",
+  "regime": "vigente al 19/11/2026; note transitorie dove indicato (art. 32 c. 1-bis T.U. sostituito dall'art. 4-bis d.l. 20/2023 dal 6.5.2023; c. 1-bis.1 dall'art. 6 d.l. 133/2023 dal 6.10.2023; art. 22 c. 12-quater abrogato e sostituito dall'art. 18-ter dal d.l. 145/2024; art. 18 modificato dal d.lgs. 115/2026 dal 16.7.2026). Testi italiani della KB coordinati non ufficiali: fa fede la Gazzetta Ufficiale.",
+  "fonti_e_limiti": [
+    "Norme lette dalla KB immigrazbot-norme (d.lgs. 286/1998 vigente; d.P.R. 394/1999 e l. 47/2017 vigenti al 29.10.2026) e, per le versioni storiche e gli atti di modifica, da Normattiva (strumento apri_norma).",
+    "Giurisprudenza: schede della KB ImmigrazBot, lette nella sintesi e non nel testo integrale (letta_integrale false); nessuna citazione letterale di sentenze.",
+    "Il portale giustizia-amministrativa.it non ha restituito risultati durante la ricerca (anche per pronunce note come CdS 3431/2020): nessuna pronuncia TAR/CdS è stata aperta sul portale.",
+    "SentenzeWeb (Cassazione): nessuna decisione pertinente trovata su prosieguo amministrativo, art. 29 c. 6/art. 6 c. 1-bis lett. h e conversione 18-ter in studio."
+  ],
+  "conversioni": [
+    {
+      "da": "minore_eta",
+      "a": "lavoro_subordinato_o_autonomo",
+      "nodo_albero": "c_end_lav_minore",
+      "esito_albero": "situazione delicata",
+      "esito_verificato": "condizionato",
+      "discrepanza": "Il nodo presenta come requisiti generali, alternativi fra loro, '3 anni + 2 di progettò oppure 'parere positivo basato su almeno 6 mesì: in realtà (a) per i figli conviventi ex art. 31 c. 1 e per gli affidati non MSNA vale l'art. 32 c. 1 senza parere; (b) il parere positivo riguarda i MSNA affidati o sotto tutela, il canale 3+2 anni i MSNA in progetto di ente iscritto (c. 1-bis e 1-ter); (c) i '6 mesì vengono dalle Linee guida ministeriali 2017 come durata preferibile, non dalla norma (art. 14-bis c. 3 d.P.R. 394/1999 parla solo di durata della permanenza). I 'Tempì sono imprecisi: la richiesta di parere va presentata da 90 giorni prima dei 18 anni fino a 60 giorni dalla scadenza del permesso (art. 14-bis c. 2), non '60 giorni primà. Manca che il permesso dura al massimo un anno (c. 1-bis dal 6.5.2023). Corretto il riferimento alla verifica del contratto dal 6.10.2023 (c. 1-bis.1), che però vale solo per il canale c. 1-bis.",
+      "sintesi": "La conversione del permesso per minore età (art. 28 c. 1 lett. a d.P.R. 394/1999; art. 10 l. 47/2017) in lavoro subordinato o autonomo al compimento dei 18 anni è regolata dall'art. 32 T.U. e dall'art. 14-bis d.P.R. 394/1999. Per i MSNA affidati o sotto tutela serve il parere positivo della DG Immigrazione del Ministero del lavoro; per i MSNA in progetto di integrazione da almeno due anni, con tre anni di presenza, alloggio e studio o lavoro, il parere non serve (c. 1-bis e 1-ter). Dal 6.5.2023 (art. 4-bis d.l. 20/2023) il permesso dura al massimo un anno e non opera più il silenzio-assenso sul parere; dal 6.10.2023 (art. 6 d.l. 133/2023) i requisiti del rapporto di lavoro sono verificati da consulenti del lavoro o associazioni datoriali (c. 1-bis.1). La giurisprudenza amministrativa, formata quasi tutta sul testo previgente, qualifica il parere come obbligatorio ma non vincolante, da acquisire d'ufficio, e impone di valutare l'integrazione anche successiva ai 18 anni (CdS 3431/2020, 2525/2021, 7449/2024). Il diniego si impugna al TAR (art. 6 c. 10 T.U.).",
+      "requisiti": [
+        "titolarità del permesso per minore età o per motivi familiari ex art. 28 c. 1 lett. a/a-bis d.P.R. 394/1999 (non indispensabile secondo TAR Piemonte 424/2022: si valuta la situazione ai 18 anni)",
+        "passaporto o documento equipollente (art. 14-bis c. 2 lett. a)",
+        "canale c. 1 (figli ex art. 31 c. 1, affidati non MSNA): nessun parere",
+        "canale c. 1-bis MSNA affidati o sotto tutela: parere positivo DG Immigrazione",
+        "canale c. 1-bis/1-ter MSNA in progetto: almeno 3 anni in Italia, almeno 2 di progetto con ente iscritto al registro ex art. 52 d.P.R. 394/1999, alloggio, studio o lavoro retribuito o contratto anche non iniziato",
+        "contratto di lavoro subordinato (o requisiti dell'attività autonoma) verificati da consulente del lavoro o organizzazione datoriale (c. 1-bis.1, solo canale 1-bis)",
+        "assenza di motivi ostativi (pericolosità, condanne rilevanti)"
+      ],
+      "procedura": "Domanda alla Questura competente per residenza (nella prassi spesso con appuntamento diretto o tramite tutore/ente; l'uso del kit postale varia secondo le Questure: verificare localmente). Per il canale con parere: richiesta alla DG Immigrazione del Ministero del lavoro tramite tutore, servizi o ente, nella finestra 90 giorni prima dei 18 anni - 60 giorni dalla scadenza del permesso (art. 14-bis c. 2), con documentazione del percorso. Nessuna quota necessaria: i permessi sono detratti a valle (art. 32 c. 1-quater). Nessun nulla osta dello Sportello unico. Asseverazione/verifica dei requisiti del contratto (c. 1-bis.1) per lavoro subordinato o autonomo. Contributo per il rilascio ex art. 5 c. 2-ter e bollettino ordinari (importi da verificare). Permesso di durata massima un anno, poi rinnovo come lavoro ordinario. In attesa, la ricevuta consente di lavorare (art. 5 c. 9-bis).",
+      "norme": [
+        {
+          "estremi": "art. 32, c. 1, d.lgs. 286/1998 (T.U. imm., testo vigente, coordinato non ufficiale)",
+          "contenuto": "Al compimento dei 18 anni, al figlio che ha avuto il permesso ex art. 31 c. 1 (minore convivente con genitore regolare) e, fermo il c. 1-bis, al minore affidato ex art. 2 l. 184/1983, può essere rilasciato un permesso per studio, accesso al lavoro, lavoro subordinato o autonomo, esigenze sanitarie o di cura. Il permesso per accesso al lavoro prescinde dai requisiti dell'art. 23. Nessun parere ministeriale è richiesto per queste categorie.",
+          "citazione": "puo' essere rilasciato un permesso di soggiorno per motivi di studio di accesso al lavoro, di lavoro subordinato o autonomo, per esigenze sanitarie o di cura",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_32"
+        },
+        {
+          "estremi": "art. 32, c. 1-bis, d.lgs. 286/1998 (testo sostituito dall'art. 4-bis d.l. 20/2023, inserito dalla l. conv. 50/2023, vigente dal 6.5.2023)",
+          "contenuto": "Per i MSNA affidati ex art. 2 l. 184/1983 o sottoposti a tutela il rilascio è 'previo parere positivò del Comitato per i minori stranieri (oggi Direzione generale immigrazione del Ministero del lavoro); in alternativa, per i MSNA ammessi per almeno due anni a un progetto di integrazione di un ente iscritto nel registro ex art. 52 d.P.R. 394/1999, senza parere. Il permesso dura al massimo un anno e richiede l'accertamento dell'effettiva sussistenza dei presupposti del titolo richiesto. Il testo previgente (fino al 5.5.2023) conteneva il periodo aggiunto dall'art. 13 c. 1 l. 47/2017 sul mancato rilascio del parere e il rinvio all'art. 20 l. 241/1990 (silenzio-assenso): oggi non c'è più.",
+          "citazione": "puo' essere rilasciato, per il periodo massimo di un anno, per motivi di studio, di accesso al lavoro ovvero di lavoro subordinato o autonomo previo accertamento dell'effettiva sussistenza dei presupposti e requisiti previsti dalla normativa vigente",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_32"
+        },
+        {
+          "estremi": "art. 32, c. 1-bis.1, d.lgs. 286/1998 (inserito dall'art. 6 d.l. 133/2023, in vigore dal 6.10.2023)",
+          "contenuto": "Per il rilascio del permesso per lavoro subordinato o autonomo ai sensi del c. 1-bis la verifica dei requisiti è demandata ai consulenti del lavoro (art. 1 l. 12/1979) o alle organizzazioni datoriali comparativamente più rappresentative cui il datore aderisce o conferisce mandato; l'accertamento sopravvenuto dell'assenza dei requisiti comporta la revoca e la notizia al PM. Non si applica ai permessi per studio o accesso al lavoro, né alle conversioni ex c. 1.",
+          "citazione": "La verifica dei requisiti per il rilascio del permesso di soggiorno per motivi di lavoro subordinato o di lavoro autonomo di cui al comma 1-bis e' demandata ai professionisti di cui all'articolo 1 della legge 11 gennaio 1979, n. 12",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legge:2023-10-05;133~art6"
+        },
+        {
+          "estremi": "art. 32, c. 1-ter, d.lgs. 286/1998",
+          "contenuto": "Per il canale 'progetto di integrazionè l'ente gestore deve provare, al compimento dei 18 anni, almeno tre anni di presenza in Italia, almeno due anni di progetto, la disponibilità di un alloggio e la frequenza di corsi di studio o un'attività lavorativa retribuita (anche contratto non ancora iniziato).",
+          "citazione": "che l'interessato si trova sul territorio nazionale da non meno di tre anni, che ha seguito il progetto per non meno di due anni, ha la disponibilita' di un alloggio",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_32"
+        },
+        {
+          "estremi": "art. 32, c. 1-quater, d.lgs. 286/1998",
+          "contenuto": "I permessi rilasciati ex art. 32 sono portati in detrazione dalle quote dei decreti flussi: la conversione non richiede quote disponibili, le quote sono decurtate a valle.",
+          "citazione": "e' portato in detrazione dalle quote di ingresso definite annualmente nei decreti di cui all'articolo 3, comma 4",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_32"
+        },
+        {
+          "estremi": "art. 14-bis, c. 1, d.P.R. 394/1999",
+          "contenuto": "Al MSNA titolare del permesso ex art. 28 c. 1 lett. a) e a-bis) può essere rilasciato, ai 18 anni, permesso per studio, accesso al lavoro, lavoro subordinato o autonomo ai sensi dell'art. 32 c. 1-bis; per gli affidati o sottoposti a tutela serve il parere favorevole del Ministero del lavoro.",
+          "citazione": "e' richiesto il parere favorevole del Ministero del lavoro e delle politiche sociali",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art14bis"
+        },
+        {
+          "estremi": "art. 14-bis, c. 2, d.P.R. 394/1999",
+          "contenuto": "La richiesta di parere si presenta non prima di 90 giorni prima dei 18 anni e non oltre 60 giorni dalla scadenza del permesso, con passaporto o attestato di identità consolare, copia del permesso o ricevuta, documentazione del percorso di integrazione svolto e di quello da realizzare.",
+          "citazione": "non prima di novanta giorni antecedenti il compimento della maggiore eta' e, comunque, non oltre sessanta giorni dalla scadenza del permesso di soggiorno",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art14bis"
+        },
+        {
+          "estremi": "art. 14-bis, c. 3, d.P.R. 394/1999",
+          "contenuto": "Ai fini del parere, fatta salva la valutazione del caso concreto, contano la durata della permanenza in Italia e l'avvio di un percorso di integrazione (nessuna soglia minima di mesi nella norma).",
+          "citazione": "si tiene conto della durata della permanenza del minore nel territorio nazionale e dell'avvio di un percorso di integrazione",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art14bis"
+        },
+        {
+          "estremi": "art. 14, c. 1, lett. c-bis), d.P.R. 394/1999",
+          "contenuto": "I permessi per minore età e per motivi familiari del MSNA (art. 28 c. 1 lett. a e a-bis) consentono lavoro subordinato e autonomo nel rispetto della disciplina sul lavoro minorile; ai 18 anni si applica l'art. 32 c. 1 e 1-bis T.U.",
+          "citazione": "Al compimento della maggiore eta' si applicano le disposizioni di cui all'articolo 32, commi 1 e 1-bis, del testo unico",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art14"
+        },
+        {
+          "estremi": "art. 28, c. 1, lett. a) e a-bis), d.P.R. 394/1999",
+          "contenuto": "Il questore rilascia il permesso per minore età al MSNA fino ai 18 anni (lett. a), e il permesso per motivi familiari al MSNA infraquattordicenne affidato o sotto tutela di cittadino italiano convivente, o all'ultraquattordicenne affidato o sotto tutela di straniero regolare o di italiano convivente (lett. a-bis).",
+          "citazione": "per minore eta' al minore straniero non accompagnato nei casi di cui all'articolo 10, comma 1, lettera a), della legge 7 aprile 2017, n. 47, fino al compimento della maggiore eta'",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art28"
+        },
+        {
+          "estremi": "art. 13, c. 1, l. 47/2017 (norma di modifica, superata)",
+          "contenuto": "Aveva aggiunto all'art. 32 c. 1-bis T.U. il periodo sul mancato rilascio del parere e il rinvio all'art. 20 l. 241/1990; quel periodo è venuto meno con la sostituzione del c. 1-bis operata dall'art. 4-bis d.l. 20/2023 (dal 6.5.2023). Rileva solo per le domande soggette al regime previgente.",
+          "citazione": "Il mancato rilascio del parere richiesto non puo' legittimare il rifiuto del rinnovo del permesso di soggiorno",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2017-04-07;47~art13"
+        },
+        {
+          "estremi": "art. 6, c. 10, d.lgs. 286/1998",
+          "contenuto": "Contro i provvedimenti sui permessi (artt. 4-ter, 5 e 6) è ammesso ricorso al TAR: il diniego di conversione si impugna davanti al giudice amministrativo.",
+          "citazione": "e' ammesso ricorso al tribunale amministrativo regionale competente",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_6"
+        },
+        {
+          "estremi": "art. 5, c. 9-bis, d.lgs. 286/1998",
+          "contenuto": "In attesa della conversione, con la ricevuta, lo straniero soggiorna regolarmente e può lavorare fino a eventuale comunicazione dei motivi ostativi.",
+          "citazione": "In attesa del rilascio, del rinnovo o della conversione del permesso di soggiorno",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_5"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Consiglio di Stato, sez. III",
+          "data": "2020-06-01",
+          "numero": "3431/2020",
+          "principio": "Il parere ministeriale ex art. 32 c. 1-bis è atto endoprocedimentale obbligatorio ma non vincolante; anche con parere negativo la Questura deve svolgere un'autonoma istruttoria e valutare gli elementi di integrazione allegati (nel caso, buste paga). Regime previgente al d.l. 20/2023.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1w9AYhnV8bVylKYx4tAmU9DGz5Amm_0qb/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "Consiglio di Stato, sez. III",
+          "data": "2021-03-18",
+          "numero": "2525/2021",
+          "principio": "Il parere non è vincolante, ma l'approfondimento istruttorio della Questura presuppone che l'interessato alleghi elementi positivi (scuola, formazione, lavoro, condotta, alloggio) idonei a superare il parere negativo; l'onere di allegazione grava sull'ex minore.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1tXSqD6DsJkVoMFZ10gg-JVlNICHbgy4H/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "Consiglio di Stato, sez. III",
+          "data": "2024-09-06",
+          "numero": "7449/2024",
+          "principio": "Nella conversione da minore età a lavoro vanno valutati anche gli elementi di integrazione maturati dopo i 18 anni e fino alla decisione (art. 14-bis c. 2 lett. c d.P.R. 394/1999); è illegittimo il diniego fondato su un parere che ha guardato solo ai pochi mesi prima della maggiore età. Secondo la scheda KB la sentenza afferma però che il parere negativo vincola la Questura, mentre quello positivo o mancante lascia discrezionalità: punto da verificare sul testo integrale, perché contrasta con CdS 3431/2020 e 2525/2021.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1EXiPM90q0LXj0qIZu82IqrqFCo2QuojB/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "TAR Piemonte, sez. I",
+          "data": "2024-09-14",
+          "numero": "947/2024",
+          "principio": "Il parere della DG Immigrazione va acquisito d'ufficio dall'amministrazione, non è onere del richiedente; i termini di presentazione sono ordinatori e il ritardo non giustifica il diniego; va valutato il contratto di lavoro sopravvenuto prima della decisione (conversione minore età -> attesa occupazione).",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/11aNfl-whYmH9Bm8Cqo2k_qGwurA4bhgG/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [
+        {
+          "ente": "Ministero del lavoro e delle politiche sociali, Direzione generale dell'immigrazione e delle politiche di integrazione",
+          "estremi": "Linee guida per il rilascio dei pareri ex art. 32, c. 1-bis, T.U.",
+          "data": "2017-02-24",
+          "oggetto": "Procedura del parere sulla conversione del permesso dei MSNA: parere obbligatorio non vincolante; esonero dal parere per MSNA con 3 anni di presenza e 2 di progetto, affidati a parenti entro il quarto grado, in prosieguo amministrativo, titolari di protezione; permanenza di almeno sei mesi prima dei 18 anni indicata come preferibile, non come requisito. Anteriori alle modifiche del 2023: verificare se aggiornate.",
+          "url": "https://drive.google.com/file/d/1DA8oFbljl6kHaVY7nvpK5VHMaxzA0V7n/view?usp=drivesdk"
+        },
+        {
+          "ente": "Ministero dell'interno, Dipartimento della pubblica sicurezza",
+          "estremi": "Circolare 1.6.2023 sulle novità della l. 50/2023 (conv. d.l. 20/2023)",
+          "data": "2023-06-01",
+          "oggetto": "Indicazioni alle Questure: per i MSNA il rilascio ex art. 32 è ora subordinato al parere positivo (venuto meno il silenzio-assenso) e ha durata massima di un anno; lettura restrittiva delle conversioni.",
+          "url": "https://drive.google.com/file/d/1G05VoBKixbg5dCyI1V9-wwgbbax8Cl8Z/view?usp=drivesdk"
+        }
+      ],
+      "casi_limite": [
+        {
+          "titolo": "Parere negativo o 'di insufficienzà",
+          "testo": "Secondo CdS 3431/2020 e 2525/2021 la Questura deve comunque valutare gli elementi di integrazione allegati dall'interessato; TAR Emilia-Romagna 28/2024 distingue il parere che segnala solo insufficienza di elementi dal parere negativo. La scheda di CdS 7449/2024 riferisce invece che il parere negativo vincola la Questura: contrasto da verificare sul testo integrale. Dopo il d.l. 20/2023 la lettera 'previo parere positivò rafforza la tesi restrittiva: strategia consigliata, allegare in procedimento tutti gli elementi sopravvenuti (contratti, attestati A1/A2, buste paga) e, se il parere è negativo, chiederne il riesame alla DG."
+        },
+        {
+          "titolo": "Parere mai reso",
+          "testo": "Prima del 6.5.2023 operava il silenzio-assenso (art. 32 c. 1-bis come integrato dall'art. 13 c. 1 l. 47/2017). Oggi non c'è più: restano l'obbligo di acquisizione d'ufficio (TAR Piemonte 424/2022 e 947/2024) e il ricorso avverso il silenzio. Per le domande presentate prima del 6.5.2023 valutare l'applicazione del regime previgente."
+        },
+        {
+          "titolo": "Domanda presentata dopo i 18 anni o dopo la scadenza del permesso",
+          "testo": "TAR Piemonte 947/2024: i termini sono ordinatori e il solo ritardo non giustifica il diniego, se non c'è stata espulsione per mancata domanda. La finestra del parere (art. 14-bis c. 2) arriva a 60 giorni dalla scadenza del permesso: oltre, rischio di contestazione."
+        },
+        {
+          "titolo": "Mai avuto il permesso per minore età",
+          "testo": "TAR Piemonte 424/2022: il titolo ex art. 32 può essere rilasciato anche senza previo permesso per minore età, valutando i presupposti ai 18 anni."
+        },
+        {
+          "titolo": "Ex richiedente asilo MSNA con diniego",
+          "testo": "Art. 14 c. 1-bis d.P.R. 394/1999: il permesso per richiesta asilo del MSNA è convertibile ex art. 32 anche dopo i 18 anni, entro 30 giorni dalla scadenza del termine per impugnare, dal diniego della sospensiva o dal rigetto del ricorso."
+        },
+        {
+          "titolo": "Lavoro autonomo",
+          "testo": "Ammesso dall'art. 32 c. 1 e 1-bis; per il canale 1-bis la verifica dell'effettività dell'attività è demandata ai professionisti del c. 1-bis.1. In pratica richiede requisiti dell'art. 26 T.U. (risorse, titolo abilitativo): spesso più difficile per un neomaggiorenne."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Come è arrivato il ragazzo alla maggiore età: figlio convivente di genitore regolare (art. 31 c. 1), minore affidato ex art. 2 l. 184/1983, MSNA sotto tutela, MSNA inserito in un progetto di integrazione di ente iscritto al registro?",
+          "perche": "Decide il canale: art. 32 c. 1 (nessun parere), c. 1-bis con parere positivo, c. 1-bis/1-ter senza parere ma con 3 anni di presenza e 2 di progetto.",
+          "opzioni": [
+            "figlio convivente di genitore regolare (art. 31 c. 1)",
+            "affidato ex art. 2 l. 184/1983 (non MSNA)",
+            "MSNA affidato o sotto tutela",
+            "MSNA in progetto di integrazione da almeno 2 anni",
+            "nessuna di queste"
+          ]
+        },
+        {
+          "domanda": "Da quando è in Italia e da quanto segue il progetto di integrazione?",
+          "perche": "Il canale senza parere richiede almeno tre anni di presenza e due di progetto al compimento dei 18 anni (art. 32 c. 1-ter).",
+          "opzioni": [
+            "meno di 6 mesi prima dei 18 anni",
+            "da 6 mesi a 3 anni",
+            "almeno 3 anni con almeno 2 di progetto"
+          ]
+        },
+        {
+          "domanda": "La richiesta di parere alla DG Immigrazione è stata presentata? Con quale esito?",
+          "perche": "Il parere positivo è condizione testuale del c. 1-bis; la giurisprudenza lo ritiene non vincolante e da acquisire d'ufficio, ma dopo il d.l. 20/2023 non c'è più il silenzio-assenso.",
+          "opzioni": [
+            "non ancora richiesto",
+            "richiesto, in attesa",
+            "positivo",
+            "negativo",
+            "'insufficienza di elementì senza giudizio negativo"
+          ]
+        },
+        {
+          "domanda": "Quando compie (o ha compiuto) 18 anni e quando scade il permesso per minore età?",
+          "perche": "Finestra del parere: da 90 giorni prima dei 18 anni a 60 giorni dalla scadenza del permesso (art. 14-bis c. 2 d.P.R. 394/1999); i termini sono ordinatori ma il ritardo va gestito.",
+          "opzioni": [
+            "mancano più di 90 giorni",
+            "mancano meno di 90 giorni",
+            "compiuti da meno di 60 giorni",
+            "compiuti da più di 60 giorni"
+          ]
+        },
+        {
+          "domanda": "Ha passaporto o documento equipollente (attestato o carta d'identità consolare)?",
+          "perche": "Richiesto dall'art. 14-bis c. 2 lett. a; il TAR ammette equipollenti e non addebita i ritardi consolari.",
+          "opzioni": [
+            "passaporto",
+            "attestato/carta d'identità consolare",
+            "richiesta pendente al consolato",
+            "nessun documento"
+          ]
+        },
+        {
+          "domanda": "C'è un decreto di prosieguo amministrativo (art. 13 c. 2 l. 47/2017) o una richiesta pendente al Tribunale per i minorenni?",
+          "perche": "Apre il permesso per integrazione fino a 21 anni e, secondo le Linee guida 2017, esonera dal parere.",
+          "opzioni": [
+            "sì, decreto emesso",
+            "richiesta pendente",
+            "no"
+          ]
+        },
+        {
+          "domanda": "Ha un contratto di lavoro (anche non ancora iniziato) e il datore è assistito da un consulente del lavoro o da un'associazione datoriale per l'asseverazione?",
+          "perche": "Requisito della verifica ex art. 32 c. 1-bis.1 e del canale 1-ter.",
+          "opzioni": [
+            "contratto firmato e asseverabile",
+            "contratto firmato, nessuna asseverazione",
+            "solo promessa",
+            "nessun contratto"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "minore_eta",
+      "a": "attesa_occupazione",
+      "nodo_albero": "c_end_att_minore",
+      "esito_albero": "situazione particolare",
+      "esito_verificato": "condizionato",
+      "discrepanza": "Stesse imprecisioni del nodo c_end_lav_minore sui canali (c. 1 / c. 1-bis / c. 1-ter), sui '6 mesì (Linee guida, non norma) e sui tempi (90 giorni prima - 60 giorni dalla scadenza, art. 14-bis c. 2). Va chiarito che il titolo di arrivo è il permesso 'per accesso al lavorò dell'art. 32, che prescinde dai requisiti dell'art. 23, e che dura al massimo un anno per il canale c. 1-bis. La verifica del contratto (c. 1-bis.1) non si applica a questo titolo.",
+      "sintesi": "L'art. 32 c. 1 e 1-bis T.U. consente al neomaggiorenne di ottenere un permesso 'per accesso al lavorò, che nella prassi è il permesso per attesa occupazione e che, per legge, prescinde dai requisiti dell'art. 23 (c. 1). Valgono gli stessi canali della conversione in lavoro: nessun parere per i figli ex art. 31 c. 1 e gli affidati non MSNA, parere positivo DG Immigrazione per i MSNA affidati o sotto tutela, 3+2 anni per i MSNA in progetto. È la soluzione tipica per chi ai 18 anni non ha ancora un contratto, ma con il canale c. 1-bis dura al massimo un anno: entro la scadenza serve un lavoro per convertire in lavoro subordinato. La giurisprudenza (TAR Piemonte 947/2024, TAR Emilia-Romagna 134/2024) ha annullato dinieghi per mancata acquisizione d'ufficio del parere, mancata valutazione di contratti sopravvenuti e ritardi consolari nel documento.",
+      "requisiti": [
+        "uno dei canali dell'art. 32 c. 1 o c. 1-bis/1-ter (v. conversione in lavoro)",
+        "passaporto o documento equipollente",
+        "percorso di integrazione documentato (scuola, formazione, tirocini, iscrizione al centro per l'impiego)",
+        "nessun requisito dell'art. 23 (c. 1, secondo periodo)"
+      ],
+      "procedura": "Questura competente (modalità di presentazione da verificare localmente); parere DG Immigrazione per MSNA affidati o sotto tutela nella finestra dell'art. 14-bis c. 2 d.P.R. 394/1999; nessuna quota, nessun nulla osta; nessuna asseverazione (c. 1-bis.1 riguarda solo lavoro subordinato/autonomo); contributo e bollettino ordinari (importi da verificare). Durata massima un anno (c. 1-bis): pianificare la conversione in lavoro prima della scadenza.",
+      "norme": [
+        {
+          "estremi": "art. 32, c. 1, d.lgs. 286/1998 (T.U. imm., testo vigente, coordinato non ufficiale)",
+          "contenuto": "Al compimento dei 18 anni, al figlio che ha avuto il permesso ex art. 31 c. 1 (minore convivente con genitore regolare) e, fermo il c. 1-bis, al minore affidato ex art. 2 l. 184/1983, può essere rilasciato un permesso per studio, accesso al lavoro, lavoro subordinato o autonomo, esigenze sanitarie o di cura. Il permesso per accesso al lavoro prescinde dai requisiti dell'art. 23. Nessun parere ministeriale è richiesto per queste categorie.",
+          "citazione": "puo' essere rilasciato un permesso di soggiorno per motivi di studio di accesso al lavoro, di lavoro subordinato o autonomo, per esigenze sanitarie o di cura",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_32"
+        },
+        {
+          "estremi": "art. 32, c. 1-bis, d.lgs. 286/1998 (testo sostituito dall'art. 4-bis d.l. 20/2023, inserito dalla l. conv. 50/2023, vigente dal 6.5.2023)",
+          "contenuto": "Per i MSNA affidati ex art. 2 l. 184/1983 o sottoposti a tutela il rilascio è 'previo parere positivò del Comitato per i minori stranieri (oggi Direzione generale immigrazione del Ministero del lavoro); in alternativa, per i MSNA ammessi per almeno due anni a un progetto di integrazione di un ente iscritto nel registro ex art. 52 d.P.R. 394/1999, senza parere. Il permesso dura al massimo un anno e richiede l'accertamento dell'effettiva sussistenza dei presupposti del titolo richiesto. Il testo previgente (fino al 5.5.2023) conteneva il periodo aggiunto dall'art. 13 c. 1 l. 47/2017 sul mancato rilascio del parere e il rinvio all'art. 20 l. 241/1990 (silenzio-assenso): oggi non c'è più.",
+          "citazione": "puo' essere rilasciato, per il periodo massimo di un anno, per motivi di studio, di accesso al lavoro ovvero di lavoro subordinato o autonomo previo accertamento dell'effettiva sussistenza dei presupposti e requisiti previsti dalla normativa vigente",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_32"
+        },
+        {
+          "estremi": "art. 32, c. 1-ter, d.lgs. 286/1998",
+          "contenuto": "Per il canale 'progetto di integrazionè l'ente gestore deve provare, al compimento dei 18 anni, almeno tre anni di presenza in Italia, almeno due anni di progetto, la disponibilità di un alloggio e la frequenza di corsi di studio o un'attività lavorativa retribuita (anche contratto non ancora iniziato).",
+          "citazione": "che l'interessato si trova sul territorio nazionale da non meno di tre anni, che ha seguito il progetto per non meno di due anni, ha la disponibilita' di un alloggio",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_32"
+        },
+        {
+          "estremi": "art. 32, c. 1-quater, d.lgs. 286/1998",
+          "contenuto": "I permessi rilasciati ex art. 32 sono portati in detrazione dalle quote dei decreti flussi: la conversione non richiede quote disponibili, le quote sono decurtate a valle.",
+          "citazione": "e' portato in detrazione dalle quote di ingresso definite annualmente nei decreti di cui all'articolo 3, comma 4",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_32"
+        },
+        {
+          "estremi": "art. 14-bis, c. 1, d.P.R. 394/1999",
+          "contenuto": "Al MSNA titolare del permesso ex art. 28 c. 1 lett. a) e a-bis) può essere rilasciato, ai 18 anni, permesso per studio, accesso al lavoro, lavoro subordinato o autonomo ai sensi dell'art. 32 c. 1-bis; per gli affidati o sottoposti a tutela serve il parere favorevole del Ministero del lavoro.",
+          "citazione": "e' richiesto il parere favorevole del Ministero del lavoro e delle politiche sociali",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art14bis"
+        },
+        {
+          "estremi": "art. 14-bis, c. 2, d.P.R. 394/1999",
+          "contenuto": "La richiesta di parere si presenta non prima di 90 giorni prima dei 18 anni e non oltre 60 giorni dalla scadenza del permesso, con passaporto o attestato di identità consolare, copia del permesso o ricevuta, documentazione del percorso di integrazione svolto e di quello da realizzare.",
+          "citazione": "non prima di novanta giorni antecedenti il compimento della maggiore eta' e, comunque, non oltre sessanta giorni dalla scadenza del permesso di soggiorno",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art14bis"
+        },
+        {
+          "estremi": "art. 14-bis, c. 3, d.P.R. 394/1999",
+          "contenuto": "Ai fini del parere, fatta salva la valutazione del caso concreto, contano la durata della permanenza in Italia e l'avvio di un percorso di integrazione (nessuna soglia minima di mesi nella norma).",
+          "citazione": "si tiene conto della durata della permanenza del minore nel territorio nazionale e dell'avvio di un percorso di integrazione",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art14bis"
+        },
+        {
+          "estremi": "art. 5, c. 9, d.lgs. 286/1998",
+          "contenuto": "Il permesso è rilasciato, rinnovato o convertito entro 90 giorni, se sussistono i requisiti per quello richiesto o, in mancanza, per altro tipo di permesso previsto dal T.U.: base dell'obbligo di valutare d'ufficio un titolo alternativo.",
+          "citazione": "ovvero, in mancanza di questo, per altro tipo di permesso da rilasciare in applicazione del presente testo unico",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_5"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "TAR Piemonte, sez. I",
+          "data": "2024-09-14",
+          "numero": "947/2024",
+          "principio": "Il parere della DG Immigrazione va acquisito d'ufficio dall'amministrazione, non è onere del richiedente; i termini di presentazione sono ordinatori e il ritardo non giustifica il diniego; va valutato il contratto di lavoro sopravvenuto prima della decisione (conversione minore età -> attesa occupazione).",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/11aNfl-whYmH9Bm8Cqo2k_qGwurA4bhgG/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "TAR Emilia-Romagna, Bologna, sez. I",
+          "data": "2024-02-21",
+          "numero": "134/2024",
+          "principio": "Nella conversione da minore età ad attesa occupazione l'identità si prova anche con documenti equipollenti al passaporto (carta d'identità consolare); non si possono addossare allo straniero i ritardi del consolato.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1fXoVm08mWIw4F7CpmQpqWpTplNre_iHe/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "TAR Emilia-Romagna, Parma, sez. I",
+          "data": "2024-02-12",
+          "numero": "28/2024",
+          "principio": "Parere obbligatorio ma non vincolante; un parere che si limita a segnalare l'insufficienza degli elementi non è un parere negativo; illegittimo il diniego che non valuta complessivamente il percorso di integrazione (breve permanenza, assenza di pericolosità, lavoro avviato).",
+          "esito": "favorevole allo straniero",
+          "url": "https://docs.google.com/document/d/12bE7y9v0Aww_HH1Lyzn55OV6Oj8Fw-Mr/edit?usp=drivesdk&ouid=107611503497693748116&rtpof=true&sd=true",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "TAR Veneto, sez. III",
+          "data": "2021-09-14",
+          "numero": "1083/2021",
+          "principio": "Se mancano i requisiti del titolo richiesto, la Questura deve valutare d'ufficio il rilascio di un altro permesso (art. 5 c. 9 T.U.); omesso preavviso di rigetto rende illegittimo il diniego.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/17mlFAefIbYhuPJGqju1Gi6t_wER5VMhX/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [
+        {
+          "ente": "Ministero del lavoro e delle politiche sociali, Direzione generale dell'immigrazione e delle politiche di integrazione",
+          "estremi": "Linee guida per il rilascio dei pareri ex art. 32, c. 1-bis, T.U.",
+          "data": "2017-02-24",
+          "oggetto": "Procedura del parere sulla conversione del permesso dei MSNA: parere obbligatorio non vincolante; esonero dal parere per MSNA con 3 anni di presenza e 2 di progetto, affidati a parenti entro il quarto grado, in prosieguo amministrativo, titolari di protezione; permanenza di almeno sei mesi prima dei 18 anni indicata come preferibile, non come requisito. Anteriori alle modifiche del 2023: verificare se aggiornate.",
+          "url": "https://drive.google.com/file/d/1DA8oFbljl6kHaVY7nvpK5VHMaxzA0V7n/view?usp=drivesdk"
+        },
+        {
+          "ente": "Ministero dell'interno, Dipartimento della pubblica sicurezza",
+          "estremi": "Circolare 1.6.2023 sulle novità della l. 50/2023 (conv. d.l. 20/2023)",
+          "data": "2023-06-01",
+          "oggetto": "Indicazioni alle Questure: per i MSNA il rilascio ex art. 32 è ora subordinato al parere positivo (venuto meno il silenzio-assenso) e ha durata massima di un anno; lettura restrittiva delle conversioni.",
+          "url": "https://drive.google.com/file/d/1G05VoBKixbg5dCyI1V9-wwgbbax8Cl8Z/view?usp=drivesdk"
+        }
+      ],
+      "casi_limite": [
+        {
+          "titolo": "Attesa occupazione in scadenza senza lavoro",
+          "testo": "Il permesso c. 1-bis dura al massimo un anno; il rinnovo come attesa occupazione ordinaria (art. 22 c. 11) presuppone un precedente permesso per lavoro subordinato, quindi senza contratto il rischio di diniego è alto. Valutare titoli alternativi (studio, prosieguo amministrativo se sotto i 21 anni, art. 5 c. 9 T.U.)."
+        },
+        {
+          "titolo": "Documento d'identità",
+          "testo": "TAR Emilia-Romagna 134/2024: ammessa la carta d'identità consolare con certificato di nazionalità; la Questura deve attendere il consolato se la richiesta è documentata."
+        },
+        {
+          "titolo": "Contratto sopravvenuto durante il procedimento",
+          "testo": "TAR Piemonte 947/2024 e CdS 7449/2024: la Questura deve valutare gli elementi sopravvenuti prima della decisione; se nel frattempo arriva un contratto, chiedere direttamente il permesso per lavoro."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Come è arrivato il ragazzo alla maggiore età: figlio convivente di genitore regolare (art. 31 c. 1), minore affidato ex art. 2 l. 184/1983, MSNA sotto tutela, MSNA inserito in un progetto di integrazione di ente iscritto al registro?",
+          "perche": "Decide il canale: art. 32 c. 1 (nessun parere), c. 1-bis con parere positivo, c. 1-bis/1-ter senza parere ma con 3 anni di presenza e 2 di progetto.",
+          "opzioni": [
+            "figlio convivente di genitore regolare (art. 31 c. 1)",
+            "affidato ex art. 2 l. 184/1983 (non MSNA)",
+            "MSNA affidato o sotto tutela",
+            "MSNA in progetto di integrazione da almeno 2 anni",
+            "nessuna di queste"
+          ]
+        },
+        {
+          "domanda": "Da quando è in Italia e da quanto segue il progetto di integrazione?",
+          "perche": "Il canale senza parere richiede almeno tre anni di presenza e due di progetto al compimento dei 18 anni (art. 32 c. 1-ter).",
+          "opzioni": [
+            "meno di 6 mesi prima dei 18 anni",
+            "da 6 mesi a 3 anni",
+            "almeno 3 anni con almeno 2 di progetto"
+          ]
+        },
+        {
+          "domanda": "La richiesta di parere alla DG Immigrazione è stata presentata? Con quale esito?",
+          "perche": "Il parere positivo è condizione testuale del c. 1-bis; la giurisprudenza lo ritiene non vincolante e da acquisire d'ufficio, ma dopo il d.l. 20/2023 non c'è più il silenzio-assenso.",
+          "opzioni": [
+            "non ancora richiesto",
+            "richiesto, in attesa",
+            "positivo",
+            "negativo",
+            "'insufficienza di elementì senza giudizio negativo"
+          ]
+        },
+        {
+          "domanda": "Quando compie (o ha compiuto) 18 anni e quando scade il permesso per minore età?",
+          "perche": "Finestra del parere: da 90 giorni prima dei 18 anni a 60 giorni dalla scadenza del permesso (art. 14-bis c. 2 d.P.R. 394/1999); i termini sono ordinatori ma il ritardo va gestito.",
+          "opzioni": [
+            "mancano più di 90 giorni",
+            "mancano meno di 90 giorni",
+            "compiuti da meno di 60 giorni",
+            "compiuti da più di 60 giorni"
+          ]
+        },
+        {
+          "domanda": "Ha passaporto o documento equipollente (attestato o carta d'identità consolare)?",
+          "perche": "Richiesto dall'art. 14-bis c. 2 lett. a; il TAR ammette equipollenti e non addebita i ritardi consolari.",
+          "opzioni": [
+            "passaporto",
+            "attestato/carta d'identità consolare",
+            "richiesta pendente al consolato",
+            "nessun documento"
+          ]
+        },
+        {
+          "domanda": "C'è un decreto di prosieguo amministrativo (art. 13 c. 2 l. 47/2017) o una richiesta pendente al Tribunale per i minorenni?",
+          "perche": "Apre il permesso per integrazione fino a 21 anni e, secondo le Linee guida 2017, esonera dal parere.",
+          "opzioni": [
+            "sì, decreto emesso",
+            "richiesta pendente",
+            "no"
+          ]
+        },
+        {
+          "domanda": "È iscritto al centro per l'impiego con DID e ha esperienze di lavoro, tirocini o formazione professionale?",
+          "perche": "Elementi di integrazione decisivi per il parere e per la valutazione della Questura.",
+          "opzioni": [
+            "sì, con esperienze documentate",
+            "solo iscrizione",
+            "no"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "minore_eta",
+      "a": "studio",
+      "nodo_albero": "c_end_stu_minore",
+      "esito_albero": "situazione particolare",
+      "esito_verificato": "condizionato",
+      "discrepanza": "Stesse imprecisioni sui canali, sui '6 mesì e sui tempi rilevate per c_end_lav_minore. Andrebbe aggiunto che serve l'iscrizione effettiva a un corso (requisiti del permesso per studio) e che, per il canale c. 1-bis, il permesso dura al massimo un anno.",
+      "sintesi": "Lo studio è uno dei titoli espressamente previsti dall'art. 32 c. 1 e 1-bis T.U. al compimento dei 18 anni. I canali sono gli stessi della conversione in lavoro (c. 1 senza parere; c. 1-bis con parere positivo DG Immigrazione per MSNA affidati o sotto tutela; c. 1-bis/1-ter per MSNA in progetto con 3 anni di presenza e 2 di progetto). Il c. 1-bis richiede l'accertamento effettivo dei presupposti del titolo richiesto: iscrizione e frequenza di un corso di studi o formazione, mezzi di sostentamento secondo le regole del permesso per studio. Per i MSNA il permesso dura al massimo un anno (dal 6.5.2023). La successiva conversione studio -> lavoro segue l'art. 6 c. 1 T.U. (fuori quota, prima della scadenza).",
+      "requisiti": [
+        "uno dei canali dell'art. 32 c. 1 o c. 1-bis/1-ter",
+        "iscrizione e frequenza di un corso (scuola secondaria, CPIA, formazione professionale, università)",
+        "passaporto o documento equipollente",
+        "risorse economiche e alloggio secondo i requisiti del permesso per studio (accertamento ex c. 1-bis: da verificare nella prassi della Questura)"
+      ],
+      "procedura": "Questura competente; parere DG Immigrazione per MSNA affidati o sotto tutela nella finestra dell'art. 14-bis c. 2 d.P.R. 394/1999; certificato di iscrizione e frequenza; nessuna quota; contributo e bollettino ordinari (da verificare). Il permesso per studio consente lavoro fino a 20 ore settimanali (art. 14 c. 4 d.P.R. 394/1999).",
+      "norme": [
+        {
+          "estremi": "art. 32, c. 1, d.lgs. 286/1998 (T.U. imm., testo vigente, coordinato non ufficiale)",
+          "contenuto": "Al compimento dei 18 anni, al figlio che ha avuto il permesso ex art. 31 c. 1 (minore convivente con genitore regolare) e, fermo il c. 1-bis, al minore affidato ex art. 2 l. 184/1983, può essere rilasciato un permesso per studio, accesso al lavoro, lavoro subordinato o autonomo, esigenze sanitarie o di cura. Il permesso per accesso al lavoro prescinde dai requisiti dell'art. 23. Nessun parere ministeriale è richiesto per queste categorie.",
+          "citazione": "puo' essere rilasciato un permesso di soggiorno per motivi di studio di accesso al lavoro, di lavoro subordinato o autonomo, per esigenze sanitarie o di cura",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_32"
+        },
+        {
+          "estremi": "art. 32, c. 1-bis, d.lgs. 286/1998 (testo sostituito dall'art. 4-bis d.l. 20/2023, inserito dalla l. conv. 50/2023, vigente dal 6.5.2023)",
+          "contenuto": "Per i MSNA affidati ex art. 2 l. 184/1983 o sottoposti a tutela il rilascio è 'previo parere positivò del Comitato per i minori stranieri (oggi Direzione generale immigrazione del Ministero del lavoro); in alternativa, per i MSNA ammessi per almeno due anni a un progetto di integrazione di un ente iscritto nel registro ex art. 52 d.P.R. 394/1999, senza parere. Il permesso dura al massimo un anno e richiede l'accertamento dell'effettiva sussistenza dei presupposti del titolo richiesto. Il testo previgente (fino al 5.5.2023) conteneva il periodo aggiunto dall'art. 13 c. 1 l. 47/2017 sul mancato rilascio del parere e il rinvio all'art. 20 l. 241/1990 (silenzio-assenso): oggi non c'è più.",
+          "citazione": "puo' essere rilasciato, per il periodo massimo di un anno, per motivi di studio, di accesso al lavoro ovvero di lavoro subordinato o autonomo previo accertamento dell'effettiva sussistenza dei presupposti e requisiti previsti dalla normativa vigente",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_32"
+        },
+        {
+          "estremi": "art. 32, c. 1-ter, d.lgs. 286/1998",
+          "contenuto": "Per il canale 'progetto di integrazionè l'ente gestore deve provare, al compimento dei 18 anni, almeno tre anni di presenza in Italia, almeno due anni di progetto, la disponibilità di un alloggio e la frequenza di corsi di studio o un'attività lavorativa retribuita (anche contratto non ancora iniziato).",
+          "citazione": "che l'interessato si trova sul territorio nazionale da non meno di tre anni, che ha seguito il progetto per non meno di due anni, ha la disponibilita' di un alloggio",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_32"
+        },
+        {
+          "estremi": "art. 14-bis, c. 1, d.P.R. 394/1999",
+          "contenuto": "Al MSNA titolare del permesso ex art. 28 c. 1 lett. a) e a-bis) può essere rilasciato, ai 18 anni, permesso per studio, accesso al lavoro, lavoro subordinato o autonomo ai sensi dell'art. 32 c. 1-bis; per gli affidati o sottoposti a tutela serve il parere favorevole del Ministero del lavoro.",
+          "citazione": "e' richiesto il parere favorevole del Ministero del lavoro e delle politiche sociali",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art14bis"
+        },
+        {
+          "estremi": "art. 14-bis, c. 2, d.P.R. 394/1999",
+          "contenuto": "La richiesta di parere si presenta non prima di 90 giorni prima dei 18 anni e non oltre 60 giorni dalla scadenza del permesso, con passaporto o attestato di identità consolare, copia del permesso o ricevuta, documentazione del percorso di integrazione svolto e di quello da realizzare.",
+          "citazione": "non prima di novanta giorni antecedenti il compimento della maggiore eta' e, comunque, non oltre sessanta giorni dalla scadenza del permesso di soggiorno",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art14bis"
+        },
+        {
+          "estremi": "art. 14-bis, c. 3, d.P.R. 394/1999",
+          "contenuto": "Ai fini del parere, fatta salva la valutazione del caso concreto, contano la durata della permanenza in Italia e l'avvio di un percorso di integrazione (nessuna soglia minima di mesi nella norma).",
+          "citazione": "si tiene conto della durata della permanenza del minore nel territorio nazionale e dell'avvio di un percorso di integrazione",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art14bis"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Consiglio di Stato, sez. III",
+          "data": "2020-06-01",
+          "numero": "3431/2020",
+          "principio": "Il parere ministeriale ex art. 32 c. 1-bis è atto endoprocedimentale obbligatorio ma non vincolante; anche con parere negativo la Questura deve svolgere un'autonoma istruttoria e valutare gli elementi di integrazione allegati (nel caso, buste paga). Regime previgente al d.l. 20/2023.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1w9AYhnV8bVylKYx4tAmU9DGz5Amm_0qb/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "TAR Emilia-Romagna, Parma, sez. I",
+          "data": "2024-02-12",
+          "numero": "28/2024",
+          "principio": "Parere obbligatorio ma non vincolante; un parere che si limita a segnalare l'insufficienza degli elementi non è un parere negativo; illegittimo il diniego che non valuta complessivamente il percorso di integrazione (breve permanenza, assenza di pericolosità, lavoro avviato).",
+          "esito": "favorevole allo straniero",
+          "url": "https://docs.google.com/document/d/12bE7y9v0Aww_HH1Lyzn55OV6Oj8Fw-Mr/edit?usp=drivesdk&ouid=107611503497693748116&rtpof=true&sd=true",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "TAR Campania, Napoli, sez. VI",
+          "data": "2016-02-04",
+          "numero": "R.G. 4596/2015 (numero di sentenza non indicato nella scheda)",
+          "principio": "L'art. 32 c. 1 si applica anche ai minori sottoposti a tutela, non solo agli affidati ex art. 2 l. 184/1983; il silenzio della Questura sulla domanda oltre il termine è illegittimo.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/18x9jU5sOeQjpR07poo2XaE93CXqZIUDj/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [
+        {
+          "ente": "Ministero del lavoro e delle politiche sociali, Direzione generale dell'immigrazione e delle politiche di integrazione",
+          "estremi": "Linee guida per il rilascio dei pareri ex art. 32, c. 1-bis, T.U.",
+          "data": "2017-02-24",
+          "oggetto": "Procedura del parere sulla conversione del permesso dei MSNA: parere obbligatorio non vincolante; esonero dal parere per MSNA con 3 anni di presenza e 2 di progetto, affidati a parenti entro il quarto grado, in prosieguo amministrativo, titolari di protezione; permanenza di almeno sei mesi prima dei 18 anni indicata come preferibile, non come requisito. Anteriori alle modifiche del 2023: verificare se aggiornate.",
+          "url": "https://drive.google.com/file/d/1DA8oFbljl6kHaVY7nvpK5VHMaxzA0V7n/view?usp=drivesdk"
+        }
+      ],
+      "casi_limite": [
+        {
+          "titolo": "Mezzi di sostentamento",
+          "testo": "Il c. 1-bis richiede l'accertamento dei presupposti del titolo richiesto: le Questure possono chiedere la prova dei mezzi; per chi è in accoglienza o in prosieguo amministrativo la presa in carico dei servizi è l'elemento da documentare. Nessuna sentenza specifica trovata nella KB."
+        },
+        {
+          "titolo": "Studio poi lavoro",
+          "testo": "Alla scadenza (massimo un anno) la conversione in lavoro segue l'art. 6 c. 1 T.U.: prima della scadenza, fuori quota, con contratto di soggiorno o certificazione per lavoro autonomo."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Come è arrivato il ragazzo alla maggiore età: figlio convivente di genitore regolare (art. 31 c. 1), minore affidato ex art. 2 l. 184/1983, MSNA sotto tutela, MSNA inserito in un progetto di integrazione di ente iscritto al registro?",
+          "perche": "Decide il canale: art. 32 c. 1 (nessun parere), c. 1-bis con parere positivo, c. 1-bis/1-ter senza parere ma con 3 anni di presenza e 2 di progetto.",
+          "opzioni": [
+            "figlio convivente di genitore regolare (art. 31 c. 1)",
+            "affidato ex art. 2 l. 184/1983 (non MSNA)",
+            "MSNA affidato o sotto tutela",
+            "MSNA in progetto di integrazione da almeno 2 anni",
+            "nessuna di queste"
+          ]
+        },
+        {
+          "domanda": "Da quando è in Italia e da quanto segue il progetto di integrazione?",
+          "perche": "Il canale senza parere richiede almeno tre anni di presenza e due di progetto al compimento dei 18 anni (art. 32 c. 1-ter).",
+          "opzioni": [
+            "meno di 6 mesi prima dei 18 anni",
+            "da 6 mesi a 3 anni",
+            "almeno 3 anni con almeno 2 di progetto"
+          ]
+        },
+        {
+          "domanda": "La richiesta di parere alla DG Immigrazione è stata presentata? Con quale esito?",
+          "perche": "Il parere positivo è condizione testuale del c. 1-bis; la giurisprudenza lo ritiene non vincolante e da acquisire d'ufficio, ma dopo il d.l. 20/2023 non c'è più il silenzio-assenso.",
+          "opzioni": [
+            "non ancora richiesto",
+            "richiesto, in attesa",
+            "positivo",
+            "negativo",
+            "'insufficienza di elementì senza giudizio negativo"
+          ]
+        },
+        {
+          "domanda": "Quando compie (o ha compiuto) 18 anni e quando scade il permesso per minore età?",
+          "perche": "Finestra del parere: da 90 giorni prima dei 18 anni a 60 giorni dalla scadenza del permesso (art. 14-bis c. 2 d.P.R. 394/1999); i termini sono ordinatori ma il ritardo va gestito.",
+          "opzioni": [
+            "mancano più di 90 giorni",
+            "mancano meno di 90 giorni",
+            "compiuti da meno di 60 giorni",
+            "compiuti da più di 60 giorni"
+          ]
+        },
+        {
+          "domanda": "Ha passaporto o documento equipollente (attestato o carta d'identità consolare)?",
+          "perche": "Richiesto dall'art. 14-bis c. 2 lett. a; il TAR ammette equipollenti e non addebita i ritardi consolari.",
+          "opzioni": [
+            "passaporto",
+            "attestato/carta d'identità consolare",
+            "richiesta pendente al consolato",
+            "nessun documento"
+          ]
+        },
+        {
+          "domanda": "C'è un decreto di prosieguo amministrativo (art. 13 c. 2 l. 47/2017) o una richiesta pendente al Tribunale per i minorenni?",
+          "perche": "Apre il permesso per integrazione fino a 21 anni e, secondo le Linee guida 2017, esonera dal parere.",
+          "opzioni": [
+            "sì, decreto emesso",
+            "richiesta pendente",
+            "no"
+          ]
+        },
+        {
+          "domanda": "È iscritto a un corso per l'anno in corso e lo frequenta regolarmente?",
+          "perche": "Presupposto del titolo per studio.",
+          "opzioni": [
+            "sì, con certificato di frequenza",
+            "iscrizione in corso",
+            "no"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "minore_eta",
+      "a": "famiglia",
+      "nodo_albero": "c_end_fam_ok",
+      "esito_albero": "possibile",
+      "esito_verificato": "condizionato",
+      "discrepanza": "Il nodo generico 'possibilè e i requisiti indicati (coniuge, figlio minore, figlio maggiorenne disabile, genitore a carico) non tengono conto che il titolare del permesso per minore età è di regola un MSNA senza familiari regolari in Italia, e che dopo i 18 anni il figlio maggiorenne rientra solo se totalmente invalido (art. 29 c. 1 lett. c). Esito realistico: condizionato.",
+      "sintesi": "Il permesso per minore età può trasformarsi in permesso per motivi familiari in due situazioni diverse. Prima dei 18 anni: se il minore viene affidato (anche ex art. 9 c. 4 l. 184/1983) o posto sotto tutela di un cittadino italiano convivente o di uno straniero regolare convivente, la legge prevede il permesso per motivi familiari (art. 10 c. 1 lett. b l. 47/2017; art. 28 c. 1 lett. a-bis d.P.R. 394/1999); se ritrova un genitore regolarmente soggiornante con cui convive, segue la sua condizione (art. 31 c. 1 T.U.). Dopo i 18 anni la conversione ex art. 30 c. 1 lett. c) T.U. richiede i requisiti del ricongiungimento con un familiare regolare, italiano o UE: per un neomaggiorenne in pratica coniuge o (raramente) figlio maggiorenne totalmente invalido. Per gli italiani e UE valgono le regole sui familiari di cittadini dell'Unione (d.lgs. 30/2007), da verificare caso per caso.",
+      "requisiti": [
+        "prima dei 18 anni: affidamento o tutela con convivenza nei casi dell'art. 28 c. 1 lett. a-bis d.P.R. 394/1999, oppure convivenza con genitore regolarmente soggiornante (art. 31 c. 1)",
+        "dopo i 18 anni: requisiti del ricongiungimento (art. 29 c. 1) con familiare regolare, italiano o UE; reddito e alloggio del familiare se richiesti",
+        "domanda entro un anno dalla scadenza del titolo posseduto (art. 30 c. 1 lett. c)"
+      ],
+      "procedura": "Kit postale o Questura secondo la tipologia (permesso per motivi familiari ex art. 30); documentazione del vincolo e, se richiesto, del reddito e dell'alloggio del familiare. Per affidamento/tutela: provvedimento del Tribunale per i minorenni o del giudice tutelare.",
+      "norme": [
+        {
+          "estremi": "art. 28, c. 1, lett. a) e a-bis), d.P.R. 394/1999",
+          "contenuto": "Il questore rilascia il permesso per minore età al MSNA fino ai 18 anni (lett. a), e il permesso per motivi familiari al MSNA infraquattordicenne affidato o sotto tutela di cittadino italiano convivente, o all'ultraquattordicenne affidato o sotto tutela di straniero regolare o di italiano convivente (lett. a-bis).",
+          "citazione": "per minore eta' al minore straniero non accompagnato nei casi di cui all'articolo 10, comma 1, lettera a), della legge 7 aprile 2017, n. 47, fino al compimento della maggiore eta'",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art28"
+        },
+        {
+          "estremi": "art. 31, c. 1, d.lgs. 286/1998",
+          "contenuto": "Il figlio minore convivente segue la condizione giuridica del genitore regolarmente soggiornante; gli è rilasciato un permesso per motivi familiari fino ai 18 anni o un permesso UE di lungo periodo ex art. 9.",
+          "citazione": "Al minore e' rilasciato un permesso di soggiorno per motivi familiari valido fino al compimento della maggiore eta' ovvero un permesso di soggiorno UE per soggiornanti di lungo periodo ai sensi dell'articolo 9",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_31"
+        },
+        {
+          "estremi": "art. 30, c. 1, lett. c), d.lgs. 286/1998",
+          "contenuto": "Il familiare straniero regolarmente soggiornante che ha i requisiti per il ricongiungimento con cittadino italiano/UE residente o con straniero regolare può convertire il proprio permesso in permesso per motivi familiari, anche entro un anno dalla scadenza del titolo posseduto.",
+          "citazione": "In tal caso il permesso del familiare e' convertito in permesso di soggiorno per motivi familiari",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_30"
+        },
+        {
+          "estremi": "art. 29, c. 1, d.lgs. 286/1998",
+          "contenuto": "Familiari per cui è ammesso il ricongiungimento: coniuge maggiorenne, figli minori, figli maggiorenni a carico solo se totalmente invalidi, genitori a carico alle condizioni indicate.",
+          "citazione": "figli maggiorenni a carico, qualora per ragioni oggettive non possano provvedere alle proprie indispensabili esigenze di vita in ragione del loro stato di salute che comporti invalidita' totale",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_29"
+        },
+        {
+          "estremi": "art. 10, c. 1, lett. a), l. 47/2017",
+          "contenuto": "Il permesso per minore età al MSNA è rilasciato su richiesta del minore, anche prima della nomina del tutore, ed è valido fino ai 18 anni.",
+          "citazione": "il permesso di soggiorno per minore eta' e' rilasciato, su richiesta dello stesso minore",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2017-04-07;47~art10"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Affidamento a parenti entro il quarto grado",
+          "testo": "Il minore affidato a parenti regolari riceve il permesso per motivi familiari (art. 28 c. 1 lett. a-bis); ai 18 anni rientra nell'art. 32 c. 1-bis. Le Linee guida 2017 indicano l'esonero dal parere per gli affidati a parenti entro il quarto grado (da verificare se ancora applicate dopo il 2023)."
+        },
+        {
+          "titolo": "Neomaggiorenne che si sposa o convive",
+          "testo": "Il coniuge è ricongiungibile; per la convivenza di fatto il quadro è diverso (familiari di italiani/UE, art. 3 d.lgs. 30/2007): fuori dal perimetro di questa scheda."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Ha già compiuto 18 anni?",
+          "perche": "Prima dei 18 anni valgono art. 31 c. 1 e art. 28 c. 1 lett. a-bis; dopo, solo art. 30 c. 1 lett. c con le categorie dell'art. 29.",
+          "opzioni": [
+            "minorenne",
+            "maggiorenne"
+          ]
+        },
+        {
+          "domanda": "Con quale familiare convive e che titolo ha (italiano, UE, straniero regolare con quale permesso)?",
+          "perche": "Determina la base normativa e i requisiti.",
+          "opzioni": [
+            "genitore straniero regolare",
+            "parente affidatario entro il quarto grado",
+            "tutore italiano convivente",
+            "coniuge",
+            "nessuno"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "minore_eta",
+      "a": "permesso_ue_lungo_periodo",
+      "nodo_albero": "c_end_complicata",
+      "esito_albero": "situazione complicata",
+      "esito_verificato": "incerto",
+      "discrepanza": null,
+      "sintesi": "L'art. 32 T.U. non prevede il permesso UE fra i titoli rilasciabili ai 18 anni, quindi non esiste una conversione diretta. Il minore che convive con un genitore titolare di permesso UE lo riceve per derivazione (art. 31 c. 1). Un neomaggiorenne con cinque anni di permesso valido (anche per minore età: il permesso non figura tra le esclusioni dell'art. 9 c. 3), reddito pari almeno all'assegno sociale e test di italiano potrebbe in teoria chiedere il permesso UE come rilascio autonomo, sulla scia di CdS 9150/2014 e TAR Lombardia 6461/2010 sulla tassatività delle esclusioni; nella prassi il requisito reddituale rende l'ipotesi rara. Nessun precedente specifico su minore età -> UE trovato nella KB.",
+      "requisiti": [
+        "cinque anni di permesso in corso di validità (art. 9 c. 1)",
+        "reddito non inferiore all'assegno sociale",
+        "test di lingua italiana (art. 9 c. 2-bis)",
+        "assenza di pericolosità"
+      ],
+      "procedura": "Kit postale (permesso UE), con documentazione di reddito, alloggio (se per familiari) e test A2. In alternativa, percorso ordinario: conversione ex art. 32 in lavoro o studio e poi permesso UE al raggiungimento dei requisiti.",
+      "norme": [
+        {
+          "estremi": "art. 9, c. 1, d.lgs. 286/1998",
+          "contenuto": "Permesso UE per soggiornanti di lungo periodo: almeno cinque anni di permesso valido, reddito non inferiore all'assegno sociale (e alloggio idoneo per i familiari); il c. 2-bis richiede il test di italiano.",
+          "citazione": "da almeno cinque anni, di un permesso di soggiorno in corso di validita'",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_9"
+        },
+        {
+          "estremi": "art. 9, c. 3, lett. d), e c. 5, d.lgs. 286/1998",
+          "contenuto": "Esclusi anche i titolari di permessi 'di breve duratà; solo i periodi delle lett. d) ed e) non si computano nei cinque anni.",
+          "citazione": "non si computano i periodi di soggiorno per i motivi indicati nelle lettere d) ed e) del comma 3",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_9"
+        },
+        {
+          "estremi": "art. 31, c. 1, d.lgs. 286/1998",
+          "contenuto": "Il figlio minore convivente segue la condizione giuridica del genitore regolarmente soggiornante; gli è rilasciato un permesso per motivi familiari fino ai 18 anni o un permesso UE di lungo periodo ex art. 9.",
+          "citazione": "Al minore e' rilasciato un permesso di soggiorno per motivi familiari valido fino al compimento della maggiore eta' ovvero un permesso di soggiorno UE per soggiornanti di lungo periodo ai sensi dell'articolo 9",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_31"
+        },
+        {
+          "estremi": "art. 32, c. 1, d.lgs. 286/1998 (T.U. imm., testo vigente, coordinato non ufficiale)",
+          "contenuto": "Al compimento dei 18 anni, al figlio che ha avuto il permesso ex art. 31 c. 1 (minore convivente con genitore regolare) e, fermo il c. 1-bis, al minore affidato ex art. 2 l. 184/1983, può essere rilasciato un permesso per studio, accesso al lavoro, lavoro subordinato o autonomo, esigenze sanitarie o di cura. Il permesso per accesso al lavoro prescinde dai requisiti dell'art. 23. Nessun parere ministeriale è richiesto per queste categorie.",
+          "citazione": "puo' essere rilasciato un permesso di soggiorno per motivi di studio di accesso al lavoro, di lavoro subordinato o autonomo, per esigenze sanitarie o di cura",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_32"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Consiglio di Stato, sez. III",
+          "data": "2015-02-26",
+          "numero": "9150/2014 (dalla scheda KB; il numero potrebbe essere il R.G.: verificare)",
+          "principio": "Gli anni con permesso per assistenza minori contano per il permesso UE di lungo periodo: non è un permesso 'di breve duratà (art. 9 c. 3 lett. d), le esclusioni dell'art. 9 c. 3 sono tassative e il divieto dell'art. 29 c. 6 non riguarda il permesso UE, che non è un permesso per lavoro.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1QNF08f_EjAYZgx7z1UH6JXu8QvBVDYqu/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "TAR Lombardia, sez. IV",
+          "data": "2010-09-07",
+          "numero": "6461/2010",
+          "principio": "Il divieto di conversione non si estende alla domanda autonoma di permesso CE (oggi UE) di lungo periodo; le cause ostative dell'art. 9 sono tassative e il permesso per assistenza minore non vi rientra.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1lkDz6i1N1d9yhcYpYLIBigoGWy4-dVIg/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Figlio convivente di titolare di permesso UE",
+          "testo": "Riceve il permesso UE per derivazione (art. 31 c. 1): non è una conversione e non passa dall'art. 32."
+        },
+        {
+          "titolo": "Computo degli anni da minore",
+          "testo": "Il permesso per minore età non rientra nelle esclusioni dell'art. 9 c. 3 e c. 5; secondo CdS 9150/2014 le esclusioni sono tassative. Che le Questure computino gli anni con permesso per minore età non è verificato: punto da validare."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Da quanti anni ha un permesso valido senza interruzioni?",
+          "perche": "Requisito dei cinque anni (art. 9 c. 1).",
+          "opzioni": [
+            "meno di 5",
+            "5 o più"
+          ]
+        },
+        {
+          "domanda": "Convive con un genitore titolare di permesso UE?",
+          "perche": "Rilascio per derivazione ex art. 31 c. 1.",
+          "opzioni": [
+            "sì",
+            "no"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "minore_eta",
+      "a": "esigenze_sanitarie_o_di_cura",
+      "nodo_albero": "c_end_altro_wip",
+      "esito_albero": "altro tipo di permesso (in costruzione)",
+      "esito_verificato": "condizionato",
+      "discrepanza": "Coppia non coperta dall'albero (finisce in 'Altrò): andrebbe aggiunta per il questionario PRO.",
+      "sintesi": "L'art. 32 c. 1 T.U. elenca anche il permesso 'per esigenze sanitarie o di curà fra i titoli rilasciabili ai 18 anni, ma solo per i figli ex art. 31 c. 1 e per gli affidati ex art. 2 l. 184/1983; il c. 1-bis, che disciplina i MSNA, non lo richiama (studio, accesso al lavoro, lavoro subordinato o autonomo). Per un MSNA con gravi patologie la via è quindi il permesso per cure mediche ex art. 19 c. 2 lett. d-bis T.U. o la protezione speciale, fuori dall'art. 32. Nessun precedente specifico trovato nella KB.",
+      "requisiti": [
+        "appartenenza alle categorie dell'art. 32 c. 1 (figlio ex art. 31 c. 1 o affidato ex art. 2 l. 184/1983)",
+        "documentazione sanitaria che attesti l'esigenza di cura"
+      ],
+      "procedura": "Questura competente, con certificazione sanitaria; nessun parere ministeriale per le categorie del c. 1.",
+      "norme": [
+        {
+          "estremi": "art. 32, c. 1, d.lgs. 286/1998 (T.U. imm., testo vigente, coordinato non ufficiale)",
+          "contenuto": "Al compimento dei 18 anni, al figlio che ha avuto il permesso ex art. 31 c. 1 (minore convivente con genitore regolare) e, fermo il c. 1-bis, al minore affidato ex art. 2 l. 184/1983, può essere rilasciato un permesso per studio, accesso al lavoro, lavoro subordinato o autonomo, esigenze sanitarie o di cura. Il permesso per accesso al lavoro prescinde dai requisiti dell'art. 23. Nessun parere ministeriale è richiesto per queste categorie.",
+          "citazione": "puo' essere rilasciato un permesso di soggiorno per motivi di studio di accesso al lavoro, di lavoro subordinato o autonomo, per esigenze sanitarie o di cura",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_32"
+        },
+        {
+          "estremi": "art. 32, c. 1-bis, d.lgs. 286/1998 (testo sostituito dall'art. 4-bis d.l. 20/2023, inserito dalla l. conv. 50/2023, vigente dal 6.5.2023)",
+          "contenuto": "Per i MSNA affidati ex art. 2 l. 184/1983 o sottoposti a tutela il rilascio è 'previo parere positivò del Comitato per i minori stranieri (oggi Direzione generale immigrazione del Ministero del lavoro); in alternativa, per i MSNA ammessi per almeno due anni a un progetto di integrazione di un ente iscritto nel registro ex art. 52 d.P.R. 394/1999, senza parere. Il permesso dura al massimo un anno e richiede l'accertamento dell'effettiva sussistenza dei presupposti del titolo richiesto. Il testo previgente (fino al 5.5.2023) conteneva il periodo aggiunto dall'art. 13 c. 1 l. 47/2017 sul mancato rilascio del parere e il rinvio all'art. 20 l. 241/1990 (silenzio-assenso): oggi non c'è più.",
+          "citazione": "puo' essere rilasciato, per il periodo massimo di un anno, per motivi di studio, di accesso al lavoro ovvero di lavoro subordinato o autonomo previo accertamento dell'effettiva sussistenza dei presupposti e requisiti previsti dalla normativa vigente",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_32"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "MSNA affidato ex art. 2 l. 184/1983",
+          "testo": "Il c. 1 richiama gli affidati 'fermo restando quanto previsto dal comma 1-bis': se l'affidato è un MSNA, la lettera fa prevalere il c. 1-bis (senza cure). La lettura che estende le esigenze sanitarie al MSNA affidato non è verificata: punto da validare."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Ha una patologia che richiede cure in Italia oltre i 18 anni?",
+          "perche": "Apre il titolo per esigenze sanitarie (c. 1) o, per i MSNA, l'art. 19 c. 2 lett. d-bis.",
+          "opzioni": [
+            "sì, documentata",
+            "no"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "minore_eta",
+      "a": "integrazione_prosieguo_amministrativo",
+      "nodo_albero": "c_end_altro_wip",
+      "esito_albero": "altro tipo di permesso (in costruzione)",
+      "esito_verificato": "condizionato",
+      "discrepanza": "Coppia non coperta dall'albero: il prosieguo amministrativo e il permesso 'per integrazionè sono lo strumento tipico per i MSNA vicini ai 18 anni che non hanno ancora i requisiti dell'art. 32.",
+      "sintesi": "Se il MSNA, pur avendo avviato un percorso di inserimento, ha bisogno di supporto prolungato, il Tribunale per i minorenni può disporre con decreto motivato l'affidamento ai servizi sociali fino a non oltre 21 anni (art. 13 c. 2 l. 47/2017). Sulla base del decreto la Questura rilascia il permesso 'per integrazionè per la durata fissata dal giudice (art. 11 c. 1 lett. c-sexies d.P.R. 394/1999). La giurisprudenza minorile ammette la richiesta anche dopo i 18 anni (App. Torino 409/2024; App. Bologna 277/2024) e il TAR ha annullato dinieghi fondati su ritardi del Tribunale non imputabili allo straniero (TAR Piemonte 2029/2025). Alla scadenza resta la conversione ex art. 32; le Linee guida 2017 indicano l'esonero dal parere per chi è in prosieguo (da verificare dopo il 2023).",
+      "requisiti": [
+        "MSNA al compimento o dopo i 18 anni, con percorso di inserimento avviato",
+        "decreto motivato del Tribunale per i minorenni (anche su richiesta dei servizi sociali)",
+        "età inferiore a 21 anni"
+      ],
+      "procedura": "Ricorso/istanza al Tribunale per i minorenni (servizi sociali, tutore, PM minorile o lo stesso interessato); poi domanda in Questura con il decreto. Durata fissata dal giudice, massimo fino a 21 anni.",
+      "norme": [
+        {
+          "estremi": "art. 13, c. 2, l. 47/2017",
+          "contenuto": "Prosieguo amministrativo: se il neomaggiorenne ha avviato un percorso di inserimento ma ha bisogno di supporto prolungato, il Tribunale per i minorenni può disporre con decreto motivato, anche su richiesta dei servizi sociali, l'affidamento ai servizi sociali, non oltre i 21 anni.",
+          "citazione": "l'affidamento ai servizi sociali, comunque non oltre il compimento del ventunesimo anno di eta'",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2017-04-07;47~art13"
+        },
+        {
+          "estremi": "art. 11, c. 1, lett. c-sexies), d.P.R. 394/1999",
+          "contenuto": "Permesso 'per integrazionè, previo decreto motivato del Tribunale per i minorenni ex art. 13 c. 2 l. 47/2017, per la durata fissata dal giudice e comunque non oltre i 21 anni.",
+          "citazione": "per integrazione, previo decreto motivato del tribunale per i minorenni, nei casi di cui all'articolo 13, comma 2, della legge 7 aprile 2017, n. 47",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art11"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Corte d'appello di Torino, sez. minorenni e famiglia",
+          "data": "2025-02-05",
+          "numero": "409/2024",
+          "principio": "L'art. 13 c. 2 l. 47/2017 non prevede termini di decadenza: il prosieguo amministrativo può essere chiesto anche dopo i 18 anni.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/17ZQqd1Vjkvn9ZvYbkoE2ycFVNPPzqxj_/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "Corte d'appello di Bologna, sez. minorenni",
+          "data": "2024-10-18",
+          "numero": "277/2024",
+          "principio": "La richiesta di prosieguo amministrativo non ha limiti temporali o soggettivi e può essere presentata dai servizi sociali anche dopo la maggiore età; errato il rigetto per tardività.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1vKmfDupYPGTzIMG7Vh3eakemZHQgbWqV/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "TAR Piemonte, sez. I",
+          "data": "2026-05-20",
+          "numero": "2029/2025",
+          "principio": "Il permesso per integrazione (art. 11 c. 1 lett. c-sexies d.P.R. 394/1999) presuppone il decreto del Tribunale per i minorenni ex art. 13 c. 2 l. 47/2017 e dura non oltre i 21 anni; illegittimo il diniego per carenze documentali dovute a ritardi non imputabili allo straniero.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/16aMX6Z8WjOGc7b5_RcpEvUDV5nkdn5ON/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [
+        {
+          "ente": "Ministero del lavoro e delle politiche sociali, Direzione generale dell'immigrazione e delle politiche di integrazione",
+          "estremi": "Linee guida per il rilascio dei pareri ex art. 32, c. 1-bis, T.U.",
+          "data": "2017-02-24",
+          "oggetto": "Procedura del parere sulla conversione del permesso dei MSNA: parere obbligatorio non vincolante; esonero dal parere per MSNA con 3 anni di presenza e 2 di progetto, affidati a parenti entro il quarto grado, in prosieguo amministrativo, titolari di protezione; permanenza di almeno sei mesi prima dei 18 anni indicata come preferibile, non come requisito. Anteriori alle modifiche del 2023: verificare se aggiornate.",
+          "url": "https://drive.google.com/file/d/1DA8oFbljl6kHaVY7nvpK5VHMaxzA0V7n/view?usp=drivesdk"
+        }
+      ],
+      "casi_limite": [
+        {
+          "titolo": "Richiesta dopo i 18 anni",
+          "testo": "Ammessa da App. Torino 409/2024 e 355/2024 e App. Bologna 277/2024 (nessun termine di decadenza nell'art. 13 c. 2), ma l'opinione prevalente richiamata da App. Torino 355/2024 ritiene preferibile presentarla prima dei 18 anni. Nessuna pronuncia di Cassazione trovata su SentenzeWeb."
+        },
+        {
+          "titolo": "Ritardo del decreto",
+          "testo": "TAR Piemonte 2029/2025: la Questura non può respingere per mancanza del decreto se il ritardo è del Tribunale o del Comune."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "I servizi sociali o il tutore hanno chiesto il prosieguo al Tribunale per i minorenni?",
+          "perche": "Presupposto del permesso per integrazione.",
+          "opzioni": [
+            "decreto emesso",
+            "richiesta pendente",
+            "non richiesto"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "assistenza_minori",
+      "a": "lavoro_subordinato",
+      "nodo_albero": "c_end_lav_sub_ok",
+      "esito_albero": "possibile",
+      "esito_verificato": "possibile",
+      "discrepanza": "Esito corretto, ma il nodo condiviso dice 'Devi prima richiedere il nulla osta presso lo Sportello Unicò: per la conversione di un permesso già posseduto non serve il nulla osta al lavoro dell'art. 22 (procedura per chi è all'estero); da verificare con la prassi delle Questure. Non menziona la tensione con l'art. 29 c. 6, utile al professionista per prevenire dinieghi.",
+      "sintesi": "Il permesso per assistenza minori (art. 31 c. 3 e art. 29 c. 6 T.U.) consente di lavorare. Sulla conversione in lavoro le norme sono in tensione: l'art. 29 c. 6, ancora nel testo, dice che il permesso non può essere convertito in permesso per motivi di lavoro; l'art. 6 c. 1-bis lett. h), introdotto dal d.l. 130/2020 (in vigore dal 22.10.2020) e non toccato dal d.l. 20/2023, lo include espressamente tra i permessi 'convertibili in permesso di soggiorno per motivi di lavoro, ove ne ricorrano i requisitì. Per criterio cronologico e di specialità prevale la norma del 2020: la conversione è oggi ammessa, alle condizioni ordinarie del permesso per lavoro (contratto, reddito). La giurisprudenza nella KB è anteriore al 2020 (TAR Lazio 2935/2018 applicava ancora il divieto) o riguarda altri titoli (CdS 4051/2021 sui figli; CdS 9150/2014 sul permesso UE): nessuna sentenza trovata sull'art. 6 c. 1-bis lett. h).",
+      "requisiti": [
+        "permesso per assistenza minori valido",
+        "contratto di lavoro subordinato con i requisiti ordinari (orario, retribuzione, CCNL)",
+        "reddito minimo per il rinnovo",
+        "assenza di motivi ostativi"
+      ],
+      "procedura": "Conversione ex art. 6 c. 1-bis T.U.: di norma kit postale o Questura secondo le indicazioni locali, con contratto di lavoro e comunicazione obbligatoria (verificare il modulo in uso). Nessuna quota (la norma non la richiede; verificare l'eventuale decurtazione). Nessun nulla osta. Contributo e bollettino ordinari (importi da verificare).",
+      "norme": [
+        {
+          "estremi": "art. 31, c. 3, d.lgs. 286/1998",
+          "contenuto": "Il Tribunale per i minorenni, per gravi motivi connessi con lo sviluppo psicofisico del minore, può autorizzare ingresso o permanenza del familiare per un periodo determinato, anche in deroga al T.U.; l'autorizzazione è revocabile se cessano i gravi motivi o per attività incompatibili.",
+          "citazione": "puo' autorizzare l'ingresso o la permanenza del familiare, per un periodo di tempo determinato, anche in deroga alle altre disposizioni della presente legge",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_31"
+        },
+        {
+          "estremi": "art. 29, c. 6, d.lgs. 286/1998",
+          "contenuto": "Al familiare autorizzato ex art. 31 c. 3 è rilasciato un permesso per assistenza minore, rinnovabile, di durata pari a quella fissata dal Tribunale; consente il lavoro ma, secondo la lettera della norma (mai abrogata), non è convertibile in permesso per lavoro.",
+          "citazione": "Il permesso di soggiorno consente di svolgere attivita' lavorativa ma non puo' essere convertito in permesso per motivi di lavoro.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_29"
+        },
+        {
+          "estremi": "art. 6, c. 1-bis, lett. h), d.lgs. 286/1998 (comma inserito dal d.l. 130/2020, in vigore dal 22.10.2020; non toccato dal d.l. 20/2023, che ha abrogato le lett. a, b e h-bis)",
+          "contenuto": "Sono convertibili in permesso per motivi di lavoro, ove ne ricorrano i requisiti, tra gli altri, i permessi per assistenza di minori ex art. 31 c. 3: norma posteriore e speciale rispetto al divieto dell'art. 29 c. 6.",
+          "citazione": "permesso di soggiorno per assistenza di minori, di cui all'articolo 31, comma 3",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_6"
+        },
+        {
+          "estremi": "art. 6, c. 10, d.lgs. 286/1998",
+          "contenuto": "Contro i provvedimenti sui permessi (artt. 4-ter, 5 e 6) è ammesso ricorso al TAR: il diniego di conversione si impugna davanti al giudice amministrativo.",
+          "citazione": "e' ammesso ricorso al tribunale amministrativo regionale competente",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_6"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "TAR Lazio, sez. I-ter",
+          "data": "2018-02-27",
+          "numero": "2935/2018",
+          "principio": "Il permesso per assistenza minore non è direttamente convertibile in lavoro (art. 29 c. 6, regime anteriore al d.l. 130/2020), ma il lungo soggiorno regolare può fondare il rilascio di un titolo diverso, come il permesso UE; la Questura deve verificare i presupposti di altri titoli.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/178A_4ZsDf9C8_vBEqhJrFLYFL4dCD3VJ/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "Consiglio di Stato, sez. III",
+          "data": "2021-05-25",
+          "numero": "4051/2021",
+          "principio": "Il figlio del genitore autorizzato ex art. 31 c. 3, titolare di permesso per motivi familiari o minore età, può convertirlo in studio ai 18 anni come gli altri figli di stranieri: superato l'orientamento che, valorizzando l'art. 29 c. 6, negava ogni convertibilità dei titoli legati all'art. 31 c. 3.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1Hc09MYNp0xb9EIKkx8V0AWQe_-21_AFd/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Diniego fondato sull'art. 29 c. 6",
+          "testo": "Se la Questura oppone il divieto dell'art. 29 c. 6, l'argomento è l'art. 6 c. 1-bis lett. h (lex posterior e specialis, d.l. 130/2020). Nessuna sentenza su questo punto trovata nella KB: contenzioso al TAR (art. 6 c. 10)."
+        },
+        {
+          "titolo": "Fine dei gravi motivi o figlio maggiorenne",
+          "testo": "Se l'autorizzazione del Tribunale è cessata o il figlio è diventato maggiorenne, chiedere la conversione prima della scadenza del permesso; dopo, la base dell'art. 6 c. 1-bis viene meno e resta solo l'art. 5 c. 9 T.U. (titolo alternativo)."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Il decreto del Tribunale per i minorenni ex art. 31 c. 3 è ancora efficace o è scaduto/revocato?",
+          "perche": "La conversione presuppone un permesso valido; la revoca per attività incompatibili pesa sulla valutazione.",
+          "opzioni": [
+            "efficace",
+            "scaduto, rinnovo pendente",
+            "revocato"
+          ]
+        },
+        {
+          "domanda": "Da quanti anni soggiorna con il permesso per assistenza minori e con quali altri titoli prima?",
+          "perche": "Rileva per il permesso UE (CdS 9150/2014) e per l'integrazione.",
+          "opzioni": [
+            "meno di 2",
+            "2-5",
+            "più di 5"
+          ]
+        },
+        {
+          "domanda": "Ha un contratto di lavoro subordinato o un'attività autonoma avviata?",
+          "perche": "Requisito della conversione in lavoro ex art. 6 c. 1-bis lett. h.",
+          "opzioni": [
+            "contratto subordinato",
+            "attività autonoma",
+            "nessuno"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "assistenza_minori",
+      "a": "lavoro_autonomo",
+      "nodo_albero": "c_end_lav_aut_ok",
+      "esito_albero": "possibile",
+      "esito_verificato": "possibile",
+      "discrepanza": "Come per il lavoro subordinato: il riferimento al nulla osta dello Sportello unico non si attaglia alla conversione; per il lavoro autonomo servono i requisiti dell'art. 26 T.U. (titoli abilitativi, risorse, iscrizioni).",
+      "sintesi": "Il permesso per assistenza minori (art. 31 c. 3 e art. 29 c. 6 T.U.) consente di lavorare. Sulla conversione in lavoro le norme sono in tensione: l'art. 29 c. 6, ancora nel testo, dice che il permesso non può essere convertito in permesso per motivi di lavoro; l'art. 6 c. 1-bis lett. h), introdotto dal d.l. 130/2020 (in vigore dal 22.10.2020) e non toccato dal d.l. 20/2023, lo include espressamente tra i permessi 'convertibili in permesso di soggiorno per motivi di lavoro, ove ne ricorrano i requisitì. Per criterio cronologico e di specialità prevale la norma del 2020: la conversione è oggi ammessa, alle condizioni ordinarie del permesso per lavoro (contratto, reddito). La giurisprudenza nella KB è anteriore al 2020 (TAR Lazio 2935/2018 applicava ancora il divieto) o riguarda altri titoli (CdS 4051/2021 sui figli; CdS 9150/2014 sul permesso UE): nessuna sentenza trovata sull'art. 6 c. 1-bis lett. h). L'art. 6 c. 1-bis parla di 'motivi di lavorò senza distinguere: vi rientra anche il lavoro autonomo, con i requisiti dell'art. 26 T.U.",
+      "requisiti": [
+        "permesso per assistenza minori valido",
+        "requisiti dell'art. 26 T.U. per l'attività autonoma (titolo abilitativo, risorse adeguate, iscrizioni camerali/previdenziali)",
+        "reddito sufficiente"
+      ],
+      "procedura": "Conversione ex art. 6 c. 1-bis T.U. presso Questura o con kit postale secondo le indicazioni locali; documentazione dell'attività (partita IVA, iscrizioni, eventuale certificazione dei requisiti). Nessuna quota, nessun nulla osta (da verificare con la prassi).",
+      "norme": [
+        {
+          "estremi": "art. 29, c. 6, d.lgs. 286/1998",
+          "contenuto": "Al familiare autorizzato ex art. 31 c. 3 è rilasciato un permesso per assistenza minore, rinnovabile, di durata pari a quella fissata dal Tribunale; consente il lavoro ma, secondo la lettera della norma (mai abrogata), non è convertibile in permesso per lavoro.",
+          "citazione": "Il permesso di soggiorno consente di svolgere attivita' lavorativa ma non puo' essere convertito in permesso per motivi di lavoro.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_29"
+        },
+        {
+          "estremi": "art. 6, c. 1-bis, lett. h), d.lgs. 286/1998 (comma inserito dal d.l. 130/2020, in vigore dal 22.10.2020; non toccato dal d.l. 20/2023, che ha abrogato le lett. a, b e h-bis)",
+          "contenuto": "Sono convertibili in permesso per motivi di lavoro, ove ne ricorrano i requisiti, tra gli altri, i permessi per assistenza di minori ex art. 31 c. 3: norma posteriore e speciale rispetto al divieto dell'art. 29 c. 6.",
+          "citazione": "permesso di soggiorno per assistenza di minori, di cui all'articolo 31, comma 3",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_6"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "TAR Lazio, sez. I-ter",
+          "data": "2018-02-27",
+          "numero": "2935/2018",
+          "principio": "Il permesso per assistenza minore non è direttamente convertibile in lavoro (art. 29 c. 6, regime anteriore al d.l. 130/2020), ma il lungo soggiorno regolare può fondare il rilascio di un titolo diverso, come il permesso UE; la Questura deve verificare i presupposti di altri titoli.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/178A_4ZsDf9C8_vBEqhJrFLYFL4dCD3VJ/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Attività autonoma già svolta con il permesso art. 31",
+          "testo": "Il permesso consente già il lavoro: un'attività avviata e redditizia è l'elemento migliore per la conversione."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Il decreto del Tribunale per i minorenni ex art. 31 c. 3 è ancora efficace o è scaduto/revocato?",
+          "perche": "La conversione presuppone un permesso valido; la revoca per attività incompatibili pesa sulla valutazione.",
+          "opzioni": [
+            "efficace",
+            "scaduto, rinnovo pendente",
+            "revocato"
+          ]
+        },
+        {
+          "domanda": "Da quanti anni soggiorna con il permesso per assistenza minori e con quali altri titoli prima?",
+          "perche": "Rileva per il permesso UE (CdS 9150/2014) e per l'integrazione.",
+          "opzioni": [
+            "meno di 2",
+            "2-5",
+            "più di 5"
+          ]
+        },
+        {
+          "domanda": "Ha un contratto di lavoro subordinato o un'attività autonoma avviata?",
+          "perche": "Requisito della conversione in lavoro ex art. 6 c. 1-bis lett. h.",
+          "opzioni": [
+            "contratto subordinato",
+            "attività autonoma",
+            "nessuno"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "assistenza_minori",
+      "a": "attesa_occupazione",
+      "nodo_albero": "c_end_att_incerta",
+      "esito_albero": "incerta",
+      "esito_verificato": "incerto",
+      "discrepanza": null,
+      "sintesi": "Nessuna norma prevede la conversione del permesso per assistenza minori in attesa occupazione. L'art. 6 c. 1-bis lett. h) parla di permesso 'per motivi di lavoro, ove ne ricorrano i requisitì, e l'attesa occupazione (art. 22 c. 11 T.U.) è costruita per il lavoratore subordinato che perde il posto. Una lettura estensiva è possibile se il titolare ha lavorato con il permesso art. 31 e ha perso il lavoro, ma non è sostenuta da precedenti nella KB. L'esito 'incertà dell'albero è corretto.",
+      "requisiti": [
+        "permesso per assistenza minori valido",
+        "pregresso rapporto di lavoro subordinato e DID (argomento analogico)"
+      ],
+      "procedura": "Questura; consigliabile presentare contestualmente la domanda per il titolo principale (lavoro, se c'è un contratto) e chiedere la valutazione ex art. 5 c. 9 T.U.",
+      "norme": [
+        {
+          "estremi": "art. 6, c. 1-bis, lett. h), d.lgs. 286/1998 (comma inserito dal d.l. 130/2020, in vigore dal 22.10.2020; non toccato dal d.l. 20/2023, che ha abrogato le lett. a, b e h-bis)",
+          "contenuto": "Sono convertibili in permesso per motivi di lavoro, ove ne ricorrano i requisiti, tra gli altri, i permessi per assistenza di minori ex art. 31 c. 3: norma posteriore e speciale rispetto al divieto dell'art. 29 c. 6.",
+          "citazione": "permesso di soggiorno per assistenza di minori, di cui all'articolo 31, comma 3",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_6"
+        },
+        {
+          "estremi": "art. 22, c. 11, d.lgs. 286/1998",
+          "contenuto": "La disciplina dell'attesa occupazione è costruita sul lavoratore titolare di permesso per lavoro subordinato che perde il lavoro (dichiarazione di immediata disponibilità, almeno un anno): nessuna norma prevede la conversione diretta di un permesso 'casi specialì o per assistenza minori in attesa occupazione.",
+          "citazione": "Il lavoratore straniero in possesso del permesso di soggiorno per lavoro subordinato che perde il posto di lavoro",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_22"
+        },
+        {
+          "estremi": "art. 5, c. 9, d.lgs. 286/1998",
+          "contenuto": "Il permesso è rilasciato, rinnovato o convertito entro 90 giorni, se sussistono i requisiti per quello richiesto o, in mancanza, per altro tipo di permesso previsto dal T.U.: base dell'obbligo di valutare d'ufficio un titolo alternativo.",
+          "citazione": "ovvero, in mancanza di questo, per altro tipo di permesso da rilasciare in applicazione del presente testo unico",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_5"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Perdita del lavoro durante il permesso art. 31",
+          "testo": "Argomento: chi lavorava regolarmente con un permesso che consente il lavoro dovrebbe poter accedere all'attesa occupazione come il lavoratore subordinato; tesi non verificata in giurisprudenza."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Il decreto del Tribunale per i minorenni ex art. 31 c. 3 è ancora efficace o è scaduto/revocato?",
+          "perche": "La conversione presuppone un permesso valido; la revoca per attività incompatibili pesa sulla valutazione.",
+          "opzioni": [
+            "efficace",
+            "scaduto, rinnovo pendente",
+            "revocato"
+          ]
+        },
+        {
+          "domanda": "Da quanti anni soggiorna con il permesso per assistenza minori e con quali altri titoli prima?",
+          "perche": "Rileva per il permesso UE (CdS 9150/2014) e per l'integrazione.",
+          "opzioni": [
+            "meno di 2",
+            "2-5",
+            "più di 5"
+          ]
+        },
+        {
+          "domanda": "Ha un contratto di lavoro subordinato o un'attività autonoma avviata?",
+          "perche": "Requisito della conversione in lavoro ex art. 6 c. 1-bis lett. h.",
+          "opzioni": [
+            "contratto subordinato",
+            "attività autonoma",
+            "nessuno"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "assistenza_minori",
+      "a": "studio",
+      "nodo_albero": "c_end_complicata",
+      "esito_albero": "situazione complicata",
+      "esito_verificato": "incerto",
+      "discrepanza": null,
+      "sintesi": "Per il genitore o familiare autorizzato ex art. 31 c. 3 non c'è una norma che preveda la conversione in studio: l'art. 6 c. 1-bis riguarda solo il lavoro e l'art. 29 c. 6 vieta testualmente solo la conversione in lavoro. CdS 4051/2021 riguarda un caso diverso (il figlio del genitore autorizzato, che ai 18 anni converte il proprio permesso in studio) e non va confuso. L'esito 'complicatà è corretto: rilascio possibile solo se ricorrono i requisiti ordinari del permesso per studio, con richiesta di valutazione ex art. 5 c. 9.",
+      "requisiti": [
+        "iscrizione a un corso",
+        "mezzi di sostentamento",
+        "permesso valido"
+      ],
+      "procedura": "Questura; nessuna procedura dedicata.",
+      "norme": [
+        {
+          "estremi": "art. 29, c. 6, d.lgs. 286/1998",
+          "contenuto": "Al familiare autorizzato ex art. 31 c. 3 è rilasciato un permesso per assistenza minore, rinnovabile, di durata pari a quella fissata dal Tribunale; consente il lavoro ma, secondo la lettera della norma (mai abrogata), non è convertibile in permesso per lavoro.",
+          "citazione": "Il permesso di soggiorno consente di svolgere attivita' lavorativa ma non puo' essere convertito in permesso per motivi di lavoro.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_29"
+        },
+        {
+          "estremi": "art. 6, c. 1-bis, lett. h), d.lgs. 286/1998 (comma inserito dal d.l. 130/2020, in vigore dal 22.10.2020; non toccato dal d.l. 20/2023, che ha abrogato le lett. a, b e h-bis)",
+          "contenuto": "Sono convertibili in permesso per motivi di lavoro, ove ne ricorrano i requisiti, tra gli altri, i permessi per assistenza di minori ex art. 31 c. 3: norma posteriore e speciale rispetto al divieto dell'art. 29 c. 6.",
+          "citazione": "permesso di soggiorno per assistenza di minori, di cui all'articolo 31, comma 3",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_6"
+        },
+        {
+          "estremi": "art. 5, c. 9, d.lgs. 286/1998",
+          "contenuto": "Il permesso è rilasciato, rinnovato o convertito entro 90 giorni, se sussistono i requisiti per quello richiesto o, in mancanza, per altro tipo di permesso previsto dal T.U.: base dell'obbligo di valutare d'ufficio un titolo alternativo.",
+          "citazione": "ovvero, in mancanza di questo, per altro tipo di permesso da rilasciare in applicazione del presente testo unico",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_5"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Consiglio di Stato, sez. III",
+          "data": "2021-05-25",
+          "numero": "4051/2021",
+          "principio": "Il figlio del genitore autorizzato ex art. 31 c. 3, titolare di permesso per motivi familiari o minore età, può convertirlo in studio ai 18 anni come gli altri figli di stranieri: superato l'orientamento che, valorizzando l'art. 29 c. 6, negava ogni convertibilità dei titoli legati all'art. 31 c. 3.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1Hc09MYNp0xb9EIKkx8V0AWQe_-21_AFd/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Il figlio, non il genitore",
+          "testo": "Se a chiedere lo studio è il figlio diventato maggiorenne, vale CdS 4051/2021: il suo permesso familiare o per minore età è convertibile in studio come per gli altri figli di stranieri (art. 32 c. 1)."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Chi chiede la conversione: il familiare autorizzato o il figlio diventato maggiorenne?",
+          "perche": "Regimi diversi: art. 29 c. 6/6 c. 1-bis per il familiare, art. 32 c. 1 per il figlio.",
+          "opzioni": [
+            "familiare autorizzato",
+            "figlio maggiorenne"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "assistenza_minori",
+      "a": "famiglia",
+      "nodo_albero": "c_end_fam_ok",
+      "esito_albero": "possibile",
+      "esito_verificato": "condizionato",
+      "discrepanza": "Esito 'possibilè troppo netto: la conversione ex art. 30 c. 1 lett. c) richiede i requisiti del ricongiungimento con un familiare regolarmente soggiornante, italiano o UE.",
+      "sintesi": "Il titolare del permesso per assistenza minori è regolarmente soggiornante e può chiedere la conversione in permesso per motivi familiari ex art. 30 c. 1 lett. c) T.U. se possiede i requisiti per il ricongiungimento con un familiare regolare, italiano o UE (tipicamente: coniuge regolarmente soggiornante con reddito e alloggio). L'art. 29 c. 6 vieta solo la conversione in lavoro. Il caso frequente è il genitore che sposa o è già coniugato con lo straniero regolare o con l'italiano: in quel caso la base è l'unità familiare, non più l'autorizzazione del Tribunale.",
+      "requisiti": [
+        "vincolo familiare ricongiungibile (art. 29 c. 1) con familiare regolare, italiano o UE",
+        "reddito e alloggio del familiare se richiesti",
+        "domanda entro un anno dalla scadenza del titolo (art. 30 c. 1 lett. c)"
+      ],
+      "procedura": "Kit postale (permesso per motivi familiari) con documentazione del vincolo e dei requisiti del familiare.",
+      "norme": [
+        {
+          "estremi": "art. 30, c. 1, lett. c), d.lgs. 286/1998",
+          "contenuto": "Il familiare straniero regolarmente soggiornante che ha i requisiti per il ricongiungimento con cittadino italiano/UE residente o con straniero regolare può convertire il proprio permesso in permesso per motivi familiari, anche entro un anno dalla scadenza del titolo posseduto.",
+          "citazione": "In tal caso il permesso del familiare e' convertito in permesso di soggiorno per motivi familiari",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_30"
+        },
+        {
+          "estremi": "art. 29, c. 1, d.lgs. 286/1998",
+          "contenuto": "Familiari per cui è ammesso il ricongiungimento: coniuge maggiorenne, figli minori, figli maggiorenni a carico solo se totalmente invalidi, genitori a carico alle condizioni indicate.",
+          "citazione": "figli maggiorenni a carico, qualora per ragioni oggettive non possano provvedere alle proprie indispensabili esigenze di vita in ragione del loro stato di salute che comporti invalidita' totale",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_29"
+        },
+        {
+          "estremi": "art. 29, c. 6, d.lgs. 286/1998",
+          "contenuto": "Al familiare autorizzato ex art. 31 c. 3 è rilasciato un permesso per assistenza minore, rinnovabile, di durata pari a quella fissata dal Tribunale; consente il lavoro ma, secondo la lettera della norma (mai abrogata), non è convertibile in permesso per lavoro.",
+          "citazione": "Il permesso di soggiorno consente di svolgere attivita' lavorativa ma non puo' essere convertito in permesso per motivi di lavoro.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_29"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Coniuge di cittadino italiano",
+          "testo": "Si applicano le regole sui familiari di cittadini italiani (d.lgs. 30/2007 in quanto più favorevole): carta di soggiorno per familiare, fuori dal perimetro di questa scheda."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Con quale familiare regolare, italiano o UE, ha un vincolo ricongiungibile?",
+          "perche": "Base dell'art. 30 c. 1 lett. c.",
+          "opzioni": [
+            "coniuge straniero regolare",
+            "coniuge italiano/UE",
+            "nessuno"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "assistenza_minori",
+      "a": "permesso_ue_lungo_periodo",
+      "nodo_albero": "c_end_carta_minori",
+      "esito_albero": "possibile",
+      "esito_verificato": "condizionato",
+      "discrepanza": null,
+      "sintesi": "Il permesso UE di lungo periodo non è una conversione in senso tecnico ma un rilascio autonomo, al quale non si applica il divieto dell'art. 29 c. 6. Il Consiglio di Stato (CdS 9150/2014) ha affermato che il permesso per assistenza minori non è un permesso 'di breve duratà ai sensi dell'art. 9 c. 3 lett. d), che le esclusioni dell'art. 9 c. 3 sono tassative e che gli anni trascorsi con quel permesso contano nei cinque anni; conformi TAR Lombardia 6461/2010 e TAR Lazio 2935/2018; TAR Campania 326/2020 ammette il cumulo del reddito del convivente. Restano i requisiti ordinari: cinque anni di permesso valido, reddito almeno pari all'assegno sociale, alloggio idoneo per i familiari, test di italiano A2.",
+      "requisiti": [
+        "cinque anni di permesso in corso di validità (anche per assistenza minori)",
+        "reddito non inferiore all'assegno sociale (cumulabile con quello dei conviventi: TAR Campania 326/2020)",
+        "alloggio idoneo se la domanda riguarda anche i familiari",
+        "test di lingua italiana A2",
+        "assenza di pericolosità"
+      ],
+      "procedura": "Kit postale (permesso UE) con documentazione di reddito, alloggio e test di lingua; contributo e bollettino ordinari.",
+      "norme": [
+        {
+          "estremi": "art. 9, c. 1, d.lgs. 286/1998",
+          "contenuto": "Permesso UE per soggiornanti di lungo periodo: almeno cinque anni di permesso valido, reddito non inferiore all'assegno sociale (e alloggio idoneo per i familiari); il c. 2-bis richiede il test di italiano.",
+          "citazione": "da almeno cinque anni, di un permesso di soggiorno in corso di validita'",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_9"
+        },
+        {
+          "estremi": "art. 9, c. 3, lett. d), e c. 5, d.lgs. 286/1998",
+          "contenuto": "Esclusi anche i titolari di permessi 'di breve duratà; solo i periodi delle lett. d) ed e) non si computano nei cinque anni.",
+          "citazione": "non si computano i periodi di soggiorno per i motivi indicati nelle lettere d) ed e) del comma 3",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_9"
+        },
+        {
+          "estremi": "art. 9, c. 3, lett. b), d.lgs. 286/1998",
+          "contenuto": "Il permesso UE non si applica a chi è titolare dei permessi ex artt. 18, 18-bis, 20-bis, 22 c. 12-quater (abrogato) e 42-bis, del permesso ex art. 32 c. 3 d.lgs. 25/2008 o di protezione temporanea/cure mediche, o ne ha chiesto il rilascio. L'art. 18-ter non è menzionato.",
+          "citazione": "sono titolari dei permessi di soggiorno di cui agli articoli 18, 18-bis, 20-bis, 22, comma 12-quater, e 42-bis",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_9"
+        },
+        {
+          "estremi": "art. 29, c. 6, d.lgs. 286/1998",
+          "contenuto": "Al familiare autorizzato ex art. 31 c. 3 è rilasciato un permesso per assistenza minore, rinnovabile, di durata pari a quella fissata dal Tribunale; consente il lavoro ma, secondo la lettera della norma (mai abrogata), non è convertibile in permesso per lavoro.",
+          "citazione": "Il permesso di soggiorno consente di svolgere attivita' lavorativa ma non puo' essere convertito in permesso per motivi di lavoro.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_29"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Consiglio di Stato, sez. III",
+          "data": "2015-02-26",
+          "numero": "9150/2014 (dalla scheda KB; il numero potrebbe essere il R.G.: verificare)",
+          "principio": "Gli anni con permesso per assistenza minori contano per il permesso UE di lungo periodo: non è un permesso 'di breve duratà (art. 9 c. 3 lett. d), le esclusioni dell'art. 9 c. 3 sono tassative e il divieto dell'art. 29 c. 6 non riguarda il permesso UE, che non è un permesso per lavoro.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1QNF08f_EjAYZgx7z1UH6JXu8QvBVDYqu/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "TAR Lombardia, sez. IV",
+          "data": "2010-09-07",
+          "numero": "6461/2010",
+          "principio": "Il divieto di conversione non si estende alla domanda autonoma di permesso CE (oggi UE) di lungo periodo; le cause ostative dell'art. 9 sono tassative e il permesso per assistenza minore non vi rientra.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1lkDz6i1N1d9yhcYpYLIBigoGWy4-dVIg/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "TAR Lazio, sez. I-ter",
+          "data": "2018-02-27",
+          "numero": "2935/2018",
+          "principio": "Il permesso per assistenza minore non è direttamente convertibile in lavoro (art. 29 c. 6, regime anteriore al d.l. 130/2020), ma il lungo soggiorno regolare può fondare il rilascio di un titolo diverso, come il permesso UE; la Questura deve verificare i presupposti di altri titoli.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/178A_4ZsDf9C8_vBEqhJrFLYFL4dCD3VJ/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "TAR Campania, sez. VI",
+          "data": "2020-02-12",
+          "numero": "326/2020",
+          "principio": "Nella domanda di permesso UE da parte del titolare ex art. 31 il requisito reddituale si valuta anche con il reddito del convivente e degli elementi sopravvenuti (art. 5 c. 5).",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1wY1ZKXBaxUaOc1I2P19krioHIQxxJ93Z/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Domanda respinta per 'inconvertibilità'",
+          "testo": "Il diniego che applica l'art. 29 c. 6 al permesso UE è illegittimo secondo CdS 9150/2014 e TAR Lombardia 6461/2010."
+        },
+        {
+          "titolo": "Reddito insufficiente del solo richiedente",
+          "testo": "Va considerato anche il reddito dei familiari conviventi e gli elementi sopravvenuti (TAR Campania 326/2020; art. 5 c. 5 T.U.)."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Il decreto del Tribunale per i minorenni ex art. 31 c. 3 è ancora efficace o è scaduto/revocato?",
+          "perche": "La conversione presuppone un permesso valido; la revoca per attività incompatibili pesa sulla valutazione.",
+          "opzioni": [
+            "efficace",
+            "scaduto, rinnovo pendente",
+            "revocato"
+          ]
+        },
+        {
+          "domanda": "Da quanti anni soggiorna con il permesso per assistenza minori e con quali altri titoli prima?",
+          "perche": "Rileva per il permesso UE (CdS 9150/2014) e per l'integrazione.",
+          "opzioni": [
+            "meno di 2",
+            "2-5",
+            "più di 5"
+          ]
+        },
+        {
+          "domanda": "Reddito del nucleo convivente degli ultimi anni e test A2?",
+          "perche": "Requisiti dell'art. 9.",
+          "opzioni": [
+            "reddito sufficiente e A2",
+            "reddito sufficiente senza A2",
+            "reddito insufficiente"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "protezione_sociale_art18",
+      "a": "lavoro_subordinato",
+      "nodo_albero": "c_end_lav_sub_ok",
+      "esito_albero": "possibile",
+      "esito_verificato": "possibile",
+      "discrepanza": "Esito corretto; il riferimento al nulla osta dello Sportello unico non è pertinente (art. 27 c. 3-bis d.P.R. 394/1999: conversione 'secondo le modalità stabilitè per il permesso per lavoro, con decurtazione delle quote dell'anno successivo, non quota disponibile).",
+      "sintesi": "Il permesso ex art. 18 T.U. (casi speciali, durata un anno, rinnovabile per l'inserimento socio-lavorativo o per motivi di giustizia: c. 4, nel testo modificato dal d.lgs. 115/2026, in vigore dal 16.7.2026) consente studio, iscrizione al centro per l'impiego e lavoro subordinato (c. 5). Alla scadenza, se l'interessato ha un rapporto di lavoro in corso, il permesso è prorogato o rinnovato per la durata del rapporto o, se a tempo indeterminato, con le modalità del permesso per lavoro (c. 5); l'art. 27 c. 3-bis d.P.R. 394/1999 prevede espressamente la conversione in permesso per lavoro, con decurtazione delle quote dell'anno successivo. La conversione presuppone un permesso non revocato: interruzione del programma o condotta incompatibile ne comportano la revoca (c. 4). Sul rilascio del permesso art. 18 la giurisdizione è del giudice ordinario (Trib. Ancona 5511/2025, sulla scia di Cass. SU 32044/2018); sul diniego di conversione in lavoro, provvedimento ordinario di soggiorno, la competenza è del TAR (art. 6 c. 10): punto da validare.",
+      "requisiti": [
+        "permesso ex art. 18 valido e non revocato",
+        "rapporto di lavoro subordinato in corso o contratto",
+        "requisiti ordinari del permesso per lavoro (reddito, contratto di soggiorno)"
+      ],
+      "procedura": "Domanda di conversione alla scadenza (o prima) presso la Questura o con kit postale secondo le indicazioni locali, con contratto di lavoro; nessun nulla osta; nessuna quota disponibile richiesta (decurtazione a valle, art. 27 c. 3-bis d.P.R. 394/1999). Il contributo è esente solo per rilascio e rinnovo del permesso art. 18 (art. 5 c. 2-ter): per il permesso per lavoro è dovuto.",
+      "norme": [
+        {
+          "estremi": "art. 18, c. 4, d.lgs. 286/1998",
+          "contenuto": "Il permesso reca la dicitura 'casi specialì, dura un anno e si rinnova per un anno o per il maggior periodo necessario all'inserimento socio-lavorativo o per motivi di giustizia; è revocato in caso di interruzione del programma o condotta incompatibile.",
+          "citazione": "ha la durata di un anno e puo' essere rinnovato per un anno, o per il maggior periodo occorrente per l'inserimento socio-lavorativo o per motivi di giustizia",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_18"
+        },
+        {
+          "estremi": "art. 18, c. 5, primo e secondo periodo, d.lgs. 286/1998",
+          "contenuto": "Il permesso consente servizi assistenziali, studio, iscrizione al centro per l'impiego e lavoro subordinato; se alla scadenza c'è un rapporto di lavoro in corso, il permesso può essere prorogato o rinnovato per la durata del rapporto o, se a tempo indeterminato, con le modalità del permesso per lavoro.",
+          "citazione": "il permesso puo' essere ulteriormente prorogato o rinnovato per la durata del rapporto medesimo o, se questo e' a tempo indeterminato, con le modalita' stabilite per tale motivo di soggiorno",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_18"
+        },
+        {
+          "estremi": "art. 27, c. 3-bis, d.P.R. 394/1999",
+          "contenuto": "Il permesso ex art. 18 c. 5 T.U. può essere convertito in permesso per lavoro secondo le modalità di quel permesso; le quote dell'anno successivo sono decurtate in misura corrispondente (nessun requisito di quota disponibile al momento della conversione).",
+          "citazione": "puo' essere convertito in permesso di soggiorno per lavoro, secondo le modalita' stabilite per tale tipo di permesso",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art27"
+        },
+        {
+          "estremi": "art. 5, c. 2-ter, d.lgs. 286/1998",
+          "contenuto": "Il contributo per rilascio e rinnovo non è dovuto per i permessi ex artt. 18, 18-bis, 20-bis, 22 c. 12-quater e 42-bis (l'art. 18-ter non è menzionato); per il permesso di arrivo (lavoro, studio, famiglia) il contributo ordinario è dovuto.",
+          "citazione": "Non e' richiesto il versamento del contributo per il rilascio ed il rinnovo del permesso di soggiorno per asilo",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_5"
+        },
+        {
+          "estremi": "art. 6, c. 10, d.lgs. 286/1998",
+          "contenuto": "Contro i provvedimenti sui permessi (artt. 4-ter, 5 e 6) è ammesso ricorso al TAR: il diniego di conversione si impugna davanti al giudice amministrativo.",
+          "citazione": "e' ammesso ricorso al tribunale amministrativo regionale competente",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_6"
+        },
+        {
+          "estremi": "art. 18, c. 1, d.lgs. 286/1998 (testo modificato dall'art. 8 d.lgs. 115/2026, in vigore dal 16.7.2026; per fatti anteriori verificare la versione previgente)",
+          "contenuto": "Permesso speciale per vittime di tratta, violenza o grave sfruttamento con concreti pericoli per l'incolumità, accertati in un procedimento penale o negli interventi dei servizi sociali o degli enti del programma unico; il questore lo rilascia anche su proposta o con parere favorevole del PM.",
+          "citazione": null,
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_18"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Tribunale di Ancona",
+          "data": "2026-01-22",
+          "numero": "5511/2025",
+          "principio": "Sul diniego del permesso ex art. 18 la giurisdizione è del giudice ordinario (diritto soggettivo, conforme a SU 32044/2018); il parere negativo del PM non preclude il rilascio.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1hcRbv3PlJCKfhzKbnkJ_4ODW-QN01jT0/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "Tribunale di Torino, sez. IX civile",
+          "data": "2020-03-05",
+          "numero": "3409/2019",
+          "principio": "Il permesso ex art. 18 non presuppone denuncia né collaborazione (percorso sociale); il Tribunale si discosta espressamente dall'orientamento del Consiglio di Stato che lo qualifica come misura premiale.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1cKgfKhqkxWb5n_fQMVT8kLJWgIWhLHwg/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Rapporto a tempo determinato",
+          "testo": "Art. 18 c. 5: il permesso può essere prorogato per la durata del rapporto; la conversione piena in lavoro è testualmente legata al tempo indeterminato, ma l'art. 27 c. 3-bis d.P.R. 394/1999 ammette la conversione in lavoro senza distinguere: nella prassi le Questure convertono anche con contratto a termine (da verificare localmente)."
+        },
+        {
+          "titolo": "Art. 18 c. 6 (ex detenuto per reati da minorenne)",
+          "testo": "Il permesso rilasciato all'uscita dall'istituto di pena è lo stesso permesso dell'art. 18, con le stesse facoltà di conversione (giurisprudenza minorile nella KB sull'estensione alla messa alla prova)."
+        },
+        {
+          "titolo": "Revoca per interruzione del programma",
+          "testo": "Se il programma si interrompe prima della conversione, il permesso può essere revocato (c. 4): chiedere la conversione appena c'è un contratto, senza attendere la scadenza."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Il permesso ex art. 18 è stato rilasciato per percorso giudiziario (proposta/parere del PM) o per percorso sociale (servizi sociali o enti del programma unico)? È ancora in corso il programma?",
+          "perche": "Interruzione del programma o condotta incompatibile sono cause di revoca (art. 18 c. 4); il percorso sociale non richiede denuncia (Trib. Torino 3409/2019).",
+          "opzioni": [
+            "giudiziario",
+            "sociale",
+            "art. 18 c. 6 (ex detenuto minorenne)"
+          ]
+        },
+        {
+          "domanda": "Alla scadenza ha un rapporto di lavoro in corso? A tempo determinato o indeterminato?",
+          "perche": "Art. 18 c. 5: proroga per la durata del rapporto o permesso per lavoro se a tempo indeterminato.",
+          "opzioni": [
+            "tempo indeterminato",
+            "tempo determinato",
+            "lavoro autonomo",
+            "nessun lavoro"
+          ]
+        },
+        {
+          "domanda": "È iscritto a un corso regolare di studi?",
+          "perche": "Presupposto della conversione in studio (art. 18 c. 5, ultimo periodo).",
+          "opzioni": [
+            "sì",
+            "no"
+          ]
+        },
+        {
+          "domanda": "Il fatto è anteriore o successivo al 16.7.2026?",
+          "perche": "Il d.lgs. 115/2026 ha modificato l'art. 18 (tratta, programma unico, periodo di riflessione, ricevuta che consente il lavoro dopo 45 giorni): per fatti anteriori verificare il testo previgente.",
+          "opzioni": [
+            "anteriore",
+            "successivo"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "protezione_sociale_art18",
+      "a": "lavoro_autonomo",
+      "nodo_albero": "c_end_lav_aut_ok",
+      "esito_albero": "possibile",
+      "esito_verificato": "condizionato",
+      "discrepanza": "L'art. 18 c. 5 menziona solo il lavoro subordinato (diversamente dagli artt. 18-bis e 18-ter, che citano anche l'autonomo); l'art. 27 c. 3-bis d.P.R. 394/1999 parla genericamente di 'permesso di soggiorno per lavorò. L'esito 'possibile, puoi fare da solò è troppo netto.",
+      "sintesi": "Il permesso ex art. 18 T.U. (casi speciali, durata un anno, rinnovabile per l'inserimento socio-lavorativo o per motivi di giustizia: c. 4, nel testo modificato dal d.lgs. 115/2026, in vigore dal 16.7.2026) consente studio, iscrizione al centro per l'impiego e lavoro subordinato (c. 5). La norma primaria cita solo il lavoro subordinato; la conversione in lavoro autonomo si fonda sull'art. 27 c. 3-bis d.P.R. 394/1999 ('permesso di soggiorno per lavorò, senza distinzioni) e sui requisiti dell'art. 26 T.U. È sostenibile ma non testuale: nessun precedente trovato nella KB.",
+      "requisiti": [
+        "permesso ex art. 18 valido",
+        "requisiti dell'art. 26 T.U. per il lavoro autonomo"
+      ],
+      "procedura": "Come per il lavoro subordinato, con la documentazione dell'attività autonoma.",
+      "norme": [
+        {
+          "estremi": "art. 18, c. 5, primo e secondo periodo, d.lgs. 286/1998",
+          "contenuto": "Il permesso consente servizi assistenziali, studio, iscrizione al centro per l'impiego e lavoro subordinato; se alla scadenza c'è un rapporto di lavoro in corso, il permesso può essere prorogato o rinnovato per la durata del rapporto o, se a tempo indeterminato, con le modalità del permesso per lavoro.",
+          "citazione": "il permesso puo' essere ulteriormente prorogato o rinnovato per la durata del rapporto medesimo o, se questo e' a tempo indeterminato, con le modalita' stabilite per tale motivo di soggiorno",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_18"
+        },
+        {
+          "estremi": "art. 27, c. 3-bis, d.P.R. 394/1999",
+          "contenuto": "Il permesso ex art. 18 c. 5 T.U. può essere convertito in permesso per lavoro secondo le modalità di quel permesso; le quote dell'anno successivo sono decurtate in misura corrispondente (nessun requisito di quota disponibile al momento della conversione).",
+          "citazione": "puo' essere convertito in permesso di soggiorno per lavoro, secondo le modalita' stabilite per tale tipo di permesso",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art27"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Diniego per difetto di base normativa",
+          "testo": "Argomenti: art. 27 c. 3-bis d.P.R. 394/1999 generico, art. 5 c. 9 T.U., coerenza con artt. 18-bis e 18-ter. Punto da validare."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Il permesso ex art. 18 è stato rilasciato per percorso giudiziario (proposta/parere del PM) o per percorso sociale (servizi sociali o enti del programma unico)? È ancora in corso il programma?",
+          "perche": "Interruzione del programma o condotta incompatibile sono cause di revoca (art. 18 c. 4); il percorso sociale non richiede denuncia (Trib. Torino 3409/2019).",
+          "opzioni": [
+            "giudiziario",
+            "sociale",
+            "art. 18 c. 6 (ex detenuto minorenne)"
+          ]
+        },
+        {
+          "domanda": "Alla scadenza ha un rapporto di lavoro in corso? A tempo determinato o indeterminato?",
+          "perche": "Art. 18 c. 5: proroga per la durata del rapporto o permesso per lavoro se a tempo indeterminato.",
+          "opzioni": [
+            "tempo indeterminato",
+            "tempo determinato",
+            "lavoro autonomo",
+            "nessun lavoro"
+          ]
+        },
+        {
+          "domanda": "È iscritto a un corso regolare di studi?",
+          "perche": "Presupposto della conversione in studio (art. 18 c. 5, ultimo periodo).",
+          "opzioni": [
+            "sì",
+            "no"
+          ]
+        },
+        {
+          "domanda": "Il fatto è anteriore o successivo al 16.7.2026?",
+          "perche": "Il d.lgs. 115/2026 ha modificato l'art. 18 (tratta, programma unico, periodo di riflessione, ricevuta che consente il lavoro dopo 45 giorni): per fatti anteriori verificare il testo previgente.",
+          "opzioni": [
+            "anteriore",
+            "successivo"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "protezione_sociale_art18",
+      "a": "attesa_occupazione",
+      "nodo_albero": "c_end_att_incerta",
+      "esito_albero": "incerta",
+      "esito_verificato": "incerto",
+      "discrepanza": null,
+      "sintesi": "Il permesso ex art. 18 T.U. (casi speciali, durata un anno, rinnovabile per l'inserimento socio-lavorativo o per motivi di giustizia: c. 4, nel testo modificato dal d.lgs. 115/2026, in vigore dal 16.7.2026) consente studio, iscrizione al centro per l'impiego e lavoro subordinato (c. 5). Nessuna norma prevede la conversione diretta in attesa occupazione; l'art. 22 c. 11 riguarda chi ha un permesso per lavoro subordinato e perde il posto. Se il lavoro cessa durante il permesso art. 18, la via indicata dalla norma è il rinnovo del permesso art. 18 'per il maggior periodo occorrente per l'inserimento socio-lavorativò (c. 4), non l'attesa occupazione.",
+      "requisiti": [
+        "permesso art. 18 valido",
+        "pregresso lavoro subordinato e DID (argomento analogico)"
+      ],
+      "procedura": "Preferire il rinnovo del permesso art. 18 per inserimento socio-lavorativo (c. 4); in subordine domanda in Questura con richiesta di valutazione ex art. 5 c. 9.",
+      "norme": [
+        {
+          "estremi": "art. 18, c. 4, d.lgs. 286/1998",
+          "contenuto": "Il permesso reca la dicitura 'casi specialì, dura un anno e si rinnova per un anno o per il maggior periodo necessario all'inserimento socio-lavorativo o per motivi di giustizia; è revocato in caso di interruzione del programma o condotta incompatibile.",
+          "citazione": "ha la durata di un anno e puo' essere rinnovato per un anno, o per il maggior periodo occorrente per l'inserimento socio-lavorativo o per motivi di giustizia",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_18"
+        },
+        {
+          "estremi": "art. 22, c. 11, d.lgs. 286/1998",
+          "contenuto": "La disciplina dell'attesa occupazione è costruita sul lavoratore titolare di permesso per lavoro subordinato che perde il lavoro (dichiarazione di immediata disponibilità, almeno un anno): nessuna norma prevede la conversione diretta di un permesso 'casi specialì o per assistenza minori in attesa occupazione.",
+          "citazione": "Il lavoratore straniero in possesso del permesso di soggiorno per lavoro subordinato che perde il posto di lavoro",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_22"
+        },
+        {
+          "estremi": "art. 5, c. 9, d.lgs. 286/1998",
+          "contenuto": "Il permesso è rilasciato, rinnovato o convertito entro 90 giorni, se sussistono i requisiti per quello richiesto o, in mancanza, per altro tipo di permesso previsto dal T.U.: base dell'obbligo di valutare d'ufficio un titolo alternativo.",
+          "citazione": "ovvero, in mancanza di questo, per altro tipo di permesso da rilasciare in applicazione del presente testo unico",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_5"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Rinnovo per inserimento socio-lavorativo",
+          "testo": "Il testo vigente dell'art. 18 c. 4 consente il rinnovo per il periodo occorrente all'inserimento socio-lavorativo: alternativa più sicura dell'attesa occupazione."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Il permesso ex art. 18 è stato rilasciato per percorso giudiziario (proposta/parere del PM) o per percorso sociale (servizi sociali o enti del programma unico)? È ancora in corso il programma?",
+          "perche": "Interruzione del programma o condotta incompatibile sono cause di revoca (art. 18 c. 4); il percorso sociale non richiede denuncia (Trib. Torino 3409/2019).",
+          "opzioni": [
+            "giudiziario",
+            "sociale",
+            "art. 18 c. 6 (ex detenuto minorenne)"
+          ]
+        },
+        {
+          "domanda": "Alla scadenza ha un rapporto di lavoro in corso? A tempo determinato o indeterminato?",
+          "perche": "Art. 18 c. 5: proroga per la durata del rapporto o permesso per lavoro se a tempo indeterminato.",
+          "opzioni": [
+            "tempo indeterminato",
+            "tempo determinato",
+            "lavoro autonomo",
+            "nessun lavoro"
+          ]
+        },
+        {
+          "domanda": "È iscritto a un corso regolare di studi?",
+          "perche": "Presupposto della conversione in studio (art. 18 c. 5, ultimo periodo).",
+          "opzioni": [
+            "sì",
+            "no"
+          ]
+        },
+        {
+          "domanda": "Il fatto è anteriore o successivo al 16.7.2026?",
+          "perche": "Il d.lgs. 115/2026 ha modificato l'art. 18 (tratta, programma unico, periodo di riflessione, ricevuta che consente il lavoro dopo 45 giorni): per fatti anteriori verificare il testo previgente.",
+          "opzioni": [
+            "anteriore",
+            "successivo"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "protezione_sociale_art18",
+      "a": "studio",
+      "nodo_albero": "c_end_stu_no",
+      "esito_albero": "non possibile",
+      "esito_verificato": "possibile",
+      "discrepanza": "DISCREPANZA: l'albero dice 'non possibilè, ma l'art. 18 c. 5, ultimo periodo, T.U. prevede espressamente la conversione in permesso per studio se il titolare è iscritto a un corso regolare di studi (periodo presente già nel testo vigente al 1.10.2024 e confermato dopo il d.lgs. 115/2026).",
+      "sintesi": "Il permesso ex art. 18 T.U. (casi speciali, durata un anno, rinnovabile per l'inserimento socio-lavorativo o per motivi di giustizia: c. 4, nel testo modificato dal d.lgs. 115/2026, in vigore dal 16.7.2026) consente studio, iscrizione al centro per l'impiego e lavoro subordinato (c. 5). Il c. 5 prevede espressamente che il permesso possa essere convertito in permesso per motivi di studio se il titolare è iscritto a un corso regolare di studi. La conversione non richiede quote né parere; servono l'iscrizione e i requisiti ordinari del permesso per studio. È la strada naturale per le vittime giovani (anche ex minori) inserite in percorsi scolastici o formativi.",
+      "requisiti": [
+        "permesso ex art. 18 valido",
+        "iscrizione a un corso regolare di studi",
+        "requisiti ordinari del permesso per studio (mezzi, alloggio: da verificare nella prassi)"
+      ],
+      "procedura": "Domanda in Questura o con kit postale secondo le indicazioni locali, con certificato di iscrizione/frequenza.",
+      "norme": [
+        {
+          "estremi": "art. 18, c. 5, terzo periodo, d.lgs. 286/1998 (già presente prima del d.lgs. 115/2026)",
+          "contenuto": "Il permesso ex art. 18 può essere convertito in permesso per studio se il titolare è iscritto a un corso regolare di studi.",
+          "citazione": "Il permesso di soggiorno previsto dal presente articolo puo' essere altresi' convertito in permesso di soggiorno per motivi di studio qualora il titolare sia iscritto ad un corso regolare di studi.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_18"
+        },
+        {
+          "estremi": "art. 18, c. 4, d.lgs. 286/1998",
+          "contenuto": "Il permesso reca la dicitura 'casi specialì, dura un anno e si rinnova per un anno o per il maggior periodo necessario all'inserimento socio-lavorativo o per motivi di giustizia; è revocato in caso di interruzione del programma o condotta incompatibile.",
+          "citazione": "ha la durata di un anno e puo' essere rinnovato per un anno, o per il maggior periodo occorrente per l'inserimento socio-lavorativo o per motivi di giustizia",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_18"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Corso di formazione professionale o CPIA",
+          "testo": "La norma parla di 'corso regolare di studì: l'inclusione dei corsi di formazione professionale o dei CPIA dipende dalla prassi; nessun precedente nella KB."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Il permesso ex art. 18 è stato rilasciato per percorso giudiziario (proposta/parere del PM) o per percorso sociale (servizi sociali o enti del programma unico)? È ancora in corso il programma?",
+          "perche": "Interruzione del programma o condotta incompatibile sono cause di revoca (art. 18 c. 4); il percorso sociale non richiede denuncia (Trib. Torino 3409/2019).",
+          "opzioni": [
+            "giudiziario",
+            "sociale",
+            "art. 18 c. 6 (ex detenuto minorenne)"
+          ]
+        },
+        {
+          "domanda": "Alla scadenza ha un rapporto di lavoro in corso? A tempo determinato o indeterminato?",
+          "perche": "Art. 18 c. 5: proroga per la durata del rapporto o permesso per lavoro se a tempo indeterminato.",
+          "opzioni": [
+            "tempo indeterminato",
+            "tempo determinato",
+            "lavoro autonomo",
+            "nessun lavoro"
+          ]
+        },
+        {
+          "domanda": "È iscritto a un corso regolare di studi?",
+          "perche": "Presupposto della conversione in studio (art. 18 c. 5, ultimo periodo).",
+          "opzioni": [
+            "sì",
+            "no"
+          ]
+        },
+        {
+          "domanda": "Il fatto è anteriore o successivo al 16.7.2026?",
+          "perche": "Il d.lgs. 115/2026 ha modificato l'art. 18 (tratta, programma unico, periodo di riflessione, ricevuta che consente il lavoro dopo 45 giorni): per fatti anteriori verificare il testo previgente.",
+          "opzioni": [
+            "anteriore",
+            "successivo"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "protezione_sociale_art18",
+      "a": "famiglia",
+      "nodo_albero": "c_end_fam_ok",
+      "esito_albero": "possibile",
+      "esito_verificato": "condizionato",
+      "discrepanza": "Esito 'possibilè troppo netto: servono i requisiti del ricongiungimento con un familiare regolare, italiano o UE (art. 30 c. 1 lett. c).",
+      "sintesi": "Il titolare del permesso art. 18 è regolarmente soggiornante e può chiedere la conversione in permesso per motivi familiari ex art. 30 c. 1 lett. c) T.U. se ha un vincolo ricongiungibile con un familiare regolare, italiano o UE, che possieda i requisiti di reddito e alloggio. Attenzione ai casi in cui il familiare sia coinvolto nello sfruttamento o nella violenza: la conversione potrebbe esporre la vittima a nuovi condizionamenti, valutazione da fare con l'ente del programma.",
+      "requisiti": [
+        "vincolo ricongiungibile (art. 29 c. 1)",
+        "requisiti del familiare (reddito, alloggio)",
+        "domanda entro un anno dalla scadenza del titolo"
+      ],
+      "procedura": "Kit postale (motivi familiari) con documentazione del vincolo e dei requisiti.",
+      "norme": [
+        {
+          "estremi": "art. 30, c. 1, lett. c), d.lgs. 286/1998",
+          "contenuto": "Il familiare straniero regolarmente soggiornante che ha i requisiti per il ricongiungimento con cittadino italiano/UE residente o con straniero regolare può convertire il proprio permesso in permesso per motivi familiari, anche entro un anno dalla scadenza del titolo posseduto.",
+          "citazione": "In tal caso il permesso del familiare e' convertito in permesso di soggiorno per motivi familiari",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_30"
+        },
+        {
+          "estremi": "art. 29, c. 1, d.lgs. 286/1998",
+          "contenuto": "Familiari per cui è ammesso il ricongiungimento: coniuge maggiorenne, figli minori, figli maggiorenni a carico solo se totalmente invalidi, genitori a carico alle condizioni indicate.",
+          "citazione": "figli maggiorenni a carico, qualora per ragioni oggettive non possano provvedere alle proprie indispensabili esigenze di vita in ragione del loro stato di salute che comporti invalidita' totale",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_29"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [],
+      "domande_discriminanti": [
+        {
+          "domanda": "Il permesso ex art. 18 è stato rilasciato per percorso giudiziario (proposta/parere del PM) o per percorso sociale (servizi sociali o enti del programma unico)? È ancora in corso il programma?",
+          "perche": "Interruzione del programma o condotta incompatibile sono cause di revoca (art. 18 c. 4); il percorso sociale non richiede denuncia (Trib. Torino 3409/2019).",
+          "opzioni": [
+            "giudiziario",
+            "sociale",
+            "art. 18 c. 6 (ex detenuto minorenne)"
+          ]
+        },
+        {
+          "domanda": "Ha un coniuge o familiare ricongiungibile regolare, italiano o UE?",
+          "perche": "Base dell'art. 30 c. 1 lett. c.",
+          "opzioni": [
+            "sì",
+            "no"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "protezione_sociale_art18",
+      "a": "permesso_ue_lungo_periodo",
+      "nodo_albero": "c_end_carta_no",
+      "esito_albero": "non possibile",
+      "esito_verificato": "non_possibile",
+      "discrepanza": null,
+      "sintesi": "L'art. 9 c. 3 lett. b) T.U. esclude dal permesso UE i titolari dei permessi ex art. 18 (e chi ne ha chiesto il rilascio): l'esito 'non possibilè è corretto finché si è titolari del permesso art. 18. Diverso è il computo degli anni: l'art. 9 c. 5 esclude dal calcolo solo i periodi delle lett. d) ed e) del c. 3, sicché dopo la conversione in lavoro gli anni con permesso art. 18 dovrebbero contare nei cinque anni (punto da validare con la prassi delle Questure).",
+      "requisiti": [],
+      "procedura": "Prima convertire in lavoro o studio (lo studio però è anch'esso escluso: art. 9 c. 3 lett. a), poi chiedere il permesso UE con i requisiti ordinari.",
+      "norme": [
+        {
+          "estremi": "art. 9, c. 3, lett. b), d.lgs. 286/1998",
+          "contenuto": "Il permesso UE non si applica a chi è titolare dei permessi ex artt. 18, 18-bis, 20-bis, 22 c. 12-quater (abrogato) e 42-bis, del permesso ex art. 32 c. 3 d.lgs. 25/2008 o di protezione temporanea/cure mediche, o ne ha chiesto il rilascio. L'art. 18-ter non è menzionato.",
+          "citazione": "sono titolari dei permessi di soggiorno di cui agli articoli 18, 18-bis, 20-bis, 22, comma 12-quater, e 42-bis",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_9"
+        },
+        {
+          "estremi": "art. 9, c. 3, lett. d), e c. 5, d.lgs. 286/1998",
+          "contenuto": "Esclusi anche i titolari di permessi 'di breve duratà; solo i periodi delle lett. d) ed e) non si computano nei cinque anni.",
+          "citazione": "non si computano i periodi di soggiorno per i motivi indicati nelle lettere d) ed e) del comma 3",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_9"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Consiglio di Stato, sez. III",
+          "data": "2015-02-26",
+          "numero": "9150/2014 (dalla scheda KB; il numero potrebbe essere il R.G.: verificare)",
+          "principio": "Gli anni con permesso per assistenza minori contano per il permesso UE di lungo periodo: non è un permesso 'di breve duratà (art. 9 c. 3 lett. d), le esclusioni dell'art. 9 c. 3 sono tassative e il divieto dell'art. 29 c. 6 non riguarda il permesso UE, che non è un permesso per lavoro.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1QNF08f_EjAYZgx7z1UH6JXu8QvBVDYqu/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Computo degli anni art. 18 dopo la conversione",
+          "testo": "Argomento testuale dall'art. 9 c. 5 e dalla tassatività delle esclusioni (CdS 9150/2014, per analogia): non verificato in giurisprudenza specifica."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Ha già convertito il permesso art. 18 in lavoro? Da quanti anni soggiorna in totale?",
+          "perche": "L'esclusione riguarda i titolari attuali; rileva il computo complessivo.",
+          "opzioni": [
+            "ancora titolare art. 18",
+            "convertito, meno di 5 anni in totale",
+            "convertito, 5 anni o più"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "sfruttamento_lavorativo_art18ter",
+      "a": "lavoro_subordinato",
+      "nodo_albero": "c_end_lav_sub_ok",
+      "esito_albero": "possibile",
+      "esito_verificato": "possibile",
+      "discrepanza": "Esito corretto. L'etichetta dell'albero 'Sfruttamento lavorativo (Art. 22 co. 12quater)' è superata: la norma vigente è l'art. 18-ter T.U. Il riferimento al nulla osta dello Sportello unico non è pertinente: la conversione avviene 'al di fuori delle quotè.",
+      "sintesi": "Il permesso per vittime di intermediazione illecita e sfruttamento del lavoro è oggi l'art. 18-ter T.U. (introdotto dal d.l. 145/2024 conv. l. 187/2024, che ha abrogato l'art. 22 c. 12-quater, 12-quinquies e 12-sexies): casi speciali, durata un anno (sei mesi nella versione originaria), rinnovabile, consente studio, lavoro subordinato e autonomo (c. 3). Alla scadenza è convertibile in permesso per lavoro subordinato o autonomo, secondo le modalità di quei permessi e al di fuori delle quote (c. 4). Anche il permesso ex art. 22 c. 12-quater rilasciato prima dell'abrogazione era convertibile alla scadenza in lavoro subordinato o autonomo (c. 12-sexies previgente). Sul rilascio la Cassazione riconosce un diritto soggettivo con giurisdizione del giudice ordinario (Cass. SU 32044/2018; Cass. 3393/2023 sull'alternatività di denuncia e collaborazione), principi oggi richiamati anche per l'art. 18-ter (Trib. Bologna 11609/2024).",
+      "requisiti": [
+        "permesso ex art. 18-ter (o ex art. 22 c. 12-quater) valido o in scadenza",
+        "contratto di lavoro subordinato con requisiti ordinari",
+        "assenza di cause di revoca (c. 4-5)"
+      ],
+      "procedura": "Domanda di conversione alla scadenza presso la Questura o con kit postale secondo le indicazioni locali; fuori quota (art. 18-ter c. 4); nessun nulla osta. Il contributo per il permesso per lavoro è dovuto (l'art. 5 c. 2-ter non menziona l'art. 18-ter neppure per il rilascio del permesso casi speciali: punto da verificare).",
+      "norme": [
+        {
+          "estremi": "art. 18-ter, c. 3, d.lgs. 286/1998 (introdotto dal d.l. 145/2024 conv. l. 187/2024; durata portata da sei mesi a un anno con modifica in vigore, secondo Normattiva, dal 2.12.2025)",
+          "contenuto": "Il permesso per vittime di intermediazione illecita e sfruttamento del lavoro (art. 603-bis c.p.) reca 'casi specialì, dura un anno, rinnovabile per un anno o per il periodo necessario alle misure di inserimento o per motivi di giustizia; consente studio, lavoro subordinato e autonomo.",
+          "citazione": "ha la durata di un anno e puo' essere rinnovato per un anno o per il maggior periodo occorrente per la conclusione delle misure di inserimento socio-lavorativo o per motivi di giustizia",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_18-ter"
+        },
+        {
+          "estremi": "art. 18-ter, c. 4, d.lgs. 286/1998",
+          "contenuto": "Alla scadenza il permesso è convertibile in lavoro subordinato o autonomo, secondo le modalità di tali permessi e fuori quota, oppure in studio se il titolare è iscritto a un regolare corso di studi.",
+          "citazione": "Alla scadenza, il permesso di cui al presente articolo puo' essere convertito in permesso di soggiorno per motivi di lavoro subordinato o autonomo, secondo le modalita' stabilite per tale permesso di soggiorno e al di fuori delle quote di cui all'articolo 3, comma 4, ovvero in permesso di soggiorno per motivi di studio qualora il titolare sia iscritto a un regolare corso di studi.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_18-ter"
+        },
+        {
+          "estremi": "art. 22, cc. 12-quater, 12-quinquies, 12-sexies, d.lgs. 286/1998 (abrogati dal d.l. 145/2024 conv. l. 187/2024)",
+          "contenuto": "Il previgente permesso per particolare sfruttamento lavorativo (durata sei mesi, rinnovabile) era convertibile, alla scadenza, solo in lavoro subordinato o autonomo (c. 12-sexies nel testo Normattiva vigente al 1.10.2024); oggi la disciplina è nell'art. 18-ter.",
+          "citazione": "COMMA ABROGATO DAL D.L. 11 OTTOBRE 2024, N. 145, CONVERTITO CON MODIFICAZIONI DALLA L. 9 DICEMBRE 2024, N. 187.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_22"
+        },
+        {
+          "estremi": "art. 5, c. 2-ter, d.lgs. 286/1998",
+          "contenuto": "Il contributo per rilascio e rinnovo non è dovuto per i permessi ex artt. 18, 18-bis, 20-bis, 22 c. 12-quater e 42-bis (l'art. 18-ter non è menzionato); per il permesso di arrivo (lavoro, studio, famiglia) il contributo ordinario è dovuto.",
+          "citazione": "Non e' richiesto il versamento del contributo per il rilascio ed il rinnovo del permesso di soggiorno per asilo",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_5"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Corte di cassazione, Sezioni Unite civili",
+          "data": "2018-12-11",
+          "numero": "32044/2018",
+          "principio": "Il permesso per particolare sfruttamento lavorativo (allora art. 22 c. 12-quater) è oggetto di diritto soggettivo: giurisdizione del giudice ordinario, che accerta i presupposti senza vincolo del parere del PM.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1K0Cch1SarTIyDFqBH1PvgNDhWFioVXPW/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "Corte di cassazione, sez. I civile",
+          "data": "2023-02-03",
+          "numero": "3393/2023",
+          "principio": "Per il permesso ex art. 22 c. 12-quater denuncia e collaborazione processuale erano presupposti alternativi, non cumulativi.",
+          "esito": "favorevole allo straniero",
+          "url": "https://docs.google.com/document/d/1e2xyV1GL_Ic6ahyOu-icUwRJD0cGrQa1/edit?usp=drivesdk&ouid=107611503497693748116&rtpof=true&sd=true",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "Tribunale di Bologna, sezione specializzata immigrazione",
+          "data": "2026-06-08",
+          "numero": "11609/2024 (R.G.; OCR degradato, data dal nome del file)",
+          "principio": "La domanda di permesso ex art. 18-ter può essere proposta e decisa nel giudizio ex art. 35-bis d.lgs. 25/2008; il giudice accerta i presupposti in autonomia, senza vincolo del parere del PM.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/16CdxJhdrl3sf-k9eqpYgldX_5eEesBHb/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [
+        {
+          "ente": "Portale integrazionemigranti.gov.it (Ministeri lavoro, interno, istruzione)",
+          "estremi": "FAQ sull'art. 18-ter T.U.",
+          "data": "2025-03-18",
+          "oggetto": "Permesso per vittime di sfruttamento lavorativo: convertibile in lavoro o studio alla scadenza; parere dell'Ispettorato alternativo a quello del PM; durata indicata in sei mesi (superata dalla modifica che l'ha portata a un anno). Commento critico di S. Fachile (ASGI) sulla tesi che la domanda non si possa formalizzare prima del parere.",
+          "url": "https://drive.google.com/file/d/1m3WM759OU9p7ccdch3r3RvjlLQF0op2l/view?usp=drivesdk"
+        }
+      ],
+      "casi_limite": [
+        {
+          "titolo": "Vecchio permesso ex art. 22 c. 12-quater in corso",
+          "testo": "Norma transitoria del d.l. 145/2024 non verificata in questa ricerca: secondo il c. 12-sexies previgente il titolo era comunque convertibile in lavoro subordinato o autonomo alla scadenza; per lo studio, invocare l'applicazione dell'art. 18-ter in sede di rinnovo."
+        },
+        {
+          "titolo": "Familiari della vittima",
+          "testo": "L'art. 18-ter c. 1 estende la tutela ai membri del nucleo familiare; le FAQ ministeriali parlano di permesso per motivi di famiglia (lettura restrittiva ai parenti entro il secondo grado, criticata in dottrina)."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Il permesso è stato rilasciato ex art. 18-ter (dal 2024) o ex art. 22 c. 12-quater (regime previgente)?",
+          "perche": "Il vecchio permesso era convertibile solo in lavoro subordinato o autonomo; il 18-ter anche in studio, fuori quota.",
+          "opzioni": [
+            "art. 18-ter",
+            "art. 22 c. 12-quater",
+            "non so (dicitura 'casi specialì)"
+          ]
+        },
+        {
+          "domanda": "Il permesso è scaduto o in scadenza? La conversione 'alla scadenzà è già stata chiesta?",
+          "perche": "L'art. 18-ter c. 4 colloca la conversione alla scadenza; prima è possibile il rinnovo per le misure di inserimento.",
+          "opzioni": [
+            "in corso di validità",
+            "in scadenza",
+            "scaduto"
+          ]
+        },
+        {
+          "domanda": "Ci sono condanne (anche non definitive) per 603-bis c.p. o condotte incompatibili segnalate dal PM o dal Ministero del lavoro?",
+          "perche": "Cause di revoca (art. 18-ter c. 4 e 5).",
+          "opzioni": [
+            "no",
+            "sì"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "sfruttamento_lavorativo_art18ter",
+      "a": "lavoro_autonomo",
+      "nodo_albero": "c_end_lav_aut_ok",
+      "esito_albero": "possibile",
+      "esito_verificato": "possibile",
+      "discrepanza": "Esito corretto; etichetta normativa superata (art. 18-ter, non art. 22 c. 12-quater); nulla osta non pertinente.",
+      "sintesi": "Il permesso per vittime di intermediazione illecita e sfruttamento del lavoro è oggi l'art. 18-ter T.U. (introdotto dal d.l. 145/2024 conv. l. 187/2024, che ha abrogato l'art. 22 c. 12-quater, 12-quinquies e 12-sexies): casi speciali, durata un anno (sei mesi nella versione originaria), rinnovabile, consente studio, lavoro subordinato e autonomo (c. 3). La conversione in lavoro autonomo è espressamente prevista (c. 4), fuori quota, con i requisiti dell'art. 26 T.U.",
+      "requisiti": [
+        "permesso ex art. 18-ter valido o in scadenza",
+        "requisiti dell'art. 26 T.U."
+      ],
+      "procedura": "Come per il lavoro subordinato, con documentazione dell'attività autonoma; fuori quota.",
+      "norme": [
+        {
+          "estremi": "art. 18-ter, c. 4, d.lgs. 286/1998",
+          "contenuto": "Alla scadenza il permesso è convertibile in lavoro subordinato o autonomo, secondo le modalità di tali permessi e fuori quota, oppure in studio se il titolare è iscritto a un regolare corso di studi.",
+          "citazione": "Alla scadenza, il permesso di cui al presente articolo puo' essere convertito in permesso di soggiorno per motivi di lavoro subordinato o autonomo, secondo le modalita' stabilite per tale permesso di soggiorno e al di fuori delle quote di cui all'articolo 3, comma 4, ovvero in permesso di soggiorno per motivi di studio qualora il titolare sia iscritto a un regolare corso di studi.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_18-ter"
+        },
+        {
+          "estremi": "art. 22, cc. 12-quater, 12-quinquies, 12-sexies, d.lgs. 286/1998 (abrogati dal d.l. 145/2024 conv. l. 187/2024)",
+          "contenuto": "Il previgente permesso per particolare sfruttamento lavorativo (durata sei mesi, rinnovabile) era convertibile, alla scadenza, solo in lavoro subordinato o autonomo (c. 12-sexies nel testo Normattiva vigente al 1.10.2024); oggi la disciplina è nell'art. 18-ter.",
+          "citazione": "COMMA ABROGATO DAL D.L. 11 OTTOBRE 2024, N. 145, CONVERTITO CON MODIFICAZIONI DALLA L. 9 DICEMBRE 2024, N. 187.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_22"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Corte di cassazione, Sezioni Unite civili",
+          "data": "2018-12-11",
+          "numero": "32044/2018",
+          "principio": "Il permesso per particolare sfruttamento lavorativo (allora art. 22 c. 12-quater) è oggetto di diritto soggettivo: giurisdizione del giudice ordinario, che accerta i presupposti senza vincolo del parere del PM.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1K0Cch1SarTIyDFqBH1PvgNDhWFioVXPW/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [
+        {
+          "ente": "Portale integrazionemigranti.gov.it (Ministeri lavoro, interno, istruzione)",
+          "estremi": "FAQ sull'art. 18-ter T.U.",
+          "data": "2025-03-18",
+          "oggetto": "Permesso per vittime di sfruttamento lavorativo: convertibile in lavoro o studio alla scadenza; parere dell'Ispettorato alternativo a quello del PM; durata indicata in sei mesi (superata dalla modifica che l'ha portata a un anno). Commento critico di S. Fachile (ASGI) sulla tesi che la domanda non si possa formalizzare prima del parere.",
+          "url": "https://drive.google.com/file/d/1m3WM759OU9p7ccdch3r3RvjlLQF0op2l/view?usp=drivesdk"
+        }
+      ],
+      "casi_limite": [],
+      "domande_discriminanti": [
+        {
+          "domanda": "Il permesso è stato rilasciato ex art. 18-ter (dal 2024) o ex art. 22 c. 12-quater (regime previgente)?",
+          "perche": "Il vecchio permesso era convertibile solo in lavoro subordinato o autonomo; il 18-ter anche in studio, fuori quota.",
+          "opzioni": [
+            "art. 18-ter",
+            "art. 22 c. 12-quater",
+            "non so (dicitura 'casi specialì)"
+          ]
+        },
+        {
+          "domanda": "Il permesso è scaduto o in scadenza? La conversione 'alla scadenzà è già stata chiesta?",
+          "perche": "L'art. 18-ter c. 4 colloca la conversione alla scadenza; prima è possibile il rinnovo per le misure di inserimento.",
+          "opzioni": [
+            "in corso di validità",
+            "in scadenza",
+            "scaduto"
+          ]
+        },
+        {
+          "domanda": "Ci sono condanne (anche non definitive) per 603-bis c.p. o condotte incompatibili segnalate dal PM o dal Ministero del lavoro?",
+          "perche": "Cause di revoca (art. 18-ter c. 4 e 5).",
+          "opzioni": [
+            "no",
+            "sì"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "sfruttamento_lavorativo_art18ter",
+      "a": "attesa_occupazione",
+      "nodo_albero": "c_end_att_ok",
+      "esito_albero": "possibile",
+      "esito_verificato": "incerto",
+      "discrepanza": "DISCREPANZA: l'albero indica 'possibilè (e 'anche senza precedente esperienza lavorativà), ma l'art. 18-ter c. 4 prevede la conversione solo in lavoro subordinato, autonomo o studio. Incoerenza interna: per la protezione sociale art. 18 lo stesso target è 'incertà. Esito corretto: incerto.",
+      "sintesi": "Il permesso per vittime di intermediazione illecita e sfruttamento del lavoro è oggi l'art. 18-ter T.U. (introdotto dal d.l. 145/2024 conv. l. 187/2024, che ha abrogato l'art. 22 c. 12-quater, 12-quinquies e 12-sexies): casi speciali, durata un anno (sei mesi nella versione originaria), rinnovabile, consente studio, lavoro subordinato e autonomo (c. 3). Nessuna norma prevede la conversione in attesa occupazione, che l'art. 22 c. 11 riserva a chi ha un permesso per lavoro subordinato e perde il posto. Se il lavoro manca alla scadenza, la strada testuale è il rinnovo del permesso 18-ter per la conclusione delle misure di inserimento socio-lavorativo (c. 3).",
+      "requisiti": [
+        "permesso 18-ter valido",
+        "assenza di lavoro alla scadenza"
+      ],
+      "procedura": "Preferire il rinnovo del permesso 18-ter (c. 3); in subordine domanda con richiesta di valutazione ex art. 5 c. 9.",
+      "norme": [
+        {
+          "estremi": "art. 18-ter, c. 3, d.lgs. 286/1998 (introdotto dal d.l. 145/2024 conv. l. 187/2024; durata portata da sei mesi a un anno con modifica in vigore, secondo Normattiva, dal 2.12.2025)",
+          "contenuto": "Il permesso per vittime di intermediazione illecita e sfruttamento del lavoro (art. 603-bis c.p.) reca 'casi specialì, dura un anno, rinnovabile per un anno o per il periodo necessario alle misure di inserimento o per motivi di giustizia; consente studio, lavoro subordinato e autonomo.",
+          "citazione": "ha la durata di un anno e puo' essere rinnovato per un anno o per il maggior periodo occorrente per la conclusione delle misure di inserimento socio-lavorativo o per motivi di giustizia",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_18-ter"
+        },
+        {
+          "estremi": "art. 18-ter, c. 4, d.lgs. 286/1998",
+          "contenuto": "Alla scadenza il permesso è convertibile in lavoro subordinato o autonomo, secondo le modalità di tali permessi e fuori quota, oppure in studio se il titolare è iscritto a un regolare corso di studi.",
+          "citazione": "Alla scadenza, il permesso di cui al presente articolo puo' essere convertito in permesso di soggiorno per motivi di lavoro subordinato o autonomo, secondo le modalita' stabilite per tale permesso di soggiorno e al di fuori delle quote di cui all'articolo 3, comma 4, ovvero in permesso di soggiorno per motivi di studio qualora il titolare sia iscritto a un regolare corso di studi.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_18-ter"
+        },
+        {
+          "estremi": "art. 22, c. 11, d.lgs. 286/1998",
+          "contenuto": "La disciplina dell'attesa occupazione è costruita sul lavoratore titolare di permesso per lavoro subordinato che perde il lavoro (dichiarazione di immediata disponibilità, almeno un anno): nessuna norma prevede la conversione diretta di un permesso 'casi specialì o per assistenza minori in attesa occupazione.",
+          "citazione": "Il lavoratore straniero in possesso del permesso di soggiorno per lavoro subordinato che perde il posto di lavoro",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_22"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [
+        {
+          "ente": "Portale integrazionemigranti.gov.it (Ministeri lavoro, interno, istruzione)",
+          "estremi": "FAQ sull'art. 18-ter T.U.",
+          "data": "2025-03-18",
+          "oggetto": "Permesso per vittime di sfruttamento lavorativo: convertibile in lavoro o studio alla scadenza; parere dell'Ispettorato alternativo a quello del PM; durata indicata in sei mesi (superata dalla modifica che l'ha portata a un anno). Commento critico di S. Fachile (ASGI) sulla tesi che la domanda non si possa formalizzare prima del parere.",
+          "url": "https://drive.google.com/file/d/1m3WM759OU9p7ccdch3r3RvjlLQF0op2l/view?usp=drivesdk"
+        }
+      ],
+      "casi_limite": [
+        {
+          "titolo": "Perdita del lavoro dopo la conversione",
+          "testo": "Una volta convertito in lavoro subordinato, alla perdita del posto si applica l'art. 22 c. 11 (attesa occupazione); le FAQ ministeriali ricordano che la perdita del lavoro non è causa di revoca."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Il permesso è stato rilasciato ex art. 18-ter (dal 2024) o ex art. 22 c. 12-quater (regime previgente)?",
+          "perche": "Il vecchio permesso era convertibile solo in lavoro subordinato o autonomo; il 18-ter anche in studio, fuori quota.",
+          "opzioni": [
+            "art. 18-ter",
+            "art. 22 c. 12-quater",
+            "non so (dicitura 'casi specialì)"
+          ]
+        },
+        {
+          "domanda": "Il permesso è scaduto o in scadenza? La conversione 'alla scadenzà è già stata chiesta?",
+          "perche": "L'art. 18-ter c. 4 colloca la conversione alla scadenza; prima è possibile il rinnovo per le misure di inserimento.",
+          "opzioni": [
+            "in corso di validità",
+            "in scadenza",
+            "scaduto"
+          ]
+        },
+        {
+          "domanda": "Ci sono condanne (anche non definitive) per 603-bis c.p. o condotte incompatibili segnalate dal PM o dal Ministero del lavoro?",
+          "perche": "Cause di revoca (art. 18-ter c. 4 e 5).",
+          "opzioni": [
+            "no",
+            "sì"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "sfruttamento_lavorativo_art18ter",
+      "a": "studio",
+      "nodo_albero": "c_end_stu_no",
+      "esito_albero": "non possibile",
+      "esito_verificato": "possibile",
+      "discrepanza": "DISCREPANZA: l'albero dice 'non possibilè, ma l'art. 18-ter c. 4 T.U. prevede la conversione in permesso per studio se il titolare è iscritto a un regolare corso di studi. Solo per i vecchi permessi ex art. 22 c. 12-quater (c. 12-sexies previgente) la conversione in studio non era prevista.",
+      "sintesi": "Il permesso per vittime di intermediazione illecita e sfruttamento del lavoro è oggi l'art. 18-ter T.U. (introdotto dal d.l. 145/2024 conv. l. 187/2024, che ha abrogato l'art. 22 c. 12-quater, 12-quinquies e 12-sexies): casi speciali, durata un anno (sei mesi nella versione originaria), rinnovabile, consente studio, lavoro subordinato e autonomo (c. 3). Alla scadenza il permesso è convertibile anche in permesso per studio, se il titolare è iscritto a un regolare corso di studi (c. 4). Per i permessi rilasciati ex art. 22 c. 12-quater prima dell'abrogazione la norma previgente prevedeva solo la conversione in lavoro: verificare se, al rinnovo, il titolo viene rilasciato ex art. 18-ter.",
+      "requisiti": [
+        "permesso ex art. 18-ter",
+        "iscrizione a un regolare corso di studi",
+        "requisiti ordinari del permesso per studio (da verificare nella prassi)"
+      ],
+      "procedura": "Domanda alla scadenza con certificato di iscrizione e frequenza.",
+      "norme": [
+        {
+          "estremi": "art. 18-ter, c. 4, d.lgs. 286/1998",
+          "contenuto": "Alla scadenza il permesso è convertibile in lavoro subordinato o autonomo, secondo le modalità di tali permessi e fuori quota, oppure in studio se il titolare è iscritto a un regolare corso di studi.",
+          "citazione": "Alla scadenza, il permesso di cui al presente articolo puo' essere convertito in permesso di soggiorno per motivi di lavoro subordinato o autonomo, secondo le modalita' stabilite per tale permesso di soggiorno e al di fuori delle quote di cui all'articolo 3, comma 4, ovvero in permesso di soggiorno per motivi di studio qualora il titolare sia iscritto a un regolare corso di studi.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_18-ter"
+        },
+        {
+          "estremi": "art. 22, cc. 12-quater, 12-quinquies, 12-sexies, d.lgs. 286/1998 (abrogati dal d.l. 145/2024 conv. l. 187/2024)",
+          "contenuto": "Il previgente permesso per particolare sfruttamento lavorativo (durata sei mesi, rinnovabile) era convertibile, alla scadenza, solo in lavoro subordinato o autonomo (c. 12-sexies nel testo Normattiva vigente al 1.10.2024); oggi la disciplina è nell'art. 18-ter.",
+          "citazione": "COMMA ABROGATO DAL D.L. 11 OTTOBRE 2024, N. 145, CONVERTITO CON MODIFICAZIONI DALLA L. 9 DICEMBRE 2024, N. 187.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_22"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [
+        {
+          "ente": "Portale integrazionemigranti.gov.it (Ministeri lavoro, interno, istruzione)",
+          "estremi": "FAQ sull'art. 18-ter T.U.",
+          "data": "2025-03-18",
+          "oggetto": "Permesso per vittime di sfruttamento lavorativo: convertibile in lavoro o studio alla scadenza; parere dell'Ispettorato alternativo a quello del PM; durata indicata in sei mesi (superata dalla modifica che l'ha portata a un anno). Commento critico di S. Fachile (ASGI) sulla tesi che la domanda non si possa formalizzare prima del parere.",
+          "url": "https://drive.google.com/file/d/1m3WM759OU9p7ccdch3r3RvjlLQF0op2l/view?usp=drivesdk"
+        }
+      ],
+      "casi_limite": [
+        {
+          "titolo": "Vecchio permesso art. 22 c. 12-quater",
+          "testo": "Conversione in studio non prevista dal c. 12-sexies previgente; norma transitoria del d.l. 145/2024 non verificata in questa ricerca."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Il permesso è stato rilasciato ex art. 18-ter (dal 2024) o ex art. 22 c. 12-quater (regime previgente)?",
+          "perche": "Il vecchio permesso era convertibile solo in lavoro subordinato o autonomo; il 18-ter anche in studio, fuori quota.",
+          "opzioni": [
+            "art. 18-ter",
+            "art. 22 c. 12-quater",
+            "non so (dicitura 'casi specialì)"
+          ]
+        },
+        {
+          "domanda": "Il permesso è scaduto o in scadenza? La conversione 'alla scadenzà è già stata chiesta?",
+          "perche": "L'art. 18-ter c. 4 colloca la conversione alla scadenza; prima è possibile il rinnovo per le misure di inserimento.",
+          "opzioni": [
+            "in corso di validità",
+            "in scadenza",
+            "scaduto"
+          ]
+        },
+        {
+          "domanda": "Ci sono condanne (anche non definitive) per 603-bis c.p. o condotte incompatibili segnalate dal PM o dal Ministero del lavoro?",
+          "perche": "Cause di revoca (art. 18-ter c. 4 e 5).",
+          "opzioni": [
+            "no",
+            "sì"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "sfruttamento_lavorativo_art18ter",
+      "a": "famiglia",
+      "nodo_albero": "c_end_fam_ok",
+      "esito_albero": "possibile",
+      "esito_verificato": "condizionato",
+      "discrepanza": "Esito 'possibilè troppo netto: servono i requisiti del ricongiungimento (art. 30 c. 1 lett. c).",
+      "sintesi": "Il titolare del permesso 18-ter è regolarmente soggiornante e può chiedere la conversione in permesso per motivi familiari ex art. 30 c. 1 lett. c) T.U. se ha un vincolo ricongiungibile con un familiare regolare, italiano o UE, che abbia reddito e alloggio. Diverso è il permesso rilasciato ai familiari della vittima ai sensi dell'art. 18-ter c. 1 (nucleo familiare), che non è una conversione.",
+      "requisiti": [
+        "vincolo ricongiungibile (art. 29 c. 1)",
+        "requisiti del familiare",
+        "domanda entro un anno dalla scadenza del titolo"
+      ],
+      "procedura": "Kit postale (motivi familiari).",
+      "norme": [
+        {
+          "estremi": "art. 30, c. 1, lett. c), d.lgs. 286/1998",
+          "contenuto": "Il familiare straniero regolarmente soggiornante che ha i requisiti per il ricongiungimento con cittadino italiano/UE residente o con straniero regolare può convertire il proprio permesso in permesso per motivi familiari, anche entro un anno dalla scadenza del titolo posseduto.",
+          "citazione": "In tal caso il permesso del familiare e' convertito in permesso di soggiorno per motivi familiari",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_30"
+        },
+        {
+          "estremi": "art. 29, c. 1, d.lgs. 286/1998",
+          "contenuto": "Familiari per cui è ammesso il ricongiungimento: coniuge maggiorenne, figli minori, figli maggiorenni a carico solo se totalmente invalidi, genitori a carico alle condizioni indicate.",
+          "citazione": "figli maggiorenni a carico, qualora per ragioni oggettive non possano provvedere alle proprie indispensabili esigenze di vita in ragione del loro stato di salute che comporti invalidita' totale",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_29"
+        },
+        {
+          "estremi": "art. 18-ter, c. 3, d.lgs. 286/1998 (introdotto dal d.l. 145/2024 conv. l. 187/2024; durata portata da sei mesi a un anno con modifica in vigore, secondo Normattiva, dal 2.12.2025)",
+          "contenuto": "Il permesso per vittime di intermediazione illecita e sfruttamento del lavoro (art. 603-bis c.p.) reca 'casi specialì, dura un anno, rinnovabile per un anno o per il periodo necessario alle misure di inserimento o per motivi di giustizia; consente studio, lavoro subordinato e autonomo.",
+          "citazione": "ha la durata di un anno e puo' essere rinnovato per un anno o per il maggior periodo occorrente per la conclusione delle misure di inserimento socio-lavorativo o per motivi di giustizia",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_18-ter"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [],
+      "domande_discriminanti": [
+        {
+          "domanda": "Il permesso è stato rilasciato ex art. 18-ter (dal 2024) o ex art. 22 c. 12-quater (regime previgente)?",
+          "perche": "Il vecchio permesso era convertibile solo in lavoro subordinato o autonomo; il 18-ter anche in studio, fuori quota.",
+          "opzioni": [
+            "art. 18-ter",
+            "art. 22 c. 12-quater",
+            "non so (dicitura 'casi specialì)"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "sfruttamento_lavorativo_art18ter",
+      "a": "permesso_ue_lungo_periodo",
+      "nodo_albero": "c_end_carta_no",
+      "esito_albero": "non possibile",
+      "esito_verificato": "incerto",
+      "discrepanza": "L'esito 'non possibilè era corretto per il permesso ex art. 22 c. 12-quater, espressamente escluso dall'art. 9 c. 3 lett. b). L'art. 18-ter non è menzionato nell'art. 9 c. 3 lett. b) (né nell'art. 5 c. 2-ter): difetto di coordinamento del d.l. 145/2024. Con la giurisprudenza sulla tassatività delle esclusioni (CdS 9150/2014) l'esclusione del titolare 18-ter non è testuale: esito incerto.",
+      "sintesi": "L'art. 9 c. 3 lett. b) T.U. esclude dal permesso UE i titolari dei permessi ex artt. 18, 18-bis, 20-bis, 22 c. 12-quater e 42-bis, ma non menziona l'art. 18-ter, introdotto dopo. Poichè la giurisprudenza amministrativa ritiene tassative le cause di esclusione (CdS 9150/2014; TAR Lombardia 6461/2010), il titolare 18-ter con cinque anni di soggiorno, reddito e test A2 potrebbe sostenere di non essere escluso; è però probabile che le Questure applichino l'esclusione per analogia con il vecchio c. 12-quater. Nella pratica la via sicura è convertire prima in lavoro.",
+      "requisiti": [
+        "cinque anni di permesso valido",
+        "reddito non inferiore all'assegno sociale",
+        "test A2"
+      ],
+      "procedura": "Kit postale (permesso UE); in alternativa conversione in lavoro e domanda successiva.",
+      "norme": [
+        {
+          "estremi": "art. 9, c. 3, lett. b), d.lgs. 286/1998",
+          "contenuto": "Il permesso UE non si applica a chi è titolare dei permessi ex artt. 18, 18-bis, 20-bis, 22 c. 12-quater (abrogato) e 42-bis, del permesso ex art. 32 c. 3 d.lgs. 25/2008 o di protezione temporanea/cure mediche, o ne ha chiesto il rilascio. L'art. 18-ter non è menzionato.",
+          "citazione": "sono titolari dei permessi di soggiorno di cui agli articoli 18, 18-bis, 20-bis, 22, comma 12-quater, e 42-bis",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_9"
+        },
+        {
+          "estremi": "art. 9, c. 3, lett. d), e c. 5, d.lgs. 286/1998",
+          "contenuto": "Esclusi anche i titolari di permessi 'di breve duratà; solo i periodi delle lett. d) ed e) non si computano nei cinque anni.",
+          "citazione": "non si computano i periodi di soggiorno per i motivi indicati nelle lettere d) ed e) del comma 3",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_9"
+        },
+        {
+          "estremi": "art. 18-ter, c. 3, d.lgs. 286/1998 (introdotto dal d.l. 145/2024 conv. l. 187/2024; durata portata da sei mesi a un anno con modifica in vigore, secondo Normattiva, dal 2.12.2025)",
+          "contenuto": "Il permesso per vittime di intermediazione illecita e sfruttamento del lavoro (art. 603-bis c.p.) reca 'casi specialì, dura un anno, rinnovabile per un anno o per il periodo necessario alle misure di inserimento o per motivi di giustizia; consente studio, lavoro subordinato e autonomo.",
+          "citazione": "ha la durata di un anno e puo' essere rinnovato per un anno o per il maggior periodo occorrente per la conclusione delle misure di inserimento socio-lavorativo o per motivi di giustizia",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_18-ter"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Consiglio di Stato, sez. III",
+          "data": "2015-02-26",
+          "numero": "9150/2014 (dalla scheda KB; il numero potrebbe essere il R.G.: verificare)",
+          "principio": "Gli anni con permesso per assistenza minori contano per il permesso UE di lungo periodo: non è un permesso 'di breve duratà (art. 9 c. 3 lett. d), le esclusioni dell'art. 9 c. 3 sono tassative e il divieto dell'art. 29 c. 6 non riguarda il permesso UE, che non è un permesso per lavoro.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1QNF08f_EjAYZgx7z1UH6JXu8QvBVDYqu/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        },
+        {
+          "corte": "TAR Lombardia, sez. IV",
+          "data": "2010-09-07",
+          "numero": "6461/2010",
+          "principio": "Il divieto di conversione non si estende alla domanda autonoma di permesso CE (oggi UE) di lungo periodo; le cause ostative dell'art. 9 sono tassative e il permesso per assistenza minore non vi rientra.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1lkDz6i1N1d9yhcYpYLIBigoGWy4-dVIg/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Omesso coordinamento dell'art. 9 c. 3 lett. b)",
+          "testo": "Tesi favorevole: esclusioni tassative (CdS 9150/2014). Tesi contraria: ratio dell'esclusione dei permessi temporanei 'casi specialì e continuità con il c. 12-quater. Nessun precedente specifico."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Il permesso è stato rilasciato ex art. 18-ter (dal 2024) o ex art. 22 c. 12-quater (regime previgente)?",
+          "perche": "Il vecchio permesso era convertibile solo in lavoro subordinato o autonomo; il 18-ter anche in studio, fuori quota.",
+          "opzioni": [
+            "art. 18-ter",
+            "art. 22 c. 12-quater",
+            "non so (dicitura 'casi specialì)"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "violenza_domestica_art18bis",
+      "a": "lavoro_subordinato_o_autonomo",
+      "nodo_albero": null,
+      "esito_albero": "coppia non presente nell'albero",
+      "esito_verificato": "possibile",
+      "discrepanza": "Permesso non presente fra i permessi di partenza dell'albero: va aggiunto.",
+      "sintesi": "Il permesso per vittime di violenza domestica (art. 18-bis T.U.) è rilasciato dal questore con il parere favorevole o su proposta dell'autorità giudiziaria, oppure su relazione di centri antiviolenza e servizi sociali con parere dell'autorità giudiziaria (c. 1 e 3). Reca 'casi specialì, dura un anno, consente studio, lavoro subordinato e autonomo e, alla scadenza, è convertibile in permesso per lavoro subordinato o autonomo secondo le modalità di tali permessi (c. 1-bis). La giurisprudenza di merito ritiene sufficiente un quadro indiziario grave di violenza domestica, senza accertamento penale definitivo né parere favorevole (Trib. Roma 9847/2026).",
+      "requisiti": [
+        "permesso ex art. 18-bis valido o in scadenza",
+        "contratto di lavoro o requisiti dell'art. 26 T.U. per l'autonomo",
+        "assenza di cause di revoca (c. 4 e 4-bis)"
+      ],
+      "procedura": "Domanda di conversione alla scadenza presso la Questura o con kit postale secondo le indicazioni locali; nessun nulla osta. Quote: la norma non dice 'fuori quotà (diversamente dall'art. 18-ter): punto da verificare con la prassi.",
+      "norme": [
+        {
+          "estremi": "art. 18-bis, c. 1-bis, d.lgs. 286/1998",
+          "contenuto": "Il permesso per vittime di violenza domestica ('casi specialì) dura un anno, consente studio, lavoro subordinato e autonomo; alla scadenza può essere convertito in lavoro subordinato o autonomo secondo le modalità di tali permessi, o in studio se il titolare è iscritto a un corso regolare.",
+          "citazione": "Alla scadenza, il permesso di soggiorno di cui al presente articolo puo' essere convertito in permesso di soggiorno per motivi di lavoro subordinato o autonomo, secondo le modalita' stabilite per tale permesso di soggiorno ovvero in permesso di soggiorno per motivi di studio qualora il titolare sia iscritto ad un corso regolare di studi.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_18-bis"
+        },
+        {
+          "estremi": "art. 9, c. 3, lett. b), d.lgs. 286/1998",
+          "contenuto": "Il permesso UE non si applica a chi è titolare dei permessi ex artt. 18, 18-bis, 20-bis, 22 c. 12-quater (abrogato) e 42-bis, del permesso ex art. 32 c. 3 d.lgs. 25/2008 o di protezione temporanea/cure mediche, o ne ha chiesto il rilascio. L'art. 18-ter non è menzionato.",
+          "citazione": "sono titolari dei permessi di soggiorno di cui agli articoli 18, 18-bis, 20-bis, 22, comma 12-quater, e 42-bis",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_9"
+        },
+        {
+          "estremi": "art. 5, c. 2-ter, d.lgs. 286/1998",
+          "contenuto": "Il contributo per rilascio e rinnovo non è dovuto per i permessi ex artt. 18, 18-bis, 20-bis, 22 c. 12-quater e 42-bis (l'art. 18-ter non è menzionato); per il permesso di arrivo (lavoro, studio, famiglia) il contributo ordinario è dovuto.",
+          "citazione": "Non e' richiesto il versamento del contributo per il rilascio ed il rinnovo del permesso di soggiorno per asilo",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_5"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Tribunale di Roma, sez. diritti della persona e immigrazione",
+          "data": "2026-06-23",
+          "numero": "9847/2026 (R.G. 3102/2026)",
+          "principio": "Il permesso ex art. 18-bis non richiede accertamento penale definitivo né parere favorevole: basta un quadro indiziario grave, coerente e convergente di violenza domestica emerso in un procedimento pendente.",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1iEW-AIk-hQQy-mEhvxpdQCyClLCxkK-A/view?usp=drivesdk",
+          "fonte": "KB",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Quote",
+          "testo": "L'art. 18-bis c. 1-bis non richiama le quote né la loro decurtazione: nella prassi la conversione non è subordinata a quote disponibili (da verificare)."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Il permesso è stato rilasciato ex art. 18-bis (violenza domestica)?",
+          "perche": "Coppia assente dall'albero: oggi finisce in 'Ho un altro permessò.",
+          "opzioni": [
+            "sì",
+            "no"
+          ]
+        },
+        {
+          "domanda": "Ci sono condanne del titolare per i delitti dell'art. 18-bis c. 1 commessi in ambito domestico?",
+          "perche": "Possibile revoca ed espulsione (c. 4-bis).",
+          "opzioni": [
+            "no",
+            "sì"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "violenza_domestica_art18bis",
+      "a": "studio",
+      "nodo_albero": null,
+      "esito_albero": "coppia non presente nell'albero",
+      "esito_verificato": "possibile",
+      "discrepanza": "Permesso non presente fra i permessi di partenza dell'albero.",
+      "sintesi": "Alla scadenza il permesso art. 18-bis è convertibile in permesso per studio se il titolare è iscritto a un corso regolare di studi (art. 18-bis c. 1-bis).",
+      "requisiti": [
+        "permesso art. 18-bis",
+        "iscrizione a un corso regolare di studi"
+      ],
+      "procedura": "Domanda alla scadenza con certificato di iscrizione.",
+      "norme": [
+        {
+          "estremi": "art. 18-bis, c. 1-bis, d.lgs. 286/1998",
+          "contenuto": "Il permesso per vittime di violenza domestica ('casi specialì) dura un anno, consente studio, lavoro subordinato e autonomo; alla scadenza può essere convertito in lavoro subordinato o autonomo secondo le modalità di tali permessi, o in studio se il titolare è iscritto a un corso regolare.",
+          "citazione": "Alla scadenza, il permesso di soggiorno di cui al presente articolo puo' essere convertito in permesso di soggiorno per motivi di lavoro subordinato o autonomo, secondo le modalita' stabilite per tale permesso di soggiorno ovvero in permesso di soggiorno per motivi di studio qualora il titolare sia iscritto ad un corso regolare di studi.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_18-bis"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [],
+      "domande_discriminanti": [
+        {
+          "domanda": "Il permesso è stato rilasciato ex art. 18-bis (violenza domestica)?",
+          "perche": "Coppia assente dall'albero: oggi finisce in 'Ho un altro permessò.",
+          "opzioni": [
+            "sì",
+            "no"
+          ]
+        },
+        {
+          "domanda": "Ci sono condanne del titolare per i delitti dell'art. 18-bis c. 1 commessi in ambito domestico?",
+          "perche": "Possibile revoca ed espulsione (c. 4-bis).",
+          "opzioni": [
+            "no",
+            "sì"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "violenza_domestica_art18bis",
+      "a": "permesso_ue_lungo_periodo",
+      "nodo_albero": null,
+      "esito_albero": "coppia non presente nell'albero",
+      "esito_verificato": "non_possibile",
+      "discrepanza": "Permesso non presente fra i permessi di partenza dell'albero.",
+      "sintesi": "L'art. 9 c. 3 lett. b) T.U. esclude espressamente dal permesso UE i titolari del permesso ex art. 18-bis. Dopo la conversione in lavoro valgono le regole ordinarie; il computo degli anni trascorsi con il permesso 18-bis non è escluso dall'art. 9 c. 5 (punto da validare).",
+      "requisiti": [],
+      "procedura": "Convertire prima in lavoro, poi chiedere il permesso UE.",
+      "norme": [
+        {
+          "estremi": "art. 9, c. 3, lett. b), d.lgs. 286/1998",
+          "contenuto": "Il permesso UE non si applica a chi è titolare dei permessi ex artt. 18, 18-bis, 20-bis, 22 c. 12-quater (abrogato) e 42-bis, del permesso ex art. 32 c. 3 d.lgs. 25/2008 o di protezione temporanea/cure mediche, o ne ha chiesto il rilascio. L'art. 18-ter non è menzionato.",
+          "citazione": "sono titolari dei permessi di soggiorno di cui agli articoli 18, 18-bis, 20-bis, 22, comma 12-quater, e 42-bis",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_9"
+        },
+        {
+          "estremi": "art. 9, c. 3, lett. d), e c. 5, d.lgs. 286/1998",
+          "contenuto": "Esclusi anche i titolari di permessi 'di breve duratà; solo i periodi delle lett. d) ed e) non si computano nei cinque anni.",
+          "citazione": "non si computano i periodi di soggiorno per i motivi indicati nelle lettere d) ed e) del comma 3",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_9"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [],
+      "domande_discriminanti": [
+        {
+          "domanda": "Il permesso è stato rilasciato ex art. 18-bis (violenza domestica)?",
+          "perche": "Coppia assente dall'albero: oggi finisce in 'Ho un altro permessò.",
+          "opzioni": [
+            "sì",
+            "no"
+          ]
+        },
+        {
+          "domanda": "Ci sono condanne del titolare per i delitti dell'art. 18-bis c. 1 commessi in ambito domestico?",
+          "perche": "Possibile revoca ed espulsione (c. 4-bis).",
+          "opzioni": [
+            "no",
+            "sì"
+          ]
+        }
+      ]
+    }
+  ],
+  "punti_da_validare": [
+    "CdS 7449/2024: la scheda KB riferisce che il parere negativo della DG vincola la Questura, in contrasto con CdS 3431/2020 e 2525/2021 (parere mai vincolante, anche se negativo). Verificare sul testo integrale prima di usarla.",
+    "Effetti della sostituzione dell'art. 32 c. 1-bis (art. 4-bis d.l. 20/2023, dal 6.5.2023): venuto meno il silenzio-assenso, resta sostenibile la natura non vincolante del parere affermata dalla giurisprudenza formata sul testo previgente? Nessuna sentenza nella KB applica espressamente il testo nuovo.",
+    "Durata massima di un anno del permesso ex art. 32 c. 1-bis: si applica anche alle conversioni ex c. 1 (figli ex art. 31 c. 1 e affidati non MSNA)? La lettera ('Il permesso di soggiorno di cui al comma 1 può essere rilasciato, per il periodo massimo di un anno ... ai minori stranieri non accompagnatì) sembra limitarla ai MSNA.",
+    "Linee guida DG Immigrazione 24.2.2017 (esoneri dal parere, sei mesi preferibili): da verificare se ancora applicate o aggiornate dopo il d.l. 20/2023 e il d.P.R. 394/1999 come modificato (art. 14-bis).",
+    "Assistenza minori -> lavoro: prevalenza dell'art. 6 c. 1-bis lett. h (d.l. 130/2020) sull'art. 29 c. 6 (divieto ancora nel testo). Nessuna sentenza trovata; verificare la prassi delle Questure e eventuali circolari.",
+    "Nodi condivisi c_end_lav_sub_ok / c_end_lav_aut_ok: l'indicazione 'prima il nulla osta presso lo Sportello unicò non pare pertinente per le conversioni da assistenza minori, art. 18, 18-bis e 18-ter: da verificare.",
+    "Art. 18 -> lavoro autonomo: la norma primaria (c. 5) cita solo il lavoro subordinato; l'art. 27 c. 3-bis d.P.R. 394/1999 parla di 'lavorò senza distinguere.",
+    "Art. 18-ter e permesso UE / contributo: l'art. 18-ter non è citato né nell'art. 9 c. 3 lett. b) né nell'art. 5 c. 2-ter. Esclusione dal permesso UE ed esenzione dal contributo restano incerte.",
+    "Norma transitoria del d.l. 145/2024 per i permessi già rilasciati ex art. 22 c. 12-quater (convertibilità in studio, durata): non verificata in questa ricerca.",
+    "Computo, ai fini del permesso UE, degli anni trascorsi con permessi ex artt. 18, 18-bis e 18-ter dopo la conversione in lavoro (art. 9 c. 5 esclude solo le lett. d ed e).",
+    "Giurisdizione sul diniego di conversione da permesso art. 18/18-bis/18-ter in lavoro: TAR (art. 6 c. 10) o giudice ordinario (diritto soggettivo, SU 32044/2018 sul rilascio)? Non verificato.",
+    "Art. 32 c. 1 'esigenze sanitarie o di curà: applicabilità ai MSNA affidati ex art. 2 l. 184/1983 (il c. 1 fa salvo il c. 1-bis, che non prevede le cure).",
+    "CdS 9150/2014: il numero indicato nella scheda KB potrebbe essere il R.G.; TAR Campania 'R.G. 4596/2015': numero di sentenza non indicato. Verificare gli estremi sul PDF.",
+    "Modalità di presentazione (kit postale o Questura) e importi di contributo e bollettino: variano per tipologia e Questura; non verificati in questa ricerca."
+  ]
+}

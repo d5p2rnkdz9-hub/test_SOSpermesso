@@ -1,0 +1,2145 @@
+{
+  "gruppo": "D - Protezione e permessi umanitari (asilo, sussidiaria, protezione speciale, richiesta asilo, calamità, cure mediche)",
+  "regime": "vigente post-Patto al 19/11/2026; transitorio dove indicato",
+  "nota_metodo": "Norme lette nella KB immigrazbot-norme (testi coordinati non ufficiali: fa fede la Gazzetta Ufficiale) e su Normattiva (art. 7 d.l. 20/2023 vigente; art. 6 TU in vigenza 1.4.2023). Pronunce GA aperte in testo integrale su giustizia-amministrativa.it (letta_integrale=true); le altre dalle schede della KB ImmigrazBot (sintesi, non testo). Le virgolette nei principi sono solo per frasi verificate con verifica_citazione. Il reg. (UE) 2024/1347 si applica dal 1.7.2026 (art. 42), non dal 12.6.2026.",
+  "conversioni": [
+    {
+      "da": "protezione_speciale",
+      "a": "lavoro_subordinato_autonomo",
+      "nodo_albero": "c_data_5mag_2023 → c_end_lav_sub_ok (ante) / c_end_complicata (post)",
+      "esito_albero": "POSSIBILE se la domanda del permesso attuale è prima del 5/5/2023; altrimenti 'situazione complicata'",
+      "esito_verificato": "condizionato",
+      "discrepanza": "Sostanzialmente coerente, ma: (a) la data rilevante secondo il Cons. Stato è 'prima del 6.5.2023' (domanda presentata fino al 5.5.2023 incluso), mentre la circolare 1.6.2023 usava il 4.5.2023 e l'albero dice 'prima del 5 maggio'; (b) la domanda va riferita alla domanda ORIGINARIA di protezione, non al rinnovo né alla richiesta di conversione: chi ha un rinnovo chiesto dopo il 5.5.2023 di un permesso nato da domanda anteriore risponderebbe 'dopo' e finirebbe erroneamente in 'complicata'; (c) per le domande successive l'esito corretto è 'non possibile' (salvo art. 7 c. 3), non 'complicata'; (d) il nodo c_end_lav_sub_ok parla di nulla osta allo Sportello Unico, non previsto per questa conversione (v. procedura); (e) i nodi c_end_lav_speciale e c_end_lav_cure risultano orfani (nessun arco).",
+      "sintesi": "Dal 6.5.2023 il permesso per protezione speciale (art. 32 c. 3 d.lgs. 25/2008; art. 19 cc. 1-1.1 TU) non è più convertibile in lavoro: la l. 50/2023 ha abrogato l'art. 6 c. 1-bis lett. a) TU e l'art. 32 c. 3 rinvia ora a un elenco che non lo comprende. Restano convertibili, per effetto dell'art. 7 cc. 2-3 d.l. 20/2023, i permessi nati da una domanda di protezione presentata entro il 5.5.2023 e quelli già rilasciati per vita privata e familiare (art. 19 c. 1.1 terzo periodo, testo d.l. 130/2020) e validi a quella data, anche se rinnovati una volta per un anno. Il Consiglio di Stato (sez. III) è ormai costante nel collegare lo sbarramento temporale alla sola data della domanda originaria, disattendendo la circolare n. 50432/2023 che guardava alla data dell'istanza di conversione. Il Patto (d.l. 100/2026) non ha modificato né l'art. 6 TU né l'art. 32 c. 3 d.lgs. 25/2008: per le protezioni speciali riconosciute su domande dal 12.6.2026 la conversione è esclusa. Restano requisiti ordinari del lavoro (contratto/attività, passaporto o equipollente) e l'esclusione per chi è stato escluso dalla protezione internazionale ex artt. 10 c. 2, 12 c. 1 lett. b-c, 16 d.lgs. 251/2007 (lett. a previgente).",
+      "regime_transitorio": "Doppio binario. (1) Art. 7 c. 2 d.l. 20/2023: se la domanda da cui è nato il permesso (domanda di protezione internazionale con trasmissione ex art. 32 c. 3, o domanda di protezione speciale al Questore) è anteriore al 6.5.2023, si applica l'art. 6 c. 1-bis lett. a) previgente: conversione possibile, a prescindere dalla data di rilascio e dell'istanza di conversione (Cons. Stato 3313/2024, 9634/2025, 905/2026, 2397/2026). (2) Art. 7 c. 3: i permessi ex art. 19 c. 1.1 terzo periodo (vita privata) in corso di validità all'entrata in vigore del d.l. restano convertibili anche dopo il rinnovo annuale. La regola del Patto (d.l. 100/2026) non tocca il punto: l'art. 32 c. 3 d.lgs. 25/2008 e l'art. 6 TU non sono stati modificati. Le protezioni speciali riconosciute nel regime transitorio del Patto (domande anteriori al 12.6.2026, art. 17 c. 4 d.l. 100/2026) seguono comunque l'art. 6 TU vigente: non convertibili salvo domanda ≤ 5.5.2023.",
+      "requisiti": [
+        "permesso per protezione speciale in corso di validità (o scaduto da poco: la Questura può eccepire la scadenza)",
+        "domanda di protezione (o di protezione speciale al Questore) presentata entro il 5.5.2023, ovvero permesso ex art. 19 c. 1.1 terzo periodo valido all'entrata in vigore del d.l. 20/2023",
+        "rapporto di lavoro subordinato (contratto/UniLav, buste paga) o requisiti per l'attività autonoma",
+        "passaporto o documento equipollente (giurisprudenza: TAR Veneto 2508/2024)",
+        "assenza di cause di esclusione/diniego della protezione internazionale (artt. 10 c. 2, 12 c. 1 lett. b-c, 16 d.lgs. 251/2007) e di pericolosità"
+      ],
+      "procedura": "Domanda di conversione alla Questura, di regola con kit postale (prassi; non risulta una norma che imponga il nulla osta dello Sportello Unico, previsto invece per studio → lavoro dall'art. 14 c. 6 DPR 394/1999); fuori quote; contributo ex art. 5 c. 2-ter TU per il permesso di arrivo (la protezione speciale è esente, il lavoro no; importi del DM da verificare); termine di 90 giorni (art. 5 c. 9 TU). Contro il diniego: TAR (art. 6 c. 10 TU) secondo il Cons. Stato, che decide nel merito questi casi; ma Cass. SU 9791/2023 e Trib. Firenze R.G. 12514/2023 radicano la giurisdizione del giudice ordinario quando è in gioco la protezione speciale (anche in subordine): scegliere il giudice con attenzione e valutare domanda subordinata di rinnovo della protezione speciale davanti al Tribunale.",
+      "norme": [
+        {
+          "estremi": "art. 6, c. 1-bis, d.lgs. 286/1998 (vigente; non modificato dal d.l. 100/2026)",
+          "contenuto": "Elenco tassativo dei permessi convertibili in lavoro ex art. 6. Le lett. a) (protezione speciale ex art. 32 c. 3 d.lgs. 25/2008), b) (calamità) e h-bis) (cure mediche) sono state abrogate dall'art. 7, c. 1, lett. a), d.l. 20/2023 come introdotto dalla l. conv. 50/2023, con effetto dal 6.5.2023 (al 1.4.2023 le tre lettere erano ancora vigenti: verificato su Normattiva, multivigenza). Restano: residenza elettiva, cittadinanza/apolidia (salvo provenienza da richiesta asilo), sport, artistico, religiosi, assistenza minori.",
+          "citazione": "a) LETTERA ABROGATA DAL D.L. 10 MARZO 2023, N. 20, CONVERTITO CON MODIFICAZIONI DALLA L. 5 MAGGIO 2023, N. 50;",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_6"
+        },
+        {
+          "estremi": "art. 6, c. 1-bis, lett. a), b), h-bis), d.lgs. 286/1998 (testo vigente al 1.4.2023, Normattiva)",
+          "contenuto": "Prima della l. 50/2023 erano convertibili in lavoro: la protezione speciale ex art. 32 c. 3 d.lgs. 25/2008 (salvo applicazione delle cause di esclusione/diniego degli artt. 10 c. 2, 12 c. 1 lett. b-c e 16 d.lgs. 251/2007), il permesso per calamità ex art. 20-bis e quello per cure mediche ex art. 19 c. 2 lett. d-bis.",
+          "citazione": "a) permesso di soggiorno per protezione speciale, di cui all'articolo 32, comma 3, del decreto legislativo 28 gennaio 2008, n. 25, ad eccezione dei casi per i quali siano state applicate le cause di diniego ed esclusione della protezione internazionale, di cui agli articoli 10, comma 2, 12, comma 1, lettere b) e c), e 16 del decreto legislativo 19 novembre 2007, n. 251;",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art6!vig=2023-04-01"
+        },
+        {
+          "estremi": "art. 7, c. 2, d.l. 20/2023 conv. con modif. dalla l. 50/2023 (norma transitoria)",
+          "contenuto": "Ultrattività della disciplina previgente per le istanze presentate fino all'entrata in vigore del decreto o se lo straniero aveva già ricevuto l'invito della Questura. Il Cons. Stato (sez. III) riferisce le 'istanze' alla domanda di rilascio del titolo da convertire (domanda di protezione / di permesso per cure / calamità), non alla domanda di conversione; per le modifiche introdotte in conversione la data di riferimento è il 6.5.2023.",
+          "citazione": "Per le istanze presentate fino alla data di entrata in vigore del presente decreto, ovvero nei casi in cui lo straniero abbia già ricevuto l'invito alla presentazione dell'istanza da parte della Questura competente, continua ad applicarsi la disciplina previgente.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legge:2023-03-10;20~art7"
+        },
+        {
+          "estremi": "art. 7, c. 3, d.l. 20/2023 conv. dalla l. 50/2023 (norma transitoria)",
+          "contenuto": "I permessi per protezione speciale già rilasciati ex art. 19 c. 1.1, terzo periodo (vita privata e familiare, testo d.l. 130/2020) e in corso di validità sono rinnovati una sola volta, per un anno; resta ferma la convertibilità in lavoro. Il d.l. 201/2025 ne consente ulteriori rinnovi fino al 4.3.2027 per i cittadini ucraini presenti prima del 24.2.2022 (nota di aggiornamento Normattiva).",
+          "citazione": "I permessi di soggiorno già rilasciati ai sensi del citato articolo 19, comma 1.1, terzo periodo, in corso di validità, sono rinnovati per una sola volta e con durata annuale, a decorrere dalla data di scadenza. Resta ferma la facoltà di conversione del titolo di soggiorno in permesso di soggiorno per motivi di lavoro, se ne ricorrono i requisiti di legge.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legge:2023-03-10;20~art7"
+        },
+        {
+          "estremi": "art. 32, c. 3, d.lgs. 25/2008 (vigente; non modificato dal d.l. 100/2026)",
+          "contenuto": "Permesso biennale 'protezione speciale' rilasciato dal questore su trasmissione degli atti della Commissione; rinnovabile previo parere della Commissione; consente il lavoro 'fatto salvo quanto previsto in ordine alla convertibilita'' dall'art. 6 c. 1-bis TU (rinvio oggi vuoto dopo l'abrogazione della lett. a).",
+          "citazione": "Il permesso di soggiorno di cui al presente comma e' rinnovabile, previo parere della Commissione territoriale, e consente di svolgere attivita' lavorativa, fatto salvo quanto previsto in ordine alla convertibilita' dall'articolo 6, comma 1-bis, del decreto legislativo 25 luglio 1998, n. 286.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-25-2008/index.html#art_32"
+        },
+        {
+          "estremi": "art. 5, cc. 5 e 9, d.lgs. 286/1998 (vigente)",
+          "contenuto": "Termine di 90 giorni per rilascio, rinnovo o conversione; la Questura valuta i requisiti del permesso richiesto 'ovvero, in mancanza di questo, per altro tipo di permesso'; nuovi elementi sopravvenuti vanno considerati.",
+          "citazione": "Il permesso di soggiorno e' rilasciato, rinnovato o convertito entro novanta giorni dalla data in cui e' stata presentata la domanda, se sussistono i requisiti e le condizioni previsti dal presente testo unico e dal regolamento di attuazione per il permesso di soggiorno richiesto ovvero, in mancanza di questo, per altro tipo di permesso da rilasciare in applicazione del presente testo unico.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_5"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Consiglio di Stato, sez. III (ordinanza cautelare)",
+          "data": "2024-09-02",
+          "numero": "3313/2024 (R.G. 6136/2024)",
+          "principio": "Per la convertibilità del permesso per protezione speciale conta soltanto la data della domanda di protezione (anteriore al d.l. 20/2023), non quella del rilascio del permesso né quella dell'istanza di conversione; irricevibilità per istanza di conversione successiva al 6.5.2023 smentita dalla giurisprudenza dominante e dalla circolare del Ministero dell'Interno del 29.5.2024. Citazione verificata sul testo: \"La legge ha posto come sbarramento temporale, ai fini della convertibilità del titolo, unicamente quello della data di presentazione dell'istanza di protezione speciale, e non altri\".",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=cds&nrg=202406136&nomeFile=202403313_15.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "regime": "pre_patto",
+          "letta_integrale": true
+        },
+        {
+          "corte": "Consiglio di Stato, sez. III",
+          "data": "2025-12-05",
+          "numero": "9634/2025 (R.G. 946/2025)",
+          "principio": "L'art. 7 c. 2 d.l. 20/2023 mantiene il regime previgente, compresa la convertibilità in lavoro, per tutti i titoli (protezione speciale, cure mediche, calamità: rubrica unitaria) la cui domanda di rilascio è anteriore al 6.5.2023; irrilevante la data dell'istanza di conversione e la data del rilascio; vale anche la richiesta di appuntamento via PEC anteriore. Disattesa la circolare n. 50432 dell'1.6.2023. Citazione verificata: la disciplina transitoria \"tiene fermo il regime previgente per tutte le istanze originariamente presentate per il rilascio del titolo da convertire, dunque pendenti al momento dell'entrata in vigore del decreto Cutro, e non già per le istanze di conversione sic et simpliciter\".",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=cds&nrg=202500946&nomeFile=202509634_11.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "regime": "pre_patto",
+          "letta_integrale": true
+        },
+        {
+          "corte": "Consiglio di Stato, sez. III",
+          "data": "2026-03-20",
+          "numero": "2397/2026 (R.G. 6436/2025)",
+          "principio": "Le 'istanze' dell'art. 7 c. 2 sono quelle di rilascio del titolo originario; sono convertibili in lavoro tutti i permessi per cure mediche richiesti prima del 6.5.2023; il divieto di conversione dell'art. 7 c. 1 si applica solo ai permessi per protezione speciale ottenuti in base alla nuova disciplina, mentre per quelli rilasciati ex art. 19 c. 1.1 terzo periodo previgente la conversione resta possibile (art. 7 c. 3). Lettura fondata anche su art. 8 CEDU, artt. 2, 3, 32 Cost. e legittimo affidamento.",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=cds&nrg=202506436&nomeFile=202602397_11.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "regime": "pre_patto",
+          "letta_integrale": true
+        },
+        {
+          "corte": "Corte di cassazione, Sezioni Unite civili (ordinanza)",
+          "data": "2023-04-12",
+          "numero": "9791/2023 (R.G. 16227/2022, secondo le schede KB)",
+          "principio": "Regolamento di giurisdizione: la domanda di protezione speciale, anche proposta in subordine alla conversione del permesso in lavoro, appartiene al giudice ordinario, perché la protezione umanitaria/speciale è diritto soggettivo fondamentale (dalle schede KB, due schede con stessa data e organo: verosimilmente la stessa decisione).",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1T_a6xclFdtIH6IYYnY_6RqSP3DAt9Fhz/view?usp=drivesdk",
+          "fonte": "KB",
+          "regime": "pre_patto",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [
+        {
+          "ente": "Ministero dell'Interno",
+          "estremi": "circolare n. 50432 (come riportata da Cons. Stato, sez. III, n. 9634/2025)",
+          "data": "2023-06-01",
+          "oggetto": "Applicazione del d.l. 20/2023: ammessa la conversione cure mediche → lavoro solo per le istanze di conversione presentate fino al 4.5.2023 o se c'era già l'invito della Questura. Interpretazione disattesa dal Consiglio di Stato e dai giudici di merito (Trib. Firenze R.G. 12514/2023).",
+          "url": null
+        },
+        {
+          "ente": "Ministero dell'Interno (con parere dell'Avvocatura dello Stato)",
+          "estremi": "circolare (estremi di protocollo non noti; riportata da Cons. Stato, sez. III, ord. n. 3313/2024 e sent. n. 9634/2025)",
+          "data": "2024-05-29",
+          "oggetto": "Apertura alla conversione in lavoro dei permessi per protezione speciale rilasciati ex art. 19 c. 1.1 terzo periodo e validi al 5.5.2023; secondo il Cons. Stato resterebbero esclusi per l'Amministrazione i titoli chiesti prima ma rilasciati dopo il d.l. 20/2023.",
+          "url": null
+        },
+        {
+          "ente": "Dipartimento PS - Direzione centrale dell'Immigrazione e della Polizia delle Frontiere",
+          "estremi": "prot. 400.B/2021/I Div./I Sez.",
+          "data": "2021-11-22",
+          "oggetto": "Nuovo codice 'NOREQ - protezione speciale' per i permessi ex art. 19 c. 1.2 TU rilasciati dal Questore, configurato come non convertibile (contestato dalla giurisprudenza di merito; superato in parte dagli eventi normativi). Fonte: scheda KB, PDF https://drive.google.com/file/d/1zi17Xhx09xFUBD2v8i0cmBKEUQDH89t2/view?usp=drivesdk",
+          "url": "https://drive.google.com/file/d/1zi17Xhx09xFUBD2v8i0cmBKEUQDH89t2/view?usp=drivesdk"
+        }
+      ],
+      "casi_limite": [
+        {
+          "titolo": "Domanda di protezione prima del 6.5.2023, permesso rilasciato dopo",
+          "testo": "Convertibile: conta la data della domanda, non quella del rilascio (Cons. Stato ord. 3313/2024, in cui la Commissione aveva deciso nel 2023 e il permesso era stato rilasciato il 21.7.2023). La prassi ministeriale (circ. 29.5.2024) era più restrittiva."
+        },
+        {
+          "titolo": "Domanda presentata il 5 maggio 2023",
+          "testo": "Per il Cons. Stato la soglia è il 6.5.2023 (entrata in vigore della l. 50/2023): la domanda del 5.5 rientra nel regime previgente. La circolare 1.6.2023 indicava il 4.5.2023. L'albero ('prima del 5 maggio') va corretto in 'entro il 5 maggio 2023'."
+        },
+        {
+          "titolo": "Permesso rinnovato una volta ex art. 7 c. 3",
+          "testo": "La conversione 'resta ferma' anche sul permesso annuale di rinnovo. Ulteriori rinnovi concessi in base all'art. 8 CEDU (Trib. Palermo R.G. 11018/2026, 21.10.2026, scheda KB: https://drive.google.com/file/d/1miFMv51i_UNoFRa64NTKOVTCM7q58J34/view?usp=drivesdk) sono valutati con la disciplina nuova: la loro convertibilità è dubbia."
+        },
+        {
+          "titolo": "Protezione speciale chiesta direttamente al Questore (art. 19 c. 1.2, codice 'NOREQ')",
+          "testo": "La circolare 400.B/2021 la configurava come non convertibile; la giurisprudenza di merito (Trib. Firenze R.G. 12514/2023; TAR Palermo 440/2024) la equipara a quella ex art. 32 c. 3. Link: Trib. Firenze https://drive.google.com/file/d/1jkkFTHTRDrqN3cwOevgxZtqyTG0sRpix/view?usp=drivesdk; TAR Palermo https://drive.google.com/file/d/1YcvkZIfwNcW339J_jrHdI8YjrF9PrsQf/view?usp=drivesdk"
+        },
+        {
+          "titolo": "Passaporto non ottenibile",
+          "testo": "Il diniego fondato solo sull'assenza di passaporto è illegittimo se l'identità è provata con equipollenti (TAR Veneto 2508/2024, scheda KB: https://docs.google.com/document/d/1dD35hQ8CNd1s-YsBAzy_2LdJc36UtlKa/edit)."
+        },
+        {
+          "titolo": "Protezione speciale post-2023 senza via di conversione",
+          "testo": "Strategie alternative da valutare: rinnovo della protezione speciale; conversione in famiglia (art. 30 TU) se ne ricorrono i requisiti; permesso per studio ex art. 39 c. 5-5-bis TU e successiva conversione studio → lavoro (art. 6 c. 1 TU): percorso ricavato dal testo delle norme, non verificato in giurisprudenza."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Quando è stata presentata la domanda di protezione internazionale (o la domanda di protezione speciale al Questore) da cui nasce il permesso?",
+          "perche": "È la data che conta per l'art. 7 c. 2 secondo il Cons. Stato, non quella del rilascio, del rinnovo o della conversione.",
+          "opzioni": [
+            "entro il 5 maggio 2023",
+            "dal 6 maggio 2023 all'11 giugno 2026",
+            "dal 12 giugno 2026 (Patto)",
+            "non so / documenti da verificare"
+          ]
+        },
+        {
+          "domanda": "Il permesso è stato rilasciato per vita privata e familiare (art. 19 c. 1.1 terzo periodo, testo 2020) ed era valido al 10-11 marzo 2023?",
+          "perche": "Art. 7 c. 3: rinnovo annuale una tantum e conversione fatta salva.",
+          "opzioni": [
+            "sì",
+            "no",
+            "non so"
+          ]
+        },
+        {
+          "domanda": "Il permesso attuale è il primo rilascio o un rinnovo?",
+          "perche": "Evita che il rinnovo chiesto dopo il 5.5.2023 faccia scattare erroneamente il ramo 'dopo'.",
+          "opzioni": [
+            "primo rilascio",
+            "primo rinnovo annuale (art. 7 c. 3)",
+            "rinnovo successivo"
+          ]
+        },
+        {
+          "domanda": "Nel provvedimento della Commissione sono state applicate cause di esclusione o diniego (artt. 10, 12, 16 d.lgs. 251/2007)?",
+          "perche": "La lett. a) previgente escludeva la conversione in questi casi.",
+          "opzioni": [
+            "sì",
+            "no",
+            "non so"
+          ]
+        },
+        {
+          "domanda": "Il cliente ha passaporto valido?",
+          "perche": "Requisito per il permesso per lavoro; serve strategia sugli equipollenti.",
+          "opzioni": [
+            "sì",
+            "no, ma ha documento consolare/attestazione",
+            "no"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "protezione_speciale",
+      "a": "attesa_occupazione",
+      "nodo_albero": "c_end_att_no",
+      "esito_albero": "NON POSSIBILE",
+      "esito_verificato": "non_possibile",
+      "discrepanza": null,
+      "sintesi": "L'attesa occupazione (art. 22 c. 11 TU) presuppone un permesso per lavoro subordinato e la perdita del lavoro: non è un titolo di conversione da permessi di protezione. Nel regime ordinario (domande dal 6.5.2023) la protezione speciale non è convertibile neppure in lavoro. Nel regime transitorio (art. 7 cc. 2-3 d.l. 20/2023) la conversione ammessa è 'in permesso di soggiorno per motivi di lavoro' e richiede un rapporto in essere: chi perde il lavoro dopo la conversione accede poi all'attesa occupazione dal permesso per lavoro.",
+      "regime_transitorio": "Solo indirettamente: il titolare di protezione speciale convertibile (domanda ≤ 5.5.2023 o art. 7 c. 3) che ha perso il lavoro non ha una via diretta; deve convertire con un nuovo rapporto o chiedere il rinnovo della protezione speciale.",
+      "requisiti": [
+        "nessuna via diretta"
+      ],
+      "procedura": "Non applicabile. Valutare rinnovo della protezione speciale (parere della Commissione) o conversione in lavoro con nuovo rapporto se nel regime transitorio.",
+      "norme": [
+        {
+          "estremi": "art. 22, c. 11, d.lgs. 286/1998 (vigente)",
+          "contenuto": "L'attesa occupazione presuppone un permesso per lavoro subordinato e la perdita del posto di lavoro: non è un titolo di conversione da permessi non lavorativi.",
+          "citazione": "Il lavoratore straniero in possesso del permesso di soggiorno per lavoro subordinato che perde il posto di lavoro, anche per dimissioni, puo' rendere dichiarazione di immediata disponibilita' al sistema informativo unitario delle politiche del lavoro ai sensi dell'articolo 19 del decreto legislativo 14 settembre 2015, n. 150, e beneficiare degli effetti ad essa correlati per il periodo di residua validita' del permesso di soggiorno, e comunque, salvo che si tratti di permesso di soggiorno per lavoro stagionale, per un periodo non inferiore ad un anno ovvero per tutto il periodo di durata della prestazione di sostegno al reddito percepita dal lavoratore straniero, qualora superiore.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_22"
+        },
+        {
+          "estremi": "art. 6, c. 1-bis, d.lgs. 286/1998 (vigente; non modificato dal d.l. 100/2026)",
+          "contenuto": "Elenco tassativo dei permessi convertibili in lavoro ex art. 6. Le lett. a) (protezione speciale ex art. 32 c. 3 d.lgs. 25/2008), b) (calamità) e h-bis) (cure mediche) sono state abrogate dall'art. 7, c. 1, lett. a), d.l. 20/2023 come introdotto dalla l. conv. 50/2023, con effetto dal 6.5.2023 (al 1.4.2023 le tre lettere erano ancora vigenti: verificato su Normattiva, multivigenza). Restano: residenza elettiva, cittadinanza/apolidia (salvo provenienza da richiesta asilo), sport, artistico, religiosi, assistenza minori.",
+          "citazione": "a) LETTERA ABROGATA DAL D.L. 10 MARZO 2023, N. 20, CONVERTITO CON MODIFICAZIONI DALLA L. 5 MAGGIO 2023, N. 50;",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_6"
+        },
+        {
+          "estremi": "art. 7, c. 3, d.l. 20/2023 conv. dalla l. 50/2023 (norma transitoria)",
+          "contenuto": "I permessi per protezione speciale già rilasciati ex art. 19 c. 1.1, terzo periodo (vita privata e familiare, testo d.l. 130/2020) e in corso di validità sono rinnovati una sola volta, per un anno; resta ferma la convertibilità in lavoro. Il d.l. 201/2025 ne consente ulteriori rinnovi fino al 4.3.2027 per i cittadini ucraini presenti prima del 24.2.2022 (nota di aggiornamento Normattiva).",
+          "citazione": "I permessi di soggiorno già rilasciati ai sensi del citato articolo 19, comma 1.1, terzo periodo, in corso di validità, sono rinnovati per una sola volta e con durata annuale, a decorrere dalla data di scadenza. Resta ferma la facoltà di conversione del titolo di soggiorno in permesso di soggiorno per motivi di lavoro, se ne ricorrono i requisiti di legge.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legge:2023-03-10;20~art7"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Lavoro cessato durante l'istruttoria della conversione",
+          "testo": "Se il rapporto cessa dopo la domanda di conversione in lavoro (regime transitorio), si può sostenere che la Questura debba rilasciare il permesso per lavoro e poi l'attesa occupazione, o valutare nuovi elementi (art. 5 cc. 5 e 9 TU). Nessun precedente specifico trovato."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Il cliente ha oggi un rapporto di lavoro?",
+          "perche": "Senza rapporto non c'è conversione utile; con rapporto si torna al ramo lavoro.",
+          "opzioni": [
+            "sì",
+            "no, cessato da poco",
+            "no"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "protezione_speciale",
+      "a": "studio",
+      "nodo_albero": "c_end_stu_speciale",
+      "esito_albero": "SITUAZIONE COMPLICATA: possibile se la domanda è prima del 5/5/2023",
+      "esito_verificato": "condizionato",
+      "discrepanza": "Il riferimento al 5.5.2023 non ha base: il d.l. 20/2023 ha abrogato solo la convertibilità in LAVORO. Per lo studio la base è l'art. 39 cc. 5 e 5-bis TU, che nomina espressamente il permesso ex art. 32 c. 3 d.lgs. 25/2008 e prevede il rilascio da parte del questore del permesso 'studente', indipendentemente dalla data. Limite: vale solo per ITS, formazione superiore (università) e scuole di specializzazione.",
+      "sintesi": "L'art. 39 c. 5 TU consente l'accesso a ITS, corsi universitari e scuole di specializzazione, a parità con gli italiani, ai titolari del permesso ex art. 32 c. 3 d.lgs. 25/2008 (protezione speciale), e il c. 5-bis prevede che il questore rilasci loro un permesso per studio ('studente'). La norma non è stata toccata dal d.l. 20/2023 né dal d.l. 100/2026, quindi il passaggio è possibile anche per le protezioni speciali riconosciute dopo il 5.5.2023. Non copre la scuola secondaria né i corsi di formazione professionale: per questi non c'è una via di conversione. Valutare con il cliente che il permesso per studio è meno stabile (verifica del profitto, mezzi di sostentamento) e che la protezione speciale si perde: conviene solo se c'è un progetto universitario concreto o una strategia studio → lavoro (art. 6 c. 1 TU).",
+      "regime_transitorio": null,
+      "requisiti": [
+        "iscrizione o preiscrizione a corso ITS, universitario (laurea, master, dottorato) o scuola di specializzazione",
+        "titolo di studio valido per l'accesso (dichiarazione di valore/CIMEA ove necessaria)",
+        "mezzi di sostentamento e copertura sanitaria come per gli studenti (art. 39 TU e DPR 394/1999 art. 46: da verificare caso per caso)",
+        "passaporto o equipollente"
+      ],
+      "procedura": "Domanda alla Questura per il rilascio del permesso per studio ex art. 39 c. 5-bis TU, in prassi con kit postale; nessun visto; contributo ex art. 5 c. 2-ter TU per il permesso per studio. Diniego impugnabile al TAR (art. 6 c. 10 TU).",
+      "norme": [
+        {
+          "estremi": "art. 39, cc. 5 e 5-bis, d.lgs. 286/1998 (vigente)",
+          "contenuto": "Accesso a ITS, formazione superiore (università) e scuole di specializzazione, a parità con gli italiani, per i titolari di permesso UE, lavoro, famiglia, asilo, protezione sussidiaria, religiosi, artt. 18, 18-bis, 20-bis (calamità), 22 c. 12-quater, 42-bis e del permesso ex art. 32 c. 3 d.lgs. 25/2008 (protezione speciale), nonché per chi soggiorna regolarmente da almeno un anno con diploma di scuola secondaria superiore conseguito in Italia. A costoro il questore rilascia un permesso per studio 'studente' (c. 5-bis). Le cure mediche (art. 19 c. 2 lett. d-bis) e la richiesta asilo NON sono nell'elenco.",
+          "citazione": "Agli stranieri di cui ai commi 4-ter e 5 e' rilasciato dal questore un permesso di soggiorno per studio ai sensi dell'articolo 5, commi 3, lettera c) e 8, recante la dicitura «studente».",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_39"
+        },
+        {
+          "estremi": "art. 32, c. 3, d.lgs. 25/2008 (vigente; non modificato dal d.l. 100/2026)",
+          "contenuto": "Permesso biennale 'protezione speciale' rilasciato dal questore su trasmissione degli atti della Commissione; rinnovabile previo parere della Commissione; consente il lavoro 'fatto salvo quanto previsto in ordine alla convertibilita'' dall'art. 6 c. 1-bis TU (rinvio oggi vuoto dopo l'abrogazione della lett. a).",
+          "citazione": "Il permesso di soggiorno di cui al presente comma e' rinnovabile, previo parere della Commissione territoriale, e consente di svolgere attivita' lavorativa, fatto salvo quanto previsto in ordine alla convertibilita' dall'articolo 6, comma 1-bis, del decreto legislativo 25 luglio 1998, n. 286.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-25-2008/index.html#art_32"
+        },
+        {
+          "estremi": "art. 6, c. 1-bis, d.lgs. 286/1998 (vigente; non modificato dal d.l. 100/2026)",
+          "contenuto": "Elenco tassativo dei permessi convertibili in lavoro ex art. 6. Le lett. a) (protezione speciale ex art. 32 c. 3 d.lgs. 25/2008), b) (calamità) e h-bis) (cure mediche) sono state abrogate dall'art. 7, c. 1, lett. a), d.l. 20/2023 come introdotto dalla l. conv. 50/2023, con effetto dal 6.5.2023 (al 1.4.2023 le tre lettere erano ancora vigenti: verificato su Normattiva, multivigenza). Restano: residenza elettiva, cittadinanza/apolidia (salvo provenienza da richiesta asilo), sport, artistico, religiosi, assistenza minori.",
+          "citazione": "a) LETTERA ABROGATA DAL D.L. 10 MARZO 2023, N. 20, CONVERTITO CON MODIFICAZIONI DALLA L. 5 MAGGIO 2023, N. 50;",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_6"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Protezione speciale 'NOREQ' rilasciata dal Questore (art. 19 c. 1.2)",
+          "testo": "L'art. 39 c. 5 nomina solo il permesso ex art. 32 c. 3 d.lgs. 25/2008: per quello rilasciato direttamente dal Questore si può invocare l'identità di presupposti (Trib. Firenze R.G. 12514/2023; TAR Palermo 440/2024, sul diverso tema della conversione in lavoro)."
+        },
+        {
+          "titolo": "Ponte studio → lavoro",
+          "testo": "Dopo il passaggio a studio, la conversione in lavoro è ammessa fuori quota ex art. 6 c. 1 TU: in astratto aggira il divieto dell'art. 6 c. 1-bis. Rischio di contestazione per elusione; nessun precedente trovato."
+        },
+        {
+          "titolo": "Corso di scuola superiore o formazione professionale",
+          "testo": "Non rientra nell'art. 39 c. 5: nessuna conversione. Il titolare di protezione speciale può comunque iscriversi con il permesso attuale."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Che tipo di corso?",
+          "perche": "Solo ITS, università e specializzazioni rientrano nell'art. 39 c. 5.",
+          "opzioni": [
+            "università/master/dottorato",
+            "ITS",
+            "scuola superiore o CPIA",
+            "formazione professionale"
+          ]
+        },
+        {
+          "domanda": "Il permesso è stato rilasciato su trasmissione della Commissione (art. 32 c. 3) o dal Questore su domanda diretta?",
+          "perche": "L'art. 39 c. 5 cita l'art. 32 c. 3.",
+          "opzioni": [
+            "Commissione / Tribunale",
+            "domanda diretta al Questore",
+            "non so"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "protezione_speciale",
+      "a": "famiglia",
+      "nodo_albero": "c_end_fam_ok",
+      "esito_albero": "POSSIBILE",
+      "esito_verificato": "condizionato",
+      "discrepanza": "Coerente nell'esito; va precisato che servono i requisiti del ricongiungimento (salvo familiare italiano/UE) e che il d.l. 20/2023 non ha inciso su questa via.",
+      "sintesi": "L'art. 30 c. 1 lett. c) TU consente la conversione in permesso per motivi familiari di qualunque permesso del familiare 'regolarmente soggiornante', senza elenco tassativo: il titolare di protezione speciale può convertire se ha un familiare (coniuge, figlio minore, figlio maggiorenne a carico invalido, genitore a carico) cittadino italiano/UE residente o straniero regolarmente soggiornante con i requisiti di reddito e alloggio dell'art. 29 TU. Il d.l. 20/2023 ha abrogato solo la convertibilità in lavoro. In alternativa: lett. b) (matrimonio in Italia dopo un anno di soggiorno regolare ad altro titolo) e lett. d) (genitore di minore italiano). Per il coniuge o familiare di cittadino UE (e, per rinvio, di italiano) valutare la carta di soggiorno ex d.lgs. 30/2007.",
+      "regime_transitorio": null,
+      "requisiti": [
+        "vincolo familiare documentato (art. 29 c. 1 TU)",
+        "familiare italiano/UE residente o straniero regolarmente soggiornante",
+        "per il familiare straniero: reddito (art. 29 c. 3 lett. b) e alloggio idoneo",
+        "domanda prima della scadenza o entro un anno dalla scadenza del titolo (art. 30 c. 1 lett. c)",
+        "passaporto o equipollente"
+      ],
+      "procedura": "Domanda alla Questura con kit postale (prassi); fuori quote; contributo ex art. 5 c. 2-ter per il permesso familiare. Diniego: giudice ordinario, sezione specializzata (art. 30 c. 6 TU).",
+      "norme": [
+        {
+          "estremi": "art. 30, c. 1, lett. c), d.lgs. 286/1998 (vigente)",
+          "contenuto": "Conversione in permesso per motivi familiari del familiare regolarmente soggiornante in possesso dei requisiti per il ricongiungimento con cittadino italiano/UE residente o straniero regolarmente soggiornante; richiedibile anche entro un anno dalla scadenza del titolo; se il familiare è rifugiato si prescinde dal permesso valido. La giurisdizione sui dinieghi è del giudice ordinario (art. 30 c. 6 TU).",
+          "citazione": "c) al familiare straniero regolarmente soggiornante, in possesso dei requisiti per il ricongiungimento con il cittadino italiano o di uno Stato membro dell'Unione europea residenti in Italia, ovvero con straniero regolarmente soggiornante in Italia. In tal caso il permesso del familiare e' convertito in permesso di soggiorno per motivi familiari. La conversione puo' essere richiesta entro un anno dalla data di scadenza del titolo di soggiorno originariamente posseduto dal familiare. Qualora detto cittadino sia un rifugiato si prescinde dal possesso di un valido permesso di soggiorno da parte del familiare;",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_30"
+        },
+        {
+          "estremi": "art. 30, c. 1, lett. b) e d), d.lgs. 286/1998; art. 28, c. 1, lett. b), d.P.R. 394/1999",
+          "contenuto": "Vie alternative alla lett. c): matrimonio in Italia dopo almeno un anno di soggiorno regolare 'ad altro titolo' (lett. b); genitore di minore italiano residente, anche senza titolo valido (lett. d); permesso per motivi familiari allo straniero inespellibile perché convivente con parente entro il secondo grado o coniuge italiano (art. 19 c. 2 lett. c TU e art. 28 c. 1 lett. b DPR 394).",
+          "citazione": "d) al genitore straniero, anche naturale, di minore italiano residente in Italia. In tal caso il permesso di soggiorno per motivi familiari e' rilasciato anche a prescindere dal possesso di un valido titolo di soggiorno, a condizione che il genitore richiedente non sia stato privato della potesta' genitoriale secondo la legge italiana.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_30"
+        },
+        {
+          "estremi": "art. 32, c. 3, d.lgs. 25/2008 (vigente; non modificato dal d.l. 100/2026)",
+          "contenuto": "Permesso biennale 'protezione speciale' rilasciato dal questore su trasmissione degli atti della Commissione; rinnovabile previo parere della Commissione; consente il lavoro 'fatto salvo quanto previsto in ordine alla convertibilita'' dall'art. 6 c. 1-bis TU (rinvio oggi vuoto dopo l'abrogazione della lett. a).",
+          "citazione": "Il permesso di soggiorno di cui al presente comma e' rinnovabile, previo parere della Commissione territoriale, e consente di svolgere attivita' lavorativa, fatto salvo quanto previsto in ordine alla convertibilita' dall'articolo 6, comma 1-bis, del decreto legislativo 25 luglio 1998, n. 286.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-25-2008/index.html#art_32"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Convivente di fatto o familiare non rientrante nell'art. 29",
+          "testo": "Non c'è conversione ex art. 30; valutare rinnovo della protezione speciale per vita familiare (art. 19 c. 1.1 / art. 8 CEDU) o, per il convivente di cittadino UE, d.lgs. 30/2007."
+        },
+        {
+          "titolo": "Rinuncia implicita alla protezione speciale",
+          "testo": "La conversione fa perdere la tutela contro il rimpatrio legata alla protezione speciale: se il rapporto familiare cessa, il permesso familiare si converte solo nei casi dell'art. 30 c. 5 TU. Valutare il rischio con il cliente."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Chi è il familiare e che titolo ha?",
+          "perche": "Cambia la base (art. 30 c. 1 lett. b, c, d; d.lgs. 30/2007) e i requisiti di reddito/alloggio.",
+          "opzioni": [
+            "coniuge/genitore di cittadino italiano",
+            "familiare di cittadino UE",
+            "familiare di straniero con permesso",
+            "genitore di minore italiano"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "protezione_speciale",
+      "a": "ue_lungo_periodo",
+      "nodo_albero": "c_end_carta_ok",
+      "esito_albero": "POSSIBILE",
+      "esito_verificato": "non_possibile",
+      "discrepanza": "DISCREPANZA RILEVANTE: l'art. 9 c. 3 lett. b) TU esclude espressamente i titolari del permesso ex art. 32 c. 3 d.lgs. 25/2008 (e chi ne ha chiesto il rilascio), in linea con l'art. 3 par. 2 lett. c) dir. 2003/109/CE. Il nodo dovrebbe portare a 'non possibile direttamente; gli anni con protezione speciale contano dopo il passaggio a un titolo idoneo'.",
+      "sintesi": "Il titolare di protezione speciale non può ottenere il permesso UE per soggiornanti di lungo periodo finché soggiorna a quel titolo: l'art. 9 c. 3 lett. b) TU lo esclude, recependo l'art. 3 par. 2 lett. c) della dir. 2003/109/CE (protezioni diverse da quella internazionale). Il periodo trascorso con protezione speciale (e prima come richiedente) non è però escluso dal computo, perché l'art. 9 c. 5 esclude solo i soggiorni di breve durata e diplomatici: una volta ottenuto un titolo idoneo (lavoro nel regime transitorio, famiglia, studio con il limite della metà ex art. 4 dir.), il quinquennio può includere quegli anni (Cons. Stato, sez. VI, 3222/2025). Per i titolari di protezione speciale non si applicano le agevolazioni riservate alla protezione internazionale (alloggio, test di italiano, decorrenza dalla domanda).",
+      "regime_transitorio": null,
+      "requisiti": [
+        "preventivo passaggio a un titolo idoneo (lavoro nel regime transitorio, famiglia)",
+        "5 anni di soggiorno regolare (computabili anche gli anni con protezione speciale e da richiedente)",
+        "reddito ≥ assegno sociale",
+        "alloggio idoneo",
+        "test di italiano A2"
+      ],
+      "procedura": "Prima conversione nel titolo idoneo; poi domanda di permesso UE alla Questura con kit postale.",
+      "norme": [
+        {
+          "estremi": "art. 9, c. 3, lett. b), d.lgs. 286/1998 (vigente)",
+          "contenuto": "Esclusi dal permesso UE di lungo periodo i titolari dei permessi per cure mediche, protezione temporanea, artt. 18, 18-bis, 20-bis (calamità), 22 c. 12-quater, 42-bis e del permesso ex art. 32 c. 3 d.lgs. 25/2008 (protezione speciale). Il c. 5 esclude dal computo dei 5 anni solo i periodi di cui alle lett. d) ed e) (permessi di breve durata, status diplomatico): i periodi trascorsi con questi permessi restano computabili se poi si passa a un titolo idoneo.",
+          "citazione": "b) soggiornano a titolo di protezione temporanea, per cure mediche o sono titolari dei permessi di soggiorno di cui agli articoli 18, 18-bis, 20-bis, 22, comma 12-quater, e 42-bis nonche' del permesso di soggiorno rilasciato ai sensi dell'articolo 32, comma 3, del decreto legislativo 28 gennaio 2008, n. 25. ovvero hanno chiesto il permesso di soggiorno a tale titolo e sono in attesa di una decisione su tale richiesta;",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_9"
+        },
+        {
+          "estremi": "art. 3, par. 2, lett. c) e d), dir. 2003/109/CE",
+          "contenuto": "La direttiva non si applica a chi soggiorna a titolo di una forma di protezione diversa dalla protezione internazionale né ai richiedenti in attesa di decisione definitiva: base UE delle esclusioni dell'art. 9 c. 3 TU.",
+          "citazione": "c) sono autorizzati a soggiornare in uno Stato membro a titolo di una forma di protezione diversa dalla protezione internazionale o hanno chiesto l’autorizzazione al soggiorno a tale titolo e sono in attesa di una decisione sul loro status;",
+          "url": "https://www.sospatto.it/patto-interattivo/ext-dir-2003-109.html#art_3"
+        },
+        {
+          "estremi": "art. 9, cc. 1, 1-bis, 1-ter, 2-ter, 5-bis, d.lgs. 286/1998 (vigente)",
+          "contenuto": "Permesso UE per soggiornanti di lungo periodo: 5 anni di permesso valido e reddito non inferiore all'assegno sociale. Per i titolari di protezione internazionale: annotazione 'protezione internazionale riconosciuta da…' (c. 1-bis), niente documentazione di idoneità dell'alloggio (c. 1-ter), niente test di italiano (c. 2-ter), quinquennio calcolato dalla data della domanda di protezione (c. 5-bis).",
+          "citazione": "Il calcolo del periodo di soggiorno di cui al comma 1, per il rilascio del permesso di soggiorno UE per soggiornanti di lungo periodo di cui al comma 1-bis, e' effettuato a partire dalla data di presentazione della domanda di protezione internazionale in base alla quale la protezione internazionale e' stata riconosciuta.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_9"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Consiglio di Stato, sez. VI",
+          "data": "2025-04-03",
+          "numero": "3222/2025",
+          "principio": "Ai fini del quinquennio del permesso UE di lungo periodo si computa il periodo trascorso con permesso per richiesta asilo protratto per anni per il ritardo della PA (non è un permesso 'di breve durata' ex art. 9 c. 3 lett. d); rilevano le condizioni al momento della domanda di permesso UE, quando il richiedente è ormai titolare di altro titolo; nel caso, successivo riconoscimento della protezione speciale (dalla scheda KB).",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1xhCmGuw3m5Du60A4M8spVe51aDN3WjTG/view?usp=drivesdk",
+          "fonte": "KB",
+          "regime": "pre_patto",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Protezione speciale convertita in lavoro dopo anni",
+          "testo": "Il quinquennio può maturare subito dopo la conversione, computando gli anni precedenti (art. 9 c. 5 TU; Cons. Stato VI 3222/2025, su permesso per richiesta asilo e protezione speciale)."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Da quando il cliente soggiorna regolarmente in Italia (inclusa la fase di richiedente)?",
+          "perche": "Per pianificare il passaggio a titolo idoneo e la successiva domanda UE.",
+          "opzioni": [
+            "meno di 5 anni",
+            "5 anni o più"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "asilo_rifugiato",
+      "a": "lavoro",
+      "nodo_albero": "c_end_lav_no",
+      "esito_albero": "NON POSSIBILE (il permesso non consente la conversione)",
+      "esito_verificato": "non_possibile",
+      "discrepanza": "Esito corretto ma motivazione fuorviante: la conversione non è prevista perché NON SERVE. Il rifugiato lavora già (subordinato, autonomo, pubblico impiego come cittadini UE) con il permesso per asilo. Il testo andrebbe riformulato in 'non necessaria' (sul modello di c_end_att_asilo) e dovrebbe avvertire di non rinunciare allo status.",
+      "sintesi": "L'art. 23 c. 1 d.lgs. 251/2007 non prevede la conversione del permesso per asilo (a differenza del c. 2 per la sussidiaria), e l'art. 6 c. 1-bis TU non lo elenca: la conversione in lavoro non è ammessa (TAR Marche 784/2023; prassi della Direzione centrale Immigrazione). Non è però necessaria: il rifugiato ha parità di trattamento con gli italiani per lavoro subordinato e autonomo (art. 25 d.lgs. 251/2007) e, dal 1.7.2026, il diritto diretto dell'art. 28 reg. (UE) 2024/1347. Rinunciare allo status per ottenere un permesso per lavoro è sconsigliabile: la rinuncia comporta la decadenza (art. 34 d.lgs. 25/2008) e non garantisce il rilascio del nuovo titolo. Il TAR Marche ha ritenuto viziata la rinuncia sottoscritta su modulo della Questura come condizione per la conversione.",
+      "regime_transitorio": "Nessuno: né il d.l. 20/2023 né il d.l. 100/2026 hanno toccato l'art. 23 d.lgs. 251/2007. Dal 1.7.2026 il contenuto della protezione è regolato anche dal reg. 2024/1347 (artt. 24 e 28), direttamente applicabile.",
+      "requisiti": [
+        "nessuno: il permesso per asilo abilita già al lavoro"
+      ],
+      "procedura": "Nessuna conversione. Per le pratiche di lavoro (assunzione, partita IVA, iscrizione albi) basta il permesso per asilo. Se la Questura propone di rinunciare allo status per convertire, sconsigliare e documentare.",
+      "norme": [
+        {
+          "estremi": "art. 23, cc. 1-2, d.lgs. 251/2007 (vigente; non modificato dal d.l. 100/2026)",
+          "contenuto": "Il permesso per asilo (rifugiati) è quinquennale e rinnovabile, senza clausola di conversione; il permesso per protezione sussidiaria è quinquennale, consente lavoro e studio ed è convertibile per motivi di lavoro.",
+          "citazione": "Tale permesso di soggiorno consente l'accesso al lavoro e allo studio ed e' convertibile per motivi di lavoro, sussistendone i requisiti.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-251-2007/index.html#art_23"
+        },
+        {
+          "estremi": "art. 25 d.lgs. 251/2007 (vigente)",
+          "contenuto": "Rifugiati e titolari di sussidiaria hanno parità di trattamento con i cittadini italiani per lavoro subordinato e autonomo, albi, formazione, tirocinio, centri per l'impiego; accesso al pubblico impiego come i cittadini UE.",
+          "citazione": null,
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-251-2007/index.html#art_25"
+        },
+        {
+          "estremi": "art. 28, par. 1, reg. (UE) 2024/1347 (si applica dal 1.7.2026: art. 42)",
+          "contenuto": "Diritto dei beneficiari di protezione internazionale a lavoro dipendente o autonomo appena riconosciuta la protezione. Norma direttamente applicabile: rende superflua qualsiasi 'conversione' per poter lavorare.",
+          "citazione": "1. I beneficiari di protezione internazionale hanno il diritto di esercitare un'attività di lavoro dipendente o autonomo nel rispetto della normativa generalmente applicabile alle professioni interessate o agli impieghi nella pubblica amministrazione, non appena sia stata loro riconosciuta la protezione.",
+          "url": "https://www.sospatto.it/patto-interattivo/1347.html#art_28"
+        },
+        {
+          "estremi": "art. 42 reg. (UE) 2024/1347",
+          "contenuto": "Il regolamento qualifiche si applica dal 1.7.2026 (non dal 12.6.2026 come il resto del Patto).",
+          "citazione": "Esso si applica a decorrere dal 1o luglio 2026.",
+          "url": "https://www.sospatto.it/patto-interattivo/1347.html#art_42"
+        },
+        {
+          "estremi": "art. 34, c. 1, d.lgs. 25/2008 (vigente)",
+          "contenuto": "La rinuncia espressa allo status comporta la decadenza; la legge non subordina il rilascio di altro titolo alla rinuncia.",
+          "citazione": "La rinuncia espressa allo status di rifugiato o di soggetto ammesso alla protezione sussidiaria determina la decadenza dal medesimo status.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-25-2008/index.html#art_34"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "TAR Marche, sez. II",
+          "data": "2023-11-29",
+          "numero": "784/2023 (R.G. 109/2022)",
+          "principio": "Il permesso per asilo (rifugiato) non è convertibile in lavoro: l'art. 23 c. 1 d.lgs. 251/2007 non lo prevede (a differenza del c. 2 per la sussidiaria) e il rifugiato non ne ha bisogno, potendo già lavorare. La conversione non può essere subordinata alla rinuncia allo status; la rinuncia sottoscritta su modulo della Questura è viziata e il ricorrente va rimesso in termini per il rinnovo del permesso per asilo. La Questura richiamava una lettera della Direzione centrale Immigrazione del 4.5.2021.",
+          "esito": "favorevole allo straniero (in parte: legittima la non convertibilità, annullato per il resto)",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=tar_an&nrg=202200109&nomeFile=202300784_01.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "regime": "pre_patto",
+          "letta_integrale": true
+        }
+      ],
+      "prassi": [
+        {
+          "ente": "Dipartimento PS - Direzione centrale dell'Immigrazione e della Polizia delle Frontiere",
+          "estremi": "lettera di risposta a quesito di una Questura (riportata da TAR Marche n. 784/2023)",
+          "data": "2021-05-04",
+          "oggetto": "La normativa non prevede la conversione del permesso per asilo in lavoro.",
+          "url": null
+        }
+      ],
+      "casi_limite": [
+        {
+          "titolo": "Rifugiato che vuole tornare nel Paese d'origine o riottenere il passaporto nazionale",
+          "testo": "Il vero motivo della richiesta di 'conversione' è spesso questo: il ritorno e l'uso del passaporto nazionale possono portare alla cessazione dello status (art. 9 d.lgs. 251/2007; v. anche TAR Toscana 2233/2026, su un procedimento di cessazione per rientro in Pakistan). Serve consulenza specifica su cessazione e su un titolo alternativo (UE lungo periodo, famiglia)."
+        },
+        {
+          "titolo": "Rinuncia già firmata",
+          "testo": "TAR Marche 784/2023: la rinuncia indotta dalla Questura come condizione della conversione è viziata; il ricorrente va rimesso in termini per il rinnovo del permesso per asilo."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Perché il cliente vuole cambiare permesso?",
+          "perche": "Se è per lavorare, non serve; se è per viaggiare nel Paese d'origine o per problemi di cessazione, la strada è diversa.",
+          "opzioni": [
+            "per lavorare",
+            "per tornare/viaggiare nel Paese d'origine",
+            "procedimento di cessazione/revoca avviato",
+            "altro"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "asilo_rifugiato",
+      "a": "attesa_occupazione",
+      "nodo_albero": "c_end_att_asilo",
+      "esito_albero": "NON HA SENSO (il permesso dà già più diritti)",
+      "esito_verificato": "non_possibile",
+      "discrepanza": null,
+      "sintesi": "L'attesa occupazione (art. 22 c. 11 TU) presuppone un permesso per lavoro subordinato e la perdita del lavoro; per il permesso per asilo non c'è alcuna base di conversione. Il rifugiato disoccupato conserva il permesso quinquennale e l'accesso ai centri per l'impiego e alla formazione in parità con gli italiani (art. 25 d.lgs. 251/2007; art. 28 reg. 2024/1347).",
+      "regime_transitorio": null,
+      "requisiti": [
+        "nessuno"
+      ],
+      "procedura": "Non applicabile.",
+      "norme": [
+        {
+          "estremi": "art. 22, c. 11, d.lgs. 286/1998 (vigente)",
+          "contenuto": "L'attesa occupazione presuppone un permesso per lavoro subordinato e la perdita del posto di lavoro: non è un titolo di conversione da permessi non lavorativi.",
+          "citazione": "Il lavoratore straniero in possesso del permesso di soggiorno per lavoro subordinato che perde il posto di lavoro, anche per dimissioni, puo' rendere dichiarazione di immediata disponibilita' al sistema informativo unitario delle politiche del lavoro ai sensi dell'articolo 19 del decreto legislativo 14 settembre 2015, n. 150, e beneficiare degli effetti ad essa correlati per il periodo di residua validita' del permesso di soggiorno, e comunque, salvo che si tratti di permesso di soggiorno per lavoro stagionale, per un periodo non inferiore ad un anno ovvero per tutto il periodo di durata della prestazione di sostegno al reddito percepita dal lavoratore straniero, qualora superiore.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_22"
+        },
+        {
+          "estremi": "art. 25 d.lgs. 251/2007 (vigente)",
+          "contenuto": "Rifugiati e titolari di sussidiaria hanno parità di trattamento con i cittadini italiani per lavoro subordinato e autonomo, albi, formazione, tirocinio, centri per l'impiego; accesso al pubblico impiego come i cittadini UE.",
+          "citazione": null,
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-251-2007/index.html#art_25"
+        },
+        {
+          "estremi": "art. 28, par. 1, reg. (UE) 2024/1347 (si applica dal 1.7.2026: art. 42)",
+          "contenuto": "Diritto dei beneficiari di protezione internazionale a lavoro dipendente o autonomo appena riconosciuta la protezione. Norma direttamente applicabile: rende superflua qualsiasi 'conversione' per poter lavorare.",
+          "citazione": "1. I beneficiari di protezione internazionale hanno il diritto di esercitare un'attività di lavoro dipendente o autonomo nel rispetto della normativa generalmente applicabile alle professioni interessate o agli impieghi nella pubblica amministrazione, non appena sia stata loro riconosciuta la protezione.",
+          "url": "https://www.sospatto.it/patto-interattivo/1347.html#art_28"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [],
+      "domande_discriminanti": []
+    },
+    {
+      "da": "asilo_rifugiato",
+      "a": "studio",
+      "nodo_albero": "c_end_stu_ok",
+      "esito_albero": "POSSIBILE",
+      "esito_verificato": "condizionato",
+      "discrepanza": "L'albero presenta come normale una conversione che è giuridicamente prevista solo per ITS/università/specializzazioni (art. 39 cc. 5 e 5-bis TU) e che non è necessaria: il rifugiato studia già con il permesso per asilo. Rischio di indurre a lasciare un titolo più forte.",
+      "sintesi": "L'art. 39 c. 5 TU include i titolari di permesso 'per asilo' tra chi accede a ITS, università e scuole di specializzazione a parità con gli italiani, e il c. 5-bis prevede il rilascio di un permesso 'studente'. Il passaggio è quindi astrattamente previsto, ma non serve: il rifugiato ha accesso all'istruzione con il suo permesso (art. 26 d.lgs. 251/2007; art. 29 reg. 2024/1347) e il permesso per studio è più debole (verifica del profitto, mezzi, nessuna tutela da refoulement legata al titolo). In concreto va sconsigliato, salvo casi particolari da valutare con un avvocato.",
+      "regime_transitorio": null,
+      "requisiti": [
+        "iscrizione a ITS, università o specializzazione",
+        "consapevolezza degli effetti sullo status (meglio non rinunciare)"
+      ],
+      "procedura": "Di norma nessuna: iscriversi mantenendo il permesso per asilo. Se si insiste: domanda alla Questura ex art. 39 c. 5-bis TU.",
+      "norme": [
+        {
+          "estremi": "art. 39, cc. 5 e 5-bis, d.lgs. 286/1998 (vigente)",
+          "contenuto": "Accesso a ITS, formazione superiore (università) e scuole di specializzazione, a parità con gli italiani, per i titolari di permesso UE, lavoro, famiglia, asilo, protezione sussidiaria, religiosi, artt. 18, 18-bis, 20-bis (calamità), 22 c. 12-quater, 42-bis e del permesso ex art. 32 c. 3 d.lgs. 25/2008 (protezione speciale), nonché per chi soggiorna regolarmente da almeno un anno con diploma di scuola secondaria superiore conseguito in Italia. A costoro il questore rilascia un permesso per studio 'studente' (c. 5-bis). Le cure mediche (art. 19 c. 2 lett. d-bis) e la richiesta asilo NON sono nell'elenco.",
+          "citazione": "Agli stranieri di cui ai commi 4-ter e 5 e' rilasciato dal questore un permesso di soggiorno per studio ai sensi dell'articolo 5, commi 3, lettera c) e 8, recante la dicitura «studente».",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_39"
+        },
+        {
+          "estremi": "art. 23, cc. 1-2, d.lgs. 251/2007 (vigente; non modificato dal d.l. 100/2026)",
+          "contenuto": "Il permesso per asilo (rifugiati) è quinquennale e rinnovabile, senza clausola di conversione; il permesso per protezione sussidiaria è quinquennale, consente lavoro e studio ed è convertibile per motivi di lavoro.",
+          "citazione": "Tale permesso di soggiorno consente l'accesso al lavoro e allo studio ed e' convertibile per motivi di lavoro, sussistendone i requisiti.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-251-2007/index.html#art_23"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Rifugiato in procedimento di cessazione",
+          "testo": "Lo studio può essere un titolo alternativo da far valere dopo l'eventuale cessazione (art. 14 c. 5 DPR 21/2015), non una ragione per rinunciare prima."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Il cliente vuole solo iscriversi a un corso o ha un motivo per lasciare lo status?",
+          "perche": "Nel primo caso nessuna conversione è necessaria.",
+          "opzioni": [
+            "solo iscriversi",
+            "ha motivi per lasciare lo status"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "asilo_rifugiato",
+      "a": "famiglia",
+      "nodo_albero": "c_end_fam_ok",
+      "esito_albero": "POSSIBILE",
+      "esito_verificato": "incerto",
+      "discrepanza": "L'albero dice 'possibile, puoi fare da solo': è giuridicamente dubbio (l'art. 30 c. 1 lett. c TU è generico, ma il permesso per asilo è legato allo status e non è previsto come convertibile: TAR Marche 784/2023) e comunque sconsigliabile. Il nodo andrebbe reso 'non necessario / da valutare con un legale'.",
+      "sintesi": "Il rifugiato soggiorna in forza dello status e del permesso quinquennale rinnovabile; il permesso per motivi familiari è un titolo più debole e dipendente dal familiare. L'art. 30 c. 1 lett. c) TU parla genericamente di conversione del permesso del 'familiare regolarmente soggiornante', ma la giurisprudenza amministrativa ritiene il permesso per asilo non suscettibile di conversione (TAR Marche 784/2023) e la rinuncia allo status (art. 34 d.lgs. 25/2008) è irreversibile. La regola utile è inversa: sono i familiari del rifugiato a ottenere il permesso per motivi familiari (art. 22 c. 3 d.lgs. 251/2007; art. 30 c. 1 lett. c, ultimo periodo, TU: si prescinde dal loro permesso valido) e il ricongiungimento agevolato (art. 29-bis TU).",
+      "regime_transitorio": null,
+      "requisiti": [
+        "valutazione legale caso per caso"
+      ],
+      "procedura": "Di norma nessuna conversione. Per i familiari del rifugiato: permesso familiare ex art. 22 c. 3 d.lgs. 251/2007 / art. 30 TU, o ricongiungimento ex art. 29-bis TU.",
+      "norme": [
+        {
+          "estremi": "art. 30, c. 1, lett. c), d.lgs. 286/1998 (vigente)",
+          "contenuto": "Conversione in permesso per motivi familiari del familiare regolarmente soggiornante in possesso dei requisiti per il ricongiungimento con cittadino italiano/UE residente o straniero regolarmente soggiornante; richiedibile anche entro un anno dalla scadenza del titolo; se il familiare è rifugiato si prescinde dal permesso valido. La giurisdizione sui dinieghi è del giudice ordinario (art. 30 c. 6 TU).",
+          "citazione": "c) al familiare straniero regolarmente soggiornante, in possesso dei requisiti per il ricongiungimento con il cittadino italiano o di uno Stato membro dell'Unione europea residenti in Italia, ovvero con straniero regolarmente soggiornante in Italia. In tal caso il permesso del familiare e' convertito in permesso di soggiorno per motivi familiari. La conversione puo' essere richiesta entro un anno dalla data di scadenza del titolo di soggiorno originariamente posseduto dal familiare. Qualora detto cittadino sia un rifugiato si prescinde dal possesso di un valido permesso di soggiorno da parte del familiare;",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_30"
+        },
+        {
+          "estremi": "art. 22, cc. 3-4, d.lgs. 251/2007 (vigente)",
+          "contenuto": "Ai familiari presenti del titolare di protezione internazionale si rilascia il permesso per motivi familiari ex art. 30 TU; il titolare di sussidiaria ha diritto al ricongiungimento ex art. 29-bis TU.",
+          "citazione": null,
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-251-2007/index.html#art_22"
+        },
+        {
+          "estremi": "art. 34, c. 1, d.lgs. 25/2008 (vigente)",
+          "contenuto": "La rinuncia espressa allo status comporta la decadenza; la legge non subordina il rilascio di altro titolo alla rinuncia.",
+          "citazione": "La rinuncia espressa allo status di rifugiato o di soggetto ammesso alla protezione sussidiaria determina la decadenza dal medesimo status.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-25-2008/index.html#art_34"
+        },
+        {
+          "estremi": "art. 23, cc. 1-2, d.lgs. 251/2007 (vigente; non modificato dal d.l. 100/2026)",
+          "contenuto": "Il permesso per asilo (rifugiati) è quinquennale e rinnovabile, senza clausola di conversione; il permesso per protezione sussidiaria è quinquennale, consente lavoro e studio ed è convertibile per motivi di lavoro.",
+          "citazione": "Tale permesso di soggiorno consente l'accesso al lavoro e allo studio ed e' convertibile per motivi di lavoro, sussistendone i requisiti.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-251-2007/index.html#art_23"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "TAR Marche, sez. II",
+          "data": "2023-11-29",
+          "numero": "784/2023 (R.G. 109/2022)",
+          "principio": "Il permesso per asilo (rifugiato) non è convertibile in lavoro: l'art. 23 c. 1 d.lgs. 251/2007 non lo prevede (a differenza del c. 2 per la sussidiaria) e il rifugiato non ne ha bisogno, potendo già lavorare. La conversione non può essere subordinata alla rinuncia allo status; la rinuncia sottoscritta su modulo della Questura è viziata e il ricorrente va rimesso in termini per il rinnovo del permesso per asilo. La Questura richiamava una lettera della Direzione centrale Immigrazione del 4.5.2021.",
+          "esito": "favorevole allo straniero (in parte: legittima la non convertibilità, annullato per il resto)",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=tar_an&nrg=202200109&nomeFile=202300784_01.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "regime": "pre_patto",
+          "letta_integrale": true
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Rifugiato che sposa un cittadino italiano",
+          "testo": "Non serve convertire: potrà chiedere la cittadinanza per matrimonio o il permesso UE; il passaggio alla carta di soggiorno da familiare di cittadino UE/italiano comporterebbe la rinuncia allo status. Valutare con un legale."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "La domanda riguarda il rifugiato stesso o un suo familiare?",
+          "perche": "Per il familiare del rifugiato la via è il permesso familiare ex art. 22 d.lgs. 251/2007 (possibile e agevolato).",
+          "opzioni": [
+            "il rifugiato stesso",
+            "un familiare del rifugiato"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "asilo_rifugiato",
+      "a": "ue_lungo_periodo",
+      "nodo_albero": "c_end_carta_ok",
+      "esito_albero": "POSSIBILE (5 anni, reddito, test A2)",
+      "esito_verificato": "possibile",
+      "discrepanza": "Esito corretto, requisiti imprecisi: per i titolari di protezione internazionale il test di italiano NON è richiesto (art. 9 c. 2-ter TU), non serve la documentazione di idoneità dell'alloggio (c. 1-ter) e il quinquennio decorre dalla data della domanda di protezione (c. 5-bis). Inoltre non è una 'conversione': lo status resta e viene annotato sul permesso UE.",
+      "sintesi": "Il rifugiato può chiedere il permesso UE per soggiornanti di lungo periodo (art. 9 c. 1-bis TU) con regole di favore: quinquennio calcolato dalla data di presentazione della domanda di protezione (c. 5-bis; dal 1.7.2026 l'art. 4 par. 2 dir. 2003/109 modificato dall'art. 40 reg. 2024/1347 impone di computare l'intero periodo dalla formalizzazione), reddito non inferiore all'assegno sociale, niente documentazione di idoneità dell'alloggio (c. 1-ter, con computo figurativo dell'alloggio gratuito per i vulnerabili) e niente test di italiano (c. 2-ter). Lo status non si perde: il permesso reca l'annotazione 'protezione internazionale riconosciuta da Italia' e l'espulsione resta soggetta all'art. 20 d.lgs. 251/2007 (c. 10-bis). Se lo status cessa per i motivi degli artt. 9 e 15 d.lgs. 251/2007, il permesso UE resta senza annotazione (c. 4-bis).",
+      "regime_transitorio": "Domande di protezione anteriori al 12.6.2026: il computo segue comunque l'art. 9 c. 5-bis TU (intero periodo dalla domanda), già più favorevole della vecchia dir. 2003/109.",
+      "requisiti": [
+        "5 anni dalla domanda di protezione internazionale",
+        "permesso per asilo in corso di validità",
+        "reddito ≥ assegno sociale (anche da fonti diverse dal lavoro)",
+        "indicazione del luogo di residenza (no idoneità alloggiativa)",
+        "assenza di pericolosità (art. 9 c. 4)"
+      ],
+      "procedura": "Domanda alla Questura con kit postale; contributo ex art. 5 c. 2-ter per il permesso UE (importi da verificare); rilascio entro 90 giorni (art. 9 c. 2). Diniego impugnabile al TAR.",
+      "norme": [
+        {
+          "estremi": "art. 9, cc. 1, 1-bis, 1-ter, 2-ter, 5-bis, d.lgs. 286/1998 (vigente)",
+          "contenuto": "Permesso UE per soggiornanti di lungo periodo: 5 anni di permesso valido e reddito non inferiore all'assegno sociale. Per i titolari di protezione internazionale: annotazione 'protezione internazionale riconosciuta da…' (c. 1-bis), niente documentazione di idoneità dell'alloggio (c. 1-ter), niente test di italiano (c. 2-ter), quinquennio calcolato dalla data della domanda di protezione (c. 5-bis).",
+          "citazione": "Il calcolo del periodo di soggiorno di cui al comma 1, per il rilascio del permesso di soggiorno UE per soggiornanti di lungo periodo di cui al comma 1-bis, e' effettuato a partire dalla data di presentazione della domanda di protezione internazionale in base alla quale la protezione internazionale e' stata riconosciuta.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_9"
+        },
+        {
+          "estremi": "art. 40, n. 1, reg. (UE) 2024/1347 (modifica art. 4, par. 2, dir. 2003/109/CE)",
+          "contenuto": "Per i beneficiari di protezione internazionale si computa l'intero periodo tra la formalizzazione della domanda e il rilascio del permesso ex art. 24 reg. 1347 (prima: almeno la metà, o tutto se oltre 18 mesi). L'art. 9 c. 5-bis TU computava già l'intero periodo dalla domanda. Il testo della dir. 2003/109 nella KB non recepisce ancora la modifica.",
+          "citazione": null,
+          "url": "https://www.sospatto.it/patto-interattivo/1347.html#art_40"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Consiglio di Stato, sez. VI",
+          "data": "2025-04-03",
+          "numero": "3222/2025",
+          "principio": "Ai fini del quinquennio del permesso UE di lungo periodo si computa il periodo trascorso con permesso per richiesta asilo protratto per anni per il ritardo della PA (non è un permesso 'di breve durata' ex art. 9 c. 3 lett. d); rilevano le condizioni al momento della domanda di permesso UE, quando il richiedente è ormai titolare di altro titolo; nel caso, successivo riconoscimento della protezione speciale (dalla scheda KB).",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1xhCmGuw3m5Du60A4M8spVe51aDN3WjTG/view?usp=drivesdk",
+          "fonte": "KB",
+          "regime": "pre_patto",
+          "letta_integrale": false
+        },
+        {
+          "corte": "TAR Friuli Venezia Giulia, sez. I",
+          "data": "2026-09-28",
+          "numero": "448/2026 (R.G. 59/2026)",
+          "principio": "Annullato per difetto di motivazione il rifiuto di convertire il permesso per protezione sussidiaria (la Questura aveva scritto che la richiesta era stata 'ovviamente bocciata'), senza indicare la norma ostativa né le carenze documentali; il ricorrente sosteneva di aver chiesto il permesso UE di lungo periodo con il kit postale.",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=tar_ts&nrg=202600059&nomeFile=202600448_01.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "regime": "post_patto",
+          "letta_integrale": true
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Periodo da richiedente lungo e decisione tardiva",
+          "testo": "Il c. 5-bis computa tutto il periodo dalla domanda; in parallelo Cons. Stato VI 3222/2025 esclude che il permesso per richiesta asilo protratto per anni sia 'di breve durata'."
+        },
+        {
+          "titolo": "Procedimento di cessazione pendente",
+          "testo": "Lo status permane fino alla decisione della Commissione nazionale (art. 14 c. 6 DPR 21/2015; TAR Toscana 2233/2026): la domanda UE va istruita, ma il rilascio può essere rifiutato se lo status cessa (art. 9 c. 4-bis)."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Data di presentazione della domanda di protezione internazionale?",
+          "perche": "Da lì decorre il quinquennio (art. 9 c. 5-bis).",
+          "opzioni": [
+            "oltre 5 anni fa",
+            "meno di 5 anni fa"
+          ]
+        },
+        {
+          "domanda": "Reddito degli ultimi anni ≥ assegno sociale (anche da familiari conviventi)?",
+          "perche": "Unico requisito economico; niente test né alloggio.",
+          "opzioni": [
+            "sì",
+            "no",
+            "in parte"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "protezione_sussidiaria",
+      "a": "lavoro_subordinato",
+      "nodo_albero": "c_end_lav_sub_ok",
+      "esito_albero": "POSSIBILE (nulla osta SUI + kit postale)",
+      "esito_verificato": "possibile",
+      "discrepanza": "Esito corretto. La procedura indicata dall'albero (nulla osta dello Sportello Unico) non trova base per questa conversione: l'art. 23 c. 2 d.lgs. 251/2007 non la prevede e la prassi è la domanda alla Questura con kit postale (da verificare con la Questura di riferimento). Manca l'avvertenza sugli effetti della perdita dello status.",
+      "sintesi": "L'art. 23 c. 2 d.lgs. 251/2007 (vigente, non toccato né dal d.l. 20/2023 né dal d.l. 100/2026) dichiara il permesso per protezione sussidiaria 'convertibile per motivi di lavoro, sussistendone i requisiti': è l'unico permesso di protezione internazionale con clausola espressa di conversione. La conversione non è necessaria per lavorare (art. 25 d.lgs. 251/2007; art. 28 reg. 2024/1347), ma può servire quando il titolare vuole un titolo non legato alla persistenza del rischio (per esempio in vista di un procedimento di cessazione) o per ragioni pratiche. Con la conversione si perdono i benefici dello status (ricongiungimento agevolato art. 29-bis TU, titolo di viaggio, tutela specifica contro l'espulsione, agevolazioni per il permesso UE): va valutato con il cliente. La giurisprudenza recente annulla i dinieghi immotivati o fondati solo sulla pendenza di un procedimento di cessazione (TAR Friuli V.G. 448/2026; TAR Toscana 2233/2026).",
+      "regime_transitorio": "Nessuna norma transitoria rilevante. Il reg. 2024/1347 (dal 1.7.2026) disciplina durata e rinnovo del permesso (art. 24) ma non vieta la conversione nazionale: l'art. 23 c. 2 resta applicabile in quanto più favorevole e non incompatibile (valutazione da validare).",
+      "requisiti": [
+        "permesso per protezione sussidiaria valido (o in rinnovo)",
+        "contratto di lavoro subordinato / UniLav, buste paga",
+        "passaporto o equipollente",
+        "alloggio (spesso richiesto in prassi; v. preavviso nel caso TAR FVG 448/2026)"
+      ],
+      "procedura": "Domanda di conversione alla Questura con kit postale (prassi); fuori quote; nessun nulla osta SUI previsto dalla norma; contributo ex art. 5 c. 2-ter per il permesso di arrivo (la sussidiaria è esente, il lavoro no). Durata del nuovo permesso secondo il contratto (fino a 2 anni, 3 se a tempo indeterminato per il subordinato). Diniego: TAR (art. 6 c. 10 TU).",
+      "norme": [
+        {
+          "estremi": "art. 23, cc. 1-2, d.lgs. 251/2007 (vigente; non modificato dal d.l. 100/2026)",
+          "contenuto": "Il permesso per asilo (rifugiati) è quinquennale e rinnovabile, senza clausola di conversione; il permesso per protezione sussidiaria è quinquennale, consente lavoro e studio ed è convertibile per motivi di lavoro.",
+          "citazione": "Tale permesso di soggiorno consente l'accesso al lavoro e allo studio ed e' convertibile per motivi di lavoro, sussistendone i requisiti.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-251-2007/index.html#art_23"
+        },
+        {
+          "estremi": "art. 25 d.lgs. 251/2007 (vigente)",
+          "contenuto": "Rifugiati e titolari di sussidiaria hanno parità di trattamento con i cittadini italiani per lavoro subordinato e autonomo, albi, formazione, tirocinio, centri per l'impiego; accesso al pubblico impiego come i cittadini UE.",
+          "citazione": null,
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-251-2007/index.html#art_25"
+        },
+        {
+          "estremi": "art. 24, parr. 1, 4 e 5, reg. (UE) 2024/1347 (si applica dal 1.7.2026)",
+          "contenuto": "Diritto al permesso finché dura lo status; validità iniziale minima 3 anni (rifugiati) e 1 anno (sussidiaria), rinnovo minimo 3/2 anni (la durata quinquennale italiana è più favorevole e compatibile); il permesso si revoca o non si rinnova solo se lo status è revocato.",
+          "citazione": "5. Le autorità competenti possono revocare o rifiutare di rinnovare un permesso di soggiorno solo se hanno revocato lo status di rifugiato a norma dell'articolo 14 o lo status di protezione sussidiaria a norma dell'articolo 19.",
+          "url": "https://www.sospatto.it/patto-interattivo/1347.html#art_24"
+        },
+        {
+          "estremi": "art. 28, par. 1, reg. (UE) 2024/1347 (si applica dal 1.7.2026: art. 42)",
+          "contenuto": "Diritto dei beneficiari di protezione internazionale a lavoro dipendente o autonomo appena riconosciuta la protezione. Norma direttamente applicabile: rende superflua qualsiasi 'conversione' per poter lavorare.",
+          "citazione": "1. I beneficiari di protezione internazionale hanno il diritto di esercitare un'attività di lavoro dipendente o autonomo nel rispetto della normativa generalmente applicabile alle professioni interessate o agli impieghi nella pubblica amministrazione, non appena sia stata loro riconosciuta la protezione.",
+          "url": "https://www.sospatto.it/patto-interattivo/1347.html#art_28"
+        },
+        {
+          "estremi": "art. 14, cc. 5-6, d.P.R. 21/2015",
+          "contenuto": "Dopo cessazione/revoca può essere rilasciato un permesso ad altro titolo se ricorrono le condizioni del TU; durante il procedimento davanti alla Commissione nazionale il permesso per asilo o sussidiaria scaduto è rinnovato fino alla decisione.",
+          "citazione": "Il permesso di soggiorno per asilo o per protezione sussidiaria, che scade nel corso del procedimento davanti alla Commissione nazionale, e' rinnovato fino alla decisione della Commissione.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:2015-01-12;21~art14"
+        },
+        {
+          "estremi": "art. 34, c. 1, d.lgs. 25/2008 (vigente)",
+          "contenuto": "La rinuncia espressa allo status comporta la decadenza; la legge non subordina il rilascio di altro titolo alla rinuncia.",
+          "citazione": "La rinuncia espressa allo status di rifugiato o di soggetto ammesso alla protezione sussidiaria determina la decadenza dal medesimo status.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-25-2008/index.html#art_34"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "TAR Toscana, sez. II",
+          "data": "2026-11-12",
+          "numero": "2233/2026 (R.G. 2875/2025)",
+          "principio": "La mera pendenza del procedimento di cessazione della protezione sussidiaria davanti alla Commissione nazionale non preclude l'esame della domanda di conversione in lavoro: fino alla decisione lo status permane e il permesso va rinnovato (art. 14 c. 6 DPR 21/2015); anche dopo la cessazione può essere rilasciato un permesso ad altro titolo (c. 5). La Questura deve istruire i requisiti e motivare.",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=tar_fi&nrg=202502875&nomeFile=202602233_01.pdf&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "regime": "post_patto",
+          "letta_integrale": true
+        },
+        {
+          "corte": "TAR Friuli Venezia Giulia, sez. I",
+          "data": "2026-09-28",
+          "numero": "448/2026 (R.G. 59/2026)",
+          "principio": "Annullato per difetto di motivazione il rifiuto di convertire il permesso per protezione sussidiaria (la Questura aveva scritto che la richiesta era stata 'ovviamente bocciata'), senza indicare la norma ostativa né le carenze documentali; il ricorrente sosteneva di aver chiesto il permesso UE di lungo periodo con il kit postale.",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=tar_ts&nrg=202600059&nomeFile=202600448_01.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "regime": "post_patto",
+          "letta_integrale": true
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Procedimento di cessazione pendente",
+          "testo": "La pendenza non preclude l'esame della conversione; la Questura deve istruire e motivare (TAR Toscana 2233/2026). Dopo la cessazione resta possibile un permesso ad altro titolo (art. 14 c. 5 DPR 21/2015)."
+        },
+        {
+          "titolo": "Passaporto da chiedere al consolato",
+          "testo": "Per la sussidiaria il contatto con le autorità del Paese d'origine non è di per sé causa di cessazione (che dipende dal venir meno del rischio, art. 15 d.lgs. 251/2007), ma può essere usato come indizio: valutare prima. Per i rifugiati il rischio è maggiore (art. 9 d.lgs. 251/2007)."
+        },
+        {
+          "titolo": "Diniego 'perché la sussidiaria non si converte'",
+          "testo": "Contrario all'art. 23 c. 2; annullato per difetto di motivazione da TAR Friuli V.G. 448/2026."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "È pendente o è stato comunicato un procedimento di cessazione/revoca della Commissione nazionale?",
+          "perche": "Cambia la strategia e la motivazione della domanda (TAR Toscana 2233/2026).",
+          "opzioni": [
+            "no",
+            "sì, avviato",
+            "sì, già deciso"
+          ]
+        },
+        {
+          "domanda": "Il cliente è consapevole che perderà ricongiungimento agevolato, titolo di viaggio e agevolazioni per il permesso UE?",
+          "perche": "La conversione non è necessaria per lavorare.",
+          "opzioni": [
+            "sì, vuole convertire",
+            "no, valutare alternative"
+          ]
+        },
+        {
+          "domanda": "Ha passaporto valido?",
+          "perche": "Requisito del permesso per lavoro e possibile indizio in sede di cessazione.",
+          "opzioni": [
+            "sì",
+            "no"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "protezione_sussidiaria",
+      "a": "lavoro_autonomo",
+      "nodo_albero": "c_end_lav_aut_ok",
+      "esito_albero": "POSSIBILE (nulla osta SUI + kit postale)",
+      "esito_verificato": "possibile",
+      "discrepanza": "Esito corretto. La procedura indicata dall'albero (nulla osta dello Sportello Unico) non trova base per questa conversione: l'art. 23 c. 2 d.lgs. 251/2007 non la prevede e la prassi è la domanda alla Questura con kit postale (da verificare con la Questura di riferimento). Manca l'avvertenza sugli effetti della perdita dello status.",
+      "sintesi": "L'art. 23 c. 2 d.lgs. 251/2007 (vigente, non toccato né dal d.l. 20/2023 né dal d.l. 100/2026) dichiara il permesso per protezione sussidiaria 'convertibile per motivi di lavoro, sussistendone i requisiti': è l'unico permesso di protezione internazionale con clausola espressa di conversione. La conversione non è necessaria per lavorare (art. 25 d.lgs. 251/2007; art. 28 reg. 2024/1347), ma può servire quando il titolare vuole un titolo non legato alla persistenza del rischio (per esempio in vista di un procedimento di cessazione) o per ragioni pratiche. Con la conversione si perdono i benefici dello status (ricongiungimento agevolato art. 29-bis TU, titolo di viaggio, tutela specifica contro l'espulsione, agevolazioni per il permesso UE): va valutato con il cliente. La giurisprudenza recente annulla i dinieghi immotivati o fondati solo sulla pendenza di un procedimento di cessazione (TAR Friuli V.G. 448/2026; TAR Toscana 2233/2026). Per il lavoro autonomo servono i requisiti dell'attività (titoli abilitativi, iscrizioni, risorse: art. 26 TU, applicabile per analogia; da verificare la prassi della Questura sulla certificazione).",
+      "regime_transitorio": "Nessuna norma transitoria rilevante. Il reg. 2024/1347 (dal 1.7.2026) disciplina durata e rinnovo del permesso (art. 24) ma non vieta la conversione nazionale: l'art. 23 c. 2 resta applicabile in quanto più favorevole e non incompatibile (valutazione da validare).",
+      "requisiti": [
+        "permesso per protezione sussidiaria valido",
+        "attività autonoma avviata o avviabile (partita IVA, iscrizione CCIAA/albi, licenze)",
+        "reddito adeguato (parametri art. 26 TU, da verificare)",
+        "passaporto o equipollente"
+      ],
+      "procedura": "Domanda di conversione alla Questura con kit postale (prassi); fuori quote; nessun nulla osta SUI previsto dalla norma; contributo ex art. 5 c. 2-ter per il permesso di arrivo (la sussidiaria è esente, il lavoro no). Durata del nuovo permesso secondo il contratto (fino a 2 anni, 3 se a tempo indeterminato per il subordinato). Diniego: TAR (art. 6 c. 10 TU).",
+      "norme": [
+        {
+          "estremi": "art. 23, cc. 1-2, d.lgs. 251/2007 (vigente; non modificato dal d.l. 100/2026)",
+          "contenuto": "Il permesso per asilo (rifugiati) è quinquennale e rinnovabile, senza clausola di conversione; il permesso per protezione sussidiaria è quinquennale, consente lavoro e studio ed è convertibile per motivi di lavoro.",
+          "citazione": "Tale permesso di soggiorno consente l'accesso al lavoro e allo studio ed e' convertibile per motivi di lavoro, sussistendone i requisiti.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-251-2007/index.html#art_23"
+        },
+        {
+          "estremi": "art. 25 d.lgs. 251/2007 (vigente)",
+          "contenuto": "Rifugiati e titolari di sussidiaria hanno parità di trattamento con i cittadini italiani per lavoro subordinato e autonomo, albi, formazione, tirocinio, centri per l'impiego; accesso al pubblico impiego come i cittadini UE.",
+          "citazione": null,
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-251-2007/index.html#art_25"
+        },
+        {
+          "estremi": "art. 24, parr. 1, 4 e 5, reg. (UE) 2024/1347 (si applica dal 1.7.2026)",
+          "contenuto": "Diritto al permesso finché dura lo status; validità iniziale minima 3 anni (rifugiati) e 1 anno (sussidiaria), rinnovo minimo 3/2 anni (la durata quinquennale italiana è più favorevole e compatibile); il permesso si revoca o non si rinnova solo se lo status è revocato.",
+          "citazione": "5. Le autorità competenti possono revocare o rifiutare di rinnovare un permesso di soggiorno solo se hanno revocato lo status di rifugiato a norma dell'articolo 14 o lo status di protezione sussidiaria a norma dell'articolo 19.",
+          "url": "https://www.sospatto.it/patto-interattivo/1347.html#art_24"
+        },
+        {
+          "estremi": "art. 28, par. 1, reg. (UE) 2024/1347 (si applica dal 1.7.2026: art. 42)",
+          "contenuto": "Diritto dei beneficiari di protezione internazionale a lavoro dipendente o autonomo appena riconosciuta la protezione. Norma direttamente applicabile: rende superflua qualsiasi 'conversione' per poter lavorare.",
+          "citazione": "1. I beneficiari di protezione internazionale hanno il diritto di esercitare un'attività di lavoro dipendente o autonomo nel rispetto della normativa generalmente applicabile alle professioni interessate o agli impieghi nella pubblica amministrazione, non appena sia stata loro riconosciuta la protezione.",
+          "url": "https://www.sospatto.it/patto-interattivo/1347.html#art_28"
+        },
+        {
+          "estremi": "art. 14, cc. 5-6, d.P.R. 21/2015",
+          "contenuto": "Dopo cessazione/revoca può essere rilasciato un permesso ad altro titolo se ricorrono le condizioni del TU; durante il procedimento davanti alla Commissione nazionale il permesso per asilo o sussidiaria scaduto è rinnovato fino alla decisione.",
+          "citazione": "Il permesso di soggiorno per asilo o per protezione sussidiaria, che scade nel corso del procedimento davanti alla Commissione nazionale, e' rinnovato fino alla decisione della Commissione.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:2015-01-12;21~art14"
+        },
+        {
+          "estremi": "art. 34, c. 1, d.lgs. 25/2008 (vigente)",
+          "contenuto": "La rinuncia espressa allo status comporta la decadenza; la legge non subordina il rilascio di altro titolo alla rinuncia.",
+          "citazione": "La rinuncia espressa allo status di rifugiato o di soggetto ammesso alla protezione sussidiaria determina la decadenza dal medesimo status.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-25-2008/index.html#art_34"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "TAR Toscana, sez. II",
+          "data": "2026-11-12",
+          "numero": "2233/2026 (R.G. 2875/2025)",
+          "principio": "La mera pendenza del procedimento di cessazione della protezione sussidiaria davanti alla Commissione nazionale non preclude l'esame della domanda di conversione in lavoro: fino alla decisione lo status permane e il permesso va rinnovato (art. 14 c. 6 DPR 21/2015); anche dopo la cessazione può essere rilasciato un permesso ad altro titolo (c. 5). La Questura deve istruire i requisiti e motivare.",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=tar_fi&nrg=202502875&nomeFile=202602233_01.pdf&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "regime": "post_patto",
+          "letta_integrale": true
+        },
+        {
+          "corte": "TAR Friuli Venezia Giulia, sez. I",
+          "data": "2026-09-28",
+          "numero": "448/2026 (R.G. 59/2026)",
+          "principio": "Annullato per difetto di motivazione il rifiuto di convertire il permesso per protezione sussidiaria (la Questura aveva scritto che la richiesta era stata 'ovviamente bocciata'), senza indicare la norma ostativa né le carenze documentali; il ricorrente sosteneva di aver chiesto il permesso UE di lungo periodo con il kit postale.",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=tar_ts&nrg=202600059&nomeFile=202600448_01.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "regime": "post_patto",
+          "letta_integrale": true
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Procedimento di cessazione pendente",
+          "testo": "La pendenza non preclude l'esame della conversione; la Questura deve istruire e motivare (TAR Toscana 2233/2026). Dopo la cessazione resta possibile un permesso ad altro titolo (art. 14 c. 5 DPR 21/2015)."
+        },
+        {
+          "titolo": "Passaporto da chiedere al consolato",
+          "testo": "Per la sussidiaria il contatto con le autorità del Paese d'origine non è di per sé causa di cessazione (che dipende dal venir meno del rischio, art. 15 d.lgs. 251/2007), ma può essere usato come indizio: valutare prima. Per i rifugiati il rischio è maggiore (art. 9 d.lgs. 251/2007)."
+        },
+        {
+          "titolo": "Diniego 'perché la sussidiaria non si converte'",
+          "testo": "Contrario all'art. 23 c. 2; annullato per difetto di motivazione da TAR Friuli V.G. 448/2026."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "È pendente o è stato comunicato un procedimento di cessazione/revoca della Commissione nazionale?",
+          "perche": "Cambia la strategia e la motivazione della domanda (TAR Toscana 2233/2026).",
+          "opzioni": [
+            "no",
+            "sì, avviato",
+            "sì, già deciso"
+          ]
+        },
+        {
+          "domanda": "Il cliente è consapevole che perderà ricongiungimento agevolato, titolo di viaggio e agevolazioni per il permesso UE?",
+          "perche": "La conversione non è necessaria per lavorare.",
+          "opzioni": [
+            "sì, vuole convertire",
+            "no, valutare alternative"
+          ]
+        },
+        {
+          "domanda": "Ha passaporto valido?",
+          "perche": "Requisito del permesso per lavoro e possibile indizio in sede di cessazione.",
+          "opzioni": [
+            "sì",
+            "no"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "protezione_sussidiaria",
+      "a": "attesa_occupazione",
+      "nodo_albero": "c_end_att_asilo",
+      "esito_albero": "NON HA SENSO",
+      "esito_verificato": "non_possibile",
+      "discrepanza": null,
+      "sintesi": "L'art. 23 c. 2 d.lgs. 251/2007 ammette la conversione 'per motivi di lavoro', che presuppone un rapporto di lavoro; l'attesa occupazione (art. 22 c. 11 TU) nasce solo dalla perdita del lavoro di chi ha già un permesso per lavoro subordinato. Il titolare di sussidiaria senza lavoro conserva il permesso quinquennale e l'accesso ai servizi per l'impiego.",
+      "regime_transitorio": null,
+      "requisiti": [
+        "nessuno"
+      ],
+      "procedura": "Non applicabile.",
+      "norme": [
+        {
+          "estremi": "art. 22, c. 11, d.lgs. 286/1998 (vigente)",
+          "contenuto": "L'attesa occupazione presuppone un permesso per lavoro subordinato e la perdita del posto di lavoro: non è un titolo di conversione da permessi non lavorativi.",
+          "citazione": "Il lavoratore straniero in possesso del permesso di soggiorno per lavoro subordinato che perde il posto di lavoro, anche per dimissioni, puo' rendere dichiarazione di immediata disponibilita' al sistema informativo unitario delle politiche del lavoro ai sensi dell'articolo 19 del decreto legislativo 14 settembre 2015, n. 150, e beneficiare degli effetti ad essa correlati per il periodo di residua validita' del permesso di soggiorno, e comunque, salvo che si tratti di permesso di soggiorno per lavoro stagionale, per un periodo non inferiore ad un anno ovvero per tutto il periodo di durata della prestazione di sostegno al reddito percepita dal lavoratore straniero, qualora superiore.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_22"
+        },
+        {
+          "estremi": "art. 23, cc. 1-2, d.lgs. 251/2007 (vigente; non modificato dal d.l. 100/2026)",
+          "contenuto": "Il permesso per asilo (rifugiati) è quinquennale e rinnovabile, senza clausola di conversione; il permesso per protezione sussidiaria è quinquennale, consente lavoro e studio ed è convertibile per motivi di lavoro.",
+          "citazione": "Tale permesso di soggiorno consente l'accesso al lavoro e allo studio ed e' convertibile per motivi di lavoro, sussistendone i requisiti.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-251-2007/index.html#art_23"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [],
+      "domande_discriminanti": []
+    },
+    {
+      "da": "protezione_sussidiaria",
+      "a": "studio",
+      "nodo_albero": "c_end_stu_ok",
+      "esito_albero": "POSSIBILE",
+      "esito_verificato": "condizionato",
+      "discrepanza": "Previsto solo per ITS/università/specializzazioni (art. 39 cc. 5-5-bis TU) e non necessario: il permesso per sussidiaria 'consente l'accesso al lavoro e allo studio' (art. 23 c. 2 d.lgs. 251/2007).",
+      "sintesi": "L'art. 39 c. 5 TU include i titolari di permesso per protezione sussidiaria tra chi accede a ITS, università e specializzazioni, e il c. 5-bis prevede il permesso 'studente'. Il passaggio non è però necessario, perché il permesso per sussidiaria consente già lo studio (art. 23 c. 2 e art. 26 d.lgs. 251/2007; art. 29 reg. 2024/1347), e fa perdere i benefici dello status. Da sconsigliare salvo strategie specifiche (per esempio procedimento di cessazione).",
+      "regime_transitorio": null,
+      "requisiti": [
+        "iscrizione a ITS/università/specializzazione",
+        "valutazione degli effetti sullo status"
+      ],
+      "procedura": "Di norma nessuna; altrimenti domanda alla Questura ex art. 39 c. 5-bis TU.",
+      "norme": [
+        {
+          "estremi": "art. 39, cc. 5 e 5-bis, d.lgs. 286/1998 (vigente)",
+          "contenuto": "Accesso a ITS, formazione superiore (università) e scuole di specializzazione, a parità con gli italiani, per i titolari di permesso UE, lavoro, famiglia, asilo, protezione sussidiaria, religiosi, artt. 18, 18-bis, 20-bis (calamità), 22 c. 12-quater, 42-bis e del permesso ex art. 32 c. 3 d.lgs. 25/2008 (protezione speciale), nonché per chi soggiorna regolarmente da almeno un anno con diploma di scuola secondaria superiore conseguito in Italia. A costoro il questore rilascia un permesso per studio 'studente' (c. 5-bis). Le cure mediche (art. 19 c. 2 lett. d-bis) e la richiesta asilo NON sono nell'elenco.",
+          "citazione": "Agli stranieri di cui ai commi 4-ter e 5 e' rilasciato dal questore un permesso di soggiorno per studio ai sensi dell'articolo 5, commi 3, lettera c) e 8, recante la dicitura «studente».",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_39"
+        },
+        {
+          "estremi": "art. 23, cc. 1-2, d.lgs. 251/2007 (vigente; non modificato dal d.l. 100/2026)",
+          "contenuto": "Il permesso per asilo (rifugiati) è quinquennale e rinnovabile, senza clausola di conversione; il permesso per protezione sussidiaria è quinquennale, consente lavoro e studio ed è convertibile per motivi di lavoro.",
+          "citazione": "Tale permesso di soggiorno consente l'accesso al lavoro e allo studio ed e' convertibile per motivi di lavoro, sussistendone i requisiti.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-251-2007/index.html#art_23"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [],
+      "domande_discriminanti": []
+    },
+    {
+      "da": "protezione_sussidiaria",
+      "a": "famiglia",
+      "nodo_albero": "c_end_fam_ok",
+      "esito_albero": "POSSIBILE",
+      "esito_verificato": "incerto",
+      "discrepanza": "L'art. 23 c. 2 d.lgs. 251/2007 prevede la conversione solo 'per motivi di lavoro'; l'art. 30 c. 1 lett. c TU è generico. Esito 'possibile, puoi fare da solo' troppo netto: da valutare con un legale.",
+      "sintesi": "Il passaggio da sussidiaria a famiglia non è previsto dall'art. 23 c. 2 d.lgs. 251/2007, che parla solo di lavoro; si può sostenere l'applicabilità dell'art. 30 c. 1 lett. c) TU, che non contiene un elenco tassativo, ma non sono stati trovati precedenti. Il passaggio fa perdere i benefici dello status (ricongiungimento agevolato, titolo di viaggio, agevolazioni per il permesso UE) e lega il soggiorno al familiare. Più utile, per i familiari del titolare, il permesso ex art. 22 c. 3 d.lgs. 251/2007 e il ricongiungimento ex art. 29-bis TU.",
+      "regime_transitorio": null,
+      "requisiti": [
+        "vincolo familiare e requisiti dell'art. 29 TU (salvo familiare italiano/UE)",
+        "valutazione legale degli effetti sullo status"
+      ],
+      "procedura": "Se si procede: domanda alla Questura con kit postale; diniego davanti al giudice ordinario (art. 30 c. 6 TU).",
+      "norme": [
+        {
+          "estremi": "art. 30, c. 1, lett. c), d.lgs. 286/1998 (vigente)",
+          "contenuto": "Conversione in permesso per motivi familiari del familiare regolarmente soggiornante in possesso dei requisiti per il ricongiungimento con cittadino italiano/UE residente o straniero regolarmente soggiornante; richiedibile anche entro un anno dalla scadenza del titolo; se il familiare è rifugiato si prescinde dal permesso valido. La giurisdizione sui dinieghi è del giudice ordinario (art. 30 c. 6 TU).",
+          "citazione": "c) al familiare straniero regolarmente soggiornante, in possesso dei requisiti per il ricongiungimento con il cittadino italiano o di uno Stato membro dell'Unione europea residenti in Italia, ovvero con straniero regolarmente soggiornante in Italia. In tal caso il permesso del familiare e' convertito in permesso di soggiorno per motivi familiari. La conversione puo' essere richiesta entro un anno dalla data di scadenza del titolo di soggiorno originariamente posseduto dal familiare. Qualora detto cittadino sia un rifugiato si prescinde dal possesso di un valido permesso di soggiorno da parte del familiare;",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_30"
+        },
+        {
+          "estremi": "art. 23, cc. 1-2, d.lgs. 251/2007 (vigente; non modificato dal d.l. 100/2026)",
+          "contenuto": "Il permesso per asilo (rifugiati) è quinquennale e rinnovabile, senza clausola di conversione; il permesso per protezione sussidiaria è quinquennale, consente lavoro e studio ed è convertibile per motivi di lavoro.",
+          "citazione": "Tale permesso di soggiorno consente l'accesso al lavoro e allo studio ed e' convertibile per motivi di lavoro, sussistendone i requisiti.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-251-2007/index.html#art_23"
+        },
+        {
+          "estremi": "art. 22, cc. 3-4, d.lgs. 251/2007 (vigente)",
+          "contenuto": "Ai familiari presenti del titolare di protezione internazionale si rilascia il permesso per motivi familiari ex art. 30 TU; il titolare di sussidiaria ha diritto al ricongiungimento ex art. 29-bis TU.",
+          "citazione": null,
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-251-2007/index.html#art_22"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Cessazione della sussidiaria",
+          "testo": "Dopo la cessazione, se esiste un vincolo familiare, il permesso familiare è un titolo alternativo (art. 14 c. 5 DPR 21/2015; art. 30 TU)."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "La domanda riguarda il titolare o un suo familiare?",
+          "perche": "Per il familiare la via è l'art. 22 d.lgs. 251/2007.",
+          "opzioni": [
+            "il titolare",
+            "un familiare"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "protezione_sussidiaria",
+      "a": "ue_lungo_periodo",
+      "nodo_albero": "c_end_carta_ok",
+      "esito_albero": "POSSIBILE (5 anni, reddito, test A2)",
+      "esito_verificato": "possibile",
+      "discrepanza": "Come per l'asilo: per la protezione internazionale niente test di italiano (art. 9 c. 2-ter), niente documentazione di idoneità dell'alloggio (c. 1-ter), quinquennio dalla domanda di protezione (c. 5-bis). Lo status resta annotato.",
+      "sintesi": "Il titolare di protezione sussidiaria rientra nell'art. 9 c. 1-bis TU (protezione internazionale) con le stesse agevolazioni del rifugiato: quinquennio dalla domanda di protezione, nessun test di lingua, nessuna documentazione di idoneità dell'alloggio, reddito ≥ assegno sociale. Il permesso UE reca l'annotazione dello status. È la via preferibile rispetto alla conversione in lavoro per chi vuole stabilizzarsi senza perdere lo status. Se lo status è revocato o cessa (artt. 13, 15, 18 d.lgs. 251/2007) il permesso UE è rifiutato o revocato, salvo per la cessazione ex art. 15 (art. 9 c. 4-bis).",
+      "regime_transitorio": null,
+      "requisiti": [
+        "5 anni dalla domanda di protezione",
+        "reddito ≥ assegno sociale",
+        "luogo di residenza",
+        "assenza di pericolosità"
+      ],
+      "procedura": "Domanda alla Questura con kit postale; contributo ex art. 5 c. 2-ter (importo da verificare). Diniego: TAR.",
+      "norme": [
+        {
+          "estremi": "art. 9, cc. 1, 1-bis, 1-ter, 2-ter, 5-bis, d.lgs. 286/1998 (vigente)",
+          "contenuto": "Permesso UE per soggiornanti di lungo periodo: 5 anni di permesso valido e reddito non inferiore all'assegno sociale. Per i titolari di protezione internazionale: annotazione 'protezione internazionale riconosciuta da…' (c. 1-bis), niente documentazione di idoneità dell'alloggio (c. 1-ter), niente test di italiano (c. 2-ter), quinquennio calcolato dalla data della domanda di protezione (c. 5-bis).",
+          "citazione": "Il calcolo del periodo di soggiorno di cui al comma 1, per il rilascio del permesso di soggiorno UE per soggiornanti di lungo periodo di cui al comma 1-bis, e' effettuato a partire dalla data di presentazione della domanda di protezione internazionale in base alla quale la protezione internazionale e' stata riconosciuta.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_9"
+        },
+        {
+          "estremi": "art. 40, n. 1, reg. (UE) 2024/1347 (modifica art. 4, par. 2, dir. 2003/109/CE)",
+          "contenuto": "Per i beneficiari di protezione internazionale si computa l'intero periodo tra la formalizzazione della domanda e il rilascio del permesso ex art. 24 reg. 1347 (prima: almeno la metà, o tutto se oltre 18 mesi). L'art. 9 c. 5-bis TU computava già l'intero periodo dalla domanda. Il testo della dir. 2003/109 nella KB non recepisce ancora la modifica.",
+          "citazione": null,
+          "url": "https://www.sospatto.it/patto-interattivo/1347.html#art_40"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "TAR Friuli Venezia Giulia, sez. I",
+          "data": "2026-09-28",
+          "numero": "448/2026 (R.G. 59/2026)",
+          "principio": "Annullato per difetto di motivazione il rifiuto di convertire il permesso per protezione sussidiaria (la Questura aveva scritto che la richiesta era stata 'ovviamente bocciata'), senza indicare la norma ostativa né le carenze documentali; il ricorrente sosteneva di aver chiesto il permesso UE di lungo periodo con il kit postale.",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=tar_ts&nrg=202600059&nomeFile=202600448_01.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "regime": "post_patto",
+          "letta_integrale": true
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Questura che tratta la domanda UE come 'conversione in lavoro'",
+          "testo": "Caso TAR Friuli V.G. 448/2026: conservare prova dell'oggetto del kit (copia del modulo, ricevuta) e diffidare per iscritto."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Data della domanda di protezione e redditi degli ultimi anni?",
+          "perche": "Determinano la maturazione del quinquennio e il requisito economico.",
+          "opzioni": [
+            "≥ 5 anni e reddito sufficiente",
+            "≥ 5 anni ma reddito insufficiente",
+            "< 5 anni"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "richiesta_asilo",
+      "a": "lavoro",
+      "nodo_albero": "c_end_lav_no",
+      "esito_albero": "NON POSSIBILE",
+      "esito_verificato": "non_possibile",
+      "discrepanza": "Esito corretto; la spiegazione andrebbe articolata per regime: domande ante 12.6.2026 → divieto espresso (art. 22 c. 2 d.lgs. 142/2015 previgente); domande post-Patto → non esiste più un 'permesso' da convertire, ma un documento del richiedente. Eccezione MSNA (art. 14 c. 1-bis DPR 394/1999).",
+      "sintesi": "Per le domande di protezione presentate prima del 12.6.2026 resta il permesso per richiesta asilo (art. 4 c. 1 d.lgs. 142/2015 previgente) con il divieto espresso di conversione in lavoro (art. 22 c. 2 previgente), applicabile fino alla conclusione del procedimento (art. 17 c. 4 d.l. 100/2026): giurisprudenza costante (TAR Marche 513/2018). Per le domande dal 12.6.2026 il d.l. 100/2026 ha soppresso sia il permesso sia il divieto: il richiedente riceve un documento (art. 4 cc. 1 e 4 d.lgs. 142/2015; art. 29 par. 4 reg. 2024/1348) che attesta il diritto di rimanere per l'esame della domanda e consente il lavoro dopo 90 giorni, ma non è un permesso di soggiorno e non rientra nell'elenco dell'art. 6 c. 1-bis TU: anche qui nessuna conversione in lavoro. Il richiedente può però lavorare (dopo 60 giorni nel regime previgente, 90 nel nuovo, salvo il documento transitorio dell'art. 17 c. 3). Restano vie indirette: protezione speciale, regolarizzazioni straordinarie, ingresso con decreto flussi dopo l'uscita.",
+      "regime_transitorio": "Domande anteriori al 12.6.2026: disciplina previgente (permesso per richiesta asilo, divieto art. 22 c. 2) fino alla conclusione del procedimento, anche giudiziario (art. 17 c. 4 d.l. 100/2026). Domande registrate dal 12.6.2026 al 30.4.2027: documento rilasciato alla registrazione che vale un anno e abilita al lavoro (art. 17 cc. 2-3, testo d.l. 168/2026).",
+      "requisiti": [
+        "nessuna conversione possibile (salvo MSNA)"
+      ],
+      "procedura": "Nessuna. Per i MSNA richiedenti asilo: domanda di conversione ex art. 32 cc. 1 e 1-bis TU entro 30 giorni dai termini dell'art. 14 c. 1-bis DPR 394/1999 (parere DG Immigrazione o requisiti dell'art. 32).",
+      "norme": [
+        {
+          "estremi": "art. 22, c. 2, d.lgs. 142/2015 (PREVIGENTE: soppresso dall'art. 10, lett. g), n. 2, d.l. 100/2026)",
+          "contenuto": "Divieto espresso di conversione in lavoro del permesso per richiesta asilo; continua ad applicarsi ai procedimenti avviati con domanda anteriore al 12.6.2026 (art. 17 c. 4 d.l. 100/2026).",
+          "citazione": "Il permesso di soggiorno di cui al comma 1 non puo' essere convertito in permesso di soggiorno per motivi di lavoro.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-142-2015/index.html#art_22"
+        },
+        {
+          "estremi": "art. 4, c. 1, d.lgs. 142/2015 (PREVIGENTE)",
+          "contenuto": "Permesso per richiesta asilo semestrale, rinnovabile fino alla decisione: resta per le domande anteriori al 12.6.2026.",
+          "citazione": "Al richiedente e' rilasciato un permesso di soggiorno per richiesta asilo valido nel territorio nazionale per sei mesi, rinnovabile fino alla decisione della domanda o comunque per il tempo in cui e' autorizzato a rimanere nel territorio nazionale ai sensi dell'articolo 35-bis, commi 3 e 4, del decreto legislativo 28 gennaio 2008, n. 25.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-142-2015/index.html#art_4"
+        },
+        {
+          "estremi": "art. 4, cc. 1 e 4, e art. 22, c. 1, d.lgs. 142/2015 (vigenti, testo d.l. 100/2026)",
+          "contenuto": "Per le domande dal 12.6.2026 il richiedente non riceve più un 'permesso di soggiorno per richiesta asilo' ma un documento nominativo (alla registrazione) e un documento ex art. 29 par. 4 reg. 1348 (alla formalizzazione), che consente di lavorare dopo 90 giorni se il ritardo non è imputabile al richiedente. In fase transitoria (fino al 30.4.2027) il documento rilasciato alla registrazione equivale a quello del c. 4, vale un anno e abilita al lavoro (art. 17 cc. 2-3 d.l. 100/2026, testo d.l. 168/2026).",
+          "citazione": "Il documento di cui all'articolo 4, comma 4 consente di svolgere attivita' lavorativa, trascorsi novanta giorni dalla formalizzazione della domanda, se il procedimento di esame della domanda non e' concluso ed il ritardo non puo' essere attribuito al richiedente.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-142-2015/index.html#art_22"
+        },
+        {
+          "estremi": "art. 17, c. 4, d.l. 100/2026 conv. senza modif. dalla l. 145/2026 (art. 17 modificato dal d.l. 168/2026)",
+          "contenuto": "Ai procedimenti avviati con domanda di protezione anteriore al 12.6.2026 si applica la disciplina previgente fino alla loro conclusione.",
+          "citazione": "Ai procedimenti amministrativi o giudiziari avviati di seguito alla presentazione della domanda di protezione internazionale in data anteriore al 12 giugno 2026, continua ad applicarsi la disciplina previgente fino alla conclusione dei procedimenti medesimi, ma il tribunale decide in composizione monocratica anche nei procedimenti diversi da quelli di cui all'articolo 16, comma 1.",
+          "url": "https://www.sospatto.it/patto-interattivo/dl-100-2026/index.html#art_17"
+        },
+        {
+          "estremi": "art. 10, par. 1, e art. 29, par. 4, lett. d), reg. (UE) 2024/1348",
+          "contenuto": "Diritto di rimanere del richiedente fino alla decisione amministrativa; il documento del richiedente attesta il diritto di rimanere 'affinché la sua domanda sia esaminata': è un'autorizzazione funzionale alla procedura, non un titolo di soggiorno (rilievo per la nozione di 'regolarmente soggiornante' dell'art. 30 TU).",
+          "citazione": "1. I richiedenti hanno il diritto di rimanere nel territorio dello Stato membro in cui sono tenuti a essere presenti in conformità dell'articolo 17, paragrafo 4, del regolamento (UE) 2024/1351 fintantoché l'autorità accertante non abbia preso una decisione sulla domanda nel corso della procedura amministrativa prevista al capo III.",
+          "url": "https://www.sospatto.it/patto-interattivo/1348.html#art_10"
+        },
+        {
+          "estremi": "art. 14, c. 1-bis, d.P.R. 394/1999",
+          "contenuto": "Unica eccezione al divieto: il permesso per richiesta asilo del minore straniero non accompagnato è convertibile ex art. 32 cc. 1 e 1-bis TU in caso di diniego, anche dopo la maggiore età, entro 30 giorni dai termini indicati. Il rinvio è all'art. 4 d.lgs. 142/2015 nel testo previgente: applicabilità alle domande post-Patto da verificare.",
+          "citazione": "Il permesso di soggiorno per richiesta asilo rilasciato al minore straniero non accompagnato ai sensi dell'articolo 4 del decreto legislativo 18 agosto 2015, n. 142, puo' essere convertito, ai sensi dell'articolo 32, commi 1 e 1-bis, del testo unico, in caso di diniego della protezione internazionale, anche dopo il raggiungimento della maggiore eta'.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art14"
+        },
+        {
+          "estremi": "art. 6, c. 1-bis, d.lgs. 286/1998 (vigente; non modificato dal d.l. 100/2026)",
+          "contenuto": "Elenco tassativo dei permessi convertibili in lavoro ex art. 6. Le lett. a) (protezione speciale ex art. 32 c. 3 d.lgs. 25/2008), b) (calamità) e h-bis) (cure mediche) sono state abrogate dall'art. 7, c. 1, lett. a), d.l. 20/2023 come introdotto dalla l. conv. 50/2023, con effetto dal 6.5.2023 (al 1.4.2023 le tre lettere erano ancora vigenti: verificato su Normattiva, multivigenza). Restano: residenza elettiva, cittadinanza/apolidia (salvo provenienza da richiesta asilo), sport, artistico, religiosi, assistenza minori.",
+          "citazione": "a) LETTERA ABROGATA DAL D.L. 10 MARZO 2023, N. 20, CONVERTITO CON MODIFICAZIONI DALLA L. 5 MAGGIO 2023, N. 50;",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_6"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "TAR Marche, sez. I",
+          "data": "2018-07-18",
+          "numero": "513/2018 (R.G. 12/2018)",
+          "principio": "Legittimo il rifiuto di convertire in lavoro il permesso per richiesta asilo dopo il rigetto definitivo della domanda: l'art. 22 c. 2 d.lgs. 142/2015 pone una causa ostativa specifica; la clausola 'salvo permesso ad altro titolo' dell'art. 32 c. 4 d.lgs. 25/2008 non fonda da sola un diritto al rilascio.",
+          "esito": "favorevole alla PA",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=tar_an&nrg=201800012&nomeFile=201800513_20.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "regime": "pre_patto",
+          "letta_integrale": true
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Ex MSNA richiedente asilo",
+          "testo": "Art. 14 c. 1-bis DPR 394/1999: conversione ex art. 32 TU anche dopo i 18 anni in caso di diniego. Il rinvio è al permesso ex art. 4 d.lgs. 142/2015 previgente: per le domande post-Patto la norma va riletta (documento invece di permesso)."
+        },
+        {
+          "titolo": "Rinuncia alla domanda per chiedere un permesso per lavoro",
+          "testo": "Non apre una conversione: dopo la rinuncia il soggiorno non ha base, salvo altro titolo (art. 32 c. 4 d.lgs. 25/2008). Sconsigliabile senza un titolo alternativo certo."
+        },
+        {
+          "titolo": "Richiedente con lunga permanenza e lavoro stabile",
+          "testo": "La via è la protezione speciale per integrazione (art. 19 c. 1.1 TU e art. 5 c. 6 TU dopo il d.l. 20/2023), da chiedere in sede di Commissione/Tribunale; non la conversione."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "La domanda di protezione è stata presentata prima o dopo il 12 giugno 2026?",
+          "perche": "Cambia il documento posseduto e la norma applicabile.",
+          "opzioni": [
+            "prima del 12.6.2026",
+            "dal 12.6.2026"
+          ]
+        },
+        {
+          "domanda": "Il cliente era minore non accompagnato al momento della domanda?",
+          "perche": "Unica eccezione al divieto (art. 14 c. 1-bis DPR 394/1999).",
+          "opzioni": [
+            "sì",
+            "no"
+          ]
+        },
+        {
+          "domanda": "A che punto è la procedura (Commissione, ricorso, diniego definitivo)?",
+          "perche": "Termini dell'art. 14 c. 1-bis e possibilità di chiedere la protezione speciale.",
+          "opzioni": [
+            "in attesa della Commissione",
+            "ricorso pendente",
+            "diniego definitivo"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "richiesta_asilo",
+      "a": "attesa_occupazione",
+      "nodo_albero": "c_end_att_no",
+      "esito_albero": "NON POSSIBILE",
+      "esito_verificato": "non_possibile",
+      "discrepanza": null,
+      "sintesi": "Nessuna base: l'attesa occupazione presuppone un permesso per lavoro subordinato (art. 22 c. 11 TU) e il permesso/documento del richiedente non è convertibile in lavoro (art. 22 c. 2 d.lgs. 142/2015 previgente; post-Patto nessuna clausola). Il richiedente disoccupato resta tale fino alla decisione.",
+      "regime_transitorio": "Come per lavoro (art. 17 c. 4 d.l. 100/2026).",
+      "requisiti": [
+        "nessuno"
+      ],
+      "procedura": "Non applicabile.",
+      "norme": [
+        {
+          "estremi": "art. 22, c. 11, d.lgs. 286/1998 (vigente)",
+          "contenuto": "L'attesa occupazione presuppone un permesso per lavoro subordinato e la perdita del posto di lavoro: non è un titolo di conversione da permessi non lavorativi.",
+          "citazione": "Il lavoratore straniero in possesso del permesso di soggiorno per lavoro subordinato che perde il posto di lavoro, anche per dimissioni, puo' rendere dichiarazione di immediata disponibilita' al sistema informativo unitario delle politiche del lavoro ai sensi dell'articolo 19 del decreto legislativo 14 settembre 2015, n. 150, e beneficiare degli effetti ad essa correlati per il periodo di residua validita' del permesso di soggiorno, e comunque, salvo che si tratti di permesso di soggiorno per lavoro stagionale, per un periodo non inferiore ad un anno ovvero per tutto il periodo di durata della prestazione di sostegno al reddito percepita dal lavoratore straniero, qualora superiore.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_22"
+        },
+        {
+          "estremi": "art. 22, c. 2, d.lgs. 142/2015 (PREVIGENTE: soppresso dall'art. 10, lett. g), n. 2, d.l. 100/2026)",
+          "contenuto": "Divieto espresso di conversione in lavoro del permesso per richiesta asilo; continua ad applicarsi ai procedimenti avviati con domanda anteriore al 12.6.2026 (art. 17 c. 4 d.l. 100/2026).",
+          "citazione": "Il permesso di soggiorno di cui al comma 1 non puo' essere convertito in permesso di soggiorno per motivi di lavoro.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-142-2015/index.html#art_22"
+        },
+        {
+          "estremi": "art. 4, cc. 1 e 4, e art. 22, c. 1, d.lgs. 142/2015 (vigenti, testo d.l. 100/2026)",
+          "contenuto": "Per le domande dal 12.6.2026 il richiedente non riceve più un 'permesso di soggiorno per richiesta asilo' ma un documento nominativo (alla registrazione) e un documento ex art. 29 par. 4 reg. 1348 (alla formalizzazione), che consente di lavorare dopo 90 giorni se il ritardo non è imputabile al richiedente. In fase transitoria (fino al 30.4.2027) il documento rilasciato alla registrazione equivale a quello del c. 4, vale un anno e abilita al lavoro (art. 17 cc. 2-3 d.l. 100/2026, testo d.l. 168/2026).",
+          "citazione": "Il documento di cui all'articolo 4, comma 4 consente di svolgere attivita' lavorativa, trascorsi novanta giorni dalla formalizzazione della domanda, se il procedimento di esame della domanda non e' concluso ed il ritardo non puo' essere attribuito al richiedente.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-142-2015/index.html#art_22"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [],
+      "domande_discriminanti": []
+    },
+    {
+      "da": "richiesta_asilo",
+      "a": "studio",
+      "nodo_albero": "c_end_stu_no",
+      "esito_albero": "NON POSSIBILE",
+      "esito_verificato": "non_possibile",
+      "discrepanza": "Sostanzialmente coerente. Caso limite: l'art. 39 c. 5 TU ammette anche chi è 'regolarmente soggiornante da almeno un anno' con diploma di scuola secondaria superiore conseguito in Italia; resta incerto se il richiedente (soprattutto post-Patto) sia 'regolarmente soggiornante'.",
+      "sintesi": "Il permesso per richiesta asilo non figura tra i titoli dell'art. 39 c. 5 TU che danno accesso al permesso 'studente' per ITS/università; il permesso per studio ordinario richiede l'ingresso con visto. Il richiedente può comunque iscriversi e frequentare corsi con il suo titolo. L'unico spiraglio è la seconda ipotesi dell'art. 39 c. 5 (un anno di soggiorno regolare e diploma di scuola superiore italiano), la cui applicabilità ai richiedenti non risulta verificata in giurisprudenza; post-Patto il documento del richiedente attesta solo il diritto di rimanere per l'esame della domanda (art. 10 e art. 29 par. 4 reg. 2024/1348).",
+      "regime_transitorio": "Domande ante 12.6.2026: permesso per richiesta asilo (previgente). Domande successive: documento ex art. 4 d.lgs. 142/2015.",
+      "requisiti": [
+        "nessuna conversione"
+      ],
+      "procedura": "Non applicabile; iscrizione ai corsi possibile con il titolo di richiedente.",
+      "norme": [
+        {
+          "estremi": "art. 39, cc. 5 e 5-bis, d.lgs. 286/1998 (vigente)",
+          "contenuto": "Accesso a ITS, formazione superiore (università) e scuole di specializzazione, a parità con gli italiani, per i titolari di permesso UE, lavoro, famiglia, asilo, protezione sussidiaria, religiosi, artt. 18, 18-bis, 20-bis (calamità), 22 c. 12-quater, 42-bis e del permesso ex art. 32 c. 3 d.lgs. 25/2008 (protezione speciale), nonché per chi soggiorna regolarmente da almeno un anno con diploma di scuola secondaria superiore conseguito in Italia. A costoro il questore rilascia un permesso per studio 'studente' (c. 5-bis). Le cure mediche (art. 19 c. 2 lett. d-bis) e la richiesta asilo NON sono nell'elenco.",
+          "citazione": "Agli stranieri di cui ai commi 4-ter e 5 e' rilasciato dal questore un permesso di soggiorno per studio ai sensi dell'articolo 5, commi 3, lettera c) e 8, recante la dicitura «studente».",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_39"
+        },
+        {
+          "estremi": "art. 10, par. 1, e art. 29, par. 4, lett. d), reg. (UE) 2024/1348",
+          "contenuto": "Diritto di rimanere del richiedente fino alla decisione amministrativa; il documento del richiedente attesta il diritto di rimanere 'affinché la sua domanda sia esaminata': è un'autorizzazione funzionale alla procedura, non un titolo di soggiorno (rilievo per la nozione di 'regolarmente soggiornante' dell'art. 30 TU).",
+          "citazione": "1. I richiedenti hanno il diritto di rimanere nel territorio dello Stato membro in cui sono tenuti a essere presenti in conformità dell'articolo 17, paragrafo 4, del regolamento (UE) 2024/1351 fintantoché l'autorità accertante non abbia preso una decisione sulla domanda nel corso della procedura amministrativa prevista al capo III.",
+          "url": "https://www.sospatto.it/patto-interattivo/1348.html#art_10"
+        },
+        {
+          "estremi": "art. 17, c. 4, d.l. 100/2026 conv. senza modif. dalla l. 145/2026 (art. 17 modificato dal d.l. 168/2026)",
+          "contenuto": "Ai procedimenti avviati con domanda di protezione anteriore al 12.6.2026 si applica la disciplina previgente fino alla loro conclusione.",
+          "citazione": "Ai procedimenti amministrativi o giudiziari avviati di seguito alla presentazione della domanda di protezione internazionale in data anteriore al 12 giugno 2026, continua ad applicarsi la disciplina previgente fino alla conclusione dei procedimenti medesimi, ma il tribunale decide in composizione monocratica anche nei procedimenti diversi da quelli di cui all'articolo 16, comma 1.",
+          "url": "https://www.sospatto.it/patto-interattivo/dl-100-2026/index.html#art_17"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Richiedente diplomato in Italia da oltre un anno",
+          "testo": "Argomentabile l'art. 39 c. 5 seconda parte; esito incerto, nessun precedente trovato."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Ha conseguito in Italia un diploma di scuola secondaria superiore?",
+          "perche": "Seconda ipotesi dell'art. 39 c. 5 TU.",
+          "opzioni": [
+            "sì",
+            "no"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "richiesta_asilo",
+      "a": "famiglia",
+      "nodo_albero": "c_end_fam_ok",
+      "esito_albero": "POSSIBILE",
+      "esito_verificato": "condizionato",
+      "discrepanza": "Esito plausibile per le domande ante 12.6.2026 (il divieto dell'art. 22 c. 2 previgente riguarda solo il lavoro); da precisare che per le domande post-Patto il richiedente non ha più un 'permesso' da convertire e la sua qualifica di 'regolarmente soggiornante' ex art. 30 c. 1 lett. c TU è incerta. Le vie dell'art. 30 c. 1 lett. d (genitore di minore italiano) e dell'art. 19 c. 2 lett. c (convivente con coniuge/parente italiano) prescindono dal titolo.",
+      "sintesi": "Il divieto di conversione del permesso per richiesta asilo (art. 22 c. 2 d.lgs. 142/2015 previgente) riguarda solo il lavoro; l'art. 30 c. 1 lett. c) TU consente la conversione in motivi familiari del permesso di qualunque 'familiare regolarmente soggiornante' con i requisiti del ricongiungimento. Nel regime previgente (domande ante 12.6.2026) la conversione è quindi sostenibile e praticata, con giurisdizione del giudice ordinario sui dinieghi (TAR Emilia-Romagna 1177/2014). Per le domande dal 12.6.2026 il richiedente ha solo un documento che attesta il diritto di rimanere per l'esame della domanda (art. 10 e 29 reg. 2024/1348): che basti a qualificarlo 'regolarmente soggiornante' è questione nuova. Restano comunque percorribili, a prescindere dal titolo, l'art. 30 c. 1 lett. d) (genitore di minore italiano) e il permesso per motivi familiari dell'inespellibile convivente con coniuge o parente entro il secondo grado italiano (art. 19 c. 2 lett. c TU; art. 28 c. 1 lett. b DPR 394/1999). L'art. 30 c. 1 lett. b) (matrimonio) richiede un anno di soggiorno regolare 'ad altro titolo'.",
+      "regime_transitorio": "Domande ante 12.6.2026: permesso per richiesta asilo convertibile ex art. 30 TU (art. 17 c. 4 d.l. 100/2026). Domande dal 12.6.2026: documento del richiedente, qualificazione incerta.",
+      "requisiti": [
+        "vincolo familiare ex art. 29 TU con cittadino italiano/UE o straniero regolarmente soggiornante",
+        "per il familiare straniero: reddito e alloggio (art. 29 c. 3)",
+        "passaporto o equipollente (spesso critico per i richiedenti)",
+        "valutazione degli effetti sulla domanda d'asilo pendente"
+      ],
+      "procedura": "Domanda alla Questura (kit postale o sportello secondo la Questura); contributo per il permesso familiare. Diniego: giudice ordinario (art. 30 c. 6 TU; TAR Emilia-Romagna 1177/2014). Coordinare con la procedura d'asilo: il rilascio di un permesso ad altro titolo non estingue la domanda ma incide sulle conseguenze del rigetto (art. 32 c. 4 d.lgs. 25/2008).",
+      "norme": [
+        {
+          "estremi": "art. 30, c. 1, lett. c), d.lgs. 286/1998 (vigente)",
+          "contenuto": "Conversione in permesso per motivi familiari del familiare regolarmente soggiornante in possesso dei requisiti per il ricongiungimento con cittadino italiano/UE residente o straniero regolarmente soggiornante; richiedibile anche entro un anno dalla scadenza del titolo; se il familiare è rifugiato si prescinde dal permesso valido. La giurisdizione sui dinieghi è del giudice ordinario (art. 30 c. 6 TU).",
+          "citazione": "c) al familiare straniero regolarmente soggiornante, in possesso dei requisiti per il ricongiungimento con il cittadino italiano o di uno Stato membro dell'Unione europea residenti in Italia, ovvero con straniero regolarmente soggiornante in Italia. In tal caso il permesso del familiare e' convertito in permesso di soggiorno per motivi familiari. La conversione puo' essere richiesta entro un anno dalla data di scadenza del titolo di soggiorno originariamente posseduto dal familiare. Qualora detto cittadino sia un rifugiato si prescinde dal possesso di un valido permesso di soggiorno da parte del familiare;",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_30"
+        },
+        {
+          "estremi": "art. 30, c. 1, lett. b) e d), d.lgs. 286/1998; art. 28, c. 1, lett. b), d.P.R. 394/1999",
+          "contenuto": "Vie alternative alla lett. c): matrimonio in Italia dopo almeno un anno di soggiorno regolare 'ad altro titolo' (lett. b); genitore di minore italiano residente, anche senza titolo valido (lett. d); permesso per motivi familiari allo straniero inespellibile perché convivente con parente entro il secondo grado o coniuge italiano (art. 19 c. 2 lett. c TU e art. 28 c. 1 lett. b DPR 394).",
+          "citazione": "d) al genitore straniero, anche naturale, di minore italiano residente in Italia. In tal caso il permesso di soggiorno per motivi familiari e' rilasciato anche a prescindere dal possesso di un valido titolo di soggiorno, a condizione che il genitore richiedente non sia stato privato della potesta' genitoriale secondo la legge italiana.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_30"
+        },
+        {
+          "estremi": "art. 22, c. 2, d.lgs. 142/2015 (PREVIGENTE: soppresso dall'art. 10, lett. g), n. 2, d.l. 100/2026)",
+          "contenuto": "Divieto espresso di conversione in lavoro del permesso per richiesta asilo; continua ad applicarsi ai procedimenti avviati con domanda anteriore al 12.6.2026 (art. 17 c. 4 d.l. 100/2026).",
+          "citazione": "Il permesso di soggiorno di cui al comma 1 non puo' essere convertito in permesso di soggiorno per motivi di lavoro.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-142-2015/index.html#art_22"
+        },
+        {
+          "estremi": "art. 4, cc. 1 e 4, e art. 22, c. 1, d.lgs. 142/2015 (vigenti, testo d.l. 100/2026)",
+          "contenuto": "Per le domande dal 12.6.2026 il richiedente non riceve più un 'permesso di soggiorno per richiesta asilo' ma un documento nominativo (alla registrazione) e un documento ex art. 29 par. 4 reg. 1348 (alla formalizzazione), che consente di lavorare dopo 90 giorni se il ritardo non è imputabile al richiedente. In fase transitoria (fino al 30.4.2027) il documento rilasciato alla registrazione equivale a quello del c. 4, vale un anno e abilita al lavoro (art. 17 cc. 2-3 d.l. 100/2026, testo d.l. 168/2026).",
+          "citazione": "Il documento di cui all'articolo 4, comma 4 consente di svolgere attivita' lavorativa, trascorsi novanta giorni dalla formalizzazione della domanda, se il procedimento di esame della domanda non e' concluso ed il ritardo non puo' essere attribuito al richiedente.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-142-2015/index.html#art_22"
+        },
+        {
+          "estremi": "art. 10, par. 1, e art. 29, par. 4, lett. d), reg. (UE) 2024/1348",
+          "contenuto": "Diritto di rimanere del richiedente fino alla decisione amministrativa; il documento del richiedente attesta il diritto di rimanere 'affinché la sua domanda sia esaminata': è un'autorizzazione funzionale alla procedura, non un titolo di soggiorno (rilievo per la nozione di 'regolarmente soggiornante' dell'art. 30 TU).",
+          "citazione": "1. I richiedenti hanno il diritto di rimanere nel territorio dello Stato membro in cui sono tenuti a essere presenti in conformità dell'articolo 17, paragrafo 4, del regolamento (UE) 2024/1351 fintantoché l'autorità accertante non abbia preso una decisione sulla domanda nel corso della procedura amministrativa prevista al capo III.",
+          "url": "https://www.sospatto.it/patto-interattivo/1348.html#art_10"
+        },
+        {
+          "estremi": "art. 17, c. 4, d.l. 100/2026 conv. senza modif. dalla l. 145/2026 (art. 17 modificato dal d.l. 168/2026)",
+          "contenuto": "Ai procedimenti avviati con domanda di protezione anteriore al 12.6.2026 si applica la disciplina previgente fino alla loro conclusione.",
+          "citazione": "Ai procedimenti amministrativi o giudiziari avviati di seguito alla presentazione della domanda di protezione internazionale in data anteriore al 12 giugno 2026, continua ad applicarsi la disciplina previgente fino alla conclusione dei procedimenti medesimi, ma il tribunale decide in composizione monocratica anche nei procedimenti diversi da quelli di cui all'articolo 16, comma 1.",
+          "url": "https://www.sospatto.it/patto-interattivo/dl-100-2026/index.html#art_17"
+        },
+        {
+          "estremi": "art. 32, c. 4, d.lgs. 25/2008 (vigente)",
+          "contenuto": "Il rigetto comporta l'obbligo di lasciare il territorio 'salvo che gli sia stato rilasciato un permesso di soggiorno ad altro titolo': la legge ammette la coesistenza della procedura d'asilo con un titolo ad altro titolo.",
+          "citazione": null,
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-25-2008/index.html#art_32"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "TAR Emilia-Romagna, sez. II",
+          "data": "2014-11-05",
+          "numero": "1177/2014 (R.G. 888/2014) - data della camera di consiglio; data di pubblicazione non indicata nel testo",
+          "principio": "Sul diniego di conversione del permesso per richiesta asilo in permesso per motivi familiari ex art. 30 TU la giurisdizione è del giudice ordinario (difetto di giurisdizione del TAR, con riassunzione). Non decide il merito della convertibilità.",
+          "esito": "neutrale (questione di giurisdizione)",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=tar_bo&nrg=201400888&nomeFile=201401177_20.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "regime": "pre_patto",
+          "letta_integrale": true
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Richiedente che sposa in Italia un cittadino italiano",
+          "testo": "Per il coniuge di italiano valutare la carta di soggiorno da familiare (d.lgs. 30/2007, applicabile ai familiari di italiani) o l'art. 30 c. 1 lett. c; la lett. b richiede un anno di soggiorno regolare 'ad altro titolo'."
+        },
+        {
+          "titolo": "Rinuncia alla domanda d'asilo richiesta dalla Questura",
+          "testo": "Non prevista dall'art. 30 TU; la rinuncia ha effetti propri (estinzione/ritiro della domanda). Valutare prima con un legale; per analogia v. TAR Marche 784/2023 sulla rinuncia indotta."
+        },
+        {
+          "titolo": "Richiedente senza passaporto",
+          "testo": "Il permesso familiare richiede passaporto o equipollente: l'ottenimento del passaporto può incidere sulla credibilità della domanda d'asilo. Bilanciare."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Data della domanda di protezione (prima o dal 12.6.2026)?",
+          "perche": "Regime del titolo posseduto.",
+          "opzioni": [
+            "prima del 12.6.2026",
+            "dal 12.6.2026"
+          ]
+        },
+        {
+          "domanda": "Chi è il familiare e che titolo ha?",
+          "perche": "Determina la base (lett. b, c, d; art. 19 c. 2 lett. c; d.lgs. 30/2007) e i requisiti.",
+          "opzioni": [
+            "coniuge/parente italiano convivente",
+            "figlio minore italiano",
+            "familiare UE",
+            "familiare straniero regolarmente soggiornante"
+          ]
+        },
+        {
+          "domanda": "La domanda d'asilo è ancora pendente e il cliente intende mantenerla?",
+          "perche": "Coordinamento tra le due procedure e rischio di rinuncia.",
+          "opzioni": [
+            "pendente, da mantenere",
+            "pendente, disposto a rinunciare",
+            "già rigettata"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "richiesta_asilo",
+      "a": "ue_lungo_periodo",
+      "nodo_albero": "c_end_carta_no",
+      "esito_albero": "NON POSSIBILE",
+      "esito_verificato": "non_possibile",
+      "discrepanza": "Coerente. Da aggiungere: il periodo da richiedente conta se poi la protezione è riconosciuta (art. 9 c. 5-bis TU) o, secondo Cons. Stato VI 3222/2025, anche se si passa a un altro titolo.",
+      "sintesi": "L'art. 9 c. 3 lett. c) TU (e l'art. 3 par. 2 lett. d dir. 2003/109) esclude i richiedenti in attesa di decisione definitiva. Il periodo trascorso come richiedente non è però perso: se la protezione internazionale è riconosciuta, il quinquennio decorre dalla domanda (c. 5-bis); se si ottiene un altro titolo (protezione speciale, famiglia, lavoro), il Consiglio di Stato lo ritiene computabile perché il permesso per richiesta asilo protratto nel tempo non è 'di breve durata' (Cons. Stato VI 3222/2025).",
+      "regime_transitorio": null,
+      "requisiti": [
+        "non applicabile finché si è richiedenti"
+      ],
+      "procedura": "Non applicabile.",
+      "norme": [
+        {
+          "estremi": "art. 9, c. 3, lett. c), d.lgs. 286/1998 (vigente)",
+          "contenuto": "Esclusi i richiedenti protezione internazionale in attesa di decisione definitiva.",
+          "citazione": "c) hanno chiesto la protezione internazionale come definita dall'articolo 2, comma 1, lettera a), del decreto legislativo 19 novembre 2007, n. 251 e sono ancora in attesa di una decisione definitiva circa tale richiesta;",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_9"
+        },
+        {
+          "estremi": "art. 3, par. 2, lett. c) e d), dir. 2003/109/CE",
+          "contenuto": "La direttiva non si applica a chi soggiorna a titolo di una forma di protezione diversa dalla protezione internazionale né ai richiedenti in attesa di decisione definitiva: base UE delle esclusioni dell'art. 9 c. 3 TU.",
+          "citazione": "c) sono autorizzati a soggiornare in uno Stato membro a titolo di una forma di protezione diversa dalla protezione internazionale o hanno chiesto l’autorizzazione al soggiorno a tale titolo e sono in attesa di una decisione sul loro status;",
+          "url": "https://www.sospatto.it/patto-interattivo/ext-dir-2003-109.html#art_3"
+        },
+        {
+          "estremi": "art. 9, cc. 1, 1-bis, 1-ter, 2-ter, 5-bis, d.lgs. 286/1998 (vigente)",
+          "contenuto": "Permesso UE per soggiornanti di lungo periodo: 5 anni di permesso valido e reddito non inferiore all'assegno sociale. Per i titolari di protezione internazionale: annotazione 'protezione internazionale riconosciuta da…' (c. 1-bis), niente documentazione di idoneità dell'alloggio (c. 1-ter), niente test di italiano (c. 2-ter), quinquennio calcolato dalla data della domanda di protezione (c. 5-bis).",
+          "citazione": "Il calcolo del periodo di soggiorno di cui al comma 1, per il rilascio del permesso di soggiorno UE per soggiornanti di lungo periodo di cui al comma 1-bis, e' effettuato a partire dalla data di presentazione della domanda di protezione internazionale in base alla quale la protezione internazionale e' stata riconosciuta.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_9"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Consiglio di Stato, sez. VI",
+          "data": "2025-04-03",
+          "numero": "3222/2025",
+          "principio": "Ai fini del quinquennio del permesso UE di lungo periodo si computa il periodo trascorso con permesso per richiesta asilo protratto per anni per il ritardo della PA (non è un permesso 'di breve durata' ex art. 9 c. 3 lett. d); rilevano le condizioni al momento della domanda di permesso UE, quando il richiedente è ormai titolare di altro titolo; nel caso, successivo riconoscimento della protezione speciale (dalla scheda KB).",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1xhCmGuw3m5Du60A4M8spVe51aDN3WjTG/view?usp=drivesdk",
+          "fonte": "KB",
+          "regime": "pre_patto",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [],
+      "domande_discriminanti": []
+    },
+    {
+      "da": "calamita",
+      "a": "lavoro",
+      "nodo_albero": "c_data_5mag_2023 → c_end_lav_sub_ok (ante) / c_end_complicata (post)",
+      "esito_albero": "POSSIBILE se domanda prima del 5/5/2023; altrimenti 'complicata'",
+      "esito_verificato": "condizionato",
+      "discrepanza": "Per le domande dal 6.5.2023 l'esito corretto è 'non possibile' (divieto espresso nell'art. 20-bis c. 2 TU), non 'complicata'. Data: 'entro il 5 maggio 2023' (incluso), secondo il Cons. Stato.",
+      "sintesi": "Dal 6.5.2023 il permesso per calamità (art. 20-bis TU) consente il lavoro ma non è convertibile in permesso per lavoro: il divieto è ora scritto nella norma stessa (c. 2) oltre che nell'abrogazione dell'art. 6 c. 1-bis lett. b). Restano convertibili, per l'art. 7 c. 2 d.l. 20/2023 come letto dal Consiglio di Stato, i permessi per calamità chiesti entro il 5.5.2023, anche se la conversione è chiesta dopo. Il d.l. 100/2026 non ha inciso sull'art. 20-bis.",
+      "regime_transitorio": "Art. 7 c. 2 d.l. 20/2023: per i permessi per calamità la cui domanda di rilascio è stata presentata entro il 5.5.2023 si applica la disciplina previgente (art. 6 c. 1-bis lett. b TU), compresa la convertibilità in lavoro; il Consiglio di Stato estende la lettura 'domanda originaria' a tutti i permessi della rubrica dell'art. 7 (protezione speciale, cure mediche, calamità: Cons. Stato 9634/2025). Nessun precedente specifico sulla calamità è stato trovato. In concreto il caso è residuale: il permesso per calamità previgente era rinnovabile finché durava la calamità; quelli nuovi durano 6 mesi + 6.",
+      "requisiti": [
+        "permesso per calamità chiesto entro il 5.5.2023 e in corso di validità",
+        "rapporto di lavoro / attività autonoma",
+        "passaporto o equipollente"
+      ],
+      "procedura": "Domanda alla Questura con kit postale (prassi); fuori quote; contributo per il permesso di arrivo. Diniego: TAR.",
+      "norme": [
+        {
+          "estremi": "art. 20-bis, cc. 1-2, d.lgs. 286/1998 (vigente, testo l. 50/2023)",
+          "contenuto": "Permesso per calamità 'contingente ed eccezionale': 6 mesi, rinnovabile per ulteriori 6 mesi se persistono le condizioni; consente il lavoro ma non è convertibile in lavoro (divieto espresso aggiunto dalla l. 50/2023, in vigore dal 6.5.2023).",
+          "citazione": "Il permesso di soggiorno rilasciato a norma del presente articolo ha la durata di sei mesi, ed e' rinnovabile per un periodo ulteriore di sei mesi se permangono le condizioni di eccezionale calamita' di cui al comma 1; il permesso e' valido solo nel territorio nazionale e consente di svolgere attivita' lavorativa , ma non puo' essere convertito in permesso di soggiorno per motivi di lavoro.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_20-bis"
+        },
+        {
+          "estremi": "art. 6, c. 1-bis, d.lgs. 286/1998 (vigente; non modificato dal d.l. 100/2026)",
+          "contenuto": "Elenco tassativo dei permessi convertibili in lavoro ex art. 6. Le lett. a) (protezione speciale ex art. 32 c. 3 d.lgs. 25/2008), b) (calamità) e h-bis) (cure mediche) sono state abrogate dall'art. 7, c. 1, lett. a), d.l. 20/2023 come introdotto dalla l. conv. 50/2023, con effetto dal 6.5.2023 (al 1.4.2023 le tre lettere erano ancora vigenti: verificato su Normattiva, multivigenza). Restano: residenza elettiva, cittadinanza/apolidia (salvo provenienza da richiesta asilo), sport, artistico, religiosi, assistenza minori.",
+          "citazione": "a) LETTERA ABROGATA DAL D.L. 10 MARZO 2023, N. 20, CONVERTITO CON MODIFICAZIONI DALLA L. 5 MAGGIO 2023, N. 50;",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_6"
+        },
+        {
+          "estremi": "art. 6, c. 1-bis, lett. a), b), h-bis), d.lgs. 286/1998 (testo vigente al 1.4.2023, Normattiva)",
+          "contenuto": "Prima della l. 50/2023 erano convertibili in lavoro: la protezione speciale ex art. 32 c. 3 d.lgs. 25/2008 (salvo applicazione delle cause di esclusione/diniego degli artt. 10 c. 2, 12 c. 1 lett. b-c e 16 d.lgs. 251/2007), il permesso per calamità ex art. 20-bis e quello per cure mediche ex art. 19 c. 2 lett. d-bis.",
+          "citazione": "a) permesso di soggiorno per protezione speciale, di cui all'articolo 32, comma 3, del decreto legislativo 28 gennaio 2008, n. 25, ad eccezione dei casi per i quali siano state applicate le cause di diniego ed esclusione della protezione internazionale, di cui agli articoli 10, comma 2, 12, comma 1, lettere b) e c), e 16 del decreto legislativo 19 novembre 2007, n. 251;",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art6!vig=2023-04-01"
+        },
+        {
+          "estremi": "art. 7, c. 2, d.l. 20/2023 conv. con modif. dalla l. 50/2023 (norma transitoria)",
+          "contenuto": "Ultrattività della disciplina previgente per le istanze presentate fino all'entrata in vigore del decreto o se lo straniero aveva già ricevuto l'invito della Questura. Il Cons. Stato (sez. III) riferisce le 'istanze' alla domanda di rilascio del titolo da convertire (domanda di protezione / di permesso per cure / calamità), non alla domanda di conversione; per le modifiche introdotte in conversione la data di riferimento è il 6.5.2023.",
+          "citazione": "Per le istanze presentate fino alla data di entrata in vigore del presente decreto, ovvero nei casi in cui lo straniero abbia già ricevuto l'invito alla presentazione dell'istanza da parte della Questura competente, continua ad applicarsi la disciplina previgente.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legge:2023-03-10;20~art7"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Consiglio di Stato, sez. III",
+          "data": "2025-12-05",
+          "numero": "9634/2025 (R.G. 946/2025)",
+          "principio": "L'art. 7 c. 2 d.l. 20/2023 mantiene il regime previgente, compresa la convertibilità in lavoro, per tutti i titoli (protezione speciale, cure mediche, calamità: rubrica unitaria) la cui domanda di rilascio è anteriore al 6.5.2023; irrilevante la data dell'istanza di conversione e la data del rilascio; vale anche la richiesta di appuntamento via PEC anteriore. Disattesa la circolare n. 50432 dell'1.6.2023. Citazione verificata: la disciplina transitoria \"tiene fermo il regime previgente per tutte le istanze originariamente presentate per il rilascio del titolo da convertire, dunque pendenti al momento dell'entrata in vigore del decreto Cutro, e non già per le istanze di conversione sic et simpliciter\".",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=cds&nrg=202500946&nomeFile=202509634_11.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "regime": "pre_patto",
+          "letta_integrale": true
+        }
+      ],
+      "prassi": [
+        {
+          "ente": "Ministero dell'Interno",
+          "estremi": "circolare n. 50432 (come riportata da Cons. Stato, sez. III, n. 9634/2025)",
+          "data": "2023-06-01",
+          "oggetto": "Applicazione del d.l. 20/2023: ammessa la conversione cure mediche → lavoro solo per le istanze di conversione presentate fino al 4.5.2023 o se c'era già l'invito della Questura. Interpretazione disattesa dal Consiglio di Stato e dai giudici di merito (Trib. Firenze R.G. 12514/2023).",
+          "url": null
+        }
+      ],
+      "casi_limite": [
+        {
+          "titolo": "Permesso per calamità rinnovato dopo il 6.5.2023",
+          "testo": "Il rinnovo è regolato dal nuovo testo (6 mesi + 6). Se la domanda originaria è anteriore, si può sostenere la convertibilità (lettura del Cons. Stato); la questione dei rinnovi non è stata decisa."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Quando è stata presentata la prima domanda di permesso per calamità?",
+          "perche": "Art. 7 c. 2 d.l. 20/2023.",
+          "opzioni": [
+            "entro il 5.5.2023",
+            "dal 6.5.2023"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "calamita",
+      "a": "attesa_occupazione",
+      "nodo_albero": "c_end_att_no",
+      "esito_albero": "NON POSSIBILE",
+      "esito_verificato": "non_possibile",
+      "discrepanza": null,
+      "sintesi": "Nessuna base: l'attesa occupazione nasce solo dal permesso per lavoro subordinato (art. 22 c. 11 TU) e il permesso per calamità non è convertibile in lavoro (art. 20-bis c. 2 TU), salvo regime transitorio.",
+      "regime_transitorio": "Nel regime transitorio la conversione è 'in lavoro' e richiede un rapporto in essere.",
+      "requisiti": [
+        "nessuno"
+      ],
+      "procedura": "Non applicabile.",
+      "norme": [
+        {
+          "estremi": "art. 22, c. 11, d.lgs. 286/1998 (vigente)",
+          "contenuto": "L'attesa occupazione presuppone un permesso per lavoro subordinato e la perdita del posto di lavoro: non è un titolo di conversione da permessi non lavorativi.",
+          "citazione": "Il lavoratore straniero in possesso del permesso di soggiorno per lavoro subordinato che perde il posto di lavoro, anche per dimissioni, puo' rendere dichiarazione di immediata disponibilita' al sistema informativo unitario delle politiche del lavoro ai sensi dell'articolo 19 del decreto legislativo 14 settembre 2015, n. 150, e beneficiare degli effetti ad essa correlati per il periodo di residua validita' del permesso di soggiorno, e comunque, salvo che si tratti di permesso di soggiorno per lavoro stagionale, per un periodo non inferiore ad un anno ovvero per tutto il periodo di durata della prestazione di sostegno al reddito percepita dal lavoratore straniero, qualora superiore.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_22"
+        },
+        {
+          "estremi": "art. 20-bis, cc. 1-2, d.lgs. 286/1998 (vigente, testo l. 50/2023)",
+          "contenuto": "Permesso per calamità 'contingente ed eccezionale': 6 mesi, rinnovabile per ulteriori 6 mesi se persistono le condizioni; consente il lavoro ma non è convertibile in lavoro (divieto espresso aggiunto dalla l. 50/2023, in vigore dal 6.5.2023).",
+          "citazione": "Il permesso di soggiorno rilasciato a norma del presente articolo ha la durata di sei mesi, ed e' rinnovabile per un periodo ulteriore di sei mesi se permangono le condizioni di eccezionale calamita' di cui al comma 1; il permesso e' valido solo nel territorio nazionale e consente di svolgere attivita' lavorativa , ma non puo' essere convertito in permesso di soggiorno per motivi di lavoro.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_20-bis"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [],
+      "domande_discriminanti": []
+    },
+    {
+      "da": "calamita",
+      "a": "studio",
+      "nodo_albero": "c_end_stu_ok",
+      "esito_albero": "POSSIBILE",
+      "esito_verificato": "condizionato",
+      "discrepanza": "Coerente, ma va limitato a ITS/università/specializzazioni: base art. 39 cc. 5 e 5-bis TU, che cita l'art. 20-bis.",
+      "sintesi": "L'art. 39 c. 5 TU comprende i titolari dei permessi ex art. 20-bis tra chi accede a ITS, università e specializzazioni, e il c. 5-bis prevede il rilascio del permesso 'studente' da parte del questore. La via non è stata toccata dalla l. 50/2023 (che ha escluso solo la conversione in lavoro) né dal d.l. 100/2026. Non vale per scuola secondaria e formazione professionale.",
+      "regime_transitorio": null,
+      "requisiti": [
+        "iscrizione a ITS/università/specializzazione",
+        "mezzi di sostentamento e assicurazione come per studenti (da verificare)",
+        "passaporto o equipollente"
+      ],
+      "procedura": "Domanda alla Questura ex art. 39 c. 5-bis TU (kit postale in prassi); contributo per il permesso per studio. Diniego: TAR.",
+      "norme": [
+        {
+          "estremi": "art. 39, cc. 5 e 5-bis, d.lgs. 286/1998 (vigente)",
+          "contenuto": "Accesso a ITS, formazione superiore (università) e scuole di specializzazione, a parità con gli italiani, per i titolari di permesso UE, lavoro, famiglia, asilo, protezione sussidiaria, religiosi, artt. 18, 18-bis, 20-bis (calamità), 22 c. 12-quater, 42-bis e del permesso ex art. 32 c. 3 d.lgs. 25/2008 (protezione speciale), nonché per chi soggiorna regolarmente da almeno un anno con diploma di scuola secondaria superiore conseguito in Italia. A costoro il questore rilascia un permesso per studio 'studente' (c. 5-bis). Le cure mediche (art. 19 c. 2 lett. d-bis) e la richiesta asilo NON sono nell'elenco.",
+          "citazione": "Agli stranieri di cui ai commi 4-ter e 5 e' rilasciato dal questore un permesso di soggiorno per studio ai sensi dell'articolo 5, commi 3, lettera c) e 8, recante la dicitura «studente».",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_39"
+        },
+        {
+          "estremi": "art. 20-bis, cc. 1-2, d.lgs. 286/1998 (vigente, testo l. 50/2023)",
+          "contenuto": "Permesso per calamità 'contingente ed eccezionale': 6 mesi, rinnovabile per ulteriori 6 mesi se persistono le condizioni; consente il lavoro ma non è convertibile in lavoro (divieto espresso aggiunto dalla l. 50/2023, in vigore dal 6.5.2023).",
+          "citazione": "Il permesso di soggiorno rilasciato a norma del presente articolo ha la durata di sei mesi, ed e' rinnovabile per un periodo ulteriore di sei mesi se permangono le condizioni di eccezionale calamita' di cui al comma 1; il permesso e' valido solo nel territorio nazionale e consente di svolgere attivita' lavorativa , ma non puo' essere convertito in permesso di soggiorno per motivi di lavoro.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_20-bis"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Ponte studio → lavoro",
+          "testo": "Come per la protezione speciale: la successiva conversione studio → lavoro (art. 6 c. 1 TU) è astrattamente possibile; nessun precedente."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Che tipo di corso?",
+          "perche": "Solo ITS, università e specializzazioni.",
+          "opzioni": [
+            "università/ITS/specializzazione",
+            "altro"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "calamita",
+      "a": "famiglia",
+      "nodo_albero": "c_end_fam_ok",
+      "esito_albero": "POSSIBILE",
+      "esito_verificato": "condizionato",
+      "discrepanza": null,
+      "sintesi": "L'art. 30 c. 1 lett. c) TU vale per qualunque permesso del familiare regolarmente soggiornante: il titolare di permesso per calamità può convertire in motivi familiari se ha i requisiti del ricongiungimento con un familiare italiano/UE o straniero regolarmente soggiornante; il divieto dell'art. 20-bis c. 2 riguarda solo il lavoro.",
+      "regime_transitorio": null,
+      "requisiti": [
+        "vincolo familiare ex art. 29 TU",
+        "reddito e alloggio del familiare straniero",
+        "domanda entro un anno dalla scadenza del titolo"
+      ],
+      "procedura": "Domanda alla Questura con kit postale; diniego davanti al giudice ordinario (art. 30 c. 6 TU).",
+      "norme": [
+        {
+          "estremi": "art. 30, c. 1, lett. c), d.lgs. 286/1998 (vigente)",
+          "contenuto": "Conversione in permesso per motivi familiari del familiare regolarmente soggiornante in possesso dei requisiti per il ricongiungimento con cittadino italiano/UE residente o straniero regolarmente soggiornante; richiedibile anche entro un anno dalla scadenza del titolo; se il familiare è rifugiato si prescinde dal permesso valido. La giurisdizione sui dinieghi è del giudice ordinario (art. 30 c. 6 TU).",
+          "citazione": "c) al familiare straniero regolarmente soggiornante, in possesso dei requisiti per il ricongiungimento con il cittadino italiano o di uno Stato membro dell'Unione europea residenti in Italia, ovvero con straniero regolarmente soggiornante in Italia. In tal caso il permesso del familiare e' convertito in permesso di soggiorno per motivi familiari. La conversione puo' essere richiesta entro un anno dalla data di scadenza del titolo di soggiorno originariamente posseduto dal familiare. Qualora detto cittadino sia un rifugiato si prescinde dal possesso di un valido permesso di soggiorno da parte del familiare;",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_30"
+        },
+        {
+          "estremi": "art. 30, c. 1, lett. b) e d), d.lgs. 286/1998; art. 28, c. 1, lett. b), d.P.R. 394/1999",
+          "contenuto": "Vie alternative alla lett. c): matrimonio in Italia dopo almeno un anno di soggiorno regolare 'ad altro titolo' (lett. b); genitore di minore italiano residente, anche senza titolo valido (lett. d); permesso per motivi familiari allo straniero inespellibile perché convivente con parente entro il secondo grado o coniuge italiano (art. 19 c. 2 lett. c TU e art. 28 c. 1 lett. b DPR 394).",
+          "citazione": "d) al genitore straniero, anche naturale, di minore italiano residente in Italia. In tal caso il permesso di soggiorno per motivi familiari e' rilasciato anche a prescindere dal possesso di un valido titolo di soggiorno, a condizione che il genitore richiedente non sia stato privato della potesta' genitoriale secondo la legge italiana.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_30"
+        },
+        {
+          "estremi": "art. 20-bis, cc. 1-2, d.lgs. 286/1998 (vigente, testo l. 50/2023)",
+          "contenuto": "Permesso per calamità 'contingente ed eccezionale': 6 mesi, rinnovabile per ulteriori 6 mesi se persistono le condizioni; consente il lavoro ma non è convertibile in lavoro (divieto espresso aggiunto dalla l. 50/2023, in vigore dal 6.5.2023).",
+          "citazione": "Il permesso di soggiorno rilasciato a norma del presente articolo ha la durata di sei mesi, ed e' rinnovabile per un periodo ulteriore di sei mesi se permangono le condizioni di eccezionale calamita' di cui al comma 1; il permesso e' valido solo nel territorio nazionale e consente di svolgere attivita' lavorativa , ma non puo' essere convertito in permesso di soggiorno per motivi di lavoro.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_20-bis"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [],
+      "domande_discriminanti": []
+    },
+    {
+      "da": "calamita",
+      "a": "ue_lungo_periodo",
+      "nodo_albero": "c_end_carta_no",
+      "esito_albero": "NON POSSIBILE",
+      "esito_verificato": "non_possibile",
+      "discrepanza": null,
+      "sintesi": "Esclusione espressa: art. 9 c. 3 lett. b) TU (permessi ex art. 20-bis), in linea con l'art. 3 par. 2 lett. c) dir. 2003/109/CE. I periodi trascorsi con il permesso per calamità restano computabili dopo il passaggio a un titolo idoneo (art. 9 c. 5 TU).",
+      "regime_transitorio": null,
+      "requisiti": [
+        "passaggio preventivo a titolo idoneo"
+      ],
+      "procedura": "Non applicabile direttamente.",
+      "norme": [
+        {
+          "estremi": "art. 9, c. 3, lett. b), d.lgs. 286/1998 (vigente)",
+          "contenuto": "Esclusi dal permesso UE di lungo periodo i titolari dei permessi per cure mediche, protezione temporanea, artt. 18, 18-bis, 20-bis (calamità), 22 c. 12-quater, 42-bis e del permesso ex art. 32 c. 3 d.lgs. 25/2008 (protezione speciale). Il c. 5 esclude dal computo dei 5 anni solo i periodi di cui alle lett. d) ed e) (permessi di breve durata, status diplomatico): i periodi trascorsi con questi permessi restano computabili se poi si passa a un titolo idoneo.",
+          "citazione": "b) soggiornano a titolo di protezione temporanea, per cure mediche o sono titolari dei permessi di soggiorno di cui agli articoli 18, 18-bis, 20-bis, 22, comma 12-quater, e 42-bis nonche' del permesso di soggiorno rilasciato ai sensi dell'articolo 32, comma 3, del decreto legislativo 28 gennaio 2008, n. 25. ovvero hanno chiesto il permesso di soggiorno a tale titolo e sono in attesa di una decisione su tale richiesta;",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_9"
+        },
+        {
+          "estremi": "art. 3, par. 2, lett. c) e d), dir. 2003/109/CE",
+          "contenuto": "La direttiva non si applica a chi soggiorna a titolo di una forma di protezione diversa dalla protezione internazionale né ai richiedenti in attesa di decisione definitiva: base UE delle esclusioni dell'art. 9 c. 3 TU.",
+          "citazione": "c) sono autorizzati a soggiornare in uno Stato membro a titolo di una forma di protezione diversa dalla protezione internazionale o hanno chiesto l’autorizzazione al soggiorno a tale titolo e sono in attesa di una decisione sul loro status;",
+          "url": "https://www.sospatto.it/patto-interattivo/ext-dir-2003-109.html#art_3"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [],
+      "domande_discriminanti": []
+    },
+    {
+      "da": "cure_mediche",
+      "a": "lavoro",
+      "nodo_albero": "c_data_5mag_2023 → c_end_lav_sub_ok (ante) / c_end_complicata (post)",
+      "esito_albero": "POSSIBILE se domanda prima del 5/5/2023; altrimenti 'complicata'",
+      "esito_verificato": "condizionato",
+      "discrepanza": "Coerente con l'orientamento del Cons. Stato, salvo: (a) soglia 'entro il 5.5.2023' incluso (prima del 6.5); (b) dopo quella data l'esito è 'non possibile', non 'complicata'; (c) il nodo orfano c_end_lav_cure cita un inesistente 'DL 50/2023' (si tratta della l. 50/2023 di conversione del d.l. 20/2023).",
+      "sintesi": "La l. 50/2023 ha abrogato l'art. 6 c. 1-bis lett. h-bis) TU e soppresso nell'art. 19 c. 2 lett. d-bis) la convertibilità del permesso per cure mediche in lavoro, dal 6.5.2023. Il Consiglio di Stato, sez. III, con orientamento ormai consolidato (9634/2025, 905/2026, 2397/2026, dopo le ordinanze cautelari del 2024), applica l'art. 7 c. 2 d.l. 20/2023 alla domanda di rilascio del permesso per cure mediche: se è anteriore al 6.5.2023 (anche solo come richiesta di appuntamento via PEC) il permesso resta convertibile, qualunque sia la data della domanda di conversione. È stata così disattesa la circolare n. 50432 dell'1.6.2023, che guardava alla data dell'istanza di conversione (entro il 4.5.2023). Per i permessi chiesti dal 6.5.2023 la conversione è esclusa; il permesso consente comunque di lavorare (art. 19 c. 2 lett. d-bis TU non lo esclude; giurisprudenza di merito in KB non riportata qui).",
+      "regime_transitorio": "Art. 7 c. 2 d.l. 20/2023: domanda originaria del permesso per cure mediche entro il 5.5.2023 → regime previgente (lett. h-bis), convertibilità inclusa. Il d.l. 100/2026 non tocca la materia (salvo che il permesso sia rilasciato su trasmissione della Commissione ex art. 32 c. 3.1 d.lgs. 25/2008, norma non modificata).",
+      "requisiti": [
+        "permesso per cure mediche chiesto entro il 5.5.2023, valido",
+        "rapporto di lavoro / attività autonoma",
+        "passaporto o equipollente"
+      ],
+      "procedura": "Domanda alla Questura con kit postale (prassi); fuori quote; contributo per il permesso di arrivo (le cure mediche sono esenti, il lavoro no). Diniego: TAR, secondo la prassi giurisdizionale consolidata (nei casi decisi dal Cons. Stato il Tribunale ordinario di Firenze aveva declinato la giurisdizione).",
+      "norme": [
+        {
+          "estremi": "art. 19, c. 2, lett. d-bis), d.lgs. 286/1998 (vigente, testo l. 50/2023)",
+          "contenuto": "Permesso per cure mediche per patologie di particolare gravità non adeguatamente curabili nel Paese di origine, per il tempo attestato, max un anno, rinnovabile, valido solo in Italia. La l. 50/2023 ha soppresso le parole 'e convertibile in permesso di soggiorno per motivi di lavoro' (art. 7 c. 1 lett. c n. 3.2 d.l. 20/2023, verificato su Normattiva).",
+          "citazione": "In tali ipotesi, il questore rilascia un permesso di soggiorno per cure mediche, per il tempo attestato dalla certificazione sanitaria, comunque non superiore ad un anno, rinnovabile finche' persistono le condizioni di cui al periodo precedente debitamente certificate, valido solo nel territorio nazionale ....",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_19"
+        },
+        {
+          "estremi": "art. 6, c. 1-bis, d.lgs. 286/1998 (vigente; non modificato dal d.l. 100/2026)",
+          "contenuto": "Elenco tassativo dei permessi convertibili in lavoro ex art. 6. Le lett. a) (protezione speciale ex art. 32 c. 3 d.lgs. 25/2008), b) (calamità) e h-bis) (cure mediche) sono state abrogate dall'art. 7, c. 1, lett. a), d.l. 20/2023 come introdotto dalla l. conv. 50/2023, con effetto dal 6.5.2023 (al 1.4.2023 le tre lettere erano ancora vigenti: verificato su Normattiva, multivigenza). Restano: residenza elettiva, cittadinanza/apolidia (salvo provenienza da richiesta asilo), sport, artistico, religiosi, assistenza minori.",
+          "citazione": "a) LETTERA ABROGATA DAL D.L. 10 MARZO 2023, N. 20, CONVERTITO CON MODIFICAZIONI DALLA L. 5 MAGGIO 2023, N. 50;",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_6"
+        },
+        {
+          "estremi": "art. 6, c. 1-bis, lett. a), b), h-bis), d.lgs. 286/1998 (testo vigente al 1.4.2023, Normattiva)",
+          "contenuto": "Prima della l. 50/2023 erano convertibili in lavoro: la protezione speciale ex art. 32 c. 3 d.lgs. 25/2008 (salvo applicazione delle cause di esclusione/diniego degli artt. 10 c. 2, 12 c. 1 lett. b-c e 16 d.lgs. 251/2007), il permesso per calamità ex art. 20-bis e quello per cure mediche ex art. 19 c. 2 lett. d-bis.",
+          "citazione": "a) permesso di soggiorno per protezione speciale, di cui all'articolo 32, comma 3, del decreto legislativo 28 gennaio 2008, n. 25, ad eccezione dei casi per i quali siano state applicate le cause di diniego ed esclusione della protezione internazionale, di cui agli articoli 10, comma 2, 12, comma 1, lettere b) e c), e 16 del decreto legislativo 19 novembre 2007, n. 251;",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art6!vig=2023-04-01"
+        },
+        {
+          "estremi": "art. 7, c. 2, d.l. 20/2023 conv. con modif. dalla l. 50/2023 (norma transitoria)",
+          "contenuto": "Ultrattività della disciplina previgente per le istanze presentate fino all'entrata in vigore del decreto o se lo straniero aveva già ricevuto l'invito della Questura. Il Cons. Stato (sez. III) riferisce le 'istanze' alla domanda di rilascio del titolo da convertire (domanda di protezione / di permesso per cure / calamità), non alla domanda di conversione; per le modifiche introdotte in conversione la data di riferimento è il 6.5.2023.",
+          "citazione": "Per le istanze presentate fino alla data di entrata in vigore del presente decreto, ovvero nei casi in cui lo straniero abbia già ricevuto l'invito alla presentazione dell'istanza da parte della Questura competente, continua ad applicarsi la disciplina previgente.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legge:2023-03-10;20~art7"
+        },
+        {
+          "estremi": "art. 7, c. 3, d.l. 20/2023 conv. dalla l. 50/2023 (norma transitoria)",
+          "contenuto": "I permessi per protezione speciale già rilasciati ex art. 19 c. 1.1, terzo periodo (vita privata e familiare, testo d.l. 130/2020) e in corso di validità sono rinnovati una sola volta, per un anno; resta ferma la convertibilità in lavoro. Il d.l. 201/2025 ne consente ulteriori rinnovi fino al 4.3.2027 per i cittadini ucraini presenti prima del 24.2.2022 (nota di aggiornamento Normattiva).",
+          "citazione": "I permessi di soggiorno già rilasciati ai sensi del citato articolo 19, comma 1.1, terzo periodo, in corso di validità, sono rinnovati per una sola volta e con durata annuale, a decorrere dalla data di scadenza. Resta ferma la facoltà di conversione del titolo di soggiorno in permesso di soggiorno per motivi di lavoro, se ne ricorrono i requisiti di legge.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legge:2023-03-10;20~art7"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "Consiglio di Stato, sez. III",
+          "data": "2025-12-05",
+          "numero": "9634/2025 (R.G. 946/2025)",
+          "principio": "L'art. 7 c. 2 d.l. 20/2023 mantiene il regime previgente, compresa la convertibilità in lavoro, per tutti i titoli (protezione speciale, cure mediche, calamità: rubrica unitaria) la cui domanda di rilascio è anteriore al 6.5.2023; irrilevante la data dell'istanza di conversione e la data del rilascio; vale anche la richiesta di appuntamento via PEC anteriore. Disattesa la circolare n. 50432 dell'1.6.2023. Citazione verificata: la disciplina transitoria \"tiene fermo il regime previgente per tutte le istanze originariamente presentate per il rilascio del titolo da convertire, dunque pendenti al momento dell'entrata in vigore del decreto Cutro, e non già per le istanze di conversione sic et simpliciter\".",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=cds&nrg=202500946&nomeFile=202509634_11.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "regime": "pre_patto",
+          "letta_integrale": true
+        },
+        {
+          "corte": "Consiglio di Stato, sez. III",
+          "data": "2026-02-03",
+          "numero": "905/2026 (R.G. 4704/2025)",
+          "principio": "Conferma (richiamando Cons. Stato 5666/2025 e ord. 3314/2024): permesso per protezione speciale e per cure mediche hanno il medesimo regime di conversione; annullato il diniego di conversione cure mediche → lavoro chiesta dopo il 6.5.2023 per un permesso valido a quella data. Nella stessa vicenda il Tribunale ordinario di Firenze aveva declinato la giurisdizione a favore del TAR.",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=cds&nrg=202504704&nomeFile=202600905_11.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "regime": "pre_patto",
+          "letta_integrale": true
+        },
+        {
+          "corte": "Consiglio di Stato, sez. III",
+          "data": "2026-03-20",
+          "numero": "2397/2026 (R.G. 6436/2025)",
+          "principio": "Le 'istanze' dell'art. 7 c. 2 sono quelle di rilascio del titolo originario; sono convertibili in lavoro tutti i permessi per cure mediche richiesti prima del 6.5.2023; il divieto di conversione dell'art. 7 c. 1 si applica solo ai permessi per protezione speciale ottenuti in base alla nuova disciplina, mentre per quelli rilasciati ex art. 19 c. 1.1 terzo periodo previgente la conversione resta possibile (art. 7 c. 3). Lettura fondata anche su art. 8 CEDU, artt. 2, 3, 32 Cost. e legittimo affidamento.",
+          "esito": "favorevole allo straniero",
+          "url": "https://mdp.giustizia-amministrativa.it/visualizza/?nodeRef=&schema=cds&nrg=202506436&nomeFile=202602397_11.html&subDir=Provvedimenti",
+          "fonte": "giustizia-amministrativa",
+          "regime": "pre_patto",
+          "letta_integrale": true
+        }
+      ],
+      "prassi": [
+        {
+          "ente": "Ministero dell'Interno",
+          "estremi": "circolare n. 50432 (come riportata da Cons. Stato, sez. III, n. 9634/2025)",
+          "data": "2023-06-01",
+          "oggetto": "Applicazione del d.l. 20/2023: ammessa la conversione cure mediche → lavoro solo per le istanze di conversione presentate fino al 4.5.2023 o se c'era già l'invito della Questura. Interpretazione disattesa dal Consiglio di Stato e dai giudici di merito (Trib. Firenze R.G. 12514/2023).",
+          "url": null
+        },
+        {
+          "ente": "Ministero dell'Interno (con parere dell'Avvocatura dello Stato)",
+          "estremi": "circolare (estremi di protocollo non noti; riportata da Cons. Stato, sez. III, ord. n. 3313/2024 e sent. n. 9634/2025)",
+          "data": "2024-05-29",
+          "oggetto": "Apertura alla conversione in lavoro dei permessi per protezione speciale rilasciati ex art. 19 c. 1.1 terzo periodo e validi al 5.5.2023; secondo il Cons. Stato resterebbero esclusi per l'Amministrazione i titoli chiesti prima ma rilasciati dopo il d.l. 20/2023.",
+          "url": null
+        }
+      ],
+      "casi_limite": [
+        {
+          "titolo": "Appuntamento chiesto via PEC prima del 6.5.2023, formalizzato dopo",
+          "testo": "Conta la richiesta originaria (PEC del 9.2.2023 nel caso Cons. Stato 9634/2025): conservare le PEC."
+        },
+        {
+          "titolo": "Permesso per cure mediche rinnovato dopo il 6.5.2023",
+          "testo": "Il Cons. Stato guarda all'istanza 'originariamente presentate per il rilascio del titolo da convertire': per i rinnovi chiesti dopo la soglia di un permesso nato prima la questione non è espressamente decisa; argomento favorevole: Cons. Stato 2397/2026 (permesso rilasciato nel 2022, conversione accolta)."
+        },
+        {
+          "titolo": "Permesso per cure mediche rilasciato dopo diniego della protezione (art. 32 c. 3.1 d.lgs. 25/2008)",
+          "testo": "La domanda rilevante è quella di protezione internazionale; stessa regola transitoria (rubrica unitaria dell'art. 7)."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "Quando è stata chiesta per la prima volta (anche via PEC o appuntamento) il permesso per cure mediche?",
+          "perche": "Art. 7 c. 2 come letto dal Cons. Stato.",
+          "opzioni": [
+            "entro il 5.5.2023",
+            "dal 6.5.2023",
+            "non so"
+          ]
+        },
+        {
+          "domanda": "Il permesso è stato rilasciato dalla Questura su domanda diretta, su ordine del giudice o su trasmissione della Commissione?",
+          "perche": "Individua la 'domanda originaria' e la data.",
+          "opzioni": [
+            "domanda diretta",
+            "ordine del giudice",
+            "Commissione (art. 32 c. 3.1)"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "cure_mediche",
+      "a": "attesa_occupazione",
+      "nodo_albero": "c_end_att_incerta",
+      "esito_albero": "INCERTA",
+      "esito_verificato": "non_possibile",
+      "discrepanza": "L'albero invita a 'tentare'; manca una base normativa: l'attesa occupazione presuppone il permesso per lavoro subordinato (art. 22 c. 11 TU). Solo nel regime transitorio (domanda ≤ 5.5.2023) e con un precedente cautelare (TAR Toscana 232/2024) si può argomentare; esito più corretto 'non possibile, salvo regime transitorio da valutare con un legale'.",
+      "sintesi": "Per i permessi per cure mediche chiesti dal 6.5.2023 non c'è conversione né in lavoro né, a maggior ragione, in attesa occupazione. Nel regime transitorio l'art. 6 c. 1-bis lett. h-bis) previgente consentiva la conversione 'in permesso di soggiorno per motivi di lavoro': una sola ordinanza cautelare (TAR Toscana 232/2024) ha sospeso un diniego che riguardava lavoro o attesa occupazione, senza decidere la questione. Chi ha perso il lavoro con un permesso per cure mediche conserva il permesso (che consente il lavoro) finché persiste la patologia.",
+      "regime_transitorio": "Domanda originaria ≤ 5.5.2023: conversione in lavoro possibile (Cons. Stato); attesa occupazione argomentabile ma non verificata.",
+      "requisiti": [
+        "nessuna via diretta"
+      ],
+      "procedura": "Non applicabile; valutare rinnovo del permesso per cure mediche o conversione in lavoro con nuovo rapporto (regime transitorio).",
+      "norme": [
+        {
+          "estremi": "art. 22, c. 11, d.lgs. 286/1998 (vigente)",
+          "contenuto": "L'attesa occupazione presuppone un permesso per lavoro subordinato e la perdita del posto di lavoro: non è un titolo di conversione da permessi non lavorativi.",
+          "citazione": "Il lavoratore straniero in possesso del permesso di soggiorno per lavoro subordinato che perde il posto di lavoro, anche per dimissioni, puo' rendere dichiarazione di immediata disponibilita' al sistema informativo unitario delle politiche del lavoro ai sensi dell'articolo 19 del decreto legislativo 14 settembre 2015, n. 150, e beneficiare degli effetti ad essa correlati per il periodo di residua validita' del permesso di soggiorno, e comunque, salvo che si tratti di permesso di soggiorno per lavoro stagionale, per un periodo non inferiore ad un anno ovvero per tutto il periodo di durata della prestazione di sostegno al reddito percepita dal lavoratore straniero, qualora superiore.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_22"
+        },
+        {
+          "estremi": "art. 19, c. 2, lett. d-bis), d.lgs. 286/1998 (vigente, testo l. 50/2023)",
+          "contenuto": "Permesso per cure mediche per patologie di particolare gravità non adeguatamente curabili nel Paese di origine, per il tempo attestato, max un anno, rinnovabile, valido solo in Italia. La l. 50/2023 ha soppresso le parole 'e convertibile in permesso di soggiorno per motivi di lavoro' (art. 7 c. 1 lett. c n. 3.2 d.l. 20/2023, verificato su Normattiva).",
+          "citazione": "In tali ipotesi, il questore rilascia un permesso di soggiorno per cure mediche, per il tempo attestato dalla certificazione sanitaria, comunque non superiore ad un anno, rinnovabile finche' persistono le condizioni di cui al periodo precedente debitamente certificate, valido solo nel territorio nazionale ....",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_19"
+        },
+        {
+          "estremi": "art. 7, c. 2, d.l. 20/2023 conv. con modif. dalla l. 50/2023 (norma transitoria)",
+          "contenuto": "Ultrattività della disciplina previgente per le istanze presentate fino all'entrata in vigore del decreto o se lo straniero aveva già ricevuto l'invito della Questura. Il Cons. Stato (sez. III) riferisce le 'istanze' alla domanda di rilascio del titolo da convertire (domanda di protezione / di permesso per cure / calamità), non alla domanda di conversione; per le modifiche introdotte in conversione la data di riferimento è il 6.5.2023.",
+          "citazione": "Per le istanze presentate fino alla data di entrata in vigore del presente decreto, ovvero nei casi in cui lo straniero abbia già ricevuto l'invito alla presentazione dell'istanza da parte della Questura competente, continua ad applicarsi la disciplina previgente.",
+          "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legge:2023-03-10;20~art7"
+        }
+      ],
+      "giurisprudenza": [
+        {
+          "corte": "TAR Toscana (ordinanza cautelare)",
+          "data": "2024-03-13",
+          "numero": "R.G. 232/2024",
+          "principio": "Sospeso in via cautelare il diniego di conversione del permesso per cure mediche in lavoro subordinato o attesa occupazione chiesta dopo la l. 50/2023, data la questione intertemporale aperta e la proposta di lavoro (dalla scheda KB).",
+          "esito": "favorevole allo straniero",
+          "url": "https://drive.google.com/file/d/1TpjkokdOlafT8bh3ueXZwm2wrbYcP1Ad/view?usp=drivesdk",
+          "fonte": "KB",
+          "regime": "pre_patto",
+          "letta_integrale": false
+        }
+      ],
+      "prassi": [],
+      "casi_limite": [
+        {
+          "titolo": "Rapporto cessato durante la conversione",
+          "testo": "Nel regime transitorio, se il lavoro cessa dopo la domanda di conversione, si può sostenere il rilascio del permesso per lavoro e poi l'attesa occupazione (art. 5 c. 9 TU). Non verificato."
+        }
+      ],
+      "domande_discriminanti": [
+        {
+          "domanda": "La domanda originaria del permesso per cure mediche è anteriore al 6.5.2023?",
+          "perche": "Fuori dal regime transitorio non c'è margine.",
+          "opzioni": [
+            "sì",
+            "no"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "cure_mediche",
+      "a": "studio",
+      "nodo_albero": "c_end_stu_no",
+      "esito_albero": "NON POSSIBILE",
+      "esito_verificato": "non_possibile",
+      "discrepanza": "Coerente: il permesso ex art. 19 c. 2 lett. d-bis non è nell'elenco dell'art. 39 c. 5 TU. Caso limite: seconda ipotesi del c. 5 (un anno di soggiorno regolare + diploma di scuola superiore italiano).",
+      "sintesi": "L'art. 39 c. 5 TU, che consente il permesso 'studente' ai titolari di vari permessi umanitari, non menziona il permesso per cure mediche. Resta solo la seconda ipotesi della norma: straniero regolarmente soggiornante da almeno un anno con diploma di scuola secondaria superiore conseguito in Italia, che si iscrive a ITS, università o specializzazione. Il titolare di permesso per cure mediche può comunque iscriversi ai corsi.",
+      "regime_transitorio": null,
+      "requisiti": [
+        "per la seconda ipotesi dell'art. 39 c. 5: almeno un anno di soggiorno regolare e diploma superiore italiano",
+        "iscrizione a ITS/università/specializzazione"
+      ],
+      "procedura": "Solo nella seconda ipotesi: domanda alla Questura ex art. 39 c. 5-bis TU.",
+      "norme": [
+        {
+          "estremi": "art. 39, cc. 5 e 5-bis, d.lgs. 286/1998 (vigente)",
+          "contenuto": "Accesso a ITS, formazione superiore (università) e scuole di specializzazione, a parità con gli italiani, per i titolari di permesso UE, lavoro, famiglia, asilo, protezione sussidiaria, religiosi, artt. 18, 18-bis, 20-bis (calamità), 22 c. 12-quater, 42-bis e del permesso ex art. 32 c. 3 d.lgs. 25/2008 (protezione speciale), nonché per chi soggiorna regolarmente da almeno un anno con diploma di scuola secondaria superiore conseguito in Italia. A costoro il questore rilascia un permesso per studio 'studente' (c. 5-bis). Le cure mediche (art. 19 c. 2 lett. d-bis) e la richiesta asilo NON sono nell'elenco.",
+          "citazione": "Agli stranieri di cui ai commi 4-ter e 5 e' rilasciato dal questore un permesso di soggiorno per studio ai sensi dell'articolo 5, commi 3, lettera c) e 8, recante la dicitura «studente».",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_39"
+        },
+        {
+          "estremi": "art. 19, c. 2, lett. d-bis), d.lgs. 286/1998 (vigente, testo l. 50/2023)",
+          "contenuto": "Permesso per cure mediche per patologie di particolare gravità non adeguatamente curabili nel Paese di origine, per il tempo attestato, max un anno, rinnovabile, valido solo in Italia. La l. 50/2023 ha soppresso le parole 'e convertibile in permesso di soggiorno per motivi di lavoro' (art. 7 c. 1 lett. c n. 3.2 d.l. 20/2023, verificato su Normattiva).",
+          "citazione": "In tali ipotesi, il questore rilascia un permesso di soggiorno per cure mediche, per il tempo attestato dalla certificazione sanitaria, comunque non superiore ad un anno, rinnovabile finche' persistono le condizioni di cui al periodo precedente debitamente certificate, valido solo nel territorio nazionale ....",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_19"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [],
+      "domande_discriminanti": [
+        {
+          "domanda": "Ha un diploma di scuola superiore conseguito in Italia e un anno di soggiorno regolare?",
+          "perche": "Unica via ex art. 39 c. 5.",
+          "opzioni": [
+            "sì",
+            "no"
+          ]
+        }
+      ]
+    },
+    {
+      "da": "cure_mediche",
+      "a": "famiglia",
+      "nodo_albero": "c_end_fam_ok",
+      "esito_albero": "POSSIBILE",
+      "esito_verificato": "condizionato",
+      "discrepanza": null,
+      "sintesi": "L'art. 30 c. 1 lett. c) TU non ha un elenco tassativo e la l. 50/2023 ha soppresso solo la convertibilità in lavoro: il titolare di permesso per cure mediche può convertire in motivi familiari se ha i requisiti del ricongiungimento con un familiare italiano/UE o straniero regolarmente soggiornante. Valutare che il permesso familiare non dipende più dalla patologia ma dal legame familiare.",
+      "regime_transitorio": null,
+      "requisiti": [
+        "vincolo familiare ex art. 29 TU",
+        "reddito/alloggio del familiare straniero",
+        "domanda entro un anno dalla scadenza"
+      ],
+      "procedura": "Domanda alla Questura con kit postale; diniego davanti al giudice ordinario (art. 30 c. 6 TU).",
+      "norme": [
+        {
+          "estremi": "art. 30, c. 1, lett. c), d.lgs. 286/1998 (vigente)",
+          "contenuto": "Conversione in permesso per motivi familiari del familiare regolarmente soggiornante in possesso dei requisiti per il ricongiungimento con cittadino italiano/UE residente o straniero regolarmente soggiornante; richiedibile anche entro un anno dalla scadenza del titolo; se il familiare è rifugiato si prescinde dal permesso valido. La giurisdizione sui dinieghi è del giudice ordinario (art. 30 c. 6 TU).",
+          "citazione": "c) al familiare straniero regolarmente soggiornante, in possesso dei requisiti per il ricongiungimento con il cittadino italiano o di uno Stato membro dell'Unione europea residenti in Italia, ovvero con straniero regolarmente soggiornante in Italia. In tal caso il permesso del familiare e' convertito in permesso di soggiorno per motivi familiari. La conversione puo' essere richiesta entro un anno dalla data di scadenza del titolo di soggiorno originariamente posseduto dal familiare. Qualora detto cittadino sia un rifugiato si prescinde dal possesso di un valido permesso di soggiorno da parte del familiare;",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_30"
+        },
+        {
+          "estremi": "art. 30, c. 1, lett. b) e d), d.lgs. 286/1998; art. 28, c. 1, lett. b), d.P.R. 394/1999",
+          "contenuto": "Vie alternative alla lett. c): matrimonio in Italia dopo almeno un anno di soggiorno regolare 'ad altro titolo' (lett. b); genitore di minore italiano residente, anche senza titolo valido (lett. d); permesso per motivi familiari allo straniero inespellibile perché convivente con parente entro il secondo grado o coniuge italiano (art. 19 c. 2 lett. c TU e art. 28 c. 1 lett. b DPR 394).",
+          "citazione": "d) al genitore straniero, anche naturale, di minore italiano residente in Italia. In tal caso il permesso di soggiorno per motivi familiari e' rilasciato anche a prescindere dal possesso di un valido titolo di soggiorno, a condizione che il genitore richiedente non sia stato privato della potesta' genitoriale secondo la legge italiana.",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_30"
+        },
+        {
+          "estremi": "art. 19, c. 2, lett. d-bis), d.lgs. 286/1998 (vigente, testo l. 50/2023)",
+          "contenuto": "Permesso per cure mediche per patologie di particolare gravità non adeguatamente curabili nel Paese di origine, per il tempo attestato, max un anno, rinnovabile, valido solo in Italia. La l. 50/2023 ha soppresso le parole 'e convertibile in permesso di soggiorno per motivi di lavoro' (art. 7 c. 1 lett. c n. 3.2 d.l. 20/2023, verificato su Normattiva).",
+          "citazione": "In tali ipotesi, il questore rilascia un permesso di soggiorno per cure mediche, per il tempo attestato dalla certificazione sanitaria, comunque non superiore ad un anno, rinnovabile finche' persistono le condizioni di cui al periodo precedente debitamente certificate, valido solo nel territorio nazionale ....",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_19"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [],
+      "domande_discriminanti": []
+    },
+    {
+      "da": "cure_mediche",
+      "a": "ue_lungo_periodo",
+      "nodo_albero": "c_end_carta_no",
+      "esito_albero": "NON POSSIBILE",
+      "esito_verificato": "non_possibile",
+      "discrepanza": null,
+      "sintesi": "Esclusione espressa: art. 9 c. 3 lett. b) TU ('per cure mediche'). I periodi con permesso per cure mediche restano computabili dopo il passaggio a un titolo idoneo (art. 9 c. 5 TU), per esempio dopo la conversione in lavoro nel regime transitorio o in famiglia.",
+      "regime_transitorio": null,
+      "requisiti": [
+        "passaggio preventivo a titolo idoneo"
+      ],
+      "procedura": "Non applicabile direttamente.",
+      "norme": [
+        {
+          "estremi": "art. 9, c. 3, lett. b), d.lgs. 286/1998 (vigente)",
+          "contenuto": "Esclusi dal permesso UE di lungo periodo i titolari dei permessi per cure mediche, protezione temporanea, artt. 18, 18-bis, 20-bis (calamità), 22 c. 12-quater, 42-bis e del permesso ex art. 32 c. 3 d.lgs. 25/2008 (protezione speciale). Il c. 5 esclude dal computo dei 5 anni solo i periodi di cui alle lett. d) ed e) (permessi di breve durata, status diplomatico): i periodi trascorsi con questi permessi restano computabili se poi si passa a un titolo idoneo.",
+          "citazione": "b) soggiornano a titolo di protezione temporanea, per cure mediche o sono titolari dei permessi di soggiorno di cui agli articoli 18, 18-bis, 20-bis, 22, comma 12-quater, e 42-bis nonche' del permesso di soggiorno rilasciato ai sensi dell'articolo 32, comma 3, del decreto legislativo 28 gennaio 2008, n. 25. ovvero hanno chiesto il permesso di soggiorno a tale titolo e sono in attesa di una decisione su tale richiesta;",
+          "url": "https://www.sospatto.it/patto-interattivo/dlgs-286-1998/index.html#art_9"
+        },
+        {
+          "estremi": "art. 3, par. 2, lett. c) e d), dir. 2003/109/CE",
+          "contenuto": "La direttiva non si applica a chi soggiorna a titolo di una forma di protezione diversa dalla protezione internazionale né ai richiedenti in attesa di decisione definitiva: base UE delle esclusioni dell'art. 9 c. 3 TU.",
+          "citazione": "c) sono autorizzati a soggiornare in uno Stato membro a titolo di una forma di protezione diversa dalla protezione internazionale o hanno chiesto l’autorizzazione al soggiorno a tale titolo e sono in attesa di una decisione sul loro status;",
+          "url": "https://www.sospatto.it/patto-interattivo/ext-dir-2003-109.html#art_3"
+        }
+      ],
+      "giurisprudenza": [],
+      "prassi": [],
+      "casi_limite": [],
+      "domande_discriminanti": []
+    }
+  ],
+  "punti_da_validare": [
+    "Data-soglia d.l. 20/2023: il Consiglio di Stato usa 'prima del 6.5.2023' (entrata in vigore della l. 50/2023); la circolare n. 50432/2023 usava il 4.5.2023; l'albero 'prima del 5 maggio'. Per la protezione speciale per vita privata (soppressa già dal d.l. originario, in vigore dall'11.3.2023) la data utile ai fini del riconoscimento è diversa da quella utile per la convertibilità: verificare caso per caso.",
+    "Giurisdizione sui dinieghi di conversione protezione speciale/cure mediche → lavoro: il Cons. Stato decide nel merito (e in due casi il Tribunale di Firenze aveva declinato), mentre Cass. SU 9791/2023 (RG 16227/2022) e Trib. Firenze R.G. 12514/2023 affermano la giurisdizione ordinaria quando è in gioco la protezione speciale. Contrasto da segnalare nel questionario PRO.",
+    "Cass. SU 12.4.2023: due schede KB (n. 9791/2023 e RG 16227/2022) con stessa data e organo; verosimilmente la stessa decisione: verificare sul PDF.",
+    "Circolare del Ministero dell'Interno del 29.5.2024 (con parere dell'Avvocatura) e circolare n. 50432 dell'1.6.2023: conosciute solo attraverso le sentenze del Consiglio di Stato; estremi e testo da reperire.",
+    "Procedura: l'albero indica per le conversioni in lavoro il nulla osta dello Sportello Unico; per art. 23 c. 2 d.lgs. 251/2007 e art. 7 d.l. 20/2023 non risulta base normativa del nulla osta e la prassi indicata nelle sentenze è la domanda alla Questura (kit postale). Verificare con le Questure e con eventuali circolari.",
+    "Importi del contributo ex art. 5 c. 2-ter TU (DM vigente) non verificati in questa ricerca.",
+    "Art. 39 cc. 5 e 5-bis TU come base per il passaggio protezione speciale/calamità/asilo/sussidiaria → studio: ricavato dal testo, nessuna giurisprudenza trovata; in particolare il 'ponte' studio → lavoro per aggirare il divieto dell'art. 6 c. 1-bis non è testato.",
+    "Asilo e sussidiaria → famiglia: applicabilità dell'art. 30 c. 1 lett. c TU a permessi legati allo status non verificata in giurisprudenza; TAR Marche 784/2023 afferma in generale la non convertibilità del permesso per asilo.",
+    "Richiedenti post-Patto (domande dal 12.6.2026): il documento ex art. 4 d.lgs. 142/2015 / art. 29 par. 4 reg. 2024/1348 non è un permesso di soggiorno; resta da verificare se il richiedente sia 'regolarmente soggiornante' ai fini dell'art. 30 c. 1 lett. c e dell'art. 39 c. 5 TU, e come si legga l'art. 14 c. 1-bis DPR 394/1999 (MSNA), che rinvia al permesso ex art. 4 previgente.",
+    "Compatibilità dell'art. 23 c. 2 d.lgs. 251/2007 (conversione sussidiaria → lavoro) con il reg. 2024/1347 applicabile dal 1.7.2026: ritenuta compatibile (il regolamento non vieta titoli nazionali ulteriori), ma senza precedenti.",
+    "Rinnovi ulteriori della protezione speciale concessi per art. 8 CEDU dopo il rinnovo annuale ex art. 7 c. 3 (Trib. Palermo R.G. 11018/2026): convertibilità in lavoro non decisa.",
+    "Nodi orfani nell'albero: c_end_lav_speciale e c_end_lav_cure non hanno archi in ingresso; c_end_lav_cure cita un 'DL 50/2023' inesistente (è la l. 50/2023).",
+    "Fonti non consultate: ITFPLUS (merito fuori KB) e ricerca Cassazione estesa (solo una query SentenzeWeb, senza risultati pertinenti sulla conversione richiesta asilo → famiglia)."
+  ]
+}
