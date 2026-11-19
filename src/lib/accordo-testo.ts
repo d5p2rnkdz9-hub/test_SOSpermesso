@@ -4,24 +4,36 @@
  * dati – Scadenziario PRO"). Formato: paragrafi separati da una riga vuota;
  * "## " e "### " sono titoli, "- " voci di elenco.
  *
- * QUALSIASI modifica al testo = nuova ACCORDO_VERSIONE (in accordo.ts): chi ha
- * accettato la versione precedente deve riaccettare.
+ * Lo STESSO testo, carattere per carattere, è in SOS Flussi
+ * (SOSflussi/account/accordo/testo.js): con l'account unico l'accettazione è
+ * una sola per i due siti (tabella pro.accordo_accettazione, stessa versione e
+ * stessa impronta). Si modifica nei due repo insieme
+ * (controllo: node strumenti/pro/accordo-controllo.mjs in SOS Flussi).
+ *
+ * QUALSIASI modifica al testo = nuova ACCORDO_VERSIONE (in accordo.ts e in
+ * SOS Flussi netlify/lib/accordo.mjs): chi ha accettato la versione precedente
+ * deve riaccettare.
  */
-export const ACCORDO_TESTO = `## Accordo sul trattamento dei dati personali – Scadenziario PRO
+export const ACCORDO_TESTO = `## Accordo sul trattamento dei dati personali – Scadenziari dell'area PRO
 
-Art. 28 del Regolamento (UE) 2016/679 · Versione 1.0 del 19 novembre 2026
+Art. 28 del Regolamento (UE) 2016/679 · Versione 1.1 del 19 novembre 2026 · SOS Permesso e SOS Flussi
 
 Fra l'utente dell'area PRO di SOS Permesso e SOS Flussi che accetta il presente accordo, titolare del trattamento ("Utente"), e Alberto Pasquero, Via Susa 32, C.F. PSQLRT77L21A124C, PEC albertopasquero@pec.ordineavvocatitorino.it, che offre gratuitamente l'area PRO, responsabile del trattamento ("Responsabile").
 
 ### 1. Oggetto
 
-1.1 L'area PRO offre all'Utente, gratuitamente, uno scadenziario dei permessi di soggiorno delle persone che assiste, con promemoria via email (il "Servizio").
+1.1 L'area PRO offre all'Utente, gratuitamente, due scadenziari con promemoria via email (insieme, il "Servizio"):
+
+- su sospermesso.it, lo scadenziario dei permessi di soggiorno delle persone che assiste;
+- su sosflussi.it, «Le mie pratiche», l'elenco delle domande del decreto flussi che segue.
 
 1.2 Per i dati delle persone che l'Utente inserisce nel Servizio ("Dati") l'Utente è titolare del trattamento e il Responsabile li tratta per suo conto. Il presente accordo disciplina quel trattamento ai sensi dell'art. 28 del Regolamento (UE) 2016/679 ("GDPR").
 
 1.3 I dati dell'account dell'Utente (nome, email, accessi) non rientrano nel presente accordo: per essi il Responsabile è titolare, secondo l'informativa privacy del sito.
 
 1.4 Natura, finalità, tipi di dati e categorie di interessati sono descritti nell'Allegato 1.
+
+1.5 L'account dell'area PRO è unico per i due siti: l'accordo, accettato su uno dei due, vale per entrambi gli scadenziari.
 
 ### 2. Istruzioni
 
@@ -41,7 +53,7 @@ Fra l'utente dell'area PRO di SOS Permesso e SOS Flussi che accetta il presente 
 
 3.3 L'Utente inserisce solo i Dati necessari allo scadenziario. In particolare:
 
-- nel campo "riferimento" usa una sigla o un codice interno, non nome e cognome per esteso;
+- nel campo "riferimento" usa una sigla o un codice interno, non nome e cognome per esteso, né del lavoratore né del datore di lavoro;
 - non inserisce dati sanitari, giudiziari o relativi a vittime di reato nelle note;
 - non inserisce dati di minori se non indispensabili.
 
@@ -127,15 +139,16 @@ Fra l'utente dell'area PRO di SOS Permesso e SOS Flussi che accetta il presente 
 
 ## Allegato 1 – Descrizione del trattamento
 
-- Interessati: cittadini stranieri assistiti dall'Utente (clienti, utenti di sportelli, lavoratori).
-- Dati dello scadenziario: riferimento (sigla o codice scelto dall'Utente); tipo di permesso; data di scadenza; note facoltative; stato (attiva o archiviata); esito degli invii dei promemoria.
-- Dati particolari: possibili, in modo indiretto. Alcuni tipi di permesso rivelano salute (cure mediche), convinzioni religiose (motivi religiosi), condizione di vittima di tratta o violenza, protezione internazionale.
-- Finalità: ricordare all'Utente le scadenze dei permessi.
-- Operazioni: raccolta, conservazione, consultazione, invio di promemoria per email all'Utente (a 90, 60 e 30 giorni), esportazione, cancellazione.
+- Interessati: cittadini stranieri assistiti dall'Utente (clienti, utenti di sportelli, lavoratori); per «Le mie pratiche», anche i datori di lavoro delle domande del decreto flussi.
+- Dati dello scadenziario dei permessi (sospermesso.it): riferimento (sigla o codice scelto dall'Utente); tipo di permesso; data di scadenza; note facoltative; stato (attiva o archiviata); esito degli invii dei promemoria.
+- Dati di «Le mie pratiche» (sosflussi.it): riferimento (sigla o codice scelto dall'Utente); tipo di domanda; fase della pratica; data di scadenza e che cosa scade; note facoltative; stato (attiva o archiviata); esito degli invii dei promemoria.
+- Dati particolari: possibili, in modo indiretto. Alcuni tipi di permesso rivelano salute (cure mediche), convinzioni religiose (motivi religiosi), condizione di vittima di tratta o violenza, protezione internazionale. Nelle pratiche del decreto flussi possono comparire solo se l'Utente li scrive nelle note.
+- Finalità: ricordare all'Utente le scadenze dei permessi e delle pratiche.
+- Operazioni: raccolta, conservazione, consultazione, invio di promemoria per email all'Utente (a 90, 60 e 30 giorni per i permessi; a 30, 7 e 1 giorno per le pratiche del decreto flussi), esportazione, cancellazione.
 - Durata: finché l'Utente non elimina la pratica o l'account.
 - Luogo: database nell'Unione europea (Francoforte); accessi possibili dagli Stati Uniti da parte dei sub-responsabili.
 
-Le email di promemoria sono inviate solo all'indirizzo dell'Utente e indicano la data di scadenza e il link allo scadenziario, senza riferimento né tipo di permesso.
+Le email di promemoria sono inviate solo all'indirizzo dell'Utente e indicano la data di scadenza, che cosa scade (es. "Click day") e il link allo scadenziario, senza riferimento né tipo di permesso o di domanda.
 
 ## Allegato 2 – Misure di sicurezza
 
@@ -145,7 +158,7 @@ Le email di promemoria sono inviate solo all'indirizzo dell'Utente e indicano la
 - Accesso utenti: accesso con link via email o password; sessioni con scadenza.
 - Accesso amministrativo: database e pannelli dei fornitori accessibili solo al Responsabile, con autenticazione a due fattori. Credenziali tecniche conservate come variabili segrete, non nel codice.
 - Minimizzazione: campo riferimento pensato per una sigla; email di promemoria senza dati della pratica; nessun dato della pratica nei log applicativi.
-- Cancellazione: l'eliminazione dell'account cancella a cascata pratiche e promemoria.
+- Cancellazione: l'eliminazione dell'account cancella a cascata pratiche e promemoria su entrambi i siti.
 - Backup: ripristino puntuale del database fornito da Neon, con conservazione di 7 giorni.
 - Aggiornamenti: dipendenze del software aggiornate periodicamente; scansione dei segreti a ogni pubblicazione.
 - Violazioni: procedura scritta per individuare, documentare e comunicare le violazioni entro i termini dell'art. 8.

@@ -1,4 +1,5 @@
 import { Lock } from 'lucide-react';
+import { redirect } from 'next/navigation';
 
 import { Link } from '@/i18n/navigation';
 import { SOSFLUSSI_ABBONAMENTO_URL, accountUnicoOn, freeLaunchOn } from '@/lib/pro-entitlement';
@@ -8,7 +9,7 @@ const cta =
 
 /**
  * Teaser of a PRO page. Server component.
- * - anonymous visitor: what they get and the login link back to the same page;
+ * - anonymous visitor: redirect to /{locale}/abbonati?da=… (PRO landing, same as sosflussi.it/abbonati/);
  * - `connesso` (account senza accesso PRO): stesso teaser, con il link per
  *   abbonarsi su sosflussi.it (account e abbonamento sono unici fra i due siti).
  */
@@ -25,6 +26,11 @@ export function ProGate({
   punti: string[];
   connesso?: boolean;
 }) {
+  // Chi non ha un account va alla pagina di presentazione di PRO (come su sosflussi.it), che poi lo riporta qui.
+  if (!connesso) {
+    const locale = da.split('/')[1] || 'it';
+    redirect(`/${locale}/abbonati?da=${encodeURIComponent(da)}`);
+  }
   return (
     <div className="rounded-lg border-2 border-foreground bg-card p-5 shadow-[3px_3px_0_hsl(var(--foreground))]">
       <div className="flex items-center gap-2">

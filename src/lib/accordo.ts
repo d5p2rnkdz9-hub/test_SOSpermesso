@@ -16,7 +16,7 @@ import { PRO_URL } from "./site-url";
  */
 
 /** Cambia a OGNI modifica di ACCORDO_TESTO: forza una nuova accettazione. */
-export const ACCORDO_VERSIONE = "1.0";
+export const ACCORDO_VERSIONE = "1.1";
 
 export const ACCORDO_SHA256 = createHash("sha256").update(ACCORDO_TESTO, "utf8").digest("hex");
 
@@ -56,7 +56,7 @@ export async function registraAccettazione(a: Accettazione): Promise<void> {
   const text = [
     `Ciao${a.nome ? ` ${a.nome}` : ""},`,
     "",
-    `il ${rows[0].quando} (ora italiana) hai accettato, con l'account ${a.email} e dopo averne scorso il testo fino in fondo, l'Accordo sul trattamento dei dati personali dello scadenziario PRO, versione ${ACCORDO_VERSIONE}.`,
+    `il ${rows[0].quando} (ora italiana) hai accettato, con l'account ${a.email} e dopo averne scorso il testo fino in fondo, l'Accordo sul trattamento dei dati personali degli scadenziari dell'area PRO, versione ${ACCORDO_VERSIONE}.`,
     "",
     `Impronta SHA-256 del testo accettato: ${ACCORDO_SHA256}`,
     `Lo trovi anche qui: ${PRO_URL}/it/account/pratiche/accordo`,
@@ -71,7 +71,7 @@ export async function registraAccettazione(a: Accettazione): Promise<void> {
   try {
     await sendEmail({
       to: a.email,
-      subject: `Accordo sul trattamento dei dati – scadenziario PRO (versione ${ACCORDO_VERSIONE})`,
+      subject: `Accordo sul trattamento dei dati – scadenziari PRO (versione ${ACCORDO_VERSIONE})`,
       text,
     });
     await sql.query(

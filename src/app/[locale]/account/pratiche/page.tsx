@@ -30,7 +30,7 @@ export default async function PratichePage({ params }: Props) {
 
   const access = await getProAccess(await headers());
   if (access.status === 'anonymous') {
-    redirect(`/${locale}/accedi?da=${encodeURIComponent(`/${locale}/account/pratiche`)}`);
+    redirect(`/${locale}/abbonati?da=${encodeURIComponent(`/${locale}/account/pratiche`)}`);
   }
   if (access.status !== 'active') {
     return (
