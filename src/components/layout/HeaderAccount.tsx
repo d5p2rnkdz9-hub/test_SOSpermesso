@@ -82,7 +82,11 @@ export function HeaderAccount({
   }
 
   return (
-    <div ref={box} className={inline ? 'flex flex-col' : 'relative'}>
+    <div
+      ref={box}
+      className={inline ? 'flex flex-col' : 'relative'}
+      onMouseLeave={inline ? undefined : () => setAperta(false)}
+    >
       <button
         ref={btn}
         type="button"
@@ -117,12 +121,12 @@ export function HeaderAccount({
         className={
           inline
             ? 'mt-2 ms-3 flex flex-col rounded-[14px] border-2 border-[#141414] bg-white p-1.5'
-            : 'absolute end-0 top-[calc(100%+10px)] z-10 flex min-w-full flex-col rounded-[18px] border-2 border-[#141414] bg-white p-2 shadow-[5px_5px_0_#141414]'
+            : 'absolute end-0 top-[calc(100%+10px)] z-10 before:absolute before:inset-x-0 before:-top-3 before:h-3 flex min-w-full flex-col rounded-[18px] border-2 border-[#141414] bg-white p-2 shadow-[5px_5px_0_#141414]'
         }
       >
         {voci.map((v) => (
           <li key={v.href}>
-            <Link href={v.href} className={voce} aria-current={pathname === v.href ? 'page' : undefined}>
+            <Link href={v.href} className={voce} onClick={() => setAperta(false)} aria-current={pathname === v.href ? 'page' : undefined}>
               {v.label}
             </Link>
           </li>
