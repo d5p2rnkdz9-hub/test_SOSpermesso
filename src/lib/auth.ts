@@ -9,7 +9,7 @@ import { magicLink } from 'better-auth/plugins';
 import { PostgresDialect } from 'kysely';
 import { Pool } from 'pg';
 
-import { sendEmail } from './email';
+import { notifyAdmin, sendEmail } from './email';
 import {
   DeleteBlockedError,
   accountUnicoOn,
@@ -124,6 +124,33 @@ async function annullaResetPrecedenti(userId: string): Promise<void> {
  * richiesta, così il link magico rimanda allo stesso sottodominio da cui si è
  * partiti, e il cookie di sessione vale su .sospermesso.it: un solo login.
  */
+/**
+ * Avviso a chi gestisce il sito quando chiede il link un indirizzo che non ha ancora un account
+ * (il link, se aperto, crea l'account). Gemello di sosflussi.it (netlify/lib/auth.mjs).
+ */
+async function avvisaSeNuovo(email: string): Promise<void> {
+  let nuovo = false;
+  try {
+    const { rows } = await pool.query('SELECT 1 FROM auth."user" WHERE lower(email) = $1 LIMIT 1', [email]);
+    nuovo = rows.length === 0;
+  } catch (err) {
+    console.error('[auth] controllo nuovo utente non riuscito:', err);
+  }
+  if (!nuovo) return;
+  await notifyAdmin({
+    subject: 'Nuova richiesta di registrazione',
+    text: [
+      'Un nuovo utente ha chiesto il link per entrare in SOS Permesso PRO.',
+      '',
+      `Email: ${email}`,
+      `Quando: ${new Date().toLocaleString('it-IT', { timeZone: 'Europe/Rome' })}`,
+      '',
+      `L'account si crea quando apre il link (vale ${MAGIC_LINK_MINUTES} minuti).`,
+    ].join('\n'),
+    replyTo: email,
+  });
+}
+
 export const auth = betterAuth({
   appName: 'SOS Permesso',
   baseURL: ANTEPRIMA || (PROD ? { allowedHosts: [...PROD_HOSTS], protocol: 'https', fallback: BASE_URL } : BASE_URL),
@@ -239,6 +266,7 @@ export const auth = betterAuth({
             'SOS Permesso — sospermesso.it',
           ].join('\n'),
         });
+        await avvisaSeNuovo(email);
       },
     }),
     nextCookies(), // must stay last
