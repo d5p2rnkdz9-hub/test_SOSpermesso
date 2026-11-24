@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
+import { CampoTrappola } from '@/components/CampoTrappola';
+import { useTurnstile } from '@/lib/turnstile-client';
 import {
   segnalaErroreSchema,
   TIPO_ERRORE,
@@ -29,6 +31,9 @@ export function SegnalaErroreForm() {
   const [doveTrovato, setDoveTrovato] = useState('');
   const [descrizione, setDescrizione] = useState('');
   const [email, setEmail] = useState('');
+
+  const [trappola, setTrappola] = useState('');
+  const verifica = useTurnstile('contatto');
 
   const [status, setStatus] = useState<Status>('idle');
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -56,12 +61,16 @@ export function SegnalaErroreForm() {
       return;
     }
 
+    // Campo trappola pieno: è un bot, si finge che sia andato tutto bene.
+    if (trappola) return setStatus('success');
+
     setStatus('submitting');
     try {
+      const verificaHeaders = await verifica.headers();
       const res = await fetch('/api/contact/segnala-errore', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(parsed.data),
+        headers: { 'Content-Type': 'application/json', ...verificaHeaders },
+        body: JSON.stringify({ ...parsed.data, sito_web: trappola }),
       });
       if (!res.ok) throw new Error('Request failed');
       setStatus('success');
@@ -210,6 +219,9 @@ export function SegnalaErroreForm() {
             <p className="text-sm font-semibold text-red-600">{tCommon('invalidEmail')}</p>
           )}
         </div>
+
+        <CampoTrappola valore={trappola} cambia={setTrappola} />
+        <div ref={verifica.ref} />
 
         {status === 'error' && (
           <p className="text-sm font-semibold text-red-600">{tCommon('errorMessage')}</p>

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Client } from '@notionhq/client';
+import { controllaModulo } from '@/lib/modulo-guard';
 import {
   problemaLegaleSchema,
   SITUAZIONE_LABEL,
@@ -14,6 +15,8 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
+    const bloccata = await controllaModulo(request, body);
+    if (bloccata) return bloccata;
     const parsed = problemaLegaleSchema.safeParse(body);
     if (!parsed.success) {
       return NextResponse.json(

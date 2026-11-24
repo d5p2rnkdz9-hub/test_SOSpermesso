@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
+import { CampoTrappola } from '@/components/CampoTrappola';
+import { useTurnstile } from '@/lib/turnstile-client';
 import {
   problemaLegaleSchema,
   SITUAZIONE_LEGALE,
@@ -28,6 +30,9 @@ export function ProblemaLegaleForm() {
   const [tempoItalia, setTempoItalia] = useState('');
   const [email, setEmail] = useState('');
   const [consenso, setConsenso] = useState(false);
+
+  const [trappola, setTrappola] = useState('');
+  const verifica = useTurnstile('contatto');
 
   const [status, setStatus] = useState<Status>('idle');
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -56,12 +61,16 @@ export function ProblemaLegaleForm() {
       return;
     }
 
+    // Campo trappola pieno: è un bot, si finge che sia andato tutto bene.
+    if (trappola) return setStatus('success');
+
     setStatus('submitting');
     try {
+      const verificaHeaders = await verifica.headers();
       const res = await fetch('/api/contact/problema-legale', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(parsed.data),
+        headers: { 'Content-Type': 'application/json', ...verificaHeaders },
+        body: JSON.stringify({ ...parsed.data, sito_web: trappola }),
       });
       if (!res.ok) throw new Error('Request failed');
       setStatus('success');
@@ -215,6 +224,9 @@ export function ProblemaLegaleForm() {
         {errors.consenso && (
           <p className="text-sm font-semibold text-red-600">{tCommon('required')}</p>
         )}
+
+        <CampoTrappola valore={trappola} cambia={setTrappola} />
+        <div ref={verifica.ref} />
 
         {status === 'error' && (
           <p className="text-sm font-semibold text-red-600">{tCommon('errorMessage')}</p>
