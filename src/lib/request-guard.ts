@@ -27,7 +27,7 @@ export function sameOrigin(request: Request): boolean {
   if (url.protocol !== 'https:') return false;
   if ((PROD_HOSTS as readonly string[]).includes(url.hostname)) return true;
   // Anteprime di deploy Netlify dello stesso progetto.
-  return /^[a-z0-9-]+--testsospermesso\.netlify\.app$/.test(url.hostname) || url.hostname === 'testsospermesso.netlify.app';
+  return /^[a-z0-9-]+--(?:pro-sospermesso|testsospermesso)\.netlify\.app$/.test(url.hostname) || /^(?:pro-sospermesso|testsospermesso)\.netlify\.app$/.test(url.hostname);
 }
 
 /** Confronto a tempo costante di un segreto (header Authorization: Bearer …). */

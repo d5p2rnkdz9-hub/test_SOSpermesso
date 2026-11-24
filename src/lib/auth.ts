@@ -44,7 +44,7 @@ const PROD = process.env.NODE_ENV === 'production';
  * deploy, non sui domini di produzione, e il cookie non può valere su .sospermesso.it.
  * Vuoto in produzione e in locale.
  */
-const ANTEPRIMA = /^https:\/\/[a-z0-9-]+--testsospermesso\.netlify\.app$/.test(process.env.ANTEPRIMA_URL ?? '')
+const ANTEPRIMA = /^https:\/\/[a-z0-9-]+--(?:pro-sospermesso|testsospermesso)\.netlify\.app$/.test(process.env.ANTEPRIMA_URL ?? '')
   ? (process.env.ANTEPRIMA_URL as string)
   : '';
 
