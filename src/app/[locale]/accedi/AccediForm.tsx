@@ -2,7 +2,9 @@
 
 import { useEffect, useRef, useState } from 'react';
 
+import { CampoTrappola } from '@/components/CampoTrappola';
 import { authClient } from '@/lib/auth-client';
+import { VERIFICA_FALLITA, useTurnstile } from '@/lib/turnstile-client';
 
 import { C, box, btnPro, btnSecondario, card, cardChiara, input, label, linkBtn } from './stile';
 
@@ -48,6 +50,8 @@ export function AccediForm({ callbackURL, locale, token, linkScaduto, accountUni
   const inviatoRef = useRef<HTMLDivElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const privacyRef = useRef<HTMLInputElement>(null);
+  const [trappola, setTrappola] = useState('');
+  const verificaLink = useTurnstile('magic_link');
 
   async function inviaLink(e: React.FormEvent) {
     e.preventDefault();
@@ -67,12 +71,22 @@ export function AccediForm({ callbackURL, locale, token, linkScaduto, accountUni
       return;
     }
     setLinkStato('invio');
+    // Bot: risposta come se il link fosse partito.
+    if (trappola) return setLinkStato('inviato');
+    let headers: Record<string, string>;
+    try {
+      headers = await verificaLink.headers();
+    } catch {
+      setLinkStato('idle');
+      return setLinkMsg(VERIFICA_FALLITA);
+    }
     const { error } = await authClient.signIn.magicLink({
       email: indirizzo,
       callbackURL,
       // Primo accesso: completa l'account prima di tornare dove si era.
       newUserCallbackURL: `/${locale}/account/benvenuto?accordo=1&da=${encodeURIComponent(callbackURL)}`,
       errorCallbackURL: `/${locale}/accedi?errore=link`,
+      fetchOptions: { headers },
     });
     if (error) {
       setLinkStato('idle');
@@ -135,6 +149,7 @@ export function AccediForm({ callbackURL, locale, token, linkScaduto, accountUni
   const [resetMsg, setResetMsg] = useState<{ testo: string; ok: boolean }>({ testo: '', ok: false });
   const [resetInvio, setResetInvio] = useState(false);
   const resetRef = useRef<HTMLInputElement>(null);
+  const verificaReset = useTurnstile('password_reset');
 
   function toggleReset() {
     const apri = !resetAperto;
@@ -155,7 +170,18 @@ export function AccediForm({ callbackURL, locale, token, linkScaduto, accountUni
     }
     setResetMsg({ testo: '', ok: false });
     setResetInvio(true);
-    const { error } = await authClient.requestPasswordReset({ email: indirizzo, redirectTo: `/${locale}/accedi` });
+    let headers: Record<string, string>;
+    try {
+      headers = await verificaReset.headers();
+    } catch {
+      setResetInvio(false);
+      return setResetMsg({ testo: VERIFICA_FALLITA, ok: false });
+    }
+    const { error } = await authClient.requestPasswordReset({
+      email: indirizzo,
+      redirectTo: `/${locale}/accedi`,
+      fetchOptions: { headers },
+    });
     setResetInvio(false);
     if (error) {
       setResetMsg({ testo: error.status === 429 ? TROPPI : GENERICO, ok: false });
@@ -351,6 +377,8 @@ export function AccediForm({ callbackURL, locale, token, linkScaduto, accountUni
                     Con lo stesso indirizzo accedi anche a SOS Flussi PRO: l&apos;account è unico.
                   </p>
                 )}
+                <CampoTrappola valore={trappola} cambia={setTrappola} />
+                <div ref={verificaLink.ref} />
                 <Msg id="link-msg" testo={linkMsg} />
                 <div>
                   <button type="submit" className={btnPro} disabled={linkStato === 'invio'}>
@@ -452,6 +480,7 @@ export function AccediForm({ callbackURL, locale, token, linkScaduto, accountUni
                     onChange={(e) => setResetEmail(e.target.value)}
                   />
                 </div>
+                <div ref={verificaReset.ref} />
                 <Msg id="reset-msg" testo={resetMsg.testo} ok={resetMsg.ok} />
                 <div>
                   <button type="submit" className={btnSecondario} disabled={resetInvio}>

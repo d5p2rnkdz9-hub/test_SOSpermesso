@@ -2,8 +2,10 @@
 
 import { useRef, useState } from 'react';
 
+import { CampoTrappola } from '@/components/CampoTrappola';
 import { authClient } from '@/lib/auth-client';
 import { TIPI_PROFILO } from '@/lib/profilo-shared';
+import { VERIFICA_FALLITA, useTurnstile } from '@/lib/turnstile-client';
 
 import { C } from '../accedi/stile';
 import { disp } from './fonts';
@@ -33,6 +35,8 @@ export function ProvaForm({ callbackURL, locale }: { callbackURL: string; locale
   const tipoRef = useRef<HTMLSelectElement>(null);
   const privacyRef = useRef<HTMLInputElement>(null);
   const okRef = useRef<HTMLDivElement>(null);
+  const [trappola, setTrappola] = useState('');
+  const verifica = useTurnstile('magic_link');
 
   async function invia(e: React.FormEvent) {
     e.preventDefault();
@@ -58,11 +62,25 @@ export function ProvaForm({ callbackURL, locale }: { callbackURL: string; locale
       return;
     }
     setStato('invio');
+    // Bot: risposta come se il link fosse partito.
+    if (trappola) {
+      setStato('inviato');
+      return;
+    }
+    let headers: Record<string, string>;
+    try {
+      headers = await verifica.headers();
+    } catch {
+      setStato('idle');
+      setMsg(VERIFICA_FALLITA);
+      return;
+    }
     const { error } = await authClient.signIn.magicLink({
       email: indirizzo,
       callbackURL,
       newUserCallbackURL: `/${locale}/account/benvenuto?tipo=${encodeURIComponent(tipo)}&accordo=1&da=${encodeURIComponent(callbackURL)}`,
       errorCallbackURL: `/${locale}/accedi?errore=link`,
+      fetchOptions: { headers },
     });
     if (error) {
       setStato('idle');
@@ -164,6 +182,8 @@ export function ProvaForm({ callbackURL, locale }: { callbackURL: string; locale
           dello scadenziario (art. 28 GDPR).
         </span>
       </label>
+      <CampoTrappola valore={trappola} cambia={setTrappola} />
+      <div ref={verifica.ref} />
       <p aria-live="polite" className="text-base font-semibold empty:hidden" style={{ color: C.errore }}>
         {msg}
       </p>

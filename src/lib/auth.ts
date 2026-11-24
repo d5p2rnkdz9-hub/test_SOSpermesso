@@ -5,10 +5,11 @@ import { createHash } from 'node:crypto';
 import { betterAuth } from 'better-auth';
 import { APIError } from 'better-auth/api';
 import { nextCookies } from 'better-auth/next-js';
-import { magicLink } from 'better-auth/plugins';
+import { captcha, magicLink } from 'better-auth/plugins';
 import { PostgresDialect } from 'kysely';
 import { Pool } from 'pg';
 
+import { ENDPOINT_CON_VERIFICA, indirizzoSospetto, turnstileAttivo } from './antibot';
 import { notifyAdmin, sendEmail } from './email';
 import {
   DeleteBlockedError,
@@ -125,27 +126,19 @@ async function annullaResetPrecedenti(userId: string): Promise<void> {
  * partiti, e il cookie di sessione vale su .sospermesso.it: un solo login.
  */
 /**
- * Avviso a chi gestisce il sito quando chiede il link un indirizzo che non ha ancora un account
- * (il link, se aperto, crea l'account). Gemello di sosflussi.it (netlify/lib/auth.mjs).
+ * Avviso a chi gestisce il sito quando nasce un account (cioè quando qualcuno apre davvero il
+ * link). Fino a novembre 2026 partiva già alla richiesta del link: i bot che usano il modulo per
+ * mandare email a indirizzi altrui facevano arrivare un avviso a ogni tentativo.
+ * Gemello di sosflussi.it (netlify/lib/auth.mjs).
  */
-async function avvisaSeNuovo(email: string): Promise<void> {
-  let nuovo = false;
-  try {
-    const { rows } = await pool.query('SELECT 1 FROM auth."user" WHERE lower(email) = $1 LIMIT 1', [email]);
-    nuovo = rows.length === 0;
-  } catch (err) {
-    console.error('[auth] controllo nuovo utente non riuscito:', err);
-  }
-  if (!nuovo) return;
+async function avvisaNuovoAccount(email: string): Promise<void> {
   await notifyAdmin({
-    subject: 'Nuova richiesta di registrazione',
+    subject: 'Nuovo account',
     text: [
-      'Un nuovo utente ha chiesto il link per entrare in SOS Permesso PRO.',
+      'Un nuovo utente ha aperto il link e ha creato un account SOS Permesso PRO.',
       '',
       `Email: ${email}`,
       `Quando: ${new Date().toLocaleString('it-IT', { timeZone: 'Europe/Rome' })}`,
-      '',
-      `L'account si crea quando apre il link (vale ${MAGIC_LINK_MINUTES} minuti).`,
     ].join('\n'),
     replyTo: email,
   });
@@ -160,7 +153,20 @@ export const auth = betterAuth({
     ...(PROD ? [] : [BASE_URL]),
     ...(ANTEPRIMA ? [ANTEPRIMA] : []),
   ],
-  advanced: PROD && !ANTEPRIMA ? { crossSubDomainCookies: { enabled: true, domain: '.sospermesso.it' } } : undefined,
+  advanced: {
+    ...(PROD && !ANTEPRIMA ? { crossSubDomainCookies: { enabled: true, domain: '.sospermesso.it' } } : {}),
+    // Netlify: l'IP vero del visitatore (serve ai limiti per IP qui sotto e a Turnstile).
+    ipAddress: { ipAddressHeaders: ['x-nf-client-connection-ip', 'x-forwarded-for'] },
+  },
+  databaseHooks: {
+    user: {
+      create: {
+        async after(user) {
+          await avvisaNuovoAccount(user.email.trim().toLowerCase());
+        },
+      },
+    },
+  },
   database: {
     dialect: new PostgresDialect({
       pool,
@@ -239,13 +245,31 @@ export const auth = betterAuth({
     },
   },
   // Serverless functions don't share memory: keep rate-limit counters in the DB.
-  rateLimit: { enabled: true, storage: 'database' },
+  // Limiti per IP, come sosflussi.it (oltre al tetto per indirizzo di entroIlTettoInvii).
+  rateLimit: {
+    enabled: true,
+    storage: 'database',
+    window: 60,
+    max: 60,
+    customRules: {
+      '/sign-in/magic-link': { window: 600, max: 5 },
+      '/sign-in/email': { window: 60, max: 5 },
+      '/request-password-reset': { window: 600, max: 3 },
+      '/reset-password': { window: 60, max: 5 },
+      '/delete-user': { window: 60, max: 3 },
+    },
+  },
   plugins: [
     magicLink({
       expiresIn: 60 * MAGIC_LINK_MINUTES,
       storeToken: 'hashed',
       async sendMagicLink({ email: indirizzo, url }) {
         const email = indirizzo.trim().toLowerCase();
+        if (indirizzoSospetto(email)) {
+          // Risposta identica a quella normale: il bot non capisce che il link non è partito.
+          console.warn('[auth] link non inviato: indirizzo da bot');
+          return;
+        }
         if (!(await entroIlTettoInvii(email))) {
           throw new APIError('TOO_MANY_REQUESTS', { message: 'Too many sign-in links for this address' });
         }
@@ -266,9 +290,18 @@ export const auth = betterAuth({
             'SOS Permesso — sospermesso.it',
           ].join('\n'),
         });
-        await avvisaSeNuovo(email);
       },
     }),
+    // Turnstile sugli endpoint che mandano email (src/lib/antibot.ts). Spento finché mancano le chiavi.
+    ...(turnstileAttivo()
+      ? [
+          captcha({
+            provider: 'cloudflare-turnstile',
+            secretKey: process.env.TURNSTILE_SECRET_KEY as string,
+            endpoints: ENDPOINT_CON_VERIFICA,
+          }),
+        ]
+      : []),
     nextCookies(), // must stay last
   ],
 });
