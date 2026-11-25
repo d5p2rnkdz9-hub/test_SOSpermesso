@@ -87,16 +87,16 @@ curl -s -X POST -H "Authorization: Bearer $CRON_SECRET" https://app.sospermesso.
    `Your credit balance is too low`: fino alla ricarica l'assistente (e il chatbot del sito)
    rispondono con un errore.
 
-## 3-bis. Account unico con SOS Flussi (ramo `account-unico`)
+## 3-bis. Account unico con SOS Flussi
 
-Piano in `PRO-PREMIUM-PIANO.md`, «Account unico». Ordine:
+Piano in `PRO-PREMIUM-PIANO.md`, «Account unico». Il codice è già in `main` (dal 20/11/2026). Ordine:
 
 1. **Neon, branch di produzione → backup** (branch Neon, es. `prima-account-unico`).
 2. **Migrazione da SOS Flussi** (`SOSflussi/strumenti/pro/migra.mjs`, prima `--controllo`): aggiunge allo
    schema `auth` la colonna `user."stripeCustomerId"` e la tabella `subscription` (crea tutto se `auth`
    non esistesse ancora). Lo stesso sul branch dev. Qui non serve nessuna migrazione: `better-auth`
    1.7.25 ha le stesse tabelle della 1.7.18.
-3. **Deploy di questo ramo** (merge in `main`, solo col permesso di Alberto). Senza variabili nuove non
+3. **Deploy di `main`** (fatto: il codice dell'account unico è in `main`). Senza variabili nuove non
    cambia niente per gli utenti: il lancio gratuito resta acceso, nessun testo nomina SOS Flussi. Il
    codice tollera la tabella `subscription` assente, quindi l'ordine 2 → 3 è prudente ma non obbligato.
 4. Quando SOS Flussi PRO è online con `ACCOUNT_UNICO=1`: qui `ACCOUNT_UNICO=1` (+ `STRIPE_SECRET_KEY` se si
